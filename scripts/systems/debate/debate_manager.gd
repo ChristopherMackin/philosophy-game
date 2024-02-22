@@ -119,13 +119,16 @@ func reactive_play():
 					follow_up,
 				])
 				
-				var winning_card = starting_card
+				var winning_suit
+				
 				if win_amount > 0:
-					winning_card = follow_up_card
+					winning_suit = follow_up_suit
+				elif win_amount < 0:
+					winning_suit = starting_suit
 				
-				score += debate_settings.get_suit_vector(winning_card.data.suit) * win_amount
+				score += debate_settings.get_suit_vector(winning_suit) * win_amount
 				
-				on_contest.emit(starting_suit, follow_up_suit, winning_card.data.suit)
+				on_contest.emit(starting_suit, follow_up_suit, winning_suit)
 				
 				proactive_contestant.draw_full_hand()
 				reactive_contestant.draw_full_hand()

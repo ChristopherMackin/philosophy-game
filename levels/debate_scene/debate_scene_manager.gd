@@ -56,7 +56,7 @@ func on_follow_up_played(card : Card, suit_relationship : DebateSettings.SuitRel
 	)
 
 func on_contest(starting_suit : Suit, follow_up_suit : Suit, winning_suit : Suit):
-	print("%s wins the debate!" % winning_suit.name)
+	print("%s wins the debate!" % (winning_suit.name if winning_suit else "No one"))
 
 func on_debate_end():
 	print("DEBATE OVER, score is %s" % debate_manager.score)
