@@ -20,16 +20,12 @@ func _init(character : Character):
 	self.character = character
 	self.character.brain.contestant = self
 
+func ready_up():
+	deck.reset_deck()
+	draw_full_hand()
+
 func take_turn():
 	return await brain.think()
-
-func get_card_to_play():	
-	var card_to_play = brain.think()
-	
-	if hand_card_array.has(card_to_play):
-		return card_to_play
-	else:
-		return null
 
 func draw_full_hand():
 	var added_cards = []

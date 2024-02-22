@@ -30,20 +30,8 @@ func queue_animate():
 	
 	is_animation_locked = false
 
-func on_character_changed(active : Character, inactive : Character):
-	print("Start %s's turn" % [active.name])
-
-func on_card_played(character : Character, card : Card):
-	print("%s played %s" % [character.name, card.data.name])
-
-func on_suit_changed(suit : Suit):
-	print("Swap to %s, bringing the score to %s" % [suit.name, debate_manager.score])
-
 func on_debate_end():
 	print("DEBATE OVER, score is %s" % debate_manager.score)
-
-func on_bump():
-	print("Bump, score is now %s" % debate_manager.score)
 
 func on_score_updated(new_score : Vector2):
 	debate_action_queue.push(func():
