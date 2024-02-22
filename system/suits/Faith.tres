@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Suit" load_steps=2 format=3 uid="uid://dskq0fe0vu0hx"]
+
+[ext_resource type="Script" path="res://system/suits/suit.gd" id="1_lx4ug"]
+
+[resource]
+script = ExtResource("1_lx4ug")
+name = "Faith"
+color = Color(0.941176, 0.72549, 0.403922, 1)

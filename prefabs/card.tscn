@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx2gcwo1r71x6"]
+
+[ext_resource type="Texture2D" uid="uid://bm8tj1s26gjlg" path="res://graphics/TestCard.png" id="1_takw2"]
+[ext_resource type="Script" path="res://scripts/ui/ui_card.gd" id="2_eh3j5"]
+
+[node name="Card" type="Sprite2D"]
+texture = ExtResource("1_takw2")
+offset = Vector2(2.08165e-12, 2.08165e-12)
+script = ExtResource("2_eh3j5")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -175.0
+offset_right = -125.0
+offset_bottom = -175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="mouse_entered" from="Control" to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="." method="mouse_exited"]

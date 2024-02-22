@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Deck" load_steps=11 format=3 uid="uid://bf6wla5gua8yi"]
+
+[ext_resource type="Resource" uid="uid://rds3vwhnnbsp" path="res://system/cards/basic_faith.tres" id="1_jbv4y"]
+[ext_resource type="Script" path="res://system/decks/deck.gd" id="1_u6ok3"]
+[ext_resource type="Script" path="res://scripts/systems/card/card_deck_config.gd" id="2_ighgr"]
+[ext_resource type="Resource" uid="uid://co2xjr8nu1uct" path="res://system/cards/basic_doubt.tres" id="3_7lksf"]
+[ext_resource type="Resource" uid="uid://bi7xtr16f8n55" path="res://system/cards/basic_others.tres" id="4_cksb5"]
+[ext_resource type="Resource" uid="uid://d20oliptotoln" path="res://system/cards/basic_self.tres" id="5_q0sjp"]
+
+[sub_resource type="Resource" id="Resource_726yt"]
+resource_name = "Card Deck Config"
+script = ExtResource("2_ighgr")
+card_data = ExtResource("1_jbv4y")
+count = 2
+
+[sub_resource type="Resource" id="Resource_qgjfg"]
+resource_name = "Card Deck Config"
+script = ExtResource("2_ighgr")
+card_data = ExtResource("3_7lksf")
+count = 2
+
+[sub_resource type="Resource" id="Resource_3v6ub"]
+resource_name = "Card Deck Config"
+script = ExtResource("2_ighgr")
+card_data = ExtResource("4_cksb5")
+count = 2
+
+[sub_resource type="Resource" id="Resource_1awok"]
+resource_name = "Card Deck Config"
+script = ExtResource("2_ighgr")
+card_data = ExtResource("5_q0sjp")
+count = 2
+
+[resource]
+script = ExtResource("1_u6ok3")
+composition_card_deck_config_array = [SubResource("Resource_726yt"), SubResource("Resource_qgjfg"), SubResource("Resource_3v6ub"), SubResource("Resource_1awok")]

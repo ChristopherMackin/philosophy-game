@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnxw7fd22a1md"]
+
+[ext_resource type="Script" path="res://levels/debate_scene/debate_scene_manager.gd" id="1_44108"]
+[ext_resource type="Resource" uid="uid://b78boumde1kyk" path="res://system/debate/debate_manager.tres" id="2_nlpk7"]
+[ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/cpu_1.tres" id="3_fe4du"]
+[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player.tres" id="3_ibvxp"]
+
+[node name="GraphicsFreeDebateTest" type="Node2D"]
+
+[node name="GraphicsFreeManager" type="Node2D" parent="."]
+script = ExtResource("1_44108")
+debate_manager = ExtResource("2_nlpk7")
+character_1 = ExtResource("3_ibvxp")
+character_2 = ExtResource("3_fe4du")

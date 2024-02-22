@@ -1,0 +1,146 @@
+[gd_scene load_steps=19 format=3 uid="uid://bnic63llbdfni"]
+
+[ext_resource type="Script" path="res://levels/debate_scene/debate_scene_manager.gd" id="1_g6ghv"]
+[ext_resource type="Resource" uid="uid://b78boumde1kyk" path="res://system/debate/debate_manager.tres" id="2_i7n4i"]
+[ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="2_pghej"]
+[ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/colorable_checkerboard.png" id="3_cx2hn"]
+[ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/cpu_1.tres" id="3_dlycd"]
+[ext_resource type="Resource" uid="uid://b84dlq5bco5u" path="res://system/character/cpu_2.tres" id="4_1im8u"]
+[ext_resource type="Script" path="res://scripts/ui/border_control.gd" id="4_xa7gu"]
+[ext_resource type="Script" path="res://scripts/ui/worldspace_hand_ui.gd" id="5_ydk6y"]
+[ext_resource type="PackedScene" uid="uid://cx2gcwo1r71x6" path="res://prefabs/card.tscn" id="6_w84ho"]
+[ext_resource type="Script" path="res://scripts/ui/spread_sprite_container.gd" id="7_ggt8l"]
+[ext_resource type="Texture2D" uid="uid://eejey7xdr2qw" path="res://graphics/PlayerHead.png" id="8_t8onx"]
+[ext_resource type="Script" path="res://scripts/ui/meter_ui.gd" id="9_bqo1k"]
+[ext_resource type="Texture2D" uid="uid://bnkss4i2rstqj" path="res://graphics/SpeechBubble.png" id="10_w20x3"]
+[ext_resource type="Script" path="res://levels/debate_scene/worldspace_debate_ui.gd" id="11_e7gte"]
+[ext_resource type="Texture2D" uid="uid://bm8tj1s26gjlg" path="res://graphics/TestCard.png" id="12_lrfbd"]
+[ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/default_debate_settings.tres" id="14_e36l7"]
+
+[sub_resource type="Environment" id="Environment_urq48"]
+background_mode = 3
+background_canvas_max_layer = -128
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_th5x1"]
+shader = ExtResource("2_pghej")
+shader_parameter/color = Color(0.78, 0.78, 0.78, 1)
+shader_parameter/direction = Vector2(0.05, 0.15)
+shader_parameter/speed_scale = 0.5
+
+[node name="Root" type="Node2D"]
+
+[node name="DebateSceneManager" type="Node2D" parent="." node_paths=PackedStringArray("meter_ui")]
+script = ExtResource("1_g6ghv")
+debate_manager = ExtResource("2_i7n4i")
+character_1 = ExtResource("3_dlycd")
+character_2 = ExtResource("4_1im8u")
+meter_ui = NodePath("../Player/PlayerSprite/MeterSprite")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_urq48")
+
+[node name="ScrollingBackground" type="CanvasLayer" parent="."]
+layer = -128
+offset = Vector2(2.08165e-12, 2.08165e-12)
+transform = Transform2D(1, 2.08165e-12, 2.08165e-12, 1, 2.08165e-12, 2.08165e-12)
+
+[node name="BackgroundTexture" type="TextureRect" parent="ScrollingBackground"]
+material = SubResource("ShaderMaterial_th5x1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_cx2hn")
+stretch_mode = 1
+
+[node name="BlackBorder" type="Control" parent="ScrollingBackground" node_paths=PackedStringArray("top_bar", "bottom_bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_xa7gu")
+top_bar = NodePath("TopBar")
+bottom_bar = NodePath("BottomBar")
+
+[node name="TopBar" type="ColorRect" parent="ScrollingBackground/BlackBorder"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BottomBar" type="ColorRect" parent="ScrollingBackground/BlackBorder"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+color = Color(0, 0, 0, 1)
+
+[node name="StatusBar" type="CanvasLayer" parent="."]
+visible = false
+offset = Vector2(2.08165e-12, 2.08165e-12)
+transform = Transform2D(1, 2.08165e-12, 2.08165e-12, 1, 2.08165e-12, 2.08165e-12)
+
+[node name="ColorRect" type="ColorRect" parent="StatusBar"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_bottom = 300.0
+grow_horizontal = 0
+pivot_offset = Vector2(150, 150)
+
+[node name="MainCamera" type="Camera2D" parent="."]
+offset = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="WorldspaceHandUI" type="Node2D" parent="." node_paths=PackedStringArray("card_container")]
+position = Vector2(0, 545)
+script = ExtResource("5_ydk6y")
+card_container = NodePath("CardContainer")
+card_prefab = ExtResource("6_w84ho")
+
+[node name="CardContainer" type="Node2D" parent="WorldspaceHandUI"]
+script = ExtResource("7_ggt8l")
+max_distance = 30.0
+container_width = 1536
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(-560, 2.08165e-12)
+
+[node name="PlayerSprite" type="Sprite2D" parent="Player"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("8_t8onx")
+
+[node name="MeterSprite" type="Sprite2D" parent="Player/PlayerSprite"]
+position = Vector2(-4, -68)
+script = ExtResource("9_bqo1k")
+debate_settings = ExtResource("14_e36l7")
+thickness = 4
+border_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+saturation_modifier = 0.61
+brightness_modifier = 0.24
+duration = 0.5
+
+[node name="ComputerPlayer" type="Node2D" parent="."]
+position = Vector2(560, 2.08165e-12)
+
+[node name="PlayerSprite" type="Sprite2D" parent="ComputerPlayer"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(-1, 1)
+texture = ExtResource("8_t8onx")
+
+[node name="WorldspaceDebateUI" type="Sprite2D" parent="." node_paths=PackedStringArray("card_sprite")]
+texture = ExtResource("10_w20x3")
+script = ExtResource("11_e7gte")
+card_sprite = NodePath("CardSprite")
+
+[node name="CardSprite" type="Sprite2D" parent="WorldspaceDebateUI"]
+texture = ExtResource("12_lrfbd")
