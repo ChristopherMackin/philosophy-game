@@ -6,4 +6,3 @@ var contestant : Contestant
 
 func think():
 	pass
-	

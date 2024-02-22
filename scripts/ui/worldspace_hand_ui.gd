@@ -13,7 +13,7 @@ func on_card_played(card : Card):
 	element.queue_free()
 
 
-func on_cards_drawn(added_cards):
+func on_cards_drawn(added_cards : Array):
 	for card in added_cards:
 		var ui_card : UICard = card_prefab.instantiate()
 		
@@ -24,4 +24,6 @@ func on_cards_drawn(added_cards):
 		
 		ui_card_array.append(ui_card)
 		card_container.add_child(ui_card)
-		
+
+func update_card_array(hand_card_array : Array):
+	pass

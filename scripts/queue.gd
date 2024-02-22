@@ -3,9 +3,13 @@ extends Node
 class_name Queue
 
 var _array : Array = []
+var on_push : Callable
 
 func push(element):
 	_array.append(element)
+	
+	if on_push:
+		on_push.call()
 
 func pop():
 	if _array.size() <= 0:

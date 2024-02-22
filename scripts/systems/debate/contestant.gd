@@ -25,7 +25,9 @@ func ready_up():
 	draw_full_hand()
 
 func take_turn():
-	return await brain.think()
+	var card = await brain.think()
+	discard_card(card)
+	return card
 
 func draw_full_hand():
 	var added_cards = []
