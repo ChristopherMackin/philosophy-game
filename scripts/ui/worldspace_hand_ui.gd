@@ -1,10 +1,14 @@
 extends Node2D
 
+class_name WorldspaceHandUI
+
 @export var player_brain : PlayerBrain
 @export var card_container : Node
 var ui_card_array : Array = []
 
 @export var card_prefab : PackedScene
+
+signal animation_finished()
 
 func on_card_played(card : Card):
 	var cards = ui_card_array.map(func(x): return x.card)
@@ -13,7 +17,7 @@ func on_card_played(card : Card):
 	element.queue_free()
 
 
-func on_cards_drawn(added_cards : Array):
+func add_cards(added_cards : Array):
 	for card in added_cards:
 		var ui_card : UICard = card_prefab.instantiate()
 		
@@ -26,4 +30,22 @@ func on_cards_drawn(added_cards : Array):
 		card_container.add_child(ui_card)
 
 func update_card_array(hand_card_array : Array):
-	pass
+	for card in hand_card_array:
+		print(card.data.name)
+	
+	print("\n")
+	
+	var to_add_array = hand_card_array.duplicate();
+	
+	for ui_card : UICard in ui_card_array.duplicate():
+		var index = hand_card_array.find(ui_card.card)
+		
+		if index == -1:
+			var i = ui_card_array.find(ui_card)
+			ui_card_array.pop_at(i).queue_free()
+		else:
+			var card = hand_card_array[index]
+			var i = to_add_array.find(card)
+			to_add_array.remove_at(i)
+	
+	add_cards(to_add_array)

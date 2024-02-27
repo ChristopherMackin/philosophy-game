@@ -14,7 +14,7 @@ var hand_limit : int:
 var name : String:
 	get: return character.name
 
-signal on_card_selected(card : Card)
+signal on_hand_update(contestant : Contestant, hand_card_array : Array)
 
 func _init(character : Character):
 	self.character = character
@@ -38,11 +38,19 @@ func draw_full_hand():
 			break
 		hand_card_array.append(card)
 		added_cards.append(card)
+	
+	print("%s drew full hand" % character.name)
+	on_hand_update.emit(self, hand_card_array)
 
 func discard_card(card : Card):
 	var index = hand_card_array.find(card)
 	hand_card_array.remove_at(index)
 	deck.discard_card(card)
+	
+	print("%s discarded card" % character.name)
+	on_hand_update.emit(self, hand_card_array)
+	
+	print(hand_card_array.size())
 	
 	if hand_card_array.size() <= 0:
 		draw_full_hand()

@@ -5,7 +5,8 @@ class_name PlayerBrain
 signal card_played
 
 func think():
-	return await card_played
+	var card = await card_played
+	return card
 
 func play_card(card):
 	card_played.emit(card)

@@ -11,25 +11,25 @@
 resource_name = "Card Deck Config"
 script = ExtResource("2_roy2j")
 card_data = ExtResource("1_abjll")
-count = 5
+count = 2
 
 [sub_resource type="Resource" id="Resource_qgjfg"]
 resource_name = "Card Deck Config"
 script = ExtResource("2_roy2j")
 card_data = ExtResource("3_7so03")
-count = 1
+count = 2
 
 [sub_resource type="Resource" id="Resource_3v6ub"]
 resource_name = "Card Deck Config"
 script = ExtResource("2_roy2j")
 card_data = ExtResource("4_3s003")
-count = 1
+count = 2
 
 [sub_resource type="Resource" id="Resource_1awok"]
 resource_name = "Card Deck Config"
 script = ExtResource("2_roy2j")
 card_data = ExtResource("5_iuvj3")
-count = 1
+count = 2
 
 [resource]
 script = ExtResource("6_04y8a")

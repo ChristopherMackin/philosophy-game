@@ -1,17 +1,18 @@
-[gd_scene load_steps=19 format=3 uid="uid://bnic63llbdfni"]
+[gd_scene load_steps=20 format=3 uid="uid://bnic63llbdfni"]
 
 [ext_resource type="Script" path="res://levels/debate_scene/debate_scene_manager.gd" id="1_g6ghv"]
 [ext_resource type="Resource" uid="uid://b78boumde1kyk" path="res://system/debate/debate_manager.tres" id="2_i7n4i"]
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="2_pghej"]
 [ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/colorable_checkerboard.png" id="3_cx2hn"]
 [ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/cpu_1.tres" id="3_dlycd"]
-[ext_resource type="Resource" uid="uid://b84dlq5bco5u" path="res://system/character/cpu_2.tres" id="4_1im8u"]
+[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player.tres" id="4_oy81x"]
 [ext_resource type="Script" path="res://scripts/ui/border_control.gd" id="4_xa7gu"]
 [ext_resource type="Script" path="res://scripts/ui/worldspace_hand_ui.gd" id="5_ydk6y"]
 [ext_resource type="PackedScene" uid="uid://cx2gcwo1r71x6" path="res://prefabs/card.tscn" id="6_w84ho"]
 [ext_resource type="Script" path="res://scripts/ui/spread_sprite_container.gd" id="7_ggt8l"]
 [ext_resource type="Texture2D" uid="uid://eejey7xdr2qw" path="res://graphics/PlayerHead.png" id="8_t8onx"]
 [ext_resource type="Script" path="res://scripts/ui/meter_ui.gd" id="9_bqo1k"]
+[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://system/character/brain/player_brain.tres" id="9_okuc1"]
 [ext_resource type="Texture2D" uid="uid://bnkss4i2rstqj" path="res://graphics/SpeechBubble.png" id="10_w20x3"]
 [ext_resource type="Script" path="res://levels/debate_scene/worldspace_debate_ui.gd" id="11_e7gte"]
 [ext_resource type="Texture2D" uid="uid://bm8tj1s26gjlg" path="res://graphics/TestCard.png" id="12_lrfbd"]
@@ -29,13 +30,14 @@ shader_parameter/speed_scale = 0.5
 
 [node name="Root" type="Node2D"]
 
-[node name="DebateSceneManager" type="Node2D" parent="." node_paths=PackedStringArray("meter_ui", "debate_ui")]
+[node name="DebateSceneManager" type="Node2D" parent="." node_paths=PackedStringArray("meter_ui", "debate_ui", "player_ui")]
 script = ExtResource("1_g6ghv")
 debate_manager = ExtResource("2_i7n4i")
-character_1 = ExtResource("3_dlycd")
-character_2 = ExtResource("4_1im8u")
+proactive_character = ExtResource("3_dlycd")
+reactive_character = ExtResource("4_oy81x")
 meter_ui = NodePath("../Player/PlayerSprite/MeterSprite")
 debate_ui = NodePath("../WorldspaceDebateUI")
+player_ui = NodePath("../WorldspaceHandUI")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_urq48")
@@ -86,7 +88,6 @@ size_flags_vertical = 8
 color = Color(0, 0, 0, 1)
 
 [node name="StatusBar" type="CanvasLayer" parent="."]
-visible = false
 offset = Vector2(2.08165e-12, 2.08165e-12)
 transform = Transform2D(1, 2.08165e-12, 2.08165e-12, 1, 2.08165e-12, 2.08165e-12)
 
@@ -105,6 +106,7 @@ offset = Vector2(2.08165e-12, 2.08165e-12)
 [node name="WorldspaceHandUI" type="Node2D" parent="." node_paths=PackedStringArray("card_container")]
 position = Vector2(0, 545)
 script = ExtResource("5_ydk6y")
+player_brain = ExtResource("9_okuc1")
 card_container = NodePath("CardContainer")
 card_prefab = ExtResource("6_w84ho")
 

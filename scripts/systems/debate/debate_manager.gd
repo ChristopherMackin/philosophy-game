@@ -19,29 +19,26 @@ var score : Vector2:
 	set(value):
 		score = value
 		on_score_updated.emit(value)
-	
+
 var play_again : bool = false
 
 var subscriber_array : Array
 
 signal on_score_updated(new_score : Vector2)
-signal on_proactive_start(hand_card_array : Array)
 signal on_starting_card_played(card : Card)
-signal on_reactive_start(hand_card_array : Array)
 signal on_follow_up_played(card: Card, suit_relation : DebateSettings.SuitRelationship)
-#Fix this one soon
 signal on_contest(starting_suit : Suit, follow_up_suit : Suit, winning_suit : Suit)
+signal on_hand_update(contestant : Contestant, hand_card_array : Array)
 
 signal on_debate_end()
 
 func connect_signals(node : Node):
 	var signals := [
-		on_proactive_start,
 		on_starting_card_played,
-		on_reactive_start,
 		on_follow_up_played,
 		on_score_updated,
 		on_contest,
+		on_hand_update,
 		on_debate_end,
 	]
 	
@@ -57,18 +54,18 @@ func init(proactive_character : Character, reactive_character : Character):
 	proactive_contestant = Contestant.new(proactive_character)
 	reactive_contestant = Contestant.new(reactive_character)
 	
+	proactive_contestant.on_hand_update.connect(func(con, hand) : on_hand_update.emit(con, hand))
+	reactive_contestant.on_hand_update.connect(func(con, hand) : on_hand_update.emit(con, hand))
+	
 	proactive_contestant.ready_up()
 	reactive_contestant.ready_up()
 	
 	game_loop()
 
 func game_loop():
-	while !get_is_debate_over():
-		on_proactive_start.emit(proactive_contestant.hand_card_array)
-		proactive_play()
-		
-		on_reactive_start.emit(reactive_contestant.hand_card_array)
-		reactive_play()
+	while not get_is_debate_over():
+		await proactive_play()
+		await reactive_play()
 	
 	on_debate_end.emit()
 
@@ -91,7 +88,7 @@ func reactive_play():
 		match suit_relation:
 			DebateSettings.SuitRelationship.SAME:
 				score += debate_settings.get_suit_vector(follow_up_suit)
-				if not get_is_debate_over() : reactive_play()
+				if not get_is_debate_over() : await reactive_play()
 			DebateSettings.SuitRelationship.COMPLEMENTARY:
 				score += debate_settings.get_suit_vector(follow_up_suit)
 			DebateSettings.SuitRelationship.OPPOSING:
@@ -133,4 +130,6 @@ func reactive_play():
 				proactive_contestant.draw_full_hand()
 				reactive_contestant.draw_full_hand()
 			_:
-				if not get_is_debate_over() : reactive_play()
+				if not get_is_debate_over() : await reactive_play()
+			
+		reactive_contestant.draw_full_hand()
