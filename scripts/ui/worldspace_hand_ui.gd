@@ -30,11 +30,6 @@ func add_cards(added_cards : Array):
 		card_container.add_child(ui_card)
 
 func update_card_array(hand_card_array : Array):
-	for card in hand_card_array:
-		print(card.data.name)
-	
-	print("\n")
-	
 	var to_add_array = hand_card_array.duplicate();
 	
 	for ui_card : UICard in ui_card_array.duplicate():

@@ -5,6 +5,10 @@ class_name Queue
 var _array : Array = []
 var on_push : Callable
 
+var array : Array:
+	get: 
+		return _array.duplicate(true)
+
 func push(element):
 	_array.append(element)
 	

@@ -25,7 +25,11 @@ func ready_up():
 	draw_full_hand()
 
 func take_turn():
-	var card = await brain.think()
+	var card
+	
+	while hand_card_array.find(card) == -1:
+		card = await brain.think()
+	
 	discard_card(card)
 	return card
 
@@ -39,18 +43,14 @@ func draw_full_hand():
 		hand_card_array.append(card)
 		added_cards.append(card)
 	
-	print("%s drew full hand" % character.name)
-	on_hand_update.emit(self, hand_card_array)
+	on_hand_update.emit(self, hand_card_array.duplicate(true))
 
 func discard_card(card : Card):
 	var index = hand_card_array.find(card)
 	hand_card_array.remove_at(index)
 	deck.discard_card(card)
 	
-	print("%s discarded card" % character.name)
-	on_hand_update.emit(self, hand_card_array)
-	
-	print(hand_card_array.size())
+	on_hand_update.emit(self, hand_card_array.duplicate(true))
 	
 	if hand_card_array.size() <= 0:
 		draw_full_hand()

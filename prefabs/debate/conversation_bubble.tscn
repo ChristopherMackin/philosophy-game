@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dchbhjjv273jo"]
+
+[ext_resource type="Texture2D" uid="uid://bnkss4i2rstqj" path="res://graphics/SpeechBubble.png" id="1_i75pe"]
+[ext_resource type="Script" path="res://levels/debate_scene/debate_bubble.gd" id="2_7dv71"]
+[ext_resource type="Texture2D" uid="uid://bm8tj1s26gjlg" path="res://graphics/TestCard.png" id="3_xm8sy"]
+[ext_resource type="Texture2D" uid="uid://bghfj2hgfpii7" path="res://graphics/SpeachBubbleDirection.png" id="4_7u16b"]
+
+[node name="ConversationBubble" type="Sprite2D" node_paths=PackedStringArray("card_sprite", "speach_bubble_direction")]
+texture = ExtResource("1_i75pe")
+script = ExtResource("2_7dv71")
+card_sprite = NodePath("CardSprite")
+speach_bubble_direction = NodePath("SpeachBubbleDirection")
+
+[node name="CardSprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_xm8sy")
+
+[node name="SpeachBubbleDirection" type="Sprite2D" parent="."]
+position = Vector2(271, 184)
+texture = ExtResource("4_7u16b")

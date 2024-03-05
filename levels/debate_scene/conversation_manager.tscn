@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://crq4b24180o7q"]
+
+[ext_resource type="PackedScene" uid="uid://dchbhjjv273jo" path="res://prefabs/debate/conversation_bubble.tscn" id="1_q4wng"]
+[ext_resource type="Script" path="res://levels/debate_scene/conversation_history_manager.gd" id="2_n8cp7"]
+
+[node name="ConversationManager" type="Node2D"]
+
+[node name="MainCamera" type="Camera2D" parent="."]
+offset = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="ConversationHistory" type="Node2D" parent="."]
+light_mask = 32
+script = ExtResource("2_n8cp7")
+conversation_bubble_prefab = ExtResource("1_q4wng")
+margin = 20.0

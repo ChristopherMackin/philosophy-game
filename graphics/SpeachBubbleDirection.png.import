@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds4nko86gxxsk"
-path="res://.godot/imported/colorable_checkerboard.png-0eeccd04ac44455d1f78f1684968c3f0.ctex"
+uid="uid://bghfj2hgfpii7"
+path="res://.godot/imported/SpeachBubbleDirection.png-70a2eaa78925aa9ee60da10ba53723cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/colorable_checkerboard.png"
-dest_files=["res://.godot/imported/colorable_checkerboard.png-0eeccd04ac44455d1f78f1684968c3f0.ctex"]
+source_file="res://graphics/SpeachBubbleDirection.png"
+dest_files=["res://.godot/imported/SpeachBubbleDirection.png-70a2eaa78925aa9ee60da10ba53723cc.ctex"]
 
 [params]
 

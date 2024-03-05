@@ -23,8 +23,7 @@ func reset_deck():
 	
 	for config in composition_card_deck_config_array:
 		for index in config.count:
-			var card = Card.new()
-			card.data = config.card_data
+			var card = Card.new(config.card_data)
 			draw_pile_card_array.append(card)
 	
 	draw_pile_card_array.shuffle()

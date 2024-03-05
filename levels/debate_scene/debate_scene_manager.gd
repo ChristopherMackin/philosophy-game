@@ -8,7 +8,7 @@ class_name DebateSceneManager
 var debate_action_queue : Queue = Queue.new()
 
 @export var meter_ui : MeterUI
-@export var debate_ui : WorldspaceDebateUI
+@export var debate_history : ConversationHistoryManager
 
 @export var player_ui : WorldspaceHandUI
 
@@ -40,12 +40,14 @@ func on_score_updated(new_score : Vector2):
 
 func on_starting_card_played(card : Card):
 	debate_action_queue.push(func ():
-		debate_ui.update_card(card)
+		debate_history.add_card(card, DebateBubble.TalkDirection.RIGHT)
+		await debate_history.animation_finished
 	)
 
 func on_follow_up_played(card : Card, suit_relationship : DebateSettings.SuitRelationship):
 	debate_action_queue.push(func ():
-		debate_ui.update_card(card)
+		debate_history.add_card(card, DebateBubble.TalkDirection.LEFT)
+		await debate_history.animation_finished
 	)
 
 func on_hand_update(contestant : Contestant, hand_card_array : Array):

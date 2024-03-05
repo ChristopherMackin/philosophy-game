@@ -50,20 +50,17 @@ var end_vector : Vector2
 var timer : float = 0
 @export var duration : float
 
-func _enter_tree():
-	timer = duration
-
 func _process(delta):
-	if timer >= duration:
+	if timer <= 0:
 		return
 	
-	timer += delta
+	timer -= delta
 	
-	if timer >= duration:
+	if timer <= 0:
 		draw_score = end_vector
 		animation_finished.emit()
 	else:
-		draw_score = start_vector.lerp(end_vector, timer/duration)
+		draw_score = start_vector.lerp(end_vector, 1- timer/duration)
 	
 	queue_redraw()
 	
@@ -146,6 +143,6 @@ func update_score(score : Vector2):
 	start_vector = current_score
 	end_vector = score
 	
-	timer = 0
+	timer = duration
 	
 	current_score = score
