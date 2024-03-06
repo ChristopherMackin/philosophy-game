@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Topic" load_steps=4 format=3 uid="uid://dffyay2m5bli1"]
+
+[ext_resource type="Script" path="res://scripts/systems/debate/topic.gd" id="1_eud0p"]
+[ext_resource type="Resource" uid="uid://bao0vshng34g2" path="res://system/topics/people/self.tres" id="1_ppbta"]
+[ext_resource type="Resource" uid="uid://c6656q8j5kypf" path="res://system/topics/people/others.tres" id="2_03wbt"]
+
+[resource]
+script = ExtResource("1_eud0p")
+name = "People"
+positive_suit = ExtResource("2_03wbt")
+negative_suit = ExtResource("1_ppbta")

@@ -1,18 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://bnic63llbdfni"]
+[gd_scene load_steps=16 format=3 uid="uid://bnic63llbdfni"]
 
 [ext_resource type="Script" path="res://levels/debate_scene/debate_scene_manager.gd" id="1_g6ghv"]
 [ext_resource type="Resource" uid="uid://b78boumde1kyk" path="res://system/debate/debate_manager.tres" id="2_i7n4i"]
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="2_pghej"]
 [ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/ColorableCheckerboard.png" id="3_cx2hn"]
 [ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/cpu_1.tres" id="3_dlycd"]
-[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player.tres" id="4_oy81x"]
+[ext_resource type="Resource" uid="uid://b84dlq5bco5u" path="res://system/character/cpu_2.tres" id="4_gt1r5"]
 [ext_resource type="Script" path="res://scripts/ui/worldspace_hand_ui.gd" id="5_ydk6y"]
 [ext_resource type="PackedScene" uid="uid://cx2gcwo1r71x6" path="res://prefabs/debate/card.tscn" id="6_w84ho"]
 [ext_resource type="Script" path="res://scripts/ui/spread_sprite_container.gd" id="7_ggt8l"]
 [ext_resource type="Texture2D" uid="uid://eejey7xdr2qw" path="res://graphics/PlayerHead.png" id="8_t8onx"]
-[ext_resource type="Script" path="res://scripts/ui/meter_ui.gd" id="9_bqo1k"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://system/character/brain/player_brain.tres" id="9_okuc1"]
-[ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/default_debate_settings.tres" id="14_e36l7"]
 [ext_resource type="Script" path="res://levels/debate_scene/conversation_history_manager.gd" id="15_ksbfj"]
 [ext_resource type="PackedScene" uid="uid://dchbhjjv273jo" path="res://prefabs/debate/conversation_bubble.tscn" id="16_w6kxl"]
 
@@ -28,12 +26,11 @@ shader_parameter/speed_scale = 0.5
 
 [node name="Root" type="Node2D"]
 
-[node name="DebateSceneManager" type="Node2D" parent="." node_paths=PackedStringArray("meter_ui", "debate_history", "player_ui")]
+[node name="DebateSceneManager" type="Node2D" parent="." node_paths=PackedStringArray("debate_history", "player_ui")]
 script = ExtResource("1_g6ghv")
 debate_manager = ExtResource("2_i7n4i")
-proactive_character = ExtResource("3_dlycd")
-reactive_character = ExtResource("4_oy81x")
-meter_ui = NodePath("../Player/PlayerSprite/MeterSprite")
+character_1 = ExtResource("3_dlycd")
+character_2 = ExtResource("4_gt1r5")
 debate_history = NodePath("../ConversationHistory")
 player_ui = NodePath("../WorldspaceHandUI")
 
@@ -82,16 +79,6 @@ position = Vector2(-560, 2.08165e-12)
 [node name="PlayerSprite" type="Sprite2D" parent="Player"]
 position = Vector2(2.08165e-12, 2.08165e-12)
 texture = ExtResource("8_t8onx")
-
-[node name="MeterSprite" type="Sprite2D" parent="Player/PlayerSprite"]
-position = Vector2(-4, -68)
-script = ExtResource("9_bqo1k")
-debate_settings = ExtResource("14_e36l7")
-thickness = 4
-border_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
-saturation_modifier = 0.61
-brightness_modifier = 0.24
-duration = 0.5
 
 [node name="ComputerPlayer" type="Node2D" parent="."]
 position = Vector2(560, 2.08165e-12)

@@ -1,15 +1,10 @@
-[gd_resource type="Resource" script_class="DebateSettings" load_steps=6 format=3 uid="uid://dca2vkphr1vsk"]
+[gd_resource type="Resource" script_class="DebateSettings" load_steps=4 format=3 uid="uid://dca2vkphr1vsk"]
 
 [ext_resource type="Script" path="res://scripts/systems/debate/debate_settings.gd" id="1_tqwb1"]
-[ext_resource type="Resource" uid="uid://bao0vshng34g2" path="res://system/suits/Self.tres" id="1_y0cjt"]
-[ext_resource type="Resource" uid="uid://b1vcr8b6vqsw7" path="res://system/suits/Doubt.tres" id="2_o52se"]
-[ext_resource type="Resource" uid="uid://c6656q8j5kypf" path="res://system/suits/Others.tres" id="3_jp7sn"]
-[ext_resource type="Resource" uid="uid://dskq0fe0vu0hx" path="res://system/suits/Faith.tres" id="4_3kp1a"]
+[ext_resource type="Resource" uid="uid://bk02mkyem1nbs" path="res://system/topics/religion/religion.tres" id="2_lfnjb"]
+[ext_resource type="Resource" uid="uid://dffyay2m5bli1" path="res://system/topics/people/people.tres" id="3_xemp5"]
 
 [resource]
 script = ExtResource("1_tqwb1")
-pos_x_suit = ExtResource("3_jp7sn")
-neg_x_suit = ExtResource("1_y0cjt")
-pos_y_suit = ExtResource("4_3kp1a")
-neg_y_suit = ExtResource("2_o52se")
+topic_array = [ExtResource("2_lfnjb"), ExtResource("3_xemp5")]
 win_amount = 5

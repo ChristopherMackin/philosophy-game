@@ -4,40 +4,41 @@ class_name DebateManager
 
 @export var debate_settings : DebateSettings
 
-var proactive_contestant : Contestant
-var reactive_contestant : Contestant
+var contestant_1 : Contestant
+var contestant_2 : Contestant
 
-var starting_card : Card
-var follow_up_card : Card
-var starting_suit : Suit:
-	get: return starting_card.data.suit
-var follow_up_suit : Suit:
-	get: return follow_up_card.data.suit
+var active_contestant : Contestant
+var inactive_contestant : Contestant:
+	get:
+		if contestant_1 == active_contestant:
+			return contestant_2
+		elif contestant_2 == active_contestant:
+			return contestant_1
+		else:
+			return null
 
-var score : Vector2:
-	get: return score
-	set(value):
-		score = value
-		on_score_updated.emit(value)
+var contestants : Array
+
+var current_card : Card
+var current_suit : Suit:
+	get:
+		return current_card.data.suit
+
+var topic_score_float_array : Array
+var current_topic_index : int
+var current_topic : Topic:
+	get:
+		return debate_settings.topic_array[current_topic_index]
 
 var play_again : bool = false
 
 var subscriber_array : Array
 
-signal on_score_updated(new_score : Vector2)
-signal on_starting_card_played(card : Card)
-signal on_follow_up_played(card: Card, suit_relation : DebateSettings.SuitRelationship)
-signal on_contest(starting_suit : Suit, follow_up_suit : Suit, winning_suit : Suit)
 signal on_hand_update(contestant : Contestant, hand_card_array : Array)
-
 signal on_debate_end()
 
 func connect_signals(node : Node):
 	var signals := [
-		on_starting_card_played,
-		on_follow_up_played,
-		on_score_updated,
-		on_contest,
 		on_hand_update,
 		on_debate_end,
 	]
@@ -50,86 +51,86 @@ func connect_signals(node : Node):
 		else:
 			push_error("UNIMPLEMENTED: %s" % sig.get_name())
 
-func init(proactive_character : Character, reactive_character : Character):
-	proactive_contestant = Contestant.new(proactive_character)
-	reactive_contestant = Contestant.new(reactive_character)
+func init(character_1 : Character, character_2 : Character):
+	for i in debate_settings.topic_array.size():
+		topic_score_float_array.append(0)
 	
-	proactive_contestant.on_hand_update.connect(func(con, hand) : on_hand_update.emit(con, hand))
-	reactive_contestant.on_hand_update.connect(func(con, hand) : on_hand_update.emit(con, hand))
+	contestant_1 = Contestant.new(character_1)
+	contestant_2 = Contestant.new(character_2)
 	
-	proactive_contestant.ready_up()
-	reactive_contestant.ready_up()
+	contestants.append(contestant_1)
+	contestants.append(contestant_2)
+	
+	for contestant in contestants:
+		contestant.on_hand_update.connect(func(con, hand) : on_hand_update.emit(con, hand))
+		contestant.ready_up()
+	
+	active_contestant = contestant_1
 	
 	game_loop()
 
 func game_loop():
+	await set_initial_card()
+	active_contestant = inactive_contestant
+	
 	while not get_is_debate_over():
-		await proactive_play()
-		await reactive_play()
+		await active_player_turn()
+		active_contestant = inactive_contestant
 	
 	on_debate_end.emit()
 
-func get_is_debate_over():
-	return abs(score.x) >= debate_settings.win_amount || abs(score.y) >= debate_settings.win_amount
+func set_initial_card():
+	current_card = await active_contestant.take_turn()
+	current_topic_index = debate_settings.get_topic_index(current_suit)
 
-func proactive_play():
-	starting_card = await proactive_contestant.take_turn()
-	proactive_contestant.draw_full_hand()
-	on_starting_card_played.emit(starting_card)
+func get_is_debate_over() -> bool:
+	for score in topic_score_float_array:
+		if abs(score) >= debate_settings.win_amount:
+			return true
+	
+	return false
 
-func reactive_play():
-		follow_up_card = await reactive_contestant.take_turn()
+func active_player_turn():
+		var follow_up_card = await active_contestant.take_turn()
+		var follow_up_suit = follow_up_card.data.suit
+		
 		var suit_relation = debate_settings.get_suit_relationship(
-				starting_suit, 
+				current_suit, 
 				follow_up_suit
 			)
-		on_follow_up_played.emit(follow_up_card, suit_relation)
 		
 		match suit_relation:
 			DebateSettings.SuitRelationship.SAME:
-				score += debate_settings.get_suit_vector(follow_up_suit)
-				if not get_is_debate_over() : await reactive_play()
-			DebateSettings.SuitRelationship.COMPLEMENTARY:
-				score += debate_settings.get_suit_vector(follow_up_suit)
+				topic_score_float_array[current_topic_index] += current_topic.suit_direction(follow_up_suit)
+				if not get_is_debate_over() : await active_player_turn()
+			DebateSettings.SuitRelationship.OFF_TOPIC:
+				current_topic_index = debate_settings.get_topic_index(follow_up_suit)
+				topic_score_float_array[current_topic_index] += current_topic.suit_direction(follow_up_suit)
 			DebateSettings.SuitRelationship.OPPOSING:
 				var starting : int = 0
 				#player gets an extra point since they just played a card
 				var follow_up : int = 1
 				
-				for hand_card in proactive_contestant.hand_card_array:
-					if hand_card.data.suit == starting_card.data.suit:
-						proactive_contestant.discard_card(hand_card)
+				for hand_card in contestant_1.hand_card_array:
+					if hand_card.data.suit == current_card.data.suit:
+						contestant_1.discard_card(hand_card)
 						starting += 1
 					
-				for hand_card in reactive_contestant.hand_card_array:
+				for hand_card in contestant_2.hand_card_array:
 					if hand_card.data.suit == follow_up_suit:
-						reactive_contestant.discard_card(hand_card)
+						contestant_2.discard_card(hand_card)
 						follow_up += 1
 				
 				var win_amount = follow_up - starting
 				
-				print("%s: %s vs %s: %s" %
-				[
-					starting_suit.name, 
-					starting, 
-					follow_up_suit.name,
-					follow_up,
-				])
-				
-				var winning_suit
-				
 				if win_amount > 0:
-					winning_suit = follow_up_suit
-				elif win_amount < 0:
-					winning_suit = starting_suit
+					current_card = follow_up_card
 				
-				score += debate_settings.get_suit_vector(winning_suit) * win_amount
+				topic_score_float_array[current_topic_index] += current_topic.suit_direction(current_suit) * win_amount
 				
-				on_contest.emit(starting_suit, follow_up_suit, winning_suit)
-				
-				proactive_contestant.draw_full_hand()
-				reactive_contestant.draw_full_hand()
+				for contestant : Contestant in contestants:
+					contestant.draw_full_hand()
 			_:
-				if not get_is_debate_over() : await reactive_play()
+				if not get_is_debate_over() : await active_player_turn()
 			
-		reactive_contestant.draw_full_hand()
+		active_contestant.draw_full_hand()

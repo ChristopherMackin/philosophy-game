@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Topic" load_steps=4 format=3 uid="uid://bk02mkyem1nbs"]
+
+[ext_resource type="Resource" uid="uid://b1vcr8b6vqsw7" path="res://system/topics/religion/doubt.tres" id="1_g5nkm"]
+[ext_resource type="Script" path="res://scripts/systems/debate/topic.gd" id="1_kaf8r"]
+[ext_resource type="Resource" uid="uid://dskq0fe0vu0hx" path="res://system/topics/religion/faith.tres" id="2_wet4l"]
+
+[resource]
+script = ExtResource("1_kaf8r")
+name = "Religion"
+positive_suit = ExtResource("2_wet4l")
+negative_suit = ExtResource("1_g5nkm")
