@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://d20oliptotoln"]
+
+[ext_resource type="Script" path="res://script/systems/card/card_data.gd" id="1_e70n7"]
+[ext_resource type="Resource" uid="uid://bao0vshng34g2" path="res://system/suit/self.tres" id="2_yrhxy"]
+
+[resource]
+script = ExtResource("1_e70n7")
+name = "Basic Self"
+suit = ExtResource("2_yrhxy")

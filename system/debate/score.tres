@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Vector2Variable" load_steps=2 format=3 uid="uid://dkvar66sk43oo"]
 
-[ext_resource type="Script" path="res://scripts/variable_resources/vector2_variable.gd" id="1_2h7nf"]
+[ext_resource type="Script" path="res://script/variable_resource/vector2_variable.gd" id="1_2h7nf"]
 
 [resource]
 script = ExtResource("1_2h7nf")

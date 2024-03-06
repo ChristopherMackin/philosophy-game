@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Suit" load_steps=2 format=3 uid="uid://b1vcr8b6vqsw7"]
 
-[ext_resource type="Script" path="res://system/topics/suit.gd" id="1_xjoed"]
+[ext_resource type="Script" path="res://script/systems/suit/suit.gd" id="1_xjoed"]
 
 [resource]
 script = ExtResource("1_xjoed")

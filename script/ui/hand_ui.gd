@@ -1,6 +1,6 @@
 extends Node2D
 
-class_name WorldspaceHandUI
+class_name HandUI
 
 @export var player_brain : PlayerBrain
 @export var card_container : Node

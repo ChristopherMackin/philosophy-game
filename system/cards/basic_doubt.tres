@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://co2xjr8nu1uct"]
-
-[ext_resource type="Script" path="res://scripts/systems/card/card_data.gd" id="1_1mqae"]
-[ext_resource type="Resource" uid="uid://b1vcr8b6vqsw7" path="res://system/topics/religion/doubt.tres" id="2_ln8u3"]
-
-[resource]
-script = ExtResource("1_1mqae")
-name = "Basic Doubt"
-suit = ExtResource("2_ln8u3")

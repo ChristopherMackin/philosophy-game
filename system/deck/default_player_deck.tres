@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Deck" load_steps=11 format=3 uid="uid://bf6wla5gua8yi"]
 
-[ext_resource type="Resource" uid="uid://rds3vwhnnbsp" path="res://system/cards/basic_faith.tres" id="1_jbv4y"]
-[ext_resource type="Script" path="res://system/decks/deck.gd" id="1_u6ok3"]
-[ext_resource type="Script" path="res://scripts/systems/card/card_deck_config.gd" id="2_ighgr"]
-[ext_resource type="Resource" uid="uid://co2xjr8nu1uct" path="res://system/cards/basic_doubt.tres" id="3_7lksf"]
-[ext_resource type="Resource" uid="uid://bi7xtr16f8n55" path="res://system/cards/basic_others.tres" id="4_cksb5"]
-[ext_resource type="Resource" uid="uid://d20oliptotoln" path="res://system/cards/basic_self.tres" id="5_q0sjp"]
+[ext_resource type="Resource" uid="uid://rds3vwhnnbsp" path="res://system/card/basic_faith.tres" id="1_jbv4y"]
+[ext_resource type="Script" path="res://system/deck/deck.gd" id="1_u6ok3"]
+[ext_resource type="Script" path="res://script/systems/card/card_deck_config.gd" id="2_ighgr"]
+[ext_resource type="Resource" uid="uid://co2xjr8nu1uct" path="res://system/card/basic_doubt.tres" id="3_7lksf"]
+[ext_resource type="Resource" uid="uid://bi7xtr16f8n55" path="res://system/card/basic_others.tres" id="4_cksb5"]
+[ext_resource type="Resource" uid="uid://d20oliptotoln" path="res://system/card/basic_self.tres" id="5_q0sjp"]
 
 [sub_resource type="Resource" id="Resource_726yt"]
 resource_name = "Card Deck Config"
