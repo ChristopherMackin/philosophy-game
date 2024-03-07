@@ -7,7 +7,6 @@ class_name DebateSceneManager
 
 var debate_action_queue : Queue = Queue.new()
 
-@export var meter_ui : MeterUI
 @export var debate_history : ConversationHistoryManager
 
 @export var player_ui : HandUI

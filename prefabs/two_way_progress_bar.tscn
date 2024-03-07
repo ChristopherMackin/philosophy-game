@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8ygn5m2gi6fg"]
+
+[ext_resource type="Script" path="res://levels/test/two_way_progress_bar.gd" id="1_kv1uy"]
+[ext_resource type="Texture2D" uid="uid://dcfccl1ttkmd3" path="res://graphics/topic_score/TopicScoreUnder.png" id="2_vyh8y"]
+[ext_resource type="Texture2D" uid="uid://dlcxia872fhdy" path="res://graphics/topic_score/TopicScoreOver.png" id="3_n5exo"]
+[ext_resource type="Texture2D" uid="uid://cbfix46iyg17m" path="res://graphics/topic_score/TopicScoreProgress.png" id="4_oo6rl"]
+[ext_resource type="Script" path="res://levels/test/marked_progress_bar.gd" id="5_i5hwf"]
+[ext_resource type="Texture2D" uid="uid://di5luhbeqgtfn" path="res://graphics/topic_score/TopicScoreNegativeUnder.png" id="6_wka0u"]
+[ext_resource type="Texture2D" uid="uid://cec33xgofvafs" path="res://graphics/topic_score/TopicScoreNegativeOver.png" id="7_ogwcc"]
+[ext_resource type="Texture2D" uid="uid://hn2wn8iyoe0e" path="res://graphics/topic_score/TopicScoreNegativeProgress.png" id="8_jmfaf"]
+
+[node name="TwoWayProgressBar" type="VBoxContainer" node_paths=PackedStringArray("positive_progress_bar", "negative_progress_bar")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+script = ExtResource("1_kv1uy")
+positive_progress_bar = NodePath("PositiveProgressBar")
+negative_progress_bar = NodePath("NegitiveProgressBar")
+max_value = 5.0
+
+[node name="PositiveProgressBar" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(200, 250)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 5.0
+step = 2.08165e-12
+fill_mode = 3
+texture_under = ExtResource("2_vyh8y")
+texture_over = ExtResource("3_n5exo")
+texture_progress = ExtResource("4_oo6rl")
+script = ExtResource("5_i5hwf")
+divider_color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[node name="NegitiveProgressBar" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(200, 250)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 5.0
+fill_mode = 2
+texture_under = ExtResource("6_wka0u")
+texture_over = ExtResource("7_ogwcc")
+texture_progress = ExtResource("8_jmfaf")
+script = ExtResource("5_i5hwf")
+divider_color = Color(0.172549, 0.172549, 0.172549, 1)

@@ -1,0 +1,126 @@
+[gd_scene load_steps=10 format=3 uid="uid://bh0xv60k3jfru"]
+
+[ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="1_i6vh5"]
+[ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/ColorableCheckerboard.png" id="2_50n12"]
+[ext_resource type="Script" path="res://script/ui/border_control.gd" id="3_uaqb6"]
+[ext_resource type="PackedScene" uid="uid://dn5nd0oyigp2r" path="res://prefabs/debate/topic_score.tscn" id="4_42lnc"]
+[ext_resource type="Texture2D" uid="uid://d2rm403t0vnmy" path="res://graphics/nine_slice_box.png" id="4_tcnbl"]
+[ext_resource type="Texture2D" uid="uid://dsl4yxk2q8fnh" path="res://graphics/Chris.png" id="5_amq6x"]
+[ext_resource type="Script" path="res://script/test/debate_ui_test.gd" id="6_r4fwj"]
+
+[sub_resource type="Environment" id="Environment_1hbix"]
+background_mode = 3
+background_canvas_max_layer = -128
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3bbs0"]
+shader = ExtResource("1_i6vh5")
+shader_parameter/color = Color(0.78, 0.78, 0.78, 1)
+shader_parameter/direction = Vector2(0.05, 0.15)
+shader_parameter/speed_scale = 0.5
+
+[node name="Root" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1hbix")
+
+[node name="ScrollingBackground" type="CanvasLayer" parent="."]
+layer = -128
+offset = Vector2(2.08165e-12, 2.08165e-12)
+transform = Transform2D(1, 2.08165e-12, 2.08165e-12, 1, 2.08165e-12, 2.08165e-12)
+
+[node name="BackgroundTexture" type="TextureRect" parent="ScrollingBackground"]
+material = SubResource("ShaderMaterial_3bbs0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_50n12")
+stretch_mode = 1
+
+[node name="DebateUI" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Border" type="Control" parent="DebateUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_uaqb6")
+
+[node name="TopBar" type="ColorRect" parent="DebateUI/Border"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+grow_horizontal = 2
+color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[node name="BottomBar" type="ColorRect" parent="DebateUI/Border"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[node name="TopicScoreBoard" type="Control" parent="DebateUI"]
+layout_mode = 3
+anchor_right = 0.5
+anchor_bottom = 1.023
+offset_top = 108.0
+offset_bottom = -132.84
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DebateUI/TopicScoreBoard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="TopicScore" parent="DebateUI/TopicScoreBoard/HBoxContainer" instance=ExtResource("4_42lnc")]
+layout_mode = 2
+
+[node name="ConversationHistory" type="Control" parent="DebateUI"]
+layout_mode = 3
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="SpeechBubble" type="NinePatchRect" parent="DebateUI/ConversationHistory"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 210.0
+offset_right = 449.0
+offset_bottom = 421.0
+texture = ExtResource("4_tcnbl")
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 100, 100)
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+
+[node name="Chris" type="Sprite2D" parent="DebateUI"]
+position = Vector2(1620, 540)
+scale = Vector2(5, 5)
+texture = ExtResource("5_amq6x")
+
+[node name="DebateUITest" type="Node2D" parent="."]
+script = ExtResource("6_r4fwj")
