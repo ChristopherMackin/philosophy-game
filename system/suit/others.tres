@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Suit" load_steps=2 format=3 uid="uid://c6656q8j5kypf"]
+[gd_resource type="Resource" script_class="Suit" load_steps=3 format=3 uid="uid://c6656q8j5kypf"]
 
+[ext_resource type="Texture2D" uid="uid://drjxu6jiqipcc" path="res://graphics/suit/faith_icon.png" id="1_a1fdh"]
 [ext_resource type="Script" path="res://script/systems/suit/suit.gd" id="1_ucshs"]
 
 [resource]
 script = ExtResource("1_ucshs")
 name = "Others"
 color = Color(0.603922, 0.901961, 0.431373, 1)
+icon = ExtResource("1_a1fdh")

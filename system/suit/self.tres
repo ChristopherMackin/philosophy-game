@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Suit" load_steps=2 format=3 uid="uid://bao0vshng34g2"]
+[gd_resource type="Resource" script_class="Suit" load_steps=3 format=3 uid="uid://bao0vshng34g2"]
 
 [ext_resource type="Script" path="res://script/systems/suit/suit.gd" id="1_le4wk"]
+[ext_resource type="Texture2D" uid="uid://b77wan0ojuuk2" path="res://graphics/suit/doubt_icon.png" id="1_un461"]
 
 [resource]
 script = ExtResource("1_le4wk")
 name = "Self"
 color = Color(0.529412, 0.835294, 0.972549, 1)
+icon = ExtResource("1_un461")

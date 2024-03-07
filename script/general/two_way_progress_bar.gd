@@ -13,9 +13,10 @@ class_name TwoWayProgressBar
 		if not val:
 			positive_tint = Color.WHITE
 		
-		positive_progress_bar.tint_under = val
-		positive_progress_bar.tint_progress = val
-		positive_progress_bar.tint_over = Color.WHITE
+		if positive_progress_bar:
+			positive_progress_bar.tint_under = val
+			positive_progress_bar.tint_progress = val
+			positive_progress_bar.tint_over = Color.WHITE
 	
 @export var negative_tint : Color = Color.WHITE:
 	get: return negative_tint
@@ -24,21 +25,30 @@ class_name TwoWayProgressBar
 		if not val:
 			negative_tint = Color.WHITE
 		
-		negative_progress_bar.tint_under = val
-		negative_progress_bar.tint_progress = val
-		negative_progress_bar.tint_over = Color.WHITE
+		if negative_progress_bar:
+			negative_progress_bar.tint_under = val
+			negative_progress_bar.tint_progress = val
+			negative_progress_bar.tint_over = Color.WHITE
 
 @export var max_value : float:
 	get: return max_value
 	set(value):
 		max_value = value
-		positive_progress_bar.max_value = max_value
-		negative_progress_bar.max_value = max_value
+		
+		if positive_progress_bar:
+			positive_progress_bar.max_value = max_value
+		
+		if negative_progress_bar:
+			negative_progress_bar.max_value = max_value
 
 @export var value : float:
 	get: return value
 	set(val):
 		value = val
+		
+		if not positive_progress_bar or not negative_progress_bar:
+			return
+		
 		positive_progress_bar.value = 0
 		negative_progress_bar.value = 0
 			

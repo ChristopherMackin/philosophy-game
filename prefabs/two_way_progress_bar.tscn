@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://b8ygn5m2gi6fg"]
 
-[ext_resource type="Script" path="res://levels/test/two_way_progress_bar.gd" id="1_kv1uy"]
+[ext_resource type="Script" path="res://script/general/two_way_progress_bar.gd" id="1_kv1uy"]
 [ext_resource type="Texture2D" uid="uid://dcfccl1ttkmd3" path="res://graphics/topic_score/TopicScoreUnder.png" id="2_vyh8y"]
 [ext_resource type="Texture2D" uid="uid://dlcxia872fhdy" path="res://graphics/topic_score/TopicScoreOver.png" id="3_n5exo"]
 [ext_resource type="Texture2D" uid="uid://cbfix46iyg17m" path="res://graphics/topic_score/TopicScoreProgress.png" id="4_oo6rl"]
-[ext_resource type="Script" path="res://levels/test/marked_progress_bar.gd" id="5_i5hwf"]
+[ext_resource type="Script" path="res://script/general/marked_progress_bar.gd" id="5_i5hwf"]
 [ext_resource type="Texture2D" uid="uid://di5luhbeqgtfn" path="res://graphics/topic_score/TopicScoreNegativeUnder.png" id="6_wka0u"]
 [ext_resource type="Texture2D" uid="uid://cec33xgofvafs" path="res://graphics/topic_score/TopicScoreNegativeOver.png" id="7_ogwcc"]
 [ext_resource type="Texture2D" uid="uid://hn2wn8iyoe0e" path="res://graphics/topic_score/TopicScoreNegativeProgress.png" id="8_jmfaf"]
