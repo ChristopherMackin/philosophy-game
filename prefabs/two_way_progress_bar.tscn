@@ -16,13 +16,12 @@ theme_override_constants/separation = 0
 script = ExtResource("1_kv1uy")
 positive_progress_bar = NodePath("PositiveProgressBar")
 negative_progress_bar = NodePath("NegitiveProgressBar")
-max_value = 5.0
 
 [node name="PositiveProgressBar" type="TextureProgressBar" parent="."]
 custom_minimum_size = Vector2(200, 250)
 layout_mode = 2
 size_flags_vertical = 4
-max_value = 5.0
+max_value = 0.0
 step = 2.08165e-12
 fill_mode = 3
 texture_under = ExtResource("2_vyh8y")
@@ -35,7 +34,7 @@ divider_color = Color(0.172549, 0.172549, 0.172549, 1)
 custom_minimum_size = Vector2(200, 250)
 layout_mode = 2
 size_flags_vertical = 4
-max_value = 5.0
+max_value = 0.0
 fill_mode = 2
 texture_under = ExtResource("6_wka0u")
 texture_over = ExtResource("7_ogwcc")

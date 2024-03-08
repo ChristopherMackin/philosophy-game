@@ -10,7 +10,6 @@ script = ExtResource("1_wad75")
 progress_bar = NodePath("TwoWayProgressBar")
 positive_icon = NodePath("PositiveIcon")
 negative_icon = NodePath("NegativeIcon")
-segment_count = 5
 
 [node name="PositiveIcon" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(100, 100)
@@ -21,8 +20,6 @@ texture = ExtResource("3_ki6qe")
 
 [node name="TwoWayProgressBar" parent="." instance=ExtResource("4_5ntks")]
 layout_mode = 2
-positive_tint = Color(0.941176, 0.72549, 0.403922, 1)
-negative_tint = Color(0.980392, 0.411765, 0.466667, 1)
 
 [node name="NegativeIcon" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(100, 100)

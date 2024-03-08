@@ -1,11 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://bh0xv60k3jfru"]
+[gd_scene load_steps=16 format=3 uid="uid://bh0xv60k3jfru"]
 
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="1_i6vh5"]
 [ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/ColorableCheckerboard.png" id="2_50n12"]
 [ext_resource type="Script" path="res://script/ui/border_control.gd" id="3_uaqb6"]
 [ext_resource type="PackedScene" uid="uid://dn5nd0oyigp2r" path="res://prefabs/debate/topic_score.tscn" id="4_42lnc"]
+[ext_resource type="Script" path="res://levels/test/score_board.gd" id="4_du76p"]
 [ext_resource type="Texture2D" uid="uid://d2rm403t0vnmy" path="res://graphics/nine_slice_box.png" id="4_tcnbl"]
 [ext_resource type="Texture2D" uid="uid://dsl4yxk2q8fnh" path="res://graphics/Chris.png" id="5_amq6x"]
+[ext_resource type="Resource" uid="uid://dffyay2m5bli1" path="res://system/debate/topic/people.tres" id="5_h1rv1"]
+[ext_resource type="Resource" uid="uid://bk02mkyem1nbs" path="res://system/debate/topic/religion.tres" id="6_7rk1x"]
+[ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/default_debate_settings.tres" id="6_dg5kg"]
 [ext_resource type="Script" path="res://script/test/debate_ui_test.gd" id="6_r4fwj"]
 
 [sub_resource type="Environment" id="Environment_1hbix"]
@@ -17,6 +21,14 @@ shader = ExtResource("1_i6vh5")
 shader_parameter/color = Color(0.78, 0.78, 0.78, 1)
 shader_parameter/direction = Vector2(0.05, 0.15)
 shader_parameter/speed_scale = 0.5
+
+[sub_resource type="Animation" id="Animation_3gkxj"]
+resource_name = "turn_change"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0yph3"]
+_data = {
+"turn_change": SubResource("Animation_3gkxj")
+}
 
 [node name="Root" type="Node2D"]
 
@@ -77,7 +89,7 @@ offset_bottom = -132.84
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DebateUI/TopicScoreBoard"]
+[node name="ScoreBoard" type="HBoxContainer" parent="DebateUI/TopicScoreBoard"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -92,9 +104,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
 alignment = 1
-
-[node name="TopicScore" parent="DebateUI/TopicScoreBoard/HBoxContainer" instance=ExtResource("4_42lnc")]
-layout_mode = 2
+script = ExtResource("4_du76p")
+topic_score = ExtResource("4_42lnc")
+debate_settings = ExtResource("6_dg5kg")
 
 [node name="ConversationHistory" type="Control" parent="DebateUI"]
 layout_mode = 3
@@ -122,5 +134,12 @@ position = Vector2(1620, 540)
 scale = Vector2(5, 5)
 texture = ExtResource("5_amq6x")
 
-[node name="DebateUITest" type="Node2D" parent="."]
+[node name="DebateUITest" type="Node2D" parent="." node_paths=PackedStringArray("score_board")]
 script = ExtResource("6_r4fwj")
+score_board = NodePath("../DebateUI/TopicScoreBoard/ScoreBoard")
+topic_array = [ExtResource("6_7rk1x"), ExtResource("5_h1rv1")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0yph3")
+}
