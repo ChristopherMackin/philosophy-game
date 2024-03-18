@@ -7,7 +7,13 @@ class_name HandUI
 @export var preferred_margin : float = 0
 
 @export var player_brain : PlayerBrain
-@export var card_container : Node
+
+@export var SameContainer : FanSpriteContainer
+@export var OpposingContainer : FanSpriteContainer
+@export var OffTopicContainer : FanSpriteContainer
+
+@export var debate_settings : DebateSettings
+
 var ui_card_array : Array = []
 
 @export var card_prefab : PackedScene
@@ -20,7 +26,6 @@ func on_card_played(card : Card):
 	var element = ui_card_array.pop_at(index)
 	element.queue_free()
 
-
 func add_cards(added_cards : Array):
 	for card in added_cards:
 		var ui_card : UICard = card_prefab.instantiate()
@@ -31,9 +36,8 @@ func add_cards(added_cards : Array):
 		ui_card.initialize(card, on_click)
 		
 		ui_card_array.append(ui_card)
-		card_container.add_child(ui_card)
 
-func update_card_array(hand_card_array : Array):
+func update_card_array(hand_card_array : Array, current_suit : Suit):
 	var to_add_array = hand_card_array.duplicate();
 	
 	for ui_card : UICard in ui_card_array.duplicate():
@@ -48,6 +52,28 @@ func update_card_array(hand_card_array : Array):
 			to_add_array.remove_at(i)
 	
 	add_cards(to_add_array)
+	orgainze_cards(current_suit)
+
+func orgainze_cards(current_suit : Suit):
+	for ui_card : UICard in ui_card_array:
+		var relationship = debate_settings.get_suit_relationship(current_suit, ui_card.card.data.suit)
+		
+		match relationship:
+			DebateSettings.SuitRelationship.SAME:
+				if ui_card.get_parent():
+					ui_card.reparent(SameContainer, false)
+				else:
+					SameContainer.add_child(ui_card)
+			DebateSettings.SuitRelationship.OPPOSING:
+				if ui_card.get_parent():
+					ui_card.reparent(OpposingContainer, false)
+				else:
+					OpposingContainer.add_child(ui_card)
+			DebateSettings.SuitRelationship.OFF_TOPIC:
+				if ui_card.get_parent():
+					ui_card.reparent(OffTopicContainer, false)
+				else:
+					OffTopicContainer.add_child(ui_card)
 
 func _ready():
 	organize_children()
@@ -56,8 +82,13 @@ func _process(delta):
 	organize_children()
 
 func organize_children():
-	var n = get_child_count()
-	var children = get_children()
+	var children = []
+	
+	for child : FanSpriteContainer in get_children():
+		if(child.actual_width > 0):
+			children.append(child)
+	
+	var n = children.size()
 	
 	if n <= 1:
 		for child in children:

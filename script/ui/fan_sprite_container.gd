@@ -19,6 +19,8 @@ func organize_children():
 	var n = get_child_count()
 	var children = get_children()
 	
+	actual_width = 0
+	
 	if n <= 1:
 		for child in children:
 			child.position = Vector2(0,0)
