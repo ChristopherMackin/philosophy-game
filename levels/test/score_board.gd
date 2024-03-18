@@ -5,7 +5,7 @@ class_name ScoreBoard
 @export var topic_score : PackedScene
 @export var debate_settings : DebateSettings
 
-var topic_ui_tuple_array : Array
+var topic_ui_tuple_array : Array[Tuple]
 
 func add_topic(topic : Topic):
 	var score : TopicScoreUI = topic_score.instantiate()

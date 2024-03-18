@@ -3,7 +3,7 @@ extends Object
 class_name Contestant
 
 var character : Character
-var hand_card_array : Array = []
+var hand : Array[Card] = []
 
 var brain : Brain: 
 	get: return character.brain
@@ -14,7 +14,7 @@ var hand_limit : int:
 var name : String:
 	get: return character.name
 
-signal on_hand_update(contestant : Contestant, hand_card_array : Array)
+signal on_hand_update(contestant : Contestant, hand : Array[Card])
 
 func _init(character : Character):
 	self.character = character
@@ -27,7 +27,7 @@ func ready_up():
 func take_turn():
 	var card
 	
-	while hand_card_array.find(card) == -1:
+	while hand.find(card) == -1:
 		card = await brain.think()
 	
 	discard_card(card)
@@ -36,21 +36,21 @@ func take_turn():
 func draw_full_hand():
 	var added_cards = []
 	
-	while hand_card_array.size() < hand_limit:
+	while hand.size() < hand_limit:
 		var card = deck.draw_card()
 		if card == null:
 			break
-		hand_card_array.append(card)
+		hand.append(card)
 		added_cards.append(card)
 	
-	on_hand_update.emit(self, hand_card_array.duplicate(true))
+	on_hand_update.emit(self, hand.duplicate(true))
 
 func discard_card(card : Card):
-	var index = hand_card_array.find(card)
-	hand_card_array.remove_at(index)
+	var index = hand.find(card)
+	hand.remove_at(index)
 	deck.discard_card(card)
 	
-	on_hand_update.emit(self, hand_card_array.duplicate(true))
+	on_hand_update.emit(self, hand.duplicate(true))
 	
-	if hand_card_array.size() <= 0:
+	if hand.size() <= 0:
 		draw_full_hand()

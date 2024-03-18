@@ -2,7 +2,7 @@ extends Node2D
 
 @export var score_board : ScoreBoard
 
-@export var topic_array : Array
+@export var topic_array : Array[Topic]
 
 @onready var rng = RandomNumberGenerator.new()
 

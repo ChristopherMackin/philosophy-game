@@ -3,17 +3,7 @@ extends Resource
 
 class_name DebateSettings
 
-@export var topic_array : Array:
-	get:
-		return topic_array
-	set(value):
-		topic_array.resize(value.size())
-		topic_array = value
-		for i in topic_array.size():
-			if not topic_array[i]:
-				var resource = Topic.new()
-				resource.resource_name = "Topic"
-				topic_array[i] = resource
+@export var topic_array : Array[Topic]
 
 @export var win_amount : int = 5
 

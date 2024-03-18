@@ -31,10 +31,10 @@ func queue_animate():
 	
 	is_animation_locked = false
 
-func on_hand_update(contestant : Contestant, hand_card_array : Array):
+func on_hand_update(contestant : Contestant, hand : Array[Card]):
 	if contestant.character == character_2:
 		debate_action_queue.push(func ():
-			player_ui.update_card_array(hand_card_array)
+			player_ui.update_card_array(hand)
 		)
 
 func on_debate_end():

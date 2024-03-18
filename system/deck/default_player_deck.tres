@@ -33,4 +33,4 @@ count = 2
 
 [resource]
 script = ExtResource("1_u6ok3")
-composition_card_deck_config_array = [SubResource("Resource_726yt"), SubResource("Resource_qgjfg"), SubResource("Resource_3v6ub"), SubResource("Resource_1awok")]
+composition_card_deck_config_array = Array[ExtResource("2_ighgr")]([SubResource("Resource_726yt"), SubResource("Resource_qgjfg"), SubResource("Resource_3v6ub"), SubResource("Resource_1awok")])

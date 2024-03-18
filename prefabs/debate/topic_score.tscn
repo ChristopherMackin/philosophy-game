@@ -1,29 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn5nd0oyigp2r"]
+[gd_scene load_steps=3 format=3 uid="uid://dn5nd0oyigp2r"]
 
 [ext_resource type="Script" path="res://script/systems/debate/topic_score_ui.gd" id="1_wad75"]
-[ext_resource type="Texture2D" uid="uid://drjxu6jiqipcc" path="res://graphics/suit/faith_icon.png" id="3_ki6qe"]
 [ext_resource type="PackedScene" uid="uid://b8ygn5m2gi6fg" path="res://prefabs/two_way_progress_bar.tscn" id="4_5ntks"]
-[ext_resource type="Texture2D" uid="uid://b77wan0ojuuk2" path="res://graphics/suit/doubt_icon.png" id="5_h25qd"]
 
 [node name="TopicScore" type="VBoxContainer" node_paths=PackedStringArray("progress_bar", "positive_icon", "negative_icon")]
+alignment = 1
 script = ExtResource("1_wad75")
 progress_bar = NodePath("TwoWayProgressBar")
 positive_icon = NodePath("PositiveIcon")
 negative_icon = NodePath("NegativeIcon")
 
 [node name="PositiveIcon" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_ki6qe")
+stretch_mode = 5
 
 [node name="TwoWayProgressBar" parent="." instance=ExtResource("4_5ntks")]
 layout_mode = 2
 
 [node name="NegativeIcon" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("5_h25qd")
+stretch_mode = 5

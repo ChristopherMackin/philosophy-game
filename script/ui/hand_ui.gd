@@ -1,6 +1,10 @@
+@tool
 extends Node2D
 
 class_name HandUI
+
+@export var container_width : float
+@export var preferred_margin : float = 0
 
 @export var player_brain : PlayerBrain
 @export var card_container : Node
@@ -44,3 +48,41 @@ func update_card_array(hand_card_array : Array):
 			to_add_array.remove_at(i)
 	
 	add_cards(to_add_array)
+
+func _ready():
+	organize_children()
+
+func _process(delta):
+	organize_children()
+
+func organize_children():
+	var n = get_child_count()
+	var children = get_children()
+	
+	if n <= 1:
+		for child in children:
+			child.position = Vector2(0,0)
+		return
+	
+	var combined_width = 0
+	
+	for c : FanSpriteContainer in children:
+		combined_width += c.actual_width
+	
+	var margin_count : int = n - 1
+	
+	var total_width = combined_width + (margin_count * preferred_margin)
+	var margin = preferred_margin
+	
+	if total_width > container_width:
+		total_width = container_width
+		margin = (container_width - combined_width) / margin_count
+	
+	var pos = total_width / -2
+		
+	for c : FanSpriteContainer in children:
+		var width = c.actual_width
+		
+		c.position = Vector2(pos + width / 2, 0)
+		
+		pos += width + margin

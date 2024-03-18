@@ -6,5 +6,5 @@
 
 [resource]
 script = ExtResource("1_tqwb1")
-topic_array = [ExtResource("2_lfnjb"), ExtResource("3_xemp5")]
+topic_array = Array[Resource("res://script/systems/debate/topic.gd")]([ExtResource("2_lfnjb"), ExtResource("3_xemp5")])
 win_amount = 5

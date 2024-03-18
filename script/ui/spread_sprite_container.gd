@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 
 class_name SpreadSpriteContainer
@@ -15,7 +16,7 @@ func organize_children():
 	var total_width = 0
 	
 	for c in get_children():
-		total_width += c.texture.get_width()
+		total_width += c.get_rect().size.x
 	
 	var margin = 0
 	var margin_count = get_child_count() - 1
@@ -31,8 +32,8 @@ func organize_children():
 	var pos = total_width / -2
 		
 	for c in get_children():
-		var texture_width = c.texture.get_width()
+		var width = c.get_rect().size.x
 		
-		c.position = Vector2(pos + texture_width / 2, 0)
+		c.position = Vector2(pos + width / 2, 0)
 		
-		pos += texture_width + margin
+		pos += width + margin

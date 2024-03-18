@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://b8ygn5m2gi6fg"]
 
 [ext_resource type="Script" path="res://script/general/two_way_progress_bar.gd" id="1_kv1uy"]
-[ext_resource type="Texture2D" uid="uid://dcfccl1ttkmd3" path="res://graphics/topic_score/TopicScoreUnder.png" id="2_vyh8y"]
-[ext_resource type="Texture2D" uid="uid://dlcxia872fhdy" path="res://graphics/topic_score/TopicScoreOver.png" id="3_n5exo"]
-[ext_resource type="Texture2D" uid="uid://cbfix46iyg17m" path="res://graphics/topic_score/TopicScoreProgress.png" id="4_oo6rl"]
+[ext_resource type="Texture2D" uid="uid://lmqdonfbi3xh" path="res://graphics/topic_score/Under.png" id="2_yulrn"]
+[ext_resource type="Texture2D" uid="uid://ddjnl0gaxlsqd" path="res://graphics/topic_score/Over.png" id="3_47ydt"]
+[ext_resource type="Texture2D" uid="uid://dr4tsj117afdy" path="res://graphics/topic_score/Progress.png" id="4_0rc64"]
 [ext_resource type="Script" path="res://script/general/marked_progress_bar.gd" id="5_i5hwf"]
-[ext_resource type="Texture2D" uid="uid://di5luhbeqgtfn" path="res://graphics/topic_score/TopicScoreNegativeUnder.png" id="6_wka0u"]
-[ext_resource type="Texture2D" uid="uid://cec33xgofvafs" path="res://graphics/topic_score/TopicScoreNegativeOver.png" id="7_ogwcc"]
-[ext_resource type="Texture2D" uid="uid://hn2wn8iyoe0e" path="res://graphics/topic_score/TopicScoreNegativeProgress.png" id="8_jmfaf"]
+[ext_resource type="Texture2D" uid="uid://dmnngn1i5pxpr" path="res://graphics/topic_score/UnderNegative.png" id="6_sq4cu"]
+[ext_resource type="Texture2D" uid="uid://dwi83a0ilkt1g" path="res://graphics/topic_score/OverNegative.png" id="7_m0spw"]
+[ext_resource type="Texture2D" uid="uid://bsscngbsnxhxr" path="res://graphics/topic_score/ProgressNegative.png" id="8_qc057"]
 
 [node name="TwoWayProgressBar" type="VBoxContainer" node_paths=PackedStringArray("positive_progress_bar", "negative_progress_bar")]
 size_flags_horizontal = 4
@@ -18,26 +18,24 @@ positive_progress_bar = NodePath("PositiveProgressBar")
 negative_progress_bar = NodePath("NegitiveProgressBar")
 
 [node name="PositiveProgressBar" type="TextureProgressBar" parent="."]
-custom_minimum_size = Vector2(200, 250)
 layout_mode = 2
 size_flags_vertical = 4
 max_value = 0.0
 step = 2.08165e-12
 fill_mode = 3
-texture_under = ExtResource("2_vyh8y")
-texture_over = ExtResource("3_n5exo")
-texture_progress = ExtResource("4_oo6rl")
+texture_under = ExtResource("2_yulrn")
+texture_over = ExtResource("3_47ydt")
+texture_progress = ExtResource("4_0rc64")
 script = ExtResource("5_i5hwf")
 divider_color = Color(0.172549, 0.172549, 0.172549, 1)
 
 [node name="NegitiveProgressBar" type="TextureProgressBar" parent="."]
-custom_minimum_size = Vector2(200, 250)
 layout_mode = 2
 size_flags_vertical = 4
 max_value = 0.0
 fill_mode = 2
-texture_under = ExtResource("6_wka0u")
-texture_over = ExtResource("7_ogwcc")
-texture_progress = ExtResource("8_jmfaf")
+texture_under = ExtResource("6_sq4cu")
+texture_over = ExtResource("7_m0spw")
+texture_progress = ExtResource("8_qc057")
 script = ExtResource("5_i5hwf")
 divider_color = Color(0.172549, 0.172549, 0.172549, 1)

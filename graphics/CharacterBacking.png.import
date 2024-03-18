@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drjxu6jiqipcc"
-path="res://.godot/imported/faith_icon.png-999d019523566aaf66698b1189463ee1.ctex"
+uid="uid://c2kwn46yalidl"
+path="res://.godot/imported/CharacterBacking.png-36c13be9d163d76f6d21e6f100187896.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/suit/faith_icon.png"
-dest_files=["res://.godot/imported/faith_icon.png-999d019523566aaf66698b1189463ee1.ctex"]
+source_file="res://graphics/CharacterBacking.png"
+dest_files=["res://.godot/imported/CharacterBacking.png-36c13be9d163d76f6d21e6f100187896.ctex"]
 
 [params]
 

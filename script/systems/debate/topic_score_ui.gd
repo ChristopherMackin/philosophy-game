@@ -18,9 +18,11 @@ signal animation_finished
 		
 		if positive_icon:
 			positive_icon.texture = topic.positive_suit.icon
+			positive_icon.self_modulate = topic.positive_suit.color
 		
 		if negative_icon:
 			negative_icon.texture = topic.negative_suit.icon
+			negative_icon.self_modulate = topic.negative_suit.color
 		
 		if progress_bar:
 			progress_bar.positive_tint = topic.positive_suit.color

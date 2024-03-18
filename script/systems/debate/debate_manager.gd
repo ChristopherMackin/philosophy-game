@@ -17,14 +17,14 @@ var inactive_contestant : Contestant:
 		else:
 			return null
 
-var contestants : Array
+var contestants : Array[Contestant]
 
 var current_card : Card
 var current_suit : Suit:
 	get:
 		return current_card.data.suit
 
-var topic_score_float_array : Array
+var topic_score_float_array : Array[float]
 var current_topic_index : int
 var current_topic : Topic:
 	get:
@@ -34,7 +34,7 @@ var play_again : bool = false
 
 var subscriber_array : Array
 
-signal on_hand_update(contestant : Contestant, hand_card_array : Array)
+signal on_hand_update(contestant : Contestant, hand : Array[Card])
 signal on_debate_end()
 
 func connect_signals(node : Node):
@@ -111,12 +111,12 @@ func active_player_turn():
 				#player gets an extra point since they just played a card
 				var follow_up : int = 1
 				
-				for hand_card in contestant_1.hand_card_array:
+				for hand_card in contestant_1.hand:
 					if hand_card.data.suit == current_card.data.suit:
 						contestant_1.discard_card(hand_card)
 						starting += 1
 					
-				for hand_card in contestant_2.hand_card_array:
+				for hand_card in contestant_2.hand:
 					if hand_card.data.suit == follow_up_suit:
 						contestant_2.discard_card(hand_card)
 						follow_up += 1

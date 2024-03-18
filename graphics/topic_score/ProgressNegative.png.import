@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cec33xgofvafs"
-path="res://.godot/imported/TopicScoreNegativeOver.png-20061bc9fefe9b3cc4eefae787dd0ad3.ctex"
+uid="uid://bsscngbsnxhxr"
+path="res://.godot/imported/ProgressNegative.png-812b155610186b0500a3a7163dc18b90.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/topic_score/TopicScoreNegativeOver.png"
-dest_files=["res://.godot/imported/TopicScoreNegativeOver.png-20061bc9fefe9b3cc4eefae787dd0ad3.ctex"]
+source_file="res://graphics/topic_score/ProgressNegative.png"
+dest_files=["res://.godot/imported/ProgressNegative.png-812b155610186b0500a3a7163dc18b90.ctex"]
 
 [params]
 

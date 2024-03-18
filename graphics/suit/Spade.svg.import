@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcfccl1ttkmd3"
-path="res://.godot/imported/TopicScoreUnder.png-307f3b10f3376d488bad489d3936c36b.ctex"
+uid="uid://dxcdbgsv7cixc"
+path="res://.godot/imported/Spade.svg-e45110211ff32236c96b1b14b2356411.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/topic_score/TopicScoreUnder.png"
-dest_files=["res://.godot/imported/TopicScoreUnder.png-307f3b10f3376d488bad489d3936c36b.ctex"]
+source_file="res://graphics/suit/Spade.svg"
+dest_files=["res://.godot/imported/Spade.svg-e45110211ff32236c96b1b14b2356411.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
