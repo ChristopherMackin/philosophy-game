@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://levels/debate_scene/debate_scene_manager.gd" id="1_g6ghv"]
 [ext_resource type="Resource" uid="uid://b78boumde1kyk" path="res://system/debate/debate_manager.tres" id="2_i7n4i"]
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="2_pghej"]
-[ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/ColorableCheckerboard.png" id="3_cx2hn"]
+[ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/debate/ColorableCheckerboard.png" id="3_cx2hn"]
 [ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/cpu_1.tres" id="3_dlycd"]
 [ext_resource type="Resource" uid="uid://b84dlq5bco5u" path="res://system/character/cpu_2.tres" id="4_gt1r5"]
 [ext_resource type="Script" path="res://script/ui/hand_ui.gd" id="5_ydk6y"]

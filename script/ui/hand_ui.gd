@@ -18,7 +18,17 @@ var ui_card_array : Array = []
 
 @export var card_prefab : PackedScene
 
+var _orgainze : bool = false
+
 signal animation_finished()
+
+func _process(delta):
+	if _orgainze:
+		organize_children()
+		_orgainze = false
+
+func queue_orgainze():
+	_orgainze = true
 
 func on_card_played(card : Card):
 	var cards = ui_card_array.map(func(x): return x.card)
@@ -61,25 +71,19 @@ func orgainze_cards(current_suit : Suit):
 		match relationship:
 			DebateSettings.SuitRelationship.SAME:
 				if ui_card.get_parent():
-					ui_card.reparent(SameContainer, false)
+					ui_card.reparent(SameContainer, true)
 				else:
 					SameContainer.add_child(ui_card)
 			DebateSettings.SuitRelationship.OPPOSING:
 				if ui_card.get_parent():
-					ui_card.reparent(OpposingContainer, false)
+					ui_card.reparent(OpposingContainer, true)
 				else:
 					OpposingContainer.add_child(ui_card)
 			DebateSettings.SuitRelationship.OFF_TOPIC:
 				if ui_card.get_parent():
-					ui_card.reparent(OffTopicContainer, false)
+					ui_card.reparent(OffTopicContainer, true)
 				else:
 					OffTopicContainer.add_child(ui_card)
-
-func _ready():
-	organize_children()
-
-func _process(delta):
-	organize_children()
 
 func organize_children():
 	var children = []

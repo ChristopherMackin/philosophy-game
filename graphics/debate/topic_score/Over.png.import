@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bghfj2hgfpii7"
-path="res://.godot/imported/SpeachBubbleDirection.png-70a2eaa78925aa9ee60da10ba53723cc.ctex"
+uid="uid://ddjnl0gaxlsqd"
+path="res://.godot/imported/Over.png-86b65350664d23bc9247288a41db6d6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/SpeachBubbleDirection.png"
-dest_files=["res://.godot/imported/SpeachBubbleDirection.png-70a2eaa78925aa9ee60da10ba53723cc.ctex"]
+source_file="res://graphics/debate/topic_score/Over.png"
+dest_files=["res://.godot/imported/Over.png-86b65350664d23bc9247288a41db6d6b.ctex"]
 
 [params]
 

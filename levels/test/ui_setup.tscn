@@ -1,8 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://bh0xv60k3jfru"]
+[gd_scene load_steps=33 format=3 uid="uid://bh0xv60k3jfru"]
 
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="1_i6vh5"]
-[ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/ColorableCheckerboard.png" id="2_50n12"]
-[ext_resource type="Texture2D" uid="uid://c2kwn46yalidl" path="res://graphics/CharacterBacking.png" id="3_qkfwt"]
+[ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/debate/ColorableCheckerboard.png" id="2_50n12"]
+[ext_resource type="Texture2D" uid="uid://c2kwn46yalidl" path="res://graphics/debate/CharacterBacking.png" id="3_qkfwt"]
 [ext_resource type="Script" path="res://script/ui/border_control.gd" id="3_uaqb6"]
 [ext_resource type="PackedScene" uid="uid://dn5nd0oyigp2r" path="res://prefabs/debate/topic_score.tscn" id="4_42lnc"]
 [ext_resource type="Script" path="res://levels/test/score_board.gd" id="4_du76p"]
@@ -11,10 +11,11 @@
 [ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/default_debate_settings.tres" id="6_dg5kg"]
 [ext_resource type="Script" path="res://script/test/debate_ui_test.gd" id="6_r4fwj"]
 [ext_resource type="Texture2D" uid="uid://cyd6pymf5ffjw" path="res://graphics/nine-tile-rect.svg" id="8_8d3i4"]
+[ext_resource type="Script" path="res://levels/test/debate_status.gd" id="9_t7ng6"]
 [ext_resource type="Texture2D" uid="uid://dhy73vopcfxrl" path="res://graphics/nine-tile-border.svg" id="9_up3sm"]
-[ext_resource type="Texture2D" uid="uid://dxcdbgsv7cixc" path="res://graphics/suit/Spade.svg" id="10_kv14u"]
-[ext_resource type="Texture2D" uid="uid://cwcqrjv6qxdm2" path="res://graphics/body_test.png" id="10_olhci"]
-[ext_resource type="Texture2D" uid="uid://bw02skhhrgi0x" path="res://graphics/body_foreground_test.png" id="11_01wlq"]
+[ext_resource type="Texture2D" uid="uid://dxcdbgsv7cixc" path="res://graphics/debate/suit/Spade.svg" id="10_kv14u"]
+[ext_resource type="Texture2D" uid="uid://cwcqrjv6qxdm2" path="res://graphics/character/christopher/body_test.png" id="10_olhci"]
+[ext_resource type="Texture2D" uid="uid://bw02skhhrgi0x" path="res://graphics/character/christopher/body_foreground_test.png" id="11_01wlq"]
 [ext_resource type="Resource" uid="uid://co2xjr8nu1uct" path="res://system/card/basic_doubt.tres" id="14_wmipr"]
 [ext_resource type="Script" path="res://script/systems/card/card_deck_config.gd" id="15_btlw0"]
 [ext_resource type="Resource" uid="uid://rds3vwhnnbsp" path="res://system/card/basic_faith.tres" id="16_3f8g2"]
@@ -31,7 +32,7 @@ background_canvas_max_layer = -128
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3bbs0"]
 shader = ExtResource("1_i6vh5")
-shader_parameter/color = Color(0.78, 0.78, 0.78, 1)
+shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/direction = Vector2(0.05, 0.15)
 shader_parameter/speed_scale = 0.5
 
@@ -175,6 +176,7 @@ patch_margin_left = 30
 patch_margin_top = 30
 patch_margin_right = 30
 patch_margin_bottom = 30
+script = ExtResource("9_t7ng6")
 
 [node name="MarginContainer" type="MarginContainer" parent="DebateUI/TopicScoreBoard/DebateStatus"]
 layout_mode = 1
@@ -266,6 +268,32 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_2rmtc")
 layout_mode = 2
 size_flags_horizontal = 0
 
+[node name="Menu" type="NinePatchRect" parent="DebateUI"]
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -730.0
+offset_bottom = 180.0
+grow_horizontal = 0
+texture = ExtResource("8_8d3i4")
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 64, 64)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="ColorRect" type="ColorRect" parent="DebateUI/Menu"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="DebateUITest" type="Node2D" parent="." node_paths=PackedStringArray("score_board", "hand_ui")]
 script = ExtResource("6_r4fwj")
 score_board = NodePath("../DebateUI/TopicScoreBoard/ScoreBoard")
@@ -295,13 +323,12 @@ debate_settings = ExtResource("6_dg5kg")
 card_prefab = ExtResource("18_7oukn")
 
 [node name="SameContainer" type="Node2D" parent="WorldspaceHandUI"]
-position = Vector2(-300, 0)
+position = Vector2(-150, 0)
 script = ExtResource("17_dtafm")
 container_width = 330.0
 preferred_margin = 50
 
 [node name="OpposingContainer" type="Node2D" parent="WorldspaceHandUI"]
-position = Vector2(-150, 0)
 script = ExtResource("17_dtafm")
 container_width = 330.0
 preferred_margin = 50
@@ -310,3 +337,7 @@ preferred_margin = 50
 script = ExtResource("17_dtafm")
 container_width = 330.0
 preferred_margin = 50
+
+[connection signal="on_orgainze" from="WorldspaceHandUI/SameContainer" to="WorldspaceHandUI" method="queue_orgainze"]
+[connection signal="on_orgainze" from="WorldspaceHandUI/OpposingContainer" to="WorldspaceHandUI" method="queue_orgainze"]
+[connection signal="on_orgainze" from="WorldspaceHandUI/OffTopicContainer" to="WorldspaceHandUI" method="queue_orgainze"]

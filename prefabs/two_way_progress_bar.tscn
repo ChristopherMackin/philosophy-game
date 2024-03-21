@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://b8ygn5m2gi6fg"]
 
-[ext_resource type="Script" path="res://script/general/two_way_progress_bar.gd" id="1_kv1uy"]
-[ext_resource type="Texture2D" uid="uid://lmqdonfbi3xh" path="res://graphics/topic_score/Under.png" id="2_yulrn"]
-[ext_resource type="Texture2D" uid="uid://ddjnl0gaxlsqd" path="res://graphics/topic_score/Over.png" id="3_47ydt"]
-[ext_resource type="Texture2D" uid="uid://dr4tsj117afdy" path="res://graphics/topic_score/Progress.png" id="4_0rc64"]
-[ext_resource type="Script" path="res://script/general/marked_progress_bar.gd" id="5_i5hwf"]
-[ext_resource type="Texture2D" uid="uid://dmnngn1i5pxpr" path="res://graphics/topic_score/UnderNegative.png" id="6_sq4cu"]
-[ext_resource type="Texture2D" uid="uid://dwi83a0ilkt1g" path="res://graphics/topic_score/OverNegative.png" id="7_m0spw"]
-[ext_resource type="Texture2D" uid="uid://bsscngbsnxhxr" path="res://graphics/topic_score/ProgressNegative.png" id="8_qc057"]
+[ext_resource type="Script" path="res://script/ui/two_way_progress_bar.gd" id="1_kv1uy"]
+[ext_resource type="Texture2D" uid="uid://lmqdonfbi3xh" path="res://graphics/debate/topic_score/Under.png" id="2_yulrn"]
+[ext_resource type="Texture2D" uid="uid://ddjnl0gaxlsqd" path="res://graphics/debate/topic_score/Over.png" id="3_47ydt"]
+[ext_resource type="Texture2D" uid="uid://dr4tsj117afdy" path="res://graphics/debate/topic_score/Progress.png" id="4_0rc64"]
+[ext_resource type="Script" path="res://script/ui/marked_progress_bar.gd" id="5_i5hwf"]
+[ext_resource type="Texture2D" uid="uid://dmnngn1i5pxpr" path="res://graphics/debate/topic_score/UnderNegative.png" id="6_sq4cu"]
+[ext_resource type="Texture2D" uid="uid://dwi83a0ilkt1g" path="res://graphics/debate/topic_score/OverNegative.png" id="7_m0spw"]
+[ext_resource type="Texture2D" uid="uid://bsscngbsnxhxr" path="res://graphics/debate/topic_score/ProgressNegative.png" id="8_qc057"]
 
 [node name="TwoWayProgressBar" type="VBoxContainer" node_paths=PackedStringArray("positive_progress_bar", "negative_progress_bar")]
 size_flags_horizontal = 4

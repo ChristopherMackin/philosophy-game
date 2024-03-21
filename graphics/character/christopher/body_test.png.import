@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyk1d1yuqscco"
-path="res://.godot/imported/Heart.svg-d6072c26454941650b5389be8209ff34.ctex"
+uid="uid://cwcqrjv6qxdm2"
+path="res://.godot/imported/body_test.png-7e6871198cd35f7c4ec4dfd727020470.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/suit/Heart.svg"
-dest_files=["res://.godot/imported/Heart.svg-d6072c26454941650b5389be8209ff34.ctex"]
+source_file="res://graphics/character/christopher/body_test.png"
+dest_files=["res://.godot/imported/body_test.png-7e6871198cd35f7c4ec4dfd727020470.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

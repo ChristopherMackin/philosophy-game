@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eejey7xdr2qw"
-path="res://.godot/imported/PlayerHead.png-717cb0d3f70b0cc70866e0ab25ebb5a6.ctex"
+uid="uid://bo4jbp6ii5mtg"
+path="res://.godot/imported/Diamond.svg-db7d23ae97a19cd74826c3a6720d02d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/PlayerHead.png"
-dest_files=["res://.godot/imported/PlayerHead.png-717cb0d3f70b0cc70866e0ab25ebb5a6.ctex"]
+source_file="res://graphics/debate/suit/Diamond.svg"
+dest_files=["res://.godot/imported/Diamond.svg-db7d23ae97a19cd74826c3a6720d02d3.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

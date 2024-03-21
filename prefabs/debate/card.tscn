@@ -1,19 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://cx2gcwo1r71x6"]
+[gd_scene load_steps=5 format=3 uid="uid://cx2gcwo1r71x6"]
 
-[ext_resource type="Texture2D" uid="uid://bm8tj1s26gjlg" path="res://graphics/TestCard.png" id="1_takw2"]
+[ext_resource type="Texture2D" uid="uid://rv6ysmx2rwea" path="res://graphics/debate/Card.png" id="1_esy70"]
 [ext_resource type="Script" path="res://script/ui/ui_card.gd" id="2_eh3j5"]
-[ext_resource type="Script" path="res://script/general/lerp_2d.gd" id="3_8p5ke"]
+[ext_resource type="Texture2D" uid="uid://bv6erurlfbjqj" path="res://graphics/debate/CardBorder.png" id="3_sf0ct"]
+[ext_resource type="Texture2D" uid="uid://c7whgk1hl126r" path="res://graphics/debate/suit/Club.svg" id="4_xxkcw"]
 
 [node name="Card" type="Sprite2D"]
-texture = ExtResource("1_takw2")
+texture = ExtResource("1_esy70")
 offset = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("2_eh3j5")
 
-[node name="Lerp2D" type="Node2D" parent="."]
-script = ExtResource("3_8p5ke")
-duration = 0.2
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.498039)
+position = Vector2(-10, 10)
+texture = ExtResource("1_esy70")
 
-[node name="Control" type="Control" parent="."]
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("1_esy70")
+
+[node name="Border" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("3_sf0ct")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-84, -133)
+texture = ExtResource("4_xxkcw")
+
+[node name="Card" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,5 +39,5 @@ offset_bottom = -175.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[connection signal="mouse_entered" from="Control" to="." method="mouse_entered"]
-[connection signal="mouse_exited" from="Control" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Card" to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="Card" to="." method="mouse_exited"]

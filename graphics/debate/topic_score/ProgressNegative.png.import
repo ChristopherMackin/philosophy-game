@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lmqdonfbi3xh"
-path="res://.godot/imported/Under.png-38e9a89176d8b74a45d94113fc671109.ctex"
+uid="uid://bsscngbsnxhxr"
+path="res://.godot/imported/ProgressNegative.png-2881acae8e8b188ef2978b04ef2997c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/topic_score/Under.png"
-dest_files=["res://.godot/imported/Under.png-38e9a89176d8b74a45d94113fc671109.ctex"]
+source_file="res://graphics/debate/topic_score/ProgressNegative.png"
+dest_files=["res://.godot/imported/ProgressNegative.png-2881acae8e8b188ef2978b04ef2997c0.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnkss4i2rstqj"
-path="res://.godot/imported/SpeechBubble.png-5b15d474c762d5454ffd4fac11c0dc93.ctex"
+uid="uid://dmnngn1i5pxpr"
+path="res://.godot/imported/UnderNegative.png-a63598d431b44fd8973c55ba2b34e273.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/SpeechBubble.png"
-dest_files=["res://.godot/imported/SpeechBubble.png-5b15d474c762d5454ffd4fac11c0dc93.ctex"]
+source_file="res://graphics/debate/topic_score/UnderNegative.png"
+dest_files=["res://.godot/imported/UnderNegative.png-a63598d431b44fd8973c55ba2b34e273.ctex"]
 
 [params]
 

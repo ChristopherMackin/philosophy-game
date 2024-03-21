@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddjnl0gaxlsqd"
-path="res://.godot/imported/Over.png-53759a96c47c11a954cdfdf59bf05ad3.ctex"
+uid="uid://c7whgk1hl126r"
+path="res://.godot/imported/Club.svg-d7695dd7716216e183747f1bd6183900.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/topic_score/Over.png"
-dest_files=["res://.godot/imported/Over.png-53759a96c47c11a954cdfdf59bf05ad3.ctex"]
+source_file="res://graphics/debate/suit/Club.svg"
+dest_files=["res://.godot/imported/Club.svg-d7695dd7716216e183747f1bd6183900.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

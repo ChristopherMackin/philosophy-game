@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsscngbsnxhxr"
-path="res://.godot/imported/ProgressNegative.png-812b155610186b0500a3a7163dc18b90.ctex"
+uid="uid://bv6erurlfbjqj"
+path="res://.godot/imported/CardBorder.png-27a05c40c361f8de3ef2a1611f62810c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/topic_score/ProgressNegative.png"
-dest_files=["res://.godot/imported/ProgressNegative.png-812b155610186b0500a3a7163dc18b90.ctex"]
+source_file="res://graphics/debate/CardBorder.png"
+dest_files=["res://.godot/imported/CardBorder.png-27a05c40c361f8de3ef2a1611f62810c.ctex"]
 
 [params]
 

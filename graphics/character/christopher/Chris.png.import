@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwcqrjv6qxdm2"
-path="res://.godot/imported/body_test.png-19f5d137cbd4eb3ef12ea28c5809b766.ctex"
+uid="uid://dsl4yxk2q8fnh"
+path="res://.godot/imported/Chris.png-3345e6da961e358fb6defac9fee1d260.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/body_test.png"
-dest_files=["res://.godot/imported/body_test.png-19f5d137cbd4eb3ef12ea28c5809b766.ctex"]
+source_file="res://graphics/character/christopher/Chris.png"
+dest_files=["res://.godot/imported/Chris.png-3345e6da961e358fb6defac9fee1d260.ctex"]
 
 [params]
 

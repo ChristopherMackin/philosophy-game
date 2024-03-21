@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmnngn1i5pxpr"
-path="res://.godot/imported/UnderNegative.png-b04787aa33d477228e6426013c0f9026.ctex"
+uid="uid://rv6ysmx2rwea"
+path="res://.godot/imported/Card.png-d2d8678ab66d051da4607344dec8bc9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/topic_score/UnderNegative.png"
-dest_files=["res://.godot/imported/UnderNegative.png-b04787aa33d477228e6426013c0f9026.ctex"]
+source_file="res://graphics/debate/Card.png"
+dest_files=["res://.godot/imported/Card.png-d2d8678ab66d051da4607344dec8bc9f.ctex"]
 
 [params]
 
