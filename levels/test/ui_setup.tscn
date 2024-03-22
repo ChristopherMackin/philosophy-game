@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bh0xv60k3jfru"]
+[gd_scene load_steps=30 format=3 uid="uid://bh0xv60k3jfru"]
 
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="1_i6vh5"]
 [ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/debate/ColorableCheckerboard.png" id="2_50n12"]
@@ -19,12 +19,29 @@
 [ext_resource type="Resource" uid="uid://co2xjr8nu1uct" path="res://system/card/basic_doubt.tres" id="14_wmipr"]
 [ext_resource type="Script" path="res://script/systems/card/card_deck_config.gd" id="15_btlw0"]
 [ext_resource type="Resource" uid="uid://rds3vwhnnbsp" path="res://system/card/basic_faith.tres" id="16_3f8g2"]
-[ext_resource type="Script" path="res://script/ui/hand_ui.gd" id="16_e0vmo"]
 [ext_resource type="Resource" uid="uid://bi7xtr16f8n55" path="res://system/card/basic_others.tres" id="17_d63pg"]
-[ext_resource type="Script" path="res://script/ui/fan_sprite_container.gd" id="17_dtafm"]
-[ext_resource type="PackedScene" uid="uid://cx2gcwo1r71x6" path="res://prefabs/debate/card.tscn" id="18_7oukn"]
 [ext_resource type="Resource" uid="uid://d20oliptotoln" path="res://system/card/basic_self.tres" id="18_tlkba"]
-[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://system/character/brain/player_brain.tres" id="22_d500a"]
+[ext_resource type="PackedScene" uid="uid://b36kc5k3rlqrl" path="res://prefabs/debate/worldspace_hand_ui.tscn" id="22_3ib0i"]
+
+[sub_resource type="Resource" id="Resource_51sli"]
+script = ExtResource("15_btlw0")
+card_data = ExtResource("14_wmipr")
+count = 1
+
+[sub_resource type="Resource" id="Resource_8sloe"]
+script = ExtResource("15_btlw0")
+card_data = ExtResource("16_3f8g2")
+count = 2
+
+[sub_resource type="Resource" id="Resource_q0gyy"]
+script = ExtResource("15_btlw0")
+card_data = ExtResource("17_d63pg")
+count = 1
+
+[sub_resource type="Resource" id="Resource_6rcaw"]
+script = ExtResource("15_btlw0")
+card_data = ExtResource("18_tlkba")
+count = 1
 
 [sub_resource type="Environment" id="Environment_1hbix"]
 background_mode = 3
@@ -48,27 +65,15 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="Resource" id="Resource_51sli"]
-script = ExtResource("15_btlw0")
-card_data = ExtResource("14_wmipr")
-count = 1
-
-[sub_resource type="Resource" id="Resource_8sloe"]
-script = ExtResource("15_btlw0")
-card_data = ExtResource("16_3f8g2")
-count = 2
-
-[sub_resource type="Resource" id="Resource_q0gyy"]
-script = ExtResource("15_btlw0")
-card_data = ExtResource("17_d63pg")
-count = 1
-
-[sub_resource type="Resource" id="Resource_6rcaw"]
-script = ExtResource("15_btlw0")
-card_data = ExtResource("18_tlkba")
-count = 1
-
 [node name="Root" type="Node2D"]
+
+[node name="DebateUITest" type="Node2D" parent="." node_paths=PackedStringArray("score_board", "hand_ui")]
+script = ExtResource("6_r4fwj")
+score_board = NodePath("../DebateUI/TopicScoreBoard/ScoreBoard")
+topic_array = Array[Resource("res://script/systems/debate/topic.gd")]([ExtResource("6_7rk1x"), ExtResource("5_h1rv1")])
+hand_ui = NodePath("../WorldspaceHandUI")
+card_deck_config_array = Array[ExtResource("15_btlw0")]([SubResource("Resource_51sli"), SubResource("Resource_8sloe"), SubResource("Resource_q0gyy"), SubResource("Resource_6rcaw")])
+debate_settings = ExtResource("6_dg5kg")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1hbix")
@@ -294,50 +299,16 @@ grow_horizontal = 0
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="DebateUITest" type="Node2D" parent="." node_paths=PackedStringArray("score_board", "hand_ui")]
-script = ExtResource("6_r4fwj")
-score_board = NodePath("../DebateUI/TopicScoreBoard/ScoreBoard")
-topic_array = Array[Resource("res://script/systems/debate/topic.gd")]([ExtResource("6_7rk1x"), ExtResource("5_h1rv1")])
-hand_ui = NodePath("../WorldspaceHandUI")
-card_deck_config_array = Array[ExtResource("15_btlw0")]([SubResource("Resource_51sli"), SubResource("Resource_8sloe"), SubResource("Resource_q0gyy"), SubResource("Resource_6rcaw")])
-debate_settings = ExtResource("6_dg5kg")
+[node name="Character" type="Node2D" parent="."]
+position = Vector2(1595, 972)
 
-[node name="BodyTest" type="Sprite2D" parent="."]
-position = Vector2(1602, 572)
+[node name="BodyTest" type="Sprite2D" parent="Character"]
+position = Vector2(2.08165e-12, -400)
 texture = ExtResource("10_olhci")
 
-[node name="BodyForegroundTest" type="Sprite2D" parent="."]
-position = Vector2(1641, 835)
+[node name="BodyForegroundTest" type="Sprite2D" parent="Character"]
+position = Vector2(55, -103)
 texture = ExtResource("11_01wlq")
 
-[node name="WorldspaceHandUI" type="Node2D" parent="." node_paths=PackedStringArray("SameContainer", "OpposingContainer", "OffTopicContainer")]
-position = Vector2(590, 1080)
-script = ExtResource("16_e0vmo")
-container_width = 1100.0
-preferred_margin = 50.0
-player_brain = ExtResource("22_d500a")
-SameContainer = NodePath("SameContainer")
-OpposingContainer = NodePath("OpposingContainer")
-OffTopicContainer = NodePath("OffTopicContainer")
+[node name="WorldspaceHandUI" parent="." instance=ExtResource("22_3ib0i")]
 debate_settings = ExtResource("6_dg5kg")
-card_prefab = ExtResource("18_7oukn")
-
-[node name="SameContainer" type="Node2D" parent="WorldspaceHandUI"]
-position = Vector2(-150, 0)
-script = ExtResource("17_dtafm")
-container_width = 330.0
-preferred_margin = 50
-
-[node name="OpposingContainer" type="Node2D" parent="WorldspaceHandUI"]
-script = ExtResource("17_dtafm")
-container_width = 330.0
-preferred_margin = 50
-
-[node name="OffTopicContainer" type="Node2D" parent="WorldspaceHandUI"]
-script = ExtResource("17_dtafm")
-container_width = 330.0
-preferred_margin = 50
-
-[connection signal="on_orgainze" from="WorldspaceHandUI/SameContainer" to="WorldspaceHandUI" method="queue_orgainze"]
-[connection signal="on_orgainze" from="WorldspaceHandUI/OpposingContainer" to="WorldspaceHandUI" method="queue_orgainze"]
-[connection signal="on_orgainze" from="WorldspaceHandUI/OffTopicContainer" to="WorldspaceHandUI" method="queue_orgainze"]

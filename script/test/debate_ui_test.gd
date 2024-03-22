@@ -9,6 +9,8 @@ extends Node2D
 @export var card_deck_config_array : Array[CardDeckConfig]
 var card_array : Array[Card]
 
+@export var loop : bool = true
+
 @export var debate_settings : DebateSettings
 
 @onready var rng = RandomNumberGenerator.new()
@@ -24,7 +26,7 @@ func _ready():
 		for i in config.count:
 			card_array.append(Card.new(config.card_data))
 	
-	while true:
+	while loop:
 		var card = card_array[rng.randi_range(0, card_array.size() - 1)]
 		
 		hand_ui.update_card_array(card_array, card.data.suit)

@@ -27,7 +27,7 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(-84, -133)
 texture = ExtResource("4_xxkcw")
 
-[node name="Card" type="Control" parent="."]
+[node name="Touch" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,5 +39,5 @@ offset_bottom = -175.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[connection signal="mouse_entered" from="Card" to="." method="mouse_entered"]
-[connection signal="mouse_exited" from="Card" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Touch" to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="Touch" to="." method="mouse_exited"]
