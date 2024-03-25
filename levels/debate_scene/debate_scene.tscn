@@ -1,15 +1,23 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnic63llbdfni"]
+[gd_scene load_steps=22 format=3 uid="uid://bnic63llbdfni"]
 
 [ext_resource type="Script" path="res://levels/debate_scene/debate_scene_manager.gd" id="1_g6ghv"]
 [ext_resource type="Resource" uid="uid://b78boumde1kyk" path="res://system/debate/debate_manager.tres" id="2_i7n4i"]
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="2_pghej"]
 [ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/debate/ColorableCheckerboard.png" id="3_cx2hn"]
 [ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/cpu_1.tres" id="3_dlycd"]
-[ext_resource type="Resource" uid="uid://b84dlq5bco5u" path="res://system/character/cpu_2.tres" id="4_gt1r5"]
-[ext_resource type="Script" path="res://script/ui/hand_ui.gd" id="5_ydk6y"]
-[ext_resource type="PackedScene" uid="uid://cx2gcwo1r71x6" path="res://prefabs/debate/card.tscn" id="6_w84ho"]
-[ext_resource type="Script" path="res://script/ui/spread_sprite_container.gd" id="7_ggt8l"]
-[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://system/character/brain/player_brain.tres" id="9_okuc1"]
+[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player.tres" id="4_1w7ao"]
+[ext_resource type="Texture2D" uid="uid://c2kwn46yalidl" path="res://graphics/debate/CharacterBacking.png" id="7_fskd3"]
+[ext_resource type="Script" path="res://script/ui/border_control.gd" id="8_2jye3"]
+[ext_resource type="Script" path="res://levels/test/score_board.gd" id="9_co5th"]
+[ext_resource type="PackedScene" uid="uid://dn5nd0oyigp2r" path="res://prefabs/debate/topic_score.tscn" id="10_g12w7"]
+[ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/default_debate_settings.tres" id="11_odjho"]
+[ext_resource type="Texture2D" uid="uid://cyd6pymf5ffjw" path="res://graphics/nine-tile-rect.svg" id="12_3v5uf"]
+[ext_resource type="Script" path="res://levels/debate_scene/current_card_ui.gd" id="14_ird8l"]
+[ext_resource type="Texture2D" uid="uid://dhy73vopcfxrl" path="res://graphics/nine-tile-border.svg" id="14_wpcx6"]
+[ext_resource type="Texture2D" uid="uid://dxcdbgsv7cixc" path="res://graphics/debate/suit/Spade.svg" id="15_i4hip"]
+[ext_resource type="Texture2D" uid="uid://cwcqrjv6qxdm2" path="res://graphics/character/christopher/body_test.png" id="16_gtbjq"]
+[ext_resource type="Texture2D" uid="uid://bw02skhhrgi0x" path="res://graphics/character/christopher/body_foreground_test.png" id="17_6wtm2"]
+[ext_resource type="PackedScene" uid="uid://b36kc5k3rlqrl" path="res://prefabs/debate/worldspace_hand_ui.tscn" id="18_3ymwh"]
 
 [sub_resource type="Environment" id="Environment_urq48"]
 background_mode = 3
@@ -21,13 +29,28 @@ shader_parameter/color = Color(0.78, 0.78, 0.78, 1)
 shader_parameter/direction = Vector2(0.05, 0.15)
 shader_parameter/speed_scale = 0.5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2rmtc"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [node name="Root" type="Node2D"]
 
-[node name="DebateSceneManager" type="Node2D" parent="."]
+[node name="DebateSceneManager" type="Node2D" parent="." node_paths=PackedStringArray("player_ui", "score_board", "current_card_ui")]
 script = ExtResource("1_g6ghv")
 debate_manager = ExtResource("2_i7n4i")
 character_1 = ExtResource("3_dlycd")
-character_2 = ExtResource("4_gt1r5")
+character_2 = ExtResource("4_1w7ao")
+player_ui = NodePath("../WorldspaceHandUI")
+score_board = NodePath("../DebateUI/PlayArea/ScoreBoard")
+current_card_ui = NodePath("../DebateUI/PlayArea/DebateStatus/MarginContainer/HBoxContainer/Left/CurrentCard")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_urq48")
@@ -48,16 +71,224 @@ texture = ExtResource("3_cx2hn")
 stretch_mode = 1
 
 [node name="MainCamera" type="Camera2D" parent="."]
-offset = Vector2(2.08165e-12, 2.08165e-12)
+offset = Vector2(960, 540)
 
-[node name="WorldspaceHandUI" type="Node2D" parent="." node_paths=PackedStringArray("card_container")]
-position = Vector2(0, 545)
-script = ExtResource("5_ydk6y")
-player_brain = ExtResource("9_okuc1")
-card_container = NodePath("CardContainer")
-card_prefab = ExtResource("6_w84ho")
+[node name="DebateUI" type="CanvasLayer" parent="."]
+layer = -1
 
-[node name="CardContainer" type="Node2D" parent="WorldspaceHandUI"]
-script = ExtResource("7_ggt8l")
-max_distance = 30.0
-container_width = 1536
+[node name="CharacterBacking" type="TextureRect" parent="DebateUI"]
+modulate = Color(1, 1, 1, 0.74902)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -740.0
+offset_top = -540.0
+offset_right = 3.0
+offset_bottom = 540.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("7_fskd3")
+
+[node name="Border" type="Control" parent="DebateUI" node_paths=PackedStringArray("top_bar", "bottom_bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_2jye3")
+top_bar = NodePath("TopBar")
+bottom_bar = NodePath("BottomBar")
+
+[node name="TopBar" type="ColorRect" parent="DebateUI/Border"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BottomBar" type="ColorRect" parent="DebateUI/Border"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="PlayArea" type="Control" parent="DebateUI"]
+layout_mode = 3
+anchor_right = 0.615
+anchor_bottom = 1.0
+offset_right = -0.800018
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreBoard" type="HBoxContainer" parent="DebateUI/PlayArea"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -354.0
+offset_right = 100.0
+offset_bottom = 354.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+alignment = 1
+script = ExtResource("9_co5th")
+topic_score = ExtResource("10_g12w7")
+debate_settings = ExtResource("11_odjho")
+
+[node name="DebateStatus" type="NinePatchRect" parent="DebateUI/PlayArea"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 180.0
+grow_horizontal = 2
+texture = ExtResource("12_3v5uf")
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 64, 64)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="DebateUI/PlayArea/DebateStatus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DebateUI/PlayArea/DebateStatus/MarginContainer"]
+layout_mode = 2
+
+[node name="Left" type="Control" parent="DebateUI/PlayArea/DebateStatus/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CurrentCard" type="NinePatchRect" parent="DebateUI/PlayArea/DebateStatus/MarginContainer/HBoxContainer/Left"]
+custom_minimum_size = Vector2(115.5, 82.5)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.75
+offset_top = -41.25
+offset_right = 57.75
+offset_bottom = 41.25
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("12_3v5uf")
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 64, 64)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+script = ExtResource("14_ird8l")
+
+[node name="Border" type="NinePatchRect" parent="DebateUI/PlayArea/DebateStatus/MarginContainer/HBoxContainer/Left/CurrentCard"]
+custom_minimum_size = Vector2(115.5, 82.5)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("14_wpcx6")
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 64, 64)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="Icon" type="TextureRect" parent="DebateUI/PlayArea/DebateStatus/MarginContainer/HBoxContainer/Left/CurrentCard"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.31
+anchor_top = 0.197
+anchor_right = 0.69
+anchor_bottom = 0.803
+offset_left = 1.945
+offset_top = 4.9975
+offset_right = -1.94501
+offset_bottom = -4.9975
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_i4hip")
+
+[node name="Right" type="Control" parent="DebateUI/PlayArea/DebateStatus/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSeparator" type="VSeparator" parent="DebateUI/PlayArea/DebateStatus/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_2rmtc")
+
+[node name="Control" type="Control" parent="DebateUI/PlayArea/DebateStatus/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Menu" type="NinePatchRect" parent="DebateUI"]
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -730.0
+offset_bottom = 180.0
+grow_horizontal = 0
+texture = ExtResource("12_3v5uf")
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 64, 64)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="ColorRect" type="ColorRect" parent="DebateUI/Menu"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Character" type="Node2D" parent="."]
+position = Vector2(1595, 972)
+
+[node name="BodyTest" type="Sprite2D" parent="Character"]
+position = Vector2(2.08165e-12, -400)
+texture = ExtResource("16_gtbjq")
+
+[node name="BodyForegroundTest" type="Sprite2D" parent="Character"]
+position = Vector2(55, -103)
+texture = ExtResource("17_6wtm2")
+
+[node name="WorldspaceHandUI" parent="." instance=ExtResource("18_3ymwh")]
+debate_settings = ExtResource("11_odjho")

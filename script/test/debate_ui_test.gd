@@ -32,5 +32,4 @@ func _ready():
 		hand_ui.update_card_array(card_array, card.data.suit)
 		
 		var index = debate_settings.get_topic_index(card.data.suit)
-		score_board.update_score(topic_array[index], randi_range(1, 5) * debate_settings.topic_array[index].suit_direction(card.data.suit))
 		await get_tree().create_timer(1).timeout

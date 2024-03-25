@@ -15,6 +15,7 @@ class_name HandUI
 @export var debate_settings : DebateSettings
 
 var ui_card_array : Array = []
+var current_suit : Suit = null
 
 @export var card_prefab : PackedScene
 
@@ -47,7 +48,7 @@ func add_cards(added_cards : Array):
 		
 		ui_card_array.append(ui_card)
 
-func update_card_array(hand_card_array : Array, current_suit : Suit):
+func update_card_array(hand_card_array : Array):
 	var to_add_array = hand_card_array.duplicate();
 	
 	for ui_card : UICard in ui_card_array.duplicate():
@@ -64,7 +65,12 @@ func update_card_array(hand_card_array : Array, current_suit : Suit):
 	add_cards(to_add_array)
 	orgainze_cards(current_suit)
 
-func orgainze_cards(current_suit : Suit):
+func orgainze_cards(suit : Suit):
+	if suit == null:
+		return
+	
+	current_suit = suit
+	
 	for ui_card : UICard in ui_card_array:
 		var relationship = debate_settings.get_suit_relationship(current_suit, ui_card.card.data.suit)
 		

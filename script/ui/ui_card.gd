@@ -25,8 +25,6 @@ func initialize(card : Card, on_click : Callable):
 	color = card.data.suit.color
 	
 	self.on_click = on_click
-	
-	print(get_rect().size)
 
 func mouse_entered():
 	z_index = 1

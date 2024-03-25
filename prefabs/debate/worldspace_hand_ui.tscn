@@ -17,7 +17,6 @@ OffTopicContainer = NodePath("OffTopicContainer")
 card_prefab = ExtResource("4_bv7vs")
 
 [node name="SameContainer" type="Node2D" parent="."]
-position = Vector2(-150, 0)
 script = ExtResource("5_oljpc")
 container_width = 330.0
 preferred_margin = 50
@@ -28,6 +27,7 @@ container_width = 330.0
 preferred_margin = 50
 
 [node name="OffTopicContainer" type="Node2D" parent="."]
+position = Vector2(325, 0)
 script = ExtResource("5_oljpc")
 container_width = 330.0
 preferred_margin = 50

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bh0xv60k3jfru"]
+[gd_scene load_steps=29 format=3 uid="uid://bh0xv60k3jfru"]
 
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="1_i6vh5"]
 [ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/debate/ColorableCheckerboard.png" id="2_50n12"]
@@ -11,7 +11,6 @@
 [ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/default_debate_settings.tres" id="6_dg5kg"]
 [ext_resource type="Script" path="res://script/test/debate_ui_test.gd" id="6_r4fwj"]
 [ext_resource type="Texture2D" uid="uid://cyd6pymf5ffjw" path="res://graphics/nine-tile-rect.svg" id="8_8d3i4"]
-[ext_resource type="Script" path="res://levels/test/debate_status.gd" id="9_t7ng6"]
 [ext_resource type="Texture2D" uid="uid://dhy73vopcfxrl" path="res://graphics/nine-tile-border.svg" id="9_up3sm"]
 [ext_resource type="Texture2D" uid="uid://dxcdbgsv7cixc" path="res://graphics/debate/suit/Spade.svg" id="10_kv14u"]
 [ext_resource type="Texture2D" uid="uid://cwcqrjv6qxdm2" path="res://graphics/character/christopher/body_test.png" id="10_olhci"]
@@ -181,7 +180,6 @@ patch_margin_left = 30
 patch_margin_top = 30
 patch_margin_right = 30
 patch_margin_bottom = 30
-script = ExtResource("9_t7ng6")
 
 [node name="MarginContainer" type="MarginContainer" parent="DebateUI/TopicScoreBoard/DebateStatus"]
 layout_mode = 1

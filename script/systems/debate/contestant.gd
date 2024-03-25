@@ -14,7 +14,7 @@ var hand_limit : int:
 var name : String:
 	get: return character.name
 
-signal on_hand_update(contestant : Contestant, hand : Array[Card])
+signal on_hand_updated(contestant: Contestant, hand : Array[Card])
 
 func _init(character : Character):
 	self.character = character
@@ -25,9 +25,9 @@ func ready_up():
 	draw_full_hand()
 
 func take_turn():
-	var card
+	var card = await brain.think()
 	
-	while hand.find(card) == -1:
+	while hand.map(func(x): return x.data).find(card.data) == -1:
 		card = await brain.think()
 	
 	discard_card(card)
@@ -43,14 +43,14 @@ func draw_full_hand():
 		hand.append(card)
 		added_cards.append(card)
 	
-	on_hand_update.emit(self, hand.duplicate(true))
+	on_hand_updated.emit(self, hand)
 
 func discard_card(card : Card):
 	var index = hand.find(card)
 	hand.remove_at(index)
 	deck.discard_card(card)
 	
-	on_hand_update.emit(self, hand.duplicate(true))
+	on_hand_updated.emit(self, hand.duplicate())
 	
 	if hand.size() <= 0:
 		draw_full_hand()
