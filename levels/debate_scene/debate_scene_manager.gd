@@ -12,6 +12,8 @@ var debate_action_queue : Queue = Queue.new()
 @export var player_ui : HandUI
 @export var score_board : ScoreBoard
 @export var current_card_ui : CurrentCardUI
+@export var debate_start_animator : AnimationPlayer
+@export var contestant_display : ContestantDisplay
 
 var is_animation_locked := false
 
@@ -31,28 +33,43 @@ func queue_animate():
 	
 	is_animation_locked = false
 
-func on_updated(var_name : String, old_value, new_value):
-	var method_name = "on_%s_updated" % var_name
-	if has_method(method_name):
-		Callable(self, method_name).call(old_value, new_value)
-
-func on_active_contestant_updated(old_contestant, new_contestant):
-	print(new_contestant.name)
-
-func on_current_topic_updated(old_value, new_value):
+func on_debate_start():
 	debate_action_queue.push(func():
-		score_board.update_topic(new_value)
+		debate_start_animator.play("debate_start")
 	)
 
-func on_current_topic_score_updated(old_value, new_value):
+func on_card_played(previous : Card, follow_up : Card, contestant : Contestant):
+	if contestant.character == character_1:
+		debate_action_queue.push(func():
+			contestant_display.play_card(follow_up)
+			await contestant_display.animation_finished
+		)
+
+func on_starting_card_played(card : Card):
 	debate_action_queue.push(func():
-		score_board.update_score(new_value)
+		contestant_display.play_card(card)
+		await contestant_display.animation_finished
+	)
+
+func on_current_card_updated(card : Card):
+	debate_action_queue.push(func():
+		current_card_ui.update_card(card)
+		player_ui.orgainze_cards(card.data.suit)
+	)
+
+func on_current_topic_updated(topic : Topic):
+	debate_action_queue.push(func():
+		score_board.update_topic(topic)
+	)
+
+func on_current_topic_score_updated(score : float):
+	debate_action_queue.push(func():
+		score_board.update_score(score)
 		await get_tree().create_timer(.5).timeout
 	)
 
-func on_current_card_updated(old_value, new_value):
-	player_ui.orgainze_cards(new_value.data.suit)
-	current_card_ui.update_card(new_value)
-
-func on_contestant_2_hand_updated(old_value, new_value):
-	player_ui.update_card_array(new_value)
+func on_hand_updated(contestant : Contestant, hand : Array[Card]):
+	debate_action_queue.push(func():
+		if(contestant.character == character_2):
+			player_ui.update_card_array(hand)
+	)

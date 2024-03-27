@@ -6,7 +6,6 @@ signal card_played
 
 func think():
 	var card = await card_played
-	print("PLAY")
 	return card
 
 func play_card(card):

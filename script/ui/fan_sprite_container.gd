@@ -12,6 +12,14 @@ signal on_orgainze
 
 var _organize : bool = false
 
+var are_children_enabled : bool = false:
+	get:
+		return are_children_enabled
+	set(val):
+		for child in get_children():
+			child.process_mode = Node.PROCESS_MODE_DISABLED if val else Node.PROCESS_MODE_INHERIT
+		are_children_enabled = val
+
 func _process(delta):
 	if _organize: 
 		organize_children()
@@ -19,6 +27,7 @@ func _process(delta):
 
 func _notification(what):
 	if what == 24:
+		are_children_enabled = are_children_enabled
 		queue_organize()
 
 func queue_organize():

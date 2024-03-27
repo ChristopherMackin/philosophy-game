@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx2gcwo1r71x6"]
+[gd_scene load_steps=5 format=3 uid="uid://cg87it1f3i6w1"]
 
 [ext_resource type="Texture2D" uid="uid://rv6ysmx2rwea" path="res://graphics/debate/Card.png" id="1_esy70"]
 [ext_resource type="Script" path="res://script/ui/ui_card.gd" id="2_eh3j5"]
@@ -26,18 +26,3 @@ texture = ExtResource("3_sf0ct")
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-84, -133)
 texture = ExtResource("4_xxkcw")
-
-[node name="Touch" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -125.0
-offset_top = -175.0
-offset_right = -125.0
-offset_bottom = -175.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[connection signal="mouse_entered" from="Touch" to="." method="mouse_entered"]
-[connection signal="mouse_exited" from="Touch" to="." method="mouse_exited"]

@@ -21,7 +21,7 @@ var current_suit : Suit = null
 
 var _orgainze : bool = false
 
-signal animation_finished()
+signal animation_finished
 
 func _process(delta):
 	if _orgainze:
@@ -30,6 +30,10 @@ func _process(delta):
 
 func queue_orgainze():
 	_orgainze = true
+
+func is_enabled(val : bool):
+	for child in get_children():
+		child.set_process(val)
 
 func on_card_played(card : Card):
 	var cards = ui_card_array.map(func(x): return x.card)

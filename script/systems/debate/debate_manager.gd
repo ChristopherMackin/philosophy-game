@@ -10,7 +10,7 @@ var contestant_2 : Contestant
 var active_contestant : Contestant:
 	get: return active_contestant
 	set(val):
-		on_updated.emit("active_contestant", active_contestant, val)
+		on_active_contestant_updated.emit(val)
 		active_contestant = val
 
 var inactive_contestant : Contestant:
@@ -24,19 +24,11 @@ var inactive_contestant : Contestant:
 
 var contestants : Array[Contestant]
 
-var previous_card : Card:
-	get: return previous_card
-	set(val):
-		on_updated.emit("previous_card", previous_card, val)
-		previous_card = val
+var previous_card : Card
 var previous_suit : Suit:
 	get: return previous_card.data.suit
 
-var follow_up_card : Card:
-	get: return follow_up_card
-	set(val):
-		on_updated.emit("follow_up_card", follow_up_card, val)
-		follow_up_card = val
+var follow_up_card : Card
 var follow_up_suit : Suit :
 	get:
 		return follow_up_card.data.suit
@@ -44,21 +36,17 @@ var follow_up_suit : Suit :
 var current_card : Card:
 	get: return current_card
 	set(val):
-		on_updated.emit("current_card", current_card, val)
+		on_current_card_updated.emit(val)
 		current_card = val
 var current_suit : Suit:
 	get: return current_card.data.suit
 
-var topic_score_float_array : Array[float]:
-	get: return topic_score_float_array
-	set(val): 
-		on_updated.emit("topic_score_float_array", topic_score_float_array, val)
-		topic_score_float_array = val
+var topic_score_float_array : Array[float]
 var current_topic_index : int:
 	get: return current_topic_index
 	set(val):
-		on_updated.emit("current_topic", current_topic, debate_settings.topic_array[val])
 		current_topic_index = val
+		on_current_topic_updated.emit(current_topic)
 
 var current_topic : Topic:
 	get:
@@ -66,18 +54,33 @@ var current_topic : Topic:
 var current_topic_score: float:
 	get: return topic_score_float_array[current_topic_index]
 	set(val):
-		on_updated.emit("current_topic_score", current_topic_score, val)
+		on_current_topic_score_updated.emit(val)
 		topic_score_float_array[current_topic_index] = val
 
 var subscriber_array : Array
 
-signal on_updated(var_name : String, old_value, new_value)
-signal on_game_start()
-signal on_game_end(winning_card : Card)
+#Events
+signal on_debate_start()
+
+#Updated Values
+signal on_active_contestant_updated(contestnat : Contestant)
+signal on_starting_card_played(card : Card)
+signal on_card_played(previous_card : Card, follow_up_card : Card, active_contestant : Contestant)
+signal on_hand_updated(contestant : Contestant, hand : Array[Card])
+signal on_current_card_updated(card : Card)
+signal on_current_topic_updated(topic : Topic)
+signal on_current_topic_score_updated(score : float)
 
 func connect_signals(node : Node):
 	var signals := [
-		on_updated
+		on_debate_start,
+		on_starting_card_played,
+		on_card_played,
+		on_active_contestant_updated,
+		on_hand_updated,
+		on_current_card_updated,
+		on_current_topic_updated,
+		on_current_topic_score_updated,
 	]
 	
 	for sig : Signal in signals:
@@ -95,18 +98,13 @@ func init(character_1 : Character, character_2 : Character):
 	contestant_1 = Contestant.new(character_1)
 	contestant_2 = Contestant.new(character_2)
 	
-	contestant_1.connect("on_hand_updated", func(contestant : Contestant, hand: Array[Card]):
-		on_updated.emit("contestant_1_hand", null, hand)
-	)
-		
-	contestant_2.connect("on_hand_updated", func(contestant : Contestant, hand: Array[Card]):
-		on_updated.emit("contestant_2_hand", null, hand)
-	)
-	
 	contestants.append(contestant_1)
 	contestants.append(contestant_2)
 	
 	for contestant in contestants:
+		contestant.connect("on_hand_updated", func(contestant: Contestant, hand: Array[Card]):
+			on_hand_updated.emit(contestant, hand)
+		)
 		contestant.ready_up()
 	
 	active_contestant = contestant_1
@@ -124,6 +122,8 @@ func game_loop():
 func set_initial_card():
 	current_card = await active_contestant.take_turn()
 	current_topic_index = debate_settings.get_topic_index(current_suit)
+	on_starting_card_played.emit(current_card)
+	on_debate_start.emit()
 
 func get_is_debate_over() -> bool:
 	for score in topic_score_float_array:
@@ -136,6 +136,8 @@ func active_player_turn():
 		previous_card = current_card
 		follow_up_card = await active_contestant.take_turn()
 		current_card = follow_up_card
+		
+		on_card_played.emit(previous_card, follow_up_card, active_contestant)
 		
 		var suit_relation = debate_settings.get_suit_relationship(
 				previous_suit, 

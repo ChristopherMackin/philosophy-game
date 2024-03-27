@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bnic63llbdfni"]
+[gd_scene load_steps=25 format=3 uid="uid://bnic63llbdfni"]
 
 [ext_resource type="Script" path="res://levels/debate_scene/debate_scene_manager.gd" id="1_g6ghv"]
 [ext_resource type="Resource" uid="uid://b78boumde1kyk" path="res://system/debate/debate_manager.tres" id="2_i7n4i"]
@@ -15,9 +15,9 @@
 [ext_resource type="Script" path="res://levels/debate_scene/current_card_ui.gd" id="14_ird8l"]
 [ext_resource type="Texture2D" uid="uid://dhy73vopcfxrl" path="res://graphics/nine-tile-border.svg" id="14_wpcx6"]
 [ext_resource type="Texture2D" uid="uid://dxcdbgsv7cixc" path="res://graphics/debate/suit/Spade.svg" id="15_i4hip"]
-[ext_resource type="Texture2D" uid="uid://cwcqrjv6qxdm2" path="res://graphics/character/christopher/body_test.png" id="16_gtbjq"]
-[ext_resource type="Texture2D" uid="uid://bw02skhhrgi0x" path="res://graphics/character/christopher/body_foreground_test.png" id="17_6wtm2"]
+[ext_resource type="PackedScene" uid="uid://cpypbqjlbvk60" path="res://prefabs/debate/character/character.tscn" id="17_abhnm"]
 [ext_resource type="PackedScene" uid="uid://b36kc5k3rlqrl" path="res://prefabs/debate/worldspace_hand_ui.tscn" id="18_3ymwh"]
+[ext_resource type="Texture2D" uid="uid://bsg2i65ex7g26" path="res://graphics/debate/debate_start_test.png" id="19_ij80i"]
 
 [sub_resource type="Environment" id="Environment_urq48"]
 background_mode = 3
@@ -41,9 +41,84 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="Animation" id="Animation_r5gwm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1000, 540)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lybdc"]
+resource_name = "debate_start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1060, 540), Vector2(1010, 540), Vector2(910, 540), Vector2(860, 540)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_finished"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rhbpt"]
+_data = {
+"RESET": SubResource("Animation_r5gwm"),
+"debate_start": SubResource("Animation_lybdc")
+}
+
 [node name="Root" type="Node2D"]
 
-[node name="DebateSceneManager" type="Node2D" parent="." node_paths=PackedStringArray("player_ui", "score_board", "current_card_ui")]
+[node name="DebateSceneManager" type="Node2D" parent="." node_paths=PackedStringArray("player_ui", "score_board", "current_card_ui", "debate_start_animator", "contestant_display")]
 script = ExtResource("1_g6ghv")
 debate_manager = ExtResource("2_i7n4i")
 character_1 = ExtResource("3_dlycd")
@@ -51,6 +126,8 @@ character_2 = ExtResource("4_1w7ao")
 player_ui = NodePath("../WorldspaceHandUI")
 score_board = NodePath("../DebateUI/PlayArea/ScoreBoard")
 current_card_ui = NodePath("../DebateUI/PlayArea/DebateStatus/MarginContainer/HBoxContainer/Left/CurrentCard")
+debate_start_animator = NodePath("../DebateStartTest/AnimationPlayer")
+contestant_display = NodePath("../Character")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_urq48")
@@ -279,16 +356,18 @@ grow_horizontal = 0
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Character" type="Node2D" parent="."]
-position = Vector2(1595, 972)
-
-[node name="BodyTest" type="Sprite2D" parent="Character"]
-position = Vector2(2.08165e-12, -400)
-texture = ExtResource("16_gtbjq")
-
-[node name="BodyForegroundTest" type="Sprite2D" parent="Character"]
-position = Vector2(55, -103)
-texture = ExtResource("17_6wtm2")
-
 [node name="WorldspaceHandUI" parent="." instance=ExtResource("18_3ymwh")]
+process_mode = 1
 debate_settings = ExtResource("11_odjho")
+
+[node name="Character" parent="." instance=ExtResource("17_abhnm")]
+
+[node name="DebateStartTest" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1000, 540)
+texture = ExtResource("19_ij80i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DebateStartTest"]
+libraries = {
+"": SubResource("AnimationLibrary_rhbpt")
+}
