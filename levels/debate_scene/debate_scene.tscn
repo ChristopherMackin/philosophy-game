@@ -1,18 +1,18 @@
 [gd_scene load_steps=25 format=3 uid="uid://bnic63llbdfni"]
 
-[ext_resource type="Script" path="res://levels/debate_scene/debate_scene_manager.gd" id="1_g6ghv"]
-[ext_resource type="Resource" uid="uid://b78boumde1kyk" path="res://system/debate/debate_manager.tres" id="2_i7n4i"]
+[ext_resource type="Script" path="res://script/debate_scene_manager.gd" id="1_g6ghv"]
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="2_pghej"]
 [ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/debate/ColorableCheckerboard.png" id="3_cx2hn"]
 [ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/cpu_1.tres" id="3_dlycd"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player.tres" id="4_1w7ao"]
+[ext_resource type="Resource" uid="uid://b78boumde1kyk" path="res://system/debate/debate_manager.tres" id="4_gr2x3"]
 [ext_resource type="Texture2D" uid="uid://c2kwn46yalidl" path="res://graphics/debate/CharacterBacking.png" id="7_fskd3"]
 [ext_resource type="Script" path="res://script/ui/border_control.gd" id="8_2jye3"]
 [ext_resource type="Script" path="res://levels/test/score_board.gd" id="9_co5th"]
 [ext_resource type="PackedScene" uid="uid://dn5nd0oyigp2r" path="res://prefabs/debate/topic_score.tscn" id="10_g12w7"]
 [ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/default_debate_settings.tres" id="11_odjho"]
 [ext_resource type="Texture2D" uid="uid://cyd6pymf5ffjw" path="res://graphics/nine-tile-rect.svg" id="12_3v5uf"]
-[ext_resource type="Script" path="res://levels/debate_scene/current_card_ui.gd" id="14_ird8l"]
+[ext_resource type="Script" path="res://script/current_card_ui.gd" id="14_ird8l"]
 [ext_resource type="Texture2D" uid="uid://dhy73vopcfxrl" path="res://graphics/nine-tile-border.svg" id="14_wpcx6"]
 [ext_resource type="Texture2D" uid="uid://dxcdbgsv7cixc" path="res://graphics/debate/suit/Spade.svg" id="15_i4hip"]
 [ext_resource type="PackedScene" uid="uid://cpypbqjlbvk60" path="res://prefabs/debate/character/character.tscn" id="17_abhnm"]
@@ -120,7 +120,6 @@ _data = {
 
 [node name="DebateSceneManager" type="Node2D" parent="." node_paths=PackedStringArray("player_ui", "score_board", "current_card_ui", "debate_start_animator", "contestant_display")]
 script = ExtResource("1_g6ghv")
-debate_manager = ExtResource("2_i7n4i")
 character_1 = ExtResource("3_dlycd")
 character_2 = ExtResource("4_1w7ao")
 player_ui = NodePath("../WorldspaceHandUI")
@@ -128,6 +127,7 @@ score_board = NodePath("../DebateUI/PlayArea/ScoreBoard")
 current_card_ui = NodePath("../DebateUI/PlayArea/DebateStatus/MarginContainer/HBoxContainer/Left/CurrentCard")
 debate_start_animator = NodePath("../DebateStartTest/AnimationPlayer")
 contestant_display = NodePath("../Character")
+manager = ExtResource("4_gr2x3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_urq48")

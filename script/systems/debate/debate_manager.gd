@@ -7,10 +7,16 @@ class_name DebateManager
 var contestant_1 : Contestant
 var contestant_2 : Contestant
 
+enum CardActions{
+	BUMP,
+	CHANGE_TOPIC,
+	CONTEST
+}
+
 var active_contestant : Contestant:
 	get: return active_contestant
 	set(val):
-		on_active_contestant_updated.emit(val)
+		for sub : DebateSubscriber in subscriber_array: sub.on_player_change(val)
 		active_contestant = val
 
 var inactive_contestant : Contestant:
@@ -33,20 +39,12 @@ var follow_up_suit : Suit :
 	get:
 		return follow_up_card.data.suit
 
-var current_card : Card:
-	get: return current_card
-	set(val):
-		on_current_card_updated.emit(val)
-		current_card = val
+var current_card : Card
 var current_suit : Suit:
 	get: return current_card.data.suit
 
 var topic_score_float_array : Array[float]
-var current_topic_index : int:
-	get: return current_topic_index
-	set(val):
-		current_topic_index = val
-		on_current_topic_updated.emit(current_topic)
+var current_topic_index : int
 
 var current_topic : Topic:
 	get:
@@ -54,42 +52,17 @@ var current_topic : Topic:
 var current_topic_score: float:
 	get: return topic_score_float_array[current_topic_index]
 	set(val):
-		on_current_topic_score_updated.emit(val)
 		topic_score_float_array[current_topic_index] = val
 
-var subscriber_array : Array
+var subscriber_array : Array[DebateSubscriber]
 
-#Events
-signal on_debate_start()
-
-#Updated Values
-signal on_active_contestant_updated(contestnat : Contestant)
-signal on_starting_card_played(card : Card)
-signal on_card_played(previous_card : Card, follow_up_card : Card, active_contestant : Contestant)
-signal on_hand_updated(contestant : Contestant, hand : Array[Card])
-signal on_current_card_updated(card : Card)
-signal on_current_topic_updated(topic : Topic)
-signal on_current_topic_score_updated(score : float)
-
-func connect_signals(node : Node):
-	var signals := [
-		on_debate_start,
-		on_starting_card_played,
-		on_card_played,
-		on_active_contestant_updated,
-		on_hand_updated,
-		on_current_card_updated,
-		on_current_topic_updated,
-		on_current_topic_score_updated,
-	]
+func subscribe(subscriber):
+	subscriber_array.append(subscriber)
+func unsubscribe(subscriber):
+	var index = subscriber_array.find(subscriber)
 	
-	for sig : Signal in signals:
-		var callable
-		if node.has_method(sig.get_name()):
-			callable = Callable(node, sig.get_name())
-			sig.connect(callable)
-		else:
-			push_error("UNIMPLEMENTED: %s" % sig.get_name())
+	if index != -1:
+		subscriber_array.remove_at(index)
 
 func init(character_1 : Character, character_2 : Character):
 	for i in debate_settings.topic_array.size():
@@ -101,11 +74,8 @@ func init(character_1 : Character, character_2 : Character):
 	contestants.append(contestant_1)
 	contestants.append(contestant_2)
 	
-	for contestant in contestants:
-		contestant.connect("on_hand_updated", func(contestant: Contestant, hand: Array[Card]):
-			on_hand_updated.emit(contestant, hand)
-		)
-		contestant.ready_up()
+	for c in contestants:
+		c.ready_up()
 	
 	active_contestant = contestant_1
 	
@@ -114,6 +84,7 @@ func init(character_1 : Character, character_2 : Character):
 func game_loop():
 	await set_initial_card()
 	active_contestant = inactive_contestant
+	for sub : DebateSubscriber in subscriber_array: sub.on_debate_start()
 	
 	while not get_is_debate_over():
 		await active_player_turn()
@@ -121,9 +92,8 @@ func game_loop():
 
 func set_initial_card():
 	current_card = await active_contestant.take_turn()
+	follow_up_card = current_card
 	current_topic_index = debate_settings.get_topic_index(current_suit)
-	on_starting_card_played.emit(current_card)
-	on_debate_start.emit()
 
 func get_is_debate_over() -> bool:
 	for score in topic_score_float_array:
@@ -137,7 +107,7 @@ func active_player_turn():
 		follow_up_card = await active_contestant.take_turn()
 		current_card = follow_up_card
 		
-		on_card_played.emit(previous_card, follow_up_card, active_contestant)
+		for sub : DebateSubscriber in subscriber_array: sub.on_card_played(previous_card, follow_up_card, active_contestant)
 		
 		var suit_relation = debate_settings.get_suit_relationship(
 				previous_suit, 
@@ -147,10 +117,15 @@ func active_player_turn():
 		match suit_relation:
 			DebateSettings.SuitRelationship.SAME:
 				current_topic_score += current_topic.suit_direction(follow_up_suit)
+				
+				for sub : DebateSubscriber in subscriber_array: sub.on_action_taken(CardActions.BUMP)
+				
 				if !get_is_debate_over(): await active_player_turn()
 			DebateSettings.SuitRelationship.OFF_TOPIC:
 				current_topic_index = debate_settings.get_topic_index(follow_up_suit)
 				current_topic_score += current_topic.suit_direction(follow_up_suit)
+				
+				for sub : DebateSubscriber in subscriber_array: sub.on_action_taken(CardActions.CHANGE_TOPIC)
 			DebateSettings.SuitRelationship.OPPOSING:
 				var starting : int = 0
 				#player gets an extra point since they just played a card
@@ -177,6 +152,8 @@ func active_player_turn():
 				
 				for contestant : Contestant in contestants:
 					contestant.draw_full_hand()
+				
+				for sub : DebateSubscriber in subscriber_array: sub.on_action_taken(CardActions.CONTEST)
 			_:
 				if !get_is_debate_over(): await active_player_turn()
 			

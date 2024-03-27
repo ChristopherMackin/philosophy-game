@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://cpypbqjlbvk60"]
 
-[ext_resource type="Script" path="res://levels/debate_scene/contestant_display.gd" id="1_qnkf2"]
+[ext_resource type="Script" path="res://script/contestant_display.gd" id="1_qnkf2"]
 [ext_resource type="Texture2D" uid="uid://hrv115q0gcgu" path="res://graphics/character/test/TestCharacterAtlas.png" id="2_ielk4"]
 [ext_resource type="PackedScene" uid="uid://cg87it1f3i6w1" path="res://prefabs/debate/card.tscn" id="3_u5arw"]
 
