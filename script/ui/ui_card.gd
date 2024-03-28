@@ -3,6 +3,8 @@ extends Sprite2D
 class_name UICard
 
 var mouse_over : bool
+var interactable : bool = false
+
 var card : Card
 var on_click : Callable = func(): print ("UNIMPLEMENTED")
 var color : Color = Color.BLACK:
@@ -27,16 +29,25 @@ func initialize(card : Card, on_click : Callable):
 	self.on_click = on_click
 
 func mouse_entered():
+	if !interactable:
+		return;
+	
 	z_index = 1
 	scale = Vector2.ONE * 1.1
 	mouse_over = true
 
 func mouse_exited():
+	if !interactable:
+		return;
+	
 	z_index = 0
 	scale = Vector2.ONE
 	mouse_over = false
 
 func _input(event):
+	if !interactable:
+		return;
+	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:

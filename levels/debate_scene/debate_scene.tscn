@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dn5nd0oyigp2r" path="res://prefabs/debate/topic_score.tscn" id="10_g12w7"]
 [ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/default_debate_settings.tres" id="11_odjho"]
 [ext_resource type="Texture2D" uid="uid://cyd6pymf5ffjw" path="res://graphics/nine-tile-rect.svg" id="12_3v5uf"]
-[ext_resource type="Script" path="res://script/current_card_ui.gd" id="14_ird8l"]
+[ext_resource type="Script" path="res://script/ui/current_card_ui.gd" id="14_ird8l"]
 [ext_resource type="Texture2D" uid="uid://dhy73vopcfxrl" path="res://graphics/nine-tile-border.svg" id="14_wpcx6"]
 [ext_resource type="Texture2D" uid="uid://dxcdbgsv7cixc" path="res://graphics/debate/suit/Spade.svg" id="15_i4hip"]
 [ext_resource type="PackedScene" uid="uid://cpypbqjlbvk60" path="res://prefabs/debate/character/character.tscn" id="17_abhnm"]
