@@ -1,33 +1,20 @@
-[gd_scene load_steps=25 format=3 uid="uid://bnic63llbdfni"]
+[gd_scene load_steps=20 format=3 uid="uid://bnic63llbdfni"]
 
-[ext_resource type="Script" path="res://script/debate_scene_manager.gd" id="1_g6ghv"]
-[ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="2_pghej"]
-[ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/debate/ColorableCheckerboard.png" id="3_cx2hn"]
+[ext_resource type="Script" path="res://script/old_debate_scene_manager.gd" id="1_g6ghv"]
 [ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/cpu_1.tres" id="3_dlycd"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player.tres" id="4_1w7ao"]
 [ext_resource type="Resource" uid="uid://b78boumde1kyk" path="res://system/debate/debate_manager.tres" id="4_gr2x3"]
 [ext_resource type="Texture2D" uid="uid://c2kwn46yalidl" path="res://graphics/debate/CharacterBacking.png" id="7_fskd3"]
 [ext_resource type="Script" path="res://script/ui/border_control.gd" id="8_2jye3"]
-[ext_resource type="Script" path="res://levels/test/score_board.gd" id="9_co5th"]
+[ext_resource type="Script" path="res://score_board.gd" id="9_co5th"]
 [ext_resource type="PackedScene" uid="uid://dn5nd0oyigp2r" path="res://prefabs/debate/topic_score.tscn" id="10_g12w7"]
 [ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/default_debate_settings.tres" id="11_odjho"]
 [ext_resource type="Texture2D" uid="uid://cyd6pymf5ffjw" path="res://graphics/nine-tile-rect.svg" id="12_3v5uf"]
 [ext_resource type="Script" path="res://script/ui/current_card_ui.gd" id="14_ird8l"]
 [ext_resource type="Texture2D" uid="uid://dhy73vopcfxrl" path="res://graphics/nine-tile-border.svg" id="14_wpcx6"]
 [ext_resource type="Texture2D" uid="uid://dxcdbgsv7cixc" path="res://graphics/debate/suit/Spade.svg" id="15_i4hip"]
-[ext_resource type="PackedScene" uid="uid://cpypbqjlbvk60" path="res://prefabs/debate/character/character.tscn" id="17_abhnm"]
 [ext_resource type="PackedScene" uid="uid://b36kc5k3rlqrl" path="res://prefabs/debate/worldspace_hand_ui.tscn" id="18_3ymwh"]
 [ext_resource type="Texture2D" uid="uid://bsg2i65ex7g26" path="res://graphics/debate/debate_start_test.png" id="19_ij80i"]
-
-[sub_resource type="Environment" id="Environment_urq48"]
-background_mode = 3
-background_canvas_max_layer = -128
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_th5x1"]
-shader = ExtResource("2_pghej")
-shader_parameter/color = Color(0.78, 0.78, 0.78, 1)
-shader_parameter/direction = Vector2(0.05, 0.15)
-shader_parameter/speed_scale = 0.5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2rmtc"]
 bg_color = Color(1, 1, 1, 1)
@@ -118,7 +105,7 @@ _data = {
 
 [node name="Root" type="Node2D"]
 
-[node name="DebateSceneManager" type="Node2D" parent="." node_paths=PackedStringArray("player_ui", "score_board", "current_card_ui", "debate_start_animator", "contestant_display")]
+[node name="DebateSceneManager" type="Node2D" parent="." node_paths=PackedStringArray("player_ui", "score_board", "current_card_ui", "debate_start_animator")]
 script = ExtResource("1_g6ghv")
 character_1 = ExtResource("3_dlycd")
 character_2 = ExtResource("4_1w7ao")
@@ -126,26 +113,7 @@ player_ui = NodePath("../WorldspaceHandUI")
 score_board = NodePath("../DebateUI/PlayArea/ScoreBoard")
 current_card_ui = NodePath("../DebateUI/PlayArea/DebateStatus/MarginContainer/HBoxContainer/Left/CurrentCard")
 debate_start_animator = NodePath("../DebateStartTest/AnimationPlayer")
-contestant_display = NodePath("../Character")
 manager = ExtResource("4_gr2x3")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_urq48")
-
-[node name="ScrollingBackground" type="CanvasLayer" parent="."]
-layer = -128
-offset = Vector2(2.08165e-12, 2.08165e-12)
-transform = Transform2D(1, 2.08165e-12, 2.08165e-12, 1, 2.08165e-12, 2.08165e-12)
-
-[node name="BackgroundTexture" type="TextureRect" parent="ScrollingBackground"]
-material = SubResource("ShaderMaterial_th5x1")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_cx2hn")
-stretch_mode = 1
 
 [node name="MainCamera" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
@@ -359,8 +327,6 @@ color = Color(0, 0, 0, 1)
 [node name="WorldspaceHandUI" parent="." instance=ExtResource("18_3ymwh")]
 process_mode = 1
 debate_settings = ExtResource("11_odjho")
-
-[node name="Character" parent="." instance=ExtResource("17_abhnm")]
 
 [node name="DebateStartTest" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)

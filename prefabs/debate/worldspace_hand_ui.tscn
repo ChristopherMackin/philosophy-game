@@ -2,18 +2,13 @@
 
 [ext_resource type="Script" path="res://script/ui/hand_ui.gd" id="1_ny0tj"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://system/character/brain/player_brain.tres" id="2_lbk2f"]
-[ext_resource type="PackedScene" uid="uid://cx2gcwo1r71x6" path="res://prefabs/debate/interactable_card.tscn" id="4_bv7vs"]
+[ext_resource type="PackedScene" uid="uid://cx2gcwo1r71x6" path="res://prefabs/debate/card.tscn" id="4_bv7vs"]
 [ext_resource type="Script" path="res://script/ui/fan_sprite_container.gd" id="5_oljpc"]
 
-[node name="WorldspaceHandUI" type="Node2D" node_paths=PackedStringArray("SameContainer", "OpposingContainer", "OffTopicContainer")]
+[node name="WorldspaceHandUI" type="Node2D"]
 position = Vector2(590, 1080)
 script = ExtResource("1_ny0tj")
-container_width = 1100.0
-preferred_margin = 50.0
 player_brain = ExtResource("2_lbk2f")
-SameContainer = NodePath("SameContainer")
-OpposingContainer = NodePath("OpposingContainer")
-OffTopicContainer = NodePath("OffTopicContainer")
 card_prefab = ExtResource("4_bv7vs")
 
 [node name="SameContainer" type="Node2D" parent="."]

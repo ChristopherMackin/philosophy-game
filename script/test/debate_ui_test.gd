@@ -3,11 +3,10 @@ extends Node2D
 @export var score_board : ScoreBoard
 
 @export var topic_array : Array[Topic]
+@export var character : Character
+var contestant : Contestant
 
 @export var hand_ui : HandUI
-
-@export var card_deck_config_array : Array[CardDeckConfig]
-var card_array : Array[Card]
 
 @export var loop : bool = true
 
@@ -18,18 +17,24 @@ var card_array : Array[Card]
 var index : int = 0
 
 func _ready():
-	
 	for topic : Topic in topic_array:
 		score_board.add_topic(topic)
 	
-	for config in card_deck_config_array:
-		for i in config.count:
-			card_array.append(Card.new(config.card_data))
+	contestant = Contestant.new(character)
+	contestant.ready_up()
 	
 	while loop:
-		var card = card_array[rng.randi_range(0, card_array.size() - 1)]
+		hand_ui.update_card_array(contestant.hand)
 		
-		hand_ui.update_card_array(card_array, card.data.suit)
+		var card = null
+		while !contestant.hand.has(card):
+			card = await contestant.brain.think()
+		
+		contestant.discard_card(card)
+		hand_ui.on_card_played(card)
 		
 		var index = debate_settings.get_topic_index(card.data.suit)
-		await get_tree().create_timer(1).timeout
+		var topic = debate_settings.topic_array[index]
+		
+		score_board.update_topic(topic)
+		score_board.update_score(rng.randi_range(1, 5) * topic.suit_direction(card.data.suit))

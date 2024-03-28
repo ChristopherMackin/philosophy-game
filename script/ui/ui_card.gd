@@ -3,7 +3,12 @@ extends Sprite2D
 class_name UICard
 
 var mouse_over : bool
-var interactable : bool = false
+var disabled : bool = true:
+	get: return disabled
+	set(val):
+		if !val:
+			mouse_exited()
+		disabled = val
 
 var card : Card
 var on_click : Callable = func(): print ("UNIMPLEMENTED")
@@ -29,7 +34,7 @@ func initialize(card : Card, on_click : Callable):
 	self.on_click = on_click
 
 func mouse_entered():
-	if !interactable:
+	if !disabled:
 		return;
 	
 	z_index = 1
@@ -37,15 +42,12 @@ func mouse_entered():
 	mouse_over = true
 
 func mouse_exited():
-	if !interactable:
-		return;
-	
 	z_index = 0
 	scale = Vector2.ONE
 	mouse_over = false
 
 func _input(event):
-	if !interactable:
+	if !disabled:
 		return;
 	
 	if event is InputEventMouseButton:
@@ -54,3 +56,6 @@ func _input(event):
 				if mouse_over == true:
 					on_click.call()
 
+func remove_interaction():
+	mouse_exited()
+	set_script(null)

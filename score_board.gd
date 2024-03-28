@@ -8,10 +8,6 @@ class_name ScoreBoard
 var topic_ui_tuple_array : Array[Tuple]
 var current_topic_index : int = -1
 
-func _enter_tree():
-	for topic : Topic in debate_settings.topic_array:
-		add_topic(topic)
-
 func add_topic(topic : Topic):
 	var score : TopicScoreUI = topic_score.instantiate()
 	add_child(score)

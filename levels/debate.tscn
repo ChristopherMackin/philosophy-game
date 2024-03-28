@@ -1,0 +1,99 @@
+[gd_scene load_steps=19 format=3 uid="uid://b8miu81cmhpvc"]
+
+[ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="1_1r430"]
+[ext_resource type="Texture2D" uid="uid://baxge7quvqnlc" path="res://graphics/debate/PlayArea.png" id="1_y3v1n"]
+[ext_resource type="Script" path="res://script/test/debate_ui_test.gd" id="1_ytk5d"]
+[ext_resource type="Resource" uid="uid://dffyay2m5bli1" path="res://system/debate/topic/people.tres" id="2_1v1wu"]
+[ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/debate/ColorableCheckerboard.png" id="2_558ab"]
+[ext_resource type="Script" path="res://score_board.gd" id="2_ybuk2"]
+[ext_resource type="PackedScene" uid="uid://dn5nd0oyigp2r" path="res://prefabs/debate/topic_score.tscn" id="3_bxedt"]
+[ext_resource type="Resource" uid="uid://bk02mkyem1nbs" path="res://system/debate/topic/religion.tres" id="3_fghbw"]
+[ext_resource type="Script" path="res://script/ui/hand_ui.gd" id="4_2me35"]
+[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player.tres" id="4_n2ufu"]
+[ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/default_debate_settings.tres" id="4_rsj8k"]
+[ext_resource type="Script" path="res://script/ui/fan_sprite_container.gd" id="5_w2i3q"]
+[ext_resource type="Texture2D" uid="uid://cn3pr5bk8h6tk" path="res://graphics/character/christopher/TestProfile.png" id="7_e6rh6"]
+[ext_resource type="Script" path="res://levels/discard_pile.gd" id="9_fjcny"]
+[ext_resource type="PackedScene" uid="uid://cg87it1f3i6w1" path="res://prefabs/debate/card.tscn" id="11_pbp4j"]
+[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://system/character/brain/player_brain.tres" id="14_7ti3u"]
+
+[sub_resource type="Environment" id="Environment_n8ny8"]
+background_mode = 3
+background_canvas_max_layer = -128
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xa3nk"]
+shader = ExtResource("1_1r430")
+shader_parameter/color = Color(0.780392, 0.266667, 0.266667, 1)
+shader_parameter/direction = Vector2(0.05, 0.15)
+shader_parameter/speed_scale = 0.5
+
+[node name="Root" type="Node2D" node_paths=PackedStringArray("score_board", "hand_ui")]
+script = ExtResource("1_ytk5d")
+score_board = NodePath("ScoreBoard")
+topic_array = Array[Resource("res://script/systems/debate/topic.gd")]([ExtResource("2_1v1wu"), ExtResource("3_fghbw")])
+character = ExtResource("4_n2ufu")
+hand_ui = NodePath("Hand")
+debate_settings = ExtResource("4_rsj8k")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n8ny8")
+
+[node name="ScrollingBackground" type="CanvasLayer" parent="."]
+layer = -128
+offset = Vector2(2.08165e-12, 2.08165e-12)
+transform = Transform2D(1, 2.08165e-12, 2.08165e-12, 1, 2.08165e-12, 2.08165e-12)
+
+[node name="BackgroundTexture" type="TextureRect" parent="ScrollingBackground"]
+material = SubResource("ShaderMaterial_xa3nk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_558ab")
+stretch_mode = 1
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(610, 540)
+texture = ExtResource("1_y3v1n")
+
+[node name="DiscardPile" type="Marker2D" parent="."]
+position = Vector2(960, 450)
+script = ExtResource("9_fjcny")
+
+[node name="Hand" type="Marker2D" parent="." node_paths=PackedStringArray("card_container", "discard_pile")]
+position = Vector2(600, 1078)
+script = ExtResource("4_2me35")
+player_brain = ExtResource("14_7ti3u")
+debate_settings = ExtResource("4_rsj8k")
+card_container = NodePath("FanSpriteContainer")
+discard_pile = NodePath("../DiscardPile")
+card_prefab = ExtResource("11_pbp4j")
+
+[node name="FanSpriteContainer" type="Node2D" parent="Hand"]
+script = ExtResource("5_w2i3q")
+preferred_margin = 200
+
+[node name="ScoreBoard" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 242.0
+offset_top = 102.0
+offset_right = 442.0
+offset_bottom = 810.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+alignment = 1
+script = ExtResource("2_ybuk2")
+topic_score = ExtResource("3_bxedt")
+debate_settings = ExtResource("4_rsj8k")
+
+[node name="CharacterProfile" type="Sprite2D" parent="."]
+position = Vector2(1570, 667)
+texture = ExtResource("7_e6rh6")

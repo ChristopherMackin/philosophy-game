@@ -1,28 +1,43 @@
 [gd_scene load_steps=5 format=3 uid="uid://cg87it1f3i6w1"]
 
-[ext_resource type="Texture2D" uid="uid://rv6ysmx2rwea" path="res://graphics/debate/Card.png" id="1_esy70"]
-[ext_resource type="Script" path="res://script/ui/ui_card.gd" id="2_eh3j5"]
-[ext_resource type="Texture2D" uid="uid://bv6erurlfbjqj" path="res://graphics/debate/CardBorder.png" id="3_sf0ct"]
-[ext_resource type="Texture2D" uid="uid://c7whgk1hl126r" path="res://graphics/debate/suit/Club.svg" id="4_xxkcw"]
+[ext_resource type="Texture2D" uid="uid://rv6ysmx2rwea" path="res://graphics/debate/Card.png" id="1_fwt7m"]
+[ext_resource type="Script" path="res://script/ui/ui_card.gd" id="2_g83dq"]
+[ext_resource type="Texture2D" uid="uid://bv6erurlfbjqj" path="res://graphics/debate/CardBorder.png" id="3_ygsdw"]
+[ext_resource type="Texture2D" uid="uid://c7whgk1hl126r" path="res://graphics/debate/suit/Club.svg" id="4_6002c"]
 
 [node name="Card" type="Sprite2D"]
-texture = ExtResource("1_esy70")
+texture = ExtResource("1_fwt7m")
 offset = Vector2(2.08165e-12, 2.08165e-12)
-script = ExtResource("2_eh3j5")
+script = ExtResource("2_g83dq")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.498039)
 position = Vector2(-10, 10)
-texture = ExtResource("1_esy70")
+texture = ExtResource("1_fwt7m")
 
 [node name="Body" type="Sprite2D" parent="."]
-texture = ExtResource("1_esy70")
+texture = ExtResource("1_fwt7m")
 
 [node name="Border" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
-texture = ExtResource("3_sf0ct")
+texture = ExtResource("3_ygsdw")
 
 [node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-84, -133)
-texture = ExtResource("4_xxkcw")
+texture = ExtResource("4_6002c")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -175.0
+offset_right = -125.0
+offset_bottom = -175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="mouse_entered" from="Control" to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="." method="mouse_exited"]

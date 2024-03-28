@@ -6,12 +6,10 @@ class_name DebateSceneManager
 
 var debate_action_queue : Queue = Queue.new()
 
-@export var debate_history : ConversationHistoryManager
 @export var player_ui : HandUI
 @export var score_board : ScoreBoard
 @export var current_card_ui : CurrentCardUI
 @export var debate_start_animator : AnimationPlayer
-@export var contestant_display : ContestantDisplay
 
 var is_animation_locked := false
 
@@ -36,8 +34,8 @@ func on_debate_start():
 		
 	debate_action_queue.push(func():
 		player_ui.update_card_array(player_hand, current_card.data.suit)
-		contestant_display.play_card(current_card)
-		await contestant_display.animation_finished
+		#contestant_display.play_card(current_card)
+		#await contestant_display.animation_finished
 		
 		current_card_ui.update_card(current_card)
 		debate_start_animator.play("debate_start")
@@ -69,8 +67,6 @@ func on_action_taken(type : DebateManager.CardActions):
 
 func character_1_play(previous : Card, follow_up : Card, contestant : Contestant):
 	debate_action_queue.push(func():
-		contestant_display.play_card(follow_up)
-		await contestant_display.animation_finished
 		
 		current_card_ui.update_card(follow_up)
 	)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hrv115q0gcgu"
-path="res://.godot/imported/TestCharacterAtlas.png-6c663c87c16bc1ffe9fd4c4f1cb09b0b.ctex"
+uid="uid://baxge7quvqnlc"
+path="res://.godot/imported/PlayArea.png-e9f98ac2bcbdeb58ca0e07ce5713a15e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/character/test/TestCharacterAtlas.png"
-dest_files=["res://.godot/imported/TestCharacterAtlas.png-6c663c87c16bc1ffe9fd4c4f1cb09b0b.ctex"]
+source_file="res://graphics/debate/PlayArea.png"
+dest_files=["res://.godot/imported/PlayArea.png-e9f98ac2bcbdeb58ca0e07ce5713a15e.ctex"]
 
 [params]
 

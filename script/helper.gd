@@ -14,3 +14,24 @@ static func lerp_to_position(node : Node2D, target : Vector2, duration : float):
 	lerp.starting_pos = node.position
 	lerp.target_pos = target
 	lerp.duration = duration
+	
+static func sort_children(node : Node2D, sort_func : Callable):
+	var children := node.get_children()
+	var sorted_nodes := children
+
+	sorted_nodes.sort_custom(
+		# For descending order use > 0
+		sort_func
+	)
+
+	for child in children:
+		node.remove_child(child)
+
+	for child in sorted_nodes:
+		node.add_child(child)
+
+static func set_parent(node : Node, parent: Node):
+	if node.get_parent() != null:
+		node.reparent(parent)
+	else:
+		parent.add_child(node)

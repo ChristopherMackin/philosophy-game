@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw02skhhrgi0x"
-path="res://.godot/imported/body_foreground_test.png-bf4cb2a98410f75f299e9d35a2df96d0.ctex"
+uid="uid://cn3pr5bk8h6tk"
+path="res://.godot/imported/TestProfile.png-857642c92b0bbfdf89f7b2bdcd4ba304.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/character/christopher/body_foreground_test.png"
-dest_files=["res://.godot/imported/body_foreground_test.png-bf4cb2a98410f75f299e9d35a2df96d0.ctex"]
+source_file="res://graphics/character/christopher/TestProfile.png"
+dest_files=["res://.godot/imported/TestProfile.png-857642c92b0bbfdf89f7b2bdcd4ba304.ctex"]
 
 [params]
 
