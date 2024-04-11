@@ -64,7 +64,6 @@ func organize_children():
 	
 	for child : Sprite2D in children:
 		child.position = pos
-		#Help.lerp_to_position(child, pos, .3)
 		pos += Vector2(margin, 0)
 	
 	on_orgainze.emit()

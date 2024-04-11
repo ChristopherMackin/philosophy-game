@@ -84,11 +84,13 @@ func init(character_1 : Character, character_2 : Character):
 func game_loop():
 	await set_initial_card()
 	active_contestant = inactive_contestant
-	for sub : DebateSubscriber in subscriber_array: sub.on_debate_start()
+	for sub : DebateSubscriber in subscriber_array: sub.on_debate_start(current_card)
 	
 	while not get_is_debate_over():
 		await active_player_turn()
 		active_contestant = inactive_contestant
+	
+	for sub : DebateSubscriber in subscriber_array: sub.on_debate_finished()
 
 func set_initial_card():
 	current_card = await active_contestant.take_turn()
@@ -131,14 +133,14 @@ func active_player_turn():
 				#player gets an extra point since they just played a card
 				var follow_up : int = 1
 				
-				for hand_card in contestant_1.hand:
+				for hand_card in inactive_contestant.hand:
 					if hand_card.data.suit == previous_suit:
-						contestant_1.discard_card(hand_card)
+						inactive_contestant.discard_card(hand_card)
 						starting += 1
 					
-				for hand_card in contestant_2.hand:
+				for hand_card in active_contestant.hand:
 					if hand_card.data.suit == follow_up_suit:
-						contestant_2.discard_card(hand_card)
+						active_contestant.discard_card(hand_card)
 						follow_up += 1
 				
 				var win_amount = follow_up - starting

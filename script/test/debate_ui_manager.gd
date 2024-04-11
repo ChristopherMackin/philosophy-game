@@ -1,0 +1,109 @@
+extends DebateSubscriber
+
+@export var debate_settings : DebateSettings
+@export var player : Character
+@export var computer : Character
+
+@onready var debate_profile : DebateProfileUI = $CharacterProfile
+@onready var score_board : ScoreBoard = $ScoreBoard
+@onready var player_hand_ui : PlayerHandUI = $PlayerHand
+@onready var computer_hand_ui : ComputerHandUI = $ComputerHand
+@onready var debate_start_animator := $DebateStartGraphic/AnimationPlayer
+
+var action_queue : Queue = Queue.new()
+var is_animation_locked := false
+
+func _ready():
+	super._ready()
+	action_queue.on_push = queue_animate
+	for topic in debate_settings.topic_array:
+		score_board.add_topic(topic)
+	
+	manager.init(computer, player)
+
+func queue_animate():
+	if is_animation_locked:
+		return
+	
+	is_animation_locked = true
+	
+	while action_queue.size() > 0:
+		await action_queue.pop().call()
+	
+	is_animation_locked = false
+
+func on_debate_start(starting_card : Card):
+	action_queue.push(func():
+		computer_card_played(starting_card)
+		debate_start_animator.play("debate_start")
+	)
+	queue_update_player_hands()
+	
+func on_player_change(contestant : Contestant):
+	if contestant.character == player:
+		computer_turn_end()
+		player_turn_begin()
+	else:
+		player_turn_end()
+		computer_turn_begin()
+	
+func on_card_played(previous_card : Card, follow_up_card : Card, active_contestant : Contestant):
+	if active_contestant.character == player:
+		player_card_played(follow_up_card)
+	else:
+		action_queue.push(func():
+			await get_tree().create_timer(.5).timeout 
+			computer_card_played(follow_up_card)
+		)
+
+func on_action_taken(type : DebateManager.CardActions):
+	var topic = manager.current_topic
+	var score = manager.current_topic_score
+	
+	queue_update_player_hands()
+	queue_update_score(topic, score)
+	
+func on_debate_finished():
+	print("DEBATE FINISHED")
+
+func player_turn_begin():
+	action_queue.push(func():
+		player_hand_ui.enabled = true
+	)
+
+func player_turn_end():
+	action_queue.push(func():
+		player_hand_ui.enabled = false
+	)
+
+func computer_turn_begin():
+	pass
+
+func computer_turn_end():
+	pass
+
+func queue_update_player_hands():
+	var player_hand := manager.contestant_2.hand
+	var computer_hand := manager.contestant_1.hand
+	
+	action_queue.push(func():
+		player_hand_ui.update_card_array(player_hand)
+	)
+
+func player_card_played(card: Card):
+	action_queue.push(func():
+		player_hand_ui.on_card_played(card)
+	)
+
+func computer_card_played(card : Card):
+	computer_hand_ui.on_card_played(card)
+	debate_profile.set_state(DebateProfileUI.ProfileState.PLAY_CARD)
+	await get_tree().create_timer(.2).timeout
+	debate_profile.set_state(DebateProfileUI.ProfileState.IDLE)
+	await get_tree().create_timer(.5).timeout 
+
+func queue_update_score(topic : Topic, score : float):
+	action_queue.push(func():
+		score_board.update_topic(topic)
+		score_board.update_score(score)
+	)

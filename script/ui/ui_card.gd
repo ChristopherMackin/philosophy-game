@@ -3,12 +3,18 @@ extends Sprite2D
 class_name UICard
 
 var mouse_over : bool
-var disabled : bool = true:
-	get: return disabled
+
+var enabled : bool = true:
+	get: return enabled
 	set(val):
-		if !val:
+		enabled = val
+		get_node("Touch").visible = enabled
+		
+		if enabled:
+			modulate = Color.WHITE
+		else:
 			mouse_exited()
-		disabled = val
+			modulate = Color.DARK_GRAY
 
 var card : Card
 var on_click : Callable = func(): print ("UNIMPLEMENTED")
@@ -23,7 +29,7 @@ var color : Color = Color.BLACK:
 var icon : Sprite2D
 var border : Sprite2D
 
-func initialize(card : Card, on_click : Callable):
+func initialize(card : Card, on_click : Callable = func(): pass):
 	icon = get_node("Icon")
 	border = get_node("Border")
 	
@@ -34,9 +40,6 @@ func initialize(card : Card, on_click : Callable):
 	self.on_click = on_click
 
 func mouse_entered():
-	if !disabled:
-		return;
-	
 	z_index = 1
 	scale = Vector2.ONE * 1.1
 	mouse_over = true
@@ -47,9 +50,6 @@ func mouse_exited():
 	mouse_over = false
 
 func _input(event):
-	if !disabled:
-		return;
-	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
@@ -58,4 +58,5 @@ func _input(event):
 
 func remove_interaction():
 	mouse_exited()
+	modulate = Color.WHITE
 	set_script(null)

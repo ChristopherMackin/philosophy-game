@@ -1,7 +1,7 @@
 @tool
 extends Node2D
 
-class_name HandUI
+class_name PlayerHandUI
 
 @export var player_brain : PlayerBrain
 
@@ -14,11 +14,12 @@ var ui_card_array : Array = []
 
 @export var card_prefab : PackedScene
 
-signal animation_finished
-
-func is_enabled(val : bool):
-	for child in get_children():
-		child.set_process(val)
+var enabled : bool = false:
+	get: return enabled
+	set(val):
+		enabled = val
+		for child in card_container.get_children():
+			child.enabled = val
 
 func on_card_played(card : Card):
 	var cards = ui_card_array.map(func(x): return x.card)
@@ -35,10 +36,14 @@ func add_cards(added_cards : Array):
 		var ui_card : UICard = card_prefab.instantiate()
 		
 		var index : int = ui_card_array.size()
-		var on_click : Callable = func() :
-			player_brain.play_card(card)
+		
+		var on_click : Callable
+		if player_brain:
+			on_click = func() :
+				player_brain.play_card(card)
 		
 		ui_card.initialize(card, on_click)
+		ui_card.enabled = enabled
 		
 		ui_card_array.append(ui_card)
 		
