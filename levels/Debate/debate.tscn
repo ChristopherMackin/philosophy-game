@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://script/ui/player_hand_ui.gd" id="4_2me35"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player.tres" id="4_n2ufu"]
 [ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/default_debate_settings.tres" id="4_rsj8k"]
-[ext_resource type="Resource" uid="uid://b78boumde1kyk" path="res://system/debate/debate_manager.tres" id="5_6ivbv"]
+[ext_resource type="Resource" uid="uid://bcst1gst5nbhk" path="res://system/debate/default_debate_manager.tres" id="5_1k5op"]
 [ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/cpu_1.tres" id="5_8w2te"]
 [ext_resource type="Script" path="res://script/ui/fan_sprite_container.gd" id="5_w2i3q"]
 [ext_resource type="Texture2D" uid="uid://cn3pr5bk8h6tk" path="res://graphics/character/christopher/playing_profile.png" id="7_e6rh6"]
@@ -174,7 +174,7 @@ script = ExtResource("1_ytk5d")
 debate_settings = ExtResource("4_rsj8k")
 player = ExtResource("4_n2ufu")
 computer = ExtResource("5_8w2te")
-manager = ExtResource("5_6ivbv")
+manager = ExtResource("5_1k5op")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n8ny8")

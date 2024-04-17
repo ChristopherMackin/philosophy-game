@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Deck" load_steps=11 format=3 uid="uid://j2kwsjpqxwf5"]
 
 [ext_resource type="Resource" uid="uid://rds3vwhnnbsp" path="res://system/card/basic_faith.tres" id="1_qac38"]
-[ext_resource type="Script" path="res://script/systems/card/card_deck_config.gd" id="2_q1t0m"]
+[ext_resource type="Script" path="res://script/system/card/card_deck_config.gd" id="2_q1t0m"]
 [ext_resource type="Resource" uid="uid://co2xjr8nu1uct" path="res://system/card/basic_doubt.tres" id="3_3addg"]
 [ext_resource type="Resource" uid="uid://bi7xtr16f8n55" path="res://system/card/basic_others.tres" id="4_h37nu"]
 [ext_resource type="Resource" uid="uid://d20oliptotoln" path="res://system/card/basic_self.tres" id="5_ks5dg"]

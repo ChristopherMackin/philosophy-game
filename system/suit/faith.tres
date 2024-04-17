@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Suit" load_steps=3 format=3 uid="uid://dskq0fe0vu0hx"]
 
-[ext_resource type="Script" path="res://script/systems/suit/suit.gd" id="1_lx4ug"]
+[ext_resource type="Script" path="res://script/system/suit/suit.gd" id="1_lx4ug"]
 [ext_resource type="Texture2D" uid="uid://bo4jbp6ii5mtg" path="res://graphics/debate/suit/Diamond.svg" id="1_vegtg"]
 
 [resource]

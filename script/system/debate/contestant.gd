@@ -5,14 +5,16 @@ class_name Contestant
 var character : Character
 var hand : Array[Card] = []
 
+var name : String:
+	get: return character.name
 var brain : Brain: 
 	get: return character.brain
 var deck : Deck:
 	get: return character.deck
-var hand_limit : int:
-	get: return character.hand_limit
-var name : String:
-	get: return character.name
+var hand_limit : int = 5
+
+var max_energy : int
+var current_energy : int
 
 func _init(character : Character):
 	self.character = character

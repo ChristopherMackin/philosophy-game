@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="DebateSettings" load_steps=4 format=3 uid="uid://dca2vkphr1vsk"]
 
-[ext_resource type="Script" path="res://script/systems/debate/debate_settings.gd" id="1_tqwb1"]
+[ext_resource type="Script" path="res://script/system/debate/debate_settings.gd" id="1_sgono"]
 [ext_resource type="Resource" uid="uid://bk02mkyem1nbs" path="res://system/debate/topic/religion.tres" id="2_lfnjb"]
 [ext_resource type="Resource" uid="uid://dffyay2m5bli1" path="res://system/debate/topic/people.tres" id="3_xemp5"]
 
 [resource]
-script = ExtResource("1_tqwb1")
-topic_array = Array[Resource("res://script/systems/debate/topic.gd")]([ExtResource("2_lfnjb"), ExtResource("3_xemp5")])
+script = ExtResource("1_sgono")
+topic_array = Array[Resource("res://script/system/debate/topic.gd")]([ExtResource("2_lfnjb"), ExtResource("3_xemp5")])
 win_amount = 5

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PlayerBrain" load_steps=2 format=3 uid="uid://beevy52aqog34"]
 
-[ext_resource type="Script" path="res://script/systems/character/brain/player_brain.gd" id="1_5ob43"]
+[ext_resource type="Script" path="res://script/system/character/brain/player_brain.gd" id="1_5ob43"]
 
 [resource]
 script = ExtResource("1_5ob43")

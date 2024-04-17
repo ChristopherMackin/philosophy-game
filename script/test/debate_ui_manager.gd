@@ -19,7 +19,7 @@ func _ready():
 	for topic in debate_settings.topic_array:
 		score_board.add_topic(topic)
 	
-	manager.init(computer, player)
+	manager.init(player, computer)
 
 func queue_animate():
 	if is_animation_locked:
@@ -47,22 +47,28 @@ func on_player_change(contestant : Contestant):
 		player_turn_end()
 		computer_turn_begin()
 	
-func on_card_played(previous_card : Card, follow_up_card : Card, active_contestant : Contestant):
+func on_card_played(card : Card, active_contestant : Contestant):
 	if active_contestant.character == player:
-		player_card_played(follow_up_card)
+		player_card_played(card)
 	else:
 		action_queue.push(func():
 			await get_tree().create_timer(.5).timeout 
-			computer_card_played(follow_up_card)
+			computer_card_played(card)
 		)
-
-func on_action_taken(type : DebateManager.CardActions):
+	
 	var topic = manager.current_topic
 	var score = manager.current_topic_score
 	
-	queue_update_player_hands()
 	queue_update_score(topic, score)
+	queue_update_player_hands()
 	
+func on_action_taken(action : CardAction, is_positive : bool):
+	var topic = manager.current_topic
+	var score = manager.current_topic_score
+	
+	queue_update_score(topic, score)
+	queue_update_player_hands()
+
 func on_debate_finished():
 	print("DEBATE FINISHED")
 
@@ -83,8 +89,8 @@ func computer_turn_end():
 	pass
 
 func queue_update_player_hands():
-	var player_hand := manager.contestant_2.hand
-	var computer_hand := manager.contestant_1.hand
+	var player_hand := manager.player.hand
+	var computer_hand := manager.computer.hand
 	
 	action_queue.push(func():
 		player_hand_ui.update_card_array(player_hand)

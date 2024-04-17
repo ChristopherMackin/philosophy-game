@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Suit" load_steps=3 format=3 uid="uid://c6656q8j5kypf"]
 
 [ext_resource type="Texture2D" uid="uid://c7whgk1hl126r" path="res://graphics/debate/suit/Club.svg" id="1_m8vff"]
-[ext_resource type="Script" path="res://script/systems/suit/suit.gd" id="1_ucshs"]
+[ext_resource type="Script" path="res://script/system/suit/suit.gd" id="1_ucshs"]
 
 [resource]
 script = ExtResource("1_ucshs")

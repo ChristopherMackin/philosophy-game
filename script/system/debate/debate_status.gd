@@ -2,24 +2,24 @@ extends Object
 
 class_name DebateStatus
 
-var contestant_1_name : String
-var contestant_1_hand : Array[Card]
+var player_name : String
+var player_hand : Array[Card]
 
-var contestant_2_name : String
-var contestant_2_hand : Array[Card]
+var computer_name : String
+var computer_hand : Array[Card]
 
 var active_contestant : String
 var inactive_contestant : String:
 	get:
-		if active_contestant == contestant_1_name:
-			return contestant_2_name
+		if active_contestant == player_name:
+			return computer_name
 		else:
-			return contestant_1_name
+			return player_name
 	set (val):
-		if val == contestant_1_name:
-			active_contestant = contestant_2_name
+		if val == player_name:
+			active_contestant = computer_name
 		else:
-			active_contestant =  contestant_1_name
+			active_contestant =  player_name
 
 var previous_card : Card
 var previous_suit : Suit:
@@ -44,11 +44,11 @@ var current_topic : Topic:
 		return debate_settings.topic_array[current_topic_index]
 
 func _init(manager : DebateManager):
-	contestant_1_name = manager.contestant_1.name
-	contestant_1_hand = manager.contestant_1.hand.duplicate()
+	player_name = manager.player.name
+	player_hand = manager.player.hand.duplicate()
 	
-	contestant_2_name = manager.contestant_2.name
-	contestant_2_hand = manager.contestant_2.hand.duplicate()
+	computer_name = manager.computer.name
+	computer_hand = manager.computer.hand.duplicate()
 	
 	active_contestant = manager.active_contestant.name
 	

@@ -1,15 +1,14 @@
 [gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://d21frda3buspp"]
 
-[ext_resource type="Script" path="res://script/systems/character/brain/simple_ai_brain.gd" id="1_7b3dc"]
+[ext_resource type="Script" path="res://script/system/character/brain/simple_ai_brain.gd" id="1_kulev"]
 [ext_resource type="Resource" uid="uid://mpntgihmhhme" path="res://system/deck/test_computer_deck_1.tres" id="2_8t5fy"]
-[ext_resource type="Script" path="res://script/systems/character/character.gd" id="3_h5cv8"]
+[ext_resource type="Script" path="res://script/system/character/character.gd" id="3_nqw71"]
 
 [sub_resource type="Resource" id="Resource_dm86r"]
-script = ExtResource("1_7b3dc")
+script = ExtResource("1_kulev")
 
 [resource]
-script = ExtResource("3_h5cv8")
+script = ExtResource("3_nqw71")
 name = "Computer 1"
 deck = ExtResource("2_8t5fy")
-hand_limit = 5
 brain = SubResource("Resource_dm86r")
