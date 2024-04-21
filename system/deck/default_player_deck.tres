@@ -1,36 +1,42 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=11 format=3 uid="uid://bf6wla5gua8yi"]
+[gd_resource type="Resource" script_class="Deck" load_steps=13 format=3 uid="uid://bf6wla5gua8yi"]
 
-[ext_resource type="Resource" uid="uid://rds3vwhnnbsp" path="res://system/card/basic_faith.tres" id="1_jbv4y"]
+[ext_resource type="Resource" uid="uid://rds3vwhnnbsp" path="res://system/card/faith/basic_faith.tres" id="1_hwlth"]
 [ext_resource type="Script" path="res://system/deck/deck.gd" id="1_u6ok3"]
 [ext_resource type="Script" path="res://script/system/card/card_deck_config.gd" id="2_kfx4t"]
-[ext_resource type="Resource" uid="uid://co2xjr8nu1uct" path="res://system/card/basic_doubt.tres" id="3_7lksf"]
-[ext_resource type="Resource" uid="uid://bi7xtr16f8n55" path="res://system/card/basic_others.tres" id="4_cksb5"]
-[ext_resource type="Resource" uid="uid://d20oliptotoln" path="res://system/card/basic_self.tres" id="5_q0sjp"]
+[ext_resource type="Resource" uid="uid://co2xjr8nu1uct" path="res://system/card/doubt/basic_doubt.tres" id="3_8dp0d"]
+[ext_resource type="Resource" uid="uid://bi7xtr16f8n55" path="res://system/card/others/basic_others.tres" id="4_2wusg"]
+[ext_resource type="Resource" uid="uid://d20oliptotoln" path="res://system/card/self/basic_self.tres" id="5_qyk7w"]
+[ext_resource type="Resource" uid="uid://cwwb7f6jm7yvu" path="res://system/card/doubt/boost_doubt.tres" id="6_p0kqs"]
 
 [sub_resource type="Resource" id="Resource_726yt"]
 resource_name = "Card Deck Config"
 script = ExtResource("2_kfx4t")
-card_data = ExtResource("1_jbv4y")
-count = 2
-
-[sub_resource type="Resource" id="Resource_qgjfg"]
-resource_name = "Card Deck Config"
-script = ExtResource("2_kfx4t")
-card_data = ExtResource("3_7lksf")
+card_data = ExtResource("1_hwlth")
 count = 2
 
 [sub_resource type="Resource" id="Resource_3v6ub"]
 resource_name = "Card Deck Config"
 script = ExtResource("2_kfx4t")
-card_data = ExtResource("4_cksb5")
+card_data = ExtResource("4_2wusg")
 count = 2
 
 [sub_resource type="Resource" id="Resource_1awok"]
 resource_name = "Card Deck Config"
 script = ExtResource("2_kfx4t")
-card_data = ExtResource("5_q0sjp")
+card_data = ExtResource("5_qyk7w")
 count = 2
+
+[sub_resource type="Resource" id="Resource_jjcvj"]
+script = ExtResource("2_kfx4t")
+card_data = ExtResource("6_p0kqs")
+count = 1
+
+[sub_resource type="Resource" id="Resource_qgjfg"]
+resource_name = "Card Deck Config"
+script = ExtResource("2_kfx4t")
+card_data = ExtResource("3_8dp0d")
+count = 1
 
 [resource]
 script = ExtResource("1_u6ok3")
-composition_card_deck_config_array = Array[ExtResource("2_kfx4t")]([SubResource("Resource_726yt"), SubResource("Resource_qgjfg"), SubResource("Resource_3v6ub"), SubResource("Resource_1awok")])
+composition_card_deck_config_array = Array[ExtResource("2_kfx4t")]([SubResource("Resource_726yt"), SubResource("Resource_3v6ub"), SubResource("Resource_1awok"), SubResource("Resource_jjcvj"), SubResource("Resource_qgjfg")])

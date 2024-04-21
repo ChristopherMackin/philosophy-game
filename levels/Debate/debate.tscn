@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b8miu81cmhpvc"]
+[gd_scene load_steps=29 format=3 uid="uid://b8miu81cmhpvc"]
 
 [ext_resource type="Script" path="res://script/test/debate_ui_manager.gd" id="1_ytk5d"]
 [ext_resource type="Script" path="res://score_board.gd" id="2_ybuk2"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cfnt1d0t3vhv8" path="res://graphics/debate/SpeechBox.png" id="18_at5yn"]
 [ext_resource type="Texture2D" uid="uid://bsg2i65ex7g26" path="res://graphics/debate/debate_start_test.png" id="19_n5t7n"]
 [ext_resource type="Texture2D" uid="uid://cjo0f6nscstvy" path="res://graphics/debate/EnergyPool.png" id="21_jvlp5"]
+[ext_resource type="Script" path="res://levels/Debate/energy-pool.gd" id="22_7jpk4"]
 
 [sub_resource type="Animation" id="Animation_0gytr"]
 length = 0.001
@@ -83,6 +84,9 @@ _data = {
 "RESET": SubResource("Animation_0gytr"),
 "debate_start": SubResource("Animation_pho32")
 }
+
+[sub_resource type="SystemFont" id="SystemFont_slgg3"]
+font_names = PackedStringArray("Jura")
 
 [sub_resource type="SystemFont" id="SystemFont_115tp"]
 font_names = PackedStringArray("Jura")
@@ -168,6 +172,21 @@ texture = ExtResource("18_at5yn")
 position = Vector2(40, 820)
 texture = ExtResource("21_jvlp5")
 offset = Vector2(64, 2.08165e-12)
+script = ExtResource("22_7jpk4")
+
+[node name="AmountLabel" type="RichTextLabel" parent="EnergyPool"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.6, 0.827451, 0.956863, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_slgg3")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[center]3"
 
 [node name="Clock" type="NinePatchRect" parent="."]
 offset_left = 885.0

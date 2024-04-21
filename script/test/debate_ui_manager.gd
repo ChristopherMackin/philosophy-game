@@ -9,6 +9,7 @@ extends DebateSubscriber
 @onready var player_hand_ui : PlayerHandUI = $PlayerHand
 @onready var computer_hand_ui : ComputerHandUI = $ComputerHand
 @onready var debate_start_animator := $DebateStartGraphic/AnimationPlayer
+@onready var energy_pool := $EnergyPool
 
 var action_queue : Queue = Queue.new()
 var is_animation_locked := false
@@ -42,14 +43,14 @@ func on_debate_start(starting_card : Card):
 func on_player_change(contestant : Contestant):
 	if contestant.character == player:
 		computer_turn_end()
-		player_turn_begin()
+		player_turn_begin(contestant.current_energy)
 	else:
 		player_turn_end()
 		computer_turn_begin()
 	
 func on_card_played(card : Card, active_contestant : Contestant):
 	if active_contestant.character == player:
-		player_card_played(card)
+		player_card_played(card, active_contestant)
 	else:
 		action_queue.push(func():
 			await get_tree().create_timer(.5).timeout 
@@ -72,9 +73,10 @@ func on_action_taken(action : CardAction, is_positive : bool):
 func on_debate_finished():
 	print("DEBATE FINISHED")
 
-func player_turn_begin():
+func player_turn_begin(current_energy : int):
 	action_queue.push(func():
 		player_hand_ui.enabled = true
+		energy_pool.set_energy(current_energy)
 	)
 
 func player_turn_end():
@@ -96,9 +98,10 @@ func queue_update_player_hands():
 		player_hand_ui.update_card_array(player_hand, suit)
 	)
 
-func player_card_played(card: Card):
+func player_card_played(card: Card, active_contestant : Contestant):
 	action_queue.push(func():
 		player_hand_ui.on_card_played(card)
+		energy_pool.set_energy(active_contestant.current_energy)
 	)
 
 func computer_card_played(card : Card):

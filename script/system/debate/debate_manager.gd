@@ -89,32 +89,33 @@ func get_is_debate_over() -> bool:
 	return false
 
 func active_player_turn():
-	var previous_card = current_card
-	current_card = await active_contestant.take_turn()
+	while active_contestant.current_energy > 0 and !get_is_debate_over():
+		var previous_card = current_card
+		current_card = await active_contestant.take_turn()
+		
+		var suit_relation = debate_settings.get_suit_relationship(
+			previous_card.data.suit, 
+			current_suit
+		)
+		
+		current_topic_index = debate_settings.get_topic_index(current_suit)
+		current_topic_score += current_topic.suit_direction(current_suit)
+		
+		for sub : DebateSubscriber in subscriber_array: sub.on_card_played(current_card, active_contestant)
+		
+		match suit_relation:
+			DebateSettings.SuitRelationship.SAME:
+				var action = current_card.data.action
+				await action.positive_action(self);
+				for sub : DebateSubscriber in subscriber_array: sub.on_action_taken(action, true)
+			DebateSettings.SuitRelationship.OPPOSING:
+				var action = current_card.data.action
+				await action.negative_action(self);
+				for sub : DebateSubscriber in subscriber_array: sub.on_action_taken(action, false)
+			_:
+				pass
 	
-	var suit_relation = debate_settings.get_suit_relationship(
-		previous_card.data.suit, 
-		current_suit
-	)
-	
-	current_topic_index = debate_settings.get_topic_index(current_suit)
-	current_topic_score += current_topic.suit_direction(current_suit)
-	
-	for sub : DebateSubscriber in subscriber_array: sub.on_card_played(current_card, active_contestant)
-	
-	match suit_relation:
-		DebateSettings.SuitRelationship.SAME:
-			var action = current_card.data.action
-			await action.positive_action(self);
-			for sub : DebateSubscriber in subscriber_array: sub.on_action_taken(action, true)
-		DebateSettings.SuitRelationship.OPPOSING:
-			var action = current_card.data.action
-			await action.negative_action(self);
-			for sub : DebateSubscriber in subscriber_array: sub.on_action_taken(action, false)
-		_:
-			pass
-	
-	active_contestant.draw_full_hand()
+	active_contestant.clean_up()
 
 func increase_suit_score(suit : Suit, amount : int):
 	pass

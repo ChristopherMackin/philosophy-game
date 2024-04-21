@@ -24,6 +24,7 @@ func _init(character : Character):
 func ready_up():
 	deck.reset_deck()
 	draw_full_hand()
+	current_energy = energy_limit
 
 func take_turn():
 	var card = await brain.think()
@@ -32,7 +33,12 @@ func take_turn():
 		card = await brain.think()
 	
 	discard_card(card)
+	current_energy -= 1
 	return card
+
+func clean_up():
+	draw_full_hand()
+	current_energy = energy_limit
 
 func draw_full_hand():
 	var added_cards = []

@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Deck" load_steps=11 format=3 uid="uid://mpntgihmhhme"]
 
-[ext_resource type="Resource" uid="uid://rds3vwhnnbsp" path="res://system/card/basic_faith.tres" id="1_abjll"]
+[ext_resource type="Resource" uid="uid://rds3vwhnnbsp" path="res://system/card/faith/basic_faith.tres" id="1_abjll"]
 [ext_resource type="Script" path="res://script/system/card/card_deck_config.gd" id="2_qsqd0"]
-[ext_resource type="Resource" uid="uid://co2xjr8nu1uct" path="res://system/card/basic_doubt.tres" id="3_7so03"]
-[ext_resource type="Resource" uid="uid://bi7xtr16f8n55" path="res://system/card/basic_others.tres" id="4_3s003"]
-[ext_resource type="Resource" uid="uid://d20oliptotoln" path="res://system/card/basic_self.tres" id="5_iuvj3"]
+[ext_resource type="Resource" uid="uid://co2xjr8nu1uct" path="res://system/card/doubt/basic_doubt.tres" id="3_7so03"]
+[ext_resource type="Resource" uid="uid://bi7xtr16f8n55" path="res://system/card/others/basic_others.tres" id="4_3s003"]
+[ext_resource type="Resource" uid="uid://d20oliptotoln" path="res://system/card/self/basic_self.tres" id="5_iuvj3"]
 [ext_resource type="Script" path="res://system/deck/deck.gd" id="6_04y8a"]
 
 [sub_resource type="Resource" id="Resource_726yt"]

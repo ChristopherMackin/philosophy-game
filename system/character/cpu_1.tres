@@ -12,3 +12,5 @@ script = ExtResource("3_nqw71")
 name = "Computer 1"
 deck = ExtResource("2_8t5fy")
 brain = SubResource("Resource_dm86r")
+hand_limit = 5
+energy_level = 2
