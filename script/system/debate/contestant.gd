@@ -11,9 +11,10 @@ var brain : Brain:
 	get: return character.brain
 var deck : Deck:
 	get: return character.deck
-var hand_limit : int = 5
-
-var max_energy : int
+var hand_limit : int:
+	get: return character.hand_limit
+var energy_limit : int:
+	get: return character.energy_level
 var current_energy : int
 
 func _init(character : Character):

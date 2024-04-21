@@ -5,7 +5,7 @@ class_name TopicScoreUI
 
 signal animation_finished
 
-@export var progress_bar : TwoWayProgressBar
+@export var progress_bar : HTwoWayProgressBar
 @export var positive_icon : TextureRect
 @export var negative_icon : TextureRect
 

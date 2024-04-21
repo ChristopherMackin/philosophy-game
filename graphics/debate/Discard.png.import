@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2rm403t0vnmy"
-path="res://.godot/imported/nine_slice_box.png-125c733a578f6a6760f014090cfc7fa5.ctex"
+uid="uid://co0rp83hwgwbk"
+path="res://.godot/imported/Discard.png-26438a3fad930117b9326859a41afd38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/nine_slice_box.png"
-dest_files=["res://.godot/imported/nine_slice_box.png-125c733a578f6a6760f014090cfc7fa5.ctex"]
+source_file="res://graphics/debate/Discard.png"
+dest_files=["res://.godot/imported/Discard.png-26438a3fad930117b9326859a41afd38.ctex"]
 
 [params]
 

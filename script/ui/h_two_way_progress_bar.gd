@@ -1,7 +1,7 @@
 @tool
-extends VBoxContainer
+extends HBoxContainer
 
-class_name TwoWayProgressBar
+class_name HTwoWayProgressBar
 
 @export var positive_progress_bar : MarkedProgressBar
 @export var negative_progress_bar : MarkedProgressBar

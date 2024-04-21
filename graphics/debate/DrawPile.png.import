@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyd6pymf5ffjw"
-path="res://.godot/imported/nine-tile-rect.svg-7b4f533785ad357e2c61bd1e7a2bf926.ctex"
+uid="uid://c6rj07f3bix08"
+path="res://.godot/imported/DrawPile.png-556ce59e30e5e20a83e3c17c3dc50e5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/nine-tile-rect.svg"
-dest_files=["res://.godot/imported/nine-tile-rect.svg-7b4f533785ad357e2c61bd1e7a2bf926.ctex"]
+source_file="res://graphics/debate/DrawPile.png"
+dest_files=["res://.godot/imported/DrawPile.png-556ce59e30e5e20a83e3c17c3dc50e5f.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

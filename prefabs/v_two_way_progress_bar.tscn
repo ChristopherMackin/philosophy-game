@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8ygn5m2gi6fg"]
+
+[ext_resource type="Script" path="res://script/ui/v_two_way_progress_bar.gd" id="1_myy6w"]
+[ext_resource type="Script" path="res://script/ui/marked_progress_bar.gd" id="5_pv4x5"]
+
+[node name="VTwoWayProgressBar" type="VBoxContainer" node_paths=PackedStringArray("positive_progress_bar", "negative_progress_bar")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+script = ExtResource("1_myy6w")
+positive_progress_bar = NodePath("PositiveProgressBar")
+negative_progress_bar = NodePath("NegitiveProgressBar")
+
+[node name="PositiveProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 0.0
+step = 2.08165e-12
+fill_mode = 3
+script = ExtResource("5_pv4x5")
+divider_color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[node name="NegitiveProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 0.0
+fill_mode = 2
+script = ExtResource("5_pv4x5")
+divider_color = Color(0.172549, 0.172549, 0.172549, 1)

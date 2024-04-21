@@ -1,30 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://cg87it1f3i6w1"]
+[gd_scene load_steps=6 format=3 uid="uid://cg87it1f3i6w1"]
 
-[ext_resource type="Texture2D" uid="uid://rv6ysmx2rwea" path="res://graphics/debate/Card.png" id="1_fwt7m"]
+[ext_resource type="Texture2D" uid="uid://cdgm8fe6kioo1" path="res://graphics/debate/CardBackrgound.png" id="2_g1k32"]
 [ext_resource type="Script" path="res://script/ui/ui_card.gd" id="2_g83dq"]
-[ext_resource type="Texture2D" uid="uid://bv6erurlfbjqj" path="res://graphics/debate/CardBorder.png" id="3_ygsdw"]
+[ext_resource type="Texture2D" uid="uid://c86adv4yqkbgh" path="res://graphics/debate/CardBorder.png" id="3_ygsdw"]
 [ext_resource type="Texture2D" uid="uid://c7whgk1hl126r" path="res://graphics/debate/suit/Club.svg" id="4_6002c"]
+[ext_resource type="Texture2D" uid="uid://bq241k18ehxob" path="res://graphics/debate/card/PlusPoints.png" id="4_f0cbv"]
 
 [node name="Card" type="Sprite2D"]
-texture = ExtResource("1_fwt7m")
+texture = ExtResource("2_g1k32")
 offset = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("2_g83dq")
 
-[node name="Shadow" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 0.498039)
-position = Vector2(-10, 10)
-texture = ExtResource("1_fwt7m")
-
 [node name="Body" type="Sprite2D" parent="."]
-texture = ExtResource("1_fwt7m")
+texture = ExtResource("2_g1k32")
 
 [node name="Border" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 texture = ExtResource("3_ygsdw")
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="CardActionIcon" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("4_f0cbv")
+
+[node name="SuitIcon1" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-84, -133)
+texture = ExtResource("4_6002c")
+
+[node name="SuitIcon2" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(84, 133)
+rotation = 3.14159
 texture = ExtResource("4_6002c")
 
 [node name="Touch" type="Control" parent="."]

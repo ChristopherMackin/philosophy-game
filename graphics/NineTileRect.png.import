@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhy73vopcfxrl"
-path="res://.godot/imported/nine-tile-border.svg-158acecb7ca9fea1439d7dceedb5abfe.ctex"
+uid="uid://cg2ynl0d3jijm"
+path="res://.godot/imported/NineTileRect.png-e0868cdb7fe8c6b112c6b3a1aa116d83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/nine-tile-border.svg"
-dest_files=["res://.godot/imported/nine-tile-border.svg-158acecb7ca9fea1439d7dceedb5abfe.ctex"]
+source_file="res://graphics/NineTileRect.png"
+dest_files=["res://.godot/imported/NineTileRect.png-e0868cdb7fe8c6b112c6b3a1aa116d83.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

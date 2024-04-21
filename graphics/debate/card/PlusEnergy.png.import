@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bghfj2hgfpii7"
-path="res://.godot/imported/SpeachBubbleDirection.png-845a544e77a980936d9821ff96b039ed.ctex"
+uid="uid://ctydat4871e3v"
+path="res://.godot/imported/PlusEnergy.png-4f20575b176e8314019180925fc89c22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/debate/SpeachBubbleDirection.png"
-dest_files=["res://.godot/imported/SpeachBubbleDirection.png-845a544e77a980936d9821ff96b039ed.ctex"]
+source_file="res://graphics/debate/card/PlusEnergy.png"
+dest_files=["res://.godot/imported/PlusEnergy.png-4f20575b176e8314019180925fc89c22.ctex"]
 
 [params]
 

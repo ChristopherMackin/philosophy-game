@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds4nko86gxxsk"
-path="res://.godot/imported/ColorableCheckerboard.png-c04eb2cadec263995fb1c0bdde4af5b8.ctex"
+uid="uid://cfnt1d0t3vhv8"
+path="res://.godot/imported/SpeechBox.png-3e9f41cf529f1f9fcc78c582f595d47e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/debate/ColorableCheckerboard.png"
-dest_files=["res://.godot/imported/ColorableCheckerboard.png-c04eb2cadec263995fb1c0bdde4af5b8.ctex"]
+source_file="res://graphics/debate/SpeechBox.png"
+dest_files=["res://.godot/imported/SpeechBox.png-3e9f41cf529f1f9fcc78c582f595d47e.ctex"]
 
 [params]
 

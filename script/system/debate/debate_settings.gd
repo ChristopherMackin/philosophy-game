@@ -31,7 +31,14 @@ func get_topic_index(suit : Suit) -> int:
 		index += 1
 	
 	return -1
+
+func get_topic(suit : Suit) -> Topic:
+	var index = get_topic_index(suit)
 	
+	if index == -1:
+		return null
+	
+	return topic_array[index]
 
 func conflicting(suit_1 : Suit, suit_2 : Suit) -> bool:
 	for topic : Topic in topic_array:

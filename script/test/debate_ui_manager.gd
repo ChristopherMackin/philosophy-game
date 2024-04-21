@@ -90,10 +90,10 @@ func computer_turn_end():
 
 func queue_update_player_hands():
 	var player_hand := manager.player.hand
-	var computer_hand := manager.computer.hand
+	var suit := manager.current_suit
 	
 	action_queue.push(func():
-		player_hand_ui.update_card_array(player_hand)
+		player_hand_ui.update_card_array(player_hand, suit)
 	)
 
 func player_card_played(card: Card):
@@ -103,10 +103,6 @@ func player_card_played(card: Card):
 
 func computer_card_played(card : Card):
 	computer_hand_ui.on_card_played(card)
-	debate_profile.set_state(DebateProfileUI.ProfileState.PLAY_CARD)
-	await get_tree().create_timer(.2).timeout
-	debate_profile.set_state(DebateProfileUI.ProfileState.IDLE)
-	await get_tree().create_timer(.5).timeout 
 
 func queue_update_score(topic : Topic, score : float):
 	action_queue.push(func():

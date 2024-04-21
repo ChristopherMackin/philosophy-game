@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c86adv4yqkbgh"
-path="res://.godot/imported/CardBorder.png-27a05c40c361f8de3ef2a1611f62810c.ctex"
+uid="uid://df0vk1jofasaf"
+path="res://.godot/imported/MinusPoints.png-8ada055066f3ca03060b0aff3445064a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/debate/CardBorder.png"
-dest_files=["res://.godot/imported/CardBorder.png-27a05c40c361f8de3ef2a1611f62810c.ctex"]
+source_file="res://graphics/debate/card/MinusPoints.png"
+dest_files=["res://.godot/imported/MinusPoints.png-8ada055066f3ca03060b0aff3445064a.ctex"]
 
 [params]
 

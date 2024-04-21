@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwi83a0ilkt1g"
-path="res://.godot/imported/OverNegative.png-e5e5e884a51da84767712a7f3c75918f.ctex"
+uid="uid://ej4llgjks7xt"
+path="res://.godot/imported/MinusEnergy.png-c2a1346f4596396e9054c79226ff5fca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/debate/topic_score/OverNegative.png"
-dest_files=["res://.godot/imported/OverNegative.png-e5e5e884a51da84767712a7f3c75918f.ctex"]
+source_file="res://graphics/debate/card/MinusEnergy.png"
+dest_files=["res://.godot/imported/MinusEnergy.png-c2a1346f4596396e9054c79226ff5fca.ctex"]
 
 [params]
 

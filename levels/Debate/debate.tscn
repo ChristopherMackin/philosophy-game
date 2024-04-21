@@ -1,112 +1,27 @@
-[gd_scene load_steps=36 format=3 uid="uid://b8miu81cmhpvc"]
+[gd_scene load_steps=27 format=3 uid="uid://b8miu81cmhpvc"]
 
-[ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="1_1r430"]
-[ext_resource type="Texture2D" uid="uid://baxge7quvqnlc" path="res://graphics/debate/PlayArea.png" id="1_y3v1n"]
 [ext_resource type="Script" path="res://script/test/debate_ui_manager.gd" id="1_ytk5d"]
-[ext_resource type="Texture2D" uid="uid://ds4nko86gxxsk" path="res://graphics/debate/ColorableCheckerboard.png" id="2_558ab"]
 [ext_resource type="Script" path="res://score_board.gd" id="2_ybuk2"]
-[ext_resource type="PackedScene" uid="uid://dn5nd0oyigp2r" path="res://prefabs/debate/topic_score.tscn" id="3_bxedt"]
+[ext_resource type="PackedScene" uid="uid://do7xkorlok0ju" path="res://prefabs/debate/topic_score.tscn" id="3_bxedt"]
 [ext_resource type="Script" path="res://script/ui/player_hand_ui.gd" id="4_2me35"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player.tres" id="4_n2ufu"]
 [ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/default_debate_settings.tres" id="4_rsj8k"]
 [ext_resource type="Resource" uid="uid://bcst1gst5nbhk" path="res://system/debate/default_debate_manager.tres" id="5_1k5op"]
 [ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/cpu_1.tres" id="5_8w2te"]
 [ext_resource type="Script" path="res://script/ui/fan_sprite_container.gd" id="5_w2i3q"]
-[ext_resource type="Texture2D" uid="uid://cn3pr5bk8h6tk" path="res://graphics/character/christopher/playing_profile.png" id="7_e6rh6"]
+[ext_resource type="Texture2D" uid="uid://cg2ynl0d3jijm" path="res://graphics/NineTileRect.png" id="6_hm77o"]
+[ext_resource type="Texture2D" uid="uid://co0rp83hwgwbk" path="res://graphics/debate/Discard.png" id="9_6vu7p"]
 [ext_resource type="Script" path="res://levels/discard_pile.gd" id="9_fjcny"]
 [ext_resource type="PackedScene" uid="uid://cg87it1f3i6w1" path="res://prefabs/debate/card.tscn" id="11_pbp4j"]
+[ext_resource type="Texture2D" uid="uid://c6rj07f3bix08" path="res://graphics/debate/DrawPile.png" id="11_to2nb"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://system/character/brain/player_brain.tres" id="14_7ti3u"]
 [ext_resource type="Script" path="res://script/ui/computer_hand_ui.gd" id="14_oh7k4"]
-[ext_resource type="Script" path="res://levels/debate_profile_ui.gd" id="18_hoeq7"]
-[ext_resource type="Texture2D" uid="uid://3fbpf5e1a7e" path="res://graphics/character/christopher/idle_profile.png" id="19_gf6d7"]
+[ext_resource type="Texture2D" uid="uid://dpkvjm86blt4q" path="res://graphics/debate/CharacterBackground.png" id="15_d4pwi"]
+[ext_resource type="Texture2D" uid="uid://8oyydhkdonto" path="res://graphics/debate/Computer.png" id="16_hfwls"]
+[ext_resource type="Texture2D" uid="uid://t8i2asm0f1co" path="res://graphics/debate/PlayAreaBackground.png" id="17_8hmqk"]
+[ext_resource type="Texture2D" uid="uid://cfnt1d0t3vhv8" path="res://graphics/debate/SpeechBox.png" id="18_at5yn"]
 [ext_resource type="Texture2D" uid="uid://bsg2i65ex7g26" path="res://graphics/debate/debate_start_test.png" id="19_n5t7n"]
-
-[sub_resource type="Environment" id="Environment_n8ny8"]
-background_mode = 3
-background_canvas_max_layer = -128
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xa3nk"]
-shader = ExtResource("1_1r430")
-shader_parameter/color = Color(0.780392, 0.266667, 0.266667, 1)
-shader_parameter/direction = Vector2(0.05, 0.15)
-shader_parameter/speed_scale = 0.5
-
-[sub_resource type="Animation" id="Animation_0w58u"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("19_gf6d7")]
-}
-
-[sub_resource type="Animation" id="Animation_bd1ew"]
-resource_name = "idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("19_gf6d7")]
-}
-
-[sub_resource type="Animation" id="Animation_ef05y"]
-resource_name = "play_card"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("7_e6rh6")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1gply"]
-_data = {
-"RESET": SubResource("Animation_0w58u"),
-"idle": SubResource("Animation_bd1ew"),
-"play_card": SubResource("Animation_ef05y")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_18k7f"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hafvf"]
-animation = &"play_card"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_04scj"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6i6eb"]
-advance_mode = 2
-advance_expression = "state == ProfileState.PLAY_CARD"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bffwm"]
-advance_mode = 2
-advance_expression = "state == ProfileState.IDLE"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_c8wlo"]
-states/idle/node = SubResource("AnimationNodeAnimation_18k7f")
-states/idle/position = Vector2(397.21, 99.9541)
-states/play_card/node = SubResource("AnimationNodeAnimation_hafvf")
-states/play_card/position = Vector2(527.71, 100.632)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_04scj"), "idle", "play_card", SubResource("AnimationNodeStateMachineTransition_6i6eb"), "play_card", "idle", SubResource("AnimationNodeStateMachineTransition_bffwm")]
-graph_offset = Vector2(-0.000131794, 11.6325)
+[ext_resource type="Texture2D" uid="uid://cjo0f6nscstvy" path="res://graphics/debate/EnergyPool.png" id="21_jvlp5"]
 
 [sub_resource type="Animation" id="Animation_0gytr"]
 length = 0.001
@@ -169,6 +84,9 @@ _data = {
 "debate_start": SubResource("Animation_pho32")
 }
 
+[sub_resource type="SystemFont" id="SystemFont_115tp"]
+font_names = PackedStringArray("Jura")
+
 [node name="Root" type="Node2D"]
 script = ExtResource("1_ytk5d")
 debate_settings = ExtResource("4_rsj8k")
@@ -176,88 +94,60 @@ player = ExtResource("4_n2ufu")
 computer = ExtResource("5_8w2te")
 manager = ExtResource("5_1k5op")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_n8ny8")
+[node name="CharacterBackground" type="Sprite2D" parent="."]
+position = Vector2(1600, 540)
+texture = ExtResource("15_d4pwi")
 
-[node name="ScrollingBackground" type="CanvasLayer" parent="."]
-layer = -128
-offset = Vector2(2.08165e-12, 2.08165e-12)
-transform = Transform2D(1, 2.08165e-12, 2.08165e-12, 1, 2.08165e-12, 2.08165e-12)
+[node name="Computer" type="Sprite2D" parent="."]
+position = Vector2(1600, 1080)
+texture = ExtResource("16_hfwls")
+offset = Vector2(2.08165e-12, -319)
 
-[node name="BackgroundTexture" type="TextureRect" parent="ScrollingBackground"]
-material = SubResource("ShaderMaterial_xa3nk")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_right = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_558ab")
-stretch_mode = 1
+[node name="PlayAreaBackground" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("17_8hmqk")
+offset = Vector2(640, 540)
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(610, 540)
-texture = ExtResource("1_y3v1n")
-
-[node name="DiscardPile" type="Marker2D" parent="."]
-position = Vector2(960, 450)
+[node name="Discard" type="Sprite2D" parent="."]
+position = Vector2(1060, 470)
+texture = ExtResource("9_6vu7p")
 script = ExtResource("9_fjcny")
 
+[node name="Draw" type="Sprite2D" parent="."]
+position = Vector2(40, 1080)
+texture = ExtResource("11_to2nb")
+offset = Vector2(125, 2.08165e-12)
+
 [node name="PlayerHand" type="Marker2D" parent="." node_paths=PackedStringArray("card_container", "discard_pile")]
-position = Vector2(600, 1078)
+position = Vector2(785, 1000)
 script = ExtResource("4_2me35")
 player_brain = ExtResource("14_7ti3u")
 debate_settings = ExtResource("4_rsj8k")
 card_container = NodePath("FanSpriteContainer")
-discard_pile = NodePath("../DiscardPile")
+discard_pile = NodePath("../Discard")
 card_prefab = ExtResource("11_pbp4j")
 
 [node name="FanSpriteContainer" type="Node2D" parent="PlayerHand"]
 script = ExtResource("5_w2i3q")
+container_width = 910.0
 preferred_margin = 200
 
 [node name="ComputerHand" type="Marker2D" parent="." node_paths=PackedStringArray("discard")]
-position = Vector2(960, -400)
+position = Vector2(1070, -400)
 script = ExtResource("14_oh7k4")
 card_prefab = ExtResource("11_pbp4j")
-discard = NodePath("../DiscardPile")
+discard = NodePath("../Discard")
 
-[node name="ScoreBoard" type="HBoxContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 242.0
-offset_top = 102.0
-offset_right = 442.0
-offset_bottom = 810.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 80
+[node name="ScoreBoard" type="VBoxContainer" parent="."]
+offset_left = 70.0
+offset_top = 260.0
+offset_right = 70.0
+offset_bottom = 260.0
+theme_override_constants/separation = 20
 alignment = 1
 script = ExtResource("2_ybuk2")
 topic_score = ExtResource("3_bxedt")
 debate_settings = ExtResource("4_rsj8k")
-
-[node name="CharacterProfile" type="Sprite2D" parent="."]
-position = Vector2(1570, 667)
-texture = ExtResource("19_gf6d7")
-script = ExtResource("18_hoeq7")
-
-[node name="AnimationTree" type="AnimationTree" parent="CharacterProfile"]
-libraries = {
-"": SubResource("AnimationLibrary_1gply")
-}
-tree_root = SubResource("AnimationNodeStateMachine_c8wlo")
-advance_expression_base_node = NodePath("..")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterProfile"]
-libraries = {
-"": SubResource("AnimationLibrary_1gply")
-}
 
 [node name="DebateStartGraphic" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -269,3 +159,39 @@ texture = ExtResource("19_n5t7n")
 libraries = {
 "": SubResource("AnimationLibrary_is2vc")
 }
+
+[node name="SpeechBox" type="Sprite2D" parent="."]
+position = Vector2(1600, 280)
+texture = ExtResource("18_at5yn")
+
+[node name="EnergyPool" type="Sprite2D" parent="."]
+position = Vector2(40, 820)
+texture = ExtResource("21_jvlp5")
+offset = Vector2(64, 2.08165e-12)
+
+[node name="Clock" type="NinePatchRect" parent="."]
+offset_left = 885.0
+offset_right = 1285.0
+offset_bottom = 150.0
+texture = ExtResource("6_hm77o")
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 50, 50)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Text" type="RichTextLabel" parent="Clock"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 26.0
+offset_right = 1.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.529412, 0.835294, 0.972549, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_115tp")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[center]08:30"

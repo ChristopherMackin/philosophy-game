@@ -23,18 +23,47 @@ var color : Color = Color.BLACK:
 		return color
 	set(val):
 		color = val
-		icon.modulate = color
+		suit_icon_1.modulate = color
+		suit_icon_2.modulate = color
 		border.modulate = color
 
-var icon : Sprite2D
 var border : Sprite2D
+var suit_icon_1 : Sprite2D
+var suit_icon_2 : Sprite2D
+var card_action_icon : Sprite2D
+
+enum Sign {
+	POSITIVE,
+	NEGATIVE,
+	NONE
+}
+
+var sign : Sign:
+	get:
+		return sign
+	set(val):
+		sign = val
+		card_action_icon.self_modulate = Color.WHITE
+		
+		match sign:
+			Sign.POSITIVE:
+				card_action_icon.texture = card.data.action.positive_icon
+			Sign.NEGATIVE:
+				card_action_icon.texture = card.data.action.negative_icon
+			_:
+				card_action_icon.texture = card.data.action.positive_icon
+				card_action_icon.self_modulate = Color(.5, .5, .5, .5)
 
 func initialize(card : Card, on_click : Callable = func(): pass):
-	icon = get_node("Icon")
 	border = get_node("Border")
+	suit_icon_1 = get_node("SuitIcon1")
+	suit_icon_2 = get_node("SuitIcon2")
+	card_action_icon = get_node("CardActionIcon")
 	
 	self.card = card
-	icon.texture = card.data.suit.icon
+	suit_icon_1.texture = card.data.suit.icon
+	suit_icon_2.texture = card.data.suit.icon
+	card_action_icon.texture = card.data.action.positive_icon
 	color = card.data.suit.color
 	
 	self.on_click = on_click

@@ -49,7 +49,7 @@ func add_cards(added_cards : Array):
 		
 		card_container.add_child(ui_card)
 
-func update_card_array(hand_card_array : Array):
+func update_card_array(hand_card_array : Array, current_suit: Suit):
 	var to_add_array = hand_card_array.duplicate();
 	
 	for ui_card : UICard in ui_card_array.duplicate():
@@ -65,3 +65,14 @@ func update_card_array(hand_card_array : Array):
 	
 	add_cards(to_add_array)
 	Help.sort_children(card_container, func(a: UICard, b: UICard): return a.card.data.suit.name.naturalnocasecmp_to(b.card.data.suit.name) < 0)
+	
+	for ui_card : UICard in ui_card_array:
+		var relation = debate_settings.get_suit_relationship(current_suit, ui_card.card.data.suit)
+		
+		match relation:
+			DebateSettings.SuitRelationship.SAME:
+				ui_card.sign = UICard.Sign.POSITIVE
+			DebateSettings.SuitRelationship.OPPOSING:
+				ui_card.sign = UICard.Sign.NEGATIVE
+			_:
+				ui_card.sign = UICard.Sign.NONE

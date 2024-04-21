@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2kwn46yalidl"
-path="res://.godot/imported/CharacterBacking.png-078454f36464b808d137b1f670758e78.ctex"
+uid="uid://bq241k18ehxob"
+path="res://.godot/imported/PlusPoints.png-c1b32304dc89ad79064f7563a291d3cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/debate/CharacterBacking.png"
-dest_files=["res://.godot/imported/CharacterBacking.png-078454f36464b808d137b1f670758e78.ctex"]
+source_file="res://graphics/debate/card/PlusPoints.png"
+dest_files=["res://.godot/imported/PlusPoints.png-c1b32304dc89ad79064f7563a291d3cc.ctex"]
 
 [params]
 

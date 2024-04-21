@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Boost" load_steps=4 format=3 uid="uid://m8d3fptgwrkf"]
+
+[ext_resource type="Script" path="res://script/system/card/card_actions/boost.gd" id="1_c0185"]
+[ext_resource type="Texture2D" uid="uid://df0vk1jofasaf" path="res://graphics/debate/card/MinusPoints.png" id="1_udvu0"]
+[ext_resource type="Texture2D" uid="uid://bq241k18ehxob" path="res://graphics/debate/card/PlusPoints.png" id="2_rte6k"]
+
+[resource]
+script = ExtResource("1_c0185")
+boost_amount = 1
+positive_description = "Add one to suit of played card"
+positive_icon = ExtResource("2_rte6k")
+negative_description = "Subtract one from score of played card"
+negative_icon = ExtResource("1_udvu0")

@@ -1,28 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn5nd0oyigp2r"]
+[gd_scene load_steps=3 format=3 uid="uid://do7xkorlok0ju"]
 
 [ext_resource type="Script" path="res://script/system/debate/topic_score_ui.gd" id="1_wad75"]
-[ext_resource type="PackedScene" uid="uid://b8ygn5m2gi6fg" path="res://prefabs/two_way_progress_bar.tscn" id="4_5ntks"]
+[ext_resource type="PackedScene" uid="uid://b5yxe8sdtqxbu" path="res://prefabs/h_two_way_progress_bar.tscn" id="2_4hu68"]
 
-[node name="TopicScore" type="VBoxContainer" node_paths=PackedStringArray("progress_bar", "positive_icon", "negative_icon")]
-alignment = 1
+[node name="TopicScore" type="HBoxContainer" node_paths=PackedStringArray("progress_bar", "positive_icon", "negative_icon")]
+offset_left = -304.0
+offset_top = -100.0
+offset_right = 304.0
+offset_bottom = 100.0
+theme_override_constants/separation = 20
 script = ExtResource("1_wad75")
-progress_bar = NodePath("TwoWayProgressBar")
+progress_bar = NodePath("HTwoWayProgressBar")
 positive_icon = NodePath("PositiveIcon")
 negative_icon = NodePath("NegativeIcon")
-
-[node name="PositiveIcon" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-stretch_mode = 5
-
-[node name="TwoWayProgressBar" parent="." instance=ExtResource("4_5ntks")]
-layout_mode = 2
+segment_count = 5
 
 [node name="NegativeIcon" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+stretch_mode = 5
+
+[node name="HTwoWayProgressBar" parent="." instance=ExtResource("2_4hu68")]
+layout_mode = 2
+
+[node name="PositiveIcon" type="TextureRect" parent="."]
+layout_mode = 2
 stretch_mode = 5
