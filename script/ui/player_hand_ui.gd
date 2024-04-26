@@ -14,7 +14,7 @@ var ui_card_array : Array = []
 
 @export var card_prefab : PackedScene
 
-var enabled : bool = false:
+@export var enabled : bool = false:
 	get: return enabled
 	set(val):
 		enabled = val

@@ -24,20 +24,23 @@ var inactive_contestant : Contestant:
 
 var contestants : Array[Contestant]
 
-var current_card : Card
+var discard : Array[Card]
+
+var current_card : Card:
+	get: 
+		return discard.back()
 var current_suit : Suit:
-	get: return current_card.data.suit
+	get: 
+		return current_card.data.suit
 
-var topic_score_float_array : Array[float]
-var current_topic_index : int
+var previous_card : Card:
+	get: 
+		return discard[discard.size() - 2] if discard.size() > 1 else null
+var previous_suit : Suit:
+	get: 
+		return previous_card.data.suit
 
-var current_topic : Topic:
-	get:
-		return debate_settings.topic_array[current_topic_index]
-var current_topic_score: float:
-	get: return topic_score_float_array[current_topic_index]
-	set(val):
-		topic_score_float_array[current_topic_index] = val
+var topic_score_dictionary : Dictionary
 
 var subscriber_array : Array[DebateSubscriber]
 
@@ -50,8 +53,8 @@ func unsubscribe(subscriber):
 		subscriber_array.remove_at(index)
 
 func init(player_character : Character, computer_character : Character):
-	for i in debate_settings.topic_array.size():
-		topic_score_float_array.append(0)
+	for t : Topic in debate_settings.topic_array:
+		topic_score_dictionary[t] = 0
 	
 	player = Contestant.new(player_character)
 	computer = Contestant.new(computer_character)
@@ -78,30 +81,32 @@ func game_loop():
 	for sub : DebateSubscriber in subscriber_array: sub.on_debate_finished()
 
 func set_initial_card():
-	current_card = await active_contestant.take_turn()
-	current_topic_index = debate_settings.get_topic_index(current_suit)
+	discard.append(await active_contestant.take_turn())
+	active_contestant.clean_up()
 
 func get_is_debate_over() -> bool:
-	for score in topic_score_float_array:
+	for key in topic_score_dictionary:
+		var score = topic_score_dictionary[key]
 		if abs(score) >= debate_settings.win_amount:
 			return true
+	
+	if player.deck.count + player.hand.size() <= 0:
+		return true
 	
 	return false
 
 func active_player_turn():
 	while active_contestant.current_energy > 0 and !get_is_debate_over():
-		var previous_card = current_card
-		current_card = await active_contestant.take_turn()
+		discard.append(await active_contestant.take_turn())
 		
 		var suit_relation = debate_settings.get_suit_relationship(
-			previous_card.data.suit, 
+			previous_suit, 
 			current_suit
 		)
 		
-		current_topic_index = debate_settings.get_topic_index(current_suit)
-		current_topic_score += current_topic.suit_direction(current_suit)
-		
 		for sub : DebateSubscriber in subscriber_array: sub.on_card_played(current_card, active_contestant)
+		
+		increase_suit_score(current_suit, 1)
 		
 		match suit_relation:
 			DebateSettings.SuitRelationship.SAME:
@@ -114,8 +119,11 @@ func active_player_turn():
 				for sub : DebateSubscriber in subscriber_array: sub.on_action_taken(action, false)
 			_:
 				pass
+		
 	
 	active_contestant.clean_up()
 
 func increase_suit_score(suit : Suit, amount : int):
-	pass
+	var topic = debate_settings.get_topic(suit)
+	topic_score_dictionary[topic] += topic.suit_direction(suit) * amount
+	for sub : DebateSubscriber in subscriber_array: sub.topic_score_updated(topic, topic_score_dictionary[topic])

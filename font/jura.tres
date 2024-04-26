@@ -1,0 +1,4 @@
+[gd_resource type="SystemFont" format=3 uid="uid://bq3uhh525apgr"]
+
+[resource]
+font_names = PackedStringArray("Jura")

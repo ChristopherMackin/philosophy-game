@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://do7xkorlok0ju"]
+
+[ext_resource type="Script" path="res://script/system/debate/topic_score_ui.gd" id="1_wad75"]
+[ext_resource type="PackedScene" uid="uid://b5yxe8sdtqxbu" path="res://prefab/h_two_way_progress_bar.tscn" id="2_4hu68"]
+
+[node name="TopicScore" type="HBoxContainer" node_paths=PackedStringArray("progress_bar", "positive_icon", "negative_icon")]
+offset_left = -304.0
+offset_top = -100.0
+offset_right = 304.0
+offset_bottom = 100.0
+theme_override_constants/separation = 20
+script = ExtResource("1_wad75")
+progress_bar = NodePath("HTwoWayProgressBar")
+positive_icon = NodePath("PositiveIcon")
+negative_icon = NodePath("NegativeIcon")
+segment_count = 5
+
+[node name="NegativeIcon" type="TextureRect" parent="."]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="HTwoWayProgressBar" parent="." instance=ExtResource("2_4hu68")]
+layout_mode = 2
+
+[node name="PositiveIcon" type="TextureRect" parent="."]
+layout_mode = 2
+stretch_mode = 5

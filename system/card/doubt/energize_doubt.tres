@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://c2xmatrngw6al"]
+
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_1u1tj"]
+[ext_resource type="Resource" uid="uid://y8810e7fyj5c" path="res://system/card_actions/energize.tres" id="1_ui1ba"]
+[ext_resource type="Resource" uid="uid://b1vcr8b6vqsw7" path="res://system/suit/doubt.tres" id="3_3jtg8"]
+
+[resource]
+script = ExtResource("1_1u1tj")
+name = "Energize Doubt"
+suit = ExtResource("3_3jtg8")
+action = ExtResource("1_ui1ba")

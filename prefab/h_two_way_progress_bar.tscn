@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5yxe8sdtqxbu"]
+
+[ext_resource type="Script" path="res://script/ui/h_two_way_progress_bar.gd" id="1_3suv7"]
+[ext_resource type="Texture2D" uid="uid://ceitj0enswtya" path="res://graphic/debate/topic_score/Under.png" id="2_4j5u1"]
+[ext_resource type="Texture2D" uid="uid://bd4cwkfy5n5p6" path="res://graphic/debate/topic_score/Over.png" id="3_4oxwn"]
+[ext_resource type="Texture2D" uid="uid://dmn6j4gmh5mfq" path="res://graphic/debate/topic_score/Progress.png" id="4_mio8v"]
+[ext_resource type="Script" path="res://script/ui/marked_progress_bar.gd" id="5_fjjp5"]
+
+[node name="HTwoWayProgressBar" type="HBoxContainer" node_paths=PackedStringArray("positive_progress_bar", "negative_progress_bar")]
+theme_override_constants/separation = 0
+script = ExtResource("1_3suv7")
+positive_progress_bar = NodePath("PositiveProgressBar")
+negative_progress_bar = NodePath("NegativeProgressBar")
+positive_tint = Color(0.529412, 0.835294, 0.972549, 1)
+negative_tint = Color(0.529412, 0.835294, 0.972549, 1)
+max_value = 5.0
+
+[node name="NegativeProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 5.0
+fill_mode = 1
+texture_under = ExtResource("2_4j5u1")
+texture_over = ExtResource("3_4oxwn")
+texture_progress = ExtResource("4_mio8v")
+tint_under = Color(0.529412, 0.835294, 0.972549, 1)
+tint_progress = Color(0.529412, 0.835294, 0.972549, 1)
+script = ExtResource("5_fjjp5")
+divider_color = Color(0.529412, 0.835294, 0.972549, 1)
+vertical = false
+
+[node name="PositiveProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 5.0
+texture_under = ExtResource("2_4j5u1")
+texture_over = ExtResource("3_4oxwn")
+texture_progress = ExtResource("4_mio8v")
+tint_under = Color(0.529412, 0.835294, 0.972549, 1)
+tint_progress = Color(0.529412, 0.835294, 0.972549, 1)
+script = ExtResource("5_fjjp5")
+divider_color = Color(0.529412, 0.835294, 0.972549, 1)
+vertical = false

@@ -22,7 +22,7 @@ func _init(character : Character):
 	self.character.brain.contestant = self
 
 func ready_up():
-	deck.reset_deck()
+	deck.initialize_deck()
 	draw_full_hand()
 	current_energy = energy_limit
 
@@ -32,7 +32,7 @@ func take_turn():
 	while hand.map(func(x): return x.data).find(card.data) == -1:
 		card = await brain.think()
 	
-	discard_card(card)
+	play_card(card)
 	current_energy -= 1
 	return card
 
@@ -54,6 +54,13 @@ func discard_card(card : Card):
 	var index = hand.find(card)
 	hand.remove_at(index)
 	deck.discard_card(card)
+	
+	if hand.size() <= 0:
+		draw_full_hand()
+
+func play_card(card : Card):
+	var index = hand.find(card)
+	hand.remove_at(index)
 	
 	if hand.size() <= 0:
 		draw_full_hand()

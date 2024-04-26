@@ -20,3 +20,6 @@ func on_action_taken(action : CardAction, is_positive : bool):
 
 func on_debate_finished():
 	pass
+
+func topic_score_updated(topic : Topic, score : int):
+	pass
