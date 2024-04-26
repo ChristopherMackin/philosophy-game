@@ -90,8 +90,9 @@ func get_is_debate_over() -> bool:
 		if abs(score) >= debate_settings.win_amount:
 			return true
 	
-	if player.deck.count + player.hand.size() <= 0:
-		return true
+	for c : Contestant in contestants:
+		if c.deck.count + c.hand.size() <= 0:
+			return true
 	
 	return false
 
@@ -120,7 +121,6 @@ func active_player_turn():
 			_:
 				pass
 		
-	
 	active_contestant.clean_up()
 
 func increase_suit_score(suit : Suit, amount : int):
