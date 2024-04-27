@@ -4,7 +4,7 @@ class_name PlayerBrain
 
 signal card_played
 
-func think():
+func pick_card() -> Card:
 	var card = await card_played
 	return card
 

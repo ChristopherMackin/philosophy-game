@@ -13,8 +13,8 @@ func add_topic(topic : Topic):
 	score.topic = topic
 	score.segment_count = debate_settings.win_amount
 	
-	topic_score_dictionary[topic] = score
+	topic_score_dictionary[topic.name] = score
 
 func update_score(topic : Topic, amount : int):
-	if topic_score_dictionary.has(topic):
-		topic_score_dictionary[topic].score = amount
+	if topic_score_dictionary.has(topic.name):
+		topic_score_dictionary[topic.name].score = amount

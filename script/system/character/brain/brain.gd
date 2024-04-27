@@ -4,5 +4,8 @@ class_name Brain
 
 var contestant : Contestant
 
-func think():
-	pass
+func pick_card() -> Card:
+	return null
+
+func pick_suit() -> Suit:
+	return null

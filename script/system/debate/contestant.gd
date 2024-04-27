@@ -26,11 +26,11 @@ func ready_up():
 	draw_full_hand()
 	current_energy = energy_limit
 
-func take_turn():
-	var card = await brain.think()
+func take_turn() -> Card:
+	var card = await brain.pick_card()
 	
 	while hand.map(func(x): return x.data).find(card.data) == -1:
-		card = await brain.think()
+		card = await brain.pick_card()
 	
 	play_card(card)
 	current_energy -= 1
@@ -49,14 +49,6 @@ func draw_full_hand():
 			break
 		hand.append(card)
 		added_cards.append(card)
-
-func discard_card(card : Card):
-	var index = hand.find(card)
-	hand.remove_at(index)
-	deck.discard_card(card)
-	
-	if hand.size() <= 0:
-		draw_full_hand()
 
 func play_card(card : Card):
 	var index = hand.find(card)

@@ -2,6 +2,8 @@ extends Node2D
 
 class_name Lerp2D
 
+signal finished
+
 var _parent
 
 var starting_pos : Vector2
@@ -21,4 +23,5 @@ func _process(delta):
 	_parent.position = pos
 	
 	if timer >= duration:
+		finished.emit()
 		queue_free()

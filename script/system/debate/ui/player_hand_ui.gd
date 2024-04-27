@@ -8,7 +8,7 @@ class_name PlayerHandUI
 @export var debate_settings : DebateSettings
 
 @export var card_container : Node2D
-@export var discard_pile : DiscardPile
+@export var discard_pile : DiscardPileUI
 
 var ui_card_array : Array = []
 
@@ -64,7 +64,7 @@ func update_card_array(hand_card_array : Array, current_suit: Suit):
 			to_add_array.remove_at(i)
 	
 	add_cards(to_add_array)
-	Help.sort_children(card_container, func(a: UICard, b: UICard): return a.card.data.suit.name.naturalnocasecmp_to(b.card.data.suit.name) < 0)
+	Util.sort_children(card_container, func(a: UICard, b: UICard): return a.card.data.suit.name.naturalnocasecmp_to(b.card.data.suit.name) < 0)
 	
 	for ui_card : UICard in ui_card_array:
 		var relation = debate_settings.get_suit_relationship(current_suit, ui_card.card.data.suit)

@@ -2,5 +2,5 @@ extends Brain
 
 class_name SimpleAiBrain
 
-func think():
+func pick_card() -> Card:
 	return contestant.hand[randi() % contestant.hand.size()]

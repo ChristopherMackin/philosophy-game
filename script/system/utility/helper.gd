@@ -1,6 +1,6 @@
 extends Object
 
-class_name Help
+class_name Util
 
 static func lerp_to_position(node : Node2D, target : Vector2, duration : float):
 	if node.has_node("Lerp2DNode"):
@@ -14,6 +14,8 @@ static func lerp_to_position(node : Node2D, target : Vector2, duration : float):
 	lerp.starting_pos = node.position
 	lerp.target_pos = target
 	lerp.duration = duration
+	
+	await lerp.finished
 	
 static func sort_children(node : Node2D, sort_func : Callable):
 	var children := node.get_children()
@@ -35,3 +37,6 @@ static func set_parent(node : Node, parent: Node):
 		node.reparent(parent)
 	else:
 		parent.add_child(node)
+
+static func await_all(functions : Array[Callable]):
+	await AwaitAll.new(functions).all_finished
