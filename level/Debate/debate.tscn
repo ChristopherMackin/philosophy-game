@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://cjo0f6nscstvy" path="res://graphic/debate/EnergyPool.png" id="21_jvlp5"]
 [ext_resource type="Script" path="res://script/ui/scrolling-text.gd" id="22_3bmb0"]
 [ext_resource type="Script" path="res://script/system/debate/ui/energy_pool.gd" id="22_7jpk4"]
-[ext_resource type="Script" path="res://level/Debate/await_animator.gd" id="22_apgxv"]
+[ext_resource type="Script" path="res://script/await_animator.gd" id="22_apgxv"]
 
 [sub_resource type="Animation" id="Animation_0gytr"]
 length = 0.001
@@ -157,11 +157,13 @@ theme_override_font_sizes/normal_font_size = 72
 bbcode_enabled = true
 text = "[center]45"
 
-[node name="PlayerHand" type="Marker2D" parent="."]
+[node name="PlayerHand" type="Marker2D" parent="." node_paths=PackedStringArray("card_container", "discard_pile")]
 position = Vector2(785, 1000)
 script = ExtResource("4_2me35")
 player_brain = ExtResource("14_7ti3u")
 debate_settings = ExtResource("4_rsj8k")
+card_container = NodePath("FanSpriteContainer")
+discard_pile = NodePath("../Discard")
 card_prefab = ExtResource("11_pbp4j")
 
 [node name="FanSpriteContainer" type="Node2D" parent="PlayerHand"]

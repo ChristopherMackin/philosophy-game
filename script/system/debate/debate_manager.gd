@@ -31,7 +31,7 @@ var current_card : Card:
 		return card_stack.back()
 var current_suit : Suit:
 	get: 
-		return current_card.data.suit
+		return current_card.data.suit if current_card else null
 
 var previous_card : Card:
 	get: 

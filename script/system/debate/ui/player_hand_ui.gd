@@ -18,6 +18,7 @@ var ui_card_array : Array = []
 	get: return enabled
 	set(val):
 		enabled = val
+		
 		for child in card_container.get_children():
 			child.enabled = val
 
@@ -29,7 +30,7 @@ func on_card_played(card : Card):
 		return
 	
 	var ui_card = ui_card_array.pop_at(index)
-	discard_pile.discard(ui_card)
+	await discard_pile.discard(ui_card)
 
 func add_cards(added_cards : Array):
 	for card in added_cards:
