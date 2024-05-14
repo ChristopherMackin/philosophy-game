@@ -1,9 +1,12 @@
+@tool
 extends ItemList
 
 @export var event_graph : GraphEdit
 @export var event_node_type_parent : Control
 
-func _ready():
+func _enter_tree():
+	clear()
+	
 	for child in event_node_type_parent.get_children():
 		add_item(child.name)
 
