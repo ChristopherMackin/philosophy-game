@@ -11,4 +11,4 @@ func play_event_tree(event_tree : EventTree):
 	var current_event := event_tree.start_event
 	
 	while current_event:
-		current_event = current_event.invoke(self)
+		current_event = await current_event.invoke(self)

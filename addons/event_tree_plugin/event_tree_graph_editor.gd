@@ -32,8 +32,6 @@ var selected_resource : EventTree:
 func save_event_tree():
 	var tree : EventTree = event_graph.get_event_tree()
 	
-	print(resource_path)
-	
 	ResourceSaver.save(tree, resource_path)
 
 func open_event_tree(path):

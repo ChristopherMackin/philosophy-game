@@ -1,23 +1,28 @@
-[gd_resource type="Resource" script_class="EventTree" load_steps=7 format=3 uid="uid://dmslnliav0qyi"]
+[gd_resource type="Resource" script_class="EventTree" load_steps=9 format=3 uid="uid://dmslnliav0qyi"]
 
-[ext_resource type="Script" path="res://script/system/event/event_type/single_connect/start_event.gd" id="1_2iyiv"]
-[ext_resource type="Script" path="res://script/system/event/event_type/single_connect/console_log_event.gd" id="1_kbh14"]
+[ext_resource type="Script" path="res://script/system/event/event_type/single_connect/console_log_event.gd" id="1_d27ww"]
 [ext_resource type="Script" path="res://script/system/event/event_tree/event_tree.gd" id="1_puken"]
+[ext_resource type="Script" path="res://script/system/event/event_type/single_connect/wait_event.gd" id="2_juhun"]
+[ext_resource type="Script" path="res://script/system/event/event_type/single_connect/start_event.gd" id="3_w8vrp"]
 
-[sub_resource type="Resource" id="Resource_756xg"]
-script = ExtResource("1_kbh14")
-console_text = "Test 2!!"
+[sub_resource type="Resource" id="Resource_6qx7e"]
+script = ExtResource("1_d27ww")
+console_text = "Swager"
 
-[sub_resource type="Resource" id="Resource_x364a"]
-script = ExtResource("1_kbh14")
-console_text = "Test 1!!!"
-next_event = SubResource("Resource_756xg")
+[sub_resource type="Resource" id="Resource_haak3"]
+script = ExtResource("2_juhun")
+wait_time = 4.0
+next_event = SubResource("Resource_6qx7e")
 
-[sub_resource type="Resource" id="Resource_5uobb"]
-script = ExtResource("1_2iyiv")
-next_event = SubResource("Resource_x364a")
+[sub_resource type="Resource" id="Resource_jch6f"]
+script = ExtResource("1_d27ww")
+console_text = "Wait 3"
+next_event = SubResource("Resource_haak3")
+
+[sub_resource type="Resource" id="Resource_ulevg"]
+script = ExtResource("3_w8vrp")
+next_event = SubResource("Resource_jch6f")
 
 [resource]
 script = ExtResource("1_puken")
-start_event = SubResource("Resource_5uobb")
-events = Array[Resource("res://script/system/event/event_type/event.gd")]([SubResource("Resource_5uobb"), SubResource("Resource_x364a"), SubResource("Resource_756xg")])
+start_event = SubResource("Resource_ulevg")

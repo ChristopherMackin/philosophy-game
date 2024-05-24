@@ -26,28 +26,28 @@ func get_event_tree() -> EventTree:
 	var tree = EventTree.new()
 	
 	for node : EventNode in get_children():
+		#Get all connections for this event node
 		var connections = get_connection_list().filter(func (x):
 			return x.from_node == node.name
 		)
 		
+		#Sort by port order
 		connections.sort_custom(func (a, b): 
 			return a.from_port > b.from_port
 		)
 		
+		#Make an array of the events
 		var events : Array[Event] 
-		
 		events.assign(connections.map(func(x):
 			return get_node(NodePath(x.to_node)).event
 		))
 		
+		#Update node information
 		node.update(events)
 		
-		tree.events.append(node.event)
-		
+		#Set start node
 		if node.event is StartEvent:
 			tree.start_event = node.event
-	
-	print(tree.events.size())
 	
 	return tree
 
