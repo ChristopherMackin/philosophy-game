@@ -1,6 +1,5 @@
+@tool
 extends FileDialog
 
-class_name EventTreePicker
-
-func _on_open_event_tree_pressed():
+func open():
 	visible = true

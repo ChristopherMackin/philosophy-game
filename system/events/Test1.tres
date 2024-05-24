@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EventTree" load_steps=7 format=3 uid="uid://dmslnliav0qyi"]
+
+[ext_resource type="Script" path="res://script/system/event/event_type/single_connect/start_event.gd" id="1_2iyiv"]
+[ext_resource type="Script" path="res://script/system/event/event_type/single_connect/console_log_event.gd" id="1_kbh14"]
+[ext_resource type="Script" path="res://script/system/event/event_tree/event_tree.gd" id="1_puken"]
+
+[sub_resource type="Resource" id="Resource_756xg"]
+script = ExtResource("1_kbh14")
+console_text = "Test 2!!"
+
+[sub_resource type="Resource" id="Resource_x364a"]
+script = ExtResource("1_kbh14")
+console_text = "Test 1!!!"
+next_event = SubResource("Resource_756xg")
+
+[sub_resource type="Resource" id="Resource_5uobb"]
+script = ExtResource("1_2iyiv")
+next_event = SubResource("Resource_x364a")
+
+[resource]
+script = ExtResource("1_puken")
+start_event = SubResource("Resource_5uobb")
+events = Array[Resource("res://script/system/event/event_type/event.gd")]([SubResource("Resource_5uobb"), SubResource("Resource_x364a"), SubResource("Resource_756xg")])

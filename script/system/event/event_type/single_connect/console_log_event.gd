@@ -1,9 +1,8 @@
-extends Event
+extends SingleConnectEvent
 
 class_name ConsoleLogEvent
 
-var console_text : String
-var next_event : Event
+@export var console_text : String
 
 func invoke(event_manager : EventManager):
 	print(console_text)

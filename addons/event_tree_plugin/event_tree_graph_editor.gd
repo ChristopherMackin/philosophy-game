@@ -3,7 +3,8 @@ extends Node
 
 class_name EventTreeGraphEditor
 
-@onready var path_label = $VBoxContainer/ColorRect/PathLabel
+@onready var path_label = $VBoxContainer/ColorRect/HBoxContainer/PathLabel
+@onready var event_graph : EventGraph = $EventGraph
 
 var resource_path : String:
 	get: 
@@ -28,9 +29,14 @@ var selected_resource : EventTree:
 		else:
 			event_graph.visible = false
 
-@onready var event_graph = $EventGraph
+func save_event_tree():
+	var tree : EventTree = event_graph.get_event_tree()
+	
+	print(resource_path)
+	
+	ResourceSaver.save(tree, resource_path)
 
-func _on_event_tree_picker_file_selected(path):
+func open_event_tree(path):
 	var resource = ResourceLoader.load(path)
 	
 	if resource is EventTree:

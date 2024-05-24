@@ -1,13 +1,11 @@
-@tool
 extends EventNode
 
-class_name ConsoleLogEventNode
+class_name StartEventNode
 
 func _enter_tree():
-	event = ConsoleLogEvent.new()
+	event = StartEvent.new()
 
 func update(connected_events : Array[Event]):
-	event.console_text = get_node("ConsoleText").text
-	
 	if connected_events.size() > 0:
 		event.next_event = connected_events[0]
+
