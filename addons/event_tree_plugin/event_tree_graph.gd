@@ -7,20 +7,23 @@ class_name EventGraph
 var start_node : GraphNode
 
 func _on_delete_nodes_request(nodes):
-	for n in nodes:
-		get_node(NodePath(n)).queue_free()
+	for name in nodes:
+		var n = get_node(NodePath(name))
+		if not n is StartEventNode:
+			n.queue_free()
 
 func _on_connection_request(from_node, from_port, to_node, to_port):
+	connect_node(from_node, from_port, to_node, to_port)
+
+func _on_disconnection_request(from_node, from_port, to_node, to_port):
+	disconnect_node(from_node, from_port, to_node, to_port)
+
+func _on_connection_drag_started(from_node, from_port, is_output):
 	var connections = get_connection_list().filter(func (x):
 		return x.from_node == from_node && x.from_port == from_port
 	)
 	for c in connections:
 		disconnect_node(c.from_node, c.from_port, c.to_node, c.to_port)
-	
-	connect_node(from_node, from_port, to_node, to_port)
-
-func _on_disconnection_request(from_node, from_port, to_node, to_port):
-	disconnect_node(from_node, from_port, to_node, to_port)
 
 func get_event_tree() -> EventTree:
 	var tree = EventTree.new()
@@ -53,9 +56,11 @@ func get_event_tree() -> EventTree:
 
 func load_event_tree(event_tree: EventTree):
 	clear_graph()
+	
 
 func clear_graph():
 	for c in get_children():
 		c.queue_free()
 	var start_node = start_node_prefab.instantiate()
 	add_child(start_node)
+

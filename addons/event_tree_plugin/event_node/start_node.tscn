@@ -9,7 +9,6 @@ offset_right = 782.0
 offset_bottom = 628.0
 mouse_filter = 1
 position_offset = Vector2(640, 540)
-selectable = false
 slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color(1, 1, 1, 1)
