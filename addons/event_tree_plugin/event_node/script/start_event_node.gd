@@ -1,3 +1,4 @@
+@tool
 extends EventNode
 
 class_name StartEventNode
@@ -7,5 +8,5 @@ func _enter_tree():
 
 func update(connected_events : Array[Event]):
 	if connected_events.size() > 0:
-		event.next_event = connected_events[0]
+		event.next_list = [connected_events[0]]
 

@@ -1,4 +1,4 @@
-extends SingleConnectEvent
+extends Event
 
 class_name WaitEvent
 
@@ -6,4 +6,4 @@ class_name WaitEvent
 
 func invoke(manager : EventManager):
 	await manager.get_tree().create_timer(wait_time).timeout
-	return next_event
+	return next_list[0] if next_list.size() > 0 else null

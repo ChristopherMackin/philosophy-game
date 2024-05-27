@@ -1,4 +1,4 @@
-extends SingleConnectEvent
+extends Event
 
 class_name ConsoleLogEvent
 
@@ -6,4 +6,4 @@ class_name ConsoleLogEvent
 
 func invoke(event_manager : EventManager):
 	print(console_text)
-	return next_event
+	return next_list[0] if next_list.size() > 0 else null

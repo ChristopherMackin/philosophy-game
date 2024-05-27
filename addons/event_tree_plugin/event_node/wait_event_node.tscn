@@ -5,7 +5,7 @@
 [node name="WaitEventNode" type="GraphNode"]
 offset_right = 9.0
 offset_bottom = 55.0
-title = "Await Event"
+title = "Wait Event"
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color(1, 1, 1, 1)

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dhjaa2rvtsb4w" path="res://addons/event_tree_plugin/event_node/console_log_event_node.tscn" id="3_uj74p"]
 [ext_resource type="PackedScene" uid="uid://djsotsx2h2akd" path="res://addons/event_tree_plugin/event_node/start_node.tscn" id="4_cq1ix"]
 [ext_resource type="Script" path="res://addons/event_tree_plugin/event_tree_picker.gd" id="5_5212g"]
-[ext_resource type="PackedScene" uid="uid://djq6hwf312whs" path="res://addons/event_tree_plugin/wait_event_node.tscn" id="6_m28lm"]
+[ext_resource type="PackedScene" uid="uid://djq6hwf312whs" path="res://addons/event_tree_plugin/event_node/wait_event_node.tscn" id="6_m28lm"]
 
 [node name="Event Tree Graph Editor" type="Control"]
 layout_mode = 3

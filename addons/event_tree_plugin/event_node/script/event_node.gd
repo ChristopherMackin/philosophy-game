@@ -7,3 +7,6 @@ var event : Event
 
 func update(connected_events : Array[Event]):
 	pass
+
+func set_event(event : Event):
+	self.event = event
