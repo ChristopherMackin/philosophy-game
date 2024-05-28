@@ -10,10 +10,6 @@ var resource_path : String:
 	get: 
 		return resource_path
 	set(value):
-		if resource_path != null:
-			var tree : EventTree = event_graph.get_event_tree()
-			ResourceSaver.save(tree, resource_path)
-		
 		resource_path = value
 		path_label.text = resource_path
 		

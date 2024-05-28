@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="EventTree" load_steps=10 format=3 uid="uid://by555n5na6j3u"]
+
+[ext_resource type="Script" path="res://script/system/event/event_tree.gd" id="1_xt535"]
+[ext_resource type="Script" path="res://script/system/event/event_action/console_event_action.gd" id="2_guqmc"]
+[ext_resource type="Script" path="res://script/system/event/event.gd" id="3_0osco"]
+[ext_resource type="Script" path="res://script/system/event/event_action/wait_event_action.gd" id="3_ca2in"]
+
+[sub_resource type="Resource" id="Resource_cj8to"]
+script = ExtResource("2_guqmc")
+
+[sub_resource type="Resource" id="Resource_1yrge"]
+script = ExtResource("3_ca2in")
+
+[sub_resource type="Resource" id="Resource_f2soy"]
+script = ExtResource("3_0osco")
+outputs = Array[ExtResource("3_0osco")]([])
+inputs = ["SOMETHING ELSE"]
+action = SubResource("Resource_cj8to")
+
+[sub_resource type="Resource" id="Resource_7nfre"]
+script = ExtResource("3_0osco")
+outputs = Array[ExtResource("3_0osco")]([SubResource("Resource_f2soy")])
+inputs = [3.0]
+action = SubResource("Resource_1yrge")
+
+[sub_resource type="Resource" id="Resource_5gq36"]
+script = ExtResource("3_0osco")
+outputs = Array[ExtResource("3_0osco")]([SubResource("Resource_7nfre")])
+inputs = ["SOMETHING SPECIAL"]
+action = SubResource("Resource_cj8to")
+
+[resource]
+script = ExtResource("1_xt535")
+start_event = SubResource("Resource_5gq36")

@@ -4,13 +4,13 @@ extends GraphEdit
 class_name EventGraph
 
 @export var start_node_prefab : PackedScene
-var start_node : GraphNode
 @onready var event_node_type_parent = $"../EventNodeTypeParent"
+@onready var start_node = $StartNode
 
 func _on_delete_nodes_request(nodes):
 	for name in nodes:
 		var n = get_node(NodePath(name))
-		if not n is StartEventNode:
+		if n != start_node:
 			n.queue_free()
 
 func _on_connection_request(from_node, from_port, to_node, to_port):
@@ -27,9 +27,25 @@ func _on_connection_drag_started(from_node, from_port, is_output):
 		disconnect_node(c.from_node, c.from_port, c.to_node, c.to_port)
 
 func get_event_tree() -> EventTree:
+	
+	#Refresh events
+	for node : EventNode in get_event_nodes():
+		node.make_new_event()
+	
+	#Make new tree and add starting event
 	var tree = EventTree.new()
 	
-	for node : EventNode in get_children():
+	var start_connections = get_connection_list().filter(func (x):
+		return x.from_node == start_node.name
+	)
+	
+	if start_connections.size() <= 0:
+		return tree
+	
+	tree.start_event = get_node(NodePath(start_connections[0].to_node)).event
+	
+	#Set inputs and outputs for all events
+	for node : EventNode in get_event_nodes():
 		#Get all connections for this event node
 		var connections = get_connection_list().filter(func (x):
 			return x.from_node == node.name
@@ -46,38 +62,31 @@ func get_event_tree() -> EventTree:
 			return get_node(NodePath(x.to_node)).event
 		))
 		
-		#Update node information
-		node.update(events)
-		
-		#Set start node
-		if node.event is StartEvent:
-			tree.start_event = node.event
+		node.set_connections(events)
 	
 	return tree
 
 func load_event_tree(event_tree: EventTree):
 	clear_graph()
 	
-	var se = event_tree.start_event
-	if !se:
+	var first_event = event_tree.start_event
+	
+	if !first_event:
 		return
 	
-	var first_event = se.next_list[0] if se.next_list.size() > 0 else null
-	
-	if first_event:
-		var first_node = add_event_recursive(first_event)
-		connect_node("StartNode", 0, first_node.name, 0)
+	var first_node = add_event_recursive(first_event)
+	connect_node(start_node.name, 0, first_node.name, 0)
 	
 
 func add_event_recursive(event : Event) -> EventNode:
-	for child in get_children():
+	for child in get_event_nodes():
 		if child.event == event:
 			return null
 	
 	var prefab
 	
-	for p in event_node_type_parent.get_children():
-		if p.event.get_script() == event.get_script():
+	for p : EventNode in event_node_type_parent.get_children():
+		if p.event_action.get_script() == event.action.get_script():
 			prefab = p
 			break
 	
@@ -86,7 +95,7 @@ func add_event_recursive(event : Event) -> EventNode:
 	add_child(node)
 	
 	var i : int = 0
-	for e in event.next_list:
+	for e in event.outputs:
 		var next_node = add_event_recursive(e)
 		connect_node(node.name, i, next_node.name, i)
 		i += 1
@@ -95,6 +104,11 @@ func add_event_recursive(event : Event) -> EventNode:
 
 func clear_graph():
 	for c in get_children():
-		c.queue_free()
-	var start_node = start_node_prefab.instantiate()
-	add_child(start_node)
+		if c != start_node:
+			c.queue_free()
+
+func get_event_nodes():
+	var event_nodes = get_children()
+	var index = event_nodes.find(start_node)
+	event_nodes.remove_at(index)
+	return event_nodes

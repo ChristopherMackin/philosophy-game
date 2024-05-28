@@ -1,6 +1,0 @@
-[gd_resource type="Resource" script_class="EventTree" load_steps=2 format=3 uid="uid://m88spl0jy62o"]
-
-[ext_resource type="Script" path="res://script/system/event/event_tree/event_tree.gd" id="1_nnwsy"]
-
-[resource]
-script = ExtResource("1_nnwsy")
