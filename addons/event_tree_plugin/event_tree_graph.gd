@@ -62,7 +62,7 @@ func get_event_tree() -> EventTree:
 			return get_node(NodePath(x.to_node)).event
 		))
 		
-		node.set_connections(events)
+		node.set_event_connections(events)
 	
 	return tree
 
@@ -90,8 +90,8 @@ func add_event_recursive(event : Event) -> EventNode:
 			prefab = p
 			break
 	
-	var node = prefab.duplicate()
-	node.set_event(event)
+	var node : EventNode = prefab.duplicate()
+	node.set_node_field_values(event)
 	add_child(node)
 	
 	var i : int = 0

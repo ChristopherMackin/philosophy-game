@@ -11,24 +11,24 @@ script = ExtResource("2_guqmc")
 [sub_resource type="Resource" id="Resource_1yrge"]
 script = ExtResource("3_ca2in")
 
-[sub_resource type="Resource" id="Resource_f2soy"]
+[sub_resource type="Resource" id="Resource_l11vo"]
 script = ExtResource("3_0osco")
 outputs = Array[ExtResource("3_0osco")]([])
-inputs = ["SOMETHING ELSE"]
+inputs = ["YOUR DAD"]
 action = SubResource("Resource_cj8to")
 
-[sub_resource type="Resource" id="Resource_7nfre"]
+[sub_resource type="Resource" id="Resource_cpwgm"]
 script = ExtResource("3_0osco")
-outputs = Array[ExtResource("3_0osco")]([SubResource("Resource_f2soy")])
-inputs = [3.0]
+outputs = Array[ExtResource("3_0osco")]([SubResource("Resource_l11vo")])
+inputs = [15.0]
 action = SubResource("Resource_1yrge")
 
-[sub_resource type="Resource" id="Resource_5gq36"]
+[sub_resource type="Resource" id="Resource_h54cc"]
 script = ExtResource("3_0osco")
-outputs = Array[ExtResource("3_0osco")]([SubResource("Resource_7nfre")])
-inputs = ["SOMETHING SPECIAL"]
+outputs = Array[ExtResource("3_0osco")]([SubResource("Resource_cpwgm")])
+inputs = ["YOUR MOM"]
 action = SubResource("Resource_cj8to")
 
 [resource]
 script = ExtResource("1_xt535")
-start_event = SubResource("Resource_5gq36")
+start_event = SubResource("Resource_h54cc")

@@ -9,7 +9,7 @@ class_name Event
 func invoke(manager : EventManager) -> Event:
 	return await action.invoke(self, manager)
 
-func set_connections(inputs : Array, outputs : Array):
+func set_event_connections(inputs : Array, outputs : Array):
 	self.inputs = inputs
 	self.outputs = outputs
 
