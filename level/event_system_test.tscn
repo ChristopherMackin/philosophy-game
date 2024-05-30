@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi5x1km13hqqu"]
-
-[ext_resource type="Script" path="res://script/system/event/event_manager.gd" id="1_gis4b"]
-[ext_resource type="Resource" uid="uid://by555n5na6j3u" path="res://system/events/event_test.tres" id="2_a00ei"]
-
-[node name="EventSystemTest" type="Node2D"]
-script = ExtResource("1_gis4b")
-event_tree = ExtResource("2_a00ei")

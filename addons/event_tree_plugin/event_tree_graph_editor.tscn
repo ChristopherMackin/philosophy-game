@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cigpy34phehbr"]
+[gd_scene load_steps=14 format=3 uid="uid://cigpy34phehbr"]
 
 [ext_resource type="Script" path="res://addons/event_tree_plugin/event_tree_graph_editor.gd" id="1_5451c"]
 [ext_resource type="Script" path="res://addons/event_tree_plugin/event_type_list.gd" id="1_mpg4u"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://djq6hwf312whs" path="res://addons/event_tree_plugin/event_node/wait_event_node.tscn" id="6_m28lm"]
 [ext_resource type="Script" path="res://addons/event_tree_plugin/event_node/event_node.gd" id="6_o4ubg"]
 [ext_resource type="Script" path="res://script/system/event/event_action/console_event_action.gd" id="7_qxp2g"]
+[ext_resource type="PackedScene" uid="uid://cr37f2ebcj6kc" path="res://addons/event_tree_plugin/event_node/dialogue_event.tscn" id="8_dwr4h"]
 [ext_resource type="Script" path="res://script/system/event/event_action/wait_event_action.gd" id="9_wuqot"]
 
 [sub_resource type="Resource" id="Resource_cj8to"]
@@ -66,9 +67,10 @@ text = "Save
 [node name="EventNodeList" type="ItemList" parent="VBoxContainer" node_paths=PackedStringArray("event_graph", "event_node_type_parent")]
 layout_mode = 2
 size_flags_vertical = 3
-item_count = 2
+item_count = 3
 item_0/text = "ConsoleLogEventNode"
-item_1/text = "WaitEventNode"
+item_1/text = "DialogueEvent"
+item_2/text = "WaitEventNode"
 script = ExtResource("1_mpg4u")
 event_graph = NodePath("../../EventGraph")
 event_node_type_parent = NodePath("../../EventNodeTypeParent")
@@ -106,6 +108,9 @@ offset_bottom = 40.0
 layout_mode = 0
 script = ExtResource("6_o4ubg")
 event_action = SubResource("Resource_cj8to")
+
+[node name="DialogueEvent" parent="EventNodeTypeParent" instance=ExtResource("8_dwr4h")]
+layout_mode = 0
 
 [node name="WaitEventNode" parent="EventNodeTypeParent" instance=ExtResource("6_m28lm")]
 layout_mode = 0

@@ -4,6 +4,8 @@ class_name EventManager
 
 @export var event_tree : EventTree
 
+@export var dialogue_manager : DialogueManager
+
 func _ready(): 
 	play_event_tree(event_tree)
 

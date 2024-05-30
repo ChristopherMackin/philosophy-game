@@ -16,3 +16,4 @@ slot/0/draw_stylebox = true
 
 [node name="SpinBox" type="SpinBox" parent="."]
 layout_mode = 2
+step = 0.01
