@@ -12,6 +12,7 @@ func _on_delete_nodes_request(nodes):
 		var n = get_node(NodePath(name))
 		if n != start_node:
 			n.queue_free()
+		clear_node_connections(name)
 
 func _on_connection_request(from_node, from_port, to_node, to_port):
 	connect_node(from_node, from_port, to_node, to_port)
@@ -26,12 +27,14 @@ func _on_connection_drag_started(from_node, from_port, is_output):
 	for c in connections:
 		disconnect_node(c.from_node, c.from_port, c.to_node, c.to_port)
 
+func clear_node_connections(node):
+	var connections = get_connection_list().filter(func (x):
+		return x.from_node == node || x.to_node == node
+	)
+	for c in connections:
+		disconnect_node(c.from_node, c.from_port, c.to_node, c.to_port)
+
 func get_event_tree() -> EventTree:
-	
-	#Refresh events
-	for node : EventNode in get_event_nodes():
-		node.make_new_event()
-	
 	#Make new tree and add starting event
 	var tree = EventTree.new()
 	
@@ -41,8 +44,8 @@ func get_event_tree() -> EventTree:
 	
 	if start_connections.size() <= 0:
 		return tree
-	
-	tree.start_event = get_node(NodePath(start_connections[0].to_node)).event
+		
+	var first_node_name = start_connections[0].to_node
 	
 	#Set inputs and outputs for all events
 	for node : EventNode in get_event_nodes():
@@ -57,50 +60,54 @@ func get_event_tree() -> EventTree:
 		)
 		
 		#Make an array of the events
-		var events : Array[Event] 
-		events.assign(connections.map(func(x):
-			return get_node(NodePath(x.to_node)).event
+		var indexes : Array[int] 
+		indexes.assign(connections.map(func(x):
+			return get_node(NodePath(x.to_node)).get_index() - 1
 		))
 		
-		node.set_event_connections(events)
+		var event = node.get_event(indexes)
+		
+		tree.events.append(event)
+		
+		if node.name == first_node_name:
+			tree.start_event = event
 	
 	return tree
 
 func load_event_tree(event_tree: EventTree):
 	clear_graph()
 	
-	var first_event = event_tree.start_event
+	var first_node = null;
 	
-	if !first_event:
-		return
+	for e in event_tree.events:
+		var prefab
 	
-	var first_node = add_event_recursive(first_event)
-	connect_node(start_node.name, 0, first_node.name, 0)
+		for p : EventNode in event_node_type_parent.get_children():
+			if p.event_action.get_script() == e.action.get_script():
+				prefab = p
+				break
+		
+		var node : EventNode = prefab.duplicate()
+		node.set_node_field_values(e)
+		add_child(node)
+		
+		if e == event_tree.start_event:
+			first_node = node
 	
-
-func add_event_recursive(event : Event) -> EventNode:
-	for child in get_event_nodes():
-		if child.event == event:
-			return null
 	
-	var prefab
+	var event_nodes = get_event_nodes();
+	var from_node_index = 0
 	
-	for p : EventNode in event_node_type_parent.get_children():
-		if p.event_action.get_script() == event.action.get_script():
-			prefab = p
-			break
+	for e in event_tree.events:
+		var slot_index = 0
+		for to_node_index in e.outputs:
+			connect_node(event_nodes[from_node_index].name, slot_index, event_nodes[to_node_index].name, 0)
+			slot_index += 1
+		from_node_index += 1
 	
-	var node : EventNode = prefab.duplicate()
-	node.set_node_field_values(event)
-	add_child(node)
+	connect_node("StartNode", 0, first_node.name,0)
 	
-	var i : int = 0
-	for e in event.outputs:
-		var next_node = add_event_recursive(e)
-		connect_node(node.name, i, next_node.name, i)
-		i += 1
-	
-	return node
+	arrange_nodes()
 
 func clear_graph():
 	for c in get_children():

@@ -4,20 +4,19 @@ extends GraphNode
 class_name EventNode
 
 @export var event_action : EventAction
-var event : Event
 
-func make_new_event():
-	event = Event.new()
+func get_event(connection_indexes : Array[int]):
+	var event = Event.new()
 	event.action = event_action
-
-func set_event_connections(connected_events : Array[Event]):
+	
 	#Get inputs here
 	var inputs = get_children().map(func(x): 
 		return ControlHelper.get_value(x)
 	)
 	
+	event.set_event_connections(inputs, connection_indexes)
 	
-	event.set_event_connections(inputs, connected_events)
+	return event
 
 func set_node_field_values(event : Event):
 	var i : int = 0

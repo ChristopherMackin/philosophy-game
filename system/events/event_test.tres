@@ -1,34 +1,47 @@
-[gd_resource type="Resource" script_class="EventTree" load_steps=10 format=3 uid="uid://by555n5na6j3u"]
+[gd_resource type="Resource" script_class="EventTree" load_steps=12 format=3 uid="uid://by555n5na6j3u"]
 
+[ext_resource type="Script" path="res://script/system/event/event_action/console_event_action.gd" id="1_ty1oy"]
 [ext_resource type="Script" path="res://script/system/event/event_tree.gd" id="1_xt535"]
-[ext_resource type="Script" path="res://script/system/event/event_action/console_event_action.gd" id="2_guqmc"]
-[ext_resource type="Script" path="res://script/system/event/event.gd" id="3_0osco"]
-[ext_resource type="Script" path="res://script/system/event/event_action/wait_event_action.gd" id="3_ca2in"]
+[ext_resource type="Script" path="res://script/system/event/event.gd" id="2_kkgdj"]
+[ext_resource type="Script" path="res://script/system/event/event_action/wait_event_action.gd" id="3_d6olk"]
 
 [sub_resource type="Resource" id="Resource_cj8to"]
-script = ExtResource("2_guqmc")
+script = ExtResource("1_ty1oy")
+
+[sub_resource type="Resource" id="Resource_yyfm4"]
+script = ExtResource("2_kkgdj")
+outputs = Array[int]([4])
+inputs = ["Wait recursive:"]
+action = SubResource("Resource_cj8to")
+
+[sub_resource type="Resource" id="Resource_bl2s1"]
+script = ExtResource("2_kkgdj")
+outputs = Array[int]([2])
+inputs = ["This is a test of the event system I've made..."]
+action = SubResource("Resource_cj8to")
+
+[sub_resource type="Resource" id="Resource_r2l7b"]
+script = ExtResource("2_kkgdj")
+outputs = Array[int]([3])
+inputs = ["Here goes an await:"]
+action = SubResource("Resource_cj8to")
 
 [sub_resource type="Resource" id="Resource_1yrge"]
-script = ExtResource("3_ca2in")
+script = ExtResource("3_d6olk")
 
-[sub_resource type="Resource" id="Resource_l11vo"]
-script = ExtResource("3_0osco")
-outputs = Array[ExtResource("3_0osco")]([])
-inputs = ["YOUR DAD"]
-action = SubResource("Resource_cj8to")
-
-[sub_resource type="Resource" id="Resource_cpwgm"]
-script = ExtResource("3_0osco")
-outputs = Array[ExtResource("3_0osco")]([SubResource("Resource_l11vo")])
-inputs = [15.0]
+[sub_resource type="Resource" id="Resource_03pbu"]
+script = ExtResource("2_kkgdj")
+outputs = Array[int]([0])
+inputs = [2.0]
 action = SubResource("Resource_1yrge")
 
-[sub_resource type="Resource" id="Resource_h54cc"]
-script = ExtResource("3_0osco")
-outputs = Array[ExtResource("3_0osco")]([SubResource("Resource_cpwgm")])
-inputs = ["YOUR MOM"]
-action = SubResource("Resource_cj8to")
+[sub_resource type="Resource" id="Resource_lxys1"]
+script = ExtResource("2_kkgdj")
+outputs = Array[int]([0])
+inputs = [1.0]
+action = SubResource("Resource_1yrge")
 
 [resource]
 script = ExtResource("1_xt535")
-start_event = SubResource("Resource_h54cc")
+start_event = SubResource("Resource_bl2s1")
+events = Array[ExtResource("2_kkgdj")]([SubResource("Resource_yyfm4"), SubResource("Resource_bl2s1"), SubResource("Resource_r2l7b"), SubResource("Resource_03pbu"), SubResource("Resource_lxys1")])

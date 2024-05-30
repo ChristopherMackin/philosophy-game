@@ -2,8 +2,9 @@ extends EventAction
 
 class_name WaitEventAction
 
-func invoke(event : Event, manager : EventManager) -> Event:
+func invoke(event : Event, manager : EventManager) -> int:
 	var time = event.get_input(0) if event.get_input(0) else 0
 	
 	await manager.get_tree().create_timer(time).timeout
-	return event.get_output(0)
+	var next = event.get_output(0)
+	return next
