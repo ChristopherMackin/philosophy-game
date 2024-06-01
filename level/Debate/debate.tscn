@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b8miu81cmhpvc"]
+[gd_scene load_steps=35 format=3 uid="uid://b8miu81cmhpvc"]
 
 [ext_resource type="Script" path="res://script/system/debate/debate_scene_manager.gd" id="1_ytk5d"]
 [ext_resource type="Script" path="res://script/system/debate/ui/score_board.gd" id="2_ybuk2"]
@@ -27,9 +27,8 @@
 [ext_resource type="Script" path="res://script/ui/scrolling-text.gd" id="22_3bmb0"]
 [ext_resource type="Script" path="res://script/system/debate/ui/energy_pool.gd" id="22_7jpk4"]
 [ext_resource type="Script" path="res://script/await_animator.gd" id="22_apgxv"]
-[ext_resource type="Script" path="res://script/system/event/event_manager.gd" id="28_n5b7j"]
-[ext_resource type="Resource" uid="uid://by555n5na6j3u" path="res://system/events/event_test.tres" id="29_hsehe"]
-[ext_resource type="Script" path="res://script/system/event/dialogue_manager.gd" id="29_j4imc"]
+[ext_resource type="Script" path="res://script/system/event/event_subscriber/debate_event_manager.gd" id="28_qcoiy"]
+[ext_resource type="Resource" uid="uid://diwm2a4jjao3f" path="res://system/event/event_manager/default_event_manager.tres" id="29_h7frd"]
 
 [sub_resource type="Animation" id="Animation_0gytr"]
 length = 0.001
@@ -113,11 +112,6 @@ font_names = PackedStringArray("Jura")
 font_names = PackedStringArray("Jura")
 
 [node name="Root" type="Node2D"]
-script = ExtResource("1_ytk5d")
-debate_settings = ExtResource("4_rsj8k")
-player = ExtResource("4_n2ufu")
-computer = ExtResource("5_8w2te")
-manager = ExtResource("5_1k5op")
 
 [node name="CharacterBackground" type="Sprite2D" parent="."]
 position = Vector2(1600, 540)
@@ -271,11 +265,16 @@ theme_override_font_sizes/normal_font_size = 72
 bbcode_enabled = true
 text = "[center]08:30"
 
-[node name="EventManager" type="Node2D" parent="." node_paths=PackedStringArray("dialogue_manager")]
-script = ExtResource("28_n5b7j")
-event_tree = ExtResource("29_hsehe")
-dialogue_manager = NodePath("DialogueManager")
+[node name="====================================================" type="Node" parent="."]
 
-[node name="DialogueManager" type="Node2D" parent="EventManager" node_paths=PackedStringArray("text_display")]
-script = ExtResource("29_j4imc")
-text_display = NodePath("../../SpeechBox/ScrollingText")
+[node name="DebateManager" type="Node2D" parent="."]
+script = ExtResource("1_ytk5d")
+debate_settings = ExtResource("4_rsj8k")
+player = ExtResource("4_n2ufu")
+computer = ExtResource("5_8w2te")
+manager = ExtResource("5_1k5op")
+
+[node name="EventManager" type="Node2D" parent="." node_paths=PackedStringArray("scrolling_text")]
+script = ExtResource("28_qcoiy")
+scrolling_text = NodePath("../SpeechBox/ScrollingText")
+manager = ExtResource("29_h7frd")

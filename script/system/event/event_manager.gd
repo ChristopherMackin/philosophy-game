@@ -1,13 +1,16 @@
-extends Node2D
+extends Resource
 
 class_name EventManager
 
-@export var event_tree : EventTree
+var subscriber_array : Array[EventSubscriber]
 
-@export var dialogue_manager : DialogueManager
-
-func _ready(): 
-	play_event_tree(event_tree)
+func subscribe(subscriber : EventSubscriber):
+	subscriber_array.append(subscriber)
+func unsubscribe(subscriber : EventSubscriber):
+	var index = subscriber_array.find(subscriber)
+	
+	if index != -1:
+		subscriber_array.remove_at(index)
 
 func play_event_tree(event_tree : EventTree):
 	var current_event := event_tree.start_event
@@ -15,5 +18,6 @@ func play_event_tree(event_tree : EventTree):
 	while current_event:
 		var index = await current_event.invoke(self)
 		current_event = event_tree.get_event(index)
-	
-	print("EVENT FINISHED")
+
+func display_dialogue(text : String):
+	for sub : EventSubscriber in subscriber_array: await sub.display_dialogue(text)

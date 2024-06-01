@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="DebateManager" load_steps=3 format=3 uid="uid://bcst1gst5nbhk"]
+[gd_resource type="Resource" script_class="DebateManager" load_steps=4 format=3 uid="uid://bcst1gst5nbhk"]
 
 [ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/default_debate_settings.tres" id="1_3lmkp"]
 [ext_resource type="Script" path="res://script/system/debate/debate_manager.gd" id="1_tw04k"]
+[ext_resource type="Resource" uid="uid://diwm2a4jjao3f" path="res://system/event/event_manager/default_event_manager.tres" id="2_43ur6"]
 
 [resource]
 script = ExtResource("1_tw04k")
 debate_settings = ExtResource("1_3lmkp")
+event_manager = ExtResource("2_43ur6")

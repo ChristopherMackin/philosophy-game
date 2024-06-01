@@ -9,7 +9,10 @@ static func get_value(control : Control):
 		return control.value
 
 static func set_value(control : Control, value):
+	if !value:
+		return
+	
 	if control is TextEdit:
-		control.text = value
+		control.text = value 
 	if control is SpinBox:
 		control.value = value

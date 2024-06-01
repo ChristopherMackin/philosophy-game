@@ -15,6 +15,10 @@ run/main_scene="res://level/Debate/debate.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalTimer="*res://script/utility/timer.gd"
+
 [display]
 
 window/size/viewport_width=1920

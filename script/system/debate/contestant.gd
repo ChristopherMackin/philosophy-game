@@ -16,6 +16,8 @@ var hand_limit : int:
 var energy_limit : int:
 	get: return character.energy_level
 var current_energy : int
+var debate_event_machine : DebateEventMachine:
+	get: return character.debate_event_machine
 
 func _init(character : Character):
 	self.character = character

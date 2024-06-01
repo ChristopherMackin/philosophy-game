@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventTree" load_steps=11 format=3 uid="uid://by555n5na6j3u"]
+[gd_resource type="Resource" script_class="EventTree" load_steps=12 format=3 uid="uid://by555n5na6j3u"]
 
 [ext_resource type="Script" path="res://script/system/event/event_tree.gd" id="1_xt535"]
 [ext_resource type="Script" path="res://script/system/event/event.gd" id="2_kkgdj"]
@@ -8,34 +8,40 @@
 [sub_resource type="Resource" id="Resource_egx1d"]
 script = ExtResource("3_mu2iu")
 
-[sub_resource type="Resource" id="Resource_1my04"]
+[sub_resource type="Resource" id="Resource_kdbum"]
 script = ExtResource("2_kkgdj")
 outputs = Array[int]([2])
-inputs = ["You know what..."]
+inputs = ["This is a test of things"]
 action = SubResource("Resource_egx1d")
 
-[sub_resource type="Resource" id="Resource_tbted"]
+[sub_resource type="Resource" id="Resource_ah7hf"]
 script = ExtResource("2_kkgdj")
-outputs = Array[int]([3])
-inputs = ["I think there's a long way to go"]
+outputs = Array[int]([4])
+inputs = ["Here we go again"]
 action = SubResource("Resource_egx1d")
 
 [sub_resource type="Resource" id="Resource_1yrge"]
 script = ExtResource("3_1gy3g")
 
-[sub_resource type="Resource" id="Resource_3448w"]
+[sub_resource type="Resource" id="Resource_dxxal"]
 script = ExtResource("2_kkgdj")
 outputs = Array[int]([1])
-inputs = [2.01]
+inputs = [2.0]
 action = SubResource("Resource_1yrge")
 
-[sub_resource type="Resource" id="Resource_used6"]
+[sub_resource type="Resource" id="Resource_jh4d7"]
 script = ExtResource("2_kkgdj")
 outputs = Array[int]([])
-inputs = ["But this shit is shaping up pretty good"]
+inputs = ["It still works"]
 action = SubResource("Resource_egx1d")
+
+[sub_resource type="Resource" id="Resource_25j7a"]
+script = ExtResource("2_kkgdj")
+outputs = Array[int]([3])
+inputs = [1.0]
+action = SubResource("Resource_1yrge")
 
 [resource]
 script = ExtResource("1_xt535")
-start_event = SubResource("Resource_1my04")
-events = Array[ExtResource("2_kkgdj")]([SubResource("Resource_1my04"), SubResource("Resource_tbted"), SubResource("Resource_3448w"), SubResource("Resource_used6")])
+start_event = SubResource("Resource_kdbum")
+events = Array[ExtResource("2_kkgdj")]([SubResource("Resource_kdbum"), SubResource("Resource_ah7hf"), SubResource("Resource_dxxal"), SubResource("Resource_jh4d7"), SubResource("Resource_25j7a")])

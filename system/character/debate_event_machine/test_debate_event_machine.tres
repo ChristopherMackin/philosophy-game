@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TestDebateEventMachine" load_steps=3 format=3 uid="uid://c2tkev2tyquel"]
+
+[ext_resource type="Resource" uid="uid://by555n5na6j3u" path="res://system/event/event_tree/event_test.tres" id="1_bhxiv"]
+[ext_resource type="Script" path="res://script/system/character/debate_event_machine/test_debate_event_machine.gd" id="1_wdpdp"]
+
+[resource]
+script = ExtResource("1_wdpdp")
+event_tree = ExtResource("1_bhxiv")

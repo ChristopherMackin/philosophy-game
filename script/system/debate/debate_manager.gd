@@ -4,6 +4,8 @@ class_name DebateManager
 
 @export var debate_settings : DebateSettings
 
+@export var event_manager : EventManager
+
 var player : Contestant
 var computer : Contestant
 
@@ -44,15 +46,19 @@ var topic_score_dictionary : Dictionary
 
 var subscriber_array : Array[DebateSubscriber]
 
-func subscribe(subscriber):
+var current_turn : int = 0
+
+func subscribe(subscriber : DebateSubscriber):
 	subscriber_array.append(subscriber)
-func unsubscribe(subscriber):
+func unsubscribe(subscriber : DebateSubscriber):
 	var index = subscriber_array.find(subscriber)
 	
 	if index != -1:
 		subscriber_array.remove_at(index)
 
 func init(player_character : Character, computer_character : Character):
+	self.event_manager = event_manager
+	
 	for t : Topic in debate_settings.topic_array:
 		topic_score_dictionary[t.name] = 0
 	
@@ -73,9 +79,22 @@ func game_loop():
 	await set_initial_card()
 	for sub : DebateSubscriber in subscriber_array: sub.on_debate_start(current_card)
 	
-	while not get_is_debate_over():
-		active_contestant = inactive_contestant
+	while true:
+		current_turn += 1
+		
+		active_contestant = player
 		await active_player_turn()
+		
+		if get_is_debate_over():break
+		
+		active_contestant = computer
+		await play_event()
+		
+		if get_is_debate_over(): break
+		
+		await active_player_turn()
+		
+		if get_is_debate_over():break
 	
 	for sub : DebateSubscriber in subscriber_array: sub.on_debate_finished()
 
@@ -120,6 +139,10 @@ func active_player_turn():
 				pass
 		
 	active_contestant.clean_up()
+
+func play_event():
+	var tree = computer.character.debate_event_machine.get_event_tree(current_turn, current_card)
+	await event_manager.play_event_tree(tree)
 
 func increase_suit_score(suit : Suit, amount : int):
 	var topic = debate_settings.get_topic(suit)

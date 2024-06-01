@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="EventManager" load_steps=2 format=3 uid="uid://diwm2a4jjao3f"]
+
+[ext_resource type="Script" path="res://script/system/event/event_manager.gd" id="1_hpbcp"]
+
+[resource]
+script = ExtResource("1_hpbcp")
