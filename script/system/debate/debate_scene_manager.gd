@@ -10,6 +10,7 @@ extends DebateSubscriber
 @export var score_board : ScoreBoard
 @export var energy_pool : EnergyPool
 @export var draw_pile_ui : DrawPileUI
+@export var event_manager : EventManager
 
 var action_queue : Queue = Queue.new()
 var is_animation_locked := false
@@ -19,6 +20,8 @@ func _ready():
 	action_queue.on_push = queue_animate
 	for topic in debate_settings.topic_array:
 		score_board.add_topic(topic)
+	
+	await event_manager.play_event(computer.debate_start_event)
 	
 	manager.init(player, computer)
 

@@ -1,6 +1,0 @@
-[gd_resource type="Resource" script_class="CardVariable" load_steps=2 format=3 uid="uid://brh8ial46at75"]
-
-[ext_resource type="Script" path="res://script/variable_resource/card_variable.gd" id="1_purrh"]
-
-[resource]
-script = ExtResource("1_purrh")

@@ -4,7 +4,7 @@ extends GraphEdit
 class_name EventGraph
 
 @export var start_node_prefab : PackedScene
-@onready var event_node_type_parent = $"../EventNodeTypeParent"
+@onready var task_node_type_parent = $"../TaskNodeTypeParent"
 @onready var start_node = $StartNode
 
 func _on_delete_nodes_request(nodes):
@@ -34,21 +34,21 @@ func clear_node_connections(node):
 	for c in connections:
 		disconnect_node(c.from_node, c.from_port, c.to_node, c.to_port)
 
-func get_event_tree() -> EventTree:
-	#Make new tree and add starting event
-	var tree = EventTree.new()
+func get_event_from_graph() -> Event:
+	#Make new event and add starting event
+	var event = Event.new()
 	
 	var start_connections = get_connection_list().filter(func (x):
 		return x.from_node == start_node.name
 	)
 	
 	if start_connections.size() <= 0:
-		return tree
+		return event
 		
 	var first_node_name = start_connections[0].to_node
 	
 	#Set inputs and outputs for all events
-	for node : EventNode in get_event_nodes():
+	for node : TaskNode in get_task_nodes():
 		#Get all connections for this event node
 		var connections = get_connection_list().filter(func (x):
 			return x.from_node == node.name
@@ -65,42 +65,45 @@ func get_event_tree() -> EventTree:
 			return get_node(NodePath(x.to_node)).get_index() - 1
 		))
 		
-		var event = node.get_event(indexes)
+		var task = node.get_task(indexes)
 		
-		tree.events.append(event)
+		event.tasks.append(task)
 		
 		if node.name == first_node_name:
-			tree.start_event = event
+			event.start_task = task
 	
-	return tree
+	return event
 
-func load_event_tree(event_tree: EventTree):
+func load_event_tree(event: Event):
 	clear_graph()
+	
+	if event.tasks.size() <= 0:
+		return
 	
 	var first_node = null;
 	
-	for e in event_tree.events:
+	for t in event.tasks:
 		var prefab
 	
-		for p : EventNode in event_node_type_parent.get_children():
-			if p.event_action.get_script() == e.action.get_script():
+		for p : TaskNode in task_node_type_parent.get_children():
+			if p.task_action.get_script() == t.action.get_script():
 				prefab = p
 				break
 		
-		var node : EventNode = prefab.duplicate()
-		node.set_node_field_values(e)
+		var node : TaskNode = prefab.duplicate()
+		node.set_node_field_values(t)
 		add_child(node)
 		
-		if e == event_tree.start_event:
+		if t == event.start_task:
 			first_node = node
 	
 	
-	var event_nodes = get_event_nodes();
+	var event_nodes = get_task_nodes();
 	var from_node_index = 0
 	
-	for e in event_tree.events:
+	for t in event.tasks:
 		var slot_index = 0
-		for to_node_index in e.outputs:
+		for to_node_index in t.outputs:
 			connect_node(event_nodes[from_node_index].name, slot_index, event_nodes[to_node_index].name, 0)
 			slot_index += 1
 		from_node_index += 1
@@ -114,8 +117,8 @@ func clear_graph():
 		if c != start_node:
 			c.queue_free()
 
-func get_event_nodes():
-	var event_nodes = get_children()
-	var index = event_nodes.find(start_node)
-	event_nodes.remove_at(index)
-	return event_nodes
+func get_task_nodes():
+	var task_nodes = get_children()
+	var index = task_nodes.find(start_node)
+	task_nodes.remove_at(index)
+	return task_nodes

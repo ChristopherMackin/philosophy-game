@@ -1,8 +1,8 @@
-extends EventAction
+extends TaskAction
 
-class_name AnimationEventAction
+class_name AnimationTaskAction
 
-func invoke(event : Event, manager : EventManager) -> int:
+func invoke(event : Task, manager : EventManager) -> int:
 	var animation_name = event.get_input(0)
 	var actor_name = event.get_input(1)
 	var await_animation = event.get_input(2)

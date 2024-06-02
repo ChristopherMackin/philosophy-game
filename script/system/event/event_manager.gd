@@ -12,12 +12,15 @@ func unsubscribe(subscriber : EventSubscriber):
 	if index != -1:
 		subscriber_array.remove_at(index)
 
-func play_event_tree(event_tree : EventTree):
-	var current_event := event_tree.start_event
+func play_event(event : Event):
+	if !event:
+		return
 	
-	while current_event:
-		var index = await current_event.invoke(self)
-		current_event = event_tree.get_event(index)
+	var current_task := event.start_task
+	
+	while current_task:
+		var index = await current_task.invoke(self)
+		current_task = event.get_task(index)
 
 func display_dialogue(text : String):
 	for sub : EventSubscriber in subscriber_array: await sub.display_dialogue(text)

@@ -9,9 +9,10 @@ func display_dialogue(text : String):
 	await scrolling_text.set_scrolling_text(text)
 
 func play_animation(name : String, actor : String, await_animation : bool):
-	var node = root.find_child(actor)
+	var parent = root.find_child(actor)
+	var animator = parent.get_node_or_null(NodePath("AnimationPlayer"))
 	
 	if await_animation:
-		await node.play_await(name)
+		await animator.play_await(name)
 	else: 
-		node.play(name)
+		animator.play(name)

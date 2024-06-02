@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Deck" load_steps=9 format=3 uid="uid://bf6wla5gua8yi"]
+
+[ext_resource type="Resource" uid="uid://co2xjr8nu1uct" path="res://system/card/doubt/basic_doubt.tres" id="1_hw6jc"]
+[ext_resource type="Script" path="res://script/system/card/card_deck_config.gd" id="2_5uhxu"]
+[ext_resource type="Resource" uid="uid://cwwb7f6jm7yvu" path="res://system/card/doubt/boost_doubt.tres" id="3_sayx8"]
+[ext_resource type="Resource" uid="uid://c2xmatrngw6al" path="res://system/card/doubt/energize_doubt.tres" id="4_6nb88"]
+[ext_resource type="Script" path="res://script/system/deck/deck.gd" id="5_12tav"]
+
+[sub_resource type="Resource" id="Resource_rdr1k"]
+script = ExtResource("2_5uhxu")
+card_data = ExtResource("1_hw6jc")
+count = 2
+
+[sub_resource type="Resource" id="Resource_q86ir"]
+script = ExtResource("2_5uhxu")
+card_data = ExtResource("3_sayx8")
+count = 3
+
+[sub_resource type="Resource" id="Resource_r6hlc"]
+script = ExtResource("2_5uhxu")
+card_data = ExtResource("4_6nb88")
+count = 2
+
+[resource]
+script = ExtResource("5_12tav")
+composition_card_deck_config_array = Array[ExtResource("2_5uhxu")]([SubResource("Resource_rdr1k"), SubResource("Resource_q86ir"), SubResource("Resource_r6hlc")])

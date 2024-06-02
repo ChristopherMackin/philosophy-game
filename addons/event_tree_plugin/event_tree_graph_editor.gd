@@ -7,12 +7,12 @@ class_name EventTreeGraphEditor
 @onready var event_graph : EventGraph = $EventGraph
 
 var resource_path : String
-var selected_resource : EventTree
+var selected_resource : Event
 
 func save_event_tree():
-	var tree : EventTree = event_graph.get_event_tree()
+	var event : Event = event_graph.get_event_from_graph()
 	
-	ResourceSaver.save(tree, resource_path)
+	ResourceSaver.save(event, resource_path)
 
 func open_event_tree(path):
 	if path == null:

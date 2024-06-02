@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://by555n5na6j3u"]
+
+[ext_resource type="Script" path="res://script/system/event/event.gd" id="1_xt535"]
+[ext_resource type="Script" path="res://script/system/event/task.gd" id="2_kkgdj"]
+[ext_resource type="Script" path="res://script/system/event/task_action/dialogue_task_action.gd" id="3_mu2iu"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("3_mu2iu")
+
+[sub_resource type="Resource" id="Resource_302wo"]
+script = ExtResource("2_kkgdj")
+outputs = Array[int]([])
+inputs = ["Testing the beeg change"]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_xt535")
+start_task = SubResource("Resource_302wo")
+tasks = Array[ExtResource("2_kkgdj")]([SubResource("Resource_302wo")])

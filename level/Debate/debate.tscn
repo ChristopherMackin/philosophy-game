@@ -1,13 +1,13 @@
-[gd_scene load_steps=37 format=3 uid="uid://b8miu81cmhpvc"]
+[gd_scene load_steps=38 format=3 uid="uid://b8miu81cmhpvc"]
 
 [ext_resource type="Script" path="res://script/system/debate/debate_scene_manager.gd" id="1_ytk5d"]
 [ext_resource type="Script" path="res://script/system/debate/ui/score_board.gd" id="2_ybuk2"]
 [ext_resource type="PackedScene" uid="uid://do7xkorlok0ju" path="res://prefab/debate/topic_score.tscn" id="3_bxedt"]
 [ext_resource type="Script" path="res://script/system/debate/ui/player_hand_ui.gd" id="4_2me35"]
-[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player.tres" id="4_n2ufu"]
-[ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/default_debate_settings.tres" id="4_rsj8k"]
-[ext_resource type="Resource" uid="uid://bcst1gst5nbhk" path="res://system/debate/default_debate_manager.tres" id="5_1k5op"]
-[ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/cpu.tres" id="5_8w2te"]
+[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player/player.tres" id="4_n2ufu"]
+[ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/main/main_debate_settings.tres" id="4_rsj8k"]
+[ext_resource type="Resource" uid="uid://bcst1gst5nbhk" path="res://system/debate/main/main_debate_manager.tres" id="5_1k5op"]
+[ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/ian/ian.tres" id="5_8w2te"]
 [ext_resource type="Script" path="res://script/ui/fan_sprite_container.gd" id="5_w2i3q"]
 [ext_resource type="Texture2D" uid="uid://cg2ynl0d3jijm" path="res://graphic/NineTileRect.png" id="6_hm77o"]
 [ext_resource type="Texture2D" uid="uid://co0rp83hwgwbk" path="res://graphic/debate/Discard.png" id="9_6vu7p"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cg87it1f3i6w1" path="res://prefab/debate/card.tscn" id="11_pbp4j"]
 [ext_resource type="Texture2D" uid="uid://c6rj07f3bix08" path="res://graphic/debate/DrawPile.png" id="11_to2nb"]
 [ext_resource type="Script" path="res://script/system/debate/ui/draw_pile_ui.gd" id="12_7hbmb"]
-[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://system/character/brain/player_brain.tres" id="14_7ti3u"]
+[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://system/character/general/brain/player_brain.tres" id="14_7ti3u"]
 [ext_resource type="Script" path="res://script/system/debate/ui/computer_hand_ui.gd" id="14_oh7k4"]
 [ext_resource type="Texture2D" uid="uid://8oyydhkdonto" path="res://graphic/debate/Computer.png" id="16_hfwls"]
 [ext_resource type="Texture2D" uid="uid://t8i2asm0f1co" path="res://graphic/debate/PlayAreaBackground.png" id="17_8hmqk"]
@@ -27,7 +27,7 @@
 [ext_resource type="Script" path="res://script/system/debate/ui/energy_pool.gd" id="22_7jpk4"]
 [ext_resource type="Script" path="res://script/await_animator.gd" id="22_apgxv"]
 [ext_resource type="Script" path="res://script/system/event/event_subscriber/debate_event_manager.gd" id="28_qcoiy"]
-[ext_resource type="Resource" uid="uid://diwm2a4jjao3f" path="res://system/event/event_manager/default_event_manager.tres" id="29_h7frd"]
+[ext_resource type="Resource" uid="uid://diwm2a4jjao3f" path="res://system/event/event_manager/main_event_manager.tres" id="29_h7frd"]
 
 [sub_resource type="SystemFont" id="SystemFont_115tp"]
 font_names = PackedStringArray("Jura")
@@ -139,6 +139,99 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1600, 540)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayArea/DimmingArea:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qpn6y"]
+resource_name = "close_dialogue"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayArea:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 540), Vector2(640, 540)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ContestantArea:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1480, 540), Vector2(1600, 540)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SceneAnimator/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"on_begin"],
+"method": &"emit_signal"
+}, {
+"args": [&"on_finish"],
+"method": &"emit_signal"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ContestantArea/SpeechBox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayArea/DimmingArea:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.556863), Color(0, 0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayArea/DimmingArea:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_w4si1"]
 resource_name = "open_dialogue"
@@ -150,10 +243,10 @@ tracks/0/path = NodePath("PlayArea:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(640, 540), Vector2(-640, 540)]
+"values": [Vector2(640, 540), Vector2(400, 540)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -162,15 +255,15 @@ tracks/1/path = NodePath("ContestantArea:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1600, 540), Vector2(960, 540)]
+"values": [Vector2(1600, 540), Vector2(1480, 540)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SceneAnimator")
+tracks/2/path = NodePath("SceneAnimator/AnimationPlayer")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -196,10 +289,35 @@ tracks/3/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayArea/DimmingArea:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.556863)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayArea/DimmingArea:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f3av4"]
 _data = {
 "RESET": SubResource("Animation_m3d8s"),
+"close_dialogue": SubResource("Animation_qpn6y"),
 "open_dialogue": SubResource("Animation_w4si1")
 }
 
@@ -329,6 +447,19 @@ script = ExtResource("5_w2i3q")
 container_width = 910.0
 preferred_margin = 200
 
+[node name="DimmingArea" type="ColorRect" parent="PlayArea"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -540.0
+offset_right = 640.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.556863)
+
 [node name="ContestantArea" type="Node2D" parent="."]
 position = Vector2(1600, 540)
 
@@ -336,6 +467,9 @@ position = Vector2(1600, 540)
 position = Vector2(0, 540)
 texture = ExtResource("16_hfwls")
 offset = Vector2(2.08165e-12, -319)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ContestantArea/Computer"]
+script = ExtResource("22_apgxv")
 
 [node name="SpeechBox" type="Sprite2D" parent="ContestantArea"]
 position = Vector2(0, -260)
@@ -372,6 +506,20 @@ script = ExtResource("22_apgxv")
 
 [node name="====================================================" type="Node" parent="."]
 
+[node name="SceneAnimator" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SceneAnimator"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_f3av4")
+}
+script = ExtResource("22_apgxv")
+
+[node name="EventManager" type="Node2D" parent="." node_paths=PackedStringArray("scrolling_text")]
+script = ExtResource("28_qcoiy")
+scrolling_text = NodePath("../ContestantArea/SpeechBox/ScrollingText")
+manager = ExtResource("29_h7frd")
+
 [node name="DebateManager" type="Node2D" parent="." node_paths=PackedStringArray("debate_start_animator", "computer_hand_ui", "player_hand_ui", "score_board", "energy_pool", "draw_pile_ui")]
 script = ExtResource("1_ytk5d")
 debate_settings = ExtResource("4_rsj8k")
@@ -383,15 +531,5 @@ player_hand_ui = NodePath("../PlayArea/PlayerHand")
 score_board = NodePath("../PlayArea/ScoreBoard")
 energy_pool = NodePath("../PlayArea/EnergyPool")
 draw_pile_ui = NodePath("../PlayArea/Draw")
+event_manager = ExtResource("29_h7frd")
 manager = ExtResource("5_1k5op")
-
-[node name="EventManager" type="Node2D" parent="." node_paths=PackedStringArray("scrolling_text")]
-script = ExtResource("28_qcoiy")
-scrolling_text = NodePath("../ContestantArea/SpeechBox/ScrollingText")
-manager = ExtResource("29_h7frd")
-
-[node name="SceneAnimator" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_f3av4")
-}
-script = ExtResource("22_apgxv")

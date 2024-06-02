@@ -141,8 +141,8 @@ func active_player_turn():
 	active_contestant.clean_up()
 
 func play_event():
-	var tree = computer.character.debate_event_machine.get_event_tree(current_turn, current_card)
-	await event_manager.play_event_tree(tree)
+	var event = computer.character.debate_event_factory.get_event(current_turn, current_card)
+	await event_manager.play_event(event)
 
 func increase_suit_score(suit : Suit, amount : int):
 	var topic = debate_settings.get_topic(suit)

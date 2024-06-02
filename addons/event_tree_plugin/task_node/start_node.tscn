@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://djsotsx2h2akd"]
 
-[node name="StartNode" type="GraphNode"]
+[node name="Start" type="GraphNode"]
 offset_left = 640.0
 offset_top = 540.0
 offset_right = 782.0
