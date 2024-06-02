@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dhjaa2rvtsb4w"]
 
-[node name="ConsoleLogEventNode" type="GraphNode"]
+[node name="ConsoleLogEvent" type="GraphNode"]
 offset_right = 198.0
 offset_bottom = 158.0
 resizable = true

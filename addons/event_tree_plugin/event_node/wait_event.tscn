@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://djq6hwf312whs"]
 
-[node name="WaitEventNode" type="GraphNode"]
+[node name="WaitEvent" type="GraphNode"]
 offset_right = 9.0
 offset_bottom = 55.0
 title = "Wait Event"

@@ -1,16 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://cigpy34phehbr"]
+[gd_scene load_steps=15 format=3 uid="uid://cigpy34phehbr"]
 
 [ext_resource type="Script" path="res://addons/event_tree_plugin/event_tree_graph_editor.gd" id="1_5451c"]
 [ext_resource type="Script" path="res://addons/event_tree_plugin/event_type_list.gd" id="1_mpg4u"]
 [ext_resource type="Script" path="res://addons/event_tree_plugin/event_tree_graph.gd" id="2_hkr87"]
-[ext_resource type="PackedScene" uid="uid://dhjaa2rvtsb4w" path="res://addons/event_tree_plugin/event_node/console_log_event_node.tscn" id="3_uj74p"]
 [ext_resource type="PackedScene" uid="uid://djsotsx2h2akd" path="res://addons/event_tree_plugin/event_node/start_node.tscn" id="4_cq1ix"]
 [ext_resource type="Script" path="res://addons/event_tree_plugin/event_tree_picker.gd" id="5_5212g"]
-[ext_resource type="PackedScene" uid="uid://djq6hwf312whs" path="res://addons/event_tree_plugin/event_node/wait_event_node.tscn" id="6_m28lm"]
+[ext_resource type="PackedScene" uid="uid://dhjaa2rvtsb4w" path="res://addons/event_tree_plugin/event_node/console_log_event.tscn" id="5_rlkc1"]
 [ext_resource type="Script" path="res://addons/event_tree_plugin/event_node/event_node.gd" id="6_o4ubg"]
 [ext_resource type="Script" path="res://script/system/event/event_action/console_event_action.gd" id="7_qxp2g"]
 [ext_resource type="PackedScene" uid="uid://cr37f2ebcj6kc" path="res://addons/event_tree_plugin/event_node/dialogue_event.tscn" id="8_dwr4h"]
+[ext_resource type="PackedScene" uid="uid://djq6hwf312whs" path="res://addons/event_tree_plugin/event_node/wait_event.tscn" id="9_vr2na"]
 [ext_resource type="Script" path="res://script/system/event/event_action/wait_event_action.gd" id="9_wuqot"]
+[ext_resource type="PackedScene" uid="uid://b8grwpsb8a8t5" path="res://addons/event_tree_plugin/event_node/animation_event.tscn" id="11_1e0xf"]
 
 [sub_resource type="Resource" id="Resource_cj8to"]
 script = ExtResource("7_qxp2g")
@@ -67,10 +68,11 @@ text = "Save
 [node name="EventNodeList" type="ItemList" parent="VBoxContainer" node_paths=PackedStringArray("event_graph", "event_node_type_parent")]
 layout_mode = 2
 size_flags_vertical = 3
-item_count = 3
-item_0/text = "ConsoleLogEventNode"
+item_count = 4
+item_0/text = "ConsoleLogEvent"
 item_1/text = "DialogueEvent"
-item_2/text = "WaitEventNode"
+item_2/text = "WaitEvent"
+item_3/text = "AnimationEvent"
 script = ExtResource("1_mpg4u")
 event_graph = NodePath("../../EventGraph")
 event_node_type_parent = NodePath("../../EventNodeTypeParent")
@@ -104,7 +106,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ConsoleLogEventNode" parent="EventNodeTypeParent" instance=ExtResource("3_uj74p")]
+[node name="ConsoleLogEvent" parent="EventNodeTypeParent" instance=ExtResource("5_rlkc1")]
 layout_mode = 0
 script = ExtResource("6_o4ubg")
 event_action = SubResource("Resource_cj8to")
@@ -112,10 +114,13 @@ event_action = SubResource("Resource_cj8to")
 [node name="DialogueEvent" parent="EventNodeTypeParent" instance=ExtResource("8_dwr4h")]
 layout_mode = 0
 
-[node name="WaitEventNode" parent="EventNodeTypeParent" instance=ExtResource("6_m28lm")]
+[node name="WaitEvent" parent="EventNodeTypeParent" instance=ExtResource("9_vr2na")]
 layout_mode = 0
 script = ExtResource("6_o4ubg")
 event_action = SubResource("Resource_1yrge")
+
+[node name="AnimationEvent" parent="EventNodeTypeParent" instance=ExtResource("11_1e0xf")]
+layout_mode = 0
 
 [node name="EventTreePicker" type="FileDialog" parent="."]
 title = "Open a File"

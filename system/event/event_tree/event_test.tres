@@ -1,47 +1,57 @@
-[gd_resource type="Resource" script_class="EventTree" load_steps=12 format=3 uid="uid://by555n5na6j3u"]
+[gd_resource type="Resource" script_class="EventTree" load_steps=15 format=3 uid="uid://by555n5na6j3u"]
 
 [ext_resource type="Script" path="res://script/system/event/event_tree.gd" id="1_xt535"]
 [ext_resource type="Script" path="res://script/system/event/event.gd" id="2_kkgdj"]
 [ext_resource type="Script" path="res://script/system/event/event_action/wait_event_action.gd" id="3_1gy3g"]
 [ext_resource type="Script" path="res://script/system/event/event_action/dialogue_event_action.gd" id="3_mu2iu"]
+[ext_resource type="Script" path="res://script/system/event/event_action/animation_event_action.gd" id="4_iojgc"]
+
+[sub_resource type="Resource" id="Resource_agoc5"]
+script = ExtResource("4_iojgc")
+
+[sub_resource type="Resource" id="Resource_d8dqd"]
+script = ExtResource("2_kkgdj")
+outputs = Array[int]([1])
+inputs = ["open_dialogue", "SceneAnimator", true]
+action = SubResource("Resource_agoc5")
 
 [sub_resource type="Resource" id="Resource_egx1d"]
 script = ExtResource("3_mu2iu")
 
-[sub_resource type="Resource" id="Resource_kdbum"]
+[sub_resource type="Resource" id="Resource_icwbx"]
 script = ExtResource("2_kkgdj")
-outputs = Array[int]([2])
+outputs = Array[int]([4])
 inputs = ["This is a test of things"]
 action = SubResource("Resource_egx1d")
 
-[sub_resource type="Resource" id="Resource_ah7hf"]
+[sub_resource type="Resource" id="Resource_6shoy"]
 script = ExtResource("2_kkgdj")
-outputs = Array[int]([4])
+outputs = Array[int]([])
+inputs = ["It still works"]
+action = SubResource("Resource_egx1d")
+
+[sub_resource type="Resource" id="Resource_xahqa"]
+script = ExtResource("2_kkgdj")
+outputs = Array[int]([5])
 inputs = ["Here we go again"]
 action = SubResource("Resource_egx1d")
 
 [sub_resource type="Resource" id="Resource_1yrge"]
 script = ExtResource("3_1gy3g")
 
-[sub_resource type="Resource" id="Resource_dxxal"]
+[sub_resource type="Resource" id="Resource_yqvu2"]
 script = ExtResource("2_kkgdj")
-outputs = Array[int]([1])
+outputs = Array[int]([3])
 inputs = [2.0]
 action = SubResource("Resource_1yrge")
 
-[sub_resource type="Resource" id="Resource_jh4d7"]
+[sub_resource type="Resource" id="Resource_0asy5"]
 script = ExtResource("2_kkgdj")
-outputs = Array[int]([])
-inputs = ["It still works"]
-action = SubResource("Resource_egx1d")
-
-[sub_resource type="Resource" id="Resource_25j7a"]
-script = ExtResource("2_kkgdj")
-outputs = Array[int]([3])
+outputs = Array[int]([2])
 inputs = [1.0]
 action = SubResource("Resource_1yrge")
 
 [resource]
 script = ExtResource("1_xt535")
-start_event = SubResource("Resource_kdbum")
-events = Array[ExtResource("2_kkgdj")]([SubResource("Resource_kdbum"), SubResource("Resource_ah7hf"), SubResource("Resource_dxxal"), SubResource("Resource_jh4d7"), SubResource("Resource_25j7a")])
+start_event = SubResource("Resource_d8dqd")
+events = Array[ExtResource("2_kkgdj")]([SubResource("Resource_d8dqd"), SubResource("Resource_icwbx"), SubResource("Resource_6shoy"), SubResource("Resource_xahqa"), SubResource("Resource_yqvu2"), SubResource("Resource_0asy5")])

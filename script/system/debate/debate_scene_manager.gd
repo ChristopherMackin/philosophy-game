@@ -4,13 +4,12 @@ extends DebateSubscriber
 @export var player : Character
 @export var computer : Character
 
-@onready var debate_start_animator : AwaitAnimator = $"../DebateStartGraphic/AnimationPlayer"
-@onready var debate_profile : DebateProfileUI = $"../CharacterProfile"
-@onready var computer_hand_ui : ComputerHandUI = $"../ComputerHand"
-@onready var player_hand_ui : PlayerHandUI = $"../PlayerHand"
-@onready var score_board : ScoreBoard = $"../ScoreBoard"
-@onready var energy_pool : EnergyPool = $"../EnergyPool"
-@onready var draw_pile_ui : DrawPileUI = $"../Draw"
+@export var debate_start_animator : AwaitAnimator
+@export var computer_hand_ui : ComputerHandUI
+@export var player_hand_ui : PlayerHandUI
+@export var score_board : ScoreBoard
+@export var energy_pool : EnergyPool
+@export var draw_pile_ui : DrawPileUI
 
 var action_queue : Queue = Queue.new()
 var is_animation_locked := false

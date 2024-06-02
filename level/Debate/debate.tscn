@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b8miu81cmhpvc"]
+[gd_scene load_steps=37 format=3 uid="uid://b8miu81cmhpvc"]
 
 [ext_resource type="Script" path="res://script/system/debate/debate_scene_manager.gd" id="1_ytk5d"]
 [ext_resource type="Script" path="res://script/system/debate/ui/score_board.gd" id="2_ybuk2"]
@@ -17,7 +17,6 @@
 [ext_resource type="Script" path="res://script/system/debate/ui/draw_pile_ui.gd" id="12_7hbmb"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://system/character/brain/player_brain.tres" id="14_7ti3u"]
 [ext_resource type="Script" path="res://script/system/debate/ui/computer_hand_ui.gd" id="14_oh7k4"]
-[ext_resource type="Texture2D" uid="uid://dpkvjm86blt4q" path="res://graphic/debate/CharacterBackground.png" id="15_d4pwi"]
 [ext_resource type="Texture2D" uid="uid://8oyydhkdonto" path="res://graphic/debate/Computer.png" id="16_hfwls"]
 [ext_resource type="Texture2D" uid="uid://t8i2asm0f1co" path="res://graphic/debate/PlayAreaBackground.png" id="17_8hmqk"]
 [ext_resource type="Texture2D" uid="uid://cfnt1d0t3vhv8" path="res://graphic/debate/SpeechBox.png" id="18_at5yn"]
@@ -29,6 +28,12 @@
 [ext_resource type="Script" path="res://script/await_animator.gd" id="22_apgxv"]
 [ext_resource type="Script" path="res://script/system/event/event_subscriber/debate_event_manager.gd" id="28_qcoiy"]
 [ext_resource type="Resource" uid="uid://diwm2a4jjao3f" path="res://system/event/event_manager/default_event_manager.tres" id="29_h7frd"]
+
+[sub_resource type="SystemFont" id="SystemFont_115tp"]
+font_names = PackedStringArray("Jura")
+
+[sub_resource type="SystemFont" id="SystemFont_slgg3"]
+font_names = PackedStringArray("Jura")
 
 [sub_resource type="Animation" id="Animation_0gytr"]
 length = 0.001
@@ -91,10 +96,13 @@ tracks/2/path = NodePath("AnimationPlayer")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [&"finished"],
+"args": [&"on_begin"],
+"method": &"emit_signal"
+}, {
+"args": [&"on_finish"],
 "method": &"emit_signal"
 }]
 }
@@ -105,40 +113,193 @@ _data = {
 "debate_start": SubResource("Animation_pho32")
 }
 
-[sub_resource type="SystemFont" id="SystemFont_slgg3"]
-font_names = PackedStringArray("Jura")
+[sub_resource type="Animation" id="Animation_m3d8s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayArea:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 540)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ContestantArea:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1600, 540)]
+}
 
-[sub_resource type="SystemFont" id="SystemFont_115tp"]
-font_names = PackedStringArray("Jura")
+[sub_resource type="Animation" id="Animation_w4si1"]
+resource_name = "open_dialogue"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayArea:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(640, 540), Vector2(-640, 540)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ContestantArea:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1600, 540), Vector2(960, 540)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SceneAnimator")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"on_begin"],
+"method": &"emit_signal"
+}, {
+"args": [&"on_finish"],
+"method": &"emit_signal"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ContestantArea/SpeechBox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f3av4"]
+_data = {
+"RESET": SubResource("Animation_m3d8s"),
+"open_dialogue": SubResource("Animation_w4si1")
+}
 
 [node name="Root" type="Node2D"]
 
-[node name="CharacterBackground" type="Sprite2D" parent="."]
-position = Vector2(1600, 540)
-texture = ExtResource("15_d4pwi")
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.529412, 0.835294, 0.972549, 1)
 
-[node name="Computer" type="Sprite2D" parent="."]
-position = Vector2(1600, 1080)
-texture = ExtResource("16_hfwls")
-offset = Vector2(2.08165e-12, -319)
+[node name="PlayArea" type="Node2D" parent="."]
+position = Vector2(640, 540)
 
-[node name="PlayAreaBackground" type="Sprite2D" parent="."]
-position = Vector2(2.08165e-12, 2.08165e-12)
+[node name="PlayAreaBackground" type="Sprite2D" parent="PlayArea"]
+position = Vector2(-640, -540)
 texture = ExtResource("17_8hmqk")
 offset = Vector2(640, 540)
 
-[node name="Discard" type="Sprite2D" parent="."]
-position = Vector2(1060, 470)
+[node name="Discard" type="Sprite2D" parent="PlayArea"]
+position = Vector2(420, -70)
 texture = ExtResource("9_6vu7p")
 script = ExtResource("9_fjcny")
 
-[node name="Draw" type="Sprite2D" parent="."]
-position = Vector2(40, 1080)
+[node name="ComputerHand" type="Marker2D" parent="PlayArea" node_paths=PackedStringArray("discard")]
+position = Vector2(430, -940)
+script = ExtResource("14_oh7k4")
+card_prefab = ExtResource("11_pbp4j")
+discard = NodePath("../Discard")
+
+[node name="ScoreBoard" type="VBoxContainer" parent="PlayArea"]
+offset_left = -570.0
+offset_top = -280.0
+offset_right = -570.0
+offset_bottom = -280.0
+theme_override_constants/separation = 20
+alignment = 1
+script = ExtResource("2_ybuk2")
+topic_score = ExtResource("3_bxedt")
+debate_settings = ExtResource("4_rsj8k")
+
+[node name="Clock" type="NinePatchRect" parent="PlayArea"]
+offset_left = 245.0
+offset_top = -540.0
+offset_right = 645.0
+offset_bottom = -390.0
+texture = ExtResource("6_hm77o")
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 50, 50)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Text" type="RichTextLabel" parent="PlayArea/Clock"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 26.0
+offset_right = 1.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.529412, 0.835294, 0.972549, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_115tp")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[center]08:30"
+
+[node name="EnergyPool" type="Sprite2D" parent="PlayArea"]
+position = Vector2(-600, 280)
+texture = ExtResource("21_jvlp5")
+offset = Vector2(64, 2.08165e-12)
+script = ExtResource("22_7jpk4")
+
+[node name="AmountLabel" type="RichTextLabel" parent="PlayArea/EnergyPool"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.6, 0.827451, 0.956863, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_slgg3")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[center]3"
+
+[node name="Draw" type="Sprite2D" parent="PlayArea"]
+position = Vector2(-600, 540)
 texture = ExtResource("11_to2nb")
 offset = Vector2(125, 2.08165e-12)
 script = ExtResource("12_7hbmb")
 
-[node name="CountLabel" type="RichTextLabel" parent="Draw"]
+[node name="CountLabel" type="RichTextLabel" parent="PlayArea/Draw"]
 anchors_preset = -1
 anchor_left = 0.16
 anchor_top = 0.154
@@ -154,8 +315,8 @@ theme_override_font_sizes/normal_font_size = 72
 bbcode_enabled = true
 text = "[center]45"
 
-[node name="PlayerHand" type="Marker2D" parent="." node_paths=PackedStringArray("card_container", "discard_pile")]
-position = Vector2(785, 1000)
+[node name="PlayerHand" type="Marker2D" parent="PlayArea" node_paths=PackedStringArray("card_container", "discard_pile")]
+position = Vector2(145, 460)
 script = ExtResource("4_2me35")
 player_brain = ExtResource("14_7ti3u")
 debate_settings = ExtResource("4_rsj8k")
@@ -163,45 +324,24 @@ card_container = NodePath("FanSpriteContainer")
 discard_pile = NodePath("../Discard")
 card_prefab = ExtResource("11_pbp4j")
 
-[node name="FanSpriteContainer" type="Node2D" parent="PlayerHand"]
+[node name="FanSpriteContainer" type="Node2D" parent="PlayArea/PlayerHand"]
 script = ExtResource("5_w2i3q")
 container_width = 910.0
 preferred_margin = 200
 
-[node name="ComputerHand" type="Marker2D" parent="." node_paths=PackedStringArray("discard")]
-position = Vector2(1070, -400)
-script = ExtResource("14_oh7k4")
-card_prefab = ExtResource("11_pbp4j")
-discard = NodePath("../Discard")
+[node name="ContestantArea" type="Node2D" parent="."]
+position = Vector2(1600, 540)
 
-[node name="ScoreBoard" type="VBoxContainer" parent="."]
-offset_left = 70.0
-offset_top = 260.0
-offset_right = 70.0
-offset_bottom = 260.0
-theme_override_constants/separation = 20
-alignment = 1
-script = ExtResource("2_ybuk2")
-topic_score = ExtResource("3_bxedt")
-debate_settings = ExtResource("4_rsj8k")
+[node name="Computer" type="Sprite2D" parent="ContestantArea"]
+position = Vector2(0, 540)
+texture = ExtResource("16_hfwls")
+offset = Vector2(2.08165e-12, -319)
 
-[node name="DebateStartGraphic" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-self_modulate = Color(0, 0, 0, 1)
-position = Vector2(1160, 540)
-texture = ExtResource("19_n5t7n")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DebateStartGraphic"]
-libraries = {
-"": SubResource("AnimationLibrary_is2vc")
-}
-script = ExtResource("22_apgxv")
-
-[node name="SpeechBox" type="Sprite2D" parent="."]
-position = Vector2(1600, 280)
+[node name="SpeechBox" type="Sprite2D" parent="ContestantArea"]
+position = Vector2(0, -260)
 texture = ExtResource("18_at5yn")
 
-[node name="ScrollingText" type="RichTextLabel" parent="SpeechBox"]
+[node name="ScrollingText" type="RichTextLabel" parent="ContestantArea/SpeechBox"]
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.712
@@ -218,63 +358,40 @@ bbcode_enabled = true
 script = ExtResource("22_3bmb0")
 centiseconds_between_characters = 5.0
 
-[node name="EnergyPool" type="Sprite2D" parent="."]
-position = Vector2(40, 820)
-texture = ExtResource("21_jvlp5")
-offset = Vector2(64, 2.08165e-12)
-script = ExtResource("22_7jpk4")
+[node name="DebateStartGraphic" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(1160, 540)
+texture = ExtResource("19_n5t7n")
 
-[node name="AmountLabel" type="RichTextLabel" parent="EnergyPool"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -48.0
-offset_bottom = -88.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(0.6, 0.827451, 0.956863, 1)
-theme_override_fonts/normal_font = SubResource("SystemFont_slgg3")
-theme_override_font_sizes/normal_font_size = 72
-bbcode_enabled = true
-text = "[center]3"
-
-[node name="Clock" type="NinePatchRect" parent="."]
-offset_left = 885.0
-offset_right = 1285.0
-offset_bottom = 150.0
-texture = ExtResource("6_hm77o")
-region_rect = Rect2(2.08165e-12, 2.08165e-12, 50, 50)
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
-
-[node name="Text" type="RichTextLabel" parent="Clock"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 26.0
-offset_right = 1.0
-offset_bottom = -31.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(0.529412, 0.835294, 0.972549, 1)
-theme_override_fonts/normal_font = SubResource("SystemFont_115tp")
-theme_override_font_sizes/normal_font_size = 72
-bbcode_enabled = true
-text = "[center]08:30"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DebateStartGraphic"]
+libraries = {
+"": SubResource("AnimationLibrary_is2vc")
+}
+script = ExtResource("22_apgxv")
 
 [node name="====================================================" type="Node" parent="."]
 
-[node name="DebateManager" type="Node2D" parent="."]
+[node name="DebateManager" type="Node2D" parent="." node_paths=PackedStringArray("debate_start_animator", "computer_hand_ui", "player_hand_ui", "score_board", "energy_pool", "draw_pile_ui")]
 script = ExtResource("1_ytk5d")
 debate_settings = ExtResource("4_rsj8k")
 player = ExtResource("4_n2ufu")
 computer = ExtResource("5_8w2te")
+debate_start_animator = NodePath("../DebateStartGraphic/AnimationPlayer")
+computer_hand_ui = NodePath("../PlayArea/ComputerHand")
+player_hand_ui = NodePath("../PlayArea/PlayerHand")
+score_board = NodePath("../PlayArea/ScoreBoard")
+energy_pool = NodePath("../PlayArea/EnergyPool")
+draw_pile_ui = NodePath("../PlayArea/Draw")
 manager = ExtResource("5_1k5op")
 
 [node name="EventManager" type="Node2D" parent="." node_paths=PackedStringArray("scrolling_text")]
 script = ExtResource("28_qcoiy")
-scrolling_text = NodePath("../SpeechBox/ScrollingText")
+scrolling_text = NodePath("../ContestantArea/SpeechBox/ScrollingText")
 manager = ExtResource("29_h7frd")
+
+[node name="SceneAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f3av4")
+}
+script = ExtResource("22_apgxv")

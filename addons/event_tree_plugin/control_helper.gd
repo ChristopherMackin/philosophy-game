@@ -7,6 +7,8 @@ static func get_value(control : Control):
 		return control.text
 	if control is SpinBox:
 		return control.value
+	if control is CheckButton:
+		return control.button_pressed
 
 static func set_value(control : Control, value):
 	if !value:
@@ -16,3 +18,5 @@ static func set_value(control : Control, value):
 		control.text = value 
 	if control is SpinBox:
 		control.value = value
+	if control is CheckButton: 
+		control.button_pressed = value

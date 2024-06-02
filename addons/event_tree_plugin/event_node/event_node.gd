@@ -20,6 +20,8 @@ func get_event(connection_indexes : Array[int]):
 
 func set_node_field_values(event : Event):
 	var i : int = 0
+	
 	for c in get_children():
 		ControlHelper.set_value(c, event.get_input(i))
+		i += 1
 	

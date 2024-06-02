@@ -9,3 +9,6 @@ func _ready():
 
 func display_dialogue(text : String):
 	pass
+
+func play_animation(name : String, actor : String, await_animation: bool):
+	pass

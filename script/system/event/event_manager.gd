@@ -21,3 +21,6 @@ func play_event_tree(event_tree : EventTree):
 
 func display_dialogue(text : String):
 	for sub : EventSubscriber in subscriber_array: await sub.display_dialogue(text)
+
+func play_animation(name : String, actor : String, await_animation : bool):
+	for sub : EventSubscriber in subscriber_array: await sub.play_animation(name, actor, await_animation)
