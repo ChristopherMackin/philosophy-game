@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=10 format=3 uid="uid://3dnw0mevj0a1"]
+
+[ext_resource type="Resource" uid="uid://by555n5na6j3u" path="res://system/character/ian/events/debate_start.tres" id="1_xcrct"]
+[ext_resource type="Script" path="res://script/system/character/debate_event_factory/ordered_event_factory.gd" id="1_y5e0x"]
+[ext_resource type="Script" path="res://script/system/character/debate_event_factory/rule/rule.gd" id="2_njxpx"]
+[ext_resource type="Script" path="res://script/system/character/debate_event_factory/event_factory_payload.gd" id="3_04xxt"]
+[ext_resource type="Resource" uid="uid://cr4q5b08s8xv8" path="res://system/character/ian/events/debate_end.tres" id="4_oyqf1"]
+
+[sub_resource type="Resource" id="Resource_jb7wa"]
+script = ExtResource("2_njxpx")
+criteria = "on_debate_start"
+
+[sub_resource type="Resource" id="Resource_6c6dh"]
+script = ExtResource("3_04xxt")
+event = ExtResource("1_xcrct")
+rule = SubResource("Resource_jb7wa")
+
+[sub_resource type="Resource" id="Resource_t63hl"]
+script = ExtResource("2_njxpx")
+criteria = "on_debate_finished"
+
+[sub_resource type="Resource" id="Resource_a2juj"]
+script = ExtResource("3_04xxt")
+event = ExtResource("4_oyqf1")
+rule = SubResource("Resource_t63hl")
+
+[resource]
+script = ExtResource("1_y5e0x")
+payload_list = Array[ExtResource("3_04xxt")]([SubResource("Resource_6c6dh"), SubResource("Resource_a2juj")])

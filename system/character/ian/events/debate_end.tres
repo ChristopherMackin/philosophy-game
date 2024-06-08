@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Event" load_steps=9 format=3 uid="uid://cr4q5b08s8xv8"]
+
+[ext_resource type="Script" path="res://script/system/event/event.gd" id="1_u05at"]
+[ext_resource type="Script" path="res://script/system/event/task_action/animation_task_action.gd" id="2_84xl2"]
+[ext_resource type="Script" path="res://script/system/event/task.gd" id="3_q326w"]
+[ext_resource type="Script" path="res://script/system/event/task_action/dialogue_task_action.gd" id="4_ktiyf"]
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("2_84xl2")
+
+[sub_resource type="Resource" id="Resource_1ow3k"]
+script = ExtResource("3_q326w")
+outputs = Array[int]([1])
+inputs = ["open_dialogue", "SceneAnimator", true]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("4_ktiyf")
+
+[sub_resource type="Resource" id="Resource_rpok0"]
+script = ExtResource("3_q326w")
+outputs = Array[int]([])
+inputs = ["You fucking son of a bitch..."]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_u05at")
+start_task = SubResource("Resource_1ow3k")
+tasks = Array[ExtResource("3_q326w")]([SubResource("Resource_1ow3k"), SubResource("Resource_rpok0")])

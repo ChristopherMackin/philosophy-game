@@ -4,15 +4,13 @@ class_name DebateManager
 
 @export var debate_settings : DebateSettings
 
-@export var event_manager : EventManager
-
 var player : Contestant
 var computer : Contestant
 
 var active_contestant : Contestant:
 	get: return active_contestant
 	set(val):
-		for sub : DebateSubscriber in subscriber_array: sub.on_player_change(val)
+		for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(val)
 		active_contestant = val
 
 var inactive_contestant : Contestant:
@@ -57,7 +55,6 @@ func unsubscribe(subscriber : DebateSubscriber):
 		subscriber_array.remove_at(index)
 
 func init(player_character : Character, computer_character : Character):
-	self.event_manager = event_manager
 	
 	for t : Topic in debate_settings.topic_array:
 		topic_score_dictionary[t.name] = 0
@@ -77,26 +74,15 @@ func init(player_character : Character, computer_character : Character):
 
 func game_loop():
 	await set_initial_card()
-	for sub : DebateSubscriber in subscriber_array: sub.on_debate_start(current_card)
+	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_start(current_card)
 	
-	while true:
+	while !get_is_debate_over():
 		current_turn += 1
 		
-		active_contestant = player
+		active_contestant = inactive_contestant
 		await active_player_turn()
-		
-		if get_is_debate_over():break
-		
-		active_contestant = computer
-		await play_event()
-		
-		if get_is_debate_over(): break
-		
-		await active_player_turn()
-		
-		if get_is_debate_over():break
 	
-	for sub : DebateSubscriber in subscriber_array: sub.on_debate_finished()
+	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_finished()
 
 func set_initial_card():
 	card_stack.append(await active_contestant.take_turn())
@@ -122,7 +108,7 @@ func active_player_turn():
 			current_suit
 		)
 		
-		for sub : DebateSubscriber in subscriber_array: sub.on_card_played(current_card, active_contestant)
+		for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(current_card, active_contestant)
 		
 		increase_suit_score(current_suit, 1)
 		
@@ -130,21 +116,17 @@ func active_player_turn():
 			DebateSettings.SuitRelationship.SAME:
 				var action = current_card.data.action
 				await action.positive_action(self);
-				for sub : DebateSubscriber in subscriber_array: sub.on_action_taken(action, true)
+				for sub : DebateSubscriber in subscriber_array: await sub.on_action_taken(action, true)
 			DebateSettings.SuitRelationship.OPPOSING:
 				var action = current_card.data.action
 				await action.negative_action(self);
-				for sub : DebateSubscriber in subscriber_array: sub.on_action_taken(action, false)
+				for sub : DebateSubscriber in subscriber_array: await sub.on_action_taken(action, false)
 			_:
 				pass
 		
 	active_contestant.clean_up()
 
-func play_event():
-	var event = computer.character.debate_event_factory.get_event(current_turn, current_card)
-	await event_manager.play_event(event)
-
 func increase_suit_score(suit : Suit, amount : int):
 	var topic = debate_settings.get_topic(suit)
 	topic_score_dictionary[topic.name] += topic.suit_direction(suit) * amount
-	for sub : DebateSubscriber in subscriber_array: sub.topic_score_updated(topic, topic_score_dictionary[topic.name])
+	for sub : DebateSubscriber in subscriber_array: await sub.topic_score_updated(topic, topic_score_dictionary[topic.name])

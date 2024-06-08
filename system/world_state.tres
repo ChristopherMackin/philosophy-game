@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DictionaryVariable" load_steps=2 format=3 uid="uid://do4ooeovd7xys"]
+
+[ext_resource type="Script" path="res://script/variable_resource/dictionary_variable.gd" id="1_h8eky"]
+
+[resource]
+script = ExtResource("1_h8eky")
+value = {}

@@ -11,7 +11,6 @@ var selected_resource : Event
 
 func save_event_tree():
 	var event : Event = event_graph.get_event_from_graph()
-	
 	ResourceSaver.save(event, resource_path)
 
 func open_event_tree(path):

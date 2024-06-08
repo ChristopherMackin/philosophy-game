@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://d21frda3buspp"]
 
 [ext_resource type="Script" path="res://script/system/character/brain/simple_ai_brain.gd" id="1_kulev"]
+[ext_resource type="Resource" uid="uid://3dnw0mevj0a1" path="res://system/character/ian/ian_event_factory.tres" id="2_0j80e"]
 [ext_resource type="Resource" uid="uid://c2ya6dpwqvop2" path="res://system/character/ian/ian_deck.tres" id="2_ggvw4"]
-[ext_resource type="Resource" uid="uid://c2tkev2tyquel" path="res://system/character/general/debate_event_factory/test_debate_event_factory.tres" id="2_rivb7"]
-[ext_resource type="Resource" uid="uid://by555n5na6j3u" path="res://system/event/event/event_test.tres" id="3_ki88m"]
 [ext_resource type="Script" path="res://script/system/character/character.gd" id="3_nqw71"]
+[ext_resource type="Resource" uid="uid://by555n5na6j3u" path="res://system/character/ian/events/debate_start.tres" id="3_qxe1i"]
 
 [sub_resource type="Resource" id="Resource_dm86r"]
 script = ExtResource("1_kulev")
@@ -16,5 +16,5 @@ deck = ExtResource("2_ggvw4")
 brain = SubResource("Resource_dm86r")
 hand_limit = 5
 energy_level = 2
-debate_start_event = ExtResource("3_ki88m")
-debate_event_factory = ExtResource("2_rivb7")
+debate_start_event = ExtResource("3_qxe1i")
+debate_event_factory = ExtResource("2_0j80e")

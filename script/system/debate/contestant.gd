@@ -16,7 +16,7 @@ var hand_limit : int:
 var energy_limit : int:
 	get: return character.energy_level
 var current_energy : int
-var debate_event_factory : DebateEventFactory:
+var debate_event_factory : EventFactory:
 	get: return character.debate_event_factory
 var debate_start_event : Event:
 	get: return character.debate_start_event
