@@ -8,4 +8,4 @@ class_name Character
 @export var hand_limit : int = 5
 @export var energy_level : int = 2
 @export var debate_event_factory : EventFactory
-@export var character_state : DictionaryVariable
+@export var memory : DictionaryVariable

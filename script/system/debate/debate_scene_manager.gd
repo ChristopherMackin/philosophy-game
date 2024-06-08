@@ -22,6 +22,7 @@ func _ready():
 	manager.init(player, computer)
 
 func on_debate_start(starting_card : Card):
+	await query_event("on_debate_start")
 	var player_hand = manager.player.hand.duplicate();
 	var deck_count := manager.player.deck.count
 	var suit = manager.current_suit
@@ -57,7 +58,7 @@ func on_card_played(card: Card, active_contestant : Contestant):
 			await get_tree().create_timer(.7).timeout
 			await computer_hand_ui.on_card_played(card)
 	
-	event_manager
+	await query_event("on_card_played")
 
 func on_action_taken(action : CardAction, is_positive : bool):	
 	energy_pool.set_energy(manager.player.current_energy)
@@ -68,4 +69,12 @@ func topic_score_updated(topic : Topic, score : int):
 	score_board.update_score(topic, score)
 
 func on_debate_finished():
-	pass
+	await query_event("on_debate_finished")
+
+func query_event(concept : String):
+	var query : Dictionary
+	query["concept"] = concept
+	query.merge(manager.get_debate_state())
+	await event_manager.play_event(
+		manager.event_factory.get_event(query)
+	)

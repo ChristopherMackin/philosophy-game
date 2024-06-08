@@ -2,20 +2,23 @@ extends Resource
 
 class_name Rule
 
+@export var concept : String
 @export_multiline var criteria : String
 
 func check(query : Dictionary) -> bool:
-	if criteria == "":
+	if query["concept"] != concept:
+		return false
+	elif criteria == "":
 		return true
 	
 	var criterion_array = criteria.split("\n")
 	for c in criterion_array:
 		var has_passed
-		var parts = c.split(" ")
+		var parts = c.split(" ", true, 2)
 		if parts.size() == 1:
 			var key = parts[0]
 			if key[0] == "!":
-				key.erase(0)
+				key = key.erase(0)
 				has_passed = !query.get(key)
 			else:
 				has_passed = query.get(key)

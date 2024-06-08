@@ -7,6 +7,9 @@ class_name DebateManager
 var player : Contestant
 var computer : Contestant
 
+var event_factory : EventFactory:
+	get: return computer.debate_event_factory
+
 var active_contestant : Contestant:
 	get: return active_contestant
 	set(val):
@@ -130,3 +133,12 @@ func increase_suit_score(suit : Suit, amount : int):
 	var topic = debate_settings.get_topic(suit)
 	topic_score_dictionary[topic.name] += topic.suit_direction(suit) * amount
 	for sub : DebateSubscriber in subscriber_array: await sub.topic_score_updated(topic, topic_score_dictionary[topic.name])
+
+func get_debate_state() -> Dictionary:
+	var state : Dictionary
+	
+	state["current_card"] = current_card.data.name
+	
+	state.merge(computer.memory.value)
+	
+	return state

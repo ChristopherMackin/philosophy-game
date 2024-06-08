@@ -18,8 +18,8 @@ var energy_limit : int:
 var current_energy : int
 var debate_event_factory : EventFactory:
 	get: return character.debate_event_factory
-var debate_start_event : Event:
-	get: return character.debate_start_event
+var memory : DictionaryVariable:
+	get: return character.memory
 
 func _init(character : Character):
 	self.character = character

@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="Event" load_steps=13 format=3 uid="uid://blgye6yk8bm4t"]
+
+[ext_resource type="Script" path="res://script/system/event/event.gd" id="1_h8ci7"]
+[ext_resource type="Script" path="res://script/system/event/task_action/animation_task_action.gd" id="2_yjjpy"]
+[ext_resource type="Script" path="res://script/system/event/task.gd" id="3_aau5j"]
+[ext_resource type="Script" path="res://script/system/event/task_action/dialogue_task_action.gd" id="4_aunbl"]
+[ext_resource type="Script" path="res://script/system/event/task_action/set_memory_task_action.gd" id="5_0xc2f"]
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("2_yjjpy")
+
+[sub_resource type="Resource" id="Resource_yh0pl"]
+script = ExtResource("3_aau5j")
+outputs = Array[int]([0])
+inputs = ["open_dialogue", "SceneAnimator", true]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("4_aunbl")
+
+[sub_resource type="Resource" id="Resource_q66wd"]
+script = ExtResource("3_aau5j")
+outputs = Array[int]([2])
+inputs = ["That's a card for cheaters... >:("]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_3kxrg"]
+script = ExtResource("3_aau5j")
+outputs = Array[int]([3])
+inputs = ["close_dialogue", "SceneAnimator", true]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_4fdhd"]
+script = ExtResource("5_0xc2f")
+
+[sub_resource type="Resource" id="Resource_v110m"]
+script = ExtResource("3_aau5j")
+outputs = Array[int]([])
+inputs = ["res://system/character/ian/ian_state.tres", "energize_doubt_played", "true"]
+action = SubResource("Resource_4fdhd")
+
+[resource]
+script = ExtResource("1_h8ci7")
+start_task = SubResource("Resource_yh0pl")
+tasks = Array[ExtResource("3_aau5j")]([SubResource("Resource_q66wd"), SubResource("Resource_yh0pl"), SubResource("Resource_3kxrg"), SubResource("Resource_v110m")])
