@@ -1,7 +1,17 @@
 [gd_resource type="Resource" script_class="StateDatabase" load_steps=2 format=3 uid="uid://cdrto07nfohjt"]
 
-[ext_resource type="Script" path="res://script/state_database.gd" id="1_27vsa"]
+[ext_resource type="Script" path="res://script/system/database/state_database.gd" id="1_yturn"]
 
 [resource]
-script = ExtResource("1_27vsa")
-keys = Array[String](["player", "computer", "active_contestant", "current_card", "current_suit", "previous_card", "previous_suit", "current_turn"])
+script = ExtResource("1_yturn")
+keys = Array[String](["current_card", "current_suit", "previous_card", "previous_suit", "player", "computer", "active_contestant", "current_turn"])
+_dictionary = {
+"active_contestant": null,
+"computer": null,
+"current_card": null,
+"current_suit": null,
+"current_turn": null,
+"player": null,
+"previous_card": null,
+"previous_suit": null
+}

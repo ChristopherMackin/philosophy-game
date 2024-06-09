@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="DictionaryVariable" load_steps=2 format=3 uid="uid://d1u8kdhwc34qr"]
+[gd_resource type="Resource" script_class="StateDatabase" load_steps=2 format=3 uid="uid://ddxenkdnbvacg"]
 
-[ext_resource type="Script" path="res://script/variable_resource/dictionary_variable.gd" id="1_vkxsk"]
+[ext_resource type="Script" path="res://script/system/database/state_database.gd" id="1_xng4n"]
 
 [resource]
-script = ExtResource("1_vkxsk")
-value = {
-"energize_doubt_played": true,
-"has_played_plus_doubt": true
+script = ExtResource("1_xng4n")
+keys = Array[String](["ian.energize_doubt_played", "ian.boost_doubt_played"])
+_dictionary = {
+"ian.boost_doubt_played": true,
+"ian.energize_doubt_played": true
 }

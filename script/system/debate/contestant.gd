@@ -18,7 +18,7 @@ var energy_limit : int:
 var current_energy : int
 var debate_event_factory : EventFactory:
 	get: return character.debate_event_factory
-var memory : DictionaryVariable:
+var memory : StateDatabase:
 	get: return character.memory
 
 func _init(character : Character):

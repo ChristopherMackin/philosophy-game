@@ -22,7 +22,7 @@ rule = SubResource("Resource_t63hl")
 script = ExtResource("2_njxpx")
 concept = "on_card_played"
 criteria = "current_card = \"Energize Doubt\"
-!energize_doubt_played"
+!ian.energize_doubt_played"
 
 [sub_resource type="Resource" id="Resource_8a3e8"]
 script = ExtResource("3_04xxt")
@@ -33,7 +33,7 @@ rule = SubResource("Resource_638xj")
 script = ExtResource("2_njxpx")
 concept = "on_card_played"
 criteria = "current_card == \"Boosted Doubt\"
-!has_played_plus_doubt"
+!ian.boost_doubt_played"
 
 [sub_resource type="Resource" id="Resource_rese6"]
 script = ExtResource("3_04xxt")

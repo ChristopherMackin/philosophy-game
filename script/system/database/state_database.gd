@@ -15,7 +15,7 @@ class_name StateDatabase
 			_dictionary.erase(key)
 		keys = value
 
-var _dictionary : Dictionary
+@export var _dictionary : Dictionary
 
 var value : Dictionary:
 	get: return _dictionary.duplicate()
