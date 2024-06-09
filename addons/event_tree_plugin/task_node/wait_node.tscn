@@ -7,8 +7,8 @@
 script = ExtResource("2_e1qxt")
 
 [node name="Wait" type="GraphNode"]
-offset_right = 9.0
-offset_bottom = 55.0
+offset_right = 244.0
+offset_bottom = 173.0
 title = "Wait"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -24,4 +24,5 @@ task_action = SubResource("Resource_1f63y")
 
 [node name="SpinBox" type="SpinBox" parent="."]
 layout_mode = 2
+size_flags_vertical = 3
 step = 0.01

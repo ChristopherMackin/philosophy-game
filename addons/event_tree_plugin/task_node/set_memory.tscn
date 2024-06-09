@@ -1,15 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8grwpsb8a8t5"]
+[gd_scene load_steps=4 format=3 uid="uid://du3ueixbb1wck"]
 
-[ext_resource type="Script" path="res://addons/event_tree_plugin/task_node.gd" id="1_s7ya0"]
-[ext_resource type="Script" path="res://script/system/event/task_action/animation_task_action.gd" id="2_guf6r"]
+[ext_resource type="Script" path="res://addons/event_tree_plugin/task_node.gd" id="1_8ao4j"]
+[ext_resource type="Script" path="res://script/system/event/task_action/set_memory_task_action.gd" id="2_7y8us"]
 
-[sub_resource type="Resource" id="Resource_ml60a"]
-script = ExtResource("2_guf6r")
+[sub_resource type="Resource" id="Resource_4fdhd"]
+script = ExtResource("2_7y8us")
 
-[node name="Animation" type="GraphNode"]
-offset_right = 352.0
-offset_bottom = 268.0
-title = "Animation"
+[node name="SetMemory" type="GraphNode"]
+offset_right = 394.0
+offset_bottom = 414.0
+title = "Set Memory"
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color(1, 1, 1, 1)
@@ -37,20 +37,20 @@ slot/2/right_type = 0
 slot/2/right_color = Color(1, 1, 1, 1)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
-script = ExtResource("1_s7ya0")
-task_action = SubResource("Resource_ml60a")
+script = ExtResource("1_8ao4j")
+task_action = SubResource("Resource_4fdhd")
 
-[node name="AnimationName" type="TextEdit" parent="."]
+[node name="Resource Path" type="TextEdit" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
-placeholder_text = "Animation Name"
+placeholder_text = "Resource Path"
 
-[node name="ActorName" type="TextEdit" parent="."]
+[node name="Key" type="TextEdit" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
-placeholder_text = "Actor Name"
+placeholder_text = "Key"
 
-[node name="Await" type="CheckButton" parent="."]
+[node name="Value" type="TextEdit" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Await"
+placeholder_text = "Value"

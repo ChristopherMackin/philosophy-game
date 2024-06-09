@@ -3,9 +3,16 @@ extends Resource
 class_name DebateManager
 
 @export var debate_settings : DebateSettings
+@export var debate_state : StateDatabase
 
-var player : Contestant
-var computer : Contestant
+var player : Contestant:
+	set(val):
+		player = val
+		debate_state.update("player", player.name)
+var computer : Contestant:
+	set(val):
+		computer = val
+		debate_state.update("computer", computer.name)
 
 var event_factory : EventFactory:
 	get: return computer.debate_event_factory
@@ -15,6 +22,7 @@ var active_contestant : Contestant:
 	set(val):
 		for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(val)
 		active_contestant = val
+		debate_state.update("active_contestant", active_contestant.name)
 
 var inactive_contestant : Contestant:
 	get:
@@ -31,7 +39,7 @@ var card_stack : Array[Card]
 
 var current_card : Card:
 	get: 
-		return card_stack.back()
+		return card_stack.back() if card_stack.size() > 0 else null
 var current_suit : Suit:
 	get: 
 		return current_card.data.suit if current_card else null
@@ -47,7 +55,10 @@ var topic_score_dictionary : Dictionary
 
 var subscriber_array : Array[DebateSubscriber]
 
-var current_turn : int = 0
+var current_turn : int = 0:
+	set(val): 
+		current_turn = val
+		debate_state.update("current_turn", current_turn)
 
 func subscribe(subscriber : DebateSubscriber):
 	subscriber_array.append(subscriber)
@@ -58,7 +69,7 @@ func unsubscribe(subscriber : DebateSubscriber):
 		subscriber_array.remove_at(index)
 
 func init(player_character : Character, computer_character : Character):
-	
+	debate_state.clear()
 	for t : Topic in debate_settings.topic_array:
 		topic_score_dictionary[t.name] = 0
 	
@@ -89,6 +100,7 @@ func game_loop():
 
 func set_initial_card():
 	card_stack.append(await active_contestant.take_turn())
+	update_db_with_card_stack()
 	active_contestant.clean_up()
 
 func get_is_debate_over() -> bool:
@@ -105,6 +117,7 @@ func get_is_debate_over() -> bool:
 func active_player_turn():
 	while active_contestant.current_energy > 0 and !get_is_debate_over():
 		card_stack.append(await active_contestant.take_turn())
+		update_db_with_card_stack()
 		
 		var suit_relation = debate_settings.get_suit_relationship(
 			previous_suit, 
@@ -135,10 +148,13 @@ func increase_suit_score(suit : Suit, amount : int):
 	for sub : DebateSubscriber in subscriber_array: await sub.topic_score_updated(topic, topic_score_dictionary[topic.name])
 
 func get_debate_state() -> Dictionary:
-	var state : Dictionary
-	
-	state["current_card"] = current_card.data.name
-	
+	var state := debate_state.value
 	state.merge(computer.memory.value)
 	
 	return state
+
+func update_db_with_card_stack():
+	debate_state.update("current_card", current_card.data.name if current_card else null)
+	debate_state.update("current_suit", current_card.data.suit.name if current_card else null)
+	debate_state.update("previous_card", previous_card.data.name if previous_card else null)
+	debate_state.update("previous_suit", previous_card.data.suit.name if previous_card else null)

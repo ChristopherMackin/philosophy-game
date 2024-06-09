@@ -4,7 +4,7 @@ extends GraphEdit
 class_name EventGraph
 
 @export var start_node_prefab : PackedScene
-@onready var task_node_type_parent = $"../TaskNodeTypeParent"
+@onready var task_node_type_parent = $"../../TaskNodeTypeParent"
 @onready var start_node = $StartNode
 
 func _on_delete_nodes_request(nodes):
@@ -81,6 +81,7 @@ func load_event_tree(event: Event):
 		return
 	
 	var first_node = null;
+	var nodes = []
 	
 	for t in event.tasks:
 		var prefab
@@ -93,18 +94,17 @@ func load_event_tree(event: Event):
 		var node : TaskNode = prefab.duplicate()
 		node.set_node_field_values(t)
 		add_child(node)
+		nodes.append(node)
 		
 		if t == event.start_task:
 			first_node = node
 	
-	
-	var event_nodes = get_task_nodes();
 	var from_node_index = 0
 	
 	for t in event.tasks:
 		var slot_index = 0
 		for to_node_index in t.outputs:
-			connect_node(event_nodes[from_node_index].name, slot_index, event_nodes[to_node_index].name, 0)
+			connect_node(nodes[from_node_index].name, slot_index, nodes[to_node_index].name, 0)
 			slot_index += 1
 		from_node_index += 1
 	
@@ -113,6 +113,8 @@ func load_event_tree(event: Event):
 	arrange_nodes()
 
 func clear_graph():
+	clear_connections()
+	
 	for c in get_children():
 		if c != start_node:
 			c.queue_free()

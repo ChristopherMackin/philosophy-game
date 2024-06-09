@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DictionaryVariable" load_steps=2 format=3 uid="uid://d1u8kdhwc34qr"]
+
+[ext_resource type="Script" path="res://script/variable_resource/dictionary_variable.gd" id="1_vkxsk"]
+
+[resource]
+script = ExtResource("1_vkxsk")
+value = {
+"energize_doubt_played": true,
+"has_played_plus_doubt": true
+}

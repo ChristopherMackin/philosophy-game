@@ -2,9 +2,9 @@
 
 [ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/main/main_debate_settings.tres" id="1_3lmkp"]
 [ext_resource type="Script" path="res://script/system/debate/debate_manager.gd" id="1_tw04k"]
-[ext_resource type="Resource" uid="uid://diwm2a4jjao3f" path="res://system/event/event_manager/main_event_manager.tres" id="2_43ur6"]
+[ext_resource type="Resource" uid="uid://cdrto07nfohjt" path="res://system/debate_state.tres" id="2_jq8lg"]
 
 [resource]
 script = ExtResource("1_tw04k")
 debate_settings = ExtResource("1_3lmkp")
-event_manager = ExtResource("2_43ur6")
+debate_state = ExtResource("2_jq8lg")

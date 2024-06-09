@@ -3,8 +3,8 @@ extends Node
 
 class_name EventTreeGraphEditor
 
-@onready var path_label = $VBoxContainer/ColorRect/HBoxContainer/PathLabel
-@onready var event_graph : EventGraph = $EventGraph
+@onready var path_label = $HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/PathLabel
+@onready var event_graph = $HSplitContainer/EventGraph
 
 var resource_path : String
 var selected_resource : Event

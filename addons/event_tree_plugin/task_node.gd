@@ -18,10 +18,9 @@ func get_task(connection_indexes : Array[int]):
 	
 	return task
 
-func set_node_field_values(event : Task):
+func set_node_field_values(task : Task):
 	var i : int = 0
 	
 	for c in get_children():
-		ControlHelper.set_value(c, event.get_input(i))
+		ControlHelper.set_value(c, task.get_input(i))
 		i += 1
-	

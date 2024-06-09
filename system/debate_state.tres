@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="StateDatabase" load_steps=2 format=3 uid="uid://cdrto07nfohjt"]
+
+[ext_resource type="Script" path="res://script/state_database.gd" id="1_27vsa"]
+
+[resource]
+script = ExtResource("1_27vsa")
+keys = Array[String](["player", "computer", "active_contestant", "current_card", "current_suit", "previous_card", "previous_suit", "current_turn"])

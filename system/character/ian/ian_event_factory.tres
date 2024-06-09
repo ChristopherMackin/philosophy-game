@@ -1,22 +1,12 @@
-[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=16 format=3 uid="uid://3dnw0mevj0a1"]
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=14 format=3 uid="uid://3dnw0mevj0a1"]
 
-[ext_resource type="Resource" uid="uid://by555n5na6j3u" path="res://system/character/ian/events/debate_start.tres" id="1_xcrct"]
+[ext_resource type="Resource" uid="uid://8du1byc4ywgv" path="res://system/character/ian/event_payload/on_debate_begin.tres" id="1_o8nxr"]
 [ext_resource type="Script" path="res://script/system/character/debate_event_factory/ordered_event_factory.gd" id="1_y5e0x"]
 [ext_resource type="Script" path="res://script/system/character/debate_event_factory/rule/rule.gd" id="2_njxpx"]
+[ext_resource type="Resource" uid="uid://cr4q5b08s8xv8" path="res://system/character/ian/event/debate_end.tres" id="2_pn3h2"]
 [ext_resource type="Script" path="res://script/system/character/debate_event_factory/event_factory_payload.gd" id="3_04xxt"]
-[ext_resource type="Resource" uid="uid://cr4q5b08s8xv8" path="res://system/character/ian/events/debate_end.tres" id="4_oyqf1"]
-[ext_resource type="Resource" uid="uid://blgye6yk8bm4t" path="res://system/character/ian/events/on_doubt_energize_played.tres" id="5_kfasu"]
-[ext_resource type="Resource" uid="uid://c6ecf17a575c2" path="res://system/character/ian/events/on_doubt_plus.tres" id="6_14oi5"]
-
-[sub_resource type="Resource" id="Resource_jb7wa"]
-script = ExtResource("2_njxpx")
-concept = "on_debate_start"
-criteria = ""
-
-[sub_resource type="Resource" id="Resource_6c6dh"]
-script = ExtResource("3_04xxt")
-event = ExtResource("1_xcrct")
-rule = SubResource("Resource_jb7wa")
+[ext_resource type="Resource" uid="uid://blgye6yk8bm4t" path="res://system/character/ian/event/on_doubt_energize_played.tres" id="5_ok21p"]
+[ext_resource type="Resource" uid="uid://c6ecf17a575c2" path="res://system/character/ian/event/on_doubt_plus.tres" id="6_n315k"]
 
 [sub_resource type="Resource" id="Resource_t63hl"]
 script = ExtResource("2_njxpx")
@@ -25,7 +15,7 @@ criteria = ""
 
 [sub_resource type="Resource" id="Resource_a2juj"]
 script = ExtResource("3_04xxt")
-event = ExtResource("4_oyqf1")
+event = ExtResource("2_pn3h2")
 rule = SubResource("Resource_t63hl")
 
 [sub_resource type="Resource" id="Resource_638xj"]
@@ -36,7 +26,7 @@ criteria = "current_card = \"Energize Doubt\"
 
 [sub_resource type="Resource" id="Resource_8a3e8"]
 script = ExtResource("3_04xxt")
-event = ExtResource("5_kfasu")
+event = ExtResource("5_ok21p")
 rule = SubResource("Resource_638xj")
 
 [sub_resource type="Resource" id="Resource_cf865"]
@@ -47,9 +37,9 @@ criteria = "current_card == \"Boosted Doubt\"
 
 [sub_resource type="Resource" id="Resource_rese6"]
 script = ExtResource("3_04xxt")
-event = ExtResource("6_14oi5")
+event = ExtResource("6_n315k")
 rule = SubResource("Resource_cf865")
 
 [resource]
 script = ExtResource("1_y5e0x")
-payload_list = Array[ExtResource("3_04xxt")]([SubResource("Resource_6c6dh"), SubResource("Resource_a2juj"), SubResource("Resource_8a3e8"), SubResource("Resource_rese6")])
+payload_list = Array[ExtResource("3_04xxt")]([ExtResource("1_o8nxr"), SubResource("Resource_a2juj"), SubResource("Resource_8a3e8"), SubResource("Resource_rese6")])
