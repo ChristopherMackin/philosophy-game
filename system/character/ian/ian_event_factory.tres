@@ -22,6 +22,7 @@ rule = SubResource("Resource_t63hl")
 script = ExtResource("2_njxpx")
 concept = "on_card_played"
 criteria = "current_card = \"Energize Doubt\"
+previous_suit = \"Doubt\"
 !ian.energize_doubt_played"
 
 [sub_resource type="Resource" id="Resource_8a3e8"]

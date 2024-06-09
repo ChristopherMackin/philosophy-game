@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://du3ueixbb1wck"]
 
 [ext_resource type="Script" path="res://addons/event_tree_plugin/task_node.gd" id="1_8ao4j"]
-[ext_resource type="Script" path="res://script/system/event/task_action/set_memory_task_action.gd" id="2_7y8us"]
+[ext_resource type="Script" path="res://script/system/event/task_action/set_memory_task_action.gd" id="2_b1irm"]
 
-[sub_resource type="Resource" id="Resource_4fdhd"]
-script = ExtResource("2_7y8us")
+[sub_resource type="Resource" id="Resource_svglo"]
+script = ExtResource("2_b1irm")
 
 [node name="SetMemory" type="GraphNode"]
 offset_right = 394.0
@@ -38,7 +38,7 @@ slot/2/right_color = Color(1, 1, 1, 1)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
 script = ExtResource("1_8ao4j")
-task_action = SubResource("Resource_4fdhd")
+task_action = SubResource("Resource_svglo")
 
 [node name="Resource Path" type="TextEdit" parent="."]
 layout_mode = 2
