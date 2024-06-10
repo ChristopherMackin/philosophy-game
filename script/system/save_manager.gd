@@ -8,7 +8,6 @@ func _enter_tree():
 	for d : StateDatabase in databases:
 		d.load_database()
 
-
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		for d : StateDatabase in databases:

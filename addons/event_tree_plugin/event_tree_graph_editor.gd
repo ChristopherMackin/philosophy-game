@@ -10,7 +10,10 @@ var resource_path : String
 var selected_resource : Event
 
 func save_event_tree():
-	var event : Event = event_graph.get_event_from_graph()
+	if !selected_resource:
+		return
+	
+	var event : Event = event_graph.update_event_from_graph(selected_resource)
 	ResourceSaver.save(event, resource_path)
 
 func open_event_tree(path):

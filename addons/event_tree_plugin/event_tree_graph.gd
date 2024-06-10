@@ -34,18 +34,19 @@ func clear_node_connections(node):
 	for c in connections:
 		disconnect_node(c.from_node, c.from_port, c.to_node, c.to_port)
 
-func get_event_from_graph() -> Event:
+func update_event_from_graph(event : Event) -> Event:
 	#Make new event and add starting event
-	var event = Event.new()
+	
+	var start_task
+	var tasks : Array
 	
 	var start_connections = get_connection_list().filter(func (x):
 		return x.from_node == start_node.name
 	)
 	
-	if start_connections.size() <= 0:
-		return event
-		
-	var first_node_name = start_connections[0].to_node
+	var first_node_name = ""
+	if start_connections.size() > 0:
+		first_node_name = start_connections[0].to_node
 	
 	#Set inputs and outputs for all events
 	for node : TaskNode in get_task_nodes():
@@ -67,10 +68,13 @@ func get_event_from_graph() -> Event:
 		
 		var task = node.get_task(indexes)
 		
-		event.tasks.append(task)
+		tasks.append(task)
 		
 		if node.name == first_node_name:
-			event.start_task = task
+			start_task = task
+	
+	event.start_task = start_task
+	event.tasks = tasks
 	
 	return event
 
