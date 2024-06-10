@@ -8,11 +8,11 @@ class_name DebateManager
 var player : Contestant:
 	set(val):
 		player = val
-		debate_state.update("player", player.name)
+		debate_state.update_value("player", player.name)
 var computer : Contestant:
 	set(val):
 		computer = val
-		debate_state.update("computer", computer.name)
+		debate_state.update_value("computer", computer.name)
 
 var event_factory : EventFactory:
 	get: return computer.debate_event_factory
@@ -22,7 +22,8 @@ var active_contestant : Contestant:
 	set(val):
 		for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(val)
 		active_contestant = val
-		debate_state.update("active_contestant", active_contestant.name)
+		var contestant = "player" if active_contestant == player else "computer"
+		debate_state.update_value("active_contestant", contestant)
 
 var inactive_contestant : Contestant:
 	get:
@@ -58,7 +59,7 @@ var subscriber_array : Array[DebateSubscriber]
 var current_turn : int = 0:
 	set(val): 
 		current_turn = val
-		debate_state.update("current_turn", current_turn)
+		debate_state.update_value("current_turn", current_turn)
 
 func subscribe(subscriber : DebateSubscriber):
 	subscriber_array.append(subscriber)
@@ -96,6 +97,8 @@ func game_loop():
 		active_contestant = inactive_contestant
 		await active_player_turn()
 	
+	var debates_finished = computer.memory.get_value("debates_finished")
+	computer.memory.update_value("debates_finished", debates_finished + 1)
 	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_finished()
 
 func set_initial_card():
@@ -154,7 +157,7 @@ func get_debate_state() -> Dictionary:
 	return state
 
 func update_db_with_card_stack():
-	debate_state.update("current_card", current_card.data.name if current_card else null)
-	debate_state.update("current_suit", current_card.data.suit.name if current_card else null)
-	debate_state.update("previous_card", previous_card.data.name if previous_card else null)
-	debate_state.update("previous_suit", previous_card.data.suit.name if previous_card else null)
+	debate_state.update_value("current_card", current_card.data.name if current_card else null)
+	debate_state.update_value("current_suit", current_card.data.suit.name if current_card else null)
+	debate_state.update_value("previous_card", previous_card.data.name if previous_card else null)
+	debate_state.update_value("previous_suit", previous_card.data.suit.name if previous_card else null)

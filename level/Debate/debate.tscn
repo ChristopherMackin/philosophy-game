@@ -1,8 +1,12 @@
-[gd_scene load_steps=38 format=3 uid="uid://b8miu81cmhpvc"]
+[gd_scene load_steps=42 format=3 uid="uid://b8miu81cmhpvc"]
 
+[ext_resource type="Script" path="res://script/system/save_manager.gd" id="1_twqey"]
 [ext_resource type="Script" path="res://script/system/debate/debate_scene_manager.gd" id="1_ytk5d"]
+[ext_resource type="Resource" uid="uid://dxwulhu8iegob" path="res://system/world_state.tres" id="2_qu0xu"]
+[ext_resource type="Resource" uid="uid://cdrto07nfohjt" path="res://system/debate_state.tres" id="2_vlsp4"]
 [ext_resource type="Script" path="res://script/system/debate/ui/score_board.gd" id="2_ybuk2"]
 [ext_resource type="PackedScene" uid="uid://do7xkorlok0ju" path="res://prefab/debate/topic_score.tscn" id="3_bxedt"]
+[ext_resource type="Resource" uid="uid://cqqs5g0he7n2m" path="res://system/character/ian/ian_memory.tres" id="3_ybk8r"]
 [ext_resource type="Script" path="res://script/system/debate/ui/player_hand_ui.gd" id="4_2me35"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player/player.tres" id="4_n2ufu"]
 [ext_resource type="Resource" uid="uid://dca2vkphr1vsk" path="res://system/debate/main/main_debate_settings.tres" id="4_rsj8k"]
@@ -322,6 +326,10 @@ _data = {
 }
 
 [node name="Root" type="Node2D"]
+
+[node name="SaveManager" type="Node" parent="."]
+script = ExtResource("1_twqey")
+databases = Array[Resource("res://script/system/database/state_database.gd")]([ExtResource("2_qu0xu"), ExtResource("2_vlsp4"), ExtResource("3_ybk8r")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

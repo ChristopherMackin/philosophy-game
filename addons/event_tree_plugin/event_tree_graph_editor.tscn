@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cigpy34phehbr"]
+[gd_scene load_steps=13 format=3 uid="uid://cigpy34phehbr"]
 
 [ext_resource type="Script" path="res://addons/event_tree_plugin/event_tree_graph_editor.gd" id="1_5451c"]
 [ext_resource type="Script" path="res://addons/event_tree_plugin/event_type_list.gd" id="1_mpg4u"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dhjaa2rvtsb4w" path="res://addons/event_tree_plugin/task_node/console_log_node.tscn" id="5_rlkc1"]
 [ext_resource type="PackedScene" uid="uid://cr37f2ebcj6kc" path="res://addons/event_tree_plugin/task_node/dialogue_node.tscn" id="8_dwr4h"]
 [ext_resource type="PackedScene" uid="uid://du3ueixbb1wck" path="res://addons/event_tree_plugin/task_node/set_memory.tscn" id="9_r24cy"]
+[ext_resource type="PackedScene" uid="uid://bebhxac2vqi8n" path="res://addons/event_tree_plugin/task_node/increment_value.tscn" id="9_rj2vi"]
 [ext_resource type="PackedScene" uid="uid://djq6hwf312whs" path="res://addons/event_tree_plugin/task_node/wait_node.tscn" id="9_vr2na"]
+[ext_resource type="PackedScene" uid="uid://by584kw2dy5t8" path="res://addons/event_tree_plugin/task_node/decrement_value.tscn" id="10_c7row"]
 [ext_resource type="PackedScene" uid="uid://b8grwpsb8a8t5" path="res://addons/event_tree_plugin/task_node/animation_node.tscn" id="11_1e0xf"]
 
 [node name="Event Tree Graph Editor" type="Control"]
@@ -85,12 +87,14 @@ text = "Save
 [node name="EventNodeList" type="ItemList" parent="HSplitContainer/NodeSelector" node_paths=PackedStringArray("event_graph", "task_node_type_parent")]
 layout_mode = 2
 size_flags_vertical = 3
-item_count = 5
+item_count = 7
 item_0/text = "ConsoleLog"
 item_1/text = "Dialogue"
 item_2/text = "Wait"
 item_3/text = "Animate"
-item_4/text = "SetMemory"
+item_4/text = "IncrementValue"
+item_5/text = "DecrementValue"
+item_6/text = "SetValue"
 script = ExtResource("1_mpg4u")
 event_graph = NodePath("../../EventGraph")
 task_node_type_parent = NodePath("../../../TaskNodeTypeParent")
@@ -128,7 +132,13 @@ layout_mode = 0
 [node name="Animate" parent="TaskNodeTypeParent" instance=ExtResource("11_1e0xf")]
 layout_mode = 0
 
-[node name="SetMemory" parent="TaskNodeTypeParent" instance=ExtResource("9_r24cy")]
+[node name="IncrementValue" parent="TaskNodeTypeParent" instance=ExtResource("9_rj2vi")]
+layout_mode = 0
+
+[node name="DecrementValue" parent="TaskNodeTypeParent" instance=ExtResource("10_c7row")]
+layout_mode = 0
+
+[node name="SetValue" parent="TaskNodeTypeParent" instance=ExtResource("9_r24cy")]
 layout_mode = 0
 
 [node name="EventTreePicker" type="FileDialog" parent="."]

@@ -1,31 +1,17 @@
-[gd_resource type="Resource" script_class="StateDatabase" load_steps=6 format=3 uid="uid://ddxenkdnbvacg"]
+[gd_resource type="Resource" script_class="StateDatabase" load_steps=4 format=3 uid="uid://cqqs5g0he7n2m"]
 
 [ext_resource type="Script" path="res://script/system/database/state_database.gd" id="1_xng4n"]
 [ext_resource type="Script" path="res://script/system/database/database_column.gd" id="1_xw784"]
 
-[sub_resource type="Resource" id="Resource_akq4m"]
+[sub_resource type="Resource" id="Resource_j3hps"]
 script = ExtResource("1_xw784")
-key = "ian.energize_doubt_played"
-type = 1
-description = ""
-
-[sub_resource type="Resource" id="Resource_fgfqh"]
-script = ExtResource("1_xw784")
-key = "ian.boost_doubt_played"
-type = 1
-description = ""
-
-[sub_resource type="Resource" id="Resource_pt1vh"]
-script = ExtResource("1_xw784")
-key = "ian.basic_doubt_played"
-type = 1
+key = "debates_finished"
+type = 2
+_default = "0"
 description = ""
 
 [resource]
 script = ExtResource("1_xng4n")
-columns = Array[ExtResource("1_xw784")]([SubResource("Resource_akq4m"), SubResource("Resource_fgfqh"), SubResource("Resource_pt1vh")])
-_dictionary = {
-"ian.basic_doubt_played": false,
-"ian.boost_doubt_played": false,
-"ian.energize_doubt_played": false
-}
+prefix = "ian."
+columns = Array[ExtResource("1_xw784")]([SubResource("Resource_j3hps")])
+sub_path = "memory/ian.tres"
