@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="Event" load_steps=16 format=3 uid="uid://ddi7aljq67bnj"]
+
+[ext_resource type="Script" path="res://script/system/event/event.gd" id="1_sdyaf"]
+[ext_resource type="Script" path="res://script/system/event/task_action/animation_task_action.gd" id="2_brsc8"]
+[ext_resource type="Script" path="res://script/system/event/task.gd" id="3_jxusn"]
+[ext_resource type="Script" path="res://script/system/event/task_action/dialogue_task_action.gd" id="4_by8v3"]
+[ext_resource type="Script" path="res://script/system/event/task_action/wait_task_action.gd" id="5_nddb0"]
+[ext_resource type="Script" path="res://script/system/event/task_action/set_memory_task_action.gd" id="6_4m6va"]
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("2_brsc8")
+
+[sub_resource type="Resource" id="Resource_x426a"]
+script = ExtResource("3_jxusn")
+outputs = Array[int]([1])
+inputs = ["open_dialogue", "SceneAnimator", true]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("4_by8v3")
+
+[sub_resource type="Resource" id="Resource_kgra8"]
+script = ExtResource("3_jxusn")
+outputs = Array[int]([2])
+inputs = ["Now you owe me a sandwich"]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_1f63y"]
+script = ExtResource("5_nddb0")
+
+[sub_resource type="Resource" id="Resource_kiqux"]
+script = ExtResource("3_jxusn")
+outputs = Array[int]([3])
+inputs = [1.0]
+action = SubResource("Resource_1f63y")
+
+[sub_resource type="Resource" id="Resource_r8faw"]
+script = ExtResource("3_jxusn")
+outputs = Array[int]([4])
+inputs = ["close_dialogue", "SceneAnimator", true]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_svglo"]
+script = ExtResource("6_4m6va")
+
+[sub_resource type="Resource" id="Resource_nym2i"]
+script = ExtResource("3_jxusn")
+outputs = Array[int]([])
+inputs = ["res://system/character/ian/ian_memory.tres", "ian.basic_doubt_played", "true"]
+action = SubResource("Resource_svglo")
+
+[resource]
+script = ExtResource("1_sdyaf")
+start_task = SubResource("Resource_x426a")
+tasks = Array[ExtResource("3_jxusn")]([SubResource("Resource_x426a"), SubResource("Resource_kgra8"), SubResource("Resource_kiqux"), SubResource("Resource_r8faw"), SubResource("Resource_nym2i")])

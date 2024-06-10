@@ -7,7 +7,7 @@
 script = ExtResource("1_kjqtf")
 key = "current_card"
 type = 4
-description = ""
+description = "The card that was played last"
 
 [sub_resource type="Resource" id="Resource_2n20l"]
 script = ExtResource("1_kjqtf")
@@ -19,7 +19,7 @@ description = ""
 script = ExtResource("1_kjqtf")
 key = "previous_card"
 type = 4
-description = ""
+description = "The card that was played before the current_card"
 
 [sub_resource type="Resource" id="Resource_iyeve"]
 script = ExtResource("1_kjqtf")
@@ -30,3 +30,4 @@ description = ""
 [resource]
 script = ExtResource("1_yturn")
 columns = Array[ExtResource("1_kjqtf")]([SubResource("Resource_52r25"), SubResource("Resource_2n20l"), SubResource("Resource_ot0ab"), SubResource("Resource_iyeve")])
+_dictionary = null

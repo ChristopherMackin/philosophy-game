@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="StateDatabase" load_steps=5 format=3 uid="uid://ddxenkdnbvacg"]
+[gd_resource type="Resource" script_class="StateDatabase" load_steps=6 format=3 uid="uid://ddxenkdnbvacg"]
 
 [ext_resource type="Script" path="res://script/system/database/state_database.gd" id="1_xng4n"]
 [ext_resource type="Script" path="res://script/system/database/database_column.gd" id="1_xw784"]
@@ -15,10 +15,17 @@ key = "ian.boost_doubt_played"
 type = 1
 description = ""
 
+[sub_resource type="Resource" id="Resource_pt1vh"]
+script = ExtResource("1_xw784")
+key = "ian.basic_doubt_played"
+type = 1
+description = ""
+
 [resource]
 script = ExtResource("1_xng4n")
-columns = Array[ExtResource("1_xw784")]([SubResource("Resource_akq4m"), SubResource("Resource_fgfqh")])
+columns = Array[ExtResource("1_xw784")]([SubResource("Resource_akq4m"), SubResource("Resource_fgfqh"), SubResource("Resource_pt1vh")])
 _dictionary = {
+"ian.basic_doubt_played": false,
 "ian.boost_doubt_played": false,
 "ian.energize_doubt_played": false
 }
