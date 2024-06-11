@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DictionaryVariable" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://script/variable_resource/dictionary_variable.gd" id="1_13w3b"]
+
+[resource]
+script = ExtResource("1_13w3b")
+value = {
+"active_contestant": "player",
+"computer": "Ian",
+"current_card": "Boosted Doubt",
+"current_suit": "Doubt",
+"current_turn": 1,
+"player": "Christopher",
+"previous_card": "Energize Doubt",
+"previous_suit": "Doubt"
+}

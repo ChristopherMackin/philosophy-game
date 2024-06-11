@@ -52,4 +52,4 @@ action = SubResource("Resource_mdms2")
 [resource]
 script = ExtResource("1_hi171")
 start_task = SubResource("Resource_n0sc0")
-tasks = [SubResource("Resource_n0sc0"), SubResource("Resource_12dvc"), SubResource("Resource_1ymj7"), SubResource("Resource_uk4q7"), SubResource("Resource_ewhun")]
+tasks = Array[ExtResource("3_x6100")]([SubResource("Resource_n0sc0"), SubResource("Resource_12dvc"), SubResource("Resource_1ymj7"), SubResource("Resource_uk4q7"), SubResource("Resource_ewhun")])

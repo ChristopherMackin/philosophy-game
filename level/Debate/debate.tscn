@@ -1,11 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://b8miu81cmhpvc"]
+[gd_scene load_steps=40 format=3 uid="uid://b8miu81cmhpvc"]
 
 [ext_resource type="Script" path="res://script/system/save_manager.gd" id="1_twqey"]
 [ext_resource type="Script" path="res://script/system/debate/debate_scene_manager.gd" id="1_ytk5d"]
 [ext_resource type="Resource" uid="uid://dxwulhu8iegob" path="res://system/world_state.tres" id="2_qu0xu"]
 [ext_resource type="Resource" uid="uid://cdrto07nfohjt" path="res://system/debate_state.tres" id="2_vlsp4"]
-[ext_resource type="Script" path="res://script/system/debate/ui/score_board.gd" id="2_ybuk2"]
-[ext_resource type="PackedScene" uid="uid://do7xkorlok0ju" path="res://prefab/debate/topic_score.tscn" id="3_bxedt"]
 [ext_resource type="Resource" uid="uid://cqqs5g0he7n2m" path="res://system/character/ian/ian_memory.tres" id="3_ybk8r"]
 [ext_resource type="Script" path="res://script/system/debate/ui/player_hand_ui.gd" id="4_2me35"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player/player.tres" id="4_n2ufu"]
@@ -360,17 +358,6 @@ script = ExtResource("14_oh7k4")
 card_prefab = ExtResource("11_pbp4j")
 discard = NodePath("../Discard")
 
-[node name="ScoreBoard" type="VBoxContainer" parent="PlayArea"]
-offset_left = -570.0
-offset_top = -280.0
-offset_right = -570.0
-offset_bottom = -280.0
-theme_override_constants/separation = 20
-alignment = 1
-script = ExtResource("2_ybuk2")
-topic_score = ExtResource("3_bxedt")
-debate_settings = ExtResource("4_rsj8k")
-
 [node name="Clock" type="NinePatchRect" parent="PlayArea"]
 offset_left = 245.0
 offset_top = -540.0
@@ -531,7 +518,7 @@ script = ExtResource("28_qcoiy")
 scrolling_text = NodePath("../ContestantArea/SpeechBox/ScrollingText")
 manager = ExtResource("29_h7frd")
 
-[node name="DebateManager" type="Node2D" parent="." node_paths=PackedStringArray("debate_start_animator", "computer_hand_ui", "player_hand_ui", "score_board", "energy_pool", "draw_pile_ui")]
+[node name="DebateManager" type="Node2D" parent="." node_paths=PackedStringArray("debate_start_animator", "computer_hand_ui", "player_hand_ui", "energy_pool", "draw_pile_ui")]
 script = ExtResource("1_ytk5d")
 debate_settings = ExtResource("4_rsj8k")
 player = ExtResource("4_n2ufu")
@@ -539,7 +526,6 @@ computer = ExtResource("5_8w2te")
 debate_start_animator = NodePath("../DebateStartGraphic/AnimationPlayer")
 computer_hand_ui = NodePath("../PlayArea/ComputerHand")
 player_hand_ui = NodePath("../PlayArea/PlayerHand")
-score_board = NodePath("../PlayArea/ScoreBoard")
 energy_pool = NodePath("../PlayArea/EnergyPool")
 draw_pile_ui = NodePath("../PlayArea/Draw")
 event_manager = ExtResource("29_h7frd")

@@ -52,7 +52,7 @@ var previous_suit : Suit:
 	get: 
 		return previous_card.data.suit
 
-var topic_score_dictionary : Dictionary
+var suit_score_dictionary : Dictionary
 
 var subscriber_array : Array[DebateSubscriber]
 
@@ -72,7 +72,8 @@ func unsubscribe(subscriber : DebateSubscriber):
 func init(player_character : Character, computer_character : Character):
 	debate_state.clear()
 	for t : Topic in debate_settings.topic_array:
-		topic_score_dictionary[t.name] = 0
+		for s : Suit in t.suits:
+			suit_score_dictionary[s.name] = 0
 	
 	player = Contestant.new(player_character)
 	computer = Contestant.new(computer_character)
@@ -107,8 +108,8 @@ func set_initial_card():
 	active_contestant.clean_up()
 
 func get_is_debate_over() -> bool:
-	for key in topic_score_dictionary:
-		if abs(topic_score_dictionary[key]) >= debate_settings.win_amount:
+	for key in suit_score_dictionary:
+		if (suit_score_dictionary[key]) >= debate_settings.win_amount:
 			return true
 	
 	for c : Contestant in contestants:
@@ -129,7 +130,7 @@ func active_player_turn():
 		
 		for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(current_card, active_contestant)
 		
-		increase_suit_score(current_suit, 1)
+		suit_score_dictionary[current_suit.name] += 1
 		
 		match suit_relation:
 			DebateSettings.SuitRelationship.SAME:
@@ -144,11 +145,6 @@ func active_player_turn():
 				pass
 		
 	active_contestant.clean_up()
-
-func increase_suit_score(suit : Suit, amount : int):
-	var topic = debate_settings.get_topic(suit)
-	topic_score_dictionary[topic.name] += topic.suit_direction(suit) * amount
-	for sub : DebateSubscriber in subscriber_array: await sub.topic_score_updated(topic, topic_score_dictionary[topic.name])
 
 func get_debate_state() -> Dictionary:
 	var state := debate_state.value

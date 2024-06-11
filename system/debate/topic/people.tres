@@ -7,5 +7,4 @@
 [resource]
 script = ExtResource("1_eud0p")
 name = "People"
-positive_suit = ExtResource("2_03wbt")
-negative_suit = ExtResource("1_ppbta")
+suits = Array[Resource("res://script/system/suit/suit.gd")]([ExtResource("1_ppbta"), ExtResource("2_03wbt")])

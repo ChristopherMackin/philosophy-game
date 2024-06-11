@@ -7,7 +7,6 @@ extends DebateSubscriber
 @export var debate_start_animator : AwaitAnimator
 @export var computer_hand_ui : ComputerHandUI
 @export var player_hand_ui : PlayerHandUI
-@export var score_board : ScoreBoard
 @export var energy_pool : EnergyPool
 @export var draw_pile_ui : DrawPileUI
 @export var event_manager : EventManager
@@ -16,8 +15,7 @@ var is_animation_locked := false
 
 func _ready():
 	super._ready()
-	for topic in debate_settings.topic_array:
-		score_board.add_topic(topic)
+	#set up topic/suit score board here
 	
 	manager.init(player, computer)
 
@@ -65,8 +63,8 @@ func on_action_taken(action : CardAction, is_positive : bool):
 	draw_pile_ui.set_count(manager.player.deck.count)
 	player_hand_ui.update_card_array(manager.player.hand.duplicate(), manager.current_suit)
 
-func topic_score_updated(topic : Topic, score : int):
-	score_board.update_score(topic, score)
+func suit_score_updated(suit : Suit, score : int):
+	pass
 
 func on_debate_finished():
 	await query_event("on_debate_finished")

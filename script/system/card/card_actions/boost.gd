@@ -6,8 +6,8 @@ class_name Boost
 
 func positive_action(manager: DebateManager):
 	var suit = manager.current_suit
-	manager.increase_suit_score(suit, boost_amount)
+	manager.suit_score_dictionary[suit.name] += 1
 
 func negative_action(manager: DebateManager):
 	var suit = manager.current_suit
-	manager.increase_suit_score(suit, -1)
+	manager.suit_score_dictionary[suit.name] -= 1
