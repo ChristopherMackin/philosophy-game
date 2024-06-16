@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxcdbgsv7cixc"
-path="res://.godot/imported/Spade.svg-ffc7e5e290e9cd8836bb9cc91a20bc9e.ctex"
+path="res://.godot/imported/Spade.svg-2d176afe2d411a3a6a6c078c46d0fc77.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphic/debate/suit/Spade.svg"
-dest_files=["res://.godot/imported/Spade.svg-ffc7e5e290e9cd8836bb9cc91a20bc9e.ctex"]
+source_file="res://graphic/debate/pose/Spade.svg"
+dest_files=["res://.godot/imported/Spade.svg-2d176afe2d411a3a6a6c078c46d0fc77.ctex"]
 
 [params]
 

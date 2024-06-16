@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="Topic" load_steps=4 format=3 uid="uid://bk02mkyem1nbs"]
+[gd_resource type="Resource" script_class="Topic" load_steps=4 format=3 uid="uid://m13bv4g2uq2x"]
 
-[ext_resource type="Resource" uid="uid://b1vcr8b6vqsw7" path="res://system/suit/doubt.tres" id="1_g5nkm"]
+[ext_resource type="Resource" uid="uid://dskq0fe0vu0hx" path="res://system/pose/faith.tres" id="1_0noai"]
 [ext_resource type="Script" path="res://script/system/debate/topic.gd" id="1_kaf8r"]
-[ext_resource type="Resource" uid="uid://dskq0fe0vu0hx" path="res://system/suit/faith.tres" id="2_wet4l"]
+[ext_resource type="Resource" uid="uid://b1vcr8b6vqsw7" path="res://system/pose/doubt.tres" id="2_56mo3"]
 
 [resource]
 script = ExtResource("1_kaf8r")
 name = "Religion"
-suits = Array[Resource("res://script/system/suit/suit.gd")]([ExtResource("1_g5nkm"), ExtResource("2_wet4l")])
+poses = Array[Resource("res://script/system/pose/pose.gd")]([ExtResource("1_0noai"), ExtResource("2_56mo3")])

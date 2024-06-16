@@ -41,18 +41,18 @@ var card_stack : Array[Card]
 var current_card : Card:
 	get: 
 		return card_stack.back() if card_stack.size() > 0 else null
-var current_suit : Suit:
+var current_pose : Pose:
 	get: 
-		return current_card.data.suit if current_card else null
+		return current_card.data.pose if current_card else null
 
 var previous_card : Card:
 	get: 
 		return card_stack[card_stack.size() - 2] if card_stack.size() > 1 else null
-var previous_suit : Suit:
+var previous_pose : Pose:
 	get: 
-		return previous_card.data.suit
+		return previous_card.data.pose
 
-var suit_score_dictionary : Dictionary
+var pose_score_dictionary : Dictionary
 
 var subscriber_array : Array[DebateSubscriber]
 
@@ -72,8 +72,8 @@ func unsubscribe(subscriber : DebateSubscriber):
 func init(player_character : Character, computer_character : Character):
 	debate_state.clear()
 	for t : Topic in debate_settings.topic_array:
-		for s : Suit in t.suits:
-			suit_score_dictionary[s.name] = 0
+		for s : Pose in t.poses:
+			pose_score_dictionary[s.name] = 0
 	
 	player = Contestant.new(player_character)
 	computer = Contestant.new(computer_character)
@@ -108,8 +108,8 @@ func set_initial_card():
 	active_contestant.clean_up()
 
 func get_is_debate_over() -> bool:
-	for key in suit_score_dictionary:
-		if (suit_score_dictionary[key]) >= debate_settings.win_amount:
+	for key in pose_score_dictionary:
+		if (pose_score_dictionary[key]) >= debate_settings.win_amount:
 			return true
 	
 	for c : Contestant in contestants:
@@ -123,21 +123,21 @@ func active_player_turn():
 		card_stack.append(await active_contestant.take_turn())
 		update_db_with_card_stack()
 		
-		var suit_relation = debate_settings.get_suit_relationship(
-			previous_suit, 
-			current_suit
+		var pose_relation = debate_settings.get_pose_relationship(
+			previous_pose, 
+			current_pose
 		)
 		
 		for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(current_card, active_contestant)
 		
-		suit_score_dictionary[current_suit.name] += 1
+		pose_score_dictionary[current_pose.name] += 1
 		
-		match suit_relation:
-			DebateSettings.SuitRelationship.SAME:
+		match pose_relation:
+			DebateSettings.PoseRelationship.SAME:
 				var action = current_card.data.action
 				await action.positive_action(self);
 				for sub : DebateSubscriber in subscriber_array: await sub.on_action_taken(action, true)
-			DebateSettings.SuitRelationship.OPPOSING:
+			DebateSettings.PoseRelationship.OPPOSING:
 				var action = current_card.data.action
 				await action.negative_action(self);
 				for sub : DebateSubscriber in subscriber_array: await sub.on_action_taken(action, false)
@@ -154,6 +154,6 @@ func get_debate_state() -> Dictionary:
 
 func update_db_with_card_stack():
 	debate_state.update_value("current_card", current_card.data.name if current_card else null)
-	debate_state.update_value("current_suit", current_card.data.suit.name if current_card else null)
+	debate_state.update_value("current_pose", current_card.data.pose.name if current_card else null)
 	debate_state.update_value("previous_card", previous_card.data.name if previous_card else null)
-	debate_state.update_value("previous_suit", previous_card.data.suit.name if previous_card else null)
+	debate_state.update_value("previous_pose", previous_card.data.pose.name if previous_card else null)

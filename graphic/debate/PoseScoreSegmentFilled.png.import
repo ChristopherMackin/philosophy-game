@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd4cwkfy5n5p6"
-path="res://.godot/imported/Over.png-930daffb4191e6065f96f2b2d266da7c.ctex"
+uid="uid://chbk2ojumcdxj"
+path="res://.godot/imported/PoseScoreSegmentFilled.png-a82638f4cb211177d6a6282b1c5f1b8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphic/debate/topic_score/Over.png"
-dest_files=["res://.godot/imported/Over.png-930daffb4191e6065f96f2b2d266da7c.ctex"]
+source_file="res://graphic/debate/PoseScoreSegmentFilled.png"
+dest_files=["res://.godot/imported/PoseScoreSegmentFilled.png-a82638f4cb211177d6a6282b1c5f1b8c.ctex"]
 
 [params]
 

@@ -17,5 +17,5 @@ func update_card(card : Card):
 	icon = get_node("Icon")
 	border = get_node("Border")
 	
-	icon.texture = card.data.suit.icon
-	color = card.data.suit.color
+	icon.texture = card.data.pose.icon
+	color = card.data.pose.color

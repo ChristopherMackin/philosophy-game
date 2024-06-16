@@ -7,52 +7,52 @@ class_name DebateSettings
 
 @export var win_amount : int = 5
 
-enum SuitRelationship {
+enum PoseRelationship {
 	SAME,
 	OPPOSING,
 	OFF_TOPIC,
 	NONE,
 }
 
-func has_suit(suit : Suit) -> bool:
+func has_pose(pose : Pose) -> bool:
 	for topic : Topic in topic_array:
-		if topic.has_suit(suit):
+		if topic.has_pose(pose):
 			return true
 	
 	return false
 
-func get_topic_index(suit : Suit) -> int:
+func get_topic_index(pose : Pose) -> int:
 	var index = 0
 	
 	for topic : Topic in topic_array:
-		if topic.has_suit(suit):
+		if topic.has_pose(pose):
 			return index
 		
 		index += 1
 	
 	return -1
 
-func get_topic(suit : Suit) -> Topic:
-	var index = get_topic_index(suit)
+func get_topic(pose : Pose) -> Topic:
+	var index = get_topic_index(pose)
 	
 	if index == -1:
 		return null
 	
 	return topic_array[index]
 
-func conflicting(suit_1 : Suit, suit_2 : Suit) -> bool:
+func conflicting(pose_1 : Pose, pose_2 : Pose) -> bool:
 	for topic : Topic in topic_array:
-		if topic.has_suit(suit_1) and topic.has_suit(suit_2) and suit_1 != suit_2:
+		if topic.has_pose(pose_1) and topic.has_pose(pose_2) and pose_1 != pose_2:
 			return true
 		
 	return false
 
-func get_suit_relationship(suit_1 : Suit, suit_2 : Suit) -> SuitRelationship:
-	if suit_1 == suit_2:
-		return SuitRelationship.SAME
-	elif (conflicting(suit_1, suit_2)):
-		return SuitRelationship.OPPOSING
-	elif has_suit(suit_1) and has_suit(suit_2):
-		return SuitRelationship.OFF_TOPIC
+func get_pose_relationship(pose_1 : Pose, pose_2 : Pose) -> PoseRelationship:
+	if pose_1 == pose_2:
+		return PoseRelationship.SAME
+	elif (conflicting(pose_1, pose_2)):
+		return PoseRelationship.OPPOSING
+	elif has_pose(pose_1) and has_pose(pose_2):
+		return PoseRelationship.OFF_TOPIC
 	
-	return SuitRelationship.NONE
+	return PoseRelationship.NONE

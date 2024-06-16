@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7whgk1hl126r"
-path="res://.godot/imported/Club.svg-ea1997e62eb5a8e69364aade2f7dd62c.ctex"
+path="res://.godot/imported/Club.svg-6cc3806ac027645e2d31e68e2a9b3513.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphic/debate/suit/Club.svg"
-dest_files=["res://.godot/imported/Club.svg-ea1997e62eb5a8e69364aade2f7dd62c.ctex"]
+source_file="res://graphic/debate/pose/Club.svg"
+dest_files=["res://.godot/imported/Club.svg-6cc3806ac027645e2d31e68e2a9b3513.ctex"]
 
 [params]
 

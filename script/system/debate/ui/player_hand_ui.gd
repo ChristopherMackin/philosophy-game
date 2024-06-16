@@ -50,7 +50,7 @@ func add_cards(added_cards : Array):
 		
 		card_container.add_child(ui_card)
 
-func update_card_array(hand_card_array : Array, current_suit: Suit):
+func update_card_array(hand_card_array : Array, current_pose: Pose):
 	var to_add_array = hand_card_array.duplicate();
 	
 	for ui_card : UICard in ui_card_array.duplicate():
@@ -65,15 +65,15 @@ func update_card_array(hand_card_array : Array, current_suit: Suit):
 			to_add_array.remove_at(i)
 	
 	add_cards(to_add_array)
-	Util.sort_children(card_container, func(a: UICard, b: UICard): return a.card.data.suit.name.naturalnocasecmp_to(b.card.data.suit.name) < 0)
+	Util.sort_children(card_container, func(a: UICard, b: UICard): return a.card.data.pose.name.naturalnocasecmp_to(b.card.data.pose.name) < 0)
 	
 	for ui_card : UICard in ui_card_array:
-		var relation = debate_settings.get_suit_relationship(current_suit, ui_card.card.data.suit)
+		var relation = debate_settings.get_pose_relationship(current_pose, ui_card.card.data.pose)
 		
 		match relation:
-			DebateSettings.SuitRelationship.SAME:
+			DebateSettings.PoseRelationship.SAME:
 				ui_card.sign = UICard.Sign.POSITIVE
-			DebateSettings.SuitRelationship.OPPOSING:
+			DebateSettings.PoseRelationship.OPPOSING:
 				ui_card.sign = UICard.Sign.NEGATIVE
 			_:
 				ui_card.sign = UICard.Sign.NONE

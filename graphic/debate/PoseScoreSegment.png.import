@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo4jbp6ii5mtg"
-path="res://.godot/imported/Diamond.svg-c7d05435153f763eab10c0c33e3926cb.ctex"
+uid="uid://bcxh2kx2rd5wl"
+path="res://.godot/imported/PoseScoreSegment.png-5ccd1862f954c214dcfead989760ae69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphic/debate/suit/Diamond.svg"
-dest_files=["res://.godot/imported/Diamond.svg-c7d05435153f763eab10c0c33e3926cb.ctex"]
+source_file="res://graphic/debate/PoseScoreSegment.png"
+dest_files=["res://.godot/imported/PoseScoreSegment.png-5ccd1862f954c214dcfead989760ae69.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

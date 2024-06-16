@@ -15,7 +15,7 @@ var is_animation_locked := false
 
 func _ready():
 	super._ready()
-	#set up topic/suit score board here
+	#set up topic/pose score board here
 	
 	manager.init(player, computer)
 
@@ -23,12 +23,12 @@ func on_debate_start(starting_card : Card):
 	await query_event("on_debate_start")
 	var player_hand = manager.player.hand.duplicate();
 	var deck_count := manager.player.deck.count
-	var suit = manager.current_suit
+	var pose = manager.current_pose
 	
 	player_hand_ui.enabled = false;
 	energy_pool.set_energy(manager.player.current_energy)
 	draw_pile_ui.set_count(deck_count)
-	player_hand_ui.update_card_array(player_hand, suit)
+	player_hand_ui.update_card_array(player_hand, pose)
 	
 	await Util.await_all([
 		func(): await debate_start_animator.play_await("debate_start"),
@@ -40,7 +40,7 @@ func on_player_change(contestant : Contestant):
 		player:
 			player_hand_ui.enabled = true;
 			energy_pool.set_energy(manager.player.current_energy)
-			player_hand_ui.update_card_array(manager.player.hand.duplicate(), manager.current_suit)
+			player_hand_ui.update_card_array(manager.player.hand.duplicate(), manager.current_pose)
 		computer:
 			player_hand_ui.enabled = false;
 			draw_pile_ui.set_count(manager.player.deck.count)
@@ -50,7 +50,7 @@ func on_card_played(card: Card, active_contestant : Contestant):
 		player:
 			energy_pool.set_energy(active_contestant.current_energy)
 			await player_hand_ui.on_card_played(card)
-			player_hand_ui.update_card_array(manager.player.hand.duplicate(), manager.current_suit)
+			player_hand_ui.update_card_array(manager.player.hand.duplicate(), manager.current_pose)
 			draw_pile_ui.set_count(manager.player.deck.count)
 		computer:
 			await get_tree().create_timer(.7).timeout
@@ -61,9 +61,9 @@ func on_card_played(card: Card, active_contestant : Contestant):
 func on_action_taken(action : CardAction, is_positive : bool):	
 	energy_pool.set_energy(manager.player.current_energy)
 	draw_pile_ui.set_count(manager.player.deck.count)
-	player_hand_ui.update_card_array(manager.player.hand.duplicate(), manager.current_suit)
+	player_hand_ui.update_card_array(manager.player.hand.duplicate(), manager.current_pose)
 
-func suit_score_updated(suit : Suit, score : int):
+func pose_score_updated(pose : Pose, score : int):
 	pass
 
 func on_debate_finished():

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceitj0enswtya"
-path="res://.godot/imported/Under.png-5ea49fc5945e167620eb36cfceacaea4.ctex"
+uid="uid://b7mk3trbstyqw"
+path="res://.godot/imported/TopicConnector.png-4b27380140cbc841c73365fd5fda5d1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphic/debate/topic_score/Under.png"
-dest_files=["res://.godot/imported/Under.png-5ea49fc5945e167620eb36cfceacaea4.ctex"]
+source_file="res://graphic/debate/TopicConnector.png"
+dest_files=["res://.godot/imported/TopicConnector.png-4b27380140cbc841c73365fd5fda5d1b.ctex"]
 
 [params]
 

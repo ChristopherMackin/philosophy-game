@@ -1,6 +1,6 @@
 extends Resource
 
-class_name Suit
+class_name Pose
 
 @export var name : String
 @export var color : Color

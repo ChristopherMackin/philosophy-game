@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyk1d1yuqscco"
-path="res://.godot/imported/Heart.svg-0883f89377f986e88b293e0a8915d405.ctex"
+uid="uid://bo4jbp6ii5mtg"
+path="res://.godot/imported/Diamond.svg-1aece6d641cccbd1ca0e4ed171d97f11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphic/debate/suit/Heart.svg"
-dest_files=["res://.godot/imported/Heart.svg-0883f89377f986e88b293e0a8915d405.ctex"]
+source_file="res://graphic/debate/pose/Diamond.svg"
+dest_files=["res://.godot/imported/Diamond.svg-1aece6d641cccbd1ca0e4ed171d97f11.ctex"]
 
 [params]
 

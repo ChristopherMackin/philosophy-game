@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmn6j4gmh5mfq"
-path="res://.godot/imported/Progress.png-cacd75d572c73b8a05d39555185c6142.ctex"
+uid="uid://cyk1d1yuqscco"
+path="res://.godot/imported/Heart.svg-b602b84f25c8149be1b9ea4f13798260.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphic/debate/topic_score/Progress.png"
-dest_files=["res://.godot/imported/Progress.png-cacd75d572c73b8a05d39555185c6142.ctex"]
+source_file="res://graphic/debate/pose/Heart.svg"
+dest_files=["res://.godot/imported/Heart.svg-b602b84f25c8149be1b9ea4f13798260.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
