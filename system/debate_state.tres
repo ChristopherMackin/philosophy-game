@@ -1,66 +1,9 @@
-[gd_resource type="Resource" script_class="StateDatabase" load_steps=11 format=3 uid="uid://cdrto07nfohjt"]
+[gd_resource type="Resource" script_class="StateDatabase" load_steps=2 format=3 uid="uid://cdrto07nfohjt"]
 
-[ext_resource type="Script" path="res://script/system/database/database_column.gd" id="1_kjqtf"]
 [ext_resource type="Script" path="res://script/system/database/state_database.gd" id="1_yturn"]
-
-[sub_resource type="Resource" id="Resource_52r25"]
-script = ExtResource("1_kjqtf")
-key = "current_card"
-type = 4
-_default = ""
-description = "The card that was played last"
-
-[sub_resource type="Resource" id="Resource_2n20l"]
-script = ExtResource("1_kjqtf")
-key = "current_suit"
-type = 4
-_default = ""
-description = ""
-
-[sub_resource type="Resource" id="Resource_ot0ab"]
-script = ExtResource("1_kjqtf")
-key = "previous_card"
-type = 4
-_default = ""
-description = "The card that was played before the current_card"
-
-[sub_resource type="Resource" id="Resource_iyeve"]
-script = ExtResource("1_kjqtf")
-key = "previous_suit"
-type = 4
-_default = ""
-description = ""
-
-[sub_resource type="Resource" id="Resource_o0oxj"]
-script = ExtResource("1_kjqtf")
-key = "player"
-type = 4
-_default = ""
-description = ""
-
-[sub_resource type="Resource" id="Resource_iinfq"]
-script = ExtResource("1_kjqtf")
-key = "computer"
-type = 4
-_default = ""
-description = ""
-
-[sub_resource type="Resource" id="Resource_nuyad"]
-script = ExtResource("1_kjqtf")
-key = "active_contestant"
-type = 4
-_default = ""
-description = ""
-
-[sub_resource type="Resource" id="Resource_faoj5"]
-script = ExtResource("1_kjqtf")
-key = "current_turn"
-type = 2
-_default = "0"
-description = ""
 
 [resource]
 script = ExtResource("1_yturn")
+schema = 1
 prefix = ""
-columns = Array[ExtResource("1_kjqtf")]([SubResource("Resource_52r25"), SubResource("Resource_2n20l"), SubResource("Resource_ot0ab"), SubResource("Resource_iyeve"), SubResource("Resource_o0oxj"), SubResource("Resource_iinfq"), SubResource("Resource_nuyad"), SubResource("Resource_faoj5")])
 sub_path = "debate_state.tres"

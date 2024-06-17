@@ -40,3 +40,12 @@ static func set_parent(node : Node, parent: Node):
 
 static func await_all(functions : Array[Callable]):
 	await AwaitAll.new(functions).all_finished
+
+static func build_query(queryables : Array) -> Dictionary:
+	var query : Dictionary
+	
+	for q : Object in queryables:
+		if q.has_method("build_query"):
+			query.merge(q.build_query())
+	
+	return query

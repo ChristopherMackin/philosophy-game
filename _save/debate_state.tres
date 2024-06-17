@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DictionaryVariable" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://script/variable_resource/dictionary_variable.gd" id="1_svk2r"]
+
+[resource]
+script = ExtResource("1_svk2r")
+value = {
+"active_contestant": "computer",
+"computer": "Ian",
+"current_card": "Basic Faith",
+"current_pose": "Faith",
+"player": "Christopher",
+"previous_card": "",
+"previous_pose": ""
+}

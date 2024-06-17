@@ -147,10 +147,11 @@ func active_player_turn():
 	active_contestant.clean_up()
 
 func get_debate_state() -> Dictionary:
-	var state := debate_state.value
-	state.merge(computer.memory.value)
 	
-	return state
+	return Util.build_query([
+		debate_state,
+		computer.memory,
+	])
 
 func update_db_with_card_stack():
 	debate_state.update_value("current_card", current_card.data.name if current_card else null)

@@ -1,31 +1,9 @@
-[gd_resource type="Resource" script_class="StateDatabase" load_steps=6 format=3 uid="uid://cqqs5g0he7n2m"]
+[gd_resource type="Resource" script_class="StateDatabase" load_steps=2 format=3 uid="uid://cqqs5g0he7n2m"]
 
 [ext_resource type="Script" path="res://script/system/database/state_database.gd" id="1_xng4n"]
-[ext_resource type="Script" path="res://script/system/database/database_column.gd" id="1_xw784"]
-
-[sub_resource type="Resource" id="Resource_j3hps"]
-script = ExtResource("1_xw784")
-key = "debates_finished"
-type = 2
-_default = "0"
-description = ""
-
-[sub_resource type="Resource" id="Resource_8l1nb"]
-script = ExtResource("1_xw784")
-key = "player_played_basic_doubt"
-type = 1
-_default = "false"
-description = ""
-
-[sub_resource type="Resource" id="Resource_i284w"]
-script = ExtResource("1_xw784")
-key = "cbf_after_pbd"
-type = 1
-_default = "false"
-description = "Computer plays a basic faith card after the player plays a basic doubt card"
 
 [resource]
 script = ExtResource("1_xng4n")
+schema = 3
 prefix = "ian."
-columns = Array[ExtResource("1_xw784")]([SubResource("Resource_j3hps"), SubResource("Resource_8l1nb"), SubResource("Resource_i284w")])
 sub_path = "memory/ian.tres"
