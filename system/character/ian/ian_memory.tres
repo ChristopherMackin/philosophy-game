@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="StateDatabase" load_steps=2 format=3 uid="uid://cqqs5g0he7n2m"]
+[gd_resource type="Resource" script_class="StateDatabase" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://script/system/database/state_database.gd" id="1_xng4n"]
 

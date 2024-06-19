@@ -38,7 +38,7 @@ func update_event_from_graph(event : Event) -> Event:
 	#Make new event and add starting event
 	
 	var start_task
-	var tasks : Array
+	var tasks : Array[Task]
 	
 	var start_connections = get_connection_list().filter(func (x):
 		return x.from_node == start_node.name

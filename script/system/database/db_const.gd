@@ -17,13 +17,9 @@ enum DebateSchema {
 	CURRENT_TURN = 7,
 }
 enum CharacterSchema {
-	DEBATES_FINISHED = 0
+	DEBATES_FINISHED = 0,
+	HAS_PLAYED_EVENT_0 = 1,
 }
-
-#		"key" : "",
-#		"type" : ,
-#		"default" : "",
-#		"description" : ""
 
 const world_schema_data : Array = [
 	{
@@ -94,6 +90,12 @@ const character_schema_data : Array = [
 		"default" : 0,
 		"description" : "The number of debates finished against this opponent"
 	},
+	{
+		"key" : "has_played_event_0",
+		"type" : TYPE_BOOL,
+		"default" : false,
+		"description" : "Has the event been played for this character"
+	},
 ]
 
 enum DBSchema {
@@ -110,3 +112,9 @@ const db_schema_data : Array = [
 	character_schema_data
 ]
 
+const db_schema : Array = [
+	WorldSchema,
+	DebateSchema,
+	SceneSchema,
+	CharacterSchema
+]

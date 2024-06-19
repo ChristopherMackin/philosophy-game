@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://script/system/character/debate_event_factory/rule/rule.gd" id="2_njxpx"]
 [ext_resource type="Script" path="res://script/system/character/debate_event_factory/event_factory_payload.gd" id="3_04xxt"]
 [ext_resource type="Resource" uid="uid://by555n5na6j3u" path="res://system/character/ian/event/debate_start.tres" id="4_d780q"]
-[ext_resource type="Resource" uid="uid://obtut7slu875" path="res://system/character/ian/event/on_player_plays_basic_doubt.tres" id="5_uk8jb"]
+[ext_resource type="Resource" uid="uid://bwecnhpnjru1t" path="res://system/character/ian/event/on_player_plays_basic_doubt.tres" id="5_uk8jb"]
 [ext_resource type="Script" path="res://script/system/character/debate_event_factory/rule/criterion/debate_criterion.gd" id="7_1cx8r"]
 
 [sub_resource type="Resource" id="Resource_q0w8y"]
@@ -36,28 +36,29 @@ script = ExtResource("3_04xxt")
 event = ExtResource("4_d780q")
 rule = SubResource("Resource_7pvd6")
 
-[sub_resource type="Resource" id="Resource_2c638"]
+[sub_resource type="Resource" id="Resource_7evdj"]
 script = ExtResource("7_1cx8r")
 key = 0
 comparator = 0
 value = "\"Basic Doubt\""
 
-[sub_resource type="Resource" id="Resource_bvh7u"]
-script = ExtResource("7_1cx8r")
-key = 6
+[sub_resource type="Resource" id="Resource_pylip"]
+script = ExtResource("2_js3s5")
+character_name = "ian"
+key = 1
 comparator = 0
-value = "\"player\""
+value = "false"
 
-[sub_resource type="Resource" id="Resource_3c3mi"]
+[sub_resource type="Resource" id="Resource_dqe7y"]
 script = ExtResource("2_njxpx")
 concept = "on_card_played"
-criteria = Array[Resource("res://script/system/character/debate_event_factory/rule/criterion/criterion.gd")]([SubResource("Resource_2c638"), SubResource("Resource_bvh7u")])
+criteria = Array[Resource("res://script/system/character/debate_event_factory/rule/criterion/criterion.gd")]([SubResource("Resource_7evdj"), SubResource("Resource_pylip")])
 
-[sub_resource type="Resource" id="Resource_wm3a7"]
+[sub_resource type="Resource" id="Resource_yihir"]
 script = ExtResource("3_04xxt")
 event = ExtResource("5_uk8jb")
-rule = SubResource("Resource_3c3mi")
+rule = SubResource("Resource_dqe7y")
 
 [resource]
 script = ExtResource("1_y5e0x")
-payload_list = Array[ExtResource("3_04xxt")]([SubResource("Resource_uusje"), SubResource("Resource_ditvy"), SubResource("Resource_wm3a7")])
+payload_list = Array[ExtResource("3_04xxt")]([SubResource("Resource_uusje"), SubResource("Resource_ditvy"), SubResource("Resource_yihir")])

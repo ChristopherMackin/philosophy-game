@@ -1,15 +1,16 @@
 [gd_resource type="Resource" script_class="DictionaryVariable" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://script/variable_resource/dictionary_variable.gd" id="1_svk2r"]
+[ext_resource type="Script" path="res://script/variable_resource/dictionary_variable.gd" id="1_lyd53"]
 
 [resource]
-script = ExtResource("1_svk2r")
+script = ExtResource("1_lyd53")
 value = {
-"active_contestant": "computer",
+"active_contestant": "player",
 "computer": "Ian",
-"current_card": "Basic Faith",
-"current_pose": "Faith",
+"current_card": "Basic Doubt",
+"current_pose": "Doubt",
+"current_turn": 3,
 "player": "Christopher",
-"previous_card": "",
-"previous_pose": ""
+"previous_card": "Basic Faith",
+"previous_pose": "Faith"
 }

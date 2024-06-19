@@ -1,55 +1,45 @@
-[gd_resource type="Resource" script_class="Event" load_steps=16 format=3 uid="uid://obtut7slu875"]
+[gd_resource type="Resource" script_class="Event" load_steps=13 format=3 uid="uid://bwecnhpnjru1t"]
 
 [ext_resource type="Script" path="res://script/system/event/event.gd" id="1_y8oe4"]
-[ext_resource type="Script" path="res://script/system/event/task_action/animation_task_action.gd" id="2_q11x7"]
-[ext_resource type="Script" path="res://script/system/event/task.gd" id="3_3gx0n"]
-[ext_resource type="Script" path="res://script/system/event/task_action/dialogue_task_action.gd" id="4_708vb"]
-[ext_resource type="Script" path="res://script/system/event/task_action/wait_task_action.gd" id="5_nw3jy"]
-[ext_resource type="Script" path="res://script/system/event/task_action/set_value_task_action.gd" id="6_cwwr8"]
+[ext_resource type="Script" path="res://script/system/event/task_action/animation_task_action.gd" id="2_eon51"]
+[ext_resource type="Script" path="res://script/system/event/task_action/set_value_task_action.gd" id="2_fklwe"]
+[ext_resource type="Script" path="res://script/system/event/task.gd" id="3_6w4bg"]
+[ext_resource type="Script" path="res://script/system/event/task_action/dialogue_task_action.gd" id="5_il6dn"]
 
 [sub_resource type="Resource" id="Resource_ml60a"]
-script = ExtResource("2_q11x7")
+script = ExtResource("2_eon51")
 
-[sub_resource type="Resource" id="Resource_l3qr3"]
-script = ExtResource("3_3gx0n")
-outputs = Array[int]([0])
+[sub_resource type="Resource" id="Resource_blksm"]
+script = ExtResource("3_6w4bg")
+outputs = Array[int]([2])
 inputs = ["open_dialogue", "SceneAnimator", true]
 action = SubResource("Resource_ml60a")
 
-[sub_resource type="Resource" id="Resource_x7ur8"]
-script = ExtResource("4_708vb")
+[sub_resource type="Resource" id="Resource_mdms2"]
+script = ExtResource("2_fklwe")
 
-[sub_resource type="Resource" id="Resource_sw8h0"]
-script = ExtResource("3_3gx0n")
-outputs = Array[int]([1])
-inputs = ["How dare you speak ill of the faith..."]
+[sub_resource type="Resource" id="Resource_bwy4d"]
+script = ExtResource("3_6w4bg")
+outputs = Array[int]([])
+inputs = ["res://system/character/ian/ian_memory.tres", -1, "true", null]
+action = SubResource("Resource_mdms2")
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("5_il6dn")
+
+[sub_resource type="Resource" id="Resource_ki0rd"]
+script = ExtResource("3_6w4bg")
+outputs = Array[int]([3])
+inputs = ["BITCH"]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_1f63y"]
-script = ExtResource("5_nw3jy")
-
-[sub_resource type="Resource" id="Resource_7srhf"]
-script = ExtResource("3_3gx0n")
-outputs = Array[int]([2])
-inputs = [1.0]
-action = SubResource("Resource_1f63y")
-
-[sub_resource type="Resource" id="Resource_d827n"]
-script = ExtResource("3_3gx0n")
-outputs = Array[int]([3])
+[sub_resource type="Resource" id="Resource_h0s62"]
+script = ExtResource("3_6w4bg")
+outputs = Array[int]([0])
 inputs = ["close_dialogue", "SceneAnimator", true]
 action = SubResource("Resource_ml60a")
 
-[sub_resource type="Resource" id="Resource_mdms2"]
-script = ExtResource("6_cwwr8")
-
-[sub_resource type="Resource" id="Resource_wofg2"]
-script = ExtResource("3_3gx0n")
-outputs = Array[int]([])
-inputs = ["res://system/character/ian/ian_memory.tres", "player_played_basic_doubt", "true"]
-action = SubResource("Resource_mdms2")
-
 [resource]
 script = ExtResource("1_y8oe4")
-start_task = SubResource("Resource_l3qr3")
-tasks = Array[ExtResource("3_3gx0n")]([SubResource("Resource_sw8h0"), SubResource("Resource_7srhf"), SubResource("Resource_d827n"), SubResource("Resource_wofg2"), SubResource("Resource_l3qr3")])
+start_task = SubResource("Resource_blksm")
+tasks = Array[ExtResource("3_6w4bg")]([SubResource("Resource_bwy4d"), SubResource("Resource_blksm"), SubResource("Resource_ki0rd"), SubResource("Resource_h0s62")])

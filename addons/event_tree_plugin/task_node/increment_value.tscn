@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://addons/event_tree_plugin/task_node.gd" id="1_tr8wh"]
 [ext_resource type="Script" path="res://script/system/event/task_action/increment_task_action.gd" id="2_mj6q5"]
 
-[sub_resource type="Resource" id="Resource_o3mrh"]
+[sub_resource type="Resource" id="Resource_2qtab"]
 script = ExtResource("2_mj6q5")
 
 [node name="IncrementValue" type="GraphNode"]
@@ -29,7 +29,7 @@ slot/1/right_color = Color(1, 1, 1, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
 script = ExtResource("1_tr8wh")
-task_action = SubResource("Resource_o3mrh")
+task_action = SubResource("Resource_2qtab")
 
 [node name="Resource Path" type="TextEdit" parent="."]
 layout_mode = 2
