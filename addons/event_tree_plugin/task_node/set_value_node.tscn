@@ -63,7 +63,5 @@ layout_mode = 2
 size_flags_vertical = 3
 placeholder_text = "Value"
 
-[node name="FileDialog" type="FileDialog" parent="."]
-
 [connection signal="on_resource_loaded" from="CustomResourceLoader" to="DBSchemaSelector" method="on_resource_loaded"]
 [connection signal="item_selected" from="DBSchemaSelector" to="DBSchemaSelector" method="_on_item_selected"]

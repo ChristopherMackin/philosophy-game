@@ -121,7 +121,7 @@ func clear_graph():
 	
 	for c in get_children():
 		if c != start_node:
-			c.queue_free()
+			c.free()
 
 func get_task_nodes():
 	var task_nodes = get_children()

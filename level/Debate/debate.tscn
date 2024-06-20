@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://script/system/debate/debate_scene_manager.gd" id="1_ytk5d"]
 [ext_resource type="Resource" uid="uid://dxwulhu8iegob" path="res://system/world_state.tres" id="2_qu0xu"]
 [ext_resource type="Resource" uid="uid://cdrto07nfohjt" path="res://system/debate_state.tres" id="2_vlsp4"]
-[ext_resource type="Resource" uid="uid://cqqs5g0he7n2m" path="res://system/character/ian/ian_memory.tres" id="3_ybk8r"]
+[ext_resource type="Resource" uid="uid://bno05abhs47vv" path="res://system/character/ian/ian_memory.tres" id="3_ybk8r"]
 [ext_resource type="Script" path="res://script/system/debate/ui/player_hand_ui.gd" id="4_2me35"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player/player.tres" id="4_n2ufu"]
 [ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/ian/ian.tres" id="5_8w2te"]

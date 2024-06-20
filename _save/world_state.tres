@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="DictionaryVariable" load_steps=2 format=3]
-
-[ext_resource type="Script" path="res://script/variable_resource/dictionary_variable.gd" id="1_6r54t"]
-
-[resource]
-script = ExtResource("1_6r54t")
-value = {
-"story_progress": 0
-}

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Event" load_steps=15 format=3 uid="uid://by555n5na6j3u"]
+[gd_resource type="Resource" script_class="Event" load_steps=13 format=3 uid="uid://by555n5na6j3u"]
 
 [ext_resource type="Script" path="res://script/system/event/event.gd" id="1_xt535"]
 [ext_resource type="Script" path="res://script/system/event/task_action/animation_task_action.gd" id="2_dxa01"]
@@ -9,49 +9,37 @@
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_dxa01")
 
-[sub_resource type="Resource" id="Resource_rlw7b"]
+[sub_resource type="Resource" id="Resource_1wbkv"]
 script = ExtResource("2_kkgdj")
-outputs = Array[int]([3])
+outputs = Array[int]([1])
 inputs = ["open_dialogue", "SceneAnimator", true]
 action = SubResource("Resource_ml60a")
-
-[sub_resource type="Resource" id="Resource_1f63y"]
-script = ExtResource("4_627jc")
-
-[sub_resource type="Resource" id="Resource_8m7c0"]
-script = ExtResource("2_kkgdj")
-outputs = Array[int]([2])
-inputs = [2.0]
-action = SubResource("Resource_1f63y")
 
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("3_mu2iu")
 
-[sub_resource type="Resource" id="Resource_3frs5"]
+[sub_resource type="Resource" id="Resource_0hev4"]
 script = ExtResource("2_kkgdj")
-outputs = Array[int]([5])
-inputs = ["Good luck!"]
-action = SubResource("Resource_x7ur8")
-
-[sub_resource type="Resource" id="Resource_3vdjb"]
-script = ExtResource("2_kkgdj")
-outputs = Array[int]([1])
+outputs = Array[int]([3])
 inputs = ["This is the start of the debate"]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_ld1w2"]
+[sub_resource type="Resource" id="Resource_w1ai6"]
 script = ExtResource("2_kkgdj")
 outputs = Array[int]([])
 inputs = ["close_dialogue", "SceneAnimator", true]
 action = SubResource("Resource_ml60a")
 
-[sub_resource type="Resource" id="Resource_fivlw"]
+[sub_resource type="Resource" id="Resource_1f63y"]
+script = ExtResource("4_627jc")
+
+[sub_resource type="Resource" id="Resource_4mrc4"]
 script = ExtResource("2_kkgdj")
-outputs = Array[int]([4])
+outputs = Array[int]([2])
 inputs = [2.0]
 action = SubResource("Resource_1f63y")
 
 [resource]
 script = ExtResource("1_xt535")
-start_task = SubResource("Resource_rlw7b")
-tasks = Array[ExtResource("2_kkgdj")]([SubResource("Resource_rlw7b"), SubResource("Resource_8m7c0"), SubResource("Resource_3frs5"), SubResource("Resource_3vdjb"), SubResource("Resource_ld1w2"), SubResource("Resource_fivlw")])
+start_task = SubResource("Resource_1wbkv")
+tasks = Array[ExtResource("2_kkgdj")]([SubResource("Resource_1wbkv"), SubResource("Resource_0hev4"), SubResource("Resource_w1ai6"), SubResource("Resource_4mrc4")])
