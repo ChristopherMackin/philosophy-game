@@ -10,6 +10,7 @@ extends DebateSubscriber
 @export var energy_pool : EnergyPool
 @export var draw_pile_ui : DrawPileUI
 @export var event_manager : EventManager
+@export var score_board : ScoreBoard
 
 var is_animation_locked := false
 

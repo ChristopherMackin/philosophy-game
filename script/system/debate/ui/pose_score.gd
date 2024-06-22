@@ -1,6 +1,8 @@
 @tool
 extends Container
 
+class_name PoseScore
+
 @export var pose : Pose:
 	set(val):
 		pose = val
