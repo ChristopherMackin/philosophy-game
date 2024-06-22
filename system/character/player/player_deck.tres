@@ -2,25 +2,25 @@
 
 [ext_resource type="Resource" uid="uid://co2xjr8nu1uct" path="res://system/card/doubt/basic_doubt.tres" id="1_hw6jc"]
 [ext_resource type="Script" path="res://script/system/card/card_deck_config.gd" id="2_5uhxu"]
-[ext_resource type="Resource" uid="uid://cwwb7f6jm7yvu" path="res://system/card/doubt/boost_doubt.tres" id="3_sayx8"]
-[ext_resource type="Resource" uid="uid://c2xmatrngw6al" path="res://system/card/doubt/energize_doubt.tres" id="4_6nb88"]
+[ext_resource type="Resource" uid="uid://bi7xtr16f8n55" path="res://system/card/others/basic_others.tres" id="3_c083y"]
+[ext_resource type="Resource" uid="uid://d20oliptotoln" path="res://system/card/self/basic_self.tres" id="4_ywova"]
 [ext_resource type="Script" path="res://script/system/deck/deck.gd" id="5_12tav"]
 
-[sub_resource type="Resource" id="Resource_rdr1k"]
+[sub_resource type="Resource" id="Resource_3xpop"]
 script = ExtResource("2_5uhxu")
 card_data = ExtResource("1_hw6jc")
-count = 2
+count = 4
 
-[sub_resource type="Resource" id="Resource_q86ir"]
+[sub_resource type="Resource" id="Resource_y52yf"]
 script = ExtResource("2_5uhxu")
-card_data = ExtResource("3_sayx8")
-count = 3
+card_data = ExtResource("3_c083y")
+count = 4
 
-[sub_resource type="Resource" id="Resource_r6hlc"]
+[sub_resource type="Resource" id="Resource_f5kjb"]
 script = ExtResource("2_5uhxu")
-card_data = ExtResource("4_6nb88")
-count = 2
+card_data = ExtResource("4_ywova")
+count = 4
 
 [resource]
 script = ExtResource("5_12tav")
-composition_card_deck_config_array = Array[ExtResource("2_5uhxu")]([SubResource("Resource_rdr1k"), SubResource("Resource_q86ir"), SubResource("Resource_r6hlc")])
+composition_card_deck_config_array = Array[ExtResource("2_5uhxu")]([SubResource("Resource_3xpop"), SubResource("Resource_y52yf"), SubResource("Resource_f5kjb")])

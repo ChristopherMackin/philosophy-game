@@ -21,5 +21,8 @@ func on_action_taken(action : CardAction, is_positive : bool):
 func on_score_updated(pose_score_dictionary : Dictionary):
 	pass
 
+func on_lines_cleared(count : int):
+	pass
+
 func on_debate_finished():
 	pass

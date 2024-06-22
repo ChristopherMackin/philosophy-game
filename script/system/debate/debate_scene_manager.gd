@@ -77,3 +77,6 @@ func query_event(concept : String):
 	await event_manager.play_event(
 		manager.event_factory.get_event(query)
 	)
+
+func on_lines_cleared(count : int):
+	score_board.update_score(manager.pose_score_dictionary)

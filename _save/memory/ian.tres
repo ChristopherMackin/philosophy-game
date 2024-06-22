@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DictionaryVariable" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://script/variable_resource/dictionary_variable.gd" id="1_5nwe3"]
+[ext_resource type="Script" path="res://script/variable_resource/dictionary_variable.gd" id="1_milxf"]
 
 [resource]
-script = ExtResource("1_5nwe3")
+script = ExtResource("1_milxf")
 value = {
 "ian.debates_finished": 3,
 "ian.has_played_event_0": true

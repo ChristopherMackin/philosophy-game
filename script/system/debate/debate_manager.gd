@@ -144,6 +144,8 @@ func active_player_turn():
 			_:
 				pass
 		
+		clear_lines()
+	
 	active_contestant.clean_up()
 
 func get_debate_state() -> Dictionary:
@@ -156,6 +158,18 @@ func get_debate_state() -> Dictionary:
 func update_pose_score(pose : Pose, amount : int):
 	pose_score_dictionary[pose.name] += amount
 	for sub : DebateSubscriber in subscriber_array: await sub.on_score_updated(pose_score_dictionary)
+
+func clear_lines():
+	var min = pose_score_dictionary.values()[0]
+	
+	for value in pose_score_dictionary.values():
+		if min > value:
+			min = value
+	
+	if min > 0:
+		for key in pose_score_dictionary:
+			pose_score_dictionary[key] -= min
+		for sub : DebateSubscriber in subscriber_array: await sub.on_lines_cleared(min)
 
 func update_db_with_card_stack():
 	debate_state.update_value("current_card", current_card.data.name if current_card else null)
