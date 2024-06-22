@@ -7,10 +7,10 @@ script = ExtResource("1_y8m0n")
 value = {
 "active_contestant": "player",
 "computer": "Ian",
-"current_card": "Basic Faith",
-"current_pose": "Faith",
-"current_turn": 1,
+"current_card": "Boosted Doubt",
+"current_pose": "Doubt",
+"current_turn": 3,
 "player": "Christopher",
-"previous_card": "",
-"previous_pose": ""
+"previous_card": "Basic Doubt",
+"previous_pose": "Doubt"
 }

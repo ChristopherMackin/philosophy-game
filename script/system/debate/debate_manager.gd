@@ -130,7 +130,7 @@ func active_player_turn():
 		
 		for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(current_card, active_contestant)
 		
-		pose_score_dictionary[current_pose.name] += 1
+		update_pose_score(current_pose, 1)
 		
 		match pose_relation:
 			DebateSettings.PoseRelationship.SAME:
@@ -152,6 +152,10 @@ func get_debate_state() -> Dictionary:
 		debate_state,
 		computer.memory,
 	])
+
+func update_pose_score(pose : Pose, amount : int):
+	pose_score_dictionary[pose.name] += amount
+	for sub : DebateSubscriber in subscriber_array: await sub.on_score_updated(pose_score_dictionary)
 
 func update_db_with_card_stack():
 	debate_state.update_value("current_card", current_card.data.name if current_card else null)

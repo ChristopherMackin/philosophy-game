@@ -4,7 +4,8 @@ class_name ScoreBoard
 
 @export var topic_score_prefab : PackedScene
 @export var debate_settings : DebateSettings
-var topic_score_array : Array[Topic]
+var pose_score_dictionary : Dictionary
+var topic_score_array : Array[TopicScore]
 
 func _ready():
 	for topic in debate_settings.topic_array:
@@ -16,3 +17,7 @@ func add_topic(topic : Topic, win_amount : int):
 	topic_score.segment_count = win_amount
 	topic_score_array.append(topic_score)
 	add_child(topic_score)
+
+func update_score(topic_score_dictionary : Dictionary):
+	for topic_score in topic_score_array:
+		topic_score.update_score(topic_score_dictionary)

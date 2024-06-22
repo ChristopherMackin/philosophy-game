@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_5nwe3")
 value = {
-"ian.debates_finished": 1,
+"ian.debates_finished": 3,
 "ian.has_played_event_0": true
 }

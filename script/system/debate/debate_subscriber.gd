@@ -18,7 +18,7 @@ func on_card_played(card: Card, active_contestant : Contestant):
 func on_action_taken(action : CardAction, is_positive : bool):
 	pass
 
-func pose_score_updated(pose : Pose, score : int):
+func on_score_updated(pose_score_dictionary : Dictionary):
 	pass
 
 func on_debate_finished():

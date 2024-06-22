@@ -64,8 +64,8 @@ func on_action_taken(action : CardAction, is_positive : bool):
 	draw_pile_ui.set_count(manager.player.deck.count)
 	player_hand_ui.update_card_array(manager.player.hand.duplicate(), manager.current_pose)
 
-func pose_score_updated(pose : Pose, score : int):
-	pass
+func on_score_updated(pose_score_dictionary : Dictionary):
+	score_board.update_score(pose_score_dictionary)
 
 func on_debate_finished():
 	await query_event("on_debate_finished")

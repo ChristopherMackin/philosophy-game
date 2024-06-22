@@ -543,7 +543,7 @@ script = ExtResource("28_qcoiy")
 scrolling_text = NodePath("../ContestantArea/SpeechBox/ScrollingText")
 manager = ExtResource("25_ul644")
 
-[node name="DebateManager" type="Node2D" parent="." node_paths=PackedStringArray("debate_start_animator", "computer_hand_ui", "player_hand_ui", "energy_pool", "draw_pile_ui")]
+[node name="DebateManager" type="Node2D" parent="." node_paths=PackedStringArray("debate_start_animator", "computer_hand_ui", "player_hand_ui", "energy_pool", "draw_pile_ui", "score_board")]
 script = ExtResource("1_ytk5d")
 debate_settings = ExtResource("27_ywqqk")
 player = ExtResource("4_n2ufu")
@@ -554,4 +554,5 @@ player_hand_ui = NodePath("../PlayArea/PlayerHand")
 energy_pool = NodePath("../PlayArea/EnergyPool")
 draw_pile_ui = NodePath("../PlayArea/Draw")
 event_manager = ExtResource("25_ul644")
+score_board = NodePath("../PlayArea/ScoreArea/ScoreBoard")
 manager = ExtResource("30_gydgr")

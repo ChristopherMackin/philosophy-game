@@ -28,3 +28,8 @@ class_name TopicScore
 @export var pose_score_prefab : PackedScene
 
 var pose_score_array : Array[PoseScore]
+
+func update_score(pose_score_dictionary : Dictionary):
+	for pose_score in pose_score_array:
+		if pose_score_dictionary.has(pose_score.pose.name):
+			pose_score.value = pose_score_dictionary[pose_score.pose.name]

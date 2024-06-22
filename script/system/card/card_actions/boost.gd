@@ -6,8 +6,8 @@ class_name Boost
 
 func positive_action(manager: DebateManager):
 	var pose = manager.current_pose
-	manager.pose_score_dictionary[pose.name] += 1
+	manager.update_pose_score(pose, boost_amount)
 
 func negative_action(manager: DebateManager):
 	var pose = manager.current_pose
-	manager.pose_score_dictionary[pose.name] -= 1
+	manager.update_pose_score(pose, -boost_amount)
