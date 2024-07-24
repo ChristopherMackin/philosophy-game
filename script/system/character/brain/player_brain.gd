@@ -2,11 +2,11 @@ extends Brain
 
 class_name PlayerBrain
 
-signal card_played
+signal top_played
 
-func pick_card() -> Card:
-	var card = await card_played
-	return card
+func pick_top() -> Top:
+	var top = await top_played
+	return top
 
-func play_card(card):
-	card_played.emit(card)
+func play_top(top):
+	top_played.emit(top)

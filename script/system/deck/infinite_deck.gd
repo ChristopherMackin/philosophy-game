@@ -2,7 +2,7 @@ extends Deck
 
 class_name InfiniteDeck
 
-func draw_card():
+func draw_top():
 	if draw_pile.size() <= 0:
 		initialize_deck()
 	

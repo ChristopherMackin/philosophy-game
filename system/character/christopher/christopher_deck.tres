@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InfiniteDeck" load_steps=5 format=3 uid="uid://dlb0wa6ud0nfy"]
+
+[ext_resource type="Script" path="res://script/system/deck/infinite_deck.gd" id="1_7ix8l"]
+[ext_resource type="Script" path="res://script/system/top/top_deck_config.gd" id="1_n47xl"]
+[ext_resource type="Resource" uid="uid://by2toymbldwte" path="res://system/top/faith/basic_faith.tres" id="2_tf7if"]
+
+[sub_resource type="Resource" id="Resource_jft68"]
+script = ExtResource("1_n47xl")
+top_data = ExtResource("2_tf7if")
+count = 1
+
+[resource]
+script = ExtResource("1_7ix8l")
+composition_top_deck_config_array = Array[ExtResource("1_n47xl")]([SubResource("Resource_jft68")])

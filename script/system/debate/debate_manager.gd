@@ -2,7 +2,7 @@ extends Resource
 
 class_name DebateManager
 
-@export var debate_settings : DebateSettings
+var debate_settings : DebateSettings
 @export var debate_state : StateDatabase
 
 var player : Contestant:
@@ -36,24 +36,6 @@ var inactive_contestant : Contestant:
 
 var contestants : Array[Contestant]
 
-var card_stack : Array[Card]
-
-var current_card : Card:
-	get: 
-		return card_stack.back() if card_stack.size() > 0 else null
-var current_pose : Pose:
-	get: 
-		return current_card.data.pose if current_card else null
-
-var previous_card : Card:
-	get: 
-		return card_stack[card_stack.size() - 2] if card_stack.size() > 1 else null
-var previous_pose : Pose:
-	get: 
-		return previous_card.data.pose
-
-var pose_score_dictionary : Dictionary
-
 var subscriber_array : Array[DebateSubscriber]
 
 var current_turn : int = 0:
@@ -61,19 +43,25 @@ var current_turn : int = 0:
 		current_turn = val
 		debate_state.update_value("current_turn", current_turn)
 
+var top_queue_dictionary : Dictionary
+
 func subscribe(subscriber : DebateSubscriber):
 	subscriber_array.append(subscriber)
+
 func unsubscribe(subscriber : DebateSubscriber):
 	var index = subscriber_array.find(subscriber)
 	
 	if index != -1:
 		subscriber_array.remove_at(index)
 
-func init(player_character : Character, computer_character : Character):
+func init(player_character : Character, computer_character : Character, debate_settings : DebateSettings):
+	
+	self.debate_settings = debate_settings
+	
+	for pose in debate_settings.poses:
+		top_queue_dictionary[pose.name] = []
+	
 	debate_state.clear()
-	for t : Topic in debate_settings.topic_array:
-		for s : Pose in t.poses:
-			pose_score_dictionary[s.name] = 0
 	
 	player = Contestant.new(player_character)
 	computer = Contestant.new(computer_character)
@@ -89,9 +77,6 @@ func init(player_character : Character, computer_character : Character):
 	game_loop()
 
 func game_loop():
-	await set_initial_card()
-	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_start(current_card)
-	
 	while !get_is_debate_over():
 		current_turn += 1
 		
@@ -102,14 +87,9 @@ func game_loop():
 	computer.memory.update_value("debates_finished", debates_finished + 1)
 	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_finished()
 
-func set_initial_card():
-	card_stack.append(await active_contestant.take_turn())
-	update_db_with_card_stack()
-	active_contestant.clean_up()
-
 func get_is_debate_over() -> bool:
-	for key in pose_score_dictionary:
-		if (pose_score_dictionary[key]) >= debate_settings.win_amount:
+	for value in top_queue_dictionary.values():
+		if value.size() >= debate_settings.top_slots:
 			return true
 	
 	for c : Contestant in contestants:
@@ -120,59 +100,28 @@ func get_is_debate_over() -> bool:
 
 func active_player_turn():
 	while active_contestant.current_energy > 0 and !get_is_debate_over():
-		card_stack.append(await active_contestant.take_turn())
-		update_db_with_card_stack()
+		var top = await active_contestant.take_turn()
 		
-		var pose_relation = debate_settings.get_pose_relationship(
-			previous_pose, 
-			current_pose
-		)
+		top_queue_dictionary[top.data.pose.name].append(top)
 		
-		for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(current_card, active_contestant)
+		for sub : DebateSubscriber in subscriber_array: await sub.on_top_played(top, active_contestant)
 		
-		update_pose_score(current_pose, 1)
-		
-		match pose_relation:
-			DebateSettings.PoseRelationship.SAME:
-				var action = current_card.data.action
-				await action.positive_action(self);
-				for sub : DebateSubscriber in subscriber_array: await sub.on_action_taken(action, true)
-			DebateSettings.PoseRelationship.OPPOSING:
-				var action = current_card.data.action
-				await action.negative_action(self);
-				for sub : DebateSubscriber in subscriber_array: await sub.on_action_taken(action, false)
-			_:
-				pass
+		top.data.action.invoke(self)
 		
 		clear_lines()
 	
 	active_contestant.clean_up()
 
-func get_debate_state() -> Dictionary:
-	
-	return Util.build_query([
-		debate_state,
-		computer.memory,
-	])
-
-func update_pose_score(pose : Pose, amount : int):
-	pose_score_dictionary[pose.name] += amount
-	for sub : DebateSubscriber in subscriber_array: await sub.on_score_updated(pose_score_dictionary)
-
 func clear_lines():
-	var min = pose_score_dictionary.values()[0]
+	var min = top_queue_dictionary.values()[0].size()
 	
-	for value in pose_score_dictionary.values():
-		if min > value:
-			min = value
+	for value in top_queue_dictionary.values():
+		if min > value.size():
+			min = value.size()
 	
 	if min > 0:
-		for key in pose_score_dictionary:
-			pose_score_dictionary[key] -= min
+		for key in top_queue_dictionary:
+			var array = top_queue_dictionary[key] as Array
+			for i in min:
+				top_queue_dictionary.erase(top_queue_dictionary.keys()[i])
 		for sub : DebateSubscriber in subscriber_array: await sub.on_lines_cleared(min)
-
-func update_db_with_card_stack():
-	debate_state.update_value("current_card", current_card.data.name if current_card else null)
-	debate_state.update_value("current_pose", current_card.data.pose.name if current_card else null)
-	debate_state.update_value("previous_card", previous_card.data.name if previous_card else null)
-	debate_state.update_value("previous_pose", previous_card.data.pose.name if previous_card else null)

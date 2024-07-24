@@ -2,9 +2,9 @@ extends Resource
 
 class_name Deck
 
-@export var composition_card_deck_config_array : Array[CardDeckConfig]
+@export var composition_top_deck_config_array : Array[TopDeckConfig]
 
-var draw_pile : Array[Card]
+var draw_pile : Array[Top]
 
 var count : int:
 	get:
@@ -13,14 +13,14 @@ var count : int:
 func initialize_deck():
 	draw_pile = []
 	
-	for config in composition_card_deck_config_array:
+	for config in composition_top_deck_config_array:
 		for index in config.count:
-			var card = Card.new(config.card_data)
-			draw_pile.append(card)
+			var top = Top.new(config.top_data)
+			draw_pile.append(top)
 	
 	draw_pile.shuffle()
 
-func draw_card():
+func draw_top():
 	if draw_pile.size() <= 0:
 		return null
 	

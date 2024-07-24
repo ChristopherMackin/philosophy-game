@@ -3,7 +3,7 @@ extends Object
 class_name Contestant
 
 var character : Character
-var hand : Array[Card] = []
+var hand : Array[Top] = []
 
 var name : String:
 	get: return character.name
@@ -30,32 +30,32 @@ func ready_up():
 	draw_full_hand()
 	current_energy = energy_limit
 
-func take_turn() -> Card:
-	var card = await brain.pick_card()
+func take_turn() -> Top:
+	var top = await brain.pick_top()
 	
-	while hand.map(func(x): return x.data).find(card.data) == -1:
-		card = await brain.pick_card()
+	while hand.map(func(x): return x.data).find(top.data) == -1:
+		top = await brain.pick_top()
 	
-	play_card(card)
+	play_top(top)
 	current_energy -= 1
-	return card
+	return top
 
 func clean_up():
 	draw_full_hand()
 	current_energy = energy_limit
 
 func draw_full_hand():
-	var added_cards = []
+	var added_tops = []
 	
 	while hand.size() < hand_limit:
-		var card = deck.draw_card()
-		if card == null:
+		var top = deck.draw_top()
+		if top == null:
 			break
-		hand.append(card)
-		added_cards.append(card)
+		hand.append(top)
+		added_tops.append(top)
 
-func play_card(card : Card):
-	var index = hand.find(card)
+func play_top(top : Top):
+	var index = hand.find(top)
 	hand.remove_at(index)
 	
 	if hand.size() <= 0:

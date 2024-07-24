@@ -34,28 +34,28 @@ const scene_schema_data : Array = []
 
 const debate_schema_data : Array = [
 	{
-		"key" : "current_card",
+		"key" : "current_top",
 		"type" : TYPE_STRING,
 		"default" : "",
-		"description" : "The card that was played last"
+		"description" : "The top that was played last"
 	},
 	{
 		"key" : "current_pose",
 		"type" : TYPE_STRING,
 		"default" : "",
-		"description" : "The pose of the card that was played last"
+		"description" : "The pose of the top that was played last"
 	},
 	{
-		"key" : "previous_card",
+		"key" : "previous_top",
 		"type" : TYPE_STRING,
 		"default" : "",
-		"description" : "The card that was played before last"
+		"description" : "The top that was played before last"
 	},
 	{
 		"key" : "previous_pose",
 		"type" : TYPE_STRING,
 		"default" : "",
-		"description" : "The pose of the card that was played before last"
+		"description" : "The pose of the top that was played before last"
 	},
 	{
 		"key" : "player",
@@ -73,7 +73,7 @@ const debate_schema_data : Array = [
 		"key" : "active_contestant",
 		"type" : TYPE_STRING,
 		"default" : "",
-		"description" : "The card that was played last"
+		"description" : "The top that was played last"
 	},
 	{
 		"key" : "current_turn",

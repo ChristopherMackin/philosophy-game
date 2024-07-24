@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TopData" load_steps=3 format=3 uid="uid://by2toymbldwte"]
+
+[ext_resource type="Script" path="res://script/system/top/top_data.gd" id="1_hgh8s"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/pose/faith.tres" id="1_rjbhe"]
+
+[resource]
+script = ExtResource("1_hgh8s")
+name = "Basic Faith"
+pose = ExtResource("1_rjbhe")

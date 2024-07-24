@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/system/character/brain/simple_ai_brain.gd" id="1_kulev"]
 [ext_resource type="Resource" uid="uid://3dnw0mevj0a1" path="res://system/character/ian/ian_event_factory.tres" id="2_0j80e"]
-[ext_resource type="Resource" uid="uid://c2ya6dpwqvop2" path="res://system/character/ian/ian_deck.tres" id="2_ggvw4"]
+[ext_resource type="Resource" uid="uid://dx84t8mdhci6e" path="res://system/character/ian/ian_deck.tres" id="3_2t4b5"]
 [ext_resource type="Script" path="res://script/system/character/character.gd" id="3_nqw71"]
 [ext_resource type="Resource" uid="uid://bno05abhs47vv" path="res://system/character/ian/ian_memory.tres" id="4_6s16h"]
 
@@ -12,7 +12,7 @@ script = ExtResource("1_kulev")
 [resource]
 script = ExtResource("3_nqw71")
 name = "Ian"
-deck = ExtResource("2_ggvw4")
+deck = ExtResource("3_2t4b5")
 brain = SubResource("Resource_dm86r")
 hand_limit = 5
 energy_level = 2

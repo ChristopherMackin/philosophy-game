@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TopData" load_steps=3 format=3 uid="uid://clnyw55jxr6to"]
+
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/pose/doubt.tres" id="1_tj2a4"]
+[ext_resource type="Script" path="res://script/system/top/top_data.gd" id="1_wsbuc"]
+
+[resource]
+script = ExtResource("1_wsbuc")
+name = "Basic Doubt"
+pose = ExtResource("1_tj2a4")

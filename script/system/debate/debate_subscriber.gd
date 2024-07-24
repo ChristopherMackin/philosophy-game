@@ -6,16 +6,13 @@ class_name DebateSubscriber
 func _ready():
 	manager.subscribe(self)
 
-func on_debate_start(starting_card : Card):
+func on_debate_start():
 	pass
 	
 func on_player_change(contestant : Contestant):
 	pass
 	
-func on_card_played(card: Card, active_contestant : Contestant):
-	pass
-
-func on_action_taken(action : CardAction, is_positive : bool):
+func on_top_played(top: Top, active_contestant : Contestant):
 	pass
 
 func on_score_updated(pose_score_dictionary : Dictionary):

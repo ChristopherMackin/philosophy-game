@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Suit" load_steps=3 format=3 uid="uid://bao0vshng34g2"]
+[gd_resource type="Resource" script_class="Pose" load_steps=3 format=3 uid="uid://ey71xth0gysd"]
 
 [ext_resource type="Texture2D" uid="uid://dxcdbgsv7cixc" path="res://graphic/debate/pose/Spade.svg" id="1_vsgur"]
 [ext_resource type="Script" path="res://script/system/pose/pose.gd" id="2_negk0"]
