@@ -1,6 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://b8miu81cmhpvc"]
+[gd_scene load_steps=35 format=3 uid="uid://b8miu81cmhpvc"]
 
-[ext_resource type="Texture2D" uid="uid://b06g4v1he6dmo" path="res://graphic/debate/CoffeeBreak 1.png" id="1_5ytlm"]
+[ext_resource type="Texture2D" uid="uid://dbn62o5vk4ccw" path="res://graphic/debate/cool-abstract-playground-90s-texture-fun-color-vector-46094810.jpg" id="1_7pw72"]
 [ext_resource type="Script" path="res://script/system/save_manager.gd" id="1_twqey"]
 [ext_resource type="Script" path="res://script/system/debate/debate_scene_manager.gd" id="1_ytk5d"]
 [ext_resource type="Resource" uid="uid://dxwulhu8iegob" path="res://system/world_state.tres" id="2_qu0xu"]
@@ -8,13 +8,20 @@
 [ext_resource type="Resource" uid="uid://cdrto07nfohjt" path="res://system/debate_state.tres" id="2_vlsp4"]
 [ext_resource type="Resource" uid="uid://bno05abhs47vv" path="res://system/character/ian/ian_memory.tres" id="3_ybk8r"]
 [ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/ian/ian.tres" id="5_8w2te"]
-[ext_resource type="Texture2D" uid="uid://dm0qwk2x41cwq" path="res://graphic/debate/top_slot.png" id="6_64cop"]
-[ext_resource type="Script" path="res://level/Debate/top_area.gd" id="6_b62cr"]
-[ext_resource type="Texture2D" uid="uid://c7whgk1hl126r" path="res://graphic/debate/pose/Club.svg" id="7_1vjhn"]
+[ext_resource type="Script" path="res://level/Debate/pose_area.gd" id="6_fxm2p"]
+[ext_resource type="Texture2D" uid="uid://ba3lryyckusqa" path="res://graphic/debate/TopSlot.png" id="7_0po26"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/pose/doubt.tres" id="7_5ffao"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/pose/faith.tres" id="7_ta2vu"]
 [ext_resource type="Resource" uid="uid://co10ecayletoi" path="res://system/character/christopher/christopher.tres" id="9_ebh2q"]
+[ext_resource type="Texture2D" uid="uid://bo4jbp6ii5mtg" path="res://graphic/debate/pose/Diamond.svg" id="9_jeaew"]
+[ext_resource type="Texture2D" uid="uid://cyk1d1yuqscco" path="res://graphic/debate/pose/Heart.svg" id="9_swyed"]
 [ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://system/debate/main/debate_settings.tres" id="11_ckktq"]
 [ext_resource type="Script" path="res://script/system/debate/debate_manager.gd" id="11_jobjs"]
+[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/pose/self.tres" id="12_2n1p0"]
+[ext_resource type="Texture2D" uid="uid://dxcdbgsv7cixc" path="res://graphic/debate/pose/Spade.svg" id="13_hxy4u"]
+[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/pose/others.tres" id="14_cahoj"]
 [ext_resource type="Texture2D" uid="uid://rfy3n5k2myct" path="res://graphic/debate/PlayMat.png" id="14_l6l60"]
+[ext_resource type="Texture2D" uid="uid://c7whgk1hl126r" path="res://graphic/debate/pose/Club.svg" id="15_2fres"]
 [ext_resource type="Texture2D" uid="uid://ca26nieutgqb6" path="res://graphic/debate/Battery.png" id="15_qc0is"]
 [ext_resource type="Texture2D" uid="uid://d0dyr6y4ccs06" path="res://graphic/debate/top_container.png" id="16_ncnk5"]
 [ext_resource type="Texture2D" uid="uid://kfkjbs6pnptx" path="res://graphic/debate/Speech Bubble.png" id="18_vxsgg"]
@@ -84,24 +91,28 @@ debate_state = ExtResource("2_vlsp4")
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, -540)
 
-[node name="SpeechArea" type="Sprite2D" parent="."]
-position = Vector2(960, -820)
-texture = ExtResource("1_5ytlm")
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = -1080.0
+offset_right = 1920.0
+offset_bottom = -820.0
+texture = ExtResource("1_7pw72")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="Player" type="Sprite2D" parent="SpeechArea"]
-position = Vector2(-760, -80)
+[node name="Player" type="Sprite2D" parent="TextureRect"]
+position = Vector2(200, 180)
 texture = ExtResource("2_vji4y")
 
-[node name="SpeechBubble" type="Sprite2D" parent="SpeechArea"]
-position = Vector2(-360, -130)
+[node name="SpeechBubble" type="Sprite2D" parent="TextureRect"]
+position = Vector2(600, 130)
 texture = ExtResource("18_vxsgg")
 
-[node name="Computer" type="Sprite2D" parent="SpeechArea"]
-position = Vector2(760, -80)
+[node name="Computer" type="Sprite2D" parent="TextureRect"]
+position = Vector2(1720, 180)
 texture = ExtResource("2_vji4y")
 
-[node name="RightSpeechBubble" type="Sprite2D" parent="SpeechArea"]
-position = Vector2(360, -130)
+[node name="RightSpeechBubble" type="Sprite2D" parent="TextureRect"]
+position = Vector2(1320, 130)
 texture = ExtResource("19_uk2gk")
 
 [node name="PlayArea" type="ColorRect" parent="."]
@@ -111,48 +122,330 @@ anchor_bottom = 1.0
 offset_top = -820.0
 offset_right = 1920.0
 grow_vertical = 0
-color = Color(0.199732, 0.199732, 0.199732, 1)
+color = Color(0.215902, 0.215902, 0.215902, 1)
 
 [node name="PlayMat" type="Sprite2D" parent="PlayArea"]
 position = Vector2(1260, 410)
 texture = ExtResource("14_l6l60")
 
-[node name="TopicArea" type="Node2D" parent="PlayArea/PlayMat"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-script = ExtResource("6_b62cr")
-
-[node name="Icon" type="TextureRect" parent="PlayArea/PlayMat/TopicArea"]
-modulate = Color(0, 0, 0, 1)
-custom_minimum_size = Vector2(120, 120)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -25.0
-offset_right = 24.0
-offset_bottom = 25.0
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayArea/PlayMat"]
+anchors_preset = -1
+anchor_top = 0.26
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -641.0
+offset_top = -389.8
+offset_right = -641.0
+offset_bottom = -390.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("7_1vjhn")
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="TopicSlot" type="Sprite2D" parent="PlayArea/PlayMat/TopicArea"]
-position = Vector2(120, 2.08165e-12)
-texture = ExtResource("6_64cop")
+[node name="PoseArea" type="HBoxContainer" parent="PlayArea/PlayMat/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+script = ExtResource("6_fxm2p")
+pose = ExtResource("7_ta2vu")
+slot_count = 8
+slot_texture = ExtResource("7_0po26")
+height = 120
 
-[node name="TopicSlot2" type="Sprite2D" parent="PlayArea/PlayMat/TopicArea"]
-position = Vector2(240, 2.08165e-12)
-texture = ExtResource("6_64cop")
+[node name="Icon" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea"]
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+layout_mode = 2
+texture = ExtResource("9_jeaew")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Slot 1" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea"]
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 2" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea"]
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 3" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea"]
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 4" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea"]
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 5" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea"]
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 6" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea"]
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 7" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea"]
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 8" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea"]
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PoseArea2" type="HBoxContainer" parent="PlayArea/PlayMat/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+script = ExtResource("6_fxm2p")
+pose = ExtResource("7_5ffao")
+slot_count = 8
+slot_texture = ExtResource("7_0po26")
+height = 120
+
+[node name="Icon" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea2"]
+modulate = Color(1, 0.4, 0.388235, 1)
+layout_mode = 2
+texture = ExtResource("9_swyed")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Slot 1" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea2"]
+modulate = Color(1, 0.4, 0.388235, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 2" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea2"]
+modulate = Color(1, 0.4, 0.388235, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 3" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea2"]
+modulate = Color(1, 0.4, 0.388235, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 4" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea2"]
+modulate = Color(1, 0.4, 0.388235, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 5" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea2"]
+modulate = Color(1, 0.4, 0.388235, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 6" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea2"]
+modulate = Color(1, 0.4, 0.388235, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 7" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea2"]
+modulate = Color(1, 0.4, 0.388235, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 8" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea2"]
+modulate = Color(1, 0.4, 0.388235, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PoseArea3" type="HBoxContainer" parent="PlayArea/PlayMat/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+script = ExtResource("6_fxm2p")
+pose = ExtResource("12_2n1p0")
+slot_count = 8
+slot_texture = ExtResource("7_0po26")
+height = 120
+
+[node name="Icon" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea3"]
+modulate = Color(0.529412, 0.835294, 0.972549, 1)
+layout_mode = 2
+texture = ExtResource("13_hxy4u")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Slot 1" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea3"]
+modulate = Color(0.529412, 0.835294, 0.972549, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 2" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea3"]
+modulate = Color(0.529412, 0.835294, 0.972549, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 3" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea3"]
+modulate = Color(0.529412, 0.835294, 0.972549, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 4" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea3"]
+modulate = Color(0.529412, 0.835294, 0.972549, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 5" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea3"]
+modulate = Color(0.529412, 0.835294, 0.972549, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 6" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea3"]
+modulate = Color(0.529412, 0.835294, 0.972549, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 7" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea3"]
+modulate = Color(0.529412, 0.835294, 0.972549, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 8" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea3"]
+modulate = Color(0.529412, 0.835294, 0.972549, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PoseArea4" type="HBoxContainer" parent="PlayArea/PlayMat/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+script = ExtResource("6_fxm2p")
+pose = ExtResource("14_cahoj")
+slot_count = 8
+slot_texture = ExtResource("7_0po26")
+height = 120
+
+[node name="Icon" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea4"]
+modulate = Color(0.619608, 0.878431, 0.619608, 1)
+layout_mode = 2
+texture = ExtResource("15_2fres")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Slot 1" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea4"]
+modulate = Color(0.619608, 0.878431, 0.619608, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 2" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea4"]
+modulate = Color(0.619608, 0.878431, 0.619608, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 3" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea4"]
+modulate = Color(0.619608, 0.878431, 0.619608, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 4" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea4"]
+modulate = Color(0.619608, 0.878431, 0.619608, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 5" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea4"]
+modulate = Color(0.619608, 0.878431, 0.619608, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 6" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea4"]
+modulate = Color(0.619608, 0.878431, 0.619608, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 7" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea4"]
+modulate = Color(0.619608, 0.878431, 0.619608, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot 8" type="TextureRect" parent="PlayArea/PlayMat/VBoxContainer/PoseArea4"]
+modulate = Color(0.619608, 0.878431, 0.619608, 1)
+layout_mode = 2
+texture = ExtResource("7_0po26")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Battery" type="Sprite2D" parent="PlayArea"]
-position = Vector2(90, 700)
+position = Vector2(90, 115)
 texture = ExtResource("15_qc0is")
 
 [node name="TopsContainer" type="Sprite2D" parent="PlayArea"]
-position = Vector2(390, 720)
+position = Vector2(390, 115)
 texture = ExtResource("16_ncnk5")
 
 [node name="====================================================" type="Node" parent="."]
