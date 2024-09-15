@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://cdrto07nfohjt" path="res://system/debate_state.tres" id="2_vlsp4"]
 [ext_resource type="Resource" uid="uid://bno05abhs47vv" path="res://system/character/ian/ian_memory.tres" id="3_ybk8r"]
 [ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/ian/ian.tres" id="5_8w2te"]
-[ext_resource type="Script" path="res://level/Debate/pose_area.gd" id="6_fxm2p"]
+[ext_resource type="Script" path="res://level/debate/pose_area.gd" id="6_fxm2p"]
 [ext_resource type="Texture2D" uid="uid://ba3lryyckusqa" path="res://graphic/debate/TopSlot.png" id="7_0po26"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/pose/doubt.tres" id="7_5ffao"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/pose/faith.tres" id="7_ta2vu"]

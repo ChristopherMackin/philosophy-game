@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_milxf")
 value = {
-"ian.debates_finished": 35,
+"ian.debates_finished": 37,
 "ian.has_played_event_0": true
 }
