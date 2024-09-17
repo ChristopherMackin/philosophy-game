@@ -29,6 +29,12 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/event_tree_plugin/plugin.cfg")
 
+[importer_defaults]
+
+scene={
+"gltf/embedded_image_handling": 3
+}
+
 [input]
 
 up={

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Pose" load_steps=3 format=3 uid="uid://bqcg2g04h2bqp"]
 
-[ext_resource type="Texture2D" uid="uid://c7whgk1hl126r" path="res://graphic/debate/pose/Club.svg" id="1_m8vff"]
+[ext_resource type="Texture2D" uid="uid://c7whgk1hl126r" path="res://asset/graphic/debate/pose/Club.svg" id="1_m8vff"]
 [ext_resource type="Script" path="res://script/system/pose/pose.gd" id="1_ucshs"]
 
 [resource]

@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=3 uid="uid://b31uxtxyvdwi3"]
+
+[ext_resource type="PackedScene" uid="uid://bv1djkeab7gu0" path="res://asset/model/character/joy/Joy.tscn" id="1_xnrq5"]
+[ext_resource type="Script" path="res://script/utility/set_layer_mask.gd" id="2_kouh8"]
+[ext_resource type="PackedScene" uid="uid://crqp56e6cxt7e" path="res://asset/model/character/erin/erin.tscn" id="2_ktwx2"]
+[ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://system/debate/debate_viewport.tres" id="4_kq3ts"]
+[ext_resource type="PackedScene" uid="uid://c600py5sgl06r" path="res://asset/model/environment/ThriftShopTable.glb" id="5_uja5b"]
+
+[sub_resource type="Environment" id="Environment_klgt4"]
+background_mode = 1
+background_color = Color(0.977565, 0.97089, 0.932925, 1)
+background_energy_multiplier = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6cgdj"]
+size = Vector3(10, 1, 10)
+
+[node name="Debate3d" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_klgt4")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.532562, -0.533365, 0.657191, -0.362262, 0.558107, 0.746514, -0.764947, -0.63564, 0.104009, 1.3093, 2.76479, 0.296943)
+light_energy = 1.758
+shadow_enabled = true
+
+[node name="Joy" parent="." instance=ExtResource("1_xnrq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.827099)
+
+[node name="LayerMask" type="Node" parent="Joy"]
+script = ExtResource("2_kouh8")
+layers = Array[bool]([false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
+
+[node name="Erin" parent="." instance=ExtResource("2_ktwx2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.750052)
+
+[node name="LayerMask" type="Node" parent="Erin"]
+script = ExtResource("2_kouh8")
+layers = Array[bool]([false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1.2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+size = Vector3(10, 0.2, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_6cgdj")
+
+[node name="PlayArea" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="PlayArea"]
+anchors_preset = -1
+anchor_left = 0.312
+anchor_right = 1.0
+anchor_bottom = 0.241
+offset_left = 0.959961
+offset_bottom = -0.279999
+grow_horizontal = 0
+color = Color(0.996078, 0.694118, 0.266667, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerViewport" type="SubViewportContainer" parent="PlayArea"]
+anchors_preset = -1
+anchor_left = 0.312
+anchor_right = 1.0
+anchor_bottom = 0.241
+offset_left = 0.959961
+offset_right = -660.0
+offset_bottom = -0.279999
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="PlayArea/PlayerViewport"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(660, 260)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="PlayArea/PlayerViewport/SubViewport"]
+transform = Transform3D(-0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 0.193765, 1.36287, 0.0946726)
+cull_mask = 2
+environment = ExtResource("4_kq3ts")
+fov = 60.0
+
+[node name="ComputerViewport" type="SubViewportContainer" parent="PlayArea"]
+anchors_preset = -1
+anchor_left = 0.656
+anchor_right = 1.0
+anchor_bottom = 0.241
+offset_left = 0.47998
+offset_bottom = -0.279999
+grow_horizontal = 0
+
+[node name="SubViewport" type="SubViewport" parent="PlayArea/ComputerViewport"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(660, 260)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="PlayArea/ComputerViewport/SubViewport"]
+transform = Transform3D(0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 0.194, 1.363, -0.0180519)
+cull_mask = 4
+environment = ExtResource("4_kq3ts")
+fov = 60.0
+
+[node name="PlayAreaViewport" type="SubViewportContainer" parent="PlayArea"]
+anchors_preset = -1
+anchor_left = 0.312
+anchor_top = 0.241
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.959961
+offset_top = -0.279999
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="SubViewport" type="SubViewport" parent="PlayArea/PlayAreaViewport"]
+handle_input_locally = false
+size = Vector2i(1320, 820)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="PlayArea/PlayAreaViewport/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.26801, 0)
+
+[node name="ThriftShopTable" parent="." instance=ExtResource("5_uja5b")]
