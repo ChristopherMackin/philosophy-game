@@ -1,10 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://b31uxtxyvdwi3"]
+[gd_scene load_steps=15 format=3 uid="uid://b31uxtxyvdwi3"]
 
 [ext_resource type="PackedScene" uid="uid://bv1djkeab7gu0" path="res://asset/model/character/joy/joy.tscn" id="1_xnrq5"]
 [ext_resource type="Script" path="res://script/utility/set_layer_mask.gd" id="2_kouh8"]
 [ext_resource type="PackedScene" uid="uid://crqp56e6cxt7e" path="res://asset/model/character/erin/erin.tscn" id="2_ktwx2"]
+[ext_resource type="Texture2D" uid="uid://bbal237pvxf3y" path="res://asset/graphic/SpeechBackground.png" id="4_j0807"]
 [ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://system/debate/debate_viewport.tres" id="4_kq3ts"]
 [ext_resource type="PackedScene" uid="uid://c600py5sgl06r" path="res://asset/model/environment/ThriftShopTable.glb" id="5_uja5b"]
+[ext_resource type="Texture2D" uid="uid://2x0w7rjd27mn" path="res://asset/graphic/StatsBackground.png" id="6_l1d7a"]
+[ext_resource type="Texture2D" uid="uid://cng6p2uhhx3eb" path="res://asset/graphic/PlayMat.png" id="8_ddqtx"]
+[ext_resource type="Texture2D" uid="uid://ho13qsn3chj0" path="res://asset/graphic/DrawPile.png" id="9_i0u2a"]
+[ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="10_5ul61"]
+[ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/graphic/TurnCounterBackground.png" id="10_i4dae"]
+[ext_resource type="Texture2D" uid="uid://b6vg65oj1plvh" path="res://asset/graphic/SpeechPlayAreaDivider.png" id="12_e013u"]
 
 [sub_resource type="Environment" id="Environment_klgt4"]
 background_mode = 1
@@ -38,6 +45,12 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 script = ExtResource("2_kouh8")
 layers = Array[bool]([false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
 
+[node name="ThriftShopTable" parent="." instance=ExtResource("5_uja5b")]
+
+[node name="Sprite3D" type="Sprite3D" parent="ThriftShopTable"]
+transform = Transform3D(0.06, 0, 0, 0, -2.62268e-09, 0.06, 0, -0.06, -2.62268e-09, 0, 0.764921, 0)
+texture = ExtResource("8_ddqtx")
+
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1.2)
 
@@ -51,71 +64,14 @@ shape = SubResource("BoxShape3D_6cgdj")
 
 [node name="PlayArea" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="PlayArea"]
-anchors_preset = -1
-anchor_left = 0.312
-anchor_right = 1.0
-anchor_bottom = 0.241
-offset_left = 0.959961
-offset_bottom = -0.279999
-grow_horizontal = 0
-color = Color(0.996078, 0.694118, 0.266667, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="PlayerViewport" type="SubViewportContainer" parent="PlayArea"]
-anchors_preset = -1
-anchor_left = 0.312
-anchor_right = 1.0
-anchor_bottom = 0.241
-offset_left = 0.959961
-offset_right = -660.0
-offset_bottom = -0.279999
-grow_horizontal = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="SubViewport" type="SubViewport" parent="PlayArea/PlayerViewport"]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(660, 260)
-render_target_update_mode = 4
-
-[node name="Camera3D" type="Camera3D" parent="PlayArea/PlayerViewport/SubViewport"]
-transform = Transform3D(-0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 0.193765, 1.36287, 0.0946726)
-cull_mask = 2
-environment = ExtResource("4_kq3ts")
-fov = 60.0
-
-[node name="ComputerViewport" type="SubViewportContainer" parent="PlayArea"]
-anchors_preset = -1
-anchor_left = 0.656
-anchor_right = 1.0
-anchor_bottom = 0.241
-offset_left = 0.47998
-offset_bottom = -0.279999
-grow_horizontal = 0
-
-[node name="SubViewport" type="SubViewport" parent="PlayArea/ComputerViewport"]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(660, 260)
-render_target_update_mode = 4
-
-[node name="Camera3D" type="Camera3D" parent="PlayArea/ComputerViewport/SubViewport"]
-transform = Transform3D(0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 0.194, 1.363, -0.0180519)
-cull_mask = 4
-environment = ExtResource("4_kq3ts")
-fov = 60.0
-
 [node name="PlayAreaViewport" type="SubViewportContainer" parent="PlayArea"]
 anchors_preset = -1
 anchor_left = 0.312
-anchor_top = 0.241
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.759
 offset_left = 0.959961
-offset_top = -0.279999
+offset_bottom = 0.279907
 grow_horizontal = 0
-grow_vertical = 0
 
 [node name="SubViewport" type="SubViewport" parent="PlayArea/PlayAreaViewport"]
 handle_input_locally = false
@@ -123,6 +79,142 @@ size = Vector2i(1320, 820)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="PlayArea/PlayAreaViewport/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.26801, 0)
+transform = Transform3D(1, 0, 0, 0, 0.0712363, 0.997459, 0, -0.997459, 0.0712363, -0.0569862, 1.09478, 0.00375945)
 
-[node name="ThriftShopTable" parent="." instance=ExtResource("5_uja5b")]
+[node name="SpeechArea" type="TextureRect" parent="PlayArea"]
+anchors_preset = -1
+anchor_left = 0.344
+anchor_top = 0.759
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.480042
+offset_top = 0.279907
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_j0807")
+
+[node name="PlayerViewport" type="SubViewportContainer" parent="PlayArea/SpeechArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.048
+anchor_top = 1.0
+anchor_right = 0.048
+anchor_bottom = 1.0
+offset_left = -0.48
+offset_top = -260.0
+offset_right = 599.52
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="SubViewport" type="SubViewport" parent="PlayArea/SpeechArea/PlayerViewport"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(600, 260)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="PlayArea/SpeechArea/PlayerViewport/SubViewport"]
+transform = Transform3D(-0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 0.193765, 1.36287, 0.0946726)
+cull_mask = 2
+environment = ExtResource("4_kq3ts")
+fov = 60.0
+
+[node name="ComputerViewport" type="SubViewportContainer" parent="PlayArea/SpeechArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_top = -260.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="SubViewport" type="SubViewport" parent="PlayArea/SpeechArea/ComputerViewport"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(600, 260)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="PlayArea/SpeechArea/ComputerViewport/SubViewport"]
+transform = Transform3D(0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 0.194, 1.363, -0.0180519)
+cull_mask = 4
+environment = ExtResource("4_kq3ts")
+fov = 60.0
+
+[node name="SpeechPlayAreaDivider" type="TextureRect" parent="PlayArea/SpeechArea"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -22.0
+offset_bottom = 18.0
+grow_horizontal = 2
+texture = ExtResource("12_e013u")
+
+[node name="StatsArea" type="TextureRect" parent="PlayArea"]
+anchors_preset = -1
+anchor_right = 0.389
+anchor_bottom = 1.0
+offset_right = 0.119934
+texture = ExtResource("6_l1d7a")
+
+[node name="DrawPile" type="TextureRect" parent="PlayArea/StatsArea"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -195.0
+offset_right = 220.0
+offset_bottom = -20.0
+grow_vertical = 0
+texture = ExtResource("9_i0u2a")
+
+[node name="Count" type="RichTextLabel" parent="PlayArea/StatsArea/DrawPile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 46.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("10_5ul61")
+theme_override_font_sizes/normal_font_size = 68
+bbcode_enabled = true
+text = "[center]13[/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="TurnCounter" type="TextureRect" parent="PlayArea/StatsArea"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_top = -200.0
+offset_right = 380.0
+offset_bottom = -20.0
+grow_vertical = 0
+texture = ExtResource("10_i4dae")
+
+[node name="Count" type="RichTextLabel" parent="PlayArea/StatsArea/TurnCounter"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.221
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 26.22
+offset_right = -35.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("10_5ul61")
+theme_override_font_sizes/normal_font_size = 68
+bbcode_enabled = true
+text = "[center]5[/center]"
+fit_content = true
+autowrap_mode = 0
