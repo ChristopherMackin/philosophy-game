@@ -1,0 +1,134 @@
+[gd_scene load_steps=11 format=3 uid="uid://dnjd6gfsvie8p"]
+
+[ext_resource type="Texture2D" uid="uid://cwnbsbvx6pbwc" path="res://asset/graphic/debate/CardBackground.png" id="1_iswjj"]
+[ext_resource type="Texture2D" uid="uid://b64jmxeoyatvi" path="res://asset/graphic/debate/CardBorder.png" id="2_rnw4v"]
+[ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://asset/graphic/debate/ClockIcon.png" id="3_eeilm"]
+[ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="4_h26yw"]
+[ext_resource type="Texture2D" uid="uid://c4t3d7ivg8e41" path="res://asset/graphic/debate/TestIcon.png" id="5_svpfi"]
+[ext_resource type="Texture2D" uid="uid://b55a0tp164xa2" path="res://asset/graphic/debate/CardDescriptionBox.png" id="6_on0g6"]
+[ext_resource type="Texture2D" uid="uid://1y07c8optbib" path="res://asset/graphic/debate/CardTopBorder.png" id="7_en5u8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ldvhs"]
+font = ExtResource("4_h26yw")
+font_size = 24
+font_color = Color(0.964706, 0.964706, 0.964706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nam23"]
+line_spacing = 2.08165e-12
+font = ExtResource("4_h26yw")
+font_size = 24
+font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vsrqx"]
+line_spacing = 2.08165e-12
+font = ExtResource("4_h26yw")
+font_size = 30
+font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+outline_size = 2
+outline_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+
+[node name="TopCardUI" type="TextureRect"]
+self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
+custom_minimum_size = Vector2(300, 260)
+offset_right = 300.0
+offset_bottom = 260.0
+texture = ExtResource("1_iswjj")
+
+[node name="Border" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.4, 0.388235, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rnw4v")
+
+[node name="Cost" type="TextureRect" parent="Border"]
+self_modulate = Color(0.137255, 0.0862745, 0.0588235, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 54.0
+offset_bottom = 64.0
+texture = ExtResource("3_eeilm")
+
+[node name="Text" type="Label" parent="Border/Cost"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -7.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+label_settings = SubResource("LabelSettings_ldvhs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Border"]
+self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
+layout_mode = 0
+offset_left = 59.0
+offset_top = 12.0
+offset_right = 111.0
+offset_bottom = 64.0
+texture = ExtResource("5_svpfi")
+
+[node name="Description" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.558
+anchor_right = 0.95
+anchor_bottom = 0.942
+offset_top = -0.0800073
+offset_right = -1.43051e-05
+offset_bottom = 0.0799918
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("6_on0g6")
+
+[node name="Margin" type="MarginContainer" parent="Description"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 2
+
+[node name="Text" type="Label" parent="Description/Margin"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "This is a test of the text to see if things work properly"
+label_settings = SubResource("LabelSettings_nam23")
+autowrap_mode = 2
+
+[node name="TopBorder" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -129.0
+offset_top = 28.0
+offset_right = -29.0
+offset_bottom = 128.0
+grow_horizontal = 0
+texture = ExtResource("7_en5u8")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 69.0
+offset_right = 162.0
+offset_bottom = 145.0
+scale = Vector2(1, 1.00499)
+text = "CARD
+     TITLE"
+label_settings = SubResource("LabelSettings_vsrqx")

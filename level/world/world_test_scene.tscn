@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dlwjhhjie2gcq"]
 
-[ext_resource type="PackedScene" uid="uid://bv1djkeab7gu0" path="res://asset/model/character/joy/joy.tscn" id="1_gjtr8"]
+[ext_resource type="PackedScene" uid="uid://bv1djkeab7gu0" path="res://prefab/character/joy.tscn" id="1_gjtr8"]
 [ext_resource type="Script" path="res://script/follow_camera.gd" id="1_pop2k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d82um"]
