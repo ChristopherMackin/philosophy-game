@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="TopData" load_steps=3 format=3 uid="uid://clnyw55jxr6to"]
+[gd_resource type="Resource" script_class="TopData" load_steps=4 format=3 uid="uid://clnyw55jxr6to"]
 
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/pose/doubt.tres" id="1_tj2a4"]
 [ext_resource type="Script" path="res://script/system/top/top_data.gd" id="1_wsbuc"]
+[ext_resource type="Texture2D" uid="uid://cu6c40kdnmjcc" path="res://asset/graphic/debate/top/TestDoubtTop.png" id="3_b00ol"]
 
 [resource]
 script = ExtResource("1_wsbuc")
-name = "Basic Doubt"
+cost = 0
 pose = ExtResource("1_tj2a4")
+title = "Basic Doubt"
+artwork = ExtResource("3_b00ol")
+description = "Adds one doubt top to the track"

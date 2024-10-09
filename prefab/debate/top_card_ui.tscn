@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnjd6gfsvie8p"]
+[gd_scene load_steps=13 format=3 uid="uid://dnjd6gfsvie8p"]
 
-[ext_resource type="Texture2D" uid="uid://cwnbsbvx6pbwc" path="res://asset/graphic/debate/CardBackground.png" id="1_iswjj"]
+[ext_resource type="Texture2D" uid="uid://cwnbsbvx6pbwc" path="res://asset/graphic/debate/CardBackground.png" id="1_1v2tw"]
+[ext_resource type="Script" path="res://script/system/debate/ui/top_card.gd" id="2_le11q"]
 [ext_resource type="Texture2D" uid="uid://b64jmxeoyatvi" path="res://asset/graphic/debate/CardBorder.png" id="2_rnw4v"]
 [ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://asset/graphic/debate/ClockIcon.png" id="3_eeilm"]
+[ext_resource type="Resource" uid="uid://by2toymbldwte" path="res://system/top/faith/basic_faith.tres" id="3_vhie5"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="4_h26yw"]
-[ext_resource type="Texture2D" uid="uid://c4t3d7ivg8e41" path="res://asset/graphic/debate/TestIcon.png" id="5_svpfi"]
 [ext_resource type="Texture2D" uid="uid://b55a0tp164xa2" path="res://asset/graphic/debate/CardDescriptionBox.png" id="6_on0g6"]
-[ext_resource type="Texture2D" uid="uid://1y07c8optbib" path="res://asset/graphic/debate/CardTopBorder.png" id="7_en5u8"]
+[ext_resource type="Texture2D" uid="uid://bo4jbp6ii5mtg" path="res://asset/graphic/debate/pose/Diamond.svg" id="7_okfgt"]
+[ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/top/TestFaithTop.png" id="8_ax8w2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ldvhs"]
 font = ExtResource("4_h26yw")
@@ -27,15 +29,23 @@ font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
 outline_size = 2
 outline_color = Color(0.137255, 0.0862745, 0.0588235, 1)
 
-[node name="TopCardUI" type="TextureRect"]
+[node name="TopCardUI" type="TextureRect" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description", "colorable_elements")]
 self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
 custom_minimum_size = Vector2(300, 260)
 offset_right = 300.0
 offset_bottom = 260.0
-texture = ExtResource("1_iswjj")
+texture = ExtResource("1_1v2tw")
+script = ExtResource("2_le11q")
+cost = NodePath("Border/Cost/Text")
+icon = NodePath("Border/Icon")
+title = NodePath("Title")
+artwork = NodePath("Artwork")
+description = NodePath("Description/Margin/Text")
+colorable_elements = [NodePath("Border")]
+top = ExtResource("3_vhie5")
 
 [node name="Border" type="TextureRect" parent="."]
-self_modulate = Color(1, 0.4, 0.388235, 1)
+self_modulate = Color(0.996078, 0.694118, 0.266667, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,7 +85,7 @@ offset_left = 59.0
 offset_top = 12.0
 offset_right = 111.0
 offset_bottom = 64.0
-texture = ExtResource("5_svpfi")
+texture = ExtResource("7_okfgt")
 
 [node name="Description" type="TextureRect" parent="."]
 layout_mode = 1
@@ -106,29 +116,32 @@ theme_override_constants/margin_bottom = 2
 [node name="Text" type="Label" parent="Description/Margin"]
 layout_mode = 2
 size_flags_vertical = 1
-text = "This is a test of the text to see if things work properly"
+text = "Add one doubt top to the track"
 label_settings = SubResource("LabelSettings_nam23")
-autowrap_mode = 2
+autowrap_mode = 3
 
-[node name="TopBorder" type="TextureRect" parent="."]
+[node name="Artwork" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.196078)
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -129.0
-offset_top = 28.0
-offset_right = -29.0
-offset_bottom = 128.0
-grow_horizontal = 0
-texture = ExtResource("7_en5u8")
+anchor_bottom = 1.0
+offset_left = 156.0
+offset_top = 13.0
+offset_right = -16.0
+offset_bottom = -119.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_ax8w2")
+expand_mode = 1
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 69.0
-offset_right = 162.0
+offset_right = 150.0
 offset_bottom = 145.0
 scale = Vector2(1, 1.00499)
-text = "CARD
-     TITLE"
+text = "BASIC FAITH"
 label_settings = SubResource("LabelSettings_vsrqx")
+autowrap_mode = 3
