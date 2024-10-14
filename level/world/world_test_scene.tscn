@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlwjhhjie2gcq"]
+[gd_scene load_steps=6 format=3 uid="uid://dlwjhhjie2gcq"]
 
-[ext_resource type="PackedScene" uid="uid://bv1djkeab7gu0" path="res://prefab/character/joy.tscn" id="1_gjtr8"]
 [ext_resource type="Script" path="res://script/follow_camera.gd" id="1_pop2k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d82um"]
@@ -28,16 +27,12 @@ transform = Transform3D(0.873789, 0.401012, -0.275103, 0, 0.565701, 0.824611, 0.
 shadow_enabled = true
 shadow_opacity = 0.5
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("follow_transform")]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.924546, 0.38107, 0, -0.38107, 0.924546, 0, 1.885, 1.695)
 script = ExtResource("1_pop2k")
-follow_transform = NodePath("../Environment/Joy")
 offset = Vector3(0, 1.885, 1.695)
 
 [node name="Environment" type="Node3D" parent="."]
-
-[node name="Joy" parent="Environment" instance=ExtResource("1_gjtr8")]
-speed = 4.0
 
 [node name="Ground" type="StaticBody3D" parent="Environment"]
 

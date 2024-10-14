@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://crqp56e6cxt7e"]
 
-[ext_resource type="PackedScene" uid="uid://1qhxl6tl8ph0" path="res://asset/model/character/erin/ErinUXTest.glb" id="1_ikrf7"]
+[ext_resource type="PackedScene" uid="uid://1qhxl6tl8ph0" path="res://asset/model/character/erin/Erin.glb" id="1_ikrf7"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ph5vl"]
 animation = &"Idle"
