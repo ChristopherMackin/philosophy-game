@@ -10,7 +10,7 @@ const ARRAY_SIZE : int = 20
 		layers = val
 		update_layers.call_deferred(layers)
 
-func update_layers(val):
+func update_layers(layers):
 	if (layers.size() < ARRAY_SIZE):
 		var difference = ARRAY_SIZE - layers.size()
 		layers.resize(ARRAY_SIZE)
