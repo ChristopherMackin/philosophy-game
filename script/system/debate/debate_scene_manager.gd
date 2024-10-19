@@ -18,7 +18,7 @@ func on_player_change(contestant : Contestant):
 	pass
 	
 func on_top_played(top: Top, active_contestant : Contestant):
-	print("%s played %s" % [active_contestant.name, top.data.name])
+	print("%s played %s" % [active_contestant.name, top.data.title])
 
 func on_score_updated(pose_score_dictionary : Dictionary):
 	pass

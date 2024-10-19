@@ -13,7 +13,13 @@ var columns : Array:
 @export var sub_path : String
 var path : String:
 	get: return Constants.save_path + sub_path 
-var _dictionary : DictionaryVariable
+
+var _dictionary : DictionaryVariable:
+	get:
+		if !_dictionary:
+			_dictionary = DictionaryVariable.new()
+			clean_up()
+		return _dictionary
 
 func get_column(key : String):
 	for col in columns:
