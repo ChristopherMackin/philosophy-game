@@ -10,46 +10,46 @@
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("4_64pa8")
 
-[sub_resource type="Resource" id="Resource_5rk2a"]
+[sub_resource type="Resource" id="Resource_ko4e4"]
 script = ExtResource("3_x6100")
-outputs = Array[int]([1])
+outputs = Array[int]([0])
 inputs = ["open_dialogue", "SceneAnimator", true]
 action = SubResource("Resource_ml60a")
 
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("2_4hyep")
 
-[sub_resource type="Resource" id="Resource_vlino"]
+[sub_resource type="Resource" id="Resource_cnn1w"]
 script = ExtResource("3_x6100")
-outputs = Array[int]([3])
+outputs = Array[int]([2])
 inputs = ["You think a weak argument like that can shake my faith?"]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_vqlpj"]
+[sub_resource type="Resource" id="Resource_vey6x"]
 script = ExtResource("3_x6100")
-outputs = Array[int]([4])
+outputs = Array[int]([3])
 inputs = ["close_dialogue", "SceneAnimator", true]
 action = SubResource("Resource_ml60a")
 
 [sub_resource type="Resource" id="Resource_1f63y"]
 script = ExtResource("5_vhhbn")
 
-[sub_resource type="Resource" id="Resource_h3wen"]
+[sub_resource type="Resource" id="Resource_g5chf"]
 script = ExtResource("3_x6100")
-outputs = Array[int]([2])
+outputs = Array[int]([1])
 inputs = [1.0]
 action = SubResource("Resource_1f63y")
 
 [sub_resource type="Resource" id="Resource_mdms2"]
 script = ExtResource("6_n5uwo")
 
-[sub_resource type="Resource" id="Resource_pwstn"]
+[sub_resource type="Resource" id="Resource_jp6ke"]
 script = ExtResource("3_x6100")
 outputs = Array[int]([])
-inputs = ["res://system/character/ian/ian_memory.tres", "cbf_after_pbd", "true"]
+inputs = [null, -1, "true"]
 action = SubResource("Resource_mdms2")
 
 [resource]
 script = ExtResource("1_hi171")
-start_task = SubResource("Resource_5rk2a")
-tasks = Array[ExtResource("3_x6100")]([SubResource("Resource_5rk2a"), SubResource("Resource_vlino"), SubResource("Resource_vqlpj"), SubResource("Resource_h3wen"), SubResource("Resource_pwstn")])
+start_task = SubResource("Resource_ko4e4")
+tasks = Array[ExtResource("3_x6100")]([SubResource("Resource_cnn1w"), SubResource("Resource_vey6x"), SubResource("Resource_g5chf"), SubResource("Resource_jp6ke"), SubResource("Resource_ko4e4")])

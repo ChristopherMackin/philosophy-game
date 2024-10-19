@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://byrpux6co0rrw"]
 
-[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://system/character/general/brain/player_brain.tres" id="1_56p3o"]
+[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://system/character/player/brain/player_brain.tres" id="1_56p3o"]
 [ext_resource type="Script" path="res://script/system/character/character.gd" id="1_xfscq"]
 
 [resource]

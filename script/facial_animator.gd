@@ -2,6 +2,12 @@ extends Node3D
 
 class_name FacialAnimator
 
+@export var emotion_index : int = 0:
+	set(val):
+		emotion_index = val
+		set_face_material_uv_offset.call_deferred()
+		set_mouth_material_uv_offset.call_deferred()
+
 enum FaceState {
 	OPEN = 0,
 	CLOSED = 1,
@@ -17,9 +23,9 @@ func set_face_material_uv_offset():
 	var uv_offset : Vector3
 	
 	if face_state == FaceState.BLINKING:
-		uv_offset = get_uv_offset(0, FaceState.OPEN)
+		uv_offset = get_uv_offset(emotion_index, FaceState.OPEN)
 	else:
-		uv_offset = get_uv_offset(0, face_state)
+		uv_offset = get_uv_offset(emotion_index, face_state)
 
 	face_material.uv1_offset = uv_offset
 
@@ -49,9 +55,9 @@ func set_mouth_material_uv_offset():
 	var uv_offset : Vector3
 	
 	if mouth_state == MouthState.TALKING:
-		uv_offset = get_uv_offset(0, MouthState.OPEN)
+		uv_offset = get_uv_offset(emotion_index, MouthState.OPEN)
 	else:
-		uv_offset = get_uv_offset(0, mouth_state)
+		uv_offset = get_uv_offset(emotion_index, mouth_state)
 
 	mouth_material.uv1_offset = uv_offset
 
@@ -75,10 +81,10 @@ func blink(delta):
 	blink_timer += delta
 	
 	if blink_timer >= blink_offset:
-		face_material.uv1_offset = get_uv_offset(0, FaceState.CLOSED)
+		face_material.uv1_offset = get_uv_offset(emotion_index, FaceState.CLOSED)
 		await GlobalTimer.wait_for_seconds(blink_length)
 		if face_state == FaceState.BLINKING:
-			face_material.uv1_offset = get_uv_offset(0, FaceState.OPEN)
+			face_material.uv1_offset = get_uv_offset(emotion_index, FaceState.OPEN)
 		
 		blink_timer = 0
 		blink_offset = get_random_blink_offset()
@@ -86,9 +92,9 @@ func blink(delta):
 func talk(delta):
 	
 	if(sin(Time.get_unix_time_from_system() * talk_speed) > 0):
-		mouth_material.uv1_offset = get_uv_offset(0, MouthState.OPEN)
+		mouth_material.uv1_offset = get_uv_offset(emotion_index, MouthState.OPEN)
 	else:
-		mouth_material.uv1_offset = get_uv_offset(0, MouthState.CLOSED)
+		mouth_material.uv1_offset = get_uv_offset(emotion_index, MouthState.CLOSED)
 
 func get_random_blink_offset() -> float :
 	return randf_range(min_blink_offset, max_blink_offset)
@@ -97,5 +103,5 @@ func get_random_blink_offset() -> float :
 func get_uv_offset(index : int, state) -> Vector3:
 	if index < 0 || index >= 8:
 		return Vector3.ZERO
-
-	return Vector3((index % 2) * .5 + state * .25, floorf( index / 8.0 ), 0)
+	
+	return Vector3((index % 2) * .5 + state * .25, floorf(index / 2.0) / 4.0, 0)
