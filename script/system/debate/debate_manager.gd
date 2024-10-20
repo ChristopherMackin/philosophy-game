@@ -20,7 +20,6 @@ var event_factory : EventFactory:
 var active_contestant : Contestant:
 	get: return active_contestant
 	set(val):
-		for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(val)
 		active_contestant = val
 		var contestant = "player" if active_contestant == player else "computer"
 		debate_state.update_value("active_contestant", contestant)
@@ -73,6 +72,7 @@ func init(player_character : Character, computer_character : Character, debate_s
 		c.ready_up()
 	
 	active_contestant = computer
+	for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(active_contestant)
 	
 	game_loop()
 
@@ -81,6 +81,7 @@ func game_loop():
 		current_turn += 1
 		
 		active_contestant = inactive_contestant
+		for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(active_contestant)
 		await active_player_turn()
 	
 	var debates_finished = computer.memory.get_value("debates_finished")

@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dnjd6gfsvie8p"]
+[gd_scene load_steps=12 format=3 uid="uid://dnjd6gfsvie8p"]
 
 [ext_resource type="Texture2D" uid="uid://cwnbsbvx6pbwc" path="res://asset/graphic/debate/CardBackground.png" id="1_1v2tw"]
 [ext_resource type="Script" path="res://script/system/debate/ui/top_card.gd" id="2_le11q"]
 [ext_resource type="Texture2D" uid="uid://b64jmxeoyatvi" path="res://asset/graphic/debate/CardBorder.png" id="2_rnw4v"]
 [ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://asset/graphic/debate/ClockIcon.png" id="3_eeilm"]
-[ext_resource type="Resource" uid="uid://by2toymbldwte" path="res://system/top/faith/basic_faith.tres" id="3_vhie5"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="4_h26yw"]
 [ext_resource type="Texture2D" uid="uid://b55a0tp164xa2" path="res://asset/graphic/debate/CardDescriptionBox.png" id="6_on0g6"]
 [ext_resource type="Texture2D" uid="uid://bo4jbp6ii5mtg" path="res://asset/graphic/debate/pose/Diamond.svg" id="7_okfgt"]
@@ -42,7 +41,6 @@ title = NodePath("Title")
 artwork = NodePath("Artwork")
 description = NodePath("Description/Margin/Text")
 colorable_elements = [NodePath("Border")]
-top = ExtResource("3_vhie5")
 
 [node name="Border" type="TextureRect" parent="."]
 self_modulate = Color(0.996078, 0.694118, 0.266667, 1)

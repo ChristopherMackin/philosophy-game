@@ -4,6 +4,8 @@ extends DebateSubscriber
 @export var computer : Character
 @export var debate_settings : DebateSettings
 
+@export var hand_ui : HandController
+
 var is_animation_locked := false
 
 func _ready():
@@ -15,10 +17,16 @@ func on_debate_start():
 	pass
 	
 func on_player_change(contestant : Contestant):
-	pass
+	print("%s's turn" % contestant.name)
+	if contestant.character == player:
+		hand_ui.update_hand(contestant.hand)
+	await GlobalTimer.wait_for_seconds(1)
 	
 func on_top_played(top: Top, active_contestant : Contestant):
 	print("%s played %s" % [active_contestant.name, top.data.title])
+	if active_contestant.character == player:
+		hand_ui.remove_card(top)
+	await GlobalTimer.wait_for_seconds(1)
 
 func on_score_updated(pose_score_dictionary : Dictionary):
 	pass

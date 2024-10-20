@@ -10,23 +10,23 @@ class_name TopCard
 @export var description : Node
 @export var colorable_elements : Array[Node]
 
-@export var top : TopData:
+var top : Top:
 	set(val):
 		top = val
 		update_card.call_deferred(top)
 
-func update_card(top : TopData) :
+func update_card(top : Top) :
 		if !top:
 			return
 		
-		cost.text = str(top.cost)
-		icon.texture = top.pose.icon
-		title.text = top.title.to_upper()
-		description.text = top.description
-		artwork.texture = top.artwork
+		cost.text = str(top.data.cost)
+		icon.texture = top.data.pose.icon
+		title.text = top.data.title.to_upper()
+		description.text = top.data.description
+		artwork.texture = top.data.artwork
 		
 		for e in colorable_elements:
 			if "self_modulate" in e:
-				e.self_modulate = top.pose.color
+				e.self_modulate = top.data.pose.color
 			else:
-				e.modulate = top.pose.color
+				e.modulate = top.data.pose.color

@@ -1,5 +1,6 @@
 extends Object
 
+#This class exists so that each top is unique
 class_name Top
 
 var data : TopData
