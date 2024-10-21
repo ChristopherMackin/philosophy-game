@@ -2,11 +2,11 @@ extends Object
 
 class_name Util
 
-static func lerp_to_position(node : Node2D, target : Vector2, duration : float):
+static func lerp_to_position(node : Node, target : Vector2, duration : float):
 	if node.has_node("Lerp2DNode"):
 		node.get_node("Lerp2DNode").queue_free()
 	
-	var lerp = Node2D.new()
+	var lerp = Node.new()
 	lerp.name = "Lerp2DNode"
 	lerp.set_script(Lerp2D)
 	node.add_child(lerp)

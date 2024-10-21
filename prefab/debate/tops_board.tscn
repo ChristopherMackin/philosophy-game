@@ -1,0 +1,235 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsyesuw4ujeei"]
+
+[ext_resource type="Texture2D" uid="uid://cng6p2uhhx3eb" path="res://asset/graphic/debate/board/PlayMat.png" id="1_32krf"]
+[ext_resource type="Texture2D" uid="uid://bguotsggmkkvl" path="res://asset/graphic/debate/board/TopicSlot.png" id="2_a7snr"]
+[ext_resource type="Texture2D" uid="uid://bo4jbp6ii5mtg" path="res://asset/graphic/debate/pose/Diamond.svg" id="2_g65a1"]
+
+[node name="TopsBoard" type="Sprite3D"]
+transform = Transform3D(0.0435746, 0, 0, 0, -1.90471e-09, 0.0435746, 0, -0.0435746, -1.90471e-09, 0, 0, 0)
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("1_32krf")
+
+[node name="Pose1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-15, 0, -7.10543e-15, 1, 0, 1.04289, 0)
+
+[node name="Icon" type="Sprite3D" parent="Pose1"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.13163e-14, 0, -2.13163e-14, 1, -4.838, 0, 0.01)
+render_priority = 1
+texture = ExtResource("2_g65a1")
+
+[node name="Slot1" type="Sprite3D" parent="Pose1"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -3.675, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot2" type="Sprite3D" parent="Pose1"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -2.50318, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot3" type="Sprite3D" parent="Pose1"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -1.33137, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot4" type="Sprite3D" parent="Pose1"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -0.159555, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot5" type="Sprite3D" parent="Pose1"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 1.03086, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot6" type="Sprite3D" parent="Pose1"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 2.22128, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot7" type="Sprite3D" parent="Pose1"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 3.39309, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot8" type="Sprite3D" parent="Pose1"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 4.56491, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Pose2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-15, 0, -7.10543e-15, 1, 0, -0.114773, -5.06031e-08)
+
+[node name="Icon" type="Sprite3D" parent="Pose2"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.4869e-14, 0, -2.4869e-14, 1, -4.838, 0, 0.01)
+render_priority = 1
+texture = ExtResource("2_g65a1")
+
+[node name="Slot1" type="Sprite3D" parent="Pose2"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -3.675, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot2" type="Sprite3D" parent="Pose2"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -2.50318, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot3" type="Sprite3D" parent="Pose2"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -1.33137, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot4" type="Sprite3D" parent="Pose2"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -0.159555, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot5" type="Sprite3D" parent="Pose2"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 1.03086, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot6" type="Sprite3D" parent="Pose2"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 2.22128, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot7" type="Sprite3D" parent="Pose2"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 3.39309, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot8" type="Sprite3D" parent="Pose2"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 4.56491, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Pose3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-15, 0, -7.10543e-15, 1, 0, -1.28211, -1.01629e-07)
+
+[node name="Icon" type="Sprite3D" parent="Pose3"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.4869e-14, 0, -2.4869e-14, 1, -4.838, 0, 0.01)
+render_priority = 1
+texture = ExtResource("2_g65a1")
+
+[node name="Slot1" type="Sprite3D" parent="Pose3"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -3.675, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot2" type="Sprite3D" parent="Pose3"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -2.50318, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot3" type="Sprite3D" parent="Pose3"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -1.33137, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot4" type="Sprite3D" parent="Pose3"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -0.159555, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot5" type="Sprite3D" parent="Pose3"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 1.03086, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot6" type="Sprite3D" parent="Pose3"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 2.22128, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot7" type="Sprite3D" parent="Pose3"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 3.39309, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot8" type="Sprite3D" parent="Pose3"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 4.56491, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Pose4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-15, 0, -7.10543e-15, 1, 0, -2.4446, -1.52443e-07)
+
+[node name="Icon" type="Sprite3D" parent="Pose4"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.4869e-14, 0, -2.4869e-14, 1, -4.838, 0, 0.01)
+render_priority = 1
+texture = ExtResource("2_g65a1")
+
+[node name="Slot1" type="Sprite3D" parent="Pose4"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -3.675, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot2" type="Sprite3D" parent="Pose4"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -2.50318, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot3" type="Sprite3D" parent="Pose4"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -1.33137, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot4" type="Sprite3D" parent="Pose4"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -0.159555, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot5" type="Sprite3D" parent="Pose4"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 1.03086, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot6" type="Sprite3D" parent="Pose4"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 2.22128, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot7" type="Sprite3D" parent="Pose4"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 3.39309, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")
+
+[node name="Slot8" type="Sprite3D" parent="Pose4"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 4.56491, 0, 0.01)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("2_a7snr")

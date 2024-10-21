@@ -1,11 +1,14 @@
 extends VBoxContainer
 
-class_name HandController
+class_name HandUI
 
 @export var top_card_ui_prefab : PackedScene
+@export var card_parent : Control
+
+@export var ordered_card_targets : Array[Control]
+@export var reorder_speed : float = .2
 
 var hand : Array[TopCard]
-@export var ordered_card_targets : Array[Control]
 
 func update_hand(hand : Array[Top]):
 	clear()
@@ -27,7 +30,8 @@ func add_card(top : Top):
 	var top_card : TopCard = top_card_ui_prefab.instantiate() as TopCard
 	top_card.top = top
 	
-	ordered_card_targets[hand.size() - 1].add_child(top_card)
+	card_parent.add_child(top_card)
+	top_card.global_position = ordered_card_targets[hand.size()].global_position
 	hand.append(top_card)
 
 func remove_card(top : Top):
@@ -35,6 +39,15 @@ func remove_card(top : Top):
 	var top_card = matching[0] if not matching.is_empty() else null
 	var index = hand.find(top_card)
 	
-	if index >= 0:
-		hand[index].queue_free()
-		hand.remove_at(index)
+	if index < 0:
+		return
+		
+	hand[index].queue_free() #make some kind of effect for the card being removed here
+	hand.remove_at(index)
+	
+	var lerp_funcs : Array[Callable]
+	
+	for i in range(index, hand.size()):
+		lerp_funcs.append(func(): await Util.lerp_to_position(hand[i], ordered_card_targets[i].global_position, reorder_speed))
+	
+	await Util.await_all(lerp_funcs)
