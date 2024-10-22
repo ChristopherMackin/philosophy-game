@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://b64jmxeoyatvi" path="res://asset/graphic/debate/CardBorder.png" id="2_466im"]
 [ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://asset/graphic/debate/ClockIcon.png" id="3_mgkwg"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="4_iyeme"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/pose/FaithIcon.png" id="6_ssha3"]
 [ext_resource type="Texture2D" uid="uid://b55a0tp164xa2" path="res://asset/graphic/debate/CardDescriptionBox.png" id="7_rngwk"]
-[ext_resource type="Texture2D" uid="uid://bo4jbp6ii5mtg" path="res://asset/graphic/debate/pose/Diamond.svg" id="7_thj14"]
 [ext_resource type="Texture2D" uid="uid://bfesntksn6xx5" path="res://asset/graphic/debate/TopsCardBack.png" id="8_4jab3"]
-[ext_resource type="Texture2D" uid="uid://dqx5jls45s2fb" path="res://asset/graphic/debate/top/TestFaithTop.png" id="8_ls5rs"]
+[ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/top/TestFaithTop.png" id="8_ls5rs"]
 
 [node name="TopCard3D" type="Node3D" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description", "colorable_elements")]
 transform = Transform3D(0.05, -3.48787e-17, -7.62298e-25, -7.62298e-25, -2.18557e-09, 0.05, -3.48787e-17, -0.05, -2.18557e-09, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -57,11 +57,12 @@ autowrap_mode = 2
 width = 550.0
 
 [node name="Icon" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 2.66454e-15, 0, 2.78298e-15, 1, -0.639, 0.908, 0.0200024)
+transform = Transform3D(1, -3.1957e-23, 7.09357e-31, 5.29396e-23, 1, 7.99361e-15, -3.01552e-30, 6.51351e-16, 1, -0.639, 0.908, 0.0200024)
 modulate = Color(0.964706, 0.964706, 0.964706, 1)
+pixel_size = 0.0075
 alpha_cut = 2
 texture_filter = 0
-texture = ExtResource("7_thj14")
+texture = ExtResource("6_ssha3")
 
 [node name="Title" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, -6.21725e-15, 0, -7.69735e-16, 1, -1.33, 0.631, 0.01)

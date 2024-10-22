@@ -6,7 +6,7 @@ class_name HandUI
 @export var card_parent : Control
 
 @export var ordered_card_targets : Array[Control]
-@export var reorder_speed : float = .2
+@export var reorder_duration : float = .2
 
 var hand : Array[TopCard]
 
@@ -45,9 +45,9 @@ func remove_card(top : Top):
 	hand[index].queue_free() #make some kind of effect for the card being removed here
 	hand.remove_at(index)
 	
-	var lerp_funcs : Array[Callable]
+	var tween = get_tree().create_tween().set_parallel()
 	
 	for i in range(index, hand.size()):
-		lerp_funcs.append(func(): await Util.lerp_to_position(hand[i], ordered_card_targets[i].global_position, reorder_speed))
-	
-	await Util.await_all(lerp_funcs)
+		tween.tween_property(hand[i], "global_position", ordered_card_targets[i].global_position, reorder_duration) \
+		.set_trans(Tween.TRANS_SPRING) \
+		.set_ease(Tween.EASE_OUT)

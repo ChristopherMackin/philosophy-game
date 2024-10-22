@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://b64jmxeoyatvi" path="res://asset/graphic/debate/CardBorder.png" id="2_rnw4v"]
 [ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://asset/graphic/debate/ClockIcon.png" id="3_eeilm"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="4_h26yw"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/pose/FaithIcon.png" id="6_3ri0m"]
 [ext_resource type="Texture2D" uid="uid://b55a0tp164xa2" path="res://asset/graphic/debate/CardDescriptionBox.png" id="6_on0g6"]
-[ext_resource type="Texture2D" uid="uid://bo4jbp6ii5mtg" path="res://asset/graphic/debate/pose/Diamond.svg" id="7_okfgt"]
-[ext_resource type="Texture2D" uid="uid://dqx5jls45s2fb" path="res://asset/graphic/debate/top/TestFaithTop.png" id="8_ax8w2"]
+[ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/top/TestFaithTop.png" id="8_ax8w2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ldvhs"]
 font = ExtResource("4_h26yw")
@@ -81,9 +81,11 @@ self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
 layout_mode = 0
 offset_left = 59.0
 offset_top = 12.0
-offset_right = 111.0
-offset_bottom = 64.0
-texture = ExtResource("7_okfgt")
+offset_right = 107.0
+offset_bottom = 60.0
+texture = ExtResource("6_3ri0m")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Description" type="TextureRect" parent="."]
 layout_mode = 1

@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Pose" load_steps=3 format=3 uid="uid://bqcg2g04h2bqp"]
 
-[ext_resource type="Texture2D" uid="uid://c7whgk1hl126r" path="res://asset/graphic/debate/pose/Club.svg" id="1_m8vff"]
+[ext_resource type="Texture2D" uid="uid://8m5h442qngjv" path="res://asset/graphic/debate/pose/OthersIcon.png" id="1_hggj1"]
 [ext_resource type="Script" path="res://script/system/pose/pose.gd" id="1_ucshs"]
 
 [resource]
 script = ExtResource("1_ucshs")
 name = "Others"
 color = Color(0.619608, 0.878431, 0.619608, 1)
-icon = ExtResource("1_m8vff")
+icon = ExtResource("1_hggj1")
