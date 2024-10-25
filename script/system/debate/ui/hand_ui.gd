@@ -45,6 +45,9 @@ func remove_card(top : Top):
 	hand[index].queue_free() #make some kind of effect for the card being removed here
 	hand.remove_at(index)
 	
+	if range(index, hand.size()).size() <= 0:
+		return;
+	
 	var tween = get_tree().create_tween().set_parallel()
 	
 	for i in range(index, hand.size()):

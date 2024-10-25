@@ -27,7 +27,7 @@ func on_top_played(top: Top, active_contestant : Contestant):
 	if active_contestant.character == player:
 		hand_ui.remove_card(top)
 	#for testing
-	await GlobalTimer.wait_for_seconds(.1)
+	await GlobalTimer.wait_for_seconds(.5)
 
 func on_score_updated(pose_score_dictionary : Dictionary):
 	pass
