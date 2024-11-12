@@ -5,9 +5,9 @@
 
 [node name="Joy" instance=ExtResource("1_onlri")]
 
-[node name="FacialAnimator" type="Node3D" parent="." index="1" node_paths=PackedStringArray("face", "mouth")]
+[node name="FacialAnimator" type="Node3D" parent="." index="1" node_paths=PackedStringArray("eyes", "mouth")]
 script = ExtResource("2_b7t4a")
-face = NodePath("../Armature/Skeleton3D/Face")
+eyes = NodePath("../Armature/Skeleton3D/Face")
 min_blink_offset = 1.4
 max_blink_offset = 3.2
 mouth = NodePath("../Armature/Skeleton3D/Mouth")

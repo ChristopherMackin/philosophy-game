@@ -2,10 +2,12 @@ extends VBoxContainer
 
 class_name HandUI
 
+@export_group("Prefab")
 @export var top_card_ui_prefab : PackedScene
-@export var card_parent : Control
-@export var draw_pile : Control
 
+@export_group("Card Placement")
+@export var draw_pile : Control
+@export var card_parent : Control
 @export var ordered_card_targets : Array[Control]
 @export var reorder_duration : float = .2
 

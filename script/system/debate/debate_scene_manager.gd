@@ -1,19 +1,23 @@
 extends DebateSubscriber
 
+@export_group("Settings")
+@export var debate_settings : DebateSettings
+@export var event_manager : EventManager
+
+@export_group ("Player")
 @export var player : Character
 @export var player_3d : DebateContestant3D
 
+@export_group ("Computer")
 @export var computer : Character
 @export var computer_3d : DebateContestant3D
 
-@export var debate_settings : DebateSettings
-
+@export_group("UI")
+@export var tops_board : TopsBoard3D
 @export var hand_ui : HandUI
 @export var energy_ui : EnergyUI
-@export var tops_board : TopsBoard3D
 @export var draw_pile_ui : DrawPileUI
 
-@export var event_manager : EventManager
 
 var is_animation_locked := false
 

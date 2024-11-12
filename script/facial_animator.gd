@@ -5,32 +5,21 @@ class_name FacialAnimator
 @export var emotion_index : int = 0:
 	set(val):
 		emotion_index = val
-		set_face_material_uv_offset.call_deferred()
+		set_eye_material_uv_offset.call_deferred()
 		set_mouth_material_uv_offset.call_deferred()
 
-enum FaceState {
+@export_group("Eyes")
+enum EyeState {
 	OPEN = 0,
 	CLOSED = 1,
 	BLINKING = 2,
 }
-
-@export var face_state : FaceState = FaceState.BLINKING:
+@export var eye_state : EyeState = EyeState.BLINKING:
 	set(val):
-		face_state = val
-		set_face_material_uv_offset.call_deferred()
-
-func set_face_material_uv_offset():
-	var uv_offset : Vector3
-	
-	if face_state == FaceState.BLINKING:
-		uv_offset = get_uv_offset(emotion_index, FaceState.OPEN)
-	else:
-		uv_offset = get_uv_offset(emotion_index, face_state)
-
-	face_material.uv1_offset = uv_offset
-
-@export var face : MeshInstance3D
-var face_material : Material
+		eye_state = val
+		set_eye_material_uv_offset.call_deferred()
+@export var eyes : MeshInstance3D
+var eye_material : Material
 
 var blink_timer : float = 0
 var blink_offset : float
@@ -40,6 +29,7 @@ var blink_offset : float
 
 @export var blink_length : float = .1
 
+@export_group("Mouth")
 enum MouthState {
 	CLOSED = 0,
 	OPEN = 1,
@@ -50,6 +40,31 @@ enum MouthState {
 	set(val):
 		mouth_state = val
 		set_mouth_material_uv_offset.call_deferred()
+@export var mouth : MeshInstance3D
+var mouth_material : Material
+
+@export var talk_speed : float = 2
+
+func _ready():
+	eye_material = eyes.mesh.surface_get_material(0)
+	mouth_material = mouth.mesh.surface_get_material(0)
+	blink_offset = get_random_blink_offset()
+
+func _process(delta):
+	if eye_state == EyeState.BLINKING:
+		blink(delta)
+	if mouth_state == MouthState.TALKING:
+		talk(delta)
+
+func set_eye_material_uv_offset():
+	var uv_offset : Vector3
+	
+	if eye_state == EyeState.BLINKING:
+		uv_offset = get_uv_offset(emotion_index, EyeState.OPEN)
+	else:
+		uv_offset = get_uv_offset(emotion_index, eye_state)
+
+	eye_material.uv1_offset = uv_offset
 
 func set_mouth_material_uv_offset():
 	var uv_offset : Vector3
@@ -61,30 +76,14 @@ func set_mouth_material_uv_offset():
 
 	mouth_material.uv1_offset = uv_offset
 
-@export var mouth : MeshInstance3D
-var mouth_material : Material
-
-@export var talk_speed : float = 2
-
-func _ready():
-	face_material = face.mesh.surface_get_material(0)
-	mouth_material = mouth.mesh.surface_get_material(0)
-	blink_offset = get_random_blink_offset()
-
-func _process(delta):
-	if face_state == FaceState.BLINKING:
-		blink(delta)
-	if mouth_state == MouthState.TALKING:
-		talk(delta)
-
 func blink(delta):
 	blink_timer += delta
 	
 	if blink_timer >= blink_offset:
-		face_material.uv1_offset = get_uv_offset(emotion_index, FaceState.CLOSED)
+		eye_material.uv1_offset = get_uv_offset(emotion_index, EyeState.CLOSED)
 		await GlobalTimer.wait_for_seconds(blink_length)
-		if face_state == FaceState.BLINKING:
-			face_material.uv1_offset = get_uv_offset(emotion_index, FaceState.OPEN)
+		if eye_state == EyeState.BLINKING:
+			eye_material.uv1_offset = get_uv_offset(emotion_index, EyeState.OPEN)
 		
 		blink_timer = 0
 		blink_offset = get_random_blink_offset()
