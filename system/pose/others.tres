@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_ucshs")
 name = "Others"
-color = Color(0.619608, 0.878431, 0.619608, 1)
+color = Color(0.529412, 0.835294, 0.972549, 1)
 icon = ExtResource("1_hggj1")

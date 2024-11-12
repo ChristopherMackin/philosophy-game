@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("2_negk0")
 name = "Self"
-color = Color(0.529412, 0.835294, 0.972549, 1)
+color = Color(0.619608, 0.878431, 0.619608, 1)
 icon = ExtResource("1_7u4ed")

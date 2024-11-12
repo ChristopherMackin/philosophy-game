@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StateDatabase" load_steps=2 format=3 uid="uid://bno05abhs47vv"]
+
+[ext_resource type="Script" path="res://script/system/database/state_database.gd" id="1_wmgem"]
+
+[resource]
+script = ExtResource("1_wmgem")
+schema = 3
+prefix = "erin"
+sub_path = "memory/erin.tres"

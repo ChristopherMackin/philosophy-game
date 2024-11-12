@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Event" load_steps=7 format=3 uid="uid://bbcwubcmwcoju"]
+
+[ext_resource type="Script" path="res://script/system/event/event.gd" id="1_1q23l"]
+[ext_resource type="Script" path="res://script/system/event/task_action/dialogue_task_action.gd" id="2_2xkhr"]
+[ext_resource type="Script" path="res://script/system/event/task.gd" id="3_jic3t"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_2xkhr")
+
+[sub_resource type="Resource" id="Resource_bykgj"]
+script = ExtResource("3_jic3t")
+outputs = Array[int]([1])
+inputs = ["Are you ready to get you ass kicke??", "Erin"]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_n80mk"]
+script = ExtResource("3_jic3t")
+outputs = Array[int]([])
+inputs = ["I guess...", "Joy"]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_1q23l")
+start_task = SubResource("Resource_bykgj")
+tasks = Array[ExtResource("3_jic3t")]([SubResource("Resource_bykgj"), SubResource("Resource_n80mk")])

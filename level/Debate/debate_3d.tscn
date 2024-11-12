@@ -1,52 +1,93 @@
-[gd_scene load_steps=23 format=3 uid="uid://b31uxtxyvdwi3"]
+[gd_scene load_steps=36 format=3 uid="uid://b31uxtxyvdwi3"]
 
 [ext_resource type="Script" path="res://script/system/debate/debate_scene_manager.gd" id="1_ndrkp"]
 [ext_resource type="PackedScene" uid="uid://bdjdo8l7nn2l3" path="res://prefab/character/joy.tscn" id="1_xnrq5"]
 [ext_resource type="Script" path="res://script/utility/set_layer_mask.gd" id="2_kouh8"]
 [ext_resource type="PackedScene" uid="uid://crqp56e6cxt7e" path="res://prefab/character/erin.tscn" id="2_ktwx2"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player/player.tres" id="2_tj3bx"]
-[ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/ian/ian.tres" id="3_ilxke"]
-[ext_resource type="Texture2D" uid="uid://bbal237pvxf3y" path="res://asset/graphic/debate/SpeechBackground.png" id="4_j0807"]
+[ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/erin/erin.tres" id="3_ilxke"]
 [ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://system/debate/debate_contestant_viewport.tres" id="4_kq3ts"]
 [ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://system/debate/main/debate_settings.tres" id="4_q8shw"]
 [ext_resource type="PackedScene" uid="uid://d3gstm266f4t3" path="res://prefab/debate/top_card_3d.tscn" id="5_8steh"]
 [ext_resource type="Resource" uid="uid://wlxm57wwnqi" path="res://system/debate/main/debate_manager.tres" id="5_k216a"]
 [ext_resource type="PackedScene" uid="uid://k3iaic8fwi4x" path="res://prefab/debate/thrift_shop_table.tscn" id="5_tq8nb"]
-[ext_resource type="Texture2D" uid="uid://2x0w7rjd27mn" path="res://asset/graphic/debate/StatsBackground.png" id="6_l1d7a"]
-[ext_resource type="Texture2D" uid="uid://ho13qsn3chj0" path="res://asset/graphic/debate/DrawPile.png" id="9_i0u2a"]
+[ext_resource type="Texture2D" uid="uid://2x0w7rjd27mn" path="res://asset/graphic/debate/stats_area/StatsBackground.png" id="6_l1d7a"]
+[ext_resource type="Script" path="res://script/system/event/event_subscriber/debate_event_manager.gd" id="6_reoeb"]
+[ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event/event_manager/event_manager.tres" id="7_0u80y"]
+[ext_resource type="Script" path="res://script/system/debate/discard_3d.gd" id="8_r55tt"]
+[ext_resource type="Texture2D" uid="uid://ho13qsn3chj0" path="res://asset/graphic/debate/top_card/DrawPile.png" id="9_i0u2a"]
+[ext_resource type="Script" path="res://debate_contestant_3d.gd" id="10_5u80s"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="10_5ul61"]
-[ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/graphic/debate/TurnCounterBackground.png" id="10_i4dae"]
-[ext_resource type="Texture2D" uid="uid://b6vg65oj1plvh" path="res://asset/graphic/debate/SpeechPlayAreaDivider.png" id="12_e013u"]
+[ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/graphic/debate/stats_area/TurnCounterBackground.png" id="10_i4dae"]
+[ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://prefab/debate/top_3d.tscn" id="11_fd0f6"]
+[ext_resource type="Texture2D" uid="uid://b6vg65oj1plvh" path="res://asset/graphic/debate/speech_area/SpeechPlayAreaDivider.png" id="12_e013u"]
 [ext_resource type="PackedScene" uid="uid://dnjd6gfsvie8p" path="res://prefab/debate/top_card_ui.tscn" id="15_qudhi"]
+[ext_resource type="Script" path="res://level/Debate/speaker.gd" id="15_w12l7"]
 [ext_resource type="Script" path="res://script/system/debate/ui/hand_ui.gd" id="20_mjdc4"]
+[ext_resource type="Texture2D" uid="uid://33p4i0eyh11w" path="res://asset/graphic/debate/speech_area/SpeechBubble.png" id="20_q85ll"]
 [ext_resource type="PackedScene" uid="uid://bsyesuw4ujeei" path="res://prefab/debate/tops_board.tscn" id="21_3pae8"]
+[ext_resource type="Script" path="res://script/ui/scrolling-text.gd" id="21_gnxn8"]
+[ext_resource type="Script" path="res://level/Debate/draw_pile_ui.gd" id="21_j55pc"]
+[ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="23_xw7h0"]
+[ext_resource type="Texture2D" uid="uid://cjibu358pdc3s" path="res://asset/graphic/debate/speech_area/colorable_checkerboard.png" id="24_7uno0"]
+[ext_resource type="Script" path="res://level/Debate/energy_ui.gd" id="24_y4137"]
 
 [sub_resource type="Environment" id="Environment_klgt4"]
-background_mode = 1
+background_mode = 3
 background_color = Color(0.977565, 0.97089, 0.932925, 1)
 background_energy_multiplier = 0.5
+background_canvas_max_layer = -100
+ambient_light_source = 2
+ambient_light_color = Color(0.976471, 0.972549, 0.933333, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cgdj"]
 size = Vector3(10, 1, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1mhlm"]
+shader = ExtResource("23_xw7h0")
+shader_parameter/color = Color(1, 0.745098, 0.858824, 1)
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.05
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2n0su"]
+shader = ExtResource("23_xw7h0")
+shader_parameter/color = Color(1, 0.745098, 0.858824, 1)
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.05
 
 [node name="Debate3d" type="Node3D"]
 
 [node name="===MANAGER========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="DebateSceneManager" type="Node3D" parent="." node_paths=PackedStringArray("hand_ui")]
+[node name="DebateSceneManager" type="Node3D" parent="." node_paths=PackedStringArray("player_3d", "computer_3d", "hand_ui", "energy_ui", "tops_board", "draw_pile_ui")]
 script = ExtResource("1_ndrkp")
 player = ExtResource("2_tj3bx")
+player_3d = NodePath("../Joy")
 computer = ExtResource("3_ilxke")
+computer_3d = NodePath("../Erin")
 debate_settings = ExtResource("4_q8shw")
 hand_ui = NodePath("../PlayArea/StatsArea/MarginContainer/Hand")
+energy_ui = NodePath("../PlayArea/StatsArea/Energy/Count")
+tops_board = NodePath("../ThriftShopTable/TopsBoard")
+draw_pile_ui = NodePath("../PlayArea/StatsArea/DrawPile/Count")
+event_manager = ExtResource("7_0u80y")
 manager = ExtResource("5_k216a")
+
+[node name="EventManager" type="Node3D" parent="." node_paths=PackedStringArray("actors")]
+script = ExtResource("6_reoeb")
+actors = [NodePath("../Joy"), NodePath("../Erin")]
+manager = ExtResource("7_0u80y")
 
 [node name="===WORLD========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_klgt4")
+
+[node name="DebateCamera" type="Camera3D" parent="."]
+process_mode = 4
+transform = Transform3D(-0.256795, 0, -0.966466, 0, 1, 0, 0.966466, 0, -0.256795, -1.97065, 0.902802, -0.655636)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.532562, -0.533365, 0.657191, -0.362262, 0.558107, 0.746514, -0.764947, -0.63564, 0.104009, 1.3093, 2.76479, 0.296943)
@@ -59,8 +100,13 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 [node name="ThriftShopTable" parent="." instance=ExtResource("5_tq8nb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="TestTopCard" parent="ThriftShopTable" instance=ExtResource("5_8steh")]
-transform = Transform3D(0.0385289, -2.68767e-17, -5.87412e-25, -5.87414e-25, -1.68416e-09, 0.0385289, -2.68767e-17, -0.0385289, -1.68416e-09, -0.205079, 0.765068, -0.12993)
+[node name="TopsBoard" parent="ThriftShopTable" instance=ExtResource("21_3pae8")]
+transform = Transform3D(0.0435746, 1.01042e-16, -2.15664e-24, 0, -1.90471e-09, 0.0435746, 0, -0.0435746, -1.90471e-09, -2.08459e-12, 0.765, -2.08165e-12)
+
+[node name="Discard" type="Marker3D" parent="ThriftShopTable"]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -0.207782, 0.765068, -0.133718)
+script = ExtResource("8_r55tt")
+per_card_offset = Vector3(2.08165e-12, 0.01, 2.08165e-12)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1.2)
@@ -76,8 +122,15 @@ shape = SubResource("BoxShape3D_6cgdj")
 [node name="===ACTOR========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="Joy" parent="." instance=ExtResource("1_xnrq5")]
+[node name="Joy" parent="." node_paths=PackedStringArray("discard", "tops_board") instance=ExtResource("1_xnrq5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+script = ExtResource("10_5u80s")
+top_3d_prefab = ExtResource("11_fd0f6")
+top_card_3d_prefab = ExtResource("5_8steh")
+discard = NodePath("../ThriftShopTable/Discard")
+tops_board = NodePath("../ThriftShopTable/TopsBoard")
+max_random_rotation_degrees = 2.0
+play_duration = 0.7
 
 [node name="Arm_L" parent="Joy/Armature/Skeleton3D" index="0"]
 layers = 2
@@ -143,15 +196,201 @@ layers = 2
 layers = 2
 
 [node name="FacialAnimator" parent="Joy" index="1"]
-mouth_state = 2
 talk_speed = 25.0
+
+[node name="Speaker" type="Node3D" parent="Joy" node_paths=PackedStringArray("scrolling_text")]
+script = ExtResource("15_w12l7")
+scrolling_text = NodePath("../../PlayArea/SpeechArea/PlayerSpeechBuble/ScrollingText")
 
 [node name="LayerMask" type="Node" parent="Joy"]
 script = ExtResource("2_kouh8")
 layers = Array[bool]([false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
 
-[node name="Erin" parent="." instance=ExtResource("2_ktwx2")]
+[node name="Erin" parent="." node_paths=PackedStringArray("discard", "tops_board") instance=ExtResource("2_ktwx2")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.750052)
+script = ExtResource("10_5u80s")
+top_3d_prefab = ExtResource("11_fd0f6")
+top_card_3d_prefab = ExtResource("5_8steh")
+discard = NodePath("../ThriftShopTable/Discard")
+tops_board = NodePath("../ThriftShopTable/TopsBoard")
+max_random_rotation_degrees = 10.0
+play_duration = 0.5
+
+[node name="Skeleton3D" parent="Erin/Armature" index="0"]
+bones/0/position = Vector3(-4.41021e-10, 0.730486, 0.0114382)
+bones/2/rotation = Quaternion(0.00503596, 0.0188632, 0.190103, 0.98157)
+bones/3/rotation = Quaternion(-0.0171228, -0.00651224, 0.0379612, 0.999111)
+bones/4/rotation = Quaternion(5.10309e-09, 1.31167e-07, -0.153895, 0.988087)
+bones/10/rotation = Quaternion(0.845018, -0.395541, 0.346144, -0.0983659)
+bones/11/rotation = Quaternion(0.0882633, -0.000299715, -0.483641, 0.870804)
+bones/15/rotation = Quaternion(0.0879221, 0.162105, 0.953012, 0.240335)
+bones/16/rotation = Quaternion(0.0620028, 0.000323106, 0.339746, 0.938471)
+bones/22/rotation = Quaternion(0.96952, 0.171331, 0.1363, -0.109993)
+bones/22/scale = Vector3(1.00009, 1, 0.999999)
+bones/23/rotation = Quaternion(0.0001319, -0.079167, 0.322148, 0.943373)
+bones/23/scale = Vector3(1.00002, 0.999978, 1)
+bones/26/rotation = Quaternion(0.0702646, 0.0635023, 0.994846, -0.0362314)
+bones/26/scale = Vector3(1.00008, 1.00001, 1)
+bones/27/rotation = Quaternion(0.000103178, 0.0809222, -0.25217, 0.964293)
+bones/27/scale = Vector3(1, 0.999987, 1)
+bones/31/position = Vector3(-0.271193, 0.17955, 0.0620193)
+bones/31/rotation = Quaternion(-0.421631, 0.445841, 0.567651, -0.54884)
+bones/32/position = Vector3(9.4471e-06, -7.74144e-06, 2.70084e-06)
+bones/36/position = Vector3(-0.34614, 0.999558, 0.260442)
+bones/37/position = Vector3(-0.23257, 0.816937, 0.102677)
+bones/37/rotation = Quaternion(-0.70205, 0.0631066, 0.706549, -0.0627047)
+bones/40/position = Vector3(0.209857, 0.176143, 0.177706)
+bones/41/position = Vector3(-8.20321e-06, -5.85677e-06, 3.80538e-06)
+bones/46/position = Vector3(0.306041, 0.804141, 0.0235631)
+bones/46/rotation = Quaternion(0.610548, 0.706938, 0.356694, -0.0154568)
+
+[node name="Earing_L" parent="Erin/Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.999645, -0.0190545, 0.0186341, 0.0205726, 0.996169, -0.0849927, -0.0169432, 0.0853459, 0.996207, 0.0286196, -0.0414718, -0.0630975)
+
+[node name="Earing_L" parent="Erin/Armature/Skeleton3D/Earing_L" index="0"]
+layers = 4
+
+[node name="Earing_R" parent="Erin/Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.999645, -0.0190545, 0.0186341, 0.0205726, 0.996169, -0.0849927, -0.0169432, 0.0853459, 0.996207, 0.0286196, -0.0414718, -0.0630975)
+
+[node name="Earing_R" parent="Erin/Armature/Skeleton3D/Earing_R" index="0"]
+layers = 4
+
+[node name="Hair" parent="Erin/Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.999645, -0.0190545, 0.0186341, 0.0205726, 0.996169, -0.0849927, -0.0169432, 0.0853459, 0.996207, 0.0286196, -0.0414718, -0.0630975)
+
+[node name="Hair" parent="Erin/Armature/Skeleton3D/Hair" index="0"]
+layers = 4
+
+[node name="Head_2" parent="Erin/Armature/Skeleton3D" index="3"]
+transform = Transform3D(0.999645, -0.0190545, 0.0186341, 0.0205726, 0.996169, -0.0849927, -0.0169432, 0.0853459, 0.996207, 0.0286196, -0.0414718, -0.0630975)
+
+[node name="Head_2" parent="Erin/Armature/Skeleton3D/Head_2" index="0"]
+layers = 4
+
+[node name="Neck" parent="Erin/Armature/Skeleton3D" index="4"]
+transform = Transform3D(0.999645, -0.0180297, 0.0196276, 0.0205726, 0.990191, -0.138197, -0.0169434, 0.138552, 0.99021, 0.0272403, -0.0330244, -0.134219)
+
+[node name="Neck" parent="Erin/Armature/Skeleton3D/Neck" index="0"]
+layers = 4
+
+[node name="Forearm_L_2" parent="Erin/Armature/Skeleton3D" index="5"]
+transform = Transform3D(0.627319, -0.324379, -0.70799, 0.319213, 0.936343, -0.146164, 0.710336, -0.134308, 0.690931, 0.309578, 0.13116, 0.460449)
+
+[node name="Forearm_L_2" parent="Erin/Armature/Skeleton3D/Forearm_L_2" index="0"]
+layers = 4
+
+[node name="Arm_L_2" parent="Erin/Armature/Skeleton3D" index="6"]
+transform = Transform3D(0.829146, -0.0355435, -0.557903, 0.385092, 0.75975, 0.523912, 0.405246, -0.649242, 0.64363, 0.046578, 0.28532, 0.927405)
+
+[node name="Arm_L_2" parent="Erin/Armature/Skeleton3D/Arm_L_2" index="0"]
+layers = 4
+
+[node name="Shoulder_L" parent="Erin/Armature/Skeleton3D" index="7"]
+transform = Transform3D(0.829146, -0.0355435, -0.557903, 0.385092, 0.75975, 0.523912, 0.405246, -0.649242, 0.64363, 0.046578, 0.28532, 0.927405)
+
+[node name="Shoulder_L" parent="Erin/Armature/Skeleton3D/Shoulder_L" index="0"]
+layers = 4
+
+[node name="Forearm_R_2" parent="Erin/Armature/Skeleton3D" index="8"]
+transform = Transform3D(0.927615, 0.156566, 0.339142, -0.09995, 0.97885, -0.178507, -0.359917, 0.131689, 0.923644, -0.190062, 0.000442088, 0.0109788)
+
+[node name="Forearm_R_2" parent="Erin/Armature/Skeleton3D/Forearm_R_2" index="0"]
+layers = 4
+
+[node name="Arm_R_2" parent="Erin/Armature/Skeleton3D" index="9"]
+transform = Transform3D(0.96791, 0.143887, 0.206026, -0.182235, 0.966414, 0.181205, -0.173034, -0.212936, 0.961622, -0.177414, 0.0085752, 0.322888)
+
+[node name="Arm_R_2" parent="Erin/Armature/Skeleton3D/Arm_R_2" index="0"]
+layers = 4
+
+[node name="Shoulder_R" parent="Erin/Armature/Skeleton3D" index="10"]
+transform = Transform3D(0.96791, 0.143887, 0.206026, -0.182235, 0.966414, 0.181205, -0.173034, -0.212936, 0.961622, -0.177414, 0.0085752, 0.322888)
+
+[node name="Shoulder_R" parent="Erin/Armature/Skeleton3D/Shoulder_R" index="0"]
+layers = 4
+
+[node name="Chest_2" parent="Erin/Armature/Skeleton3D" index="11"]
+transform = Transform3D(0.999238, 0.0160386, 0.0355937, -0.00950154, 0.984211, -0.176747, -0.0378665, 0.176274, 0.983612, -0.016341, -0.0253744, -0.182475)
+
+[node name="Chest_2" parent="Erin/Armature/Skeleton3D/Chest_2" index="0"]
+layers = 4
+
+[node name="Torso_2" parent="Erin/Armature/Skeleton3D" index="12"]
+transform = Transform3D(1, -1.94382e-09, 1.72844e-07, -1.64489e-08, 1, 1.98749e-08, -1.74822e-07, 4.97375e-09, 1, -4.46216e-09, -0.0404612, 6.98492e-09)
+
+[node name="Torso_2" parent="Erin/Armature/Skeleton3D/Torso_2" index="0"]
+layers = 4
+
+[node name="Calf_L_2" parent="Erin/Armature/Skeleton3D" index="13"]
+transform = Transform3D(0.961454, 0.247709, -0.119408, -0.211864, 0.944098, 0.252519, 0.175278, -0.217561, 0.960184, -0.176694, -0.0226709, 0.0895356)
+
+[node name="Calf_L_2" parent="Erin/Armature/Skeleton3D/Calf_L_2" index="0"]
+layers = 4
+
+[node name="Thigh_L_2" parent="Erin/Armature/Skeleton3D" index="14"]
+transform = Transform3D(0.957819, 0.171215, -0.230809, -0.222783, 0.949713, -0.22004, 0.181518, 0.262166, 0.947792, -0.133872, -0.0258197, -0.179162)
+
+[node name="Thigh_L_2" parent="Erin/Armature/Skeleton3D/Thigh_L_2" index="0"]
+layers = 4
+
+[node name="Calf_R_2" parent="Erin/Armature/Skeleton3D" index="15"]
+transform = Transform3D(0.992013, -0.122641, 0.0295679, 0.103447, 0.924951, 0.365709, -0.0721902, -0.359788, 0.930232, 0.0927993, -0.0120369, 0.217004)
+
+[node name="Calf_R_2" parent="Erin/Armature/Skeleton3D/Calf_R_2" index="0"]
+layers = 4
+
+[node name="Thigh_R_2" parent="Erin/Armature/Skeleton3D" index="16"]
+transform = Transform3D(0.99081, -0.112463, 0.0751628, 0.110285, 0.99338, 0.0324988, -0.0783103, -0.0239225, 0.99663, 0.0871051, -0.0503708, 0.02889)
+
+[node name="Thigh_R_2" parent="Erin/Armature/Skeleton3D/Thigh_R_2" index="0"]
+layers = 4
+
+[node name="Pelvis_2" parent="Erin/Armature/Skeleton3D" index="17"]
+transform = Transform3D(1, 1.60302e-09, 2.97735e-07, -3.19886e-09, 1, 5.15862e-09, -2.98321e-07, -2.82095e-09, 1, -4.46216e-09, -0.0404612, 3.72529e-09)
+
+[node name="Pelvis_2" parent="Erin/Armature/Skeleton3D/Pelvis_2" index="0"]
+layers = 4
+
+[node name="Shoe_L" parent="Erin/Armature/Skeleton3D" index="18"]
+transform = Transform3D(0.96898, -1.54611e-07, 0.247139, 6.65112e-08, 1, 7.5451e-10, -0.247139, -1.23252e-07, 0.96898, -0.145989, 0.00680529, -0.00667127)
+
+[node name="Shoe_L" parent="Erin/Armature/Skeleton3D/Shoe_L" index="0"]
+layers = 4
+
+[node name="ShoeTongue_L" parent="Erin/Armature/Skeleton3D" index="19"]
+transform = Transform3D(0.96898, -1.54611e-07, 0.247139, 6.65112e-08, 1, 7.5451e-10, -0.247139, -1.23252e-07, 0.96898, -0.145989, 0.00680529, -0.00667127)
+
+[node name="ShoeTongue_L" parent="Erin/Armature/Skeleton3D/ShoeTongue_L" index="0"]
+layers = 4
+
+[node name="Hand_L_2" parent="Erin/Armature/Skeleton3D" index="20"]
+transform = Transform3D(0.855537, -0.517741, -1.61598e-07, 0.0917538, 0.151618, -0.984171, 0.509546, 0.841995, 0.177219, 0.53692, 0.7559, -0.441717)
+
+[node name="Hand_L_2" parent="Erin/Armature/Skeleton3D/Hand_L_2" index="0"]
+layers = 4
+
+[node name="Shoe_R" parent="Erin/Armature/Skeleton3D" index="21"]
+transform = Transform3D(1, 6.96709e-08, -9.35615e-08, -1.13041e-07, 1, -2.08672e-07, 7.40691e-08, -2.99979e-08, 1, 0.0715625, 0.00339895, 0.142094)
+
+[node name="Shoe_R" parent="Erin/Armature/Skeleton3D/Shoe_R" index="0"]
+layers = 4
+
+[node name="ShoeTongue_R" parent="Erin/Armature/Skeleton3D" index="22"]
+transform = Transform3D(1, 6.96709e-08, -9.35615e-08, -1.13041e-07, 1, -2.08672e-07, 7.40691e-08, -2.99979e-08, 1, 0.0715625, 0.00339895, 0.142094)
+
+[node name="ShoeTongue_R" parent="Erin/Armature/Skeleton3D/ShoeTongue_R" index="0"]
+layers = 4
+
+[node name="Hand_R_2" parent="Erin/Armature/Skeleton3D" index="23"]
+transform = Transform3D(0.485447, -1.54973e-08, 0.874266, -2.34549e-08, 1, 6.14652e-08, -0.874266, -1.20474e-07, 0.485447, 0.0920084, -0.0618875, 0.334031)
+
+[node name="Hand_R_2" parent="Erin/Armature/Skeleton3D/Hand_R_2" index="0"]
+layers = 4
+
+[node name="Speaker" type="Node3D" parent="Erin" node_paths=PackedStringArray("scrolling_text")]
+script = ExtResource("15_w12l7")
+scrolling_text = NodePath("../../PlayArea/SpeechArea/ComputerSpeechBubble/ScrollingText")
 
 [node name="LayerMask" type="Node" parent="Erin"]
 script = ExtResource("2_kouh8")
@@ -159,6 +398,20 @@ layers = Array[bool]([false, false, true, false, false, false, false, false, fal
 
 [node name="===UI========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="WorldBackground" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="TextureRect" type="TextureRect" parent="WorldBackground"]
+material = SubResource("ShaderMaterial_1mhlm")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_7uno0")
+expand_mode = 3
+stretch_mode = 1
 
 [node name="PlayArea" type="CanvasLayer" parent="."]
 
@@ -180,6 +433,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 0.0712363, 0.997459, 0, -0.997459, 0.0712363, -0.0370434, 1.01042, 0.0111105)
 
 [node name="SpeechArea" type="TextureRect" parent="PlayArea"]
+material = SubResource("ShaderMaterial_2n0su")
 anchors_preset = -1
 anchor_left = 0.344
 anchor_top = 0.759
@@ -189,7 +443,8 @@ offset_left = -0.480042
 offset_top = 0.279907
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("4_j0807")
+texture = ExtResource("24_7uno0")
+stretch_mode = 1
 
 [node name="PlayerViewport" type="SubViewportContainer" parent="PlayArea/SpeechArea"]
 layout_mode = 1
@@ -216,6 +471,36 @@ cull_mask = 2
 environment = ExtResource("4_kq3ts")
 fov = 60.0
 
+[node name="PlayerSpeechBuble" type="TextureRect" parent="PlayArea/SpeechArea"]
+visible = false
+layout_mode = 0
+offset_left = 336.0
+offset_top = 36.0
+offset_right = 836.0
+offset_bottom = 236.0
+texture = ExtResource("20_q85ll")
+flip_h = true
+
+[node name="ScrollingText" type="RichTextLabel" parent="PlayArea/SpeechArea/PlayerSpeechBuble"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.155
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.5
+offset_top = 13.0
+offset_right = -16.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("10_5ul61")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "This is a test of the text and such"
+script = ExtResource("21_gnxn8")
+centiseconds_between_characters = 4.0
+
 [node name="ComputerViewport" type="SubViewportContainer" parent="PlayArea/SpeechArea"]
 layout_mode = 1
 anchors_preset = -1
@@ -239,6 +524,34 @@ transform = Transform3D(0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 
 cull_mask = 4
 environment = ExtResource("4_kq3ts")
 fov = 60.0
+
+[node name="ComputerSpeechBubble" type="TextureRect" parent="PlayArea/SpeechArea"]
+visible = false
+layout_mode = 2
+offset_left = 488.0
+offset_top = 36.0001
+offset_right = 988.0
+offset_bottom = 236.0
+texture = ExtResource("20_q85ll")
+
+[node name="ScrollingText" type="RichTextLabel" parent="PlayArea/SpeechArea/ComputerSpeechBubble"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.841
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 13.0
+offset_right = -10.5
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("10_5ul61")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "This is a test of the text and such"
+script = ExtResource("21_gnxn8")
+centiseconds_between_characters = 4.0
 
 [node name="SpeechPlayAreaDivider" type="TextureRect" parent="PlayArea/SpeechArea"]
 texture_filter = 1
@@ -286,8 +599,9 @@ bbcode_enabled = true
 text = "[center]13[/center]"
 fit_content = true
 autowrap_mode = 0
+script = ExtResource("21_j55pc")
 
-[node name="TurnCounter" type="TextureRect" parent="PlayArea/StatsArea"]
+[node name="Energy" type="TextureRect" parent="PlayArea/StatsArea"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -299,7 +613,7 @@ offset_bottom = -20.0
 grow_vertical = 0
 texture = ExtResource("10_i4dae")
 
-[node name="Count" type="RichTextLabel" parent="PlayArea/StatsArea/TurnCounter"]
+[node name="Count" type="RichTextLabel" parent="PlayArea/StatsArea/Energy"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.221
@@ -318,6 +632,7 @@ bbcode_enabled = true
 text = "[center]5[/center]"
 fit_content = true
 autowrap_mode = 0
+script = ExtResource("24_y4137")
 
 [node name="MarginContainer" type="MarginContainer" parent="PlayArea/StatsArea"]
 layout_mode = 1
@@ -333,13 +648,14 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 
-[node name="Hand" type="VBoxContainer" parent="PlayArea/StatsArea/MarginContainer" node_paths=PackedStringArray("card_parent", "ordered_card_targets")]
+[node name="Hand" type="VBoxContainer" parent="PlayArea/StatsArea/MarginContainer" node_paths=PackedStringArray("card_parent", "draw_pile", "ordered_card_targets")]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 10
 script = ExtResource("20_mjdc4")
 top_card_ui_prefab = ExtResource("15_qudhi")
 card_parent = NodePath("../../../CardParent")
+draw_pile = NodePath("../../DrawPile")
 ordered_card_targets = [NodePath("TopRow/CardTarget1"), NodePath("TopRow/CardTarget2"), NodePath("MiddleRow/CardTarget3"), NodePath("MiddleRow/CardTarget4"), NodePath("BottomRow/CardTarget5"), NodePath("BottomRow/CardTarget6")]
 reorder_duration = 0.5
 
@@ -389,7 +705,5 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TopsBoard" parent="." instance=ExtResource("21_3pae8")]
-transform = Transform3D(0.0435746, 0, 0, 0, -1.90471e-09, 0.0435746, 0, -0.0435746, -1.90471e-09, 0, 0.765, 0)
-
 [editable path="Joy"]
+[editable path="Erin"]

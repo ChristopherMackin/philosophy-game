@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpwst6p575hsu"]
+
+[ext_resource type="Script" path="res://script/system/debate/pose_track_3d.gd" id="1_14obw"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/pose/faith.tres" id="2_0a74i"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/pose/FaithIcon.png" id="2_siarx"]
+[ext_resource type="Texture2D" uid="uid://bguotsggmkkvl" path="res://asset/graphic/debate/board/TopicSlot.png" id="3_tce6w"]
+
+[node name="Pose" type="Node3D" node_paths=PackedStringArray("icon", "slots")]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-15, 0, -7.10543e-15, 1, 0, 1.04289, 0)
+script = ExtResource("1_14obw")
+icon = NodePath("Icon")
+slots = [NodePath("Slot1"), NodePath("Slot2"), NodePath("Slot3"), NodePath("Slot4"), NodePath("Slot5"), NodePath("Slot6"), NodePath("Slot7"), NodePath("Slot8")]
+pose = ExtResource("2_0a74i")
+
+[node name="Icon" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 2.13163e-14, 0, -2.13163e-14, 1, -4.838, 0, 0.01)
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+render_priority = 1
+texture = ExtResource("2_siarx")
+
+[node name="Slot1" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -3.675, 0, 0.01)
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("3_tce6w")
+
+[node name="Slot2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -2.50318, 0, 0.01)
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("3_tce6w")
+
+[node name="Slot3" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -1.33137, 0, 0.01)
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("3_tce6w")
+
+[node name="Slot4" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, -0.159555, 0, 0.01)
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("3_tce6w")
+
+[node name="Slot5" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 1.03086, 0, 0.01)
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("3_tce6w")
+
+[node name="Slot6" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 2.22128, 0, 0.01)
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("3_tce6w")
+
+[node name="Slot7" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 3.39309, 0, 0.01)
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("3_tce6w")
+
+[node name="Slot8" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-14, 0, -7.10543e-14, 1, 4.56491, 0, 0.01)
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("3_tce6w")

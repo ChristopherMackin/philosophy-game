@@ -9,4 +9,4 @@
 [resource]
 script = ExtResource("1_cdwd0")
 top_slots = 8
-poses = Array[Resource("res://script/system/pose/pose.gd")]([ExtResource("1_ahfvr"), ExtResource("2_6wgoi"), ExtResource("3_b7hh7"), ExtResource("4_0cppg")])
+poses = Array[Resource("res://script/system/pose/pose.gd")]([ExtResource("1_ahfvr"), ExtResource("2_6wgoi"), ExtResource("4_0cppg"), ExtResource("3_b7hh7")])

@@ -1,20 +1,26 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=7 format=3 uid="uid://dv86ada6flar5"]
+[gd_resource type="Resource" script_class="Deck" load_steps=9 format=3 uid="uid://dv86ada6flar5"]
 
 [ext_resource type="Script" path="res://script/system/top/top_deck_config.gd" id="1_2bqs8"]
 [ext_resource type="Script" path="res://script/system/deck/deck.gd" id="1_8ujv4"]
-[ext_resource type="Resource" uid="uid://clnyw55jxr6to" path="res://system/top/doubt/basic_doubt.tres" id="2_111oq"]
 [ext_resource type="Resource" uid="uid://by2toymbldwte" path="res://system/top/faith/basic_faith.tres" id="3_0rm6k"]
-
-[sub_resource type="Resource" id="Resource_uc1gl"]
-script = ExtResource("1_2bqs8")
-top_data = ExtResource("2_111oq")
-count = 5
+[ext_resource type="Resource" uid="uid://blcakrfj88pwk" path="res://system/top/self/basic_self.tres" id="4_dnxqw"]
+[ext_resource type="Resource" uid="uid://crvid8h870ryr" path="res://system/top/others/basic_others.tres" id="5_wqm8s"]
 
 [sub_resource type="Resource" id="Resource_k3ert"]
 script = ExtResource("1_2bqs8")
 top_data = ExtResource("3_0rm6k")
-count = 5
+count = 3
+
+[sub_resource type="Resource" id="Resource_lhlgj"]
+script = ExtResource("1_2bqs8")
+top_data = ExtResource("4_dnxqw")
+count = 3
+
+[sub_resource type="Resource" id="Resource_d0h3a"]
+script = ExtResource("1_2bqs8")
+top_data = ExtResource("5_wqm8s")
+count = 3
 
 [resource]
 script = ExtResource("1_8ujv4")
-composition_top_deck_config_array = Array[ExtResource("1_2bqs8")]([SubResource("Resource_uc1gl"), SubResource("Resource_k3ert")])
+composition_top_deck_config_array = Array[ExtResource("1_2bqs8")]([SubResource("Resource_k3ert"), SubResource("Resource_lhlgj"), SubResource("Resource_d0h3a")])

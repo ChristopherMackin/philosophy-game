@@ -1,21 +1,6 @@
 extends Object
 
 class_name Util
-
-static func lerp_to_position(node : Node, target : Vector2, duration : float):
-	if node.has_node("Lerp2DNode"):
-		node.get_node("Lerp2DNode").queue_free()
-	
-	var lerp = Node.new()
-	lerp.name = "Lerp2DNode"
-	lerp.set_script(Lerp2D)
-	node.add_child(lerp)
-	
-	lerp.starting_pos = node.position
-	lerp.target_pos = target
-	lerp.duration = duration
-	
-	await lerp.finished
 	
 static func sort_children(node : Node2D, sort_func : Callable):
 	var children := node.get_children()
@@ -61,3 +46,10 @@ static func get_all_children(node) -> Array:
 			nodes.append(N)
 	
 	return nodes
+
+static func array_difference(arr1, arr2):
+	var only_in_arr1 = []
+	for v in arr1:
+		if not (v in arr2):
+			only_in_arr1.append(v)
+	return only_in_arr1

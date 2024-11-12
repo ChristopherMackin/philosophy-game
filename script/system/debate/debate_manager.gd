@@ -43,6 +43,7 @@ var current_turn : int = 0:
 		debate_state.update_value("current_turn", current_turn)
 
 var top_queue_dictionary : Dictionary
+var top_history : Array[Top]
 
 func subscribe(subscriber : DebateSubscriber):
 	subscriber_array.append(subscriber)
@@ -70,6 +71,8 @@ func init(player_character : Character, computer_character : Character, debate_s
 	
 	for c in contestants:
 		c.ready_up()
+	
+	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_start()
 	
 	active_contestant = computer
 	for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(active_contestant)
@@ -104,6 +107,7 @@ func active_player_turn():
 		var top = await active_contestant.take_turn()
 		
 		top_queue_dictionary[top.data.pose.name].append(top)
+		top_history.append(top)
 		
 		for sub : DebateSubscriber in subscriber_array: await sub.on_top_played(top, active_contestant)
 		
@@ -124,5 +128,12 @@ func clear_lines():
 		for key in top_queue_dictionary:
 			var array = top_queue_dictionary[key] as Array
 			for i in min:
-				top_queue_dictionary.erase(top_queue_dictionary.keys()[i])
+				array.remove_at(0)
 		for sub : DebateSubscriber in subscriber_array: await sub.on_lines_cleared(min)
+
+func get_debate_state() -> Dictionary:
+	
+	return Util.build_query([
+		debate_state,
+		computer.memory,
+	])
