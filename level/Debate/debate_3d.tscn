@@ -21,16 +21,16 @@
 [ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://prefab/debate/top_3d.tscn" id="11_fd0f6"]
 [ext_resource type="Texture2D" uid="uid://b6vg65oj1plvh" path="res://asset/graphic/debate/speech_area/SpeechPlayAreaDivider.png" id="12_e013u"]
 [ext_resource type="PackedScene" uid="uid://dnjd6gfsvie8p" path="res://prefab/debate/top_card_ui.tscn" id="15_qudhi"]
-[ext_resource type="Script" path="res://level/Debate/speaker.gd" id="15_w12l7"]
+[ext_resource type="Script" path="res://script/system/character/speaker.gd" id="17_bdvlp"]
 [ext_resource type="PackedScene" uid="uid://cxvik3r1ijg1x" path="res://prefab/character/erin.tscn" id="17_tj7fw"]
 [ext_resource type="Script" path="res://script/system/debate/ui/hand_ui.gd" id="20_mjdc4"]
 [ext_resource type="Texture2D" uid="uid://33p4i0eyh11w" path="res://asset/graphic/debate/speech_area/SpeechBubble.png" id="20_q85ll"]
 [ext_resource type="PackedScene" uid="uid://bsyesuw4ujeei" path="res://prefab/debate/tops_board.tscn" id="21_3pae8"]
 [ext_resource type="Script" path="res://script/ui/scrolling-text.gd" id="21_gnxn8"]
-[ext_resource type="Script" path="res://level/Debate/draw_pile_ui.gd" id="21_j55pc"]
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="23_xw7h0"]
 [ext_resource type="Texture2D" uid="uid://cjibu358pdc3s" path="res://asset/graphic/debate/speech_area/colorable_checkerboard.png" id="24_7uno0"]
-[ext_resource type="Script" path="res://level/Debate/energy_ui.gd" id="24_y4137"]
+[ext_resource type="Script" path="res://script/system/debate/ui/draw_pile_ui.gd" id="27_rccvm"]
+[ext_resource type="Script" path="res://script/system/debate/ui/energy_ui.gd" id="29_fljj8"]
 
 [sub_resource type="Environment" id="Environment_klgt4"]
 background_mode = 3
@@ -199,7 +199,7 @@ mouth_state = 2
 talk_speed = 25.0
 
 [node name="Speaker" type="Node3D" parent="Joy" node_paths=PackedStringArray("scrolling_text")]
-script = ExtResource("15_w12l7")
+script = ExtResource("17_bdvlp")
 scrolling_text = NodePath("../../PlayArea/SpeechArea/PlayerSpeechBuble/ScrollingText")
 
 [node name="LayerMask" type="Node" parent="Joy"]
@@ -298,7 +298,7 @@ script = ExtResource("2_kouh8")
 layers = Array[bool]([false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
 
 [node name="Speaker" type="Node3D" parent="Erin" node_paths=PackedStringArray("scrolling_text")]
-script = ExtResource("15_w12l7")
+script = ExtResource("17_bdvlp")
 scrolling_text = NodePath("../../PlayArea/SpeechArea/ComputerSpeechBubble/ScrollingText")
 
 [node name="===UI========" type="Node3D" parent="."]
@@ -504,7 +504,7 @@ bbcode_enabled = true
 text = "[center]13[/center]"
 fit_content = true
 autowrap_mode = 0
-script = ExtResource("21_j55pc")
+script = ExtResource("27_rccvm")
 
 [node name="Energy" type="TextureRect" parent="PlayArea/StatsArea"]
 layout_mode = 1
@@ -537,7 +537,7 @@ bbcode_enabled = true
 text = "[center]5[/center]"
 fit_content = true
 autowrap_mode = 0
-script = ExtResource("24_y4137")
+script = ExtResource("29_fljj8")
 
 [node name="MarginContainer" type="MarginContainer" parent="PlayArea/StatsArea"]
 layout_mode = 1
