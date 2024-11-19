@@ -76,7 +76,7 @@ manager = ExtResource("5_k216a")
 
 [node name="EventManager" type="Node3D" parent="." node_paths=PackedStringArray("actors")]
 script = ExtResource("6_reoeb")
-actors = [NodePath("../Joy"), null]
+actors = [NodePath("../Joy"), NodePath("../Erin")]
 manager = ExtResource("7_0u80y")
 
 [node name="===WORLD========" type="Node3D" parent="."]

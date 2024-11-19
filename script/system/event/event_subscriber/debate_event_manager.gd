@@ -3,6 +3,7 @@ extends EventSubscriber
 class_name DebateEventSubscriber
 
 @export var actors : Array[Node]
+@export var input_manager : InputManager
 
 func display_dialogue(line : String, actor : String):
 	var index = actors.map(func(x): return x.name).find(actor)
@@ -11,6 +12,7 @@ func display_dialogue(line : String, actor : String):
 	
 	var parent = actors[index]
 	var speaker = parent.get_node_or_null(NodePath("Speaker"))
+	
 	
 	await speaker.say(line)
 

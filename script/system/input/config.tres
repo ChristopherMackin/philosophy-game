@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="InputConfig" load_steps=2 format=3 uid="uid://dts7lwq4bld3e"]
+
+[ext_resource type="Script" path="res://script/system/input/input_config.gd" id="1_340u0"]
+
+[resource]
+script = ExtResource("1_340u0")
