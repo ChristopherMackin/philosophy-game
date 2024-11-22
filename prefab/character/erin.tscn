@@ -5,7 +5,7 @@
 
 [node name="Erin" instance=ExtResource("1_qvx03")]
 
-[node name="FacialAnimator" type="Node3D" parent="." index="3" node_paths=PackedStringArray("eyes", "mouth")]
+[node name="FacialAnimator" type="Node3D" parent="." index="1" node_paths=PackedStringArray("eyes", "mouth")]
 script = ExtResource("2_fajhg")
 eyes = NodePath("../Armature/Skeleton3D/Eyes")
 mouth_state = 2

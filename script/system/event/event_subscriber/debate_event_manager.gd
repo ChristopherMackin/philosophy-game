@@ -3,18 +3,16 @@ extends EventSubscriber
 class_name DebateEventSubscriber
 
 @export var actors : Array[Node]
-@export var input_manager : InputManager
 
-func display_dialogue(line : String, actor : String):
+func display_dialogue(line : String, actor : String, await_input : bool):
 	var index = actors.map(func(x): return x.name).find(actor)
 	if index < 0:
 		return
 	
 	var parent = actors[index]
-	var speaker = parent.get_node_or_null(NodePath("Speaker"))
+	var handler = parent.get_node_or_null(NodePath("DialogueHandler"))
 	
-	
-	await speaker.say(line)
+	await handler.say(line)
 
 func play_animation(name : String, actor : String, await_animation : bool):
 	var index = actors.map(func(x): return x.name).find(actor)

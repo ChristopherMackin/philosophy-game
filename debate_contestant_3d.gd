@@ -2,6 +2,17 @@ extends Node3D
 
 class_name DebateContestant3D
 
+@export var emotion_index : int:
+	set(val):
+		emotion_index = val
+		(func ():
+			facial_animator.emotion_index = emotion_index
+			dialogue_handler.emotion_index = emotion_index
+			).call_deferred()
+
+@export var facial_animator : FacialAnimator
+@export var dialogue_handler : DialogueHandler
+
 @export_group("Prefabs")
 @export var top_3d_prefab : PackedScene
 @export var top_card_3d_prefab : PackedScene
@@ -49,4 +60,4 @@ func play_top(top : Top):
 	await top_tween.finished
 
 func say_line(line : String):
-	pass
+	await dialogue_handler.say(line)

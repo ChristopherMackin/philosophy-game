@@ -22,8 +22,8 @@ func play_event(event : Event):
 		var index = await current_task.invoke(self)
 		current_task = event.get_task(index)
 
-func display_dialogue(text : String, actor : String):
-	for sub : EventSubscriber in subscriber_array: await sub.display_dialogue(text, actor)
+func display_dialogue(text : String, actor : String, await_input : bool):
+	for sub : EventSubscriber in subscriber_array: await sub.display_dialogue(text, actor, await_input)
 
 func play_animation(name : String, actor : String, await_animation : bool):
 	for sub : EventSubscriber in subscriber_array: await sub.play_animation(name, actor, await_animation)

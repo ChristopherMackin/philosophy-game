@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b31uxtxyvdwi3"]
+[gd_scene load_steps=34 format=3 uid="uid://b31uxtxyvdwi3"]
 
 [ext_resource type="Script" path="res://script/system/debate/debate_scene_manager.gd" id="1_ndrkp"]
 [ext_resource type="PackedScene" uid="uid://bdjdo8l7nn2l3" path="res://prefab/character/joy.tscn" id="1_xnrq5"]
@@ -19,16 +19,14 @@
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="10_5ul61"]
 [ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/graphic/debate/stats_area/TurnCounterBackground.png" id="10_i4dae"]
 [ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://prefab/debate/top_3d.tscn" id="11_fd0f6"]
-[ext_resource type="Texture2D" uid="uid://b6vg65oj1plvh" path="res://asset/graphic/debate/speech_area/SpeechPlayAreaDivider.png" id="12_e013u"]
+[ext_resource type="Texture2D" uid="uid://b6vg65oj1plvh" path="res://asset/graphic/debate/dialogue_area/DialoguePlayAreaDivider.png" id="12_e013u"]
 [ext_resource type="PackedScene" uid="uid://dnjd6gfsvie8p" path="res://prefab/debate/top_card_ui.tscn" id="15_qudhi"]
-[ext_resource type="Script" path="res://script/system/character/speaker.gd" id="17_bdvlp"]
+[ext_resource type="Script" path="res://script/system/character/dialogue_handler.gd" id="17_bdvlp"]
 [ext_resource type="PackedScene" uid="uid://cxvik3r1ijg1x" path="res://prefab/character/erin.tscn" id="17_tj7fw"]
 [ext_resource type="Script" path="res://script/system/debate/ui/hand_ui.gd" id="20_mjdc4"]
-[ext_resource type="Texture2D" uid="uid://33p4i0eyh11w" path="res://asset/graphic/debate/speech_area/SpeechBubble.png" id="20_q85ll"]
 [ext_resource type="PackedScene" uid="uid://bsyesuw4ujeei" path="res://prefab/debate/tops_board.tscn" id="21_3pae8"]
-[ext_resource type="Script" path="res://script/ui/scrolling-text.gd" id="21_gnxn8"]
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="23_xw7h0"]
-[ext_resource type="Texture2D" uid="uid://cjibu358pdc3s" path="res://asset/graphic/debate/speech_area/colorable_checkerboard.png" id="24_7uno0"]
+[ext_resource type="Texture2D" uid="uid://cjibu358pdc3s" path="res://asset/graphic/debate/dialogue_area/colorable_checkerboard.png" id="24_7uno0"]
 [ext_resource type="Script" path="res://script/system/debate/ui/draw_pile_ui.gd" id="27_rccvm"]
 [ext_resource type="Script" path="res://script/system/debate/ui/energy_ui.gd" id="29_fljj8"]
 
@@ -74,9 +72,8 @@ energy_ui = NodePath("../PlayArea/StatsArea/Energy/Count")
 draw_pile_ui = NodePath("../PlayArea/StatsArea/DrawPile/Count")
 manager = ExtResource("5_k216a")
 
-[node name="EventManager" type="Node3D" parent="." node_paths=PackedStringArray("actors")]
+[node name="EventManager" type="Node3D" parent="."]
 script = ExtResource("6_reoeb")
-actors = [NodePath("../Joy"), NodePath("../Erin")]
 manager = ExtResource("7_0u80y")
 
 [node name="===WORLD========" type="Node3D" parent="."]
@@ -121,9 +118,11 @@ shape = SubResource("BoxShape3D_6cgdj")
 [node name="===ACTOR========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="Joy" parent="." node_paths=PackedStringArray("discard", "tops_board") instance=ExtResource("1_xnrq5")]
+[node name="Joy" parent="." node_paths=PackedStringArray("facial_animator", "dialogue_handler", "discard", "tops_board") instance=ExtResource("1_xnrq5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
 script = ExtResource("10_5u80s")
+facial_animator = NodePath("FacialAnimator")
+dialogue_handler = NodePath("DialogueHandler")
 top_3d_prefab = ExtResource("11_fd0f6")
 top_card_3d_prefab = ExtResource("5_8steh")
 discard = NodePath("../ThriftShopTable/Discard")
@@ -198,17 +197,19 @@ layers = 2
 mouth_state = 2
 talk_speed = 25.0
 
-[node name="Speaker" type="Node3D" parent="Joy" node_paths=PackedStringArray("scrolling_text")]
+[node name="DialogueHandler" type="Node3D" parent="Joy" node_paths=PackedStringArray("spawn_location")]
 script = ExtResource("17_bdvlp")
-scrolling_text = NodePath("../../PlayArea/SpeechArea/PlayerSpeechBuble/ScrollingText")
+spawn_location = NodePath("../../PlayArea/DialogueArea/PlayerDialogueBubbleMarker")
 
 [node name="LayerMask" type="Node" parent="Joy"]
 script = ExtResource("2_kouh8")
 layers = Array[bool]([false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
 
-[node name="Erin" parent="." node_paths=PackedStringArray("discard", "tops_board") instance=ExtResource("17_tj7fw")]
+[node name="Erin" parent="." node_paths=PackedStringArray("facial_animator", "dialogue_handler", "discard", "tops_board") instance=ExtResource("17_tj7fw")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 2.08165e-12, 2.08165e-12, -0.75)
 script = ExtResource("10_5u80s")
+facial_animator = NodePath("FacialAnimator")
+dialogue_handler = NodePath("DialogueHandler")
 top_3d_prefab = ExtResource("11_fd0f6")
 top_card_3d_prefab = ExtResource("5_8steh")
 discard = NodePath("../ThriftShopTable/Discard")
@@ -293,13 +294,14 @@ layers = 4
 [node name="Torso" parent="Erin/Armature/Skeleton3D" index="25"]
 layers = 4
 
+[node name="DialogueHandler" type="Node3D" parent="Erin" node_paths=PackedStringArray("spawn_location")]
+transform = Transform3D(1, -4.02216e-24, 0, -4.02216e-24, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("17_bdvlp")
+spawn_location = NodePath("../../PlayArea/DialogueArea/ComputerDialogueBubbleMarker")
+
 [node name="LayerMask" type="Node" parent="Erin"]
 script = ExtResource("2_kouh8")
 layers = Array[bool]([false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
-
-[node name="Speaker" type="Node3D" parent="Erin" node_paths=PackedStringArray("scrolling_text")]
-script = ExtResource("17_bdvlp")
-scrolling_text = NodePath("../../PlayArea/SpeechArea/ComputerSpeechBubble/ScrollingText")
 
 [node name="===UI========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -337,7 +339,7 @@ render_target_update_mode = 4
 [node name="Camera3D" type="Camera3D" parent="PlayArea/PlayAreaViewport/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.0712363, 0.997459, 0, -0.997459, 0.0712363, -0.0370434, 1.01042, 0.0111105)
 
-[node name="SpeechArea" type="TextureRect" parent="PlayArea"]
+[node name="DialogueArea" type="TextureRect" parent="PlayArea"]
 material = SubResource("ShaderMaterial_2n0su")
 anchors_preset = -1
 anchor_left = 0.344
@@ -351,7 +353,7 @@ grow_vertical = 0
 texture = ExtResource("24_7uno0")
 stretch_mode = 1
 
-[node name="PlayerViewport" type="SubViewportContainer" parent="PlayArea/SpeechArea"]
+[node name="PlayerViewport" type="SubViewportContainer" parent="PlayArea/DialogueArea"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.048
@@ -364,49 +366,22 @@ offset_right = 599.52
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="SubViewport" type="SubViewport" parent="PlayArea/SpeechArea/PlayerViewport"]
+[node name="SubViewport" type="SubViewport" parent="PlayArea/DialogueArea/PlayerViewport"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(600, 260)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="PlayArea/SpeechArea/PlayerViewport/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="PlayArea/DialogueArea/PlayerViewport/SubViewport"]
 transform = Transform3D(-0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 0.194, 1.363, 0.002)
 cull_mask = 2
 environment = ExtResource("4_kq3ts")
 fov = 60.0
 
-[node name="PlayerSpeechBuble" type="TextureRect" parent="PlayArea/SpeechArea"]
-visible = false
-layout_mode = 0
-offset_left = 336.0
-offset_top = 36.0
-offset_right = 836.0
-offset_bottom = 236.0
-texture = ExtResource("20_q85ll")
-flip_h = true
+[node name="PlayerDialogueBubbleMarker" type="Marker2D" parent="PlayArea/DialogueArea"]
+position = Vector2(336, 36)
 
-[node name="ScrollingText" type="RichTextLabel" parent="PlayArea/SpeechArea/PlayerSpeechBuble"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.155
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 14.5
-offset_top = 13.0
-offset_right = -16.0
-offset_bottom = -13.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("10_5ul61")
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "This is a test of the text and such"
-script = ExtResource("21_gnxn8")
-centiseconds_between_characters = 4.0
-
-[node name="ComputerViewport" type="SubViewportContainer" parent="PlayArea/SpeechArea"]
+[node name="ComputerViewport" type="SubViewportContainer" parent="PlayArea/DialogueArea"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -418,47 +393,22 @@ offset_top = -260.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="SubViewport" type="SubViewport" parent="PlayArea/SpeechArea/ComputerViewport"]
+[node name="SubViewport" type="SubViewport" parent="PlayArea/DialogueArea/ComputerViewport"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(600, 260)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="PlayArea/SpeechArea/ComputerViewport/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="PlayArea/DialogueArea/ComputerViewport/SubViewport"]
 transform = Transform3D(0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 0.194, 1.38642, 0.0415174)
 cull_mask = 4
 environment = ExtResource("4_kq3ts")
 fov = 60.0
 
-[node name="ComputerSpeechBubble" type="TextureRect" parent="PlayArea/SpeechArea"]
-visible = false
-layout_mode = 2
-offset_left = 488.0
-offset_top = 36.0001
-offset_right = 988.0
-offset_bottom = 236.0
-texture = ExtResource("20_q85ll")
+[node name="ComputerDialogueBubbleMarker" type="Marker2D" parent="PlayArea/DialogueArea"]
+position = Vector2(488, 36.0001)
 
-[node name="ScrollingText" type="RichTextLabel" parent="PlayArea/SpeechArea/ComputerSpeechBubble"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.841
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 13.0
-offset_right = -10.5
-offset_bottom = -13.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("10_5ul61")
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "This is a test of the text and such"
-script = ExtResource("21_gnxn8")
-centiseconds_between_characters = 4.0
-
-[node name="SpeechPlayAreaDivider" type="TextureRect" parent="PlayArea/SpeechArea"]
+[node name="DialoguePlayAreaDivider" type="TextureRect" parent="PlayArea/DialogueArea"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 10
