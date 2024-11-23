@@ -1,25 +1,25 @@
 [gd_resource type="Resource" script_class="Event" load_steps=7 format=3 uid="uid://bbcwubcmwcoju"]
 
 [ext_resource type="Script" path="res://script/system/event/event.gd" id="1_1q23l"]
-[ext_resource type="Script" path="res://script/system/event/task_action/dialogue_task_action.gd" id="2_2xkhr"]
-[ext_resource type="Script" path="res://script/system/event/task.gd" id="3_jic3t"]
+[ext_resource type="Script" path="res://script/system/event/task_action/dialogue_task_action.gd" id="2_a5cgn"]
+[ext_resource type="Script" path="res://script/system/event/task.gd" id="3_n4pca"]
 
 [sub_resource type="Resource" id="Resource_x7ur8"]
-script = ExtResource("2_2xkhr")
+script = ExtResource("2_a5cgn")
 
-[sub_resource type="Resource" id="Resource_bykgj"]
-script = ExtResource("3_jic3t")
+[sub_resource type="Resource" id="Resource_e8ady"]
+script = ExtResource("3_n4pca")
 outputs = Array[int]([1])
-inputs = ["Are you ready to get you ass kicke??", "Erin"]
+inputs = ["I'm going to absolutely cum in my pants and shit in my pants and everything like that", "Erin", false]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_n80mk"]
-script = ExtResource("3_jic3t")
+[sub_resource type="Resource" id="Resource_m1bef"]
+script = ExtResource("3_n4pca")
 outputs = Array[int]([])
-inputs = ["I guess...", "Joy"]
+inputs = ["Bruh that's really fucking weird", "Joy", false]
 action = SubResource("Resource_x7ur8")
 
 [resource]
 script = ExtResource("1_1q23l")
-start_task = SubResource("Resource_bykgj")
-tasks = Array[ExtResource("3_jic3t")]([SubResource("Resource_bykgj"), SubResource("Resource_n80mk")])
+start_task = SubResource("Resource_e8ady")
+tasks = Array[ExtResource("3_n4pca")]([SubResource("Resource_e8ady"), SubResource("Resource_m1bef")])

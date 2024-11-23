@@ -7,11 +7,9 @@ class_name DebateContestant3D
 		emotion_index = val
 		(func ():
 			facial_animator.emotion_index = emotion_index
-			dialogue_handler.emotion_index = emotion_index
 			).call_deferred()
 
 @export var facial_animator : FacialAnimator
-@export var dialogue_handler : DialogueHandler
 
 @export_group("Prefabs")
 @export var top_3d_prefab : PackedScene
@@ -23,6 +21,12 @@ class_name DebateContestant3D
 
 @export var max_random_rotation_degrees : float
 @export var play_duration : float = 1
+
+@export_group("Dialogue")
+@export var spawn_location : Node
+@export var default_bubble_prefab : PackedScene
+@export var emotion_index_prefabs : Array[EmotionIndexPrefab]
+var current_dialogue_bubble : DialogueBubble
 
 func get_random_rotation_rad():
 	var angle = randf_range(0, max_random_rotation_degrees)
@@ -59,5 +63,31 @@ func play_top(top : Top):
 	track.tops_3d.append(top_3d)
 	await top_tween.finished
 
-func say_line(line : String):
-	await dialogue_handler.say(line)
+func say_line(line : String, await_input : bool):
+	if await_input:
+		await create_bubble(line)
+	else:
+		create_bubble(line)
+
+func create_bubble(line):
+	current_dialogue_bubble = default_bubble_prefab.instantiate()
+	spawn_location.add_child(current_dialogue_bubble)
+	
+	facial_animator.mouth_state = FacialAnimator.MouthState.TALKING
+	await current_dialogue_bubble.set_text(line)
+	facial_animator.mouth_state = FacialAnimator.MouthState.CLOSED
+	
+	
+	current_dialogue_bubble.queue_free()
+
+func _input(event):
+	if !current_dialogue_bubble:
+		return;
+	
+	if event.is_action_pressed("cancel"):
+		current_dialogue_bubble.skip_to_the_end()
+		
+	if event.is_action_pressed("select"):
+		current_dialogue_bubble.set_speed_to_quick()
+	elif event.is_action_released("select"):
+		current_dialogue_bubble.set_speed_to_normal()

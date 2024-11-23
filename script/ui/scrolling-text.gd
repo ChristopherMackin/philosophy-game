@@ -4,10 +4,10 @@ class_name ScrollingText
 
 signal on_scoll_completed
 
-@export var centiseconds_between_characters : float
+@export var characters_per_second : int
 var seconds_between_characters : float : 
 	get: 
-		return centiseconds_between_characters/100
+		return 1.0 / characters_per_second
 var timer : float
 var is_scrolling : bool
 
@@ -30,3 +30,8 @@ func set_scrolling_text(scrolling_text : String):
 	visible_characters = 0
 	is_scrolling = true
 	await on_scoll_completed
+
+func skip_to_the_end():
+	visible_characters = text.length()
+	is_scrolling = false
+	on_scoll_completed.emit()

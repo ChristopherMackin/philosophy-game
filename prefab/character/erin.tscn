@@ -8,6 +8,5 @@
 [node name="FacialAnimator" type="Node3D" parent="." index="1" node_paths=PackedStringArray("eyes", "mouth")]
 script = ExtResource("2_fajhg")
 eyes = NodePath("../Armature/Skeleton3D/Eyes")
-mouth_state = 2
 mouth = NodePath("../Armature/Skeleton3D/Mouth")
 talk_speed = 25.0
