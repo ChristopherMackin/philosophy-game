@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DictionaryVariable" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="DictionaryVariable" load_steps=2 format=3 uid="uid://dsl4edpapittg"]
 
 [ext_resource type="Script" path="res://script/variable_resource/dictionary_variable.gd" id="1_th5bk"]
 

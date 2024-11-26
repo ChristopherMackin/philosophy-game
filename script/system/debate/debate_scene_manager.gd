@@ -66,4 +66,5 @@ func query_event(concept : String):
 	event_manager.start_event(
 		manager.event_factory.get_event(query)
 	)
+	await event_manager.on_event_finished
 

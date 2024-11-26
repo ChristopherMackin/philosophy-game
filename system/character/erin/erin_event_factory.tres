@@ -7,32 +7,32 @@
 [ext_resource type="Script" path="res://script/system/character/debate_event_factory/event_factory_payload.gd" id="3_qykla"]
 [ext_resource type="Resource" uid="uid://bbcwubcmwcoju" path="res://system/character/erin/event/small_event_test.tres" id="5_xjlpt"]
 
-[sub_resource type="Resource" id="Resource_bd5pq"]
+[sub_resource type="Resource" id="Resource_2yjeq"]
 script = ExtResource("2_5w3e1")
 key = 7
 comparator = 0
 value = "2"
 
-[sub_resource type="Resource" id="Resource_o0oqa"]
+[sub_resource type="Resource" id="Resource_nxj3j"]
 script = ExtResource("2_ictfr")
 concept = "on_top_played"
-criteria = Array[Resource("res://script/system/character/debate_event_factory/rule/criterion/criterion.gd")]([SubResource("Resource_bd5pq")])
+criteria = Array[Resource("res://script/system/character/debate_event_factory/rule/criterion/criterion.gd")]([SubResource("Resource_2yjeq")])
 
-[sub_resource type="Resource" id="Resource_4igg7"]
+[sub_resource type="Resource" id="Resource_er02i"]
 script = ExtResource("3_qykla")
 event = ExtResource("1_d4aj4")
-rule = SubResource("Resource_o0oqa")
+rule = SubResource("Resource_nxj3j")
 
-[sub_resource type="Resource" id="Resource_51ikd"]
+[sub_resource type="Resource" id="Resource_o0oqa"]
 script = ExtResource("2_ictfr")
 concept = "on_top_played"
 criteria = Array[Resource("res://script/system/character/debate_event_factory/rule/criterion/criterion.gd")]([])
 
-[sub_resource type="Resource" id="Resource_7caxp"]
+[sub_resource type="Resource" id="Resource_4igg7"]
 script = ExtResource("3_qykla")
 event = ExtResource("5_xjlpt")
-rule = SubResource("Resource_51ikd")
+rule = SubResource("Resource_o0oqa")
 
 [resource]
 script = ExtResource("1_y5e0x")
-payload_list = Array[ExtResource("3_qykla")]([SubResource("Resource_4igg7"), SubResource("Resource_7caxp")])
+payload_list = Array[ExtResource("3_qykla")]([SubResource("Resource_er02i"), SubResource("Resource_4igg7")])

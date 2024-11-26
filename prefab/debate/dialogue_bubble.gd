@@ -1,9 +1,9 @@
 @tool
-extends TextureRect
+extends Control
 
 class_name DialogueBubble
 
-signal on_dialogue_finished
+signal on_stop_dialogue
 
 @export var scrolling_text : ScrollingText
 
@@ -12,10 +12,13 @@ signal on_dialogue_finished
 
 func _ready():
 	set_speed_to_normal()
-	scrolling_text.on_scoll_completed.connect(func(): on_dialogue_finished.emit())
+	scrolling_text.on_scoll_completed.connect(func(): on_stop_dialogue.emit())
 
 func set_text(text : String):
 	scrolling_text.set_scrolling_text(text)
+
+func stop_scrolling():
+	scrolling_text.is_scrolling = false
 
 func set_speed_to_normal():
 	scrolling_text.characters_per_second = normal_characters_per_second

@@ -2,8 +2,10 @@ extends Resource
 
 class_name TaskAction
 
-func invoke(task : Task, manager : EventManager) -> int:
-	return -1
+signal on_action_complete(next_task_index : int)
+
+func invoke(task : Task, manager : EventManager):
+	on_action_complete.emit(1)
 
 func cancel(task : Task, manager : EventManager):
 	return

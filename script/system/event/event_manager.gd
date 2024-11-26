@@ -2,12 +2,11 @@ extends Resource
 
 class_name EventManager
 
-signal cancel_event
+signal on_event_finished
 
 var subscriber_array : Array[EventSubscriber]
 var current_event : Event
-var task_index
-var event_canceled = false
+var current_task : Task
 
 func subscribe(subscriber : EventSubscriber):
 	subscriber_array.append(subscriber)
@@ -20,41 +19,18 @@ func unsubscribe(subscriber : EventSubscriber):
 func start_event(event : Event):
 	if !event || (current_event && !event.is_major_event): return
 	
-	if current_event:
-		cancel_event.emit()
-	
 	current_event = event
-	if event.await_event:	
-		await start_task_loop(event)
-	else:
-		start_task_loop(event)
+	current_task = event.start_task
+	current_task.invoke.call_deferred(self)
+	current_task.action.on_action_complete.connect(start_next_task)
 
-func start_task_loop(event: Event):	
-	var current_task := event.start_task
-	task_index = null
-	
-	while current_task:
-		task_index
-		
-		var func_array : Array[Callable] = [
-			func(): task_index = await current_task.invoke(self),
-			func(): 
-				await cancel_event
-				event_canceled = true
-		]		
-		
-		await Util.await_any(func_array)
-		
-		if event_canceled:
-			current_task.cancel
-			event_canceled = false
-			return
-		
-		current_task = event.get_task(task_index)
-	
-	current_event = null
+func start_next_task(next_task_index):
+	if next_task_index == -1:
+		current_task = null
+		current_event = null
+		on_event_finished.emit()
 
-func display_dialogue(text : String, actor : String, await_input : bool):
+func display_dialogue(text : String, actor : String):
 	for sub : EventSubscriber in subscriber_array: await sub.display_dialogue(text, actor)
 
 func play_animation(name : String, actor : String, await_animation : bool):

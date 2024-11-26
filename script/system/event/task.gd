@@ -8,8 +8,8 @@ class_name Task
 @export var inputs : Array = []
 @export var action : TaskAction
 
-func invoke(manager : EventManager) -> int:
-	return await action.invoke(self, manager)
+func invoke(manager : EventManager):
+	action.invoke(self, manager)
 
 func cancel(manager: EventManager):
 	action.cancel(self, manager)
