@@ -26,6 +26,9 @@ static func set_parent(node : Node, parent: Node):
 static func await_all(functions : Array[Callable]):
 	await AwaitAll.new(functions).all_finished
 
+static func await_any(functions : Array[Callable]):
+	await AwaitAny.new(functions).any_finished
+
 static func build_query(queryables : Array) -> Dictionary:
 	var query : Dictionary
 	

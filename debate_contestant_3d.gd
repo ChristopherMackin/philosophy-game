@@ -2,6 +2,8 @@ extends Node3D
 
 class_name DebateContestant3D
 
+signal on_close_dialogue
+
 @export var emotion_index : int:
 	set(val):
 		emotion_index = val
@@ -23,10 +25,10 @@ class_name DebateContestant3D
 @export var play_duration : float = 1
 
 @export_group("Dialogue")
-@export var spawn_location : Node
-@export var default_bubble_prefab : PackedScene
-@export var emotion_index_prefabs : Array[EmotionIndexPrefab]
-var current_dialogue_bubble : DialogueBubble
+@export var default_dialogue_bubble : DialogueBubble
+
+func _ready():
+	default_dialogue_bubble.visible = false
 
 func get_random_rotation_rad():
 	var angle = randf_range(0, max_random_rotation_degrees)
@@ -36,7 +38,6 @@ func get_random_rotation_rad():
 	return angle_rad if sign else -angle_rad
 
 func play_top(top : Top):
-	
 	#Discard top card
 	var top_card : TopCard = top_card_3d_prefab.instantiate() as TopCard
 	discard.add_child(top_card)
@@ -63,31 +64,10 @@ func play_top(top : Top):
 	track.tops_3d.append(top_3d)
 	await top_tween.finished
 
-func say_line(line : String, await_input : bool):
-	if await_input:
-		await create_bubble(line)
-	else:
-		create_bubble(line)
+func open_dialogue(line : String):
+	default_dialogue_bubble.visible = true
+	default_dialogue_bubble.set_text(line)
 
-func create_bubble(line):
-	current_dialogue_bubble = default_bubble_prefab.instantiate()
-	spawn_location.add_child(current_dialogue_bubble)
-	
-	facial_animator.mouth_state = FacialAnimator.MouthState.TALKING
-	await current_dialogue_bubble.set_text(line)
-	facial_animator.mouth_state = FacialAnimator.MouthState.CLOSED
-	
-	
-	current_dialogue_bubble.queue_free()
-
-func _input(event):
-	if !current_dialogue_bubble:
-		return;
-	
-	if event.is_action_pressed("cancel"):
-		current_dialogue_bubble.skip_to_the_end()
-		
-	if event.is_action_pressed("select"):
-		current_dialogue_bubble.set_speed_to_quick()
-	elif event.is_action_released("select"):
-		current_dialogue_bubble.set_speed_to_normal()
+func close_dialogue():
+	default_dialogue_bubble.visible = false
+	on_close_dialogue.emit()

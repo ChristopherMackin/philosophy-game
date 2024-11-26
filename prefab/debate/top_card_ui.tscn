@@ -84,7 +84,7 @@ offset_top = 12.0
 offset_right = 107.0
 offset_bottom = 60.0
 texture = ExtResource("6_3ri0m")
-expand_mode = 3
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Description" type="TextureRect" parent="."]

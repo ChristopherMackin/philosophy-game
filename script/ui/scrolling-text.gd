@@ -29,7 +29,6 @@ func set_scrolling_text(scrolling_text : String):
 	text = scrolling_text
 	visible_characters = 0
 	is_scrolling = true
-	await on_scoll_completed
 
 func skip_to_the_end():
 	visible_characters = text.length()

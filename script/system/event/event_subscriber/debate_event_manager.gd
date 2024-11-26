@@ -2,6 +2,7 @@ extends EventSubscriber
 
 class_name DebateEventSubscriber
 
+@export var scene_animator : Node
 @export var actors : Array[Node]
 
 func display_dialogue(line : String, actor : String, await_input : bool):
@@ -9,20 +10,23 @@ func display_dialogue(line : String, actor : String, await_input : bool):
 	if index < 0:
 		return
 	
-	var parent = actors[index]
-	var handler = parent.get_node_or_null(NodePath("DialogueHandler"))
-	
-	await handler.say(line)
+	await actors[index].say(line, await_input)
 
 func play_animation(name : String, actor : String, await_animation : bool):
-	var index = actors.map(func(x): return x.name).find(actor)
-	if index < 0:
-		return
+	var parent
 	
-	var parent = actors[index]
-	var animator = parent.get_node_or_null(NodePath("AnimationPlayer"))
+	if actor != "":
+		var index = actors.map(func(x): return x.name).find(actor)
+		if index < 0:
+			return
+		parent = actors[index]
+	else:
+		parent = scene_animator
+	
+	var animator : AnimationPlayer = parent.get_node_or_null(NodePath("AnimationPlayer"))
 	
 	if await_animation:
-		await animator.play_await(name)
+		animator.play(name)
+		await animator.animation_finished
 	else: 
 		animator.play(name)

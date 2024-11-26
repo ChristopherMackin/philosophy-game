@@ -11,6 +11,9 @@ class_name Task
 func invoke(manager : EventManager) -> int:
 	return await action.invoke(self, manager)
 
+func cancel(manager: EventManager):
+	action.cancel(self, manager)
+
 func set_event_connections(inputs : Array, outputs : Array[int]):
 	self.inputs = inputs
 	self.outputs = outputs

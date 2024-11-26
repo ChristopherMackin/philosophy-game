@@ -3,6 +3,8 @@ extends TextureRect
 
 class_name DialogueBubble
 
+signal on_dialogue_finished
+
 @export var scrolling_text : ScrollingText
 
 @export var normal_characters_per_second : int
@@ -10,9 +12,10 @@ class_name DialogueBubble
 
 func _ready():
 	set_speed_to_normal()
+	scrolling_text.on_scoll_completed.connect(func(): on_dialogue_finished.emit())
 
 func set_text(text : String):
-	await scrolling_text.set_scrolling_text(text)
+	scrolling_text.set_scrolling_text(text)
 
 func set_speed_to_normal():
 	scrolling_text.characters_per_second = normal_characters_per_second
