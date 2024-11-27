@@ -679,7 +679,7 @@ theme_override_constants/separation = 10
 script = ExtResource("20_mjdc4")
 top_card_ui_prefab = ExtResource("15_qudhi")
 draw_pile = NodePath("../../DrawPile")
-card_parent = NodePath("../../../CardParent")
+card_parent = NodePath("../../CardParent")
 ordered_card_targets = [NodePath("TopRow/CardTarget1"), NodePath("TopRow/CardTarget2"), NodePath("MiddleRow/CardTarget3"), NodePath("MiddleRow/CardTarget4"), NodePath("BottomRow/CardTarget5"), NodePath("BottomRow/CardTarget6")]
 reorder_duration = 0.5
 
@@ -723,11 +723,13 @@ layout_mode = 2
 custom_minimum_size = Vector2(300, 260)
 layout_mode = 2
 
-[node name="CardParent" type="Control" parent="PlayArea"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CardParent" type="Control" parent="PlayArea/StatsArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [editable path="Joy"]
 [editable path="Erin"]

@@ -1,38 +1,46 @@
-[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=12 format=3 uid="uid://3dnw0mevj0a1"]
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=14 format=3 uid="uid://3dnw0mevj0a1"]
 
 [ext_resource type="Resource" uid="uid://b7rb23e2wj842" path="res://system/character/erin/event/major_event_test.tres" id="1_d4aj4"]
 [ext_resource type="Script" path="res://script/system/character/debate_event_factory/ordered_event_factory.gd" id="1_y5e0x"]
-[ext_resource type="Script" path="res://script/system/character/debate_event_factory/rule/criterion/debate_criterion.gd" id="2_5w3e1"]
+[ext_resource type="Script" path="res://script/system/character/debate_event_factory/rule/criterion/character_criterion.gd" id="2_d2rky"]
 [ext_resource type="Script" path="res://script/system/character/debate_event_factory/rule/rule.gd" id="2_ictfr"]
+[ext_resource type="Script" path="res://script/system/character/debate_event_factory/rule/criterion/debate_criterion.gd" id="3_8rudo"]
 [ext_resource type="Script" path="res://script/system/character/debate_event_factory/event_factory_payload.gd" id="3_qykla"]
-[ext_resource type="Resource" uid="uid://bbcwubcmwcoju" path="res://system/character/erin/event/small_event_test.tres" id="5_xjlpt"]
+[ext_resource type="Resource" uid="uid://bbcwubcmwcoju" path="res://system/character/erin/event/small_event_test.tres" id="6_v7vl7"]
 
-[sub_resource type="Resource" id="Resource_2yjeq"]
-script = ExtResource("2_5w3e1")
+[sub_resource type="Resource" id="Resource_fdeyc"]
+script = ExtResource("2_d2rky")
+character_name = "erin"
+key = 1
+comparator = 0
+value = "false"
+
+[sub_resource type="Resource" id="Resource_nonn6"]
+script = ExtResource("3_8rudo")
 key = 7
 comparator = 0
 value = "2"
 
-[sub_resource type="Resource" id="Resource_nxj3j"]
+[sub_resource type="Resource" id="Resource_o0oqa"]
 script = ExtResource("2_ictfr")
 concept = "on_top_played"
-criteria = Array[Resource("res://script/system/character/debate_event_factory/rule/criterion/criterion.gd")]([SubResource("Resource_2yjeq")])
+criteria = Array[Resource("res://script/system/character/debate_event_factory/rule/criterion/criterion.gd")]([SubResource("Resource_fdeyc"), SubResource("Resource_nonn6")])
 
-[sub_resource type="Resource" id="Resource_er02i"]
+[sub_resource type="Resource" id="Resource_4igg7"]
 script = ExtResource("3_qykla")
 event = ExtResource("1_d4aj4")
-rule = SubResource("Resource_nxj3j")
+rule = SubResource("Resource_o0oqa")
 
-[sub_resource type="Resource" id="Resource_o0oqa"]
+[sub_resource type="Resource" id="Resource_y4n7a"]
 script = ExtResource("2_ictfr")
 concept = "on_top_played"
 criteria = Array[Resource("res://script/system/character/debate_event_factory/rule/criterion/criterion.gd")]([])
 
-[sub_resource type="Resource" id="Resource_4igg7"]
+[sub_resource type="Resource" id="Resource_74gte"]
 script = ExtResource("3_qykla")
-event = ExtResource("5_xjlpt")
-rule = SubResource("Resource_o0oqa")
+event = ExtResource("6_v7vl7")
+rule = SubResource("Resource_y4n7a")
 
 [resource]
 script = ExtResource("1_y5e0x")
-payload_list = Array[ExtResource("3_qykla")]([SubResource("Resource_er02i"), SubResource("Resource_4igg7")])
+payload_list = Array[ExtResource("3_qykla")]([SubResource("Resource_4igg7"), SubResource("Resource_74gte")])

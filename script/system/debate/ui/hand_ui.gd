@@ -65,3 +65,5 @@ func remove_card(top : Top):
 		tween.tween_property(hand_3d[i], "global_position", ordered_card_targets[i].global_position, reorder_duration) \
 		.set_trans(Tween.TRANS_SPRING) \
 		.set_ease(Tween.EASE_OUT)
+	
+	await tween.finished

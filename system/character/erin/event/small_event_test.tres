@@ -7,27 +7,27 @@
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("2_ygdkc")
 
-[sub_resource type="Resource" id="Resource_12ip0"]
+[sub_resource type="Resource" id="Resource_id7f0"]
 script = ExtResource("3_n4pca")
 outputs = Array[int]([1])
-inputs = ["I'm going to absolutely cum in my pants and shit in my pants and everything like that", "Erin"]
+inputs = ["How was your day?", "Erin"]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_dsdh1"]
+[sub_resource type="Resource" id="Resource_5bvey"]
 script = ExtResource("3_n4pca")
 outputs = Array[int]([2])
-inputs = ["Bruh that's really fucking weird", "Joy"]
+inputs = ["It was very difficult", "Joy"]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_d5ipn"]
+[sub_resource type="Resource" id="Resource_40kod"]
 script = ExtResource("3_n4pca")
 outputs = Array[int]([])
-inputs = ["Yep... That was a mistake... I knew this would happen... shit", "Joy"]
+inputs = ["Oh no! I'm sorry to hear that", "Erin"]
 action = SubResource("Resource_x7ur8")
 
 [resource]
 script = ExtResource("1_1q23l")
 is_major_event = false
 await_event = false
-start_task = SubResource("Resource_12ip0")
-tasks = Array[ExtResource("3_n4pca")]([SubResource("Resource_12ip0"), SubResource("Resource_dsdh1"), SubResource("Resource_d5ipn")])
+start_task = SubResource("Resource_id7f0")
+tasks = Array[ExtResource("3_n4pca")]([SubResource("Resource_id7f0"), SubResource("Resource_5bvey"), SubResource("Resource_40kod")])

@@ -2,7 +2,7 @@ extends TaskAction
 
 class_name SetValueTaskAction
 
-func invoke(task : Task, manager : EventManager) -> int:
+func invoke(task : Task, manager : EventManager):
 	var path = task.get_input(0)
 	var db : StateDatabase = ResourceLoader.load(path)
 	var schema = db.schema
@@ -13,4 +13,4 @@ func invoke(task : Task, manager : EventManager) -> int:
 	
 	ResourceSaver.save(db, path)
 	
-	return task.get_output(0)
+	on_action_complete.emit(task.get_output(0))

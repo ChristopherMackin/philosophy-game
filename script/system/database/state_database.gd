@@ -9,6 +9,9 @@ var columns : Array:
 	get: return DBConst.db_schema_data[schema]
 
 @export var prefix : String = ""
+var file_prefix : String :
+	get:
+		return "%s." % prefix if prefix != "" else prefix
 
 @export var sub_path : String
 var path : String:
@@ -34,7 +37,7 @@ func update_value(key : String, value) -> bool:
 		return false
 	
 	if typeof(value) == col.type:
-		_dictionary.value[prefix + key] = value
+		_dictionary.value[file_prefix + key] = value
 		return true
 	else:
 		return false
@@ -44,14 +47,14 @@ func get_value(key : String):
 	if !col:
 		return null
 	
-	return _dictionary.value[prefix + key]
+	return _dictionary.value[file_prefix + key]
 
 func clean_up():
 	for col in columns:
-		if !_dictionary.value.has(prefix + col.key):
+		if !_dictionary.value.has(file_prefix + col.key):
 			update_value(col.key, col.default)
 	
-	var col_keys = columns.map(func(x): return prefix + x.key)
+	var col_keys = columns.map(func(x): return file_prefix + x.key)
 	var dic_keys = _dictionary.value.keys()
 	
 	var keys_to_remove = difference(dic_keys, col_keys)

@@ -9,7 +9,7 @@ class_name Task
 @export var action : TaskAction
 
 func invoke(manager : EventManager):
-	action.invoke(self, manager)
+	action.invoke.call_deferred(self, manager)
 	return await action.on_action_complete
 
 func cancel(manager: EventManager):
