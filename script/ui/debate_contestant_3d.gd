@@ -2,8 +2,6 @@ extends Node3D
 
 class_name DebateContestant3D
 
-signal on_stop_dialogue
-
 @export var emotion_index : int:
 	set(val):
 		emotion_index = val
@@ -23,13 +21,6 @@ signal on_stop_dialogue
 
 @export var max_random_rotation_degrees : float
 @export var play_duration : float = 1
-
-@export_group("Dialogue")
-@export var default_dialogue_bubble : DialogueBubble
-
-func _ready():
-	default_dialogue_bubble.visible = false
-	default_dialogue_bubble.on_stop_dialogue.connect(stop_dialogue)
 
 func get_random_rotation_rad():
 	var angle = randf_range(0, max_random_rotation_degrees)
@@ -64,14 +55,3 @@ func play_top(top : Top):
 	var top_tween = get_tree().create_tween().tween_property(top_3d, "global_position", track.get_top_slot().global_position + Vector3(0,.002,0), play_duration)
 	track.tops_3d.append(top_3d)
 	await top_tween.finished
-
-func start_dialogue(line : String):
-	facial_animator.mouth_state = FacialAnimator.MouthState.TALKING
-	default_dialogue_bubble.visible = true
-	default_dialogue_bubble.set_text(line)
-
-func stop_dialogue():
-	default_dialogue_bubble.stop_scrolling()
-	facial_animator.mouth_state = FacialAnimator.MouthState.CLOSED
-	default_dialogue_bubble.visible = false
-	on_stop_dialogue.emit()

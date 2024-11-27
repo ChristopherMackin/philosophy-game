@@ -1,31 +1,33 @@
-[gd_resource type="Resource" script_class="Event" load_steps=9 format=3 uid="uid://b7rb23e2wj842"]
+[gd_resource type="Resource" script_class="Event" load_steps=8 format=3 uid="uid://b7rb23e2wj842"]
 
 [ext_resource type="Script" path="res://script/system/event/event.gd" id="1_3kfrw"]
-[ext_resource type="Script" path="res://script/system/event/task_action/wait_task_action.gd" id="2_pnbqh"]
+[ext_resource type="Script" path="res://script/system/event/task_action/animation_task_action.gd" id="2_ges02"]
 [ext_resource type="Script" path="res://script/system/event/task.gd" id="3_cco6v"]
-[ext_resource type="Script" path="res://script/system/event/task_action/dialogue_task_action.gd" id="4_a1j77"]
 
-[sub_resource type="Resource" id="Resource_1f63y"]
-script = ExtResource("2_pnbqh")
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("2_ges02")
 
-[sub_resource type="Resource" id="Resource_3wsxp"]
+[sub_resource type="Resource" id="Resource_nvud4"]
 script = ExtResource("3_cco6v")
-outputs = Array[int]([1])
-inputs = [2.0]
-action = SubResource("Resource_1f63y")
+outputs = Array[int]([2])
+inputs = ["open_debate_cutscene", "", true]
+action = SubResource("Resource_ml60a")
 
-[sub_resource type="Resource" id="Resource_x7ur8"]
-script = ExtResource("4_a1j77")
-
-[sub_resource type="Resource" id="Resource_wj51r"]
+[sub_resource type="Resource" id="Resource_jp713"]
 script = ExtResource("3_cco6v")
 outputs = Array[int]([])
-inputs = ["HOE... YOU DUMB BITCH", "Erin"]
-action = SubResource("Resource_x7ur8")
+inputs = ["close_debate_cutscene", "", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_05dia"]
+script = ExtResource("3_cco6v")
+outputs = Array[int]([1])
+inputs = ["erin_cutscene_01", "", true]
+action = SubResource("Resource_ml60a")
 
 [resource]
 script = ExtResource("1_3kfrw")
 is_major_event = true
 await_event = true
-start_task = SubResource("Resource_3wsxp")
-tasks = Array[ExtResource("3_cco6v")]([SubResource("Resource_3wsxp"), SubResource("Resource_wj51r")])
+start_task = SubResource("Resource_nvud4")
+tasks = Array[ExtResource("3_cco6v")]([SubResource("Resource_nvud4"), SubResource("Resource_jp713"), SubResource("Resource_05dia")])

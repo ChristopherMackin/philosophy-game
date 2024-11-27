@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cng6p2uhhx3eb" path="res://asset/graphic/debate/board/PlayMat.png" id="1_32krf"]
 [ext_resource type="PackedScene" uid="uid://dpwst6p575hsu" path="res://prefab/debate/pose.tscn" id="2_farjo"]
-[ext_resource type="Script" path="res://tops_board_3d.gd" id="2_gd3pm"]
+[ext_resource type="Script" path="res://script/ui/tops_board_3d.gd" id="2_gd3pm"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/pose/doubt.tres" id="3_8ke84"]
 [ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://system/debate/main/debate_settings.tres" id="3_idn6v"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/pose/self.tres" id="4_wm5ve"]
