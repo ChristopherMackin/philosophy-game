@@ -10,6 +10,7 @@ class_name Task
 
 func invoke(manager : EventManager):
 	action.invoke(self, manager)
+	return await action.on_action_complete
 
 func cancel(manager: EventManager):
 	action.cancel(self, manager)

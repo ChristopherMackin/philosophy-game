@@ -63,8 +63,13 @@ func query_event(concept : String):
 	var query : Dictionary
 	query["concept"] = concept
 	query.merge(manager.get_debate_state())
-	event_manager.start_event(
-		manager.event_factory.get_event(query)
-	)
-	await event_manager.on_event_finished
+	
+	var event = manager.event_factory.get_event(query)
+	
+	if !event: return
+	
+	if event.await_event:
+		await event_manager.start_event(event)
+	else:
+		event_manager.start_event(event)
 

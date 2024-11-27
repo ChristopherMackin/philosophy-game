@@ -8,16 +8,16 @@
 [sub_resource type="Resource" id="Resource_1f63y"]
 script = ExtResource("2_pnbqh")
 
-[sub_resource type="Resource" id="Resource_a6fmw"]
+[sub_resource type="Resource" id="Resource_3wsxp"]
 script = ExtResource("3_cco6v")
 outputs = Array[int]([1])
-inputs = [3.0]
+inputs = [2.0]
 action = SubResource("Resource_1f63y")
 
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("4_a1j77")
 
-[sub_resource type="Resource" id="Resource_00i7k"]
+[sub_resource type="Resource" id="Resource_wj51r"]
 script = ExtResource("3_cco6v")
 outputs = Array[int]([])
 inputs = ["HOE... YOU DUMB BITCH", "Erin"]
@@ -27,5 +27,5 @@ action = SubResource("Resource_x7ur8")
 script = ExtResource("1_3kfrw")
 is_major_event = true
 await_event = true
-start_task = SubResource("Resource_a6fmw")
-tasks = Array[ExtResource("3_cco6v")]([SubResource("Resource_a6fmw"), SubResource("Resource_00i7k")])
+start_task = SubResource("Resource_3wsxp")
+tasks = Array[ExtResource("3_cco6v")]([SubResource("Resource_3wsxp"), SubResource("Resource_wj51r")])
