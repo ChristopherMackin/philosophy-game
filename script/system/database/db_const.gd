@@ -7,9 +7,9 @@ enum WorldSchema {
 }
 enum SceneSchema {}
 enum DebateSchema {
-	CURRENT_CARD = 0,
+	CURRENT_TOP = 0,
 	CURRENT_POSE = 1,
-	PREVIOUS_CARD = 2,
+	PREVIOUS_TOP = 2,
 	PREVIOUS_POSE = 3,
 	PLAYER = 4,
 	COMPUTER = 5,

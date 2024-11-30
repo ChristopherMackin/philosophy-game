@@ -14,7 +14,9 @@ enum Comparator {
 @export var comparator : Criterion.Comparator
 @export var value : String
 var _value:
-	get: return str_to_var(value)
+	get: 
+		var val = str_to_var(value)
+		return val if typeof(val) != 0 else value
 
 func check(query : Dictionary) -> bool:
 	return false

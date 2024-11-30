@@ -106,8 +106,7 @@ func active_player_turn():
 	while active_contestant.current_energy > 0 and !get_is_debate_over():
 		var top = await active_contestant.take_turn()
 		
-		top_queue_dictionary[top.data.pose.name].append(top)
-		top_history.append(top)
+		push_top_to_queue(top)
 		
 		for sub : DebateSubscriber in subscriber_array: await sub.on_top_played(top, active_contestant)
 		
@@ -137,3 +136,13 @@ func get_debate_state() -> Dictionary:
 		debate_state,
 		computer.memory,
 	])
+
+func push_top_to_queue(top : Top):
+	debate_state.update_value("previous_top", debate_state.get_value("current_top"))
+	debate_state.update_value("previous_pose", debate_state.get_value("current_pose"))
+	
+	top_queue_dictionary[top.data.pose.name].append(top)
+	top_history.append(top)
+	
+	debate_state.update_value("current_top", top.data.title)
+	debate_state.update_value("current_pose", top.data.pose.name)

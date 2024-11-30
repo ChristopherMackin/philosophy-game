@@ -32,6 +32,10 @@ func get_column(key : String):
 	return null
 
 func update_value(key : String, value) -> bool:
+	if value is String:
+		value = value.to_lower()
+		value = value.replace(' ', '_')
+	
 	var col = get_column(key)
 	if !col:
 		return false

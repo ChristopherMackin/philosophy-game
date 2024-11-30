@@ -17,9 +17,9 @@ value = "false"
 
 [sub_resource type="Resource" id="Resource_nonn6"]
 script = ExtResource("3_8rudo")
-key = 7
+key = 0
 comparator = 0
-value = "2"
+value = "basic_faith"
 
 [sub_resource type="Resource" id="Resource_o0oqa"]
 script = ExtResource("2_ictfr")
