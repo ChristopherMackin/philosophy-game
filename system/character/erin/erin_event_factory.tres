@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=14 format=3 uid="uid://3dnw0mevj0a1"]
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=15 format=3 uid="uid://3dnw0mevj0a1"]
 
 [ext_resource type="Resource" uid="uid://b7rb23e2wj842" path="res://system/character/erin/event/major_event_test.tres" id="1_d4aj4"]
 [ext_resource type="Script" path="res://script/system/character/debate_event_factory/ordered_event_factory.gd" id="1_y5e0x"]
@@ -21,10 +21,16 @@ key = 0
 comparator = 0
 value = "basic_faith"
 
+[sub_resource type="Resource" id="Resource_bqw0w"]
+script = ExtResource("3_8rudo")
+key = 7
+comparator = 4
+value = "3"
+
 [sub_resource type="Resource" id="Resource_o0oqa"]
 script = ExtResource("2_ictfr")
 concept = "on_top_played"
-criteria = Array[Resource("res://script/system/character/debate_event_factory/rule/criterion/criterion.gd")]([SubResource("Resource_fdeyc"), SubResource("Resource_nonn6")])
+criteria = Array[Resource("res://script/system/character/debate_event_factory/rule/criterion/criterion.gd")]([SubResource("Resource_fdeyc"), SubResource("Resource_nonn6"), SubResource("Resource_bqw0w")])
 
 [sub_resource type="Resource" id="Resource_4igg7"]
 script = ExtResource("3_qykla")

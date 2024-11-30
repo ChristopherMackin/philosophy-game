@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b31uxtxyvdwi3"]
+[gd_scene load_steps=44 format=3 uid="uid://b31uxtxyvdwi3"]
 
 [ext_resource type="Script" path="res://script/system/debate/debate_scene_manager.gd" id="1_ndrkp"]
 [ext_resource type="PackedScene" uid="uid://bdjdo8l7nn2l3" path="res://prefab/character/joy.tscn" id="1_xnrq5"]
@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event/event_manager/event_manager.tres" id="7_0u80y"]
 [ext_resource type="Script" path="res://script/system/animation/animation_player_handler.gd" id="8_lncrh"]
 [ext_resource type="Script" path="res://script/system/debate/discard_3d.gd" id="8_r55tt"]
+[ext_resource type="Script" path="res://level/Debate/input_manager.gd" id="8_unhyc"]
 [ext_resource type="Texture2D" uid="uid://ho13qsn3chj0" path="res://asset/graphic/debate/top_card/DrawPile.png" id="9_i0u2a"]
 [ext_resource type="Script" path="res://script/ui/debate_contestant_3d.gd" id="10_5u80s"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="10_5ul61"]
@@ -30,6 +31,8 @@
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="23_xw7h0"]
 [ext_resource type="Script" path="res://script/system/debate/ui/draw_pile_ui.gd" id="27_rccvm"]
 [ext_resource type="Script" path="res://script/system/debate/ui/energy_ui.gd" id="29_fljj8"]
+[ext_resource type="Script" path="res://level/Debate/follow_transform.gd" id="32_6jnnm"]
+[ext_resource type="Texture2D" uid="uid://repj6csynu7c" path="res://asset/graphic/general/Selector.png" id="32_dr8nv"]
 
 [sub_resource type="Animation" id="Animation_frnpg"]
 resource_name = "close_debate_cutscene"
@@ -174,6 +177,12 @@ script = ExtResource("6_reoeb")
 scene_animator = NodePath("../SceneAnimator")
 actors = [NodePath("../Joy"), NodePath("../Erin")]
 manager = ExtResource("7_0u80y")
+
+[node name="InputManager" type="Node3D" parent="." node_paths=PackedStringArray("hand", "selector")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+script = ExtResource("8_unhyc")
+hand = NodePath("../PlayArea/StatsArea/MarginContainer/Hand")
+selector = NodePath("../PlayArea/StatsArea/Selector")
 
 [node name="SceneAnimator" type="Node3D" parent="."]
 
@@ -730,6 +739,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Selector" type="Control" parent="PlayArea/StatsArea"]
+layout_mode = 1
+anchors_preset = 0
+script = ExtResource("32_6jnnm")
+
+[node name="Image" type="TextureRect" parent="PlayArea/StatsArea/Selector"]
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 81.0
+texture = ExtResource("32_dr8nv")
+expand_mode = 1
+stretch_mode = 5
 
 [editable path="Joy"]
 [editable path="Erin"]
