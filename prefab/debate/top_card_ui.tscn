@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dnjd6gfsvie8p"]
+[gd_scene load_steps=13 format=3 uid="uid://dnjd6gfsvie8p"]
 
 [ext_resource type="Texture2D" uid="uid://cwnbsbvx6pbwc" path="res://asset/graphic/debate/top_card/CardBackground.png" id="1_1v2tw"]
 [ext_resource type="Script" path="res://script/system/debate/ui/top_card.gd" id="2_le11q"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/pose/FaithIcon.png" id="6_3ri0m"]
 [ext_resource type="Texture2D" uid="uid://b55a0tp164xa2" path="res://asset/graphic/debate/top_card/CardDescriptionBox.png" id="6_on0g6"]
 [ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/top/BasicFaithTex.png" id="8_ax8w2"]
+[ext_resource type="Texture2D" uid="uid://repj6csynu7c" path="res://asset/graphic/general/Selector.png" id="9_2e7uu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ldvhs"]
 font = ExtResource("4_h26yw")
@@ -33,6 +34,7 @@ self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
 custom_minimum_size = Vector2(300, 260)
 offset_right = 300.0
 offset_bottom = 260.0
+focus_mode = 2
 texture = ExtResource("1_1v2tw")
 script = ExtResource("2_le11q")
 cost = NodePath("Border/Cost/Text")
@@ -145,3 +147,20 @@ scale = Vector2(1, 1.00499)
 text = "BASIC FAITH"
 label_settings = SubResource("LabelSettings_vsrqx")
 autowrap_mode = 3
+
+[node name="Selector" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74
+anchor_top = 0.285
+anchor_right = 0.74
+anchor_bottom = 0.285
+offset_left = -64.0
+offset_top = -110.1
+offset_right = 64.0
+offset_bottom = -0.100007
+texture = ExtResource("9_2e7uu")
+
+[connection signal="focus_entered" from="." to="Selector" method="show"]
+[connection signal="focus_exited" from="." to="Selector" method="hide"]

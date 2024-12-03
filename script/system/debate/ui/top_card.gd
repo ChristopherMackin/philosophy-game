@@ -30,3 +30,4 @@ func update_card(top : Top) :
 				e.self_modulate = top.data.pose.color
 			else:
 				e.modulate = top.data.pose.color
+
