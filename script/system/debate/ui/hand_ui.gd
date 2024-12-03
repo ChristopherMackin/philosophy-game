@@ -90,3 +90,5 @@ func remove_card(top : Top):
 		.set_ease(Tween.EASE_OUT)
 	
 	await tween.finished
+	
+	set_up_focus_connections()
