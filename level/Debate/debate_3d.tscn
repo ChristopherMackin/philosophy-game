@@ -15,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event/event_manager/event_manager.tres" id="7_0u80y"]
 [ext_resource type="Script" path="res://script/system/animation/animation_player_handler.gd" id="8_lncrh"]
 [ext_resource type="Script" path="res://script/system/debate/discard_3d.gd" id="8_r55tt"]
-[ext_resource type="Script" path="res://level/Debate/input_manager.gd" id="8_unhyc"]
+[ext_resource type="Script" path="res://level/Debate/selection_manager.gd" id="8_unhyc"]
 [ext_resource type="Texture2D" uid="uid://ho13qsn3chj0" path="res://asset/graphic/debate/top_card/DrawPile.png" id="9_i0u2a"]
 [ext_resource type="Script" path="res://script/ui/debate_contestant_3d.gd" id="10_5u80s"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="10_5ul61"]
@@ -31,7 +31,7 @@
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="23_xw7h0"]
 [ext_resource type="Script" path="res://script/system/debate/ui/draw_pile_ui.gd" id="27_rccvm"]
 [ext_resource type="Script" path="res://script/system/debate/ui/energy_ui.gd" id="29_fljj8"]
-[ext_resource type="Script" path="res://level/Debate/follow_transform.gd" id="32_6jnnm"]
+[ext_resource type="Script" path="res://level/Debate/follow_transform_2d.gd" id="32_6jnnm"]
 [ext_resource type="Texture2D" uid="uid://repj6csynu7c" path="res://asset/graphic/general/Selector.png" id="32_dr8nv"]
 
 [sub_resource type="Animation" id="Animation_frnpg"]
@@ -178,10 +178,9 @@ scene_animator = NodePath("../SceneAnimator")
 actors = [NodePath("../Joy"), NodePath("../Erin")]
 manager = ExtResource("7_0u80y")
 
-[node name="InputManager" type="Node3D" parent="." node_paths=PackedStringArray("hand", "selector")]
+[node name="SelectionManager" type="Node3D" parent="." node_paths=PackedStringArray("selector")]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 script = ExtResource("8_unhyc")
-hand = NodePath("../PlayArea/StatsArea/MarginContainer/Hand")
 selector = NodePath("../PlayArea/StatsArea/Selector")
 
 [node name="SceneAnimator" type="Node3D" parent="."]
@@ -744,6 +743,7 @@ grow_vertical = 2
 layout_mode = 1
 anchors_preset = 0
 script = ExtResource("32_6jnnm")
+offset = Vector2(175, 15)
 
 [node name="Image" type="TextureRect" parent="PlayArea/StatsArea/Selector"]
 layout_mode = 0
