@@ -3,6 +3,7 @@ extends DebateSubscriber
 @export_group("Settings")
 @export var debate_settings : DebateSettings
 @export var event_manager : EventManager
+@export var selection_manager : SelectionManager
 
 @export_group ("Player")
 @export var player : Character
@@ -33,16 +34,20 @@ func on_debate_start():
 func on_player_change(contestant : Contestant):
 	print("%s's turn" % contestant.name)
 	if contestant.character == player:
+		selection_manager.continue_ui_input()
 		hand_ui.update_hand(manager.player.hand)
 		energy_ui.update_amount(contestant.current_energy)
 		draw_pile_ui.update_amount(contestant.deck.count)
+	else:
+		selection_manager.pause_ui_input()
+	
 	await GlobalTimer.wait_for_seconds(1)
 	
 func on_top_played(top: Top, active_contestant : Contestant):
 	if active_contestant.character == player:
 		energy_ui.update_amount(active_contestant.current_energy)
 		draw_pile_ui.update_amount(active_contestant.deck.count)
-		await hand_ui.remove_card(top)
+		hand_ui.remove_card(top)
 		await player_3d.play_top(top)
 
 	else:
