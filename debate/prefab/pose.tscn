@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpwst6p575hsu"]
 
-[ext_resource type="Script" path="res://script/system/debate/pose_track_3d.gd" id="1_14obw"]
+[ext_resource type="Script" path="res://script/debate/pose_track_3d.gd" id="1_14obw"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/pose/faith.tres" id="2_0a74i"]
-[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/pose/FaithIcon.png" id="2_siarx"]
-[ext_resource type="Texture2D" uid="uid://bguotsggmkkvl" path="res://asset/graphic/debate/board/TopicSlot.png" id="3_tce6w"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/pose/faith_icon.png" id="2_siarx"]
+[ext_resource type="Texture2D" uid="uid://bguotsggmkkvl" path="res://asset/graphic/debate/board/topic_slot.png" id="3_tce6w"]
 
 [node name="Pose" type="Node3D" node_paths=PackedStringArray("icon", "slots")]
 transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-15, 0, -7.10543e-15, 1, 0, 1.04289, 0)

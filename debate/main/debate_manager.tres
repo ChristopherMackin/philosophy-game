@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DebateManager" load_steps=3 format=3 uid="uid://wlxm57wwnqi"]
 
-[ext_resource type="Script" path="res://script/system/debate/debate_manager.gd" id="1_4lhob"]
+[ext_resource type="Script" path="res://script/debate/debate_manager.gd" id="1_4lhob"]
 [ext_resource type="Resource" uid="uid://cdrto07nfohjt" path="res://system/debate_state.tres" id="2_01pfy"]
 
 [resource]

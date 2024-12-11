@@ -2,7 +2,7 @@ extends RichTextLabel
 
 class_name ScrollingText
 
-signal on_scoll_completed
+signal on_scroll_completed
 
 @export var characters_per_second : int
 var seconds_between_characters : float : 
@@ -22,7 +22,7 @@ func _process(delta):
 		visible_characters += 1
 		if visible_characters >= text.length():
 			is_scrolling = false
-			on_scoll_completed.emit()
+			on_scroll_completed.emit()
 
 func set_scrolling_text(scrolling_text : String):
 	timer = 0
@@ -33,4 +33,4 @@ func set_scrolling_text(scrolling_text : String):
 func skip_to_the_end():
 	visible_characters = text.length()
 	is_scrolling = false
-	on_scoll_completed.emit()
+	on_scroll_completed.emit()

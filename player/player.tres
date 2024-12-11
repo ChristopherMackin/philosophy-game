@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Character" load_steps=4 format=3 uid="uid://byrpux6co0rrw"]
+
+[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="1_it1nf"]
+[ext_resource type="Script" path="res://script/character/character.gd" id="1_xfscq"]
+[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/player_deck.tres" id="2_3opba"]
+
+[resource]
+script = ExtResource("1_xfscq")
+name = "Joy"
+deck = ExtResource("2_3opba")
+brain = ExtResource("1_it1nf")
+hand_limit = 5
+energy_level = 2

@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://dnjd6gfsvie8p"]
 
-[ext_resource type="Texture2D" uid="uid://cwnbsbvx6pbwc" path="res://asset/graphic/debate/top_card/CardBackground.png" id="1_1v2tw"]
-[ext_resource type="Script" path="res://script/system/debate/ui/top_card.gd" id="2_le11q"]
-[ext_resource type="Texture2D" uid="uid://b64jmxeoyatvi" path="res://asset/graphic/debate/top_card/CardBorder.png" id="2_rnw4v"]
-[ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://asset/graphic/debate/top_card/ClockIcon.png" id="3_eeilm"]
+[ext_resource type="Texture2D" uid="uid://cwnbsbvx6pbwc" path="res://asset/graphic/debate/top_card/card_background.png" id="1_1v2tw"]
+[ext_resource type="Script" path="res://script/debate/ui/top_card.gd" id="2_le11q"]
+[ext_resource type="Texture2D" uid="uid://b64jmxeoyatvi" path="res://asset/graphic/debate/top_card/card_border.png" id="2_rnw4v"]
+[ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://asset/graphic/debate/top_card/clock_icon.png" id="3_eeilm"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="4_h26yw"]
-[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/pose/FaithIcon.png" id="6_3ri0m"]
-[ext_resource type="Texture2D" uid="uid://b55a0tp164xa2" path="res://asset/graphic/debate/top_card/CardDescriptionBox.png" id="6_on0g6"]
-[ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/top/BasicFaithTex.png" id="8_ax8w2"]
-[ext_resource type="Texture2D" uid="uid://repj6csynu7c" path="res://asset/graphic/general/Selector.png" id="9_2e7uu"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/pose/faith_icon.png" id="6_3ri0m"]
+[ext_resource type="Texture2D" uid="uid://b55a0tp164xa2" path="res://asset/graphic/debate/top_card/card_descriptor_box.png" id="6_on0g6"]
+[ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/top/basic_faith_tex.png" id="8_ax8w2"]
+[ext_resource type="Texture2D" uid="uid://repj6csynu7c" path="res://asset/graphic/general/selector.png" id="9_2e7uu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ldvhs"]
 font = ExtResource("4_h26yw")

@@ -1,37 +1,37 @@
 [gd_scene load_steps=43 format=3 uid="uid://b31uxtxyvdwi3"]
 
-[ext_resource type="Script" path="res://script/system/debate/debate_scene_manager.gd" id="1_ndrkp"]
-[ext_resource type="PackedScene" uid="uid://bdjdo8l7nn2l3" path="res://prefab/character/joy.tscn" id="1_xnrq5"]
+[ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_ndrkp"]
+[ext_resource type="PackedScene" uid="uid://bdjdo8l7nn2l3" path="res://character/joy/joy.tscn" id="1_xnrq5"]
 [ext_resource type="Script" path="res://script/utility/set_layer_mask.gd" id="2_kouh8"]
-[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://system/character/player/player.tres" id="2_tj3bx"]
-[ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://system/character/erin/erin.tres" id="3_ilxke"]
-[ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://system/debate/debate_contestant_viewport.tres" id="4_kq3ts"]
-[ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://system/debate/main/debate_settings.tres" id="4_q8shw"]
-[ext_resource type="PackedScene" uid="uid://d3gstm266f4t3" path="res://prefab/debate/top_card_3d.tscn" id="5_8steh"]
-[ext_resource type="Resource" uid="uid://wlxm57wwnqi" path="res://system/debate/main/debate_manager.tres" id="5_k216a"]
-[ext_resource type="PackedScene" uid="uid://k3iaic8fwi4x" path="res://prefab/debate/thrift_shop_table.tscn" id="5_tq8nb"]
-[ext_resource type="Texture2D" uid="uid://2x0w7rjd27mn" path="res://asset/graphic/debate/stats_area/StatsBackground.png" id="6_l1d7a"]
+[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player.tres" id="2_tj3bx"]
+[ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://character/erin/erin.tres" id="3_ilxke"]
+[ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://debate/debate_contestant_viewport.tres" id="4_kq3ts"]
+[ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://debate/main/debate_settings.tres" id="4_q8shw"]
+[ext_resource type="PackedScene" uid="uid://d3gstm266f4t3" path="res://debate/prefab/top_card_3d.tscn" id="5_8steh"]
+[ext_resource type="Resource" uid="uid://wlxm57wwnqi" path="res://debate/main/debate_manager.tres" id="5_k216a"]
+[ext_resource type="PackedScene" uid="uid://k3iaic8fwi4x" path="res://debate/prefab/thrift_shop_table.tscn" id="5_tq8nb"]
+[ext_resource type="Texture2D" uid="uid://2x0w7rjd27mn" path="res://asset/graphic/debate/stats_area/stats_background.png" id="6_l1d7a"]
 [ext_resource type="Script" path="res://script/system/event/event_subscriber/debate_event_manager.gd" id="6_reoeb"]
-[ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event/event_manager/event_manager.tres" id="7_0u80y"]
+[ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event_manager.tres" id="7_0u80y"]
 [ext_resource type="Script" path="res://script/system/animation/animation_player_handler.gd" id="8_lncrh"]
-[ext_resource type="Script" path="res://script/system/debate/discard_3d.gd" id="8_r55tt"]
-[ext_resource type="Script" path="res://level/Debate/selection_manager.gd" id="8_unhyc"]
-[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://system/character/player/player_brain.tres" id="9_812v8"]
-[ext_resource type="Texture2D" uid="uid://ho13qsn3chj0" path="res://asset/graphic/debate/top_card/DrawPile.png" id="9_i0u2a"]
+[ext_resource type="Script" path="res://script/debate/discard_3d.gd" id="8_r55tt"]
+[ext_resource type="Script" path="res://script/selection_manager.gd" id="8_unhyc"]
+[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="9_812v8"]
+[ext_resource type="Texture2D" uid="uid://ho13qsn3chj0" path="res://asset/graphic/debate/top_card/draw_pile.png" id="9_i0u2a"]
 [ext_resource type="Script" path="res://script/ui/debate_contestant_3d.gd" id="10_5u80s"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="10_5ul61"]
-[ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/graphic/debate/stats_area/TurnCounterBackground.png" id="10_i4dae"]
-[ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://prefab/debate/top_3d.tscn" id="11_fd0f6"]
-[ext_resource type="PackedScene" uid="uid://dnjd6gfsvie8p" path="res://prefab/debate/top_card_ui.tscn" id="15_qudhi"]
+[ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/graphic/debate/stats_area/turn_counter_background.png" id="10_i4dae"]
+[ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://debate/prefab/top_3d.tscn" id="11_fd0f6"]
+[ext_resource type="PackedScene" uid="uid://dnjd6gfsvie8p" path="res://debate/prefab/top_card_ui.tscn" id="15_qudhi"]
 [ext_resource type="Script" path="res://script/system/dialogue_handler.gd" id="16_4lk6v"]
-[ext_resource type="PackedScene" uid="uid://cxvik3r1ijg1x" path="res://prefab/character/erin.tscn" id="17_tj7fw"]
+[ext_resource type="PackedScene" uid="uid://cxvik3r1ijg1x" path="res://character/erin/erin.tscn" id="17_tj7fw"]
 [ext_resource type="Texture2D" uid="uid://cjibu358pdc3s" path="res://asset/graphic/debate/dialogue_area/colorable_checkerboard.png" id="18_bxdk1"]
-[ext_resource type="Script" path="res://script/system/debate/ui/hand_ui.gd" id="20_mjdc4"]
-[ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://prefab/debate/basic_dialogue_bubble.tscn" id="20_tg4at"]
-[ext_resource type="PackedScene" uid="uid://bsyesuw4ujeei" path="res://prefab/debate/tops_board.tscn" id="21_3pae8"]
+[ext_resource type="Script" path="res://script/debate/ui/hand_ui.gd" id="20_mjdc4"]
+[ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/prefab/basic_dialogue_bubble.tscn" id="20_tg4at"]
+[ext_resource type="PackedScene" uid="uid://bsyesuw4ujeei" path="res://debate/prefab/tops_board.tscn" id="21_3pae8"]
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="23_xw7h0"]
-[ext_resource type="Script" path="res://script/system/debate/ui/draw_pile_ui.gd" id="27_rccvm"]
-[ext_resource type="Script" path="res://script/system/debate/ui/energy_ui.gd" id="29_fljj8"]
+[ext_resource type="Script" path="res://script/debate/ui/draw_pile_ui.gd" id="27_rccvm"]
+[ext_resource type="Script" path="res://script/debate/ui/energy_ui.gd" id="29_fljj8"]
 
 [sub_resource type="Animation" id="Animation_frnpg"]
 resource_name = "close_debate_cutscene"
@@ -260,30 +260,30 @@ bones/2/position = Vector3(-2.86769e-07, 0.159203, -0.0400985)
 bones/2/rotation = Quaternion(0.0116878, -0.00329749, -3.86268e-05, 0.999926)
 bones/3/rotation = Quaternion(0.00798962, 0.00330131, -2.63753e-05, 0.999963)
 bones/5/rotation = Quaternion(-0.144639, -0.00668905, -0.000967961, 0.989461)
-bones/7/rotation = Quaternion(-0.580478, -0.119781, -0.0279731, 0.804932)
-bones/8/rotation = Quaternion(9.858e-08, 0.102246, -1.42892e-07, 0.994759)
-bones/9/rotation = Quaternion(1.72196e-07, -1.15006e-07, 0.271547, 0.962425)
-bones/10/rotation = Quaternion(-3.98357e-08, -0.129919, -7.34075e-09, 0.991525)
-bones/11/rotation = Quaternion(-0.0632417, -0.126689, -0.000445258, 0.989924)
-bones/13/rotation = Quaternion(-0.578678, 0.131545, 0.0427212, 0.803743)
-bones/14/rotation = Quaternion(3.50676e-07, -0.10206, 2.06284e-07, 0.994778)
-bones/15/rotation = Quaternion(4.05005e-07, 1.45896e-07, -0.308984, 0.951067)
-bones/16/rotation = Quaternion(-1.59428e-08, 0.140218, 6.7251e-09, 0.990121)
-bones/17/rotation = Quaternion(-0.035111, 0.136708, 0.0304577, 0.98952)
+bones/7/rotation = Quaternion(-0.575372, -0.152976, -0.0682861, 0.800552)
+bones/8/rotation = Quaternion(4.73174e-08, 0.102689, -5.25515e-08, 0.994714)
+bones/9/rotation = Quaternion(-4.78241e-08, -5.63073e-08, 0.374687, 0.927152)
+bones/10/rotation = Quaternion(4.24743e-08, -0.111292, 7.81399e-08, 0.993788)
+bones/11/rotation = Quaternion(-0.111079, -0.101359, -0.041304, 0.987766)
+bones/13/rotation = Quaternion(-0.569459, 0.148267, 0.0772291, 0.804841)
+bones/14/rotation = Quaternion(2.75906e-07, -0.0930115, 1.68067e-07, 0.995665)
+bones/15/rotation = Quaternion(3.94698e-07, 1.18835e-07, -0.381652, 0.924306)
+bones/16/rotation = Quaternion(-4.52109e-10, 0.137188, 6.5868e-09, 0.990545)
+bones/17/rotation = Quaternion(-0.0693393, 0.128598, 0.0607911, 0.9874)
 bones/18/position = Vector3(0.094034, 0.00278217, -6.57848e-07)
-bones/18/rotation = Quaternion(0.855565, 0.0298472, 0.516817, 0.00430818)
-bones/19/rotation = Quaternion(4.65661e-09, 7.3429e-08, -1.07102e-08, 1)
-bones/20/rotation = Quaternion(3.34942e-08, -3.63642e-08, 0.0721577, 0.997393)
-bones/21/rotation = Quaternion(0.278177, 0.733255, -0.453761, 0.423151)
-bones/22/rotation = Quaternion(0.00162606, 0.978574, 0.205892, 2.70406e-05)
-bones/23/rotation = Quaternion(-6.0536e-09, -8.59727e-08, -8.3819e-09, 1)
+bones/18/rotation = Quaternion(0.863052, 0.0377799, 0.50358, -0.0110196)
+bones/19/rotation = Quaternion(1.54076e-08, 0.0147059, -1.01081e-08, 0.999892)
+bones/20/rotation = Quaternion(2.26592e-08, -6.78995e-08, 0.0531774, 0.998585)
+bones/21/rotation = Quaternion(0.250824, 0.737873, -0.462232, 0.423051)
+bones/22/rotation = Quaternion(0.00162605, 0.978573, 0.205892, 2.70165e-05)
+bones/23/rotation = Quaternion(5.30003e-09, 0.0167995, -2.8521e-09, 0.999859)
 bones/24/position = Vector3(-0.094034, 0.00278228, 6.46982e-07)
-bones/24/rotation = Quaternion(0.855561, -0.0298459, -0.516823, 0.0043076)
-bones/25/rotation = Quaternion(-1.86265e-09, 1.05705e-07, 5.12227e-09, 1)
-bones/26/rotation = Quaternion(1.34583e-08, 4.3486e-08, -0.0721547, 0.997393)
-bones/27/rotation = Quaternion(-0.278176, 0.733255, -0.45376, -0.423151)
-bones/28/rotation = Quaternion(-0.00162599, 0.978574, 0.205891, -2.72147e-05)
-bones/29/rotation = Quaternion(-1.39698e-09, 2.51399e-07, -5.3551e-09, 1)
+bones/24/rotation = Quaternion(0.862917, -0.0383962, -0.503778, -0.0103862)
+bones/25/rotation = Quaternion(7.4631e-09, -0.0144891, 2.67262e-09, 0.999895)
+bones/26/rotation = Quaternion(2.76611e-08, -2.44986e-08, -0.0536488, 0.99856)
+bones/27/rotation = Quaternion(-0.250737, 0.737975, -0.461851, -0.423342)
+bones/28/rotation = Quaternion(-0.00162598, 0.978574, 0.205891, -2.71982e-05)
+bones/29/rotation = Quaternion(9.05134e-11, -0.016563, 6.39521e-09, 0.999863)
 
 [node name="Arm_L" parent="Joy/root/Skeleton3D" index="0"]
 layers = 2

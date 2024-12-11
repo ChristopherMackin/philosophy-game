@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TopData" load_steps=4 format=3 uid="uid://crvid8h870ryr"]
 
-[ext_resource type="Texture2D" uid="uid://cxg1vi58g02wv" path="res://asset/graphic/debate/top/BasicOthersTex.png" id="1_5fuur"]
+[ext_resource type="Texture2D" uid="uid://cxg1vi58g02wv" path="res://asset/graphic/debate/top/basic_others_tex.png" id="1_5fuur"]
 [ext_resource type="Script" path="res://script/system/top/top_data.gd" id="1_e32fx"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/pose/others.tres" id="1_f6egs"]
 

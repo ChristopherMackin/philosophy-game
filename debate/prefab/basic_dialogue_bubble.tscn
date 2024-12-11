@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://x6gdbsfbnihf"]
 
-[ext_resource type="Texture2D" uid="uid://33p4i0eyh11w" path="res://asset/graphic/debate/dialogue_area/DialogueBubble.png" id="1_841q7"]
+[ext_resource type="Texture2D" uid="uid://33p4i0eyh11w" path="res://asset/graphic/debate/dialogue_area/dialogue_bubble.png" id="1_841q7"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="2_d4jjk"]
-[ext_resource type="Script" path="res://prefab/debate/dialogue_bubble.gd" id="2_gik7h"]
+[ext_resource type="Script" path="res://script/ui/dialogue_bubble.gd" id="2_gik7h"]
 [ext_resource type="Script" path="res://script/ui/scrolling-text.gd" id="3_fjgyg"]
 
 [node name="BasicDialogueBubble" type="TextureRect" node_paths=PackedStringArray("scrolling_text")]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DebateSettings" load_steps=6 format=3 uid="uid://r4ejaxobo8yy"]
 
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/pose/faith.tres" id="1_ahfvr"]
-[ext_resource type="Script" path="res://script/system/debate/debate_settings.gd" id="1_cdwd0"]
+[ext_resource type="Script" path="res://script/debate/debate_settings.gd" id="1_cdwd0"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/pose/doubt.tres" id="2_6wgoi"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/pose/self.tres" id="3_b7hh7"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/pose/others.tres" id="4_0cppg"]

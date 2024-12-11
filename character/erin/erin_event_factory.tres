@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=15 format=3 uid="uid://3dnw0mevj0a1"]
+
+[ext_resource type="Resource" uid="uid://b7rb23e2wj842" path="res://character/erin/event/major_event_test.tres" id="1_d4aj4"]
+[ext_resource type="Script" path="res://script/character/debate_event_factory/rule/criterion/character_criterion.gd" id="2_s5ieb"]
+[ext_resource type="Script" path="res://script/character/debate_event_factory/rule/criterion/debate_criterion.gd" id="3_n4afd"]
+[ext_resource type="Script" path="res://script/character/debate_event_factory/rule/rule.gd" id="4_j354b"]
+[ext_resource type="Script" path="res://script/character/debate_event_factory/event_factory_payload.gd" id="5_f3ytp"]
+[ext_resource type="Resource" uid="uid://bbcwubcmwcoju" path="res://character/erin/event/small_event_test.tres" id="6_v7vl7"]
+[ext_resource type="Script" path="res://script/character/debate_event_factory/ordered_event_factory.gd" id="7_koiv1"]
+
+[sub_resource type="Resource" id="Resource_fdeyc"]
+script = ExtResource("2_s5ieb")
+character_name = "erin"
+key = 1
+comparator = 0
+value = "false"
+
+[sub_resource type="Resource" id="Resource_nonn6"]
+script = ExtResource("3_n4afd")
+key = 0
+comparator = 0
+value = "basic_faith"
+
+[sub_resource type="Resource" id="Resource_bqw0w"]
+script = ExtResource("3_n4afd")
+key = 7
+comparator = 4
+value = "3"
+
+[sub_resource type="Resource" id="Resource_o0oqa"]
+script = ExtResource("4_j354b")
+concept = "on_top_played"
+criteria = Array[Resource("res://script/character/debate_event_factory/rule/criterion/criterion.gd")]([SubResource("Resource_fdeyc"), SubResource("Resource_nonn6"), SubResource("Resource_bqw0w")])
+
+[sub_resource type="Resource" id="Resource_4igg7"]
+script = ExtResource("5_f3ytp")
+event = ExtResource("1_d4aj4")
+rule = SubResource("Resource_o0oqa")
+
+[sub_resource type="Resource" id="Resource_y4n7a"]
+script = ExtResource("4_j354b")
+concept = "on_top_played"
+criteria = Array[Resource("res://script/character/debate_event_factory/rule/criterion/criterion.gd")]([])
+
+[sub_resource type="Resource" id="Resource_74gte"]
+script = ExtResource("5_f3ytp")
+event = ExtResource("6_v7vl7")
+rule = SubResource("Resource_y4n7a")
+
+[resource]
+script = ExtResource("7_koiv1")
+payload_list = Array[ExtResource("5_f3ytp")]([SubResource("Resource_4igg7"), SubResource("Resource_74gte")])

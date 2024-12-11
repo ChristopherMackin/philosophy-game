@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdjdo8l7nn2l3"]
+
+[ext_resource type="PackedScene" uid="uid://c5hmf0nujds77" path="res://asset/model/character/joy/joy.glb" id="1_onlri"]
+[ext_resource type="Script" path="res://script/facial_animator.gd" id="2_b7t4a"]
+
+[node name="Joy" instance=ExtResource("1_onlri")]
+
+[node name="Skeleton3D" parent="root" index="0"]
+bones/1/rotation = Quaternion(-4.86768e-08, -3.66371e-06, -2.2011e-12, 1)
+bones/2/position = Vector3(-2.86769e-07, 0.159203, -0.0400985)
+bones/2/rotation = Quaternion(0.0116878, -0.00329749, -3.86268e-05, 0.999926)
+bones/7/rotation = Quaternion(-0.575372, -0.152976, -0.0682861, 0.800552)
+bones/8/rotation = Quaternion(4.73174e-08, 0.102689, -5.25515e-08, 0.994714)
+bones/9/rotation = Quaternion(-4.78241e-08, -5.63073e-08, 0.374687, 0.927152)
+bones/10/rotation = Quaternion(4.24743e-08, -0.111292, 7.81399e-08, 0.993788)
+bones/11/rotation = Quaternion(-0.111079, -0.101359, -0.041304, 0.987766)
+bones/13/rotation = Quaternion(-0.569459, 0.148267, 0.0772291, 0.804841)
+bones/14/rotation = Quaternion(2.75906e-07, -0.0930115, 1.68067e-07, 0.995665)
+bones/15/rotation = Quaternion(3.94698e-07, 1.18835e-07, -0.381652, 0.924306)
+bones/16/rotation = Quaternion(-4.52109e-10, 0.137188, 6.5868e-09, 0.990545)
+bones/17/rotation = Quaternion(-0.0693393, 0.128598, 0.0607911, 0.9874)
+bones/18/position = Vector3(0.094034, 0.00278217, -6.57848e-07)
+bones/18/rotation = Quaternion(0.863052, 0.0377799, 0.50358, -0.0110196)
+bones/19/rotation = Quaternion(1.54076e-08, 0.0147059, -1.01081e-08, 0.999892)
+bones/20/rotation = Quaternion(2.26592e-08, -6.78995e-08, 0.0531774, 0.998585)
+bones/21/rotation = Quaternion(0.250824, 0.737873, -0.462232, 0.423051)
+bones/22/rotation = Quaternion(0.00162605, 0.978573, 0.205892, 2.70165e-05)
+bones/23/rotation = Quaternion(5.30003e-09, 0.0167995, -2.8521e-09, 0.999859)
+bones/24/position = Vector3(-0.094034, 0.00278228, 6.46982e-07)
+bones/24/rotation = Quaternion(0.862917, -0.0383962, -0.503778, -0.0103862)
+bones/25/rotation = Quaternion(7.4631e-09, -0.0144891, 2.67262e-09, 0.999895)
+bones/26/rotation = Quaternion(2.76611e-08, -2.44986e-08, -0.0536488, 0.99856)
+bones/27/rotation = Quaternion(-0.250737, 0.737975, -0.461851, -0.423342)
+bones/28/rotation = Quaternion(-0.00162598, 0.978574, 0.205891, -2.71982e-05)
+bones/29/rotation = Quaternion(9.05134e-11, -0.016563, 6.39521e-09, 0.999863)
+
+[node name="FacialAnimator" type="Node3D" parent="." index="1"]
+script = ExtResource("2_b7t4a")
+min_blink_offset = 1.4
+max_blink_offset = 3.2
