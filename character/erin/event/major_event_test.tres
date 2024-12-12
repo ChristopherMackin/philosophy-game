@@ -8,19 +8,19 @@
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_ges02")
 
-[sub_resource type="Resource" id="Resource_j4q2p"]
+[sub_resource type="Resource" id="Resource_i85h8"]
 script = ExtResource("3_cco6v")
 outputs = Array[int]([2])
 inputs = ["open_debate_cutscene", "", true]
 action = SubResource("Resource_ml60a")
 
-[sub_resource type="Resource" id="Resource_rir62"]
+[sub_resource type="Resource" id="Resource_ywsry"]
 script = ExtResource("3_cco6v")
 outputs = Array[int]([3])
 inputs = ["close_debate_cutscene", "", true]
 action = SubResource("Resource_ml60a")
 
-[sub_resource type="Resource" id="Resource_rgh1p"]
+[sub_resource type="Resource" id="Resource_ctc7c"]
 script = ExtResource("3_cco6v")
 outputs = Array[int]([1])
 inputs = ["erin_cutscene_01", "", true]
@@ -29,15 +29,15 @@ action = SubResource("Resource_ml60a")
 [sub_resource type="Resource" id="Resource_mdms2"]
 script = ExtResource("4_6i5cq")
 
-[sub_resource type="Resource" id="Resource_afsen"]
+[sub_resource type="Resource" id="Resource_k7dm0"]
 script = ExtResource("3_cco6v")
 outputs = Array[int]([])
-inputs = ["res://system/character/erin/erin_memory.tres", 1, "true"]
+inputs = ["res://character/erin/erin_memory.tres", 1, "true"]
 action = SubResource("Resource_mdms2")
 
 [resource]
 script = ExtResource("1_3kfrw")
 is_major_event = true
 await_event = true
-start_task = SubResource("Resource_j4q2p")
-tasks = Array[ExtResource("3_cco6v")]([SubResource("Resource_j4q2p"), SubResource("Resource_rir62"), SubResource("Resource_rgh1p"), SubResource("Resource_afsen")])
+start_task = SubResource("Resource_i85h8")
+tasks = Array[ExtResource("3_cco6v")]([SubResource("Resource_i85h8"), SubResource("Resource_ywsry"), SubResource("Resource_ctc7c"), SubResource("Resource_k7dm0")])

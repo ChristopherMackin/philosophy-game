@@ -49,3 +49,6 @@ func play_animation(name : String, actor : String, await_animation : bool):
 	animation_handler.start_animation(name)
 	
 	if await_animation: await animation_handler.on_animation_finished
+
+func cancel_animation(actor):
+	pass
