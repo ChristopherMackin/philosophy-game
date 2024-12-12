@@ -34,6 +34,9 @@ enabled=PackedStringArray("res://addons/event_tree_plugin/plugin.cfg")
 scene={
 "gltf/embedded_image_handling": 3
 }
+animation_library={
+"animation/remove_immutable_tracks": false
+}
 
 [input]
 
