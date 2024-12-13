@@ -3,7 +3,7 @@ extends Control
 
 class_name DialogueBubble
 
-signal on_stop_dialogue
+signal on_dialogue_finished
 
 @export var scrolling_text : ScrollingText
 
@@ -13,7 +13,7 @@ signal on_stop_dialogue
 func _ready():
 	set_speed_to_normal()
 	
-	scrolling_text.on_scroll_completed.connect(func(): on_stop_dialogue.emit())
+	scrolling_text.on_scroll_completed.connect(func(): on_dialogue_finished.emit())
 
 func set_text(text : String):
 	scrolling_text.set_scrolling_text(text)

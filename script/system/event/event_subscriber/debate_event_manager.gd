@@ -5,7 +5,7 @@ class_name DebateEventSubscriber
 @export var scene_animator : Node
 @export var actors : Array[Node]
 
-func display_dialogue(line : String, actor : String):
+func display_dialogue(line : String, actor : String, await_input : bool, seconds_before_close : float):
 	var index = actors.map(func(x): return x.name).find(actor)
 	if index < 0:
 		return
@@ -16,7 +16,9 @@ func display_dialogue(line : String, actor : String):
 	 = parent.get_node_or_null(NodePath("DialogueHandler"))
 	
 	dialogue_handler.start_dialogue.call_deferred(line)
-	await dialogue_handler.on_stop_dialogue
+	await dialogue_handler.on_dialogue_finished
+	await GlobalTimer.wait_for_seconds(seconds_before_close)
+	dialogue_handler.close_dialogue()
 
 func cancel_dialogue(actor):
 	var index = actors.map(func(x): return x.name).find(actor)
@@ -51,4 +53,19 @@ func play_animation(name : String, actor : String, await_animation : bool):
 	if await_animation: await animation_handler.on_animation_finished
 
 func cancel_animation(actor):
-	pass
+	var parent
+	
+	if actor != "":
+		var index = actors.map(func(x): return x.name).find(actor)
+		
+		if index < 0:
+			return
+			
+		parent = actors[index]
+	
+	else:
+		parent = scene_animator
+	
+	var animation_handler : AnimationHandler = parent.get_node_or_null(NodePath("AnimationHandler"))
+	
+	animation_handler.cancel_animation()

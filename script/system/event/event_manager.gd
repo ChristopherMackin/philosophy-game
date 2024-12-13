@@ -25,8 +25,8 @@ func start_event(event : Event):
 		var index = await current_task.invoke(self)
 		current_task = event.get_task(index)
 
-func display_dialogue(text : String, actor : String):
-	for sub : EventSubscriber in subscriber_array: await sub.display_dialogue(text, actor)
+func display_dialogue(text : String, actor : String, await_input : bool, seconds_before_close : float):
+	for sub : EventSubscriber in subscriber_array: await sub.display_dialogue(text, actor, await_input, seconds_before_close)
 
 func cancel_dialogue(actor : String):
 		for sub : EventSubscriber in subscriber_array: await sub.cancel_dialogue(actor)

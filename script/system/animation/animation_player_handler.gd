@@ -10,5 +10,5 @@ func _ready():
 func start_animation(name : String):
 	animation_player.play(name)
 
-func cancel_animation(name : String):
+func cancel_animation():
 	animation_player.play("RESET")

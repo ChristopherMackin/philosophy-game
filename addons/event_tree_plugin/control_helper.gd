@@ -15,6 +15,9 @@ static func get_value(control : Control):
 		return control.get_item_id(control.selected)
 
 static func set_value(control : Control, value = null):
+	if !value:
+		return
+	
 	if control is TextEdit:
 		control.text = value 
 	if control is SpinBox:

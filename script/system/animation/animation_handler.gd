@@ -7,5 +7,5 @@ signal on_animation_finished()
 func start_animation(name : String):
 	pass
 
-func cancel_animation(name : String):
+func cancel_animation():
 	pass

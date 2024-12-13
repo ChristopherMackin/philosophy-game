@@ -7,7 +7,7 @@ class_name EventSubscriber
 func _ready():
 	manager.subscribe(self)
 
-func display_dialogue(line : String, actor : String):
+func display_dialogue(line : String, actor : String, await_input : bool, seconds_before_close : float):
 	pass
 
 func cancel_dialogue(actor : String):
