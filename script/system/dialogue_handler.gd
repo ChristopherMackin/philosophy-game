@@ -24,3 +24,6 @@ func close_dialogue():
 func dialogue_finished():
 	facial_animator.mouth_state = FacialAnimator.MouthState.CLOSED
 	on_dialogue_finished.emit()
+
+func cancel_dialogue():
+	close_dialogue()

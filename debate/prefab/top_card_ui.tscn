@@ -141,12 +141,13 @@ expand_mode = 1
 layout_mode = 0
 offset_left = 14.0
 offset_top = 69.0
-offset_right = 150.0
+offset_right = 154.0
 offset_bottom = 145.0
 scale = Vector2(1, 1.00499)
-text = "BASIC FAITH"
+text = "Basic Faith"
 label_settings = SubResource("LabelSettings_vsrqx")
 autowrap_mode = 3
+uppercase = true
 
 [node name="Selector" type="TextureRect" parent="."]
 visible = false

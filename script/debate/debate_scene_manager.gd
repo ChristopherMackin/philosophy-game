@@ -35,7 +35,6 @@ func on_player_change(contestant : Contestant):
 	print("%s's turn" % contestant.name)
 	if contestant.character == player:
 		selection_manager.continue_ui_input()
-		hand_ui.update_hand(manager.player.hand)
 		energy_ui.update_amount(contestant.current_energy)
 		draw_pile_ui.update_amount(contestant.deck.count)
 	else:
@@ -46,7 +45,6 @@ func on_player_change(contestant : Contestant):
 func on_top_played(top: Top, active_contestant : Contestant):
 	if active_contestant.character == player:
 		energy_ui.update_amount(active_contestant.current_energy)
-		draw_pile_ui.update_amount(active_contestant.deck.count)
 		hand_ui.remove_card(top)
 		await player_3d.play_top(top)
 
@@ -78,3 +76,7 @@ func query_event(concept : String):
 	else:
 		event_manager.start_event(event)
 
+func on_hand_updated(contestant : Contestant):
+	if(contestant.character == player):
+		hand_ui.update_hand(manager.player.hand)
+		draw_pile_ui.update_amount(manager.player.deck.count)

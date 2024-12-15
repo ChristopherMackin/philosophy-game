@@ -2,6 +2,8 @@ extends Object
 
 class_name Contestant
 
+signal on_hand_updated(contestant)
+
 var character : Character
 var hand : Array[Top] = []
 
@@ -29,6 +31,7 @@ func ready_up():
 	deck.initialize_deck()
 	draw_full_hand()
 	current_energy = energy_limit
+	on_hand_updated.emit(self)
 
 func take_turn() -> Top:
 	var top = await brain.pick_top()
@@ -45,14 +48,25 @@ func clean_up():
 	current_energy = energy_limit
 
 func draw_full_hand():
-	var added_tops = []
+	var is_draw_pile_empty = false
+	while hand.size() < hand_limit && !is_draw_pile_empty:
+		is_draw_pile_empty = !_draw_top()
+	on_hand_updated.emit(self)
+
+func draw_number_of_tops(amount : int):
+	var is_draw_pile_empty = false
+	while amount > 0 && !is_draw_pile_empty:
+		is_draw_pile_empty = !_draw_top()
+		amount -= 1
+	on_hand_updated.emit(self)
+
+func _draw_top() -> bool:
+	var top = deck.draw_top()
+	if top == null:
+		return false
 	
-	while hand.size() < hand_limit:
-		var top = deck.draw_top()
-		if top == null:
-			break
-		hand.append(top)
-		added_tops.append(top)
+	hand.append(top)
+	return true
 
 func play_top(top : Top):
 	var index = hand.find(top)

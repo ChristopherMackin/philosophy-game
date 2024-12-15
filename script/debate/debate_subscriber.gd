@@ -23,3 +23,6 @@ func on_lines_cleared(count : int):
 
 func on_debate_finished():
 	pass
+
+func on_hand_updated(contestant : Contestant):
+	pass
