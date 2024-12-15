@@ -15,6 +15,12 @@ var top : Top:
 		top = val
 		update_card.call_deferred(top)
 
+func _process(delta):
+	if !top:
+			return
+		
+	cost.text = str(top.data.cost)
+
 func update_card(top : Top) :
 		if !top:
 			return

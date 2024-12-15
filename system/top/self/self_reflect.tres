@@ -11,7 +11,7 @@ draw_amount = 1
 
 [resource]
 script = ExtResource("4_o44kk")
-cost = 1
+base_cost = 1
 pose = ExtResource("3_7dyqs")
 title = "Self Reflect"
 artwork = ExtResource("2_rksst")

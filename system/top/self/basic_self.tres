@@ -6,8 +6,9 @@
 
 [resource]
 script = ExtResource("1_vg5w8")
-cost = 1
+base_cost = 1
 pose = ExtResource("1_jibq5")
 title = "Basic Self"
 artwork = ExtResource("1_xb68w")
 description = "Add one faith top to the track"
+tags = Array[int]([])

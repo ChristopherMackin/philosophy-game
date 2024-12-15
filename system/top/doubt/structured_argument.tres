@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TopData" load_steps=6 format=3 uid="uid://cmleqdg6uf1gt"]
+
+[ext_resource type="Script" path="res://script/system/top/top_data.gd" id="1_1laxv"]
+[ext_resource type="Script" path="res://script/system/top/top_cost_modifier/cost_minus_tag_top_action.gd" id="2_br3kr"]
+[ext_resource type="Texture2D" uid="uid://cpasg5witafv0" path="res://asset/graphic/debate/top/basic_doubt_tex.png" id="2_gg6pw"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/pose/doubt.tres" id="3_qwj1p"]
+
+[sub_resource type="Resource" id="Resource_b63o0"]
+script = ExtResource("2_br3kr")
+tag = 0
+
+[resource]
+script = ExtResource("1_1laxv")
+base_cost = 3
+pose = ExtResource("3_qwj1p")
+title = "Structured Argument"
+artwork = ExtResource("2_gg6pw")
+description = "Place 2 \"Structured Argument\" tops. -1 cost for each \"pentagram\" in play"
+cost_modifier = SubResource("Resource_b63o0")
+tags = Array[int]([])

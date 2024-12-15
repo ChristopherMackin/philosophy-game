@@ -115,7 +115,7 @@ func active_player_turn():
 		
 		for sub : DebateSubscriber in subscriber_array: await sub.on_top_played(top, active_contestant)
 		
-		top.data.action.invoke(self)
+		top.data.action.invoke()
 		
 		clear_lines()
 	

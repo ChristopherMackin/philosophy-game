@@ -6,9 +6,9 @@
 
 [resource]
 script = ExtResource("1_wsbuc")
-cost = 1
+base_cost = 1
 pose = ExtResource("1_tj2a4")
 title = "Basic Doubt"
 artwork = ExtResource("1_6qr0d")
-description = "Add one doubt top to the track"
-tags = Array[int]([])
+description = "Does nothing"
+tags = Array[int]([0])

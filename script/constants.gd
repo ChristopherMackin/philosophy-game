@@ -12,3 +12,7 @@ const vocabulary_words : Array = [
 		"description": "The ability to wait"
 	}
 ]
+
+enum Tag {
+	PENTAGRAM,
+}

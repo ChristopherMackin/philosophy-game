@@ -7,4 +7,8 @@ var data : TopData
 
 func _init(top_data: TopData, manager : DebateManager):
 	data = top_data
-	data.action.set_manager(manager)
+	data.action.manager = manager
+	data.action.top_data = top_data
+	
+	data.cost_modifier.manager = manager
+	data.cost_modifier.top_data = top_data

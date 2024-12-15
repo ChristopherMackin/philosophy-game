@@ -3,9 +3,7 @@ extends Resource
 class_name TopAction
 
 var manager : DebateManager
+var top_data : TopData
 
-func set_manager(manager : DebateManager):
-	self.manager = manager
-
-func invoke(manager: DebateManager):
+func invoke():
 	pass

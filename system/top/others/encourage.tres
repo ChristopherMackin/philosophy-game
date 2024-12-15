@@ -11,7 +11,7 @@ amount = 1
 
 [resource]
 script = ExtResource("1_uwhxo")
-cost = 0
+base_cost = 0
 pose = ExtResource("2_b2ikh")
 title = "Encourage"
 artwork = ExtResource("1_dpxgu")
