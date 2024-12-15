@@ -17,3 +17,4 @@ title = "Self Reflect"
 artwork = ExtResource("2_rksst")
 description = "Draw a top"
 action = SubResource("Resource_vs1vu")
+tags = Array[int]([])

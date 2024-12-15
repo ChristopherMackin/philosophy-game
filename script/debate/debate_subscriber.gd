@@ -26,3 +26,9 @@ func on_debate_finished():
 
 func on_hand_updated(contestant : Contestant):
 	pass
+
+func on_energy_updated(contestant : Contestant):
+	pass
+
+func on_deck_updated(contestant : Contestant):
+	pass

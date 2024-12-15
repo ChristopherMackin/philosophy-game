@@ -8,3 +8,4 @@ class_name TopData
 @export var artwork : Texture2D
 @export_multiline var description : String
 @export var action : TopAction = TopAction.new()
+@export var tags : Array[TopTags.Tag]

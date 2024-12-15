@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://b31uxtxyvdwi3"]
+[gd_scene load_steps=47 format=3 uid="uid://b31uxtxyvdwi3"]
 
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_ndrkp"]
 [ext_resource type="PackedScene" uid="uid://bqwn6fre04ypq" path="res://character/joy/joy.tscn" id="1_xnrq5"]
@@ -30,7 +30,11 @@
 [ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/prefab/basic_dialogue_bubble.tscn" id="20_tg4at"]
 [ext_resource type="PackedScene" uid="uid://bsyesuw4ujeei" path="res://debate/prefab/tops_board.tscn" id="21_3pae8"]
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="23_xw7h0"]
+[ext_resource type="Texture2D" uid="uid://qrki8ns1v7yd" path="res://asset/graphic/debate/dialogue_area/opponent_stats_area.png" id="25_fgp7s"]
+[ext_resource type="Texture2D" uid="uid://ch4ojaii0egr2" path="res://asset/graphic/debate/stats_area/hand_icon.png" id="26_e8ypw"]
 [ext_resource type="Script" path="res://script/debate/ui/draw_pile_ui.gd" id="27_rccvm"]
+[ext_resource type="SystemFont" uid="uid://bq3uhh525apgr" path="res://asset/font/jura.tres" id="27_ykilv"]
+[ext_resource type="Script" path="res://level/debate/hand_count_ui.gd" id="28_ej6t0"]
 [ext_resource type="Script" path="res://script/debate/ui/energy_ui.gd" id="29_fljj8"]
 
 [sub_resource type="Animation" id="Animation_frnpg"]
@@ -157,7 +161,7 @@ load_path = "res://.godot/imported/SpeechPlayAreaDivider.png-74f79cdec84b2a91ade
 [node name="===MANAGER========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="DebateSceneManager" type="Node3D" parent="." node_paths=PackedStringArray("selection_manager", "player_3d", "computer_3d", "tops_board", "hand_ui", "energy_ui", "draw_pile_ui")]
+[node name="DebateSceneManager" type="Node3D" parent="." node_paths=PackedStringArray("selection_manager", "player_3d", "computer_3d", "tops_board", "hand_ui", "energy_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
 script = ExtResource("1_ndrkp")
 debate_settings = ExtResource("4_q8shw")
 event_manager = ExtResource("7_0u80y")
@@ -170,6 +174,8 @@ tops_board = NodePath("../ThriftShopTable/TopsBoard")
 hand_ui = NodePath("../PlayArea/StatsArea/MarginContainer/Hand")
 energy_ui = NodePath("../PlayArea/StatsArea/Energy/Count")
 draw_pile_ui = NodePath("../PlayArea/StatsArea/DrawPile/Count")
+computer_energy_ui = NodePath("../PlayArea/DialogueArea/ComputerStatsArea/MarginContainer/VBoxContainer/Energy/Count")
+computer_hand_ui = NodePath("../PlayArea/DialogueArea/ComputerStatsArea/MarginContainer/VBoxContainer/Hand/Count")
 manager = ExtResource("5_k216a")
 
 [node name="EventManager" type="Node3D" parent="." node_paths=PackedStringArray("scene_animator", "actors")]
@@ -411,7 +417,7 @@ layers = Array[bool]([false, true, false, false, false, false, false, false, fal
 [node name="DialogueHandler" type="Node" parent="Joy" node_paths=PackedStringArray("facial_animator", "default_dialogue_bubble")]
 script = ExtResource("16_4lk6v")
 facial_animator = NodePath("../FacialAnimator")
-default_dialogue_bubble = NodePath("../../PlayArea/DialogueArea/Player/DialogueBubbles/BasicDialogueBubble")
+default_dialogue_bubble = NodePath("../../PlayArea/DialogueArea/Contestants/Player/DialogueBubbles/BasicDialogueBubble")
 
 [node name="AnimationHandler" type="Node" parent="Joy" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("8_lncrh")
@@ -513,7 +519,7 @@ layers = Array[bool]([false, false, true, false, false, false, false, false, fal
 [node name="DialogueHandler" type="Node" parent="Erin" node_paths=PackedStringArray("facial_animator", "default_dialogue_bubble")]
 script = ExtResource("16_4lk6v")
 facial_animator = NodePath("../FacialAnimator")
-default_dialogue_bubble = NodePath("../../PlayArea/DialogueArea/Computer/DialogueBubbles/BasicDialogueBubble")
+default_dialogue_bubble = NodePath("../../PlayArea/DialogueArea/Contestants/Computer/DialogueBubbles/BasicDialogueBubble")
 
 [node name="===UI========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -557,18 +563,25 @@ material = SubResource("ShaderMaterial_2n0su")
 anchors_preset = -1
 anchor_left = 0.344
 anchor_top = 0.759
-anchor_right = 1.0
+anchor_right = 0.946
 anchor_bottom = 1.0
 offset_left = -0.480022
 offset_top = 0.279996
-offset_right = -0.47998
-offset_bottom = 0.280029
+offset_right = 103.68
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("18_bxdk1")
 stretch_mode = 1
 
-[node name="Player" type="Control" parent="PlayArea/DialogueArea"]
+[node name="Contestants" type="Control" parent="PlayArea/DialogueArea"]
+layout_mode = 1
+anchor_right = 0.873
+anchor_bottom = 1.0
+offset_right = 0.0199676
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player" type="Control" parent="PlayArea/DialogueArea/Contestants"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -576,32 +589,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayerViewport" type="SubViewportContainer" parent="PlayArea/DialogueArea/Player"]
+[node name="PlayerViewport" type="SubViewportContainer" parent="PlayArea/DialogueArea/Contestants/Player"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.048
 anchor_top = 1.0
 anchor_right = 0.048
 anchor_bottom = 1.0
-offset_left = -0.479972
-offset_top = -260.0
-offset_right = 599.52
+offset_left = -0.47997
+offset_right = 550.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="SubViewport" type="SubViewport" parent="PlayArea/DialogueArea/Player/PlayerViewport"]
+[node name="SubViewport" type="SubViewport" parent="PlayArea/DialogueArea/Contestants/Player/PlayerViewport"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(600, 260)
+size = Vector2i(550, 260)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="PlayArea/DialogueArea/Player/PlayerViewport/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="PlayArea/DialogueArea/Contestants/Player/PlayerViewport/SubViewport"]
 transform = Transform3D(-0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 0.194, 1.363, 0.002)
 cull_mask = 2
 environment = ExtResource("4_kq3ts")
 fov = 60.0
 
-[node name="DialogueBubbles" type="Control" parent="PlayArea/DialogueArea/Player"]
+[node name="DialogueBubbles" type="Control" parent="PlayArea/DialogueArea/Contestants/Player"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -609,25 +621,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BasicDialogueBubble" parent="PlayArea/DialogueArea/Player/DialogueBubbles" instance=ExtResource("20_tg4at")]
+[node name="BasicDialogueBubble" parent="PlayArea/DialogueArea/Contestants/Player/DialogueBubbles" instance=ExtResource("20_tg4at")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.243
+anchor_left = 0.287
 anchor_top = 0.115
-anchor_right = 0.633
+anchor_right = 0.72
 anchor_bottom = 0.884
-offset_left = -0.0633844
-offset_top = 0.0677961
-offset_right = 8.72381
-offset_bottom = -0.0875623
+offset_left = -18.772
+offset_top = 0.0677958
+offset_right = 4.92795
+offset_bottom = 0.127803
 flip_h = true
 
-[node name="ScrollingText" parent="PlayArea/DialogueArea/Player/DialogueBubbles/BasicDialogueBubble" index="0"]
+[node name="ScrollingText" parent="PlayArea/DialogueArea/Contestants/Player/DialogueBubbles/BasicDialogueBubble" index="0"]
 anchor_left = 0.146
 anchor_right = 1.0
 characters_per_second = 20
 
-[node name="Computer" type="Control" parent="PlayArea/DialogueArea"]
+[node name="Computer" type="Control" parent="PlayArea/DialogueArea/Contestants"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -635,31 +647,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ComputerViewport" type="SubViewportContainer" parent="PlayArea/DialogueArea/Computer"]
+[node name="ComputerViewport" type="SubViewportContainer" parent="PlayArea/DialogueArea/Contestants/Computer"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -600.0
-offset_top = -260.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="SubViewport" type="SubViewport" parent="PlayArea/DialogueArea/Computer/ComputerViewport"]
+[node name="SubViewport" type="SubViewport" parent="PlayArea/DialogueArea/Contestants/Computer/ComputerViewport"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(600, 260)
+size = Vector2i(550, 260)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="PlayArea/DialogueArea/Computer/ComputerViewport/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="PlayArea/DialogueArea/Contestants/Computer/ComputerViewport/SubViewport"]
 transform = Transform3D(0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 0.194, 1.38642, 0.0415174)
 cull_mask = 4
 environment = ExtResource("4_kq3ts")
 fov = 60.0
 
-[node name="DialogueBubbles" type="Control" parent="PlayArea/DialogueArea/Computer"]
+[node name="DialogueBubbles" type="Control" parent="PlayArea/DialogueArea/Contestants/Computer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -667,29 +677,121 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BasicDialogueBubble" parent="PlayArea/DialogueArea/Computer/DialogueBubbles" instance=ExtResource("20_tg4at")]
+[node name="BasicDialogueBubble" parent="PlayArea/DialogueArea/Contestants/Computer/DialogueBubbles" instance=ExtResource("20_tg4at")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.388
+anchor_left = 0.344
 anchor_top = 0.115
-anchor_right = 0.785
+anchor_right = 0.777
 anchor_bottom = 0.884
-offset_left = 0.306218
-offset_top = 0.0677961
-offset_right = 0.276752
-offset_bottom = -0.0875623
+offset_left = 0.335986
+offset_top = 0.0677958
+offset_right = -0.212012
+offset_bottom = 0.127803
+
+[node name="ComputerStatsArea" type="TextureRect" parent="PlayArea/DialogueArea"]
+self_modulate = Color(0.137255, 0.0901961, 0.0588235, 1)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -165.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("25_fgp7s")
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayArea/DialogueArea/ComputerStatsArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayArea/DialogueArea/ComputerStatsArea/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Hand" type="TextureRect" parent="PlayArea/DialogueArea/ComputerStatsArea/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("26_e8ypw")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Count" type="RichTextLabel" parent="PlayArea/DialogueArea/ComputerStatsArea/MarginContainer/VBoxContainer/Hand"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.158
+anchor_right = 0.831
+anchor_bottom = 1.0
+offset_left = 32.25
+offset_top = 11.0
+offset_right = -27.875
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("27_ykilv")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]5[/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("28_ej6t0")
+
+[node name="Energy" type="TextureRect" parent="PlayArea/DialogueArea/ComputerStatsArea/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("10_i4dae")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Count" type="RichTextLabel" parent="PlayArea/DialogueArea/ComputerStatsArea/MarginContainer/VBoxContainer/Energy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.257
+anchor_top = 0.229
+anchor_right = 0.762
+anchor_bottom = 1.0
+offset_left = 19.875
+offset_top = 6.68
+offset_right = -22.25
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("10_5ul61")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]5[/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("29_fljj8")
 
 [node name="DialoguePlayAreaDivider" type="TextureRect" parent="PlayArea/DialogueArea"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -0.23999
 offset_top = -22.0
-offset_right = 0.23999
 offset_bottom = 18.0
 grow_horizontal = 2
 texture = SubResource("CompressedTexture2D_qs140")
+
+[node name="TextureRect" type="TextureRect" parent="PlayArea"]
+offset_left = 660.0
+offset_top = 820.0
+offset_right = 700.0
+offset_bottom = 860.0
 
 [node name="StatsArea" type="TextureRect" parent="PlayArea"]
 texture_filter = 1
@@ -837,4 +939,4 @@ grow_vertical = 2
 
 [editable path="Joy"]
 [editable path="Erin"]
-[editable path="PlayArea/DialogueArea/Player/DialogueBubbles/BasicDialogueBubble"]
+[editable path="PlayArea/DialogueArea/Contestants/Player/DialogueBubbles/BasicDialogueBubble"]

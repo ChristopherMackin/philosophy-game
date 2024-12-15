@@ -69,10 +69,13 @@ func init(player_character : Character, computer_character : Character, debate_s
 	contestants.append(player)
 	contestants.append(computer)
 	
-	for contestant in contestants: contestant.on_hand_updated.connect(hand_updated)
+	for contestant in contestants: 
+		contestant.on_hand_updated.connect(on_hand_updated)
+		contestant.on_energy_updated.connect(on_energy_updated)
+		contestant.on_deck_updated.connect(on_deck_updated)
 	
 	for c in contestants:
-		c.ready_up()
+		c.ready_up(self)
 	
 	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_start()
 	
@@ -148,5 +151,11 @@ func push_top_to_queue(top : Top):
 	debate_state.update_value("current_top", top.data.title)
 	debate_state.update_value("current_pose", top.data.pose.name)
 
-func hand_updated(contestant : Contestant):
+func on_hand_updated(contestant : Contestant):
 	for sub : DebateSubscriber in subscriber_array: await sub.on_hand_updated(contestant)
+
+func on_energy_updated(contestant : Contestant):
+	for sub : DebateSubscriber in subscriber_array: await sub.on_energy_updated(contestant)
+
+func on_deck_updated(contestant : Contestant):
+	for sub : DebateSubscriber in subscriber_array: await sub.on_deck_updated(contestant)

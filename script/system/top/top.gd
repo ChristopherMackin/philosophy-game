@@ -5,5 +5,6 @@ class_name Top
 
 var data : TopData
 
-func _init(top_data: TopData):
+func _init(top_data: TopData, manager : DebateManager):
 	data = top_data
+	data.action.set_manager(manager)

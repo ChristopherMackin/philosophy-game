@@ -13,12 +13,15 @@ extends DebateSubscriber
 @export var computer : Character
 @export var computer_3d : DebateContestant3D
 
-@export_group("UI")
+@export_group("Player UI")
 @export var tops_board : TopsBoard3D
 @export var hand_ui : HandUI
 @export var energy_ui : EnergyUI
 @export var draw_pile_ui : DrawPileUI
 
+@export_group("Computer UI")
+@export var computer_energy_ui : EnergyUI
+@export var computer_hand_ui : HandCountUI
 
 var is_animation_locked := false
 
@@ -28,15 +31,12 @@ func _ready():
 	manager.init.call_deferred(player, computer, debate_settings)
 
 func on_debate_start():
-	energy_ui.update_amount(0)
-	draw_pile_ui.update_amount(manager.player.deck.count)
+	pass
 	
 func on_player_change(contestant : Contestant):
 	print("%s's turn" % contestant.name)
 	if contestant.character == player:
 		selection_manager.continue_ui_input()
-		energy_ui.update_amount(contestant.current_energy)
-		draw_pile_ui.update_amount(contestant.deck.count)
 	else:
 		selection_manager.pause_ui_input()
 	
@@ -44,10 +44,8 @@ func on_player_change(contestant : Contestant):
 	
 func on_top_played(top: Top, active_contestant : Contestant):
 	if active_contestant.character == player:
-		energy_ui.update_amount(active_contestant.current_energy)
 		hand_ui.remove_card(top)
 		await player_3d.play_top(top)
-
 	else:
 		await computer_3d.play_top(top)
 	
@@ -77,6 +75,17 @@ func query_event(concept : String):
 		event_manager.start_event(event)
 
 func on_hand_updated(contestant : Contestant):
-	if(contestant.character == player):
-		hand_ui.update_hand(manager.player.hand)
+	if contestant.character == player:
+		hand_ui.update_hand(contestant.hand)
+	elif contestant.character == computer:
+		computer_hand_ui.update_amount(contestant.hand.size())
+
+func on_energy_updated(contestant : Contestant):
+	if contestant.character == player:
+		energy_ui.update_amount(contestant.current_energy)
+	elif contestant.character == computer:
+		computer_energy_ui.update_amount(contestant.current_energy)
+
+func on_deck_updated(contestant : Contestant):
+	if contestant.character == player:
 		draw_pile_ui.update_amount(manager.player.deck.count)
