@@ -17,7 +17,7 @@ func _on_focus_changed(control : Control):
 
 func _unhandled_input(event):
 	if event.is_action_pressed("select"):
-		if focused_node != null:
+		if focused_node != null && "top" in focused_node:
 			player_brain.play_top(focused_node.top)
 
 func pause_ui_input():
