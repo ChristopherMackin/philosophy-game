@@ -42,11 +42,11 @@ func ready_up(manager : DebateManager):
 func take_turn() -> Top:
 	var top = await brain.pick_top()
 	
-	while hand.map(func(x): return x.data).find(top.data) == -1:
+	while current_energy < top.data.cost || hand.map(func(x): return x.data).find(top.data) == -1:
 		top = await brain.pick_top()
 	
 	play_top(top)
-	current_energy -= 1
+	current_energy -= top.data.cost
 	return top
 
 func clean_up():
