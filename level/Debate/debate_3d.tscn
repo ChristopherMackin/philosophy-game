@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b31uxtxyvdwi3"]
+[gd_scene load_steps=46 format=3 uid="uid://b31uxtxyvdwi3"]
 
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_ndrkp"]
 [ext_resource type="PackedScene" uid="uid://bqwn6fre04ypq" path="res://character/joy/joy.tscn" id="1_xnrq5"]
@@ -17,12 +17,12 @@
 [ext_resource type="Script" path="res://script/debate/discard_3d.gd" id="8_r55tt"]
 [ext_resource type="Script" path="res://script/selection_manager.gd" id="8_unhyc"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="9_812v8"]
-[ext_resource type="Texture2D" uid="uid://ho13qsn3chj0" path="res://asset/graphic/debate/top_card/draw_pile.png" id="9_i0u2a"]
+[ext_resource type="Texture2D" uid="uid://ho13qsn3chj0" path="res://asset/graphic/debate/top_card/old/draw_pile.png" id="9_i0u2a"]
 [ext_resource type="Script" path="res://script/ui/debate_contestant_3d.gd" id="10_5u80s"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="10_5ul61"]
 [ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/graphic/debate/stats_area/turn_counter_background.png" id="10_i4dae"]
 [ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://debate/prefab/top_3d.tscn" id="11_fd0f6"]
-[ext_resource type="PackedScene" uid="uid://dnjd6gfsvie8p" path="res://debate/prefab/top_card_ui.tscn" id="15_qudhi"]
+[ext_resource type="PackedScene" uid="uid://dj5ht84etvnd1" path="res://debate/prefab/top_card_ui.tscn" id="15_qudhi"]
 [ext_resource type="Script" path="res://script/system/dialogue_handler.gd" id="16_4lk6v"]
 [ext_resource type="PackedScene" uid="uid://cxvik3r1ijg1x" path="res://character/erin/erin.tscn" id="17_tj7fw"]
 [ext_resource type="Texture2D" uid="uid://cjibu358pdc3s" path="res://asset/graphic/debate/dialogue_area/colorable_checkerboard.png" id="18_bxdk1"]
@@ -33,7 +33,6 @@
 [ext_resource type="Texture2D" uid="uid://b5nlnbqopjyl8" path="res://asset/graphic/debate/dialogue_area/opponent_stats_area.png" id="25_fgp7s"]
 [ext_resource type="Texture2D" uid="uid://caks003lacvsp" path="res://asset/graphic/debate/stats_area/hand_icon.png" id="26_e8ypw"]
 [ext_resource type="Script" path="res://script/debate/ui/draw_pile_ui.gd" id="27_rccvm"]
-[ext_resource type="SystemFont" uid="uid://bq3uhh525apgr" path="res://asset/font/jura.tres" id="27_ykilv"]
 [ext_resource type="Script" path="res://script/debate/ui/hand_count_ui.gd" id="28_1ttan"]
 [ext_resource type="Script" path="res://script/debate/ui/energy_ui.gd" id="29_fljj8"]
 
@@ -738,7 +737,7 @@ offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("27_ykilv")
+theme_override_fonts/normal_font = ExtResource("10_5ul61")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[center]5[/center]"

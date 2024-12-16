@@ -1,167 +1,226 @@
-[gd_scene load_steps=13 format=3 uid="uid://dnjd6gfsvie8p"]
+[gd_scene load_steps=14 format=3 uid="uid://dj5ht84etvnd1"]
 
-[ext_resource type="Texture2D" uid="uid://cwnbsbvx6pbwc" path="res://asset/graphic/debate/top_card/card_background.png" id="1_1v2tw"]
+[ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/top_card/card_base.png" id="1_yl0ks"]
 [ext_resource type="Script" path="res://script/debate/ui/top_card.gd" id="2_le11q"]
-[ext_resource type="Texture2D" uid="uid://b64jmxeoyatvi" path="res://asset/graphic/debate/top_card/card_border.png" id="2_rnw4v"]
 [ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://asset/graphic/debate/top_card/clock_icon.png" id="3_eeilm"]
-[ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="4_h26yw"]
+[ext_resource type="Texture2D" uid="uid://bwgxr2lmka4v3" path="res://asset/graphic/debate/top_card/card_info.png" id="3_of1ou"]
+[ext_resource type="Texture2D" uid="uid://ble7s2jio4loi" path="res://asset/graphic/debate/top_card/card_description.png" id="4_drjom"]
+[ext_resource type="Texture2D" uid="uid://r5gxicmkm711" path="res://asset/graphic/debate/top_card/card_set_information.png" id="5_g3ris"]
+[ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://asset/font/TenorSans-Regular.ttf" id="5_ru4dt"]
 [ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/pose/faith_icon.png" id="6_3ri0m"]
-[ext_resource type="Texture2D" uid="uid://b55a0tp164xa2" path="res://asset/graphic/debate/top_card/card_descriptor_box.png" id="6_on0g6"]
-[ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/top/basic_faith_tex.png" id="8_ax8w2"]
-[ext_resource type="Texture2D" uid="uid://repj6csynu7c" path="res://asset/graphic/general/selector.png" id="9_2e7uu"]
+[ext_resource type="Texture2D" uid="uid://bl81rf1rfjyuh" path="res://asset/graphic/debate/top_card/card_top_location.png" id="6_wy5e5"]
+[ext_resource type="Texture2D" uid="uid://cpasg5witafv0" path="res://asset/graphic/debate/top/basic_doubt_tex.png" id="10_03dx4"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ldvhs"]
-font = ExtResource("4_h26yw")
-font_size = 24
-font_color = Color(0.964706, 0.964706, 0.964706, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5xdp"]
+content_margin_left = 10.0
+content_margin_top = 0.0
+content_margin_right = 10.0
+content_margin_bottom = 0.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_nam23"]
-line_spacing = 2.08165e-12
-font = ExtResource("4_h26yw")
-font_size = 24
-font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ld4d5"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_vsrqx"]
-line_spacing = 2.08165e-12
-font = ExtResource("4_h26yw")
-font_size = 30
-font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
-outline_size = 2
-outline_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_srmbm"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
 
 [node name="TopCardUI" type="TextureRect" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description", "colorable_elements")]
-self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
-custom_minimum_size = Vector2(300, 260)
-offset_right = 300.0
-offset_bottom = 260.0
+texture_filter = 1
+custom_minimum_size = Vector2(370, 300)
+anchors_preset = -1
+anchor_right = 0.156
+anchor_bottom = 0.24
+offset_right = 70.48
+offset_bottom = 60.8
+scale = Vector2(0.81, 0.81)
 focus_mode = 2
-texture = ExtResource("1_1v2tw")
+texture = ExtResource("1_yl0ks")
+expand_mode = 1
 script = ExtResource("2_le11q")
-cost = NodePath("Border/Cost/Text")
-icon = NodePath("Border/Icon")
-title = NodePath("Title")
-artwork = NodePath("Artwork")
-description = NodePath("Description/Margin/Text")
-colorable_elements = [NodePath("Border")]
+cost = NodePath("CardInfo/CostIcon/Cost")
+icon = NodePath("CardInfo/PoseIcon")
+title = NodePath("CardInfo/Title")
+artwork = NodePath("CardTopLocation/Top")
+description = NodePath("CardDescription/Description")
+colorable_elements = [NodePath("CardInfo")]
 
-[node name="Border" type="TextureRect" parent="."]
-self_modulate = Color(0.996078, 0.694118, 0.266667, 1)
+[node name="CardInfo" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.4, 0.388235, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_rnw4v")
+texture = ExtResource("3_of1ou")
+expand_mode = 1
 
-[node name="Cost" type="TextureRect" parent="Border"]
-self_modulate = Color(0.137255, 0.0862745, 0.0588235, 1)
-layout_mode = 0
-offset_left = 8.0
-offset_top = 6.0
-offset_right = 54.0
-offset_bottom = 64.0
-texture = ExtResource("3_eeilm")
-
-[node name="Text" type="Label" parent="Border/Cost"]
+[node name="Title" type="Label" parent="CardInfo"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -7.0
-offset_bottom = 18.0
+anchor_bottom = 0.125
+theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_fonts/font = ExtResource("5_ru4dt")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y5xdp")
+text = "Structured Argument"
+vertical_alignment = 1
+
+[node name="CardSetInformation" type="TextureRect" parent="CardInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.814
+anchor_top = 0.912
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.179993
+offset_top = 0.159973
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("5_g3ris")
+
+[node name="CardNumber" type="Label" parent="CardInfo/CardSetInformation"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "2"
-label_settings = SubResource("LabelSettings_ldvhs")
+theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_fonts/font = ExtResource("5_ru4dt")
+theme_override_font_sizes/font_size = 16
+text = "12/78"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Icon" type="TextureRect" parent="Border"]
-self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
+[node name="CostIcon" type="TextureRect" parent="CardInfo"]
 layout_mode = 0
-offset_left = 59.0
-offset_top = 12.0
-offset_right = 107.0
-offset_bottom = 60.0
+offset_left = 232.0
+offset_top = 200.0
+offset_right = 292.0
+offset_bottom = 260.0
+texture = ExtResource("3_eeilm")
+stretch_mode = 5
+
+[node name="Cost" type="Label" parent="CardInfo/CostIcon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.117
+anchor_top = 0.217
+anchor_right = 0.9
+anchor_bottom = 1.0
+offset_left = -0.0200005
+offset_top = -0.0200005
+theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_fonts/font = ExtResource("5_ru4dt")
+theme_override_font_sizes/font_size = 30
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PoseIcon" type="TextureRect" parent="CardInfo"]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 200.0
+offset_right = 358.0
+offset_bottom = 260.0
 texture = ExtResource("6_3ri0m")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Description" type="TextureRect" parent="."]
+[node name="CardDescription" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.558
-anchor_right = 0.95
-anchor_bottom = 0.942
-offset_top = -0.0800073
-offset_right = -1.43051e-05
-offset_bottom = 0.0799918
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("6_on0g6")
-
-[node name="Margin" type="MarginContainer" parent="Description"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchor_top = 0.125
+anchor_right = 0.595
 anchor_bottom = 1.0
+offset_right = -0.150009
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 6
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 6
-theme_override_constants/margin_bottom = 2
-
-[node name="Text" type="Label" parent="Description/Margin"]
-layout_mode = 2
-size_flags_vertical = 1
-text = "Add one doubt top to the track"
-label_settings = SubResource("LabelSettings_nam23")
-autowrap_mode = 3
-
-[node name="Artwork" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.196078)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 171.0
-offset_top = 28.0
-offset_right = -31.0
-offset_bottom = -134.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_ax8w2")
+texture = ExtResource("4_drjom")
 expand_mode = 1
 
-[node name="Title" type="Label" parent="."]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 69.0
-offset_right = 154.0
-offset_bottom = 145.0
-scale = Vector2(1, 1.00499)
-text = "Basic Faith"
-label_settings = SubResource("LabelSettings_vsrqx")
-autowrap_mode = 3
-uppercase = true
-
-[node name="Selector" type="TextureRect" parent="."]
-visible = false
+[node name="Description" type="RichTextLabel" parent="CardDescription"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.74
-anchor_top = 0.285
-anchor_right = 0.74
-anchor_bottom = 0.285
-offset_left = -64.0
-offset_top = -110.1
-offset_right = 64.0
-offset_bottom = -0.100007
-texture = ExtResource("9_2e7uu")
+anchor_left = 0.023
+anchor_top = 0.018
+anchor_right = 0.977
+anchor_bottom = 0.736
+offset_left = -0.0600004
+offset_top = -0.0400004
+offset_right = 0.0599823
+offset_bottom = -0.0800171
+theme_override_colors/default_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_fonts/normal_font = ExtResource("5_ru4dt")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ld4d5")
+bbcode_enabled = true
+text = "Place 2 [color=red]Structured Conversation[/color] tops.
 
-[connection signal="focus_entered" from="." to="Selector" method="show"]
-[connection signal="focus_exited" from="." to="Selector" method="hide"]
+Cost -1 for ever [color=red]pentagram[/color] top in play"
+
+[node name="FlavorText" type="RichTextLabel" parent="CardDescription"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 209.0
+offset_right = 203.0
+offset_bottom = 263.0
+theme_override_colors/default_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_fonts/normal_font = ExtResource("5_ru4dt")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxEmpty_srmbm")
+bbcode_enabled = true
+text = "[center]Sometimes, planning out your thoughts can really change the flow of conversation[/center]"
+scroll_active = false
+
+[node name="CardTopLocation" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.616
+anchor_top = 0.144
+anchor_right = 0.981
+anchor_bottom = 0.566
+offset_left = 0.0799561
+offset_top = -0.079998
+offset_right = 0.0299377
+offset_bottom = -0.119995
+texture = ExtResource("6_wy5e5")
+expand_mode = 1
+
+[node name="Shadow" type="TextureRect" parent="CardTopLocation"]
+self_modulate = Color(0, 0, 0, 0.34902)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.026
+anchor_right = 0.974
+anchor_bottom = 0.974
+offset_left = -7.41739
+offset_top = 6.16284
+offset_right = -7.3974
+offset_bottom = 6.18283
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_03dx4")
+
+[node name="Top" type="TextureRect" parent="CardTopLocation"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.026
+anchor_right = 0.974
+anchor_bottom = 0.974
+offset_left = -0.00999999
+offset_top = -0.00999999
+offset_right = 0.00999451
+offset_bottom = 0.00999451
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_03dx4")

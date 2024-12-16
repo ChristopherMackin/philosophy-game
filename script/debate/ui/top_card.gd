@@ -27,7 +27,7 @@ func update_card(top : Top) :
 		
 		cost.text = str(top.data.cost)
 		icon.texture = top.data.pose.icon
-		title.text = top.data.title.to_upper()
+		title.text = top.data.title
 		description.text = top.data.description
 		artwork.texture = top.data.artwork
 		

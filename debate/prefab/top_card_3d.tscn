@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://d3gstm266f4t3"]
 
-[ext_resource type="Texture2D" uid="uid://cwnbsbvx6pbwc" path="res://asset/graphic/debate/top_card/card_background.png" id="1_01vfc"]
+[ext_resource type="Texture2D" uid="uid://cwnbsbvx6pbwc" path="res://asset/graphic/debate/top_card/old/card_background.png" id="1_01vfc"]
 [ext_resource type="Script" path="res://script/debate/ui/top_card.gd" id="1_pwnma"]
-[ext_resource type="Texture2D" uid="uid://b64jmxeoyatvi" path="res://asset/graphic/debate/top_card/card_border.png" id="2_466im"]
+[ext_resource type="Texture2D" uid="uid://b64jmxeoyatvi" path="res://asset/graphic/debate/top_card/old/card_border.png" id="2_466im"]
 [ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://asset/graphic/debate/top_card/clock_icon.png" id="4_dqntn"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="4_iyeme"]
 [ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/pose/faith_icon.png" id="6_ssha3"]
-[ext_resource type="Texture2D" uid="uid://b55a0tp164xa2" path="res://asset/graphic/debate/top_card/card_descriptor_box.png" id="7_rngwk"]
-[ext_resource type="Texture2D" uid="uid://bfesntksn6xx5" path="res://asset/graphic/debate/top_card/tops_card_back.png" id="8_4jab3"]
+[ext_resource type="Texture2D" uid="uid://b55a0tp164xa2" path="res://asset/graphic/debate/top_card/old/card_descriptor_box.png" id="7_rngwk"]
+[ext_resource type="Texture2D" uid="uid://bfesntksn6xx5" path="res://asset/graphic/debate/top_card/old/tops_card_back.png" id="8_4jab3"]
 [ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/top/basic_faith_tex.png" id="8_ls5rs"]
 
 [node name="TopCard3D" type="Node3D" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description", "colorable_elements")]
