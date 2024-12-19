@@ -9,10 +9,12 @@ class_name HandUI
 @export var draw_pile : Control
 @export var card_parent : Control
 
+var ui_cards : Array[TopCard]
+
 var locked : bool = false
 
 func update_hand(hand : Array[Top]):
-	var current_tops = card_parent.get_children().map(func(x): return x.top)
+	var current_tops = ui_cards.map(func(x): return x.top)
 	var new_cards = Util.array_difference(hand, current_tops)
 	
 	var add_funcs : Array[Callable]
@@ -25,8 +27,6 @@ func update_hand(hand : Array[Top]):
 	current_tops[0].grab_focus()
 
 func set_up_focus_connections():
-	var ui_cards = card_parent.get_children()
-	
 	for i in ui_cards.size():
 		var previous_index = i-1
 		var next_index = i+1
@@ -39,20 +39,25 @@ func set_up_focus_connections():
 		if next_index >= 0 && next_index < ui_cards.size() \
 		else ""
 	
-
 func clear_hand():
-	for child in card_parent.get_children():
+	for child in ui_cards:
 		child.queue_free()
+	ui_cards.clear()
 
 func add_card(top : Top):
 	var top_card : TopCard = top_card_ui_prefab.instantiate() as TopCard
 	top_card.top = top
 	
 	card_parent.add_child(top_card)
+	ui_cards.append(top_card)
 
-func remove_card(top : Top):
-	var ui_top_cards = card_parent.get_children()
-	
-	var matching = ui_top_cards.filter(func (top_card): return top == top_card.top)
+func remove_card(top : Top):	
+	var matching = ui_cards.filter(func (top_card): return top == top_card.top)
 	var top_card = matching[0] if not matching.is_empty() else null
-	top_card.queue_free()
+	var card_index = ui_cards.find(top_card)
+	
+	if card_index <0:
+		return
+	
+	ui_cards[card_index].queue_free()
+	ui_cards.remove_at(card_index)
