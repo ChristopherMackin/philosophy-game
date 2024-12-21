@@ -9,9 +9,17 @@ class_name HandUI
 @export var draw_pile : Control
 @export var card_parent : Control
 
+@export_group("Card Slot Size")
+@export var card_slot_size : Vector2 = Vector2(370, 320)
+
 var ui_cards : Array[TopCard]
+var card_slots : Array[Control]
 
 var locked : bool = false
+
+func _ready():
+	for child in card_parent.get_children():
+		child.queue_free()
 
 func update_hand(hand : Array[Top]):
 	var current_tops = ui_cards.map(func(x): return x.top)
@@ -22,9 +30,10 @@ func update_hand(hand : Array[Top]):
 		add_funcs.append(func() :await add_card(top))
 	
 	await Util.await_all(add_funcs)
+	
 	set_up_focus_connections()
 	
-	current_tops[0].grab_focus()
+	ui_cards[0].grab_focus()
 
 func set_up_focus_connections():
 	for i in ui_cards.size():
@@ -40,15 +49,23 @@ func set_up_focus_connections():
 		else ""
 	
 func clear_hand():
-	for child in ui_cards:
+	for child in card_slots:
 		child.queue_free()
+	
+	card_slots.clear()
 	ui_cards.clear()
 
 func add_card(top : Top):
+	var top_card_slot : Control = Control.new()
+	top_card_slot.custom_minimum_size = card_slot_size
+	
 	var top_card : TopCard = top_card_ui_prefab.instantiate() as TopCard
 	top_card.top = top
 	
-	card_parent.add_child(top_card)
+	top_card_slot.add_child(top_card)	
+	card_parent.add_child(top_card_slot)
+	
+	card_slots.append(top_card_slot)
 	ui_cards.append(top_card)
 
 func remove_card(top : Top):	
@@ -59,5 +76,6 @@ func remove_card(top : Top):
 	if card_index <0:
 		return
 	
-	ui_cards[card_index].queue_free()
+	card_slots[card_index].queue_free()
+	card_slots.remove_at(card_index)
 	ui_cards.remove_at(card_index)

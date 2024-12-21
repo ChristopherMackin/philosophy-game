@@ -13,7 +13,7 @@ func _init(functions : Array[Callable]):
 	
 	function_count = functions.size()
 	for function : Callable in functions:
-		run_async(function)
+		run_async.call_deferred(function)
 
 func run_async(function : Callable):
 	await function.call()
