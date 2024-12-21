@@ -161,7 +161,7 @@ load_path = "res://.godot/imported/SpeechPlayAreaDivider.png-74f79cdec84b2a91ade
 [node name="===MANAGER========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="DebateSceneManager" type="Node3D" parent="." node_paths=PackedStringArray("selection_manager", "player_3d", "computer_3d", "tops_board", "hand_ui", "energy_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
+[node name="DebateSceneManager" type="Node3D" parent="." node_paths=PackedStringArray("selection_manager", "player_3d", "computer_3d", "tops_board", "energy_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
 script = ExtResource("1_ndrkp")
 debate_settings = ExtResource("4_q8shw")
 event_manager = ExtResource("7_0u80y")
@@ -171,7 +171,6 @@ player_3d = NodePath("../Joy")
 computer = ExtResource("3_ilxke")
 computer_3d = NodePath("../Erin")
 tops_board = NodePath("../ThriftShopTable/TopsBoard")
-hand_ui = NodePath("")
 energy_ui = NodePath("../PlayArea/StatsArea/Energy/Count")
 draw_pile_ui = NodePath("../PlayArea/StatsArea/DrawPile/Count")
 computer_energy_ui = NodePath("../PlayArea/DialogueArea/ComputerStatsArea/MarginContainer/VBoxContainer/Energy/Count")
