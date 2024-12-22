@@ -15,25 +15,38 @@ class_name HandUI
 var ui_cards : Array[TopCard]
 var card_slots : Array[Control]
 
-var locked : bool = false
+var lock : Lock = Lock.new()
 
 func _ready():
 	for child in card_parent.get_children():
 		child.queue_free()
 
 func update_hand(hand : Array[Top]):
+	
+	while(!lock.obtain_lock()):
+		await lock.on_released
+	
 	var current_tops = ui_cards.map(func(x): return x.top)
 	var new_cards = Util.array_difference(hand, current_tops)
+	var removed_cards = Util.array_difference(current_tops, hand)
 	
 	var add_funcs : Array[Callable]
 	for top in new_cards:
-		add_funcs.append(func() :await add_card(top))
+		add_funcs.append(func() :await _add_card(top))
 	
 	await Util.await_all(add_funcs)
+	
+	var remove_funcs : Array[Callable]
+	for top in removed_cards:
+		remove_funcs.append(func() :await _remove_card(top))
+	
+	await Util.await_all(remove_funcs)
 	
 	set_up_focus_connections()
 	
 	ui_cards[0].grab_focus()
+	
+	lock.release_lock()
 
 func set_up_focus_connections():
 	for i in ui_cards.size():
@@ -47,7 +60,7 @@ func set_up_focus_connections():
 		ui_cards[i].focus_next = ui_cards[next_index].get_path() \
 		if next_index >= 0 && next_index < ui_cards.size() \
 		else ""
-	
+
 func clear_hand():
 	for child in card_slots:
 		child.queue_free()
@@ -55,7 +68,7 @@ func clear_hand():
 	card_slots.clear()
 	ui_cards.clear()
 
-func add_card(top : Top):
+func _add_card(top : Top):
 	var top_card_slot : Control = Control.new()
 	top_card_slot.custom_minimum_size = card_slot_size
 	
@@ -68,7 +81,7 @@ func add_card(top : Top):
 	card_slots.append(top_card_slot)
 	ui_cards.append(top_card)
 
-func remove_card(top : Top):	
+func _remove_card(top : Top):	
 	var matching = ui_cards.filter(func (top_card): return top == top_card.top)
 	var top_card = matching[0] if not matching.is_empty() else null
 	var card_index = ui_cards.find(top_card)

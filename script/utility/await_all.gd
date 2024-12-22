@@ -9,9 +9,13 @@ var completed : int = 0
 var function_count : int
 
 func _init(functions : Array[Callable]):
+	if functions.size() <= 0:
+		(func() : all_finished.emit()).call_deferred()
+	
 	finished.connect(complete)
 	
 	function_count = functions.size()
+	
 	for function : Callable in functions:
 		run_async.call_deferred(function)
 

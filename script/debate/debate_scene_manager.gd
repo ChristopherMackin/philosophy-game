@@ -44,7 +44,6 @@ func on_player_change(contestant : Contestant):
 	
 func on_top_played(top: Top, active_contestant : Contestant):
 	if active_contestant.character == player:
-		hand_ui.remove_card(top)
 		await player_3d.play_top(top)
 	else:
 		await computer_3d.play_top(top)
@@ -59,20 +58,6 @@ func on_lines_cleared(count : int):
 
 func on_debate_finished():
 	print("Debate Finished")
-
-func query_event(concept : String):
-	var query : Dictionary
-	query["concept"] = concept
-	query.merge(manager.get_debate_state())
-	
-	var event = manager.event_factory.get_event(query)
-	
-	if !event: return
-	
-	if event.await_event:
-		await event_manager.start_event(event)
-	else:
-		event_manager.start_event(event)
 
 func on_hand_updated(contestant : Contestant):
 	if contestant.character == player:
@@ -89,3 +74,17 @@ func on_energy_updated(contestant : Contestant):
 func on_deck_updated(contestant : Contestant):
 	if contestant.character == player:
 		draw_pile_ui.update_amount(manager.player.deck.count)
+
+func query_event(concept : String):
+	var query : Dictionary
+	query["concept"] = concept
+	query.merge(manager.get_debate_state())
+	
+	var event = manager.event_factory.get_event(query)
+	
+	if !event: return
+	
+	if event.await_event:
+		await event_manager.start_event(event)
+	else:
+		event_manager.start_event(event)
