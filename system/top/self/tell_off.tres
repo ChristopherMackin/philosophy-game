@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TopData" load_steps=6 format=3 uid="uid://mxmbqalfocur"]
+
+[ext_resource type="Script" path="res://script/system/top/top_action/opponenet_discard_random_top_action.gd" id="1_kqp2l"]
+[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/pose/self.tres" id="1_ndav8"]
+[ext_resource type="Script" path="res://script/system/top/top_data.gd" id="1_olvth"]
+[ext_resource type="Texture2D" uid="uid://0kp58bsur4i0" path="res://asset/graphic/debate/top/basic_self_tex.png" id="2_h682r"]
+
+[sub_resource type="Resource" id="Resource_p8uth"]
+script = ExtResource("1_kqp2l")
+
+[resource]
+script = ExtResource("1_olvth")
+base_cost = 1
+pose = ExtResource("1_ndav8")
+title = "Tell Off"
+artwork = ExtResource("2_h682r")
+description = "Discard a random top from the opponent's hand"
+action = SubResource("Resource_p8uth")
+tags = Array[int]([])

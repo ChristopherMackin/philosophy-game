@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_qbp5y")
 
-[sub_resource type="Resource" id="Resource_qc4yl"]
+[sub_resource type="Resource" id="Resource_8kl2i"]
 script = ExtResource("3_n4pca")
 outputs = Array[int]([1])
 inputs = ["thinking", "Joy", false]
@@ -18,25 +18,25 @@ action = SubResource("Resource_ml60a")
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("2_ygdkc")
 
-[sub_resource type="Resource" id="Resource_1py10"]
+[sub_resource type="Resource" id="Resource_2toiu"]
 script = ExtResource("3_n4pca")
 outputs = Array[int]([2])
-inputs = ["You ever stop to think about what happens if the polar bears die?", "Joy", false, 2.0]
+inputs = ["You ever stop to think about what happens if the giraffes die?", "Joy", false, 2.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_5kq0y"]
+[sub_resource type="Resource" id="Resource_fbop4"]
 script = ExtResource("3_n4pca")
 outputs = Array[int]([3])
-inputs = ["Probably nothing I imagine... Polar bears suck.", "Erin", false, 2.0]
+inputs = ["Probably nothing I imagine... giraffes suck.", "Erin", false, 2.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_4ohy6"]
+[sub_resource type="Resource" id="Resource_odg5u"]
 script = ExtResource("3_n4pca")
 outputs = Array[int]([5])
 inputs = ["idle_bounce", "Joy", true]
 action = SubResource("Resource_ml60a")
 
-[sub_resource type="Resource" id="Resource_tr5cq"]
+[sub_resource type="Resource" id="Resource_2lxea"]
 script = ExtResource("3_n4pca")
 outputs = Array[int]([])
 inputs = ["No, you suck. Fuck you!", "Joy", false, 2.0]
@@ -45,7 +45,7 @@ action = SubResource("Resource_x7ur8")
 [sub_resource type="Resource" id="Resource_1f63y"]
 script = ExtResource("5_dn74k")
 
-[sub_resource type="Resource" id="Resource_audff"]
+[sub_resource type="Resource" id="Resource_ciivk"]
 script = ExtResource("3_n4pca")
 outputs = Array[int]([4])
 inputs = [2.0]
@@ -55,5 +55,5 @@ action = SubResource("Resource_1f63y")
 script = ExtResource("1_1q23l")
 is_major_event = false
 await_event = false
-start_task = SubResource("Resource_qc4yl")
-tasks = Array[ExtResource("3_n4pca")]([SubResource("Resource_qc4yl"), SubResource("Resource_1py10"), SubResource("Resource_5kq0y"), SubResource("Resource_4ohy6"), SubResource("Resource_tr5cq"), SubResource("Resource_audff")])
+start_task = SubResource("Resource_8kl2i")
+tasks = Array[ExtResource("3_n4pca")]([SubResource("Resource_8kl2i"), SubResource("Resource_2toiu"), SubResource("Resource_fbop4"), SubResource("Resource_odg5u"), SubResource("Resource_2lxea"), SubResource("Resource_ciivk")])

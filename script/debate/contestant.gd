@@ -45,7 +45,7 @@ func take_turn() -> Top:
 	while current_energy < top.data.cost || hand.map(func(x): return x.data).find(top.data) == -1:
 		top = await brain.pick_top()
 	
-	play_top(top)
+	discard_top(top)
 	current_energy -= top.data.cost
 	return top
 
@@ -76,7 +76,7 @@ func _draw_top() -> bool:
 	hand.append(top)
 	return true
 
-func play_top(top : Top):
+func discard_top(top : Top):
 	var index = hand.find(top)
 	hand.remove_at(index)
 	
