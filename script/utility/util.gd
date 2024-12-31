@@ -50,7 +50,7 @@ static func get_all_children(node) -> Array:
 	
 	return nodes
 
-static func array_difference(arr1, arr2):
+static func array_difference(arr1, arr2) -> Array:
 	var only_in_arr1 = []
 	for v in arr1:
 		if not (v in arr2):

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="StateDatabase" load_steps=2 format=3 uid="uid://dant58rrdedko"]
+[gd_resource type="Resource" script_class="StateDatabase" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://script/system/database/state_database.gd" id="1_wmgem"]
 

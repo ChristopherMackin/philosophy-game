@@ -945,6 +945,8 @@ artwork = NodePath("../TopCardUI/CardTopLocation/Top")
 description = NodePath("../TopCardUI/CardDescription/Description")
 colorable_elements = [NodePath("../TopCardUI/CardInfo")]
 
+[connection signal="sort_children" from="PlayArea/StatsArea/Hand/CardParent" to="PlayArea/StatsArea/Hand" method="set_up_focus_connections"]
+
 [editable path="Joy"]
 [editable path="Erin"]
 [editable path="PlayArea/DialogueArea/Contestants/Player/DialogueBubbles/BasicDialogueBubble"]
