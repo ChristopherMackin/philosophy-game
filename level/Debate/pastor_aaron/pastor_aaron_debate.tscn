@@ -1,41 +1,40 @@
-[gd_scene load_steps=47 format=3 uid="uid://b31uxtxyvdwi3"]
+[gd_scene load_steps=46 format=3 uid="uid://c674050h413wq"]
 
-[ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_ndrkp"]
-[ext_resource type="PackedScene" uid="uid://bqwn6fre04ypq" path="res://character/joy/joy.tscn" id="1_xnrq5"]
-[ext_resource type="Script" path="res://script/utility/set_layer_mask.gd" id="2_kouh8"]
-[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player.tres" id="2_tj3bx"]
-[ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://character/erin/erin.tres" id="3_ilxke"]
-[ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://debate/debate_contestant_viewport.tres" id="4_kq3ts"]
-[ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://debate/main/debate_settings.tres" id="4_q8shw"]
-[ext_resource type="PackedScene" uid="uid://d3gstm266f4t3" path="res://debate/prefab/top_card_3d.tscn" id="5_8steh"]
-[ext_resource type="Resource" uid="uid://wlxm57wwnqi" path="res://debate/main/debate_manager.tres" id="5_k216a"]
-[ext_resource type="PackedScene" uid="uid://k3iaic8fwi4x" path="res://debate/prefab/thrift_shop_table.tscn" id="5_tq8nb"]
-[ext_resource type="Texture2D" uid="uid://2x0w7rjd27mn" path="res://asset/graphic/debate/stats_area/stats_background.png" id="6_l1d7a"]
-[ext_resource type="Script" path="res://script/system/event/event_subscriber/debate_event_manager.gd" id="6_reoeb"]
-[ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event_manager.tres" id="7_0u80y"]
-[ext_resource type="Script" path="res://script/system/animation/animation_player_handler.gd" id="8_lncrh"]
-[ext_resource type="Script" path="res://script/debate/discard_3d.gd" id="8_r55tt"]
-[ext_resource type="Script" path="res://script/selection_manager.gd" id="8_unhyc"]
-[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="9_812v8"]
-[ext_resource type="Texture2D" uid="uid://ho13qsn3chj0" path="res://asset/graphic/debate/top_card/old/draw_pile.png" id="9_i0u2a"]
-[ext_resource type="Script" path="res://script/ui/debate_contestant_3d.gd" id="10_5u80s"]
-[ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="10_5ul61"]
-[ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/graphic/debate/stats_area/turn_counter_background.png" id="10_i4dae"]
-[ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://debate/prefab/top_3d.tscn" id="11_fd0f6"]
-[ext_resource type="PackedScene" uid="uid://dj5ht84etvnd1" path="res://debate/prefab/top_card_ui.tscn" id="15_qudhi"]
-[ext_resource type="Script" path="res://script/system/dialogue_handler.gd" id="16_4lk6v"]
-[ext_resource type="PackedScene" uid="uid://cxvik3r1ijg1x" path="res://character/erin/erin.tscn" id="17_tj7fw"]
-[ext_resource type="Texture2D" uid="uid://cjibu358pdc3s" path="res://asset/graphic/debate/dialogue_area/colorable_checkerboard.png" id="18_bxdk1"]
-[ext_resource type="Script" path="res://script/debate/ui/hand_ui.gd" id="20_mjdc4"]
-[ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/prefab/basic_dialogue_bubble.tscn" id="20_tg4at"]
-[ext_resource type="PackedScene" uid="uid://bsyesuw4ujeei" path="res://debate/prefab/tops_board.tscn" id="21_3pae8"]
-[ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="23_xw7h0"]
-[ext_resource type="Texture2D" uid="uid://b5nlnbqopjyl8" path="res://asset/graphic/debate/dialogue_area/opponent_stats_area.png" id="25_fgp7s"]
-[ext_resource type="Texture2D" uid="uid://caks003lacvsp" path="res://asset/graphic/debate/stats_area/hand_icon.png" id="26_e8ypw"]
-[ext_resource type="Script" path="res://script/debate/ui/draw_pile_ui.gd" id="27_rccvm"]
-[ext_resource type="Script" path="res://script/debate/ui/hand_count_ui.gd" id="28_1ttan"]
-[ext_resource type="Script" path="res://script/debate/ui/energy_ui.gd" id="29_fljj8"]
-[ext_resource type="Script" path="res://script/ui/staggered_flex_container.gd" id="36_1omfh"]
+[ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_c3gp0"]
+[ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://debate/main/debate_settings.tres" id="2_03waw"]
+[ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event_manager.tres" id="3_pgeyy"]
+[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player.tres" id="4_vrocj"]
+[ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://character/erin/erin.tres" id="5_pitph"]
+[ext_resource type="Resource" uid="uid://wlxm57wwnqi" path="res://debate/main/debate_manager.tres" id="6_ika5p"]
+[ext_resource type="Script" path="res://script/system/event/event_subscriber/debate_event_manager.gd" id="7_b5bxp"]
+[ext_resource type="Script" path="res://script/selection_manager.gd" id="8_a3tiy"]
+[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="9_gkl1m"]
+[ext_resource type="Script" path="res://script/system/animation/animation_player_handler.gd" id="10_bg7j3"]
+[ext_resource type="PackedScene" uid="uid://r4i5a44ihqej" path="res://asset/model/environment/lectern.glb" id="11_cga4j"]
+[ext_resource type="PackedScene" uid="uid://bsyesuw4ujeei" path="res://debate/prefab/tops_board.tscn" id="12_nxue7"]
+[ext_resource type="Script" path="res://script/debate/discard_3d.gd" id="13_v2shh"]
+[ext_resource type="PackedScene" uid="uid://bqwn6fre04ypq" path="res://character/joy/joy.tscn" id="14_d1e2n"]
+[ext_resource type="Script" path="res://script/ui/debate_contestant_3d.gd" id="15_38s5e"]
+[ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://debate/prefab/top_3d.tscn" id="16_avk6u"]
+[ext_resource type="PackedScene" uid="uid://d3gstm266f4t3" path="res://debate/prefab/top_card_3d.tscn" id="17_uj2t6"]
+[ext_resource type="Script" path="res://script/utility/set_layer_mask.gd" id="18_w4hh5"]
+[ext_resource type="Script" path="res://script/system/dialogue_handler.gd" id="19_0dlld"]
+[ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="21_wuq6j"]
+[ext_resource type="Texture2D" uid="uid://cjibu358pdc3s" path="res://asset/graphic/debate/dialogue_area/colorable_checkerboard.png" id="22_olrox"]
+[ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://debate/debate_contestant_viewport.tres" id="23_xajd6"]
+[ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/prefab/basic_dialogue_bubble.tscn" id="24_0ghhw"]
+[ext_resource type="Texture2D" uid="uid://b5nlnbqopjyl8" path="res://asset/graphic/debate/dialogue_area/opponent_stats_area.png" id="25_yqlw1"]
+[ext_resource type="Texture2D" uid="uid://caks003lacvsp" path="res://asset/graphic/debate/stats_area/hand_icon.png" id="26_q81rk"]
+[ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="27_68od4"]
+[ext_resource type="Script" path="res://script/debate/ui/hand_count_ui.gd" id="28_et8un"]
+[ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/graphic/debate/stats_area/turn_counter_background.png" id="29_6iu14"]
+[ext_resource type="Script" path="res://script/debate/ui/energy_ui.gd" id="30_lse4u"]
+[ext_resource type="Texture2D" uid="uid://2x0w7rjd27mn" path="res://asset/graphic/debate/stats_area/stats_background.png" id="31_cjels"]
+[ext_resource type="Texture2D" uid="uid://ho13qsn3chj0" path="res://asset/graphic/debate/top_card/old/draw_pile.png" id="32_unum2"]
+[ext_resource type="Script" path="res://script/debate/ui/draw_pile_ui.gd" id="33_r5u0j"]
+[ext_resource type="Script" path="res://script/debate/ui/hand_ui.gd" id="34_veub1"]
+[ext_resource type="PackedScene" uid="uid://dj5ht84etvnd1" path="res://debate/prefab/top_card_ui.tscn" id="35_6tdr6"]
+[ext_resource type="Script" path="res://script/ui/staggered_flex_container.gd" id="36_f6xvy"]
 
 [sub_resource type="Animation" id="Animation_frnpg"]
 resource_name = "close_debate_cutscene"
@@ -139,7 +138,7 @@ ambient_light_color = Color(0.976471, 0.972549, 0.933333, 1)
 size = Vector3(10, 1, 10)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1mhlm"]
-shader = ExtResource("23_xw7h0")
+shader = ExtResource("21_wuq6j")
 shader_parameter/color = Color(1, 0.745098, 0.858824, 1)
 shader_parameter/direction = Vector2(1, 0)
 shader_parameter/speed_scale = 0.05
@@ -148,7 +147,7 @@ shader_parameter/speed_scale = 0.05
 load_path = "res://.godot/imported/colorable_checkerboard.png-276ed9ca4b62e1e58156a1c9fdda0497.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2n0su"]
-shader = ExtResource("23_xw7h0")
+shader = ExtResource("21_wuq6j")
 shader_parameter/color = Color(1, 0.745098, 0.858824, 1)
 shader_parameter/direction = Vector2(1, 0)
 shader_parameter/speed_scale = 0.05
@@ -161,44 +160,44 @@ load_path = "res://.godot/imported/SpeechPlayAreaDivider.png-74f79cdec84b2a91ade
 [node name="===MANAGER========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="DebateSceneManager" type="Node3D" parent="." node_paths=PackedStringArray("selection_manager", "player_3d", "computer_3d", "tops_board", "hand_ui", "energy_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
-script = ExtResource("1_ndrkp")
-debate_settings = ExtResource("4_q8shw")
-event_manager = ExtResource("7_0u80y")
+[node name="DebateSceneManager" type="Node3D" parent="." node_paths=PackedStringArray("selection_manager", "player_3d", "tops_board", "hand_ui", "energy_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
+script = ExtResource("1_c3gp0")
+debate_settings = ExtResource("2_03waw")
+event_manager = ExtResource("3_pgeyy")
 selection_manager = NodePath("../SelectionManager")
-player = ExtResource("2_tj3bx")
+player = ExtResource("4_vrocj")
 player_3d = NodePath("../Joy")
-computer = ExtResource("3_ilxke")
-computer_3d = NodePath("../Erin")
-tops_board = NodePath("../ThriftShopTable/TopsBoard")
+computer = ExtResource("5_pitph")
+tops_board = NodePath("../Lectern/TopsBoard")
 hand_ui = NodePath("../PlayArea/StatsArea/Hand")
 energy_ui = NodePath("../PlayArea/StatsArea/Energy/Count")
 draw_pile_ui = NodePath("../PlayArea/StatsArea/DrawPile/Count")
 computer_energy_ui = NodePath("../PlayArea/DialogueArea/ComputerStatsArea/MarginContainer/VBoxContainer/Energy/Count")
 computer_hand_ui = NodePath("../PlayArea/DialogueArea/ComputerStatsArea/MarginContainer/VBoxContainer/Hand/Count")
-manager = ExtResource("5_k216a")
+manager = ExtResource("6_ika5p")
 
 [node name="EventManager" type="Node3D" parent="." node_paths=PackedStringArray("scene_animator", "actors")]
-script = ExtResource("6_reoeb")
+script = ExtResource("7_b5bxp")
 scene_animator = NodePath("../SceneAnimator")
-actors = [NodePath("../Joy"), NodePath("../Erin")]
-manager = ExtResource("7_0u80y")
+actors = [NodePath("../Joy"), null]
+manager = ExtResource("3_pgeyy")
 
 [node name="SelectionManager" type="Node3D" parent="." node_paths=PackedStringArray("ui_clear_focus_node")]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
-script = ExtResource("8_unhyc")
+script = ExtResource("8_a3tiy")
 ui_clear_focus_node = NodePath("UIClearFocus")
-player_brain = ExtResource("9_812v8")
+player_brain = ExtResource("9_gkl1m")
 
 [node name="UIClearFocus" type="Control" parent="SelectionManager"]
 layout_mode = 3
 anchors_preset = 0
 focus_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="SceneAnimator" type="Node3D" parent="."]
 
 [node name="AnimationHandler" type="Node" parent="SceneAnimator" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("8_lncrh")
+script = ExtResource("10_bg7j3")
 animation_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SceneAnimator"]
@@ -213,7 +212,7 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 environment = SubResource("Environment_klgt4")
 
 [node name="DebateCamera" type="Camera3D" parent="."]
-transform = Transform3D(-0.256795, 0, -0.966466, 0, 1, 0, 0.966466, 0, -0.256795, -1.97065, 0.902802, -0.655636)
+transform = Transform3D(-4.37114e-08, 0, -1, 0.170072, 0.985432, -7.43408e-09, 0.985432, -0.170072, -4.30746e-08, -2.02286, 1.12532, -0.0350569)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.532562, -0.533365, 0.657191, -0.362262, 0.558107, 0.746514, -0.764947, -0.63564, 0.104009, 1.3093, 2.76479, 0.296943)
@@ -222,15 +221,15 @@ shadow_enabled = true
 [node name="===ENVIRONMENT========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="ThriftShopTable" parent="." instance=ExtResource("5_tq8nb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+[node name="Lectern" parent="." instance=ExtResource("11_cga4j")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
-[node name="TopsBoard" parent="ThriftShopTable" instance=ExtResource("21_3pae8")]
-transform = Transform3D(0.0435746, 1.01042e-16, -2.15664e-24, 0, -1.90471e-09, 0.0435746, 0, -0.0435746, -1.90471e-09, -2.08459e-12, 0.765, -2.08165e-12)
+[node name="TopsBoard" parent="Lectern" instance=ExtResource("12_nxue7")]
+transform = Transform3D(-0.0435746, 2.80863e-09, -5.39976e-10, -9.32642e-10, -0.00617661, 0.0431346, 2.70373e-09, 0.0431346, 0.00617661, -5.85974e-11, 1.12007, 0.000670277)
 
-[node name="Discard" type="Marker3D" parent="ThriftShopTable"]
-transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -0.207782, 0.765068, -0.133718)
-script = ExtResource("8_r55tt")
+[node name="Discard" type="Marker3D" parent="Lectern"]
+transform = Transform3D(-1, -1.2392e-08, 8.654e-08, 0, 0.989903, 0.141748, -8.74228e-08, 0.141748, -0.989903, 0.207782, 1.10118, 0.133048)
+script = ExtResource("13_v2shh")
 per_card_offset = Vector3(2.08165e-12, 0.01, 2.08165e-12)
 
 [node name="Ground" type="StaticBody3D" parent="."]
@@ -247,14 +246,14 @@ shape = SubResource("BoxShape3D_6cgdj")
 [node name="===ACTOR========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="Joy" parent="." node_paths=PackedStringArray("facial_animator", "discard", "tops_board") instance=ExtResource("1_xnrq5")]
+[node name="Joy" parent="." node_paths=PackedStringArray("facial_animator", "discard", "tops_board") instance=ExtResource("14_d1e2n")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0, 0.75)
-script = ExtResource("10_5u80s")
+script = ExtResource("15_38s5e")
 facial_animator = NodePath("FacialAnimator")
-top_3d_prefab = ExtResource("11_fd0f6")
-top_card_3d_prefab = ExtResource("5_8steh")
-discard = NodePath("../ThriftShopTable/Discard")
-tops_board = NodePath("../ThriftShopTable/TopsBoard")
+top_3d_prefab = ExtResource("16_avk6u")
+top_card_3d_prefab = ExtResource("17_uj2t6")
+discard = NodePath("../Lectern/Discard")
+tops_board = NodePath("../Lectern/TopsBoard")
 max_random_rotation_degrees = 2.0
 play_duration = 0.4
 
@@ -411,115 +410,17 @@ layers = 2
 layers = 2
 
 [node name="LayerMask" type="Node" parent="Joy"]
-script = ExtResource("2_kouh8")
+script = ExtResource("18_w4hh5")
 layers = Array[bool]([false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
 
 [node name="DialogueHandler" type="Node" parent="Joy" node_paths=PackedStringArray("facial_animator", "default_dialogue_bubble")]
-script = ExtResource("16_4lk6v")
+script = ExtResource("19_0dlld")
 facial_animator = NodePath("../FacialAnimator")
 default_dialogue_bubble = NodePath("../../PlayArea/DialogueArea/Contestants/Player/DialogueBubbles/BasicDialogueBubble")
 
 [node name="AnimationHandler" type="Node" parent="Joy" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("8_lncrh")
+script = ExtResource("10_bg7j3")
 animation_player = NodePath("../AnimationPlayer")
-
-[node name="Erin" parent="." node_paths=PackedStringArray("facial_animator", "discard", "tops_board") instance=ExtResource("17_tj7fw")]
-transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 2.08165e-12, 2.08165e-12, -0.75)
-script = ExtResource("10_5u80s")
-facial_animator = NodePath("FacialAnimator")
-top_3d_prefab = ExtResource("11_fd0f6")
-top_card_3d_prefab = ExtResource("5_8steh")
-discard = NodePath("../ThriftShopTable/Discard")
-tops_board = NodePath("../ThriftShopTable/TopsBoard")
-max_random_rotation_degrees = 10.0
-play_duration = 0.5
-
-[node name="Arm_L" parent="Erin/Armature/Skeleton3D" index="0"]
-layers = 4
-
-[node name="Arm_R" parent="Erin/Armature/Skeleton3D" index="1"]
-layers = 4
-
-[node name="Calf_L" parent="Erin/Armature/Skeleton3D" index="2"]
-layers = 4
-
-[node name="Calf_R" parent="Erin/Armature/Skeleton3D" index="3"]
-layers = 4
-
-[node name="Chest" parent="Erin/Armature/Skeleton3D" index="4"]
-layers = 4
-
-[node name="Earing_L" parent="Erin/Armature/Skeleton3D" index="5"]
-layers = 4
-
-[node name="Earing_R" parent="Erin/Armature/Skeleton3D" index="6"]
-layers = 4
-
-[node name="Eyes" parent="Erin/Armature/Skeleton3D" index="7"]
-layers = 4
-
-[node name="Forearm_L" parent="Erin/Armature/Skeleton3D" index="8"]
-layers = 4
-
-[node name="Forearm_R" parent="Erin/Armature/Skeleton3D" index="9"]
-layers = 4
-
-[node name="Hair" parent="Erin/Armature/Skeleton3D" index="10"]
-layers = 4
-
-[node name="Hand_L" parent="Erin/Armature/Skeleton3D" index="11"]
-layers = 4
-
-[node name="Hand_R" parent="Erin/Armature/Skeleton3D" index="12"]
-layers = 4
-
-[node name="Head" parent="Erin/Armature/Skeleton3D" index="13"]
-layers = 4
-
-[node name="Mouth" parent="Erin/Armature/Skeleton3D" index="14"]
-layers = 4
-
-[node name="Neck" parent="Erin/Armature/Skeleton3D" index="15"]
-layers = 4
-
-[node name="Pelvis" parent="Erin/Armature/Skeleton3D" index="16"]
-layers = 4
-
-[node name="Shoe_L" parent="Erin/Armature/Skeleton3D" index="17"]
-layers = 4
-
-[node name="Shoe_R" parent="Erin/Armature/Skeleton3D" index="18"]
-layers = 4
-
-[node name="ShoeTongue_L" parent="Erin/Armature/Skeleton3D" index="19"]
-layers = 4
-
-[node name="ShoeTongue_R" parent="Erin/Armature/Skeleton3D" index="20"]
-layers = 4
-
-[node name="Shoulder_L" parent="Erin/Armature/Skeleton3D" index="21"]
-layers = 4
-
-[node name="Shoulder_R" parent="Erin/Armature/Skeleton3D" index="22"]
-layers = 4
-
-[node name="Thigh_L" parent="Erin/Armature/Skeleton3D" index="23"]
-layers = 4
-
-[node name="Thigh_R" parent="Erin/Armature/Skeleton3D" index="24"]
-layers = 4
-
-[node name="Torso" parent="Erin/Armature/Skeleton3D" index="25"]
-layers = 4
-
-[node name="LayerMask" type="Node" parent="Erin"]
-script = ExtResource("2_kouh8")
-layers = Array[bool]([false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
-
-[node name="DialogueHandler" type="Node" parent="Erin" node_paths=PackedStringArray("facial_animator", "default_dialogue_bubble")]
-script = ExtResource("16_4lk6v")
-facial_animator = NodePath("../FacialAnimator")
-default_dialogue_bubble = NodePath("../../PlayArea/DialogueArea/Contestants/Computer/DialogueBubbles/BasicDialogueBubble")
 
 [node name="===UI========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -559,7 +460,7 @@ size = Vector2i(1320, 820)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="PlayArea/PlayAreaViewport/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.0712363, 0.997459, 0, -0.997459, 0.0712363, -0.0370434, 1.01042, 0.0111105)
+transform = Transform3D(1, 0, 0, 0, -0.139173, 0.990268, 0, -0.990268, -0.139173, -0.0370434, 1.4049, -0.0533416)
 
 [node name="DialogueArea" type="TextureRect" parent="PlayArea"]
 texture_filter = 2
@@ -574,7 +475,7 @@ offset_top = 0.279996
 offset_right = 103.68
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("18_bxdk1")
+texture = ExtResource("22_olrox")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -615,7 +516,7 @@ render_target_update_mode = 4
 [node name="Camera3D" type="Camera3D" parent="PlayArea/DialogueArea/Contestants/Player/PlayerViewport/SubViewport"]
 transform = Transform3D(-0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 0.194, 1.363, 0.002)
 cull_mask = 2
-environment = ExtResource("4_kq3ts")
+environment = ExtResource("23_xajd6")
 fov = 60.0
 
 [node name="DialogueBubbles" type="Control" parent="PlayArea/DialogueArea/Contestants/Player"]
@@ -626,7 +527,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BasicDialogueBubble" parent="PlayArea/DialogueArea/Contestants/Player/DialogueBubbles" instance=ExtResource("20_tg4at")]
+[node name="BasicDialogueBubble" parent="PlayArea/DialogueArea/Contestants/Player/DialogueBubbles" instance=ExtResource("24_0ghhw")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.287
@@ -671,7 +572,7 @@ render_target_update_mode = 4
 [node name="Camera3D" type="Camera3D" parent="PlayArea/DialogueArea/Contestants/Computer/ComputerViewport/SubViewport"]
 transform = Transform3D(0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 0.194, 1.38642, 0.0415174)
 cull_mask = 4
-environment = ExtResource("4_kq3ts")
+environment = ExtResource("23_xajd6")
 fov = 60.0
 
 [node name="DialogueBubbles" type="Control" parent="PlayArea/DialogueArea/Contestants/Computer"]
@@ -682,7 +583,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BasicDialogueBubble" parent="PlayArea/DialogueArea/Contestants/Computer/DialogueBubbles" instance=ExtResource("20_tg4at")]
+[node name="BasicDialogueBubble" parent="PlayArea/DialogueArea/Contestants/Computer/DialogueBubbles" instance=ExtResource("24_0ghhw")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.344
@@ -704,7 +605,7 @@ anchor_bottom = 1.0
 offset_left = -165.0
 grow_horizontal = 0
 grow_vertical = 2
-texture = ExtResource("25_fgp7s")
+texture = ExtResource("25_yqlw1")
 
 [node name="MarginContainer" type="MarginContainer" parent="PlayArea/DialogueArea/ComputerStatsArea"]
 layout_mode = 1
@@ -726,7 +627,7 @@ alignment = 1
 [node name="Hand" type="TextureRect" parent="PlayArea/DialogueArea/ComputerStatsArea/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("26_e8ypw")
+texture = ExtResource("26_q81rk")
 expand_mode = 2
 stretch_mode = 5
 
@@ -743,19 +644,19 @@ offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("10_5ul61")
+theme_override_fonts/normal_font = ExtResource("27_68od4")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[center]5[/center]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
-script = ExtResource("28_1ttan")
+script = ExtResource("28_et8un")
 
 [node name="Energy" type="TextureRect" parent="PlayArea/DialogueArea/ComputerStatsArea/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("10_i4dae")
+texture = ExtResource("29_6iu14")
 expand_mode = 2
 stretch_mode = 5
 
@@ -773,14 +674,14 @@ offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("10_5ul61")
+theme_override_fonts/normal_font = ExtResource("27_68od4")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[center]5[/center]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
-script = ExtResource("29_fljj8")
+script = ExtResource("30_lse4u")
 
 [node name="DialoguePlayAreaDivider" type="TextureRect" parent="PlayArea/DialogueArea"]
 texture_filter = 1
@@ -806,7 +707,7 @@ anchors_preset = -1
 anchor_right = 0.389
 anchor_bottom = 1.0
 offset_right = 0.120003
-texture = ExtResource("6_l1d7a")
+texture = ExtResource("31_cjels")
 metadata/_edit_use_anchors_ = true
 
 [node name="DrawPile" type="TextureRect" parent="PlayArea/StatsArea"]
@@ -819,7 +720,7 @@ offset_top = -195.0
 offset_right = 220.0
 offset_bottom = -20.0
 grow_vertical = 0
-texture = ExtResource("9_i0u2a")
+texture = ExtResource("32_unum2")
 
 [node name="Count" type="RichTextLabel" parent="PlayArea/StatsArea/DrawPile"]
 layout_mode = 1
@@ -831,13 +732,13 @@ offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("10_5ul61")
+theme_override_fonts/normal_font = ExtResource("27_68od4")
 theme_override_font_sizes/normal_font_size = 68
 bbcode_enabled = true
 text = "[center]13[/center]"
 fit_content = true
 autowrap_mode = 0
-script = ExtResource("27_rccvm")
+script = ExtResource("33_r5u0j")
 
 [node name="Energy" type="TextureRect" parent="PlayArea/StatsArea"]
 layout_mode = 1
@@ -849,7 +750,7 @@ offset_top = -200.0
 offset_right = 380.0
 offset_bottom = -20.0
 grow_vertical = 0
-texture = ExtResource("10_i4dae")
+texture = ExtResource("29_6iu14")
 
 [node name="Count" type="RichTextLabel" parent="PlayArea/StatsArea/Energy"]
 layout_mode = 1
@@ -864,13 +765,13 @@ offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("10_5ul61")
+theme_override_fonts/normal_font = ExtResource("27_68od4")
 theme_override_font_sizes/normal_font_size = 68
 bbcode_enabled = true
 text = "[center]5[/center]"
 fit_content = true
 autowrap_mode = 0
-script = ExtResource("29_fljj8")
+script = ExtResource("30_lse4u")
 
 [node name="Hand" type="MarginContainer" parent="PlayArea/StatsArea" node_paths=PackedStringArray("draw_pile", "card_parent")]
 layout_mode = 1
@@ -885,31 +786,22 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
-script = ExtResource("20_mjdc4")
-top_card_ui_prefab = ExtResource("15_qudhi")
+script = ExtResource("34_veub1")
+top_card_ui_prefab = ExtResource("35_6tdr6")
 draw_pile = NodePath("../DrawPile")
 card_parent = NodePath("CardParent")
 card_slot_size = Vector2(300, 260)
 
 [node name="CardParent" type="Container" parent="PlayArea/StatsArea/Hand"]
 layout_mode = 2
-script = ExtResource("36_1omfh")
+script = ExtResource("36_f6xvy")
 horizontal_spacing = 10
 perferred_vertical_spacing = 10
 
-[node name="TopCardUI" parent="PlayArea/StatsArea/Hand/CardParent" instance=ExtResource("15_qudhi")]
+[node name="TopCardUI" parent="PlayArea/StatsArea/Hand/CardParent" instance=ExtResource("35_6tdr6")]
 layout_mode = 2
 
-[node name="TopCardUI2" parent="PlayArea/StatsArea/Hand/CardParent" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description", "colorable_elements") instance=ExtResource("15_qudhi")]
-layout_mode = 2
-cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
-icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
-title = NodePath("../TopCardUI/CardInfo/Title")
-artwork = NodePath("../TopCardUI/CardTopLocation/Top")
-description = NodePath("../TopCardUI/CardDescription/Description")
-colorable_elements = [NodePath("../TopCardUI/CardInfo")]
-
-[node name="TopCardUI3" parent="PlayArea/StatsArea/Hand/CardParent" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description", "colorable_elements") instance=ExtResource("15_qudhi")]
+[node name="TopCardUI2" parent="PlayArea/StatsArea/Hand/CardParent" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description", "colorable_elements") instance=ExtResource("35_6tdr6")]
 layout_mode = 2
 cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
 icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
@@ -918,7 +810,7 @@ artwork = NodePath("../TopCardUI/CardTopLocation/Top")
 description = NodePath("../TopCardUI/CardDescription/Description")
 colorable_elements = [NodePath("../TopCardUI/CardInfo")]
 
-[node name="TopCardUI4" parent="PlayArea/StatsArea/Hand/CardParent" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description", "colorable_elements") instance=ExtResource("15_qudhi")]
+[node name="TopCardUI3" parent="PlayArea/StatsArea/Hand/CardParent" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description", "colorable_elements") instance=ExtResource("35_6tdr6")]
 layout_mode = 2
 cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
 icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
@@ -927,7 +819,7 @@ artwork = NodePath("../TopCardUI/CardTopLocation/Top")
 description = NodePath("../TopCardUI/CardDescription/Description")
 colorable_elements = [NodePath("../TopCardUI/CardInfo")]
 
-[node name="TopCardUI5" parent="PlayArea/StatsArea/Hand/CardParent" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description", "colorable_elements") instance=ExtResource("15_qudhi")]
+[node name="TopCardUI4" parent="PlayArea/StatsArea/Hand/CardParent" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description", "colorable_elements") instance=ExtResource("35_6tdr6")]
 layout_mode = 2
 cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
 icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
@@ -936,7 +828,16 @@ artwork = NodePath("../TopCardUI/CardTopLocation/Top")
 description = NodePath("../TopCardUI/CardDescription/Description")
 colorable_elements = [NodePath("../TopCardUI/CardInfo")]
 
-[node name="TopCardUI6" parent="PlayArea/StatsArea/Hand/CardParent" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description", "colorable_elements") instance=ExtResource("15_qudhi")]
+[node name="TopCardUI5" parent="PlayArea/StatsArea/Hand/CardParent" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description", "colorable_elements") instance=ExtResource("35_6tdr6")]
+layout_mode = 2
+cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
+icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
+title = NodePath("../TopCardUI/CardInfo/Title")
+artwork = NodePath("../TopCardUI/CardTopLocation/Top")
+description = NodePath("../TopCardUI/CardDescription/Description")
+colorable_elements = [NodePath("../TopCardUI/CardInfo")]
+
+[node name="TopCardUI6" parent="PlayArea/StatsArea/Hand/CardParent" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description", "colorable_elements") instance=ExtResource("35_6tdr6")]
 layout_mode = 2
 cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
 icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
@@ -948,5 +849,4 @@ colorable_elements = [NodePath("../TopCardUI/CardInfo")]
 [connection signal="sort_children" from="PlayArea/StatsArea/Hand/CardParent" to="PlayArea/StatsArea/Hand" method="set_up_focus_connections"]
 
 [editable path="Joy"]
-[editable path="Erin"]
 [editable path="PlayArea/DialogueArea/Contestants/Player/DialogueBubbles/BasicDialogueBubble"]
