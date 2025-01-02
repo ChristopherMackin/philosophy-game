@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://c674050h413wq"]
+[gd_scene load_steps=45 format=3 uid="uid://c674050h413wq"]
 
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_c3gp0"]
 [ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://debate/main/debate_settings.tres" id="2_03waw"]
@@ -23,8 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://cjibu358pdc3s" path="res://asset/graphic/debate/dialogue_area/colorable_checkerboard.png" id="22_olrox"]
 [ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://debate/debate_contestant_viewport.tres" id="23_xajd6"]
 [ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/prefab/basic_dialogue_bubble.tscn" id="24_0ghhw"]
-[ext_resource type="Texture2D" uid="uid://b5nlnbqopjyl8" path="res://asset/graphic/debate/dialogue_area/opponent_stats_area.png" id="25_yqlw1"]
-[ext_resource type="Texture2D" uid="uid://caks003lacvsp" path="res://asset/graphic/debate/stats_area/hand_icon.png" id="26_q81rk"]
+[ext_resource type="Texture2D" uid="uid://qrki8ns1v7yd" path="res://asset/graphic/debate/dialogue_area/opponent_stats_area.png" id="25_yqlw1"]
+[ext_resource type="Texture2D" uid="uid://ch4ojaii0egr2" path="res://asset/graphic/debate/stats_area/hand_icon.png" id="26_q81rk"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="27_68od4"]
 [ext_resource type="Script" path="res://script/debate/ui/hand_count_ui.gd" id="28_et8un"]
 [ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/graphic/debate/stats_area/turn_counter_background.png" id="29_6iu14"]
@@ -134,9 +134,6 @@ background_canvas_max_layer = -100
 ambient_light_source = 2
 ambient_light_color = Color(0.976471, 0.972549, 0.933333, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6cgdj"]
-size = Vector3(10, 1, 10)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1mhlm"]
 shader = ExtResource("21_wuq6j")
 shader_parameter/color = Color(1, 0.745098, 0.858824, 1)
@@ -222,32 +219,21 @@ shadow_enabled = true
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="Lectern" parent="." instance=ExtResource("11_cga4j")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 
 [node name="TopsBoard" parent="Lectern" instance=ExtResource("12_nxue7")]
-transform = Transform3D(-0.0435746, 2.80863e-09, -5.39976e-10, -9.32642e-10, -0.00617661, 0.0431346, 2.70373e-09, 0.0431346, 0.00617661, -5.85974e-11, 1.12007, 0.000670277)
+transform = Transform3D(0.0435746, -3.02449e-17, 2.14145e-18, 2.14145e-18, 0.00613971, 0.0431399, -3.02449e-17, -0.0431399, 0.00613971, -5.85974e-11, 1.12007, 0.000670277)
 
 [node name="Discard" type="Marker3D" parent="Lectern"]
-transform = Transform3D(-1, -1.2392e-08, 8.654e-08, 0, 0.989903, 0.141748, -8.74228e-08, 0.141748, -0.989903, 0.207782, 1.10118, 0.133048)
+transform = Transform3D(1, -2.99642e-16, 3.45307e-16, 3.45307e-16, 0.990024, -0.140901, -2.99642e-16, 0.140901, 0.990024, -0.211575, 1.1395, -0.134537)
 script = ExtResource("13_v2shh")
 per_card_offset = Vector3(2.08165e-12, 0.01, 2.08165e-12)
-
-[node name="Ground" type="StaticBody3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1.2)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-size = Vector3(10, 0.2, 10)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("BoxShape3D_6cgdj")
 
 [node name="===ACTOR========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="Joy" parent="." node_paths=PackedStringArray("facial_animator", "discard", "tops_board") instance=ExtResource("14_d1e2n")]
-transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0, 0.75)
+transform = Transform3D(-1, 3.48787e-16, -1.50996e-07, 3.48787e-16, 1, -3.48787e-16, 1.50996e-07, -3.48787e-16, -1, 0, 0, 0.75)
 script = ExtResource("15_38s5e")
 facial_animator = NodePath("FacialAnimator")
 top_3d_prefab = ExtResource("16_avk6u")
@@ -277,7 +263,7 @@ bones/6/position = Vector3(-0.0380811, 0.1041, -0.0346195)
 bones/6/rotation = Quaternion(0.510213, -0.510213, -0.489574, -0.489574)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(2.38008e-08, 0.114243, 8.7724e-08)
-bones/7/rotation = Quaternion(-0.575372, -0.152976, -0.068286, 0.800552)
+bones/7/rotation = Quaternion(-0.575372, -0.152976, -0.0682861, 0.800552)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/position = Vector3(-3.07336e-08, 1.32713e-07, -6.28643e-09)
 bones/8/rotation = Quaternion(4.73174e-08, 0.102689, -5.25515e-08, 0.994714)
@@ -295,7 +281,7 @@ bones/12/position = Vector3(0.0380811, 0.1041, -0.0346195)
 bones/12/rotation = Quaternion(0.510213, 0.510213, 0.489574, -0.489574)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/position = Vector3(-2.02167e-08, 0.114244, 1.08456e-07)
-bones/13/rotation = Quaternion(-0.569459, 0.148267, 0.077229, 0.804841)
+bones/13/rotation = Quaternion(-0.569459, 0.148267, 0.0772291, 0.804841)
 bones/13/scale = Vector3(1, 1, 1)
 bones/14/position = Vector3(3.44589e-08, -6.75209e-08, -1.02213e-07)
 bones/14/rotation = Quaternion(2.75906e-07, -0.0930115, 1.68067e-07, 0.995665)
@@ -304,7 +290,7 @@ bones/15/position = Vector3(-2.06622e-08, 0.208839, -8.3819e-08)
 bones/15/rotation = Quaternion(3.94698e-07, 1.18835e-07, -0.381652, 0.924306)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(-2.93477e-09, 0.105235, -7.4608e-09)
-bones/16/rotation = Quaternion(-3.71969e-08, 0.15155, -7.48209e-08, 0.98845)
+bones/16/rotation = Quaternion(-3.71969e-08, 0.15155, -7.4821e-08, 0.98845)
 bones/16/scale = Vector3(1, 1, 1)
 bones/17/position = Vector3(6.97371e-08, 0.21047, 2.78108e-08)
 bones/17/rotation = Quaternion(-0.0693393, 0.128598, 0.0607911, 0.9874)
@@ -460,7 +446,7 @@ size = Vector2i(1320, 820)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="PlayArea/PlayAreaViewport/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, -0.139173, 0.990268, 0, -0.990268, -0.139173, -0.0370434, 1.4049, -0.0533416)
+transform = Transform3D(-1, 8.74228e-08, -1.89273e-16, 1.21669e-08, 0.139173, 0.990268, 8.6572e-08, 0.990268, -0.139173, 0.00949209, 1.4049, -0.0533416)
 
 [node name="DialogueArea" type="TextureRect" parent="PlayArea"]
 texture_filter = 2
@@ -706,7 +692,7 @@ texture_filter = 2
 anchors_preset = -1
 anchor_right = 0.389
 anchor_bottom = 1.0
-offset_right = 0.120003
+offset_right = 13.12
 texture = ExtResource("31_cjels")
 metadata/_edit_use_anchors_ = true
 

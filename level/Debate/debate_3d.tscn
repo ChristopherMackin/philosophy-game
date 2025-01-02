@@ -30,8 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/prefab/basic_dialogue_bubble.tscn" id="20_tg4at"]
 [ext_resource type="PackedScene" uid="uid://bsyesuw4ujeei" path="res://debate/prefab/tops_board.tscn" id="21_3pae8"]
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="23_xw7h0"]
-[ext_resource type="Texture2D" uid="uid://b5nlnbqopjyl8" path="res://asset/graphic/debate/dialogue_area/opponent_stats_area.png" id="25_fgp7s"]
-[ext_resource type="Texture2D" uid="uid://caks003lacvsp" path="res://asset/graphic/debate/stats_area/hand_icon.png" id="26_e8ypw"]
+[ext_resource type="Texture2D" uid="uid://qrki8ns1v7yd" path="res://asset/graphic/debate/dialogue_area/opponent_stats_area.png" id="25_fgp7s"]
+[ext_resource type="Texture2D" uid="uid://ch4ojaii0egr2" path="res://asset/graphic/debate/stats_area/hand_icon.png" id="26_e8ypw"]
 [ext_resource type="Script" path="res://script/debate/ui/draw_pile_ui.gd" id="27_rccvm"]
 [ext_resource type="Script" path="res://script/debate/ui/hand_count_ui.gd" id="28_1ttan"]
 [ext_resource type="Script" path="res://script/debate/ui/energy_ui.gd" id="29_fljj8"]
@@ -278,7 +278,7 @@ bones/6/position = Vector3(-0.0380811, 0.1041, -0.0346195)
 bones/6/rotation = Quaternion(0.510213, -0.510213, -0.489574, -0.489574)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(2.38008e-08, 0.114243, 8.7724e-08)
-bones/7/rotation = Quaternion(-0.575372, -0.152976, -0.068286, 0.800552)
+bones/7/rotation = Quaternion(-0.575372, -0.152976, -0.0682861, 0.800552)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/position = Vector3(-3.07336e-08, 1.32713e-07, -6.28643e-09)
 bones/8/rotation = Quaternion(4.73174e-08, 0.102689, -5.25515e-08, 0.994714)
@@ -296,7 +296,7 @@ bones/12/position = Vector3(0.0380811, 0.1041, -0.0346195)
 bones/12/rotation = Quaternion(0.510213, 0.510213, 0.489574, -0.489574)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/position = Vector3(-2.02167e-08, 0.114244, 1.08456e-07)
-bones/13/rotation = Quaternion(-0.569459, 0.148267, 0.077229, 0.804841)
+bones/13/rotation = Quaternion(-0.569459, 0.148267, 0.0772291, 0.804841)
 bones/13/scale = Vector3(1, 1, 1)
 bones/14/position = Vector3(3.44589e-08, -6.75209e-08, -1.02213e-07)
 bones/14/rotation = Quaternion(2.75906e-07, -0.0930115, 1.68067e-07, 0.995665)
@@ -305,7 +305,7 @@ bones/15/position = Vector3(-2.06622e-08, 0.208839, -8.3819e-08)
 bones/15/rotation = Quaternion(3.94698e-07, 1.18835e-07, -0.381652, 0.924306)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(-2.93477e-09, 0.105235, -7.4608e-09)
-bones/16/rotation = Quaternion(-3.71969e-08, 0.15155, -7.48209e-08, 0.98845)
+bones/16/rotation = Quaternion(-3.71969e-08, 0.15155, -7.4821e-08, 0.98845)
 bones/16/scale = Vector3(1, 1, 1)
 bones/17/position = Vector3(6.97371e-08, 0.21047, 2.78108e-08)
 bones/17/rotation = Quaternion(-0.0693393, 0.128598, 0.0607911, 0.9874)
