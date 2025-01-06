@@ -31,4 +31,4 @@ theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "This is a test of the text and such"
 script = ExtResource("3_fjgyg")
-characters_per_second = 10
+characters_per_second = 20
