@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bqwn6fre04ypq" path="res://character/joy/joy.tscn" id="1_xnrq5"]
 [ext_resource type="Script" path="res://script/utility/set_layer_mask.gd" id="2_kouh8"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player.tres" id="2_tj3bx"]
-[ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://character/erin/erin.tres" id="3_ilxke"]
+[ext_resource type="Resource" uid="uid://d21frda3buspp" path="res://character/erin/erin_data.tres" id="3_ilxke"]
 [ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://debate/debate_contestant_viewport.tres" id="4_kq3ts"]
 [ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://debate/main/debate_settings.tres" id="4_q8shw"]
 [ext_resource type="PackedScene" uid="uid://d3gstm266f4t3" path="res://debate/prefab/top_card_3d.tscn" id="5_8steh"]

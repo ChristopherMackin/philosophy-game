@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Event" load_steps=2 format=3 uid="uid://dmekx85ofry7t"]
+
+[ext_resource type="Script" path="res://script/system/event/event.gd" id="1_3uh5w"]
+
+[resource]
+script = ExtResource("1_3uh5w")
+is_major_event = false
+await_event = false
+tasks = Array[Resource("res://script/system/event/task.gd")]([])

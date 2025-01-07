@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StateDatabase" load_steps=2 format=3 uid="uid://b2jdljo01bdqy"]
+
+[ext_resource type="Script" path="res://script/system/database/state_database.gd" id="1_nnefu"]
+
+[resource]
+script = ExtResource("1_nnefu")
+schema = 3
+prefix = "aaron"
+sub_path = "memory/aaron.tres"

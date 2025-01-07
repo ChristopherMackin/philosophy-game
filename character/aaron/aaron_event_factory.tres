@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=9 format=3 uid="uid://27sna6u0b0wj"]
+
+[ext_resource type="Script" path="res://script/character/debate_event_factory/ordered_event_factory.gd" id="1_rb0rx"]
+[ext_resource type="Resource" uid="uid://bxipp7ocgo8f4" path="res://character/aaron/event/aaron_encounter_01_basic_faith_played.tres" id="1_wx1vh"]
+[ext_resource type="Script" path="res://script/character/debate_event_factory/rule/criterion/debate_criterion.gd" id="2_k06o6"]
+[ext_resource type="Script" path="res://script/character/debate_event_factory/rule/rule.gd" id="3_5togk"]
+[ext_resource type="Script" path="res://script/character/debate_event_factory/event_factory_payload.gd" id="4_n3d1h"]
+
+[sub_resource type="Resource" id="Resource_3ytc2"]
+script = ExtResource("2_k06o6")
+key = 0
+comparator = 0
+value = "basic_faith"
+
+[sub_resource type="Resource" id="Resource_2kksx"]
+script = ExtResource("3_5togk")
+concept = "on_top_played"
+criteria = Array[Resource("res://script/character/debate_event_factory/rule/criterion/criterion.gd")]([SubResource("Resource_3ytc2")])
+
+[sub_resource type="Resource" id="Resource_7bdv2"]
+script = ExtResource("4_n3d1h")
+event = ExtResource("1_wx1vh")
+rule = SubResource("Resource_2kksx")
+
+[resource]
+script = ExtResource("1_rb0rx")
+payload_list = Array[ExtResource("4_n3d1h")]([SubResource("Resource_7bdv2")])

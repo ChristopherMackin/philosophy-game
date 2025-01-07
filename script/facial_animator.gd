@@ -43,7 +43,7 @@ enum MouthState {
 @export var mouth : MeshInstance3D
 var mouth_material : Material
 
-@export var talk_speed : float = 2
+@export var talk_speed : float = 25
 
 func _ready():
 	eye_material = eyes.mesh.surface_get_material(0)
