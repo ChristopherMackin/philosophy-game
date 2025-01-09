@@ -72,7 +72,6 @@ theme_override_constants/margin_left = 20
 
 [node name="PathLabel" type="Label" parent="GraphContainer/MenuBarMarginContainer/MenuBar/PathMarginContainer"]
 layout_mode = 2
-text = "This is a test to see"
 horizontal_alignment = 2
 text_overrun_behavior = 3
 
@@ -162,6 +161,7 @@ filters = PackedStringArray("*.tres")
 script = ExtResource("5_5212g")
 
 [node name="SaveDialogue" type="FileDialog" parent="."]
+title = "Save event"
 initial_position = 1
 size = Vector2i(800, 800)
 ok_button_text = "Save"
@@ -171,7 +171,7 @@ script = ExtResource("5_5212g")
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
 title = "Unsaved File"
-initial_position = 2
+initial_position = 1
 size = Vector2i(300, 130)
 dialog_text = "You will loose any unsaved progress if you continue"
 dialog_autowrap = true
@@ -189,8 +189,8 @@ dialog_autowrap = true
 [connection signal="gui_input" from="EventNodeList" to="." method="set_dirty"]
 [connection signal="item_activated" from="EventNodeList" to="EventNodeList" method="_on_item_activated"]
 [connection signal="item_selected" from="EventNodeList" to="EventNodeList" method="_on_item_selected"]
-[connection signal="file_selected" from="OpenDialogue" to="." method="open_event_tree"]
-[connection signal="file_selected" from="NewDialogue" to="." method="create_event_tree"]
-[connection signal="file_selected" from="SaveDialogue" to="." method="save_event_tree"]
-[connection signal="canceled" from="ConfirmationDialog" to="." method="confirmation_canceled"]
-[connection signal="confirmed" from="ConfirmationDialog" to="." method="confirmation_confirmed"]
+[connection signal="file_selected" from="OpenDialogue" to="." method="open_event_tree" flags=3]
+[connection signal="file_selected" from="NewDialogue" to="." method="create_event_tree" flags=3]
+[connection signal="file_selected" from="SaveDialogue" to="." method="save_event_tree" flags=3]
+[connection signal="canceled" from="ConfirmationDialog" to="." method="confirmation_canceled" flags=3]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="confirmation_confirmed" flags=3]

@@ -93,3 +93,7 @@ func confirmation_confirmed():
 
 func set_path_label():
 	path_label.text = "%s%s" % ["*" if dirty else "", resource_path]
+
+
+func create_event_tree(path):
+	pass # Replace with function body.
