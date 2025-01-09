@@ -70,20 +70,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 20
 
-[node name="PathContainer" type="HBoxContainer" parent="GraphContainer/MenuBarMarginContainer/MenuBar/PathMarginContainer"]
+[node name="PathLabel" type="Label" parent="GraphContainer/MenuBarMarginContainer/MenuBar/PathMarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="IsDirty" type="Label" parent="GraphContainer/MenuBarMarginContainer/MenuBar/PathMarginContainer/PathContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-text = "*"
-
-[node name="PathLabel" type="Label" parent="GraphContainer/MenuBarMarginContainer/MenuBar/PathMarginContainer/PathContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
+text = "This is a test to see"
 horizontal_alignment = 2
+text_overrun_behavior = 3
 
 [node name="EventGraph" type="GraphEdit" parent="GraphContainer"]
 layout_mode = 2
@@ -193,8 +184,9 @@ dialog_autowrap = true
 [connection signal="connection_request" from="GraphContainer/EventGraph" to="GraphContainer/EventGraph" method="_on_connection_request"]
 [connection signal="delete_nodes_request" from="GraphContainer/EventGraph" to="GraphContainer/EventGraph" method="_on_delete_nodes_request"]
 [connection signal="disconnection_request" from="GraphContainer/EventGraph" to="GraphContainer/EventGraph" method="_on_disconnection_request"]
-[connection signal="gui_input" from="GraphContainer/EventGraph" to="." method="set_dirty"]
+[connection signal="gui_input" from="GraphContainer/EventGraph" to="." method="set_dirty_on_input"]
 [connection signal="empty_clicked" from="EventNodeList" to="EventNodeList" method="_on_empty_clicked"]
+[connection signal="gui_input" from="EventNodeList" to="." method="set_dirty"]
 [connection signal="item_activated" from="EventNodeList" to="EventNodeList" method="_on_item_activated"]
 [connection signal="item_selected" from="EventNodeList" to="EventNodeList" method="_on_item_selected"]
 [connection signal="file_selected" from="OpenDialogue" to="." method="open_event_tree"]
