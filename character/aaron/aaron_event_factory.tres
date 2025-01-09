@@ -1,21 +1,14 @@
-[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=9 format=3 uid="uid://27sna6u0b0wj"]
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=7 format=3 uid="uid://27sna6u0b0wj"]
 
 [ext_resource type="Resource" uid="uid://mno8jvpepgyt" path="res://character/aaron/event/monchichi.tres" id="1_ofpy8"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/ordered_event_factory.gd" id="1_rb0rx"]
-[ext_resource type="Script" path="res://script/character/debate_event_factory/rule/criterion/debate_criterion.gd" id="2_k06o6"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/rule/rule.gd" id="3_5togk"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/event_factory_payload.gd" id="4_n3d1h"]
-
-[sub_resource type="Resource" id="Resource_3ytc2"]
-script = ExtResource("2_k06o6")
-key = 0
-comparator = 0
-value = "Basic Faith"
 
 [sub_resource type="Resource" id="Resource_2kksx"]
 script = ExtResource("3_5togk")
 concept = "on_top_played"
-criteria = Array[Resource("res://script/character/debate_event_factory/rule/criterion/criterion.gd")]([SubResource("Resource_3ytc2")])
+criteria = Array[Resource("res://script/character/debate_event_factory/rule/criterion/criterion.gd")]([])
 
 [sub_resource type="Resource" id="Resource_7bdv2"]
 script = ExtResource("4_n3d1h")

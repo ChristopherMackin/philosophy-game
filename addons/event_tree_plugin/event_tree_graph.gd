@@ -36,6 +36,8 @@ func clear_node_connections(node):
 
 func update_event_from_graph(event : Event) -> Event:
 	#Make new event and add starting event
+	if !event:
+		event = Event.new()
 	
 	var start_task
 	var tasks : Array[Task]

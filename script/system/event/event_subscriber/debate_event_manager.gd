@@ -6,7 +6,7 @@ class_name DebateEventSubscriber
 @export var actors : Array[Node]
 
 func display_dialogue(line : String, actor : String, await_input : bool, seconds_before_close : float):
-	var index = actors.map(func(x): return x.name.to_snake_case()).find(actor.to_snake_case())
+	var index = get_actor_index(actor)
 	if index < 0:
 		return
 	
@@ -21,7 +21,7 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 	dialogue_handler.close_dialogue()
 
 func cancel_dialogue(actor):
-	var index = actors.map(func(x): return x.name).find(actor)
+	var index = get_actor_index(actor)
 	if index < 0:
 		return
 	
@@ -36,7 +36,7 @@ func play_animation(name : String, actor : String, await_animation : bool):
 	var parent
 	
 	if actor != "":
-		var index = actors.map(func(x): return x.name).find(actor)
+		var index = get_actor_index(actor)
 		
 		if index < 0:
 			return
@@ -56,7 +56,7 @@ func cancel_animation(actor):
 	var parent
 	
 	if actor != "":
-		var index = actors.map(func(x): return x.name).find(actor)
+		var index = get_actor_index(actor)
 		
 		if index < 0:
 			return
@@ -69,3 +69,6 @@ func cancel_animation(actor):
 	var animation_handler : AnimationHandler = parent.get_node_or_null(NodePath("AnimationHandler"))
 	
 	animation_handler.cancel_animation()
+
+func get_actor_index(actor_name : String) -> int:
+	return actors.map(func(x): return x.name.to_snake_case()).find(actor_name.to_snake_case())
