@@ -69,6 +69,13 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_constants/separation = 10
 
+[node name="New" type="Button" parent="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "New"
+
 [node name="Open" type="Button" parent="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
@@ -83,6 +90,13 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Save
 "
+
+[node name="SaveAs" type="Button" parent="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Save As"
 
 [node name="EventNodeList" type="ItemList" parent="HSplitContainer/NodeSelector" node_paths=PackedStringArray("event_graph", "task_node_type_parent")]
 layout_mode = 2
@@ -141,21 +155,44 @@ layout_mode = 0
 [node name="DecrementValue" parent="TaskNodeTypeParent" instance=ExtResource("11_yw6to")]
 layout_mode = 0
 
-[node name="EventTreePicker" type="FileDialog" parent="."]
+[node name="OpenDialogue" type="FileDialog" parent="."]
 title = "Open a File"
 initial_position = 1
 size = Vector2i(800, 800)
 ok_button_text = "Open"
 file_mode = 0
+access = 2
 filters = PackedStringArray("*.tres")
 script = ExtResource("5_5212g")
 
-[connection signal="pressed" from="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/Open" to="EventTreePicker" method="open"]
+[node name="NewDialogue" type="FileDialog" parent="."]
+title = "Create a new event"
+initial_position = 1
+size = Vector2i(800, 800)
+ok_button_text = "Create"
+access = 2
+filters = PackedStringArray("*.tres")
+script = ExtResource("5_5212g")
+
+[node name="SaveDialogue" type="FileDialog" parent="."]
+initial_position = 1
+size = Vector2i(800, 800)
+ok_button_text = "Save"
+access = 2
+filters = PackedStringArray("*.tres")
+script = ExtResource("5_5212g")
+
+[connection signal="pressed" from="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/New" to="NewDialogue" method="open"]
+[connection signal="pressed" from="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/Open" to="OpenDialogue" method="open"]
 [connection signal="pressed" from="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/Save" to="." method="save_event_tree"]
+[connection signal="pressed" from="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/SaveAs" to="SaveDialogue" method="open"]
 [connection signal="empty_clicked" from="HSplitContainer/NodeSelector/EventNodeList" to="HSplitContainer/NodeSelector/EventNodeList" method="_on_empty_clicked"]
 [connection signal="item_activated" from="HSplitContainer/NodeSelector/EventNodeList" to="HSplitContainer/NodeSelector/EventNodeList" method="_on_item_activated"]
+[connection signal="item_selected" from="HSplitContainer/NodeSelector/EventNodeList" to="HSplitContainer/NodeSelector/EventNodeList" method="_on_item_selected"]
 [connection signal="connection_drag_started" from="HSplitContainer/EventGraph" to="HSplitContainer/EventGraph" method="_on_connection_drag_started"]
 [connection signal="connection_request" from="HSplitContainer/EventGraph" to="HSplitContainer/EventGraph" method="_on_connection_request"]
 [connection signal="delete_nodes_request" from="HSplitContainer/EventGraph" to="HSplitContainer/EventGraph" method="_on_delete_nodes_request"]
 [connection signal="disconnection_request" from="HSplitContainer/EventGraph" to="HSplitContainer/EventGraph" method="_on_disconnection_request"]
-[connection signal="file_selected" from="EventTreePicker" to="." method="open_event_tree"]
+[connection signal="file_selected" from="OpenDialogue" to="." method="open_event_tree"]
+[connection signal="file_selected" from="NewDialogue" to="." method="create_event_tree"]
+[connection signal="file_selected" from="SaveDialogue" to="." method="save_event_tree"]

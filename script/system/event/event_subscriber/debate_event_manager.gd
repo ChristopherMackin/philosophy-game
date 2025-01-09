@@ -6,7 +6,7 @@ class_name DebateEventSubscriber
 @export var actors : Array[Node]
 
 func display_dialogue(line : String, actor : String, await_input : bool, seconds_before_close : float):
-	var index = actors.map(func(x): return x.name).find(actor)
+	var index = actors.map(func(x): return x.name.to_snake_case()).find(actor.to_snake_case())
 	if index < 0:
 		return
 	

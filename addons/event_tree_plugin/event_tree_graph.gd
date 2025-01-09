@@ -128,3 +128,11 @@ func get_task_nodes():
 	var index = task_nodes.find(start_node)
 	task_nodes.remove_at(index)
 	return task_nodes
+
+func _can_drop_data(at_position, data):
+	return true
+
+func _drop_data(at_position, data):
+	var node = data.duplicate()
+	add_child(node, true)
+	node.position_offset = at_position

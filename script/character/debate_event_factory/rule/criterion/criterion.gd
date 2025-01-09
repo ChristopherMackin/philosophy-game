@@ -16,7 +16,7 @@ enum Comparator {
 var _value:
 	get: 
 		var val = str_to_var(value)
-		return val if typeof(val) != 0 else value
+		return val if typeof(val) != 0 else value.to_snake_case()
 
 func check(query : Dictionary) -> bool:
 	return false

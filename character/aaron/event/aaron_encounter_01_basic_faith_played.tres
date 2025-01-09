@@ -1,15 +1,14 @@
-[gd_resource type="Resource" script_class="Event" load_steps=15 format=3 uid="uid://bxipp7ocgo8f4"]
+[gd_resource type="Resource" script_class="Event" load_steps=12 format=3 uid="uid://bxipp7ocgo8f4"]
 
 [ext_resource type="Script" path="res://script/system/event/event.gd" id="1_rtil6"]
 [ext_resource type="Script" path="res://script/system/event/task_action/animation_task_action.gd" id="2_lksg0"]
 [ext_resource type="Script" path="res://script/system/event/task.gd" id="3_4hfap"]
 [ext_resource type="Script" path="res://script/system/event/task_action/dialogue_task_action.gd" id="4_kobwm"]
-[ext_resource type="Script" path="res://script/system/event/task_action/wait_task_action.gd" id="5_2soju"]
 
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_lksg0")
 
-[sub_resource type="Resource" id="Resource_i622a"]
+[sub_resource type="Resource" id="Resource_n2kx8"]
 script = ExtResource("3_4hfap")
 outputs = Array[int]([1])
 inputs = ["praise", "Aaron", false]
@@ -18,34 +17,25 @@ action = SubResource("Resource_ml60a")
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("4_kobwm")
 
-[sub_resource type="Resource" id="Resource_m2kg4"]
+[sub_resource type="Resource" id="Resource_ur2bd"]
 script = ExtResource("3_4hfap")
 outputs = Array[int]([2])
 inputs = ["It seems you haven't completely fallen for Satan's tricks.", "Aaron", false, 2.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_800ch"]
+[sub_resource type="Resource" id="Resource_6aol0"]
 script = ExtResource("3_4hfap")
 outputs = Array[int]([3])
 inputs = ["I don't think having doubts is satanic...", "Joy", false, 2.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_u6doa"]
+[sub_resource type="Resource" id="Resource_n1uu7"]
 script = ExtResource("3_4hfap")
 outputs = Array[int]([4])
 inputs = ["recollect", "Aaron", false]
 action = SubResource("Resource_ml60a")
 
-[sub_resource type="Resource" id="Resource_1f63y"]
-script = ExtResource("5_2soju")
-
-[sub_resource type="Resource" id="Resource_ioe1x"]
-script = ExtResource("3_4hfap")
-outputs = Array[int]([5])
-inputs = [2.0]
-action = SubResource("Resource_1f63y")
-
-[sub_resource type="Resource" id="Resource_dwkmx"]
+[sub_resource type="Resource" id="Resource_26uij"]
 script = ExtResource("3_4hfap")
 outputs = Array[int]([])
 inputs = ["If only I had done more to solidify your beliefs.", "Aaron", false, 3.0]
@@ -55,5 +45,5 @@ action = SubResource("Resource_x7ur8")
 script = ExtResource("1_rtil6")
 is_major_event = false
 await_event = false
-start_task = SubResource("Resource_i622a")
-tasks = Array[ExtResource("3_4hfap")]([SubResource("Resource_i622a"), SubResource("Resource_m2kg4"), SubResource("Resource_800ch"), SubResource("Resource_u6doa"), SubResource("Resource_ioe1x"), SubResource("Resource_dwkmx")])
+start_task = SubResource("Resource_n2kx8")
+tasks = Array[ExtResource("3_4hfap")]([SubResource("Resource_n2kx8"), SubResource("Resource_ur2bd"), SubResource("Resource_6aol0"), SubResource("Resource_n1uu7"), SubResource("Resource_26uij")])
