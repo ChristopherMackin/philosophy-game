@@ -8,7 +8,7 @@
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_lksg0")
 
-[sub_resource type="Resource" id="Resource_n2kx8"]
+[sub_resource type="Resource" id="Resource_0vs53"]
 script = ExtResource("3_4hfap")
 outputs = Array[int]([1])
 inputs = ["praise", "Aaron", false]
@@ -17,33 +17,33 @@ action = SubResource("Resource_ml60a")
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("4_kobwm")
 
-[sub_resource type="Resource" id="Resource_ur2bd"]
+[sub_resource type="Resource" id="Resource_wv02t"]
 script = ExtResource("3_4hfap")
 outputs = Array[int]([2])
 inputs = ["It seems you haven't completely fallen for Satan's tricks.", "Aaron", false, 2.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_6aol0"]
+[sub_resource type="Resource" id="Resource_ti3kb"]
 script = ExtResource("3_4hfap")
 outputs = Array[int]([3])
 inputs = ["I don't think having doubts is satanic...", "Joy", false, 2.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_n1uu7"]
+[sub_resource type="Resource" id="Resource_8w023"]
 script = ExtResource("3_4hfap")
 outputs = Array[int]([4])
 inputs = ["recollect", "Aaron", false]
 action = SubResource("Resource_ml60a")
 
-[sub_resource type="Resource" id="Resource_26uij"]
+[sub_resource type="Resource" id="Resource_2osak"]
 script = ExtResource("3_4hfap")
 outputs = Array[int]([])
-inputs = ["If only I had done more to solidify your beliefs.", "Aaron", false, 3.0]
+inputs = ["Don't leave the devil any footholds, my dear child.", "Aaron", false, 3.0]
 action = SubResource("Resource_x7ur8")
 
 [resource]
 script = ExtResource("1_rtil6")
 is_major_event = false
 await_event = false
-start_task = SubResource("Resource_n2kx8")
-tasks = Array[ExtResource("3_4hfap")]([SubResource("Resource_n2kx8"), SubResource("Resource_ur2bd"), SubResource("Resource_6aol0"), SubResource("Resource_n1uu7"), SubResource("Resource_26uij")])
+start_task = SubResource("Resource_0vs53")
+tasks = Array[ExtResource("3_4hfap")]([SubResource("Resource_0vs53"), SubResource("Resource_wv02t"), SubResource("Resource_ti3kb"), SubResource("Resource_8w023"), SubResource("Resource_2osak")])

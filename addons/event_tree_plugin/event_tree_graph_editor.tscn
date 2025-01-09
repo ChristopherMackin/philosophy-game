@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cigpy34phehbr"]
+[gd_scene load_steps=14 format=3 uid="uid://cigpy34phehbr"]
 
 [ext_resource type="Script" path="res://addons/event_tree_plugin/event_tree_graph_editor.gd" id="1_5451c"]
 [ext_resource type="Script" path="res://addons/event_tree_plugin/event_type_list.gd" id="1_mpg4u"]
+[ext_resource type="Script" path="res://addons/event_tree_plugin/file_menu_button.gd" id="2_bqkbo"]
 [ext_resource type="Script" path="res://addons/event_tree_plugin/event_tree_graph.gd" id="2_hkr87"]
 [ext_resource type="PackedScene" uid="uid://djsotsx2h2akd" path="res://addons/event_tree_plugin/task_node/start_node.tscn" id="4_cq1ix"]
 [ext_resource type="Script" path="res://addons/event_tree_plugin/event_picker.gd" id="5_5212g"]
@@ -14,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://by584kw2dy5t8" path="res://addons/event_tree_plugin/task_node/decrement_value.tscn" id="11_yw6to"]
 
 [node name="Event Tree Graph Editor" type="Control"]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,84 +24,92 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5451c")
 
-[node name="HSplitContainer" type="HSplitContainer" parent="."]
+[node name="GraphContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
 
-[node name="NodeSelector" type="VBoxContainer" parent="HSplitContainer"]
+[node name="MenuBarMarginContainer" type="MarginContainer" parent="GraphContainer"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
 
-[node name="ColorRect" type="ColorRect" parent="HSplitContainer/NodeSelector"]
-custom_minimum_size = Vector2(300, 200)
-layout_mode = 2
-color = Color(0.412152, 0.412152, 0.412152, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/NodeSelector/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/NodeSelector/ColorRect/MarginContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+[node name="MenuBar" type="HBoxContainer" parent="GraphContainer/MenuBarMarginContainer"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="PathLabel" type="Label" parent="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 80)
+[node name="FileMenuButton" type="MenuButton" parent="GraphContainer/MenuBarMarginContainer/MenuBar"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-size_flags_vertical = 0
-text = "Path"
-text_overrun_behavior = 3
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "File"
+alignment = 0
+item_count = 5
+popup/item_0/text = "New"
+popup/item_0/id = 0
+popup/item_1/text = "Open"
+popup/item_1/id = 1
+popup/item_2/text = ""
+popup/item_2/id = 2
+popup/item_2/separator = true
+popup/item_3/text = "Save"
+popup/item_3/id = 3
+popup/item_4/text = "Save As"
+popup/item_4/id = 4
+script = ExtResource("2_bqkbo")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 80)
+[node name="PathMarginContainer" type="MarginContainer" parent="GraphContainer/MenuBarMarginContainer/MenuBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+
+[node name="PathContainer" type="HBoxContainer" parent="GraphContainer/MenuBarMarginContainer/MenuBar/PathMarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_constants/separation = 10
 
-[node name="New" type="Button" parent="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 40)
+[node name="IsDirty" type="Label" parent="GraphContainer/MenuBarMarginContainer/MenuBar/PathMarginContainer/PathContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 8
-text = "New"
+text = "*"
 
-[node name="Open" type="Button" parent="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 40)
+[node name="PathLabel" type="Label" parent="GraphContainer/MenuBarMarginContainer/MenuBar/PathMarginContainer/PathContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 8
-text = "Open"
+horizontal_alignment = 2
 
-[node name="Save" type="Button" parent="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 40)
+[node name="EventGraph" type="GraphEdit" parent="GraphContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-text = "Save
-"
+size_flags_vertical = 3
+right_disconnects = true
+script = ExtResource("2_hkr87")
+start_node_prefab = ExtResource("4_cq1ix")
 
-[node name="SaveAs" type="Button" parent="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 40)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-text = "Save As"
+[node name="StartNode" parent="GraphContainer/EventGraph" instance=ExtResource("4_cq1ix")]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 342.0
+offset_bottom = 288.0
+position_offset = Vector2(200, 200)
 
-[node name="EventNodeList" type="ItemList" parent="HSplitContainer/NodeSelector" node_paths=PackedStringArray("event_graph", "task_node_type_parent")]
-layout_mode = 2
+[node name="EventNodeList" type="ItemList" parent="." node_paths=PackedStringArray("event_graph", "task_node_type_parent")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.63
+anchor_right = 0.104
+anchor_bottom = 1.0
+offset_top = -0.400085
+offset_right = 0.319992
+grow_vertical = 0
 size_flags_vertical = 3
 item_count = 7
 item_0/text = "ConsoleLog"
@@ -110,22 +120,8 @@ item_4/text = "SetValue"
 item_5/text = "IncrementValue"
 item_6/text = "DecrementValue"
 script = ExtResource("1_mpg4u")
-event_graph = NodePath("../../EventGraph")
-task_node_type_parent = NodePath("../../../TaskNodeTypeParent")
-
-[node name="EventGraph" type="GraphEdit" parent="HSplitContainer"]
-layout_mode = 2
-right_disconnects = true
-script = ExtResource("2_hkr87")
-start_node_prefab = ExtResource("4_cq1ix")
-
-[node name="StartNode" parent="HSplitContainer/EventGraph" instance=ExtResource("4_cq1ix")]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 200.0
-offset_right = 342.0
-offset_bottom = 288.0
-position_offset = Vector2(200, 200)
+event_graph = NodePath("../GraphContainer/EventGraph")
+task_node_type_parent = NodePath("../TaskNodeTypeParent")
 
 [node name="TaskNodeTypeParent" type="Control" parent="."]
 visible = false
@@ -182,17 +178,27 @@ access = 2
 filters = PackedStringArray("*.tres")
 script = ExtResource("5_5212g")
 
-[connection signal="pressed" from="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/New" to="NewDialogue" method="open"]
-[connection signal="pressed" from="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/Open" to="OpenDialogue" method="open"]
-[connection signal="pressed" from="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/Save" to="." method="save_event_tree"]
-[connection signal="pressed" from="HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/SaveAs" to="SaveDialogue" method="open"]
-[connection signal="empty_clicked" from="HSplitContainer/NodeSelector/EventNodeList" to="HSplitContainer/NodeSelector/EventNodeList" method="_on_empty_clicked"]
-[connection signal="item_activated" from="HSplitContainer/NodeSelector/EventNodeList" to="HSplitContainer/NodeSelector/EventNodeList" method="_on_item_activated"]
-[connection signal="item_selected" from="HSplitContainer/NodeSelector/EventNodeList" to="HSplitContainer/NodeSelector/EventNodeList" method="_on_item_selected"]
-[connection signal="connection_drag_started" from="HSplitContainer/EventGraph" to="HSplitContainer/EventGraph" method="_on_connection_drag_started"]
-[connection signal="connection_request" from="HSplitContainer/EventGraph" to="HSplitContainer/EventGraph" method="_on_connection_request"]
-[connection signal="delete_nodes_request" from="HSplitContainer/EventGraph" to="HSplitContainer/EventGraph" method="_on_delete_nodes_request"]
-[connection signal="disconnection_request" from="HSplitContainer/EventGraph" to="HSplitContainer/EventGraph" method="_on_disconnection_request"]
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = "Unsaved File"
+initial_position = 2
+size = Vector2i(300, 130)
+dialog_text = "You will loose any unsaved progress if you continue"
+dialog_autowrap = true
+
+[connection signal="new_clicked" from="GraphContainer/MenuBarMarginContainer/MenuBar/FileMenuButton" to="." method="new_event_tree"]
+[connection signal="open_clicked" from="GraphContainer/MenuBarMarginContainer/MenuBar/FileMenuButton" to="OpenDialogue" method="open"]
+[connection signal="save_as_clicked" from="GraphContainer/MenuBarMarginContainer/MenuBar/FileMenuButton" to="SaveDialogue" method="open"]
+[connection signal="save_clicked" from="GraphContainer/MenuBarMarginContainer/MenuBar/FileMenuButton" to="." method="save_event_tree"]
+[connection signal="connection_drag_started" from="GraphContainer/EventGraph" to="GraphContainer/EventGraph" method="_on_connection_drag_started"]
+[connection signal="connection_request" from="GraphContainer/EventGraph" to="GraphContainer/EventGraph" method="_on_connection_request"]
+[connection signal="delete_nodes_request" from="GraphContainer/EventGraph" to="GraphContainer/EventGraph" method="_on_delete_nodes_request"]
+[connection signal="disconnection_request" from="GraphContainer/EventGraph" to="GraphContainer/EventGraph" method="_on_disconnection_request"]
+[connection signal="gui_input" from="GraphContainer/EventGraph" to="." method="set_dirty"]
+[connection signal="empty_clicked" from="EventNodeList" to="EventNodeList" method="_on_empty_clicked"]
+[connection signal="item_activated" from="EventNodeList" to="EventNodeList" method="_on_item_activated"]
+[connection signal="item_selected" from="EventNodeList" to="EventNodeList" method="_on_item_selected"]
 [connection signal="file_selected" from="OpenDialogue" to="." method="open_event_tree"]
 [connection signal="file_selected" from="NewDialogue" to="." method="create_event_tree"]
 [connection signal="file_selected" from="SaveDialogue" to="." method="save_event_tree"]
+[connection signal="canceled" from="ConfirmationDialog" to="." method="confirmation_canceled"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="confirmation_confirmed"]

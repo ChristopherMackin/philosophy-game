@@ -116,7 +116,7 @@ func load_event_tree(event: Event):
 	
 	connect_node("StartNode", 0, first_node.name,0)
 	
-	arrange_nodes()
+	arrange_nodes.call_deferred()
 
 func clear_graph():
 	clear_connections()

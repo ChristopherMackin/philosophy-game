@@ -3,9 +3,19 @@ extends Node
 
 class_name EventTreeGraphEditor
 
-@onready var path_label = $HSplitContainer/NodeSelector/ColorRect/MarginContainer/VBoxContainer/PathLabel
-@onready var event_graph = $HSplitContainer/EventGraph
+signal confirmation_completed(val : bool)
+
+@onready var event_graph = $GraphContainer/EventGraph
 @onready var save_dialogue = $SaveDialogue
+@onready var confirmation_dialog = $ConfirmationDialog
+
+@onready var is_dirty = $GraphContainer/MenuBarMarginContainer/MenuBar/PathMarginContainer/PathContainer/IsDirty
+@onready var path_label = $GraphContainer/MenuBarMarginContainer/MenuBar/PathMarginContainer/PathContainer/PathLabel
+
+var dirty : bool:
+	set(val):
+		dirty = val
+		is_dirty.visible = dirty
 
 var resource_path : String:
 	set(val):
@@ -14,21 +24,19 @@ var resource_path : String:
 		
 var selected_resource : Event
 
-func create_event_tree(path : String):
-	if path == null:
+func new_event_tree():
+	if(dirty && !await confirm()):
 		return
 	
-	var event = Event.new()
-	ResourceSaver.save(event, path)
-
-func create_and_open_event_tree(path : String):
-	create_event_tree(path)
-	open_event_tree(path)
+	resource_path = ""
+	selected_resource = Event.new()
+	event_graph.load_event_tree(selected_resource)
 
 func save_event_tree(path : String = ""):
 	if path:
 		if !ResourceLoader.exists(path):
-			create_event_tree(path)
+			var event = Event.new()
+			ResourceSaver.save(event, path)
 		
 		if !load_event_at_path(path):
 			return
@@ -43,14 +51,13 @@ func save_event_tree(path : String = ""):
 		save_dialogue.open()
 
 func open_event_tree(path : String):
-	if path == null:
+	if(dirty && !await confirm()):
 		return
 	
 	if load_event_at_path(path):
 		event_graph.load_event_tree(selected_resource)
-		event_graph.visible = true
 	else:
-		event_graph.visible = false
+		push_error("File \"%s\" does not exist or is not an event tree. Please select an event tree resource.")
 
 func load_event_at_path(path : String) -> bool:
 	if !ResourceLoader.exists(path):
@@ -64,3 +71,19 @@ func load_event_at_path(path : String) -> bool:
 	resource_path = path
 	selected_resource = resource
 	return true
+
+func set_dirty():
+	dirty = true
+
+func confirm() -> bool:
+	confirmation_dialog.visible = true
+	var confirmed = await confirmation_completed
+	if confirmed:
+		dirty = false
+	return confirmed
+
+func confirmation_canceled():
+	confirmation_completed.emit(false)
+
+func confirmation_confirmed():
+	confirmation_completed.emit(true)
