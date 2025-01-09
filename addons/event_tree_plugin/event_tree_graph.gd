@@ -132,9 +132,10 @@ func get_task_nodes():
 	return task_nodes
 
 func _can_drop_data(at_position, data):
-	return true
+	if data is TaskNode:
+		return true
 
 func _drop_data(at_position, data):
 	var node = data.duplicate()
 	add_child(node, true)
-	node.position_offset = at_position
+	node.position_offset = (scroll_offset + at_position) / zoom
