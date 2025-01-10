@@ -13,7 +13,8 @@ signal on_dialogue_finished
 func _ready():
 	set_speed_to_normal()
 	
-	scrolling_text.on_scroll_completed.connect(func(): on_dialogue_finished.emit())
+	if scrolling_text.has_signal("on_scroll_complete"):
+		scrolling_text.on_scroll_completed.connect(func(): on_dialogue_finished.emit())
 
 func set_text(text : String):
 	scrolling_text.set_scrolling_text(text)

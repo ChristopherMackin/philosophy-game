@@ -20,9 +20,10 @@ var lock : Lock = Lock.new()
 func _ready():
 	for child in card_parent.get_children():
 		child.queue_free()
+	
+	card_parent.connect("sort_children", set_up_focus_connections)
 
 func update_hand(hand : Array[Top]):
-	
 	while(!lock.obtain_lock()):
 		await lock.on_released
 	

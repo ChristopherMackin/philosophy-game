@@ -29,6 +29,10 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/event_tree_plugin/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [importer_defaults]
 
 scene={
