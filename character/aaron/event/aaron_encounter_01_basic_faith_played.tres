@@ -8,7 +8,7 @@
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_lksg0")
 
-[sub_resource type="Resource" id="Resource_bis7e"]
+[sub_resource type="Resource" id="Resource_ymwnp"]
 script = ExtResource("3_4hfap")
 outputs = Array[int]([1])
 inputs = ["praise", "Aaron", false]
@@ -17,25 +17,25 @@ action = SubResource("Resource_ml60a")
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("4_kobwm")
 
-[sub_resource type="Resource" id="Resource_0r1g5"]
+[sub_resource type="Resource" id="Resource_vjhdk"]
 script = ExtResource("3_4hfap")
 outputs = Array[int]([2])
 inputs = ["It seems you haven't completely fallen for Satan's tricks.", "Aaron", false, 2.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_fkqqb"]
+[sub_resource type="Resource" id="Resource_4y7ae"]
 script = ExtResource("3_4hfap")
 outputs = Array[int]([3])
 inputs = ["I don't think having doubts is satanic...", "Joy", false, 2.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_urey2"]
+[sub_resource type="Resource" id="Resource_ednl7"]
 script = ExtResource("3_4hfap")
 outputs = Array[int]([4])
 inputs = ["recollect", "Aaron", false]
 action = SubResource("Resource_ml60a")
 
-[sub_resource type="Resource" id="Resource_sb6xb"]
+[sub_resource type="Resource" id="Resource_p08or"]
 script = ExtResource("3_4hfap")
 outputs = Array[int]([])
 inputs = ["Don't leave the devil any footholds, my dear child.", "Aaron", false, 3.0]
@@ -45,5 +45,5 @@ action = SubResource("Resource_x7ur8")
 script = ExtResource("1_rtil6")
 is_major_event = false
 await_event = false
-start_task = SubResource("Resource_bis7e")
-tasks = Array[ExtResource("3_4hfap")]([SubResource("Resource_bis7e"), SubResource("Resource_0r1g5"), SubResource("Resource_fkqqb"), SubResource("Resource_urey2"), SubResource("Resource_sb6xb")])
+start_task = SubResource("Resource_ymwnp")
+tasks = Array[ExtResource("3_4hfap")]([SubResource("Resource_ymwnp"), SubResource("Resource_vjhdk"), SubResource("Resource_4y7ae"), SubResource("Resource_ednl7"), SubResource("Resource_p08or")])

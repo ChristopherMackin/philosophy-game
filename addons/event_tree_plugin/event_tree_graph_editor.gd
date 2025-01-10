@@ -44,7 +44,7 @@ func save_event_tree(path : String = ""):
 		ResourceSaver.save(event, resource_path)
 		load_event_at_path(resource_path)
 		dirty = false
-	elif selected_resource:
+	elif resource_path:
 		var event : Event = event_graph.update_event_from_graph(selected_resource)
 		ResourceSaver.save(event, resource_path)
 		dirty = false

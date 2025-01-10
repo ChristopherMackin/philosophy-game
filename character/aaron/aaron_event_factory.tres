@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=7 format=3 uid="uid://27sna6u0b0wj"]
 
-[ext_resource type="Resource" uid="uid://bxipp7ocgo8f4" path="res://character/aaron/event/aaron_encounter_01_basic_faith_played.tres" id="1_fhxi6"]
+[ext_resource type="Resource" uid="uid://bxipp7ocgo8f4" path="res://character/aaron/event/aaron_encounter_01_basic_faith_played.tres" id="1_k1ewb"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/ordered_event_factory.gd" id="1_rb0rx"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/rule/rule.gd" id="3_5togk"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/event_factory_payload.gd" id="4_n3d1h"]
@@ -12,7 +12,7 @@ criteria = Array[Resource("res://script/character/debate_event_factory/rule/crit
 
 [sub_resource type="Resource" id="Resource_7bdv2"]
 script = ExtResource("4_n3d1h")
-event = ExtResource("1_fhxi6")
+event = ExtResource("1_k1ewb")
 rule = SubResource("Resource_2kksx")
 
 [resource]
