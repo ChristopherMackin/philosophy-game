@@ -134,6 +134,7 @@ layout_mode = 0
 
 [node name="SetValue" parent="TaskNodeTypeParent" instance=ExtResource("11_y5fjh")]
 layout_mode = 0
+task_action = null
 
 [node name="IncrementValue" parent="TaskNodeTypeParent" instance=ExtResource("10_lgvi0")]
 layout_mode = 0

@@ -16,12 +16,16 @@ func get_expiration_token(key: String):
 	return _expiration_tokens.get(key, null)
 
 func add(key: String, value, expiration_token : Constants.ExpirationToken = Constants.ExpirationToken.NEVER):
+	if typeof(value) == TYPE_STRING:
+		value = value.to_snake_case()
 	_entries[key] = value
 	_expiration_tokens[key] = expiration_token
+	BlackboardHelper.update(self)
 
 func erase(key: String):
 	_entries.erase(key)
 	_expiration_tokens.erase(key)
+	BlackboardHelper.update(self)
 
 func expire(expiration_token : Constants.ExpirationToken):
 	var keys_to_erase : Array[String]
@@ -31,6 +35,7 @@ func expire(expiration_token : Constants.ExpirationToken):
 	
 	for key in keys_to_erase:
 		erase(key)
+	BlackboardHelper.update(self)
 
 func get_query():
 	return _entries.duplicate()

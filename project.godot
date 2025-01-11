@@ -18,6 +18,7 @@ config/icon="res://asset/graphic/debate/icon.svg"
 [autoload]
 
 GlobalTimer="*res://script/utility/timer.gd"
+BlackboardHelper="*res://custom_resource_updater.gd"
 
 [display]
 

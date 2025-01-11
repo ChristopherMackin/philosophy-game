@@ -136,8 +136,8 @@ func clear_lines():
 		for sub : DebateSubscriber in subscriber_array: await sub.on_lines_cleared(min)
 
 func push_top_to_queue(top : Top):
-	blackboard.add("previous_top", blackboard.get("current_top"), Constants.ExpirationToken.ON_DEBATE_START)
-	blackboard.add("previous_pose", blackboard.get("current_pose"), Constants.ExpirationToken.ON_DEBATE_START)
+	blackboard.add("previous_top", blackboard.get_value("current_top"), Constants.ExpirationToken.ON_DEBATE_START)
+	blackboard.add("previous_pose", blackboard.get_value("current_pose"), Constants.ExpirationToken.ON_DEBATE_START)
 	
 	top_queue_dictionary[top.data.pose.name].append(top)
 	top_history.append(top)
