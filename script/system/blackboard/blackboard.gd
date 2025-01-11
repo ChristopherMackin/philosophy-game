@@ -20,12 +20,12 @@ func add(key: String, value, expiration_token : Constants.ExpirationToken = Cons
 		value = value.to_snake_case()
 	_entries[key] = value
 	_expiration_tokens[key] = expiration_token
-	BlackboardHelper.update(self)
+	ResourceSaver.save(self, self.resource_path)
 
 func erase(key: String):
 	_entries.erase(key)
 	_expiration_tokens.erase(key)
-	BlackboardHelper.update(self)
+	ResourceSaver.save(self, self.resource_path)
 
 func expire(expiration_token : Constants.ExpirationToken):
 	var keys_to_erase : Array[String]
@@ -35,7 +35,7 @@ func expire(expiration_token : Constants.ExpirationToken):
 	
 	for key in keys_to_erase:
 		erase(key)
-	BlackboardHelper.update(self)
+	ResourceSaver.save(self, self.resource_path)
 
 func get_query():
 	return _entries.duplicate()

@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="Event" load_steps=15 format=3 uid="uid://ciydxx2vn3hh0"]
+
+[ext_resource type="Script" path="res://script/system/event/event.gd" id="1_wjd0b"]
+[ext_resource type="Script" path="res://script/system/event/task_action/animation_task_action.gd" id="2_1eumd"]
+[ext_resource type="Script" path="res://script/system/event/task.gd" id="3_beldj"]
+[ext_resource type="Script" path="res://script/system/event/task_action/dialogue_task_action.gd" id="4_mraad"]
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("2_1eumd")
+
+[sub_resource type="Resource" id="Resource_pvd7d"]
+script = ExtResource("3_beldj")
+outputs = Array[int]([1])
+inputs = ["aaron", "accuse", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("4_mraad")
+
+[sub_resource type="Resource" id="Resource_r4y23"]
+script = ExtResource("3_beldj")
+outputs = Array[int]([2])
+inputs = ["I thought you knew better than that", "aaron", false, 1.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_1gm07"]
+script = ExtResource("3_beldj")
+outputs = Array[int]([3])
+inputs = ["thinking", "joy", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_pxywa"]
+script = ExtResource("3_beldj")
+outputs = Array[int]([4])
+inputs = ["Better than what? All I said was your judgments seemed a little unfair", "joy", false, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_7jg1i"]
+script = ExtResource("3_beldj")
+outputs = Array[int]([5])
+inputs = ["recollect", "aaron", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_dwsha"]
+script = ExtResource("3_beldj")
+outputs = Array[int]([6])
+inputs = ["All every one is concerned about now adays is fairness...", "aaron", false, 1.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_f2fy0"]
+script = ExtResource("3_beldj")
+outputs = Array[int]([7])
+inputs = ["praise", "aaron", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_74ef3"]
+script = ExtResource("3_beldj")
+outputs = Array[int]([])
+inputs = ["All God cares about is Justice!", "aaron", false, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_wjd0b")
+is_major_event = false
+await_event = false
+frequency = 1
+start_task = SubResource("Resource_pvd7d")
+tasks = Array[ExtResource("3_beldj")]([SubResource("Resource_pvd7d"), SubResource("Resource_r4y23"), SubResource("Resource_1gm07"), SubResource("Resource_pxywa"), SubResource("Resource_7jg1i"), SubResource("Resource_dwsha"), SubResource("Resource_f2fy0"), SubResource("Resource_74ef3")])

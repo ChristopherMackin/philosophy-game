@@ -55,5 +55,6 @@ action = SubResource("Resource_1f63y")
 script = ExtResource("1_1q23l")
 is_major_event = false
 await_event = false
+frequency = 0
 start_task = SubResource("Resource_8kl2i")
 tasks = Array[ExtResource("3_n4pca")]([SubResource("Resource_8kl2i"), SubResource("Resource_2toiu"), SubResource("Resource_fbop4"), SubResource("Resource_odg5u"), SubResource("Resource_2lxea"), SubResource("Resource_ciivk")])
