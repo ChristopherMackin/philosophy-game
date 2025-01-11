@@ -106,9 +106,9 @@ item_0/text = "ConsoleLog"
 item_1/text = "Dialogue"
 item_2/text = "Wait"
 item_3/text = "Animate"
-item_4/text = "SetValue"
-item_5/text = "IncrementValue"
-item_6/text = "DecrementValue"
+item_4/text = "IncrementValue"
+item_5/text = "DecrementValue"
+item_6/text = "SetValue"
 script = ExtResource("1_mpg4u")
 event_graph = NodePath("../GraphContainer/EventGraph")
 task_node_type_parent = NodePath("../TaskNodeTypeParent")
@@ -132,17 +132,14 @@ layout_mode = 0
 [node name="Animate" parent="TaskNodeTypeParent" instance=ExtResource("11_1e0xf")]
 layout_mode = 0
 
-[node name="SetValue" parent="TaskNodeTypeParent" instance=ExtResource("11_y5fjh")]
-layout_mode = 0
-task_action = null
-
 [node name="IncrementValue" parent="TaskNodeTypeParent" instance=ExtResource("10_lgvi0")]
 layout_mode = 0
-task_action = null
 
 [node name="DecrementValue" parent="TaskNodeTypeParent" instance=ExtResource("11_yw6to")]
 layout_mode = 0
-task_action = null
+
+[node name="SetValue" parent="TaskNodeTypeParent" instance=ExtResource("11_y5fjh")]
+layout_mode = 0
 
 [node name="OpenDialogue" type="FileDialog" parent="."]
 title = "Open a File"

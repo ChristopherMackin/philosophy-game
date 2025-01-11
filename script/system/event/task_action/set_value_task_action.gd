@@ -6,7 +6,7 @@ func invoke(task : Task, manager : EventManager):
 	var path = task.get_input(0)
 	var bb : Blackboard = ResourceLoader.load(path)
 	
-	bb.update_value(task.get_input(1), task.get_input(2))
+	bb.add(task.get_input(1), task.get_input(2))
 	
 	ResourceSaver.save(bb, path)
 	
