@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="Blackboard" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="Blackboard" load_steps=2 format=3 uid="uid://h0ie28lpg3uu"]
 
 [ext_resource type="Script" path="res://script/system/blackboard/blackboard.gd" id="1_421wn"]
 
 [resource]
 script = ExtResource("1_421wn")
 _entries = {
-"active_contestant": "computer",
+"active_contestant": "player",
 "current_pose": "faith",
 "current_top": "basic_faith",
-"current_turn": 2,
+"current_turn": 3,
 "previous_pose": "faith",
 "previous_top": "basic_faith"
 }
