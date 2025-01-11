@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_c3gp0"]
 [ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://debate/main/debate_settings.tres" id="2_03waw"]
 [ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event_manager.tres" id="3_pgeyy"]
-[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player.tres" id="4_vrocj"]
+[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player_data.tres" id="4_vrocj"]
 [ext_resource type="Resource" uid="uid://b5qju7etv13c2" path="res://character/aaron/aaron_data.tres" id="5_a32kn"]
 [ext_resource type="Resource" uid="uid://wlxm57wwnqi" path="res://debate/main/debate_manager.tres" id="6_ika5p"]
 [ext_resource type="Script" path="res://script/system/event/event_subscriber/debate_event_manager.gd" id="7_b5bxp"]

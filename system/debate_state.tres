@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="StateDatabase" load_steps=2 format=3 uid="uid://cdrto07nfohjt"]
-
-[ext_resource type="Script" path="res://script/system/database/state_database.gd" id="1_yturn"]
-
-[resource]
-script = ExtResource("1_yturn")
-schema = 1
-prefix = ""
-sub_path = "debate_state.tres"

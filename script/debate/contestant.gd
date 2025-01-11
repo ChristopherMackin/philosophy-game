@@ -27,8 +27,8 @@ var current_energy : int:
 		on_energy_updated.emit(self)
 var debate_event_factory : EventFactory:
 	get: return character.debate_event_factory
-var memory : StateDatabase:
-	get: return character.memory
+var blackboard : Blackboard:
+	get: return character.blackboard
 
 func _init(character : Character):
 	self.character = character

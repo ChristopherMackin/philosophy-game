@@ -1,16 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://du3ueixbb1wck"]
+[gd_scene load_steps=5 format=3 uid="uid://du3ueixbb1wck"]
 
 [ext_resource type="Script" path="res://addons/event_tree_plugin/task_node.gd" id="1_8ao4j"]
 [ext_resource type="Script" path="res://script/system/event/task_action/set_value_task_action.gd" id="2_xsgpu"]
-[ext_resource type="Script" path="res://addons/event_tree_plugin/task_node/state_database_loader_menu_button.gd" id="3_11sh6"]
-[ext_resource type="Script" path="res://addons/event_tree_plugin/task_node/db_schema_option_button.gd" id="3_n8wyh"]
+[ext_resource type="Script" path="res://addons/event_tree_plugin/custom_resource_loader.tres.gd" id="3_x6une"]
 
-[sub_resource type="Resource" id="Resource_mdms2"]
+[sub_resource type="Resource" id="Resource_04j1f"]
 script = ExtResource("2_xsgpu")
 
 [node name="SetValue" type="GraphNode"]
-offset_right = 394.0
-offset_bottom = 414.0
+offset_right = 283.0
+offset_bottom = 199.0
+size_flags_vertical = 0
 title = "Set Value"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -40,28 +40,25 @@ slot/2/right_color = Color(1, 1, 1, 1)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
 script = ExtResource("1_8ao4j")
-task_action = SubResource("Resource_mdms2")
+task_action = SubResource("Resource_04j1f")
 
 [node name="CustomResourceLoader" type="MenuButton" parent="."]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-size_flags_vertical = 3
 text = "<empty>"
 alignment = 0
 text_overrun_behavior = 3
 item_count = 1
 popup/item_0/text = "Load State Database"
 popup/item_0/id = 0
-script = ExtResource("3_11sh6")
+script = ExtResource("3_x6une")
 
-[node name="DBSchemaSelector" type="OptionButton" parent="."]
+[node name="Key" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_vertical = 3
-script = ExtResource("3_n8wyh")
+placeholder_text = "Key"
 
 [node name="Value" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_vertical = 3
 placeholder_text = "Value"
-
-[connection signal="on_resource_loaded" from="CustomResourceLoader" to="DBSchemaSelector" method="on_resource_loaded"]
-[connection signal="item_selected" from="DBSchemaSelector" to="DBSchemaSelector" method="_on_item_selected"]

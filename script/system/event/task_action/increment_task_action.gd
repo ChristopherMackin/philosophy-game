@@ -4,8 +4,7 @@ class_name IncrementTaskAction
 
 func invoke(task : Task, manager : EventManager) -> int:
 	var path = task.get_input(0)
-	var db : StateDatabase = ResourceLoader.load(path)
-	var schema = db.schema
+	var bb : Blackboard = ResourceLoader.load(path)
 	
 	var key = DBConst.db_schema_data[schema][task.get_input(1)].key
 	var value = db.get_value(key)

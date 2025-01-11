@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="StateDatabase" load_steps=2 format=3 uid="uid://dxwulhu8iegob"]
-
-[ext_resource type="Script" path="res://script/system/database/state_database.gd" id="1_yo4fc"]
-
-[resource]
-script = ExtResource("1_yo4fc")
-schema = 0
-prefix = ""
-sub_path = "world_state.tres"

@@ -12,6 +12,8 @@ enum Comparator {
 }
  
 @export var comparator : Criterion.Comparator
+
+@export var key : String
 @export var value : String
 var _value:
 	get: 
@@ -19,7 +21,9 @@ var _value:
 		return val if typeof(val) != 0 else value.to_snake_case()
 
 func check(query : Dictionary) -> bool:
-	return false
+	if !query.has(key):
+		return false
+	else: return query.get(key) == value
 
 func compare(value1, value2, comparator : Comparator) -> bool:
 	if typeof(value1) != typeof(value2):

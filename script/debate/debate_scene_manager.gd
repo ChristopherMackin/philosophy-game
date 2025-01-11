@@ -78,7 +78,7 @@ func on_deck_updated(contestant : Contestant):
 func query_event(concept : String):
 	var query : Dictionary
 	query["concept"] = concept
-	query.merge(manager.get_debate_state())
+	query.merge(manager.blackboard.get_query())
 	
 	var event = manager.event_factory.get_event(query)
 	

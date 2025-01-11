@@ -3,16 +3,16 @@ extends Resource
 class_name DebateManager
 
 var debate_settings : DebateSettings
-@export var debate_state : StateDatabase
+@export var blackboard : Blackboard
 
 var player : Contestant:
 	set(val):
 		player = val
-		debate_state.update_value("player", player.name)
+		blackboard.add("player", player.name, Constants.ExpirationToken.ON_DEBATE_START)
 var computer : Contestant:
 	set(val):
 		computer = val
-		debate_state.update_value("computer", computer.name)
+		blackboard.add("computer", computer.name, Constants.ExpirationToken.ON_DEBATE_START)
 
 var event_factory : EventFactory:
 	get: return computer.debate_event_factory
@@ -22,7 +22,7 @@ var active_contestant : Contestant:
 	set(val):
 		active_contestant = val
 		var contestant = "player" if active_contestant == player else "computer"
-		debate_state.update_value("active_contestant", contestant)
+		blackboard.add("active_contestant", contestant, Constants.ExpirationToken.ON_DEBATE_START)
 
 var inactive_contestant : Contestant:
 	get:
@@ -40,7 +40,7 @@ var subscriber_array : Array[DebateSubscriber]
 var current_turn : int = 0:
 	set(val): 
 		current_turn = val
-		debate_state.update_value("current_turn", current_turn)
+		blackboard.add("current_turn", current_turn, Constants.ExpirationToken.ON_DEBATE_START)
 
 var top_queue_dictionary : Dictionary
 var top_history : Array[Top]
@@ -61,8 +61,6 @@ func init(player_character : Character, computer_character : Character, debate_s
 	for pose in debate_settings.poses:
 		top_queue_dictionary[pose.name] = []
 	
-	debate_state.clear()
-	
 	player = Contestant.new(player_character)
 	computer = Contestant.new(computer_character)
 	
@@ -82,6 +80,8 @@ func init(player_character : Character, computer_character : Character, debate_s
 	active_contestant = computer
 	for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(active_contestant)
 	
+	blackboard.expire(Constants.ExpirationToken.ON_DEBATE_START)
+	
 	game_loop()
 
 func game_loop():
@@ -92,8 +92,8 @@ func game_loop():
 		for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(active_contestant)
 		await active_player_turn()
 	
-	var debates_finished = computer.memory.get_value("debates_finished")
-	computer.memory.update_value("debates_finished", debates_finished + 1)
+	var debates_finished = computer.recall("debates_finished")
+	computer.remember("debates_finished", debates_finished + 1)
 	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_finished()
 
 func get_is_debate_over() -> bool:
@@ -135,21 +135,15 @@ func clear_lines():
 				array.remove_at(0)
 		for sub : DebateSubscriber in subscriber_array: await sub.on_lines_cleared(min)
 
-func get_debate_state() -> Dictionary:
-	return Util.build_query([
-		debate_state,
-		computer.memory,
-	])
-
 func push_top_to_queue(top : Top):
-	debate_state.update_value("previous_top", debate_state.get_value("current_top"))
-	debate_state.update_value("previous_pose", debate_state.get_value("current_pose"))
+	blackboard.add("previous_top", blackboard.get("current_top"), Constants.ExpirationToken.ON_DEBATE_START)
+	blackboard.add("previous_pose", blackboard.get("current_pose"), Constants.ExpirationToken.ON_DEBATE_START)
 	
 	top_queue_dictionary[top.data.pose.name].append(top)
 	top_history.append(top)
 	
-	debate_state.update_value("current_top", top.data.title)
-	debate_state.update_value("current_pose", top.data.pose.name)
+	blackboard.add("current_top", top.data.title, Constants.ExpirationToken.ON_DEBATE_START)
+	blackboard.add("current_pose", top.data.pose.name, Constants.ExpirationToken.ON_DEBATE_START)
 
 func on_hand_updated(contestant : Contestant):
 	for sub : DebateSubscriber in subscriber_array: await sub.on_hand_updated(contestant)
