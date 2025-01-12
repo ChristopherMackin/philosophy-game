@@ -15,7 +15,8 @@ var path : String = "" :
 var dialogue : FileDialog
 
 func _enter_tree():
-	get_popup().id_pressed.connect(_on_id_selected)
+	if(!get_popup().id_pressed.is_connected(_on_id_selected)):
+		get_popup().id_pressed.connect(_on_id_selected)
 
 func file_selected(path):
 	print("PISS")

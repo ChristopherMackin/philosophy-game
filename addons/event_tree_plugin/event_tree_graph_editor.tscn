@@ -173,7 +173,7 @@ script = ExtResource("5_5212g")
 title = "Unsaved File"
 initial_position = 1
 size = Vector2i(300, 130)
-dialog_text = "You will loose any unsaved progress if you continue"
+dialog_text = "You will lose any unsaved progress if you continue"
 dialog_autowrap = true
 
 [connection signal="new_clicked" from="GraphContainer/MenuBarMarginContainer/MenuBar/FileMenuButton" to="." method="new_event_tree"]
