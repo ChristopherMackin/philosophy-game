@@ -27,3 +27,14 @@ func draw_top():
 		return null
 	
 	return draw_pile.pop_front()
+
+func remove_from_deck(top : Top):
+	var tops = composition_top_deck_config_array.map(func(x : TopDeckConfig): return x.top_data)
+	var index = tops.find(top.data)
+	
+	if index < 0:
+		return
+	
+	composition_top_deck_config_array[index].count -= 1
+	if composition_top_deck_config_array[index].count <= 0:
+		composition_top_deck_config_array.remove_at(index)

@@ -23,7 +23,7 @@ var _value:
 func check(query : Dictionary) -> bool:
 	if !query.has(key):
 		return false
-	else: return query.get(key) == value
+	else: return query.get(key) == _value
 
 func compare(value1, value2, comparator : Comparator) -> bool:
 	if typeof(value1) != typeof(value2):

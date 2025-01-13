@@ -8,11 +8,11 @@ class_name EventGraph
 @onready var start_node = $StartNode
 
 func _on_delete_nodes_request(nodes):
-	for name in nodes:
-		var n = get_node(NodePath(name))
+	for path in nodes:
+		var n = get_node(NodePath(path))
 		if n != start_node:
 			n.queue_free()
-		clear_node_connections(name)
+		clear_node_connections(path)
 
 func _on_connection_request(from_node, from_port, to_node, to_port):
 	connect_node(from_node, from_port, to_node, to_port)

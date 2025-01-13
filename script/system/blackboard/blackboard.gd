@@ -28,7 +28,7 @@ func erase(key: String):
 	ResourceSaver.save(self, self.resource_path)
 
 func expire(expiration_token : Constants.ExpirationToken):
-	var keys_to_erase : Array[String]
+	var keys_to_erase : Array[String] = []
 	for key in _expiration_tokens:
 		if _expiration_tokens[key] == expiration_token:
 			keys_to_erase.append(key)

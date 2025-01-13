@@ -2,5 +2,5 @@ extends Brain
 
 class_name SimpleAiBrain
 
-func pick_top() -> Top:
-	return contestant.hand[randi() % contestant.hand.size()]
+func select_top(top_array : Array[Top], what : String, visible_to_player : bool = true) -> Top:
+	return top_array[randi() % top_array.size()]

@@ -14,9 +14,6 @@ var computer : Contestant:
 		computer = val
 		blackboard.add("computer", computer.name, Constants.ExpirationToken.ON_DEBATE_START)
 
-var event_factory : EventFactory:
-	get: return computer.debate_event_factory
-
 var active_contestant : Contestant:
 	get: return active_contestant
 	set(val):
@@ -71,23 +68,21 @@ func init(player_character : Character, computer_character : Character, debate_s
 		contestant.on_hand_updated.connect(on_hand_updated)
 		contestant.on_energy_updated.connect(on_energy_updated)
 		contestant.on_deck_updated.connect(on_deck_updated)
-	
-	for c in contestants:
-		c.ready_up(self)
-	
+		contestant.ready_up(self)
+
 	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_start()
-	
-	active_contestant = computer
-	for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(active_contestant)
 	
 	blackboard.expire(Constants.ExpirationToken.ON_DEBATE_START)
 	
 	game_loop()
 
 func game_loop():
+	current_turn = 1
+	active_contestant = player
+	await active_player_turn()
+	
 	while !get_is_debate_over():
 		current_turn += 1
-		
 		active_contestant = inactive_contestant
 		for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(active_contestant)
 		await active_player_turn()
@@ -109,13 +104,16 @@ func get_is_debate_over() -> bool:
 
 func active_player_turn():
 	while active_contestant.current_energy > 0 and !get_is_debate_over():
-		var top = await active_contestant.take_turn()
 		
-		push_top_to_queue(top)
+		var top = await active_contestant.select_top()
 		
-		for sub : DebateSubscriber in subscriber_array: await sub.on_top_played(top, active_contestant)
+		while active_contestant.current_energy < top.data.cost:
+			top = await active_contestant.select_top()
 		
-		top.data.action.invoke()
+		active_contestant.discard_top(top)
+		active_contestant.current_energy -= top.data.cost
+		
+		await play_top(top)
 		
 		clear_lines()
 	
@@ -153,3 +151,11 @@ func on_energy_updated(contestant : Contestant):
 
 func on_deck_updated(contestant : Contestant):
 	for sub : DebateSubscriber in subscriber_array: await sub.on_deck_updated(contestant)
+
+func play_top(top : Top, use_action : bool = true):
+	push_top_to_queue(top)
+	
+	for sub : DebateSubscriber in subscriber_array: await sub.on_top_played(top, active_contestant)
+	
+	if(use_action):
+		await top.data.action.invoke()

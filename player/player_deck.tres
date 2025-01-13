@@ -19,7 +19,7 @@ count = 2
 [sub_resource type="Resource" id="Resource_qwm7e"]
 script = ExtResource("1_2bqs8")
 top_data = ExtResource("3_0rm6k")
-count = 4
+count = 1
 
 [resource]
 script = ExtResource("1_8ujv4")

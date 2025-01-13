@@ -4,7 +4,7 @@ class_name PlayerBrain
 
 signal top_played
 
-func pick_top() -> Top:
+func select_top(top_array : Array[Top], what : String, visible_to_player : bool = true) -> Top:
 	var top = await top_played
 	return top
 

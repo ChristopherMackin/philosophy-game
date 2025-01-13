@@ -34,7 +34,6 @@ func on_debate_start():
 	pass
 	
 func on_player_change(contestant : Contestant):
-	print("%s's turn" % contestant.name)
 	if contestant.character == player:
 		selection_manager.continue_ui_input()
 	else:
@@ -80,7 +79,7 @@ func query_event(concept : String):
 	query["concept"] = concept
 	query.merge(manager.blackboard.get_query())
 	
-	var event = manager.event_factory.get_event(query)
+	var event = manager.computer.debate_event_factory.get_event(query)
 	
 	if !event: return
 	

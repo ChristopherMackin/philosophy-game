@@ -7,14 +7,14 @@ class_name EventSubscriber
 func _ready():
 	manager.subscribe(self)
 
-func display_dialogue(line : String, actor : String, await_input : bool, seconds_before_close : float):
+func display_dialogue(_line : String, _actor : String, _await_input : bool, _seconds_before_close : float):
 	pass
 
-func cancel_dialogue(actor : String):
+func cancel_dialogue(_actor : String):
 	pass
 
-func play_animation(name : String, actor : String, await_animation: bool):
+func play_animation(_animation : String, _actor : String, _await_animation: bool):
 	pass
 
-func cancel_animation(actor : String):
+func cancel_animation(_actor : String):
 	pass

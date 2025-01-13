@@ -8,16 +8,16 @@
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_twexp")
 
-[sub_resource type="Resource" id="Resource_eunbj"]
+[sub_resource type="Resource" id="Resource_pqot2"]
 script = ExtResource("3_wthqb")
 outputs = Array[int]([1])
-inputs = ["praise", "aaron", false]
+inputs = ["fold_hands", "joy", false]
 action = SubResource("Resource_ml60a")
 
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("4_kgy8w")
 
-[sub_resource type="Resource" id="Resource_hh8g0"]
+[sub_resource type="Resource" id="Resource_wkuaq"]
 script = ExtResource("3_wthqb")
 outputs = Array[int]([])
 inputs = ["Deez nuts!", "aaron", false, 2.0]
@@ -28,5 +28,5 @@ script = ExtResource("1_lq07n")
 is_major_event = false
 await_event = false
 frequency = 1
-start_task = SubResource("Resource_eunbj")
-tasks = Array[ExtResource("3_wthqb")]([SubResource("Resource_eunbj"), SubResource("Resource_hh8g0")])
+start_task = SubResource("Resource_pqot2")
+tasks = Array[ExtResource("3_wthqb")]([SubResource("Resource_pqot2"), SubResource("Resource_wkuaq")])

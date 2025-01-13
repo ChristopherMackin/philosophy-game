@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Blackboard" load_steps=2 format=3 uid="uid://b8xbfh0vyu0by"]
+[gd_resource type="Resource" script_class="Blackboard" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://script/system/blackboard/blackboard.gd" id="1_421wn"]
 
@@ -10,9 +10,9 @@ _entries = {
 "active_contestant": "player",
 "current_pose": "faith",
 "current_top": "basic_faith",
-"current_turn": 1,
-"previous_pose": null,
-"previous_top": null
+"current_turn": 5,
+"previous_pose": "faith",
+"previous_top": "twisted_words"
 }
 _expiration_tokens = {
 "aaron_db01_basic_faith.tres": 0,

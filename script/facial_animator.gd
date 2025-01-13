@@ -89,7 +89,6 @@ func blink(delta):
 		blink_offset = get_random_blink_offset()
 
 func talk(delta):
-	
 	if(sin(Time.get_unix_time_from_system() * talk_speed) > 0):
 		mouth_material.uv1_offset = get_uv_offset(emotion_index, MouthState.OPEN)
 	else:

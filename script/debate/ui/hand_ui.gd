@@ -31,13 +31,13 @@ func update_hand(hand : Array[Top]):
 	var new_cards = Util.array_difference(hand, current_tops)
 	var removed_cards = Util.array_difference(current_tops, hand)
 	
-	var add_funcs : Array[Callable]
+	var add_funcs : Array[Callable] = []
 	for top in new_cards:
 		add_funcs.append(func() :await _add_card(top))
 	
 	await Util.await_all(add_funcs)
 	
-	var remove_funcs : Array[Callable]
+	var remove_funcs : Array[Callable] = []
 	for top in removed_cards:
 		remove_funcs.append(func() :await _remove_card(top))
 	

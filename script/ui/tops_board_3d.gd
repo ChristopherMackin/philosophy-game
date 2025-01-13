@@ -21,7 +21,7 @@ func remove_top_3D(top : Top):
 
 func clear_row(amount : int):
 	for i in amount:
-		var remove_funcs : Array[Callable]
+		var remove_funcs : Array[Callable] = []
 		
 		for track in pose_tracks:
 			remove_funcs.append(func(): await track.remove_top_at(0))

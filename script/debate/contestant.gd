@@ -39,14 +39,12 @@ func ready_up(manager : DebateManager):
 	draw_full_hand()
 	current_energy = energy_limit
 
-func take_turn() -> Top:
-	var top = await brain.pick_top()
+func select_top(top_array : Array[Top] = hand, what : String = "play", visible_to_player : bool = true) -> Top:
+	var top = await brain.select_top(top_array, what, visible_to_player)
 	
-	while current_energy < top.data.cost || hand.map(func(x): return x.data).find(top.data) == -1:
-		top = await brain.pick_top()
+	if top_array.map(func(x): return x.data).find(top.data) == -1:
+		top = await brain.select_top(top_array, what, visible_to_player)
 	
-	discard_top(top)
-	current_energy -= top.data.cost
 	return top
 
 func clean_up():

@@ -32,7 +32,7 @@ func cancel_dialogue(actor):
 	
 	dialogue_handler.cancel_dialogue()
 
-func play_animation(name : String, actor : String, await_animation : bool):
+func play_animation(animation : String, actor : String, await_animation : bool):
 	var parent
 	
 	if actor != "":
@@ -48,7 +48,7 @@ func play_animation(name : String, actor : String, await_animation : bool):
 	
 	var animation_handler : AnimationHandler = parent.get_node_or_null(NodePath("AnimationHandler"))
 	
-	animation_handler.start_animation(name)
+	animation_handler.start_animation(animation)
 	
 	if await_animation: await animation_handler.on_animation_finished
 
