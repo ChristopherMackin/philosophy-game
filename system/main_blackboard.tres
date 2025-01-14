@@ -1,26 +1,14 @@
-[gd_resource type="Resource" script_class="Blackboard" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="Blackboard" load_steps=2 format=3 uid="uid://b5fu7xqptwcmq"]
 
 [ext_resource type="Script" path="res://script/system/blackboard/blackboard.gd" id="1_421wn"]
 
 [resource]
 script = ExtResource("1_421wn")
 _entries = {
-"aaron_db01_basic_faith.tres": true,
-"aaron_db01_test.tres": true,
 "active_contestant": "player",
-"current_pose": "faith",
-"current_top": "basic_faith",
-"current_turn": 5,
-"previous_pose": "faith",
-"previous_top": "twisted_words"
+"current_turn": 1
 }
 _expiration_tokens = {
-"aaron_db01_basic_faith.tres": 0,
-"aaron_db01_test.tres": 2,
 "active_contestant": 2,
-"current_pose": 2,
-"current_top": 2,
-"current_turn": 2,
-"previous_pose": 2,
-"previous_top": 2
+"current_turn": 2
 }

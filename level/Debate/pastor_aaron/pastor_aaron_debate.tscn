@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://c674050h413wq"]
+[gd_scene load_steps=44 format=3 uid="uid://c674050h413wq"]
 
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_c3gp0"]
 [ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://debate/main/debate_settings.tres" id="2_03waw"]
@@ -21,8 +21,8 @@
 [ext_resource type="Script" path="res://script/utility/set_layer_mask.gd" id="18_w4hh5"]
 [ext_resource type="Script" path="res://script/system/dialogue_handler.gd" id="19_0dlld"]
 [ext_resource type="PackedScene" uid="uid://cajmwu8byfeoi" path="res://character/aaron/aaron.tscn" id="20_wk6p3"]
-[ext_resource type="Texture2D" uid="uid://vm5ta6544ld7" path="res://asset/graphic/general/faith_tile_background.png" id="21_gbcfm"]
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="21_wuq6j"]
+[ext_resource type="Texture2D" uid="uid://vm5ta6544ld7" path="res://asset/graphic/general/faith_tile_background.png" id="23_otlm2"]
 [ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://debate/debate_contestant_viewport.tres" id="23_xajd6"]
 [ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/prefab/basic_dialogue_bubble.tscn" id="24_0ghhw"]
 [ext_resource type="Texture2D" uid="uid://b5nlnbqopjyl8" path="res://asset/graphic/debate/dialogue_area/opponent_stats_area.png" id="25_yqlw1"]
@@ -31,7 +31,6 @@
 [ext_resource type="Script" path="res://script/debate/ui/hand_count_ui.gd" id="28_et8un"]
 [ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/graphic/debate/stats_area/turn_counter_background.png" id="29_6iu14"]
 [ext_resource type="Script" path="res://script/debate/ui/energy_ui.gd" id="30_lse4u"]
-[ext_resource type="Texture2D" uid="uid://2x0w7rjd27mn" path="res://asset/graphic/debate/stats_area/stats_background.png" id="31_cjels"]
 [ext_resource type="Texture2D" uid="uid://ho13qsn3chj0" path="res://asset/graphic/debate/top_card/old/draw_pile.png" id="32_unum2"]
 [ext_resource type="Script" path="res://script/debate/ui/draw_pile_ui.gd" id="33_r5u0j"]
 [ext_resource type="Script" path="res://script/debate/ui/hand_ui.gd" id="34_veub1"]
@@ -204,7 +203,10 @@ environment = ExtResource("11_5ne5n")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
 
 [node name="DebateCamera" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0.170072, 0.985432, -7.43408e-09, 0.985432, -0.170072, -4.30746e-08, -2.02286, 1.12532, -0.0350569)
+transform = Transform3D(-4.37114e-08, 0, -1, 0.170072, 0.985432, -7.43408e-09, 0.985432, -0.170072, -4.30746e-08, -1.18445, 1.12532, -0.0350569)
+visible = false
+current = true
+fov = 60.0
 
 [node name="===ENVIRONMENT========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -254,7 +256,7 @@ bones/6/position = Vector3(-0.0380811, 0.1041, -0.0346195)
 bones/6/rotation = Quaternion(0.510213, -0.510213, -0.489574, -0.489574)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(2.38008e-08, 0.114243, 8.7724e-08)
-bones/7/rotation = Quaternion(-0.584255, -0.0740356, 0.0275571, 0.807716)
+bones/7/rotation = Quaternion(-0.584255, -0.0740356, 0.027557, 0.807716)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/position = Vector3(-3.72529e-09, -1.02911e-07, -1.3574e-07)
 bones/8/rotation = Quaternion(1.41412e-07, 0.102057, -1.10589e-07, 0.994779)
@@ -317,7 +319,7 @@ bones/27/position = Vector3(-1.10222e-08, 0.338191, 8.04204e-09)
 bones/27/rotation = Quaternion(-0.250738, 0.737975, -0.461851, -0.423341)
 bones/27/scale = Vector3(1, 1, 1)
 bones/28/position = Vector3(4.70312e-10, 0.215224, -7.39791e-09)
-bones/28/rotation = Quaternion(-0.00162599, 0.978573, 0.205892, -2.72132e-05)
+bones/28/rotation = Quaternion(-0.00162599, 0.978574, 0.205892, -2.72132e-05)
 bones/28/scale = Vector3(1, 1, 1)
 bones/29/position = Vector3(-4.65661e-09, 0.169096, 8.3819e-09)
 bones/29/rotation = Quaternion(-5.49819e-09, -0.016563, -1.75498e-09, 0.999863)
@@ -422,13 +424,13 @@ bones/8/position = Vector3(1.76951e-08, 1.18744e-07, -9.20845e-08)
 bones/8/rotation = Quaternion(1.24483e-07, 0.132673, -4.45721e-08, 0.99116)
 bones/8/scale = Vector3(1, 0.999999, 1)
 bones/9/position = Vector3(1.93514e-08, 0.24888, -2.93366e-08)
-bones/9/rotation = Quaternion(1.82705e-07, -7.99666e-08, 0.119637, 0.992818)
+bones/9/rotation = Quaternion(1.82705e-07, -7.99667e-08, 0.119637, 0.992818)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(-1.63439e-08, 0.112119, -5.09335e-08)
 bones/10/rotation = Quaternion(-1.40399e-06, 0.0746668, 5.40523e-06, 0.997209)
 bones/10/scale = Vector3(0.999987, 0.999985, 0.999994)
 bones/11/position = Vector3(-7.41482e-09, 0.224237, 1.67142e-09)
-bones/11/rotation = Quaternion(-0.097696, -0.117547, 0.0828739, 0.984769)
+bones/11/rotation = Quaternion(-0.0976961, -0.117547, 0.0828739, 0.984769)
 bones/11/scale = Vector3(1, 0.999999, 1)
 bones/12/position = Vector3(0.0517423, 0.128365, -0.0208983)
 bones/12/rotation = Quaternion(0.50766, 0.50766, 0.492221, -0.492221)
@@ -458,10 +460,10 @@ bones/20/position = Vector3(-1.04748e-08, 0.311902, -1.21075e-08)
 bones/20/rotation = Quaternion(6.29331e-08, -4.17e-08, 0.167742, 0.985831)
 bones/20/scale = Vector3(1, 1, 1)
 bones/21/position = Vector3(-9.84238e-09, 0.316624, -2.18414e-08)
-bones/21/rotation = Quaternion(0.305415, 0.57827, -0.29821, 0.695267)
+bones/21/rotation = Quaternion(0.305415, 0.578271, -0.29821, 0.695267)
 bones/21/scale = Vector3(1, 1, 1)
 bones/22/position = Vector3(1.04507e-08, 0.19029, -1.5877e-08)
-bones/22/rotation = Quaternion(-0.00705767, 0.913792, 0.40612, -0.00027699)
+bones/22/rotation = Quaternion(-0.00705767, 0.913792, 0.40612, -0.000276991)
 bones/22/scale = Vector3(1, 1, 1)
 bones/23/position = Vector3(-1.58325e-08, 0.158312, 1.73459e-08)
 bones/23/rotation = Quaternion(4.67347e-06, -0.0188559, 5.53149e-06, 0.999822)
@@ -562,7 +564,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("21_gbcfm")
+texture = ExtResource("23_otlm2")
 expand_mode = 3
 stretch_mode = 1
 
@@ -571,25 +573,24 @@ stretch_mode = 1
 [node name="PlayAreaViewport" type="SubViewportContainer" parent="PlayArea"]
 texture_filter = 2
 anchors_preset = -1
-anchor_left = 0.312
+anchor_left = 0.375
 anchor_right = 1.0
 anchor_bottom = 0.759
-offset_left = 0.959988
-offset_right = 0.958496
-offset_bottom = 0.279996
+offset_left = -6.10352e-05
+offset_bottom = 0.279907
 grow_horizontal = 0
-metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="PlayArea/PlayAreaViewport"]
+transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1320, 820)
+size = Vector2i(1200, 820)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="PlayArea/PlayAreaViewport/SubViewport"]
 transform = Transform3D(-1, 8.74228e-08, 6.91616e-15, 1.21669e-08, 0.139173, 0.990268, 8.6572e-08, 0.990268, -0.139173, 0.00949209, 1.4049, -0.0533416)
 cull_mask = 1048569
 environment = ExtResource("11_5ne5n")
-current = true
+far = 50.0
 
 [node name="DialogueArea" type="TextureRect" parent="PlayArea"]
 material = SubResource("ShaderMaterial_2n0su")
@@ -598,22 +599,19 @@ anchor_left = 0.344
 anchor_top = 0.759
 anchor_right = 0.946
 anchor_bottom = 1.0
-offset_left = -0.480022
-offset_top = 0.279996
+offset_left = 59.52
+offset_top = 0.279968
 offset_right = 103.68
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("21_gbcfm")
 stretch_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Contestants" type="Control" parent="PlayArea/DialogueArea"]
 layout_mode = 1
 anchor_right = 0.873
 anchor_bottom = 1.0
-offset_right = 0.0199676
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = -7.59998
+grow_vertical = 0
 
 [node name="Player" type="Control" parent="PlayArea/DialogueArea/Contestants"]
 layout_mode = 1
@@ -625,20 +623,17 @@ grow_vertical = 2
 
 [node name="PlayerViewport" type="SubViewportContainer" parent="PlayArea/DialogueArea/Contestants/Player"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.048
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.048
 anchor_bottom = 1.0
-offset_left = -0.47997
-offset_right = 550.0
-grow_horizontal = 0
+offset_top = -260.0
+offset_right = 500.0
 grow_vertical = 0
 
 [node name="SubViewport" type="SubViewport" parent="PlayArea/DialogueArea/Contestants/Player/PlayerViewport"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(550, 260)
+size = Vector2i(520, 260)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="PlayArea/DialogueArea/Contestants/Player/PlayerViewport/SubViewport"]
@@ -656,16 +651,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BasicDialogueBubble" parent="PlayArea/DialogueArea/Contestants/Player/DialogueBubbles" instance=ExtResource("24_0ghhw")]
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.287
+anchor_left = 0.265
 anchor_top = 0.115
-anchor_right = 0.72
+anchor_right = 0.746
 anchor_bottom = 0.884
-offset_left = -18.772
+offset_left = 0.427383
 offset_top = 0.0677958
-offset_right = 4.92795
-offset_bottom = 0.127803
+offset_right = -2.37061
+offset_bottom = 0.127792
 flip_h = true
 
 [node name="ScrollingText" parent="PlayArea/DialogueArea/Contestants/Player/DialogueBubbles/BasicDialogueBubble" index="0"]
@@ -683,8 +679,7 @@ grow_vertical = 2
 [node name="ComputerViewport" type="SubViewportContainer" parent="PlayArea/DialogueArea/Contestants/Computer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 1.0
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
@@ -693,7 +688,7 @@ grow_vertical = 0
 [node name="SubViewport" type="SubViewport" parent="PlayArea/DialogueArea/Contestants/Computer/ComputerViewport"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(550, 260)
+size = Vector2i(520, 260)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="PlayArea/DialogueArea/Contestants/Computer/ComputerViewport/SubViewport"]
@@ -711,27 +706,28 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BasicDialogueBubble" parent="PlayArea/DialogueArea/Contestants/Computer/DialogueBubbles" instance=ExtResource("24_0ghhw")]
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.344
+anchor_left = 0.265
 anchor_top = 0.115
-anchor_right = 0.777
-anchor_bottom = 0.884
-offset_left = 0.335986
-offset_top = 0.0677958
-offset_right = -0.212012
-offset_bottom = 0.127803
+anchor_right = 0.746
+anchor_bottom = 0.885
+offset_left = 0.399994
+offset_top = 0.1
+offset_right = 0.159973
+offset_bottom = -0.100006
 
 [node name="ComputerStatsArea" type="TextureRect" parent="PlayArea/DialogueArea"]
 self_modulate = Color(0.137255, 0.0901961, 0.0588235, 1)
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
+anchors_preset = -1
+anchor_left = 0.873
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -165.0
+offset_left = -7.59998
 grow_horizontal = 0
-grow_vertical = 2
+grow_vertical = 0
 texture = ExtResource("25_yqlw1")
 
 [node name="MarginContainer" type="MarginContainer" parent="PlayArea/DialogueArea/ComputerStatsArea"]
@@ -813,12 +809,13 @@ script = ExtResource("30_lse4u")
 [node name="DialoguePlayAreaDivider" type="TextureRect" parent="PlayArea/DialogueArea"]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
 offset_top = -22.0
 offset_bottom = 18.0
 grow_horizontal = 2
 texture = SubResource("CompressedTexture2D_qs140")
+expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="PlayArea"]
 texture_filter = 2
@@ -831,10 +828,10 @@ metadata/_edit_use_anchors_ = true
 [node name="StatsArea" type="TextureRect" parent="PlayArea"]
 texture_filter = 2
 anchors_preset = -1
-anchor_right = 0.389
+anchor_right = 0.385875
 anchor_bottom = 1.0
-offset_right = 13.12
-texture = ExtResource("31_cjels")
+offset_right = -20.88
+expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="DrawPile" type="TextureRect" parent="PlayArea/StatsArea"]
@@ -905,8 +902,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.921
 anchor_bottom = 0.796
-offset_right = 0.0129526
-offset_bottom = 0.319932
+offset_right = 54.88
+offset_bottom = 0.320007
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
