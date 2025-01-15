@@ -1,12 +1,29 @@
-[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=14 format=3 uid="uid://27sna6u0b0wj"]
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=18 format=3 uid="uid://27sna6u0b0wj"]
 
-[ext_resource type="Resource" uid="uid://b5fu7xqptwcmq" path="res://system/main_blackboard.tres" id="1_0ml4n"]
+[ext_resource type="Resource" uid="uid://dpghpqyj6dysv" path="res://system/main_blackboard.tres" id="1_0ml4n"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/ordered_event_factory.gd" id="1_rb0rx"]
 [ext_resource type="Resource" uid="uid://bxipp7ocgo8f4" path="res://character/aaron/event/aaron_db01_basic_faith.tres" id="2_5at01"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/rule/rule.gd" id="3_5togk"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/rule/criterion/criterion.gd" id="3_12nf5"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/event_factory_payload.gd" id="4_n3d1h"]
 [ext_resource type="Resource" uid="uid://ciydxx2vn3hh0" path="res://character/aaron/event/aaron_db01_basic_doubt.tres" id="6_optgk"]
+[ext_resource type="Resource" uid="uid://b8omebsn1wpsb" path="res://character/aaron/event/aaron_db01_test.tres" id="7_hibne"]
+
+[sub_resource type="Resource" id="Resource_wt34o"]
+script = ExtResource("3_12nf5")
+comparator = 0
+key = "current_top"
+value = "basic_doubt"
+
+[sub_resource type="Resource" id="Resource_trjr6"]
+script = ExtResource("3_5togk")
+concept = "on_top_played"
+criteria = Array[ExtResource("3_12nf5")]([SubResource("Resource_wt34o")])
+
+[sub_resource type="Resource" id="Resource_88trk"]
+script = ExtResource("4_n3d1h")
+event = ExtResource("7_hibne")
+rule = SubResource("Resource_trjr6")
 
 [sub_resource type="Resource" id="Resource_1y4qj"]
 script = ExtResource("3_12nf5")
@@ -42,5 +59,5 @@ rule = SubResource("Resource_2kksx")
 
 [resource]
 script = ExtResource("1_rb0rx")
-payload_list = Array[ExtResource("4_n3d1h")]([SubResource("Resource_th28h"), SubResource("Resource_7bdv2")])
+payload_list = Array[ExtResource("4_n3d1h")]([SubResource("Resource_88trk"), SubResource("Resource_th28h"), SubResource("Resource_7bdv2")])
 blackboard = ExtResource("1_0ml4n")

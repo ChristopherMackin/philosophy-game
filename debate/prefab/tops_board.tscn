@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsyesuw4ujeei"]
 
-[ext_resource type="Texture2D" uid="uid://cng6p2uhhx3eb" path="res://asset/graphic/debate/board/play_mat.png" id="1_32krf"]
+[ext_resource type="Texture2D" uid="uid://cng6p2uhhx3eb" path="res://asset/graphic/debate/general/board/play_mat.png" id="1_32krf"]
 [ext_resource type="PackedScene" uid="uid://dpwst6p575hsu" path="res://debate/prefab/pose.tscn" id="2_farjo"]
 [ext_resource type="Script" path="res://script/ui/tops_board_3d.gd" id="2_gd3pm"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/pose/doubt.tres" id="3_8ke84"]

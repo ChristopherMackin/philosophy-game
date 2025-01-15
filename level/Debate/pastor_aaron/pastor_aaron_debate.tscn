@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c674050h413wq"]
+[gd_scene load_steps=49 format=3 uid="uid://c674050h413wq"]
 
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_c3gp0"]
 [ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://debate/main/debate_settings.tres" id="2_03waw"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bsyesuw4ujeei" path="res://debate/prefab/tops_board.tscn" id="12_nxue7"]
 [ext_resource type="Script" path="res://script/debate/discard_3d.gd" id="13_v2shh"]
 [ext_resource type="PackedScene" uid="uid://bqwn6fre04ypq" path="res://character/joy/joy.tscn" id="14_d1e2n"]
+[ext_resource type="Texture2D" uid="uid://wnxe7wkm381u" path="res://asset/graphic/debate/aaron/aaron_top_board.jpg" id="14_sr3bk"]
 [ext_resource type="Script" path="res://script/ui/debate_contestant_3d.gd" id="15_38s5e"]
 [ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://debate/prefab/top_3d.tscn" id="16_avk6u"]
 [ext_resource type="PackedScene" uid="uid://d3gstm266f4t3" path="res://debate/prefab/top_card_3d.tscn" id="17_uj2t6"]
@@ -25,17 +26,20 @@
 [ext_resource type="Texture2D" uid="uid://vm5ta6544ld7" path="res://asset/graphic/general/faith_tile_background.png" id="23_otlm2"]
 [ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://debate/debate_contestant_viewport.tres" id="23_xajd6"]
 [ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/prefab/basic_dialogue_bubble.tscn" id="24_0ghhw"]
-[ext_resource type="Texture2D" uid="uid://b5nlnbqopjyl8" path="res://asset/graphic/debate/dialogue_area/opponent_stats_area.png" id="25_yqlw1"]
-[ext_resource type="Texture2D" uid="uid://caks003lacvsp" path="res://asset/graphic/debate/stats_area/hand_icon.png" id="26_q81rk"]
+[ext_resource type="Texture2D" uid="uid://wsr15rl2wssm" path="res://asset/graphic/debate/aaron/an_almighty_hand.png" id="24_twtn0"]
+[ext_resource type="Texture2D" uid="uid://b5nlnbqopjyl8" path="res://asset/graphic/debate/general/dialogue_area/opponent_stats_area.png" id="25_yqlw1"]
+[ext_resource type="Texture2D" uid="uid://caks003lacvsp" path="res://asset/graphic/debate/general/stats_area/hand_icon.png" id="26_q81rk"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="27_68od4"]
 [ext_resource type="Script" path="res://script/debate/ui/hand_count_ui.gd" id="28_et8un"]
-[ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/graphic/debate/stats_area/turn_counter_background.png" id="29_6iu14"]
+[ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/graphic/debate/general/stats_area/turn_counter_background.png" id="29_6iu14"]
 [ext_resource type="Script" path="res://script/debate/ui/energy_ui.gd" id="30_lse4u"]
-[ext_resource type="Texture2D" uid="uid://ho13qsn3chj0" path="res://asset/graphic/debate/top_card/old/draw_pile.png" id="32_unum2"]
+[ext_resource type="Texture2D" uid="uid://ho13qsn3chj0" path="res://asset/graphic/debate/general/top_card/old/draw_pile.png" id="32_unum2"]
 [ext_resource type="Script" path="res://script/debate/ui/draw_pile_ui.gd" id="33_r5u0j"]
 [ext_resource type="Script" path="res://script/debate/ui/hand_ui.gd" id="34_veub1"]
+[ext_resource type="Texture2D" uid="uid://cukex0q0jc621" path="res://asset/graphic/debate/aaron/aaron_db_stats_area.png" id="34_yb4dt"]
 [ext_resource type="PackedScene" uid="uid://dj5ht84etvnd1" path="res://debate/prefab/top_card_ui.tscn" id="35_6tdr6"]
 [ext_resource type="Script" path="res://script/ui/staggered_flex_container.gd" id="36_f6xvy"]
+[ext_resource type="Texture2D" uid="uid://cl8h4qdvv68ex" path="res://asset/graphic/debate/aaron/aaron_db01_screen_filter.png" id="40_uyd2d"]
 
 [sub_resource type="Animation" id="Animation_frnpg"]
 resource_name = "close_debate_cutscene"
@@ -133,14 +137,17 @@ shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/direction = Vector2(1, 0)
 shader_parameter/speed_scale = 0.05
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2n0su"]
-shader = ExtResource("21_wuq6j")
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/direction = Vector2(1, 0)
-shader_parameter/speed_scale = 0.05
+[sub_resource type="Gradient" id="Gradient_2th6e"]
+colors = PackedColorArray(0.67451, 0.466667, 0.203922, 1, 0.996078, 0.694118, 0.266667, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qs140"]
-load_path = "res://.godot/imported/SpeechPlayAreaDivider.png-74f79cdec84b2a91ade6287aa1363de9.ctex"
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mck1e"]
+gradient = SubResource("Gradient_2th6e")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ladsk"]
+shader = ExtResource("21_wuq6j")
+shader_parameter/color = Color(0.964706, 0.964706, 0.964706, 1)
+shader_parameter/direction = Vector2(-1, -1)
+shader_parameter/speed_scale = 0.05
 
 [node name="Debate3d" type="Node3D"]
 
@@ -204,7 +211,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 
 
 [node name="DebateCamera" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0.170072, 0.985432, -7.43408e-09, 0.985432, -0.170072, -4.30746e-08, -1.18445, 1.12532, -0.0350569)
-visible = false
 current = true
 fov = 60.0
 
@@ -215,10 +221,15 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 
 [node name="TopsBoard" parent="Lectern" instance=ExtResource("12_nxue7")]
-transform = Transform3D(0.0435746, -3.02449e-17, 2.14145e-18, 2.14145e-18, 0.00613971, 0.0431399, -3.02449e-17, -0.0431399, 0.00613971, -5.85974e-11, 1.12007, 0.000670277)
+transform = Transform3D(0.0435746, 6.85665e-17, 2.48792e-17, 2.14145e-18, 0.00613971, 0.0431399, 0, -0.0431399, 0.00613971, -5.8598e-11, 1.11285, 0.0443622)
 
-[node name="Discard" type="Marker3D" parent="Lectern"]
-transform = Transform3D(1, -2.99642e-16, 3.45307e-16, 3.45307e-16, 0.990024, -0.140901, -2.99642e-16, 0.140901, 0.990024, -0.211575, 1.1395, -0.134537)
+[node name="TopsBoard2" type="Sprite3D" parent="Lectern"]
+transform = Transform3D(0.0435746, 6.85665e-17, -8.42069e-18, 2.14145e-18, 0.00613971, 0.0431399, 0, -0.0431399, 0.00613971, -5.85981e-11, 1.11439, 0.0445816)
+alpha_cut = 2
+texture = ExtResource("14_sr3bk")
+
+[node name="Discard" type="Marker3D" parent="Lectern/TopsBoard2"]
+transform = Transform3D(22.9492, -6.92552e-14, 4.77984e-13, -6.08923e-13, 3.93166e-06, -22.9491, 8.38902e-14, 22.9492, 3.9964e-06, 0.14766, 3.607, -0.00899887)
 script = ExtResource("13_v2shh")
 per_card_offset = Vector3(2.08165e-12, 0.01, 2.08165e-12)
 
@@ -231,7 +242,7 @@ script = ExtResource("15_38s5e")
 facial_animator = NodePath("FacialAnimator")
 top_3d_prefab = ExtResource("16_avk6u")
 top_card_3d_prefab = ExtResource("17_uj2t6")
-discard = NodePath("../Lectern/Discard")
+discard = NodePath("../Lectern/TopsBoard2/Discard")
 tops_board = NodePath("../Lectern/TopsBoard")
 max_random_rotation_degrees = 2.0
 play_duration = 0.4
@@ -256,7 +267,7 @@ bones/6/position = Vector3(-0.0380811, 0.1041, -0.0346195)
 bones/6/rotation = Quaternion(0.510213, -0.510213, -0.489574, -0.489574)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(2.38008e-08, 0.114243, 8.7724e-08)
-bones/7/rotation = Quaternion(-0.584255, -0.0740356, 0.027557, 0.807716)
+bones/7/rotation = Quaternion(-0.584255, -0.0740356, 0.0275571, 0.807716)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/position = Vector3(-3.72529e-09, -1.02911e-07, -1.3574e-07)
 bones/8/rotation = Quaternion(1.41412e-07, 0.102057, -1.10589e-07, 0.994779)
@@ -319,7 +330,7 @@ bones/27/position = Vector3(-1.10222e-08, 0.338191, 8.04204e-09)
 bones/27/rotation = Quaternion(-0.250738, 0.737975, -0.461851, -0.423341)
 bones/27/scale = Vector3(1, 1, 1)
 bones/28/position = Vector3(4.70312e-10, 0.215224, -7.39791e-09)
-bones/28/rotation = Quaternion(-0.00162599, 0.978574, 0.205892, -2.72132e-05)
+bones/28/rotation = Quaternion(-0.00162599, 0.978573, 0.205892, -2.72132e-05)
 bones/28/scale = Vector3(1, 1, 1)
 bones/29/position = Vector3(-4.65661e-09, 0.169096, 8.3819e-09)
 bones/29/rotation = Quaternion(-5.49819e-09, -0.016563, -1.75498e-09, 0.999863)
@@ -395,7 +406,7 @@ script = ExtResource("15_38s5e")
 facial_animator = NodePath("FacialAnimator")
 top_3d_prefab = ExtResource("16_avk6u")
 top_card_3d_prefab = ExtResource("17_uj2t6")
-discard = NodePath("../Lectern/Discard")
+discard = NodePath("../Lectern/TopsBoard2/Discard")
 tops_board = NodePath("../Lectern/TopsBoard")
 
 [node name="Skeleton3D" parent="Aaron/root" index="0"]
@@ -424,13 +435,13 @@ bones/8/position = Vector3(1.76951e-08, 1.18744e-07, -9.20845e-08)
 bones/8/rotation = Quaternion(1.24483e-07, 0.132673, -4.45721e-08, 0.99116)
 bones/8/scale = Vector3(1, 0.999999, 1)
 bones/9/position = Vector3(1.93514e-08, 0.24888, -2.93366e-08)
-bones/9/rotation = Quaternion(1.82705e-07, -7.99667e-08, 0.119637, 0.992818)
+bones/9/rotation = Quaternion(1.82705e-07, -7.99666e-08, 0.119637, 0.992818)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(-1.63439e-08, 0.112119, -5.09335e-08)
 bones/10/rotation = Quaternion(-1.40399e-06, 0.0746668, 5.40523e-06, 0.997209)
 bones/10/scale = Vector3(0.999987, 0.999985, 0.999994)
 bones/11/position = Vector3(-7.41482e-09, 0.224237, 1.67142e-09)
-bones/11/rotation = Quaternion(-0.0976961, -0.117547, 0.0828739, 0.984769)
+bones/11/rotation = Quaternion(-0.097696, -0.117547, 0.0828739, 0.984769)
 bones/11/scale = Vector3(1, 0.999999, 1)
 bones/12/position = Vector3(0.0517423, 0.128365, -0.0208983)
 bones/12/rotation = Quaternion(0.50766, 0.50766, 0.492221, -0.492221)
@@ -460,10 +471,10 @@ bones/20/position = Vector3(-1.04748e-08, 0.311902, -1.21075e-08)
 bones/20/rotation = Quaternion(6.29331e-08, -4.17e-08, 0.167742, 0.985831)
 bones/20/scale = Vector3(1, 1, 1)
 bones/21/position = Vector3(-9.84238e-09, 0.316624, -2.18414e-08)
-bones/21/rotation = Quaternion(0.305415, 0.578271, -0.29821, 0.695267)
+bones/21/rotation = Quaternion(0.305415, 0.57827, -0.29821, 0.695267)
 bones/21/scale = Vector3(1, 1, 1)
 bones/22/position = Vector3(1.04507e-08, 0.19029, -1.5877e-08)
-bones/22/rotation = Quaternion(-0.00705767, 0.913792, 0.40612, -0.000276991)
+bones/22/rotation = Quaternion(-0.00705767, 0.913792, 0.40612, -0.00027699)
 bones/22/scale = Vector3(1, 1, 1)
 bones/23/position = Vector3(-1.58325e-08, 0.158312, 1.73459e-08)
 bones/23/rotation = Quaternion(4.67347e-06, -0.0188559, 5.53149e-06, 0.999822)
@@ -581,7 +592,6 @@ offset_bottom = 0.279907
 grow_horizontal = 0
 
 [node name="SubViewport" type="SubViewport" parent="PlayArea/PlayAreaViewport"]
-transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1200, 820)
 render_target_update_mode = 4
@@ -593,7 +603,6 @@ environment = ExtResource("11_5ne5n")
 far = 50.0
 
 [node name="DialogueArea" type="TextureRect" parent="PlayArea"]
-material = SubResource("ShaderMaterial_2n0su")
 anchors_preset = -1
 anchor_left = 0.344
 anchor_top = 0.759
@@ -604,6 +613,19 @@ offset_top = 0.279968
 offset_right = 103.68
 grow_horizontal = 0
 grow_vertical = 0
+texture = SubResource("GradientTexture1D_mck1e")
+expand_mode = 1
+
+[node name="ScrollingBackgroundText" type="TextureRect" parent="PlayArea/DialogueArea"]
+material = SubResource("ShaderMaterial_ladsk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_twtn0")
+expand_mode = 1
 stretch_mode = 1
 
 [node name="Contestants" type="Control" parent="PlayArea/DialogueArea"]
@@ -814,8 +836,18 @@ anchor_right = 1.0
 offset_top = -22.0
 offset_bottom = 18.0
 grow_horizontal = 2
-texture = SubResource("CompressedTexture2D_qs140")
 expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="PlayArea/DialogueArea/DialoguePlayAreaDivider"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.137255, 0.0901961, 0.0588235, 1)
 
 [node name="TextureRect" type="TextureRect" parent="PlayArea"]
 texture_filter = 2
@@ -828,11 +860,12 @@ metadata/_edit_use_anchors_ = true
 [node name="StatsArea" type="TextureRect" parent="PlayArea"]
 texture_filter = 2
 anchors_preset = -1
-anchor_right = 0.385875
+anchor_right = 0.375
 anchor_bottom = 1.0
-offset_right = -20.88
+offset_right = -5.72205e-05
+texture = ExtResource("34_yb4dt")
 expand_mode = 1
-metadata/_edit_use_anchors_ = true
+stretch_mode = 2
 
 [node name="DrawPile" type="TextureRect" parent="PlayArea/StatsArea"]
 layout_mode = 1
@@ -900,16 +933,16 @@ script = ExtResource("30_lse4u")
 [node name="Hand" type="MarginContainer" parent="PlayArea/StatsArea" node_paths=PackedStringArray("draw_pile", "card_parent")]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.921
+anchor_right = 0.997
 anchor_bottom = 0.796
-offset_right = 54.88
-offset_bottom = 0.320007
+offset_right = 2.15997
+offset_bottom = 0.319996
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
 script = ExtResource("34_veub1")
 top_card_ui_prefab = ExtResource("35_6tdr6")
 draw_pile = NodePath("../DrawPile")
@@ -969,6 +1002,14 @@ title = NodePath("../TopCardUI/CardInfo/Title")
 artwork = NodePath("../TopCardUI/CardTopLocation/Top")
 description = NodePath("../TopCardUI/CardDescription/Description")
 colorable_elements = [NodePath("../TopCardUI/CardInfo")]
+
+[node name="ScreenFilter" type="TextureRect" parent="PlayArea"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("40_uyd2d")
 
 [editable path="Joy"]
 [editable path="Aaron"]
