@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Pose" load_steps=3 format=3 uid="uid://6kra0yi48vyn"]
 
-[ext_resource type="Texture2D" uid="uid://c3y4fyen3ymom" path="res://asset/graphic/debate/general/pose/doubt_icon.png" id="1_gf7u8"]
+[ext_resource type="Texture2D" uid="uid://c3y4fyen3ymom" path="res://asset/graphic/debate/general_OLD/pose/doubt_icon.png" id="1_gf7u8"]
 [ext_resource type="Script" path="res://script/system/pose/pose.gd" id="1_xjoed"]
 
 [resource]

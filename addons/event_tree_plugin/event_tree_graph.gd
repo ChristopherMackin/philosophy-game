@@ -3,7 +3,7 @@ extends GraphEdit
 
 class_name EventGraph
 
-@export var start_node_prefab : PackedScene
+@export var start_node_packed_scene : PackedScene
 @onready var task_node_type_parent = $"../../TaskNodeTypeParent"
 @onready var start_node = $StartNode
 
@@ -90,14 +90,14 @@ func load_event_tree(event: Event):
 	var nodes = []
 	
 	for t in event.tasks:
-		var prefab
+		var packed_scene
 	
 		for p : TaskNode in task_node_type_parent.get_children():
 			if p.task_action.get_script() == t.action.get_script():
-				prefab = p
+				packed_scene = p
 				break
 		
-		var node : TaskNode = prefab.duplicate()
+		var node : TaskNode = packed_scene.duplicate()
 		node.set_node_field_values(t)
 		add_child(node)
 		nodes.append(node)

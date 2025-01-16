@@ -2,7 +2,7 @@ extends Resource
 
 class_name Deck
 
-@export var composition_top_deck_config_array : Array[TopDeckConfig]
+@export var composition_top_deck_config_array : Array[TopsDeckConfig]
 
 var manager : DebateManager
 var draw_pile : Array[Top]
@@ -29,7 +29,7 @@ func draw_top():
 	return draw_pile.pop_front()
 
 func remove_from_deck(top : Top):
-	var tops = composition_top_deck_config_array.map(func(x : TopDeckConfig): return x.top_data)
+	var tops = composition_top_deck_config_array.map(func(x : TopsDeckConfig): return x.top_data)
 	var index = tops.find(top.data)
 	
 	if index < 0:

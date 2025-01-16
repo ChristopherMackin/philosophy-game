@@ -1,0 +1,239 @@
+[gd_scene load_steps=17 format=3 uid="uid://bc773b0nxnftk"]
+
+[ext_resource type="Script" path="res://script/debate/ui/tops_card_ui.gd" id="1_kulfk"]
+[ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/general_OLD/tops_card/card_base.png" id="2_e0kwo"]
+[ext_resource type="Texture2D" uid="uid://e8vd6sbajkvq" path="res://asset/graphic/debate/general/tops_card/doubt_card_bg.png" id="3_xhy3s"]
+[ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://asset/font/TenorSans-Regular.ttf" id="4_sdgn3"]
+[ext_resource type="Texture2D" uid="uid://r5gxicmkm711" path="res://asset/graphic/debate/general_OLD/tops_card/card_set_information.png" id="5_h5usa"]
+[ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://asset/graphic/debate/general_OLD/tops_card/clock_icon.png" id="6_7ea68"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/general_OLD/pose/faith_icon.png" id="7_j1gjj"]
+[ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://asset/font/fahkwang/Fahkwang-Bold.ttf" id="8_fujyd"]
+[ext_resource type="FontFile" uid="uid://bc31tvjxo02f" path="res://asset/font/fahkwang/Fahkwang-Italic.ttf" id="9_7edhn"]
+[ext_resource type="Texture2D" uid="uid://bl81rf1rfjyuh" path="res://asset/graphic/debate/general_OLD/tops_card/card_top_location.png" id="10_2mkuo"]
+[ext_resource type="Texture2D" uid="uid://cu6c40kdnmjcc" path="res://asset/graphic/debate/general_OLD/top/test_top_tex.png" id="11_2osqp"]
+[ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/general_OLD/top/basic_faith_tex.png" id="12_n6eka"]
+[ext_resource type="Script" path="res://script/exposed_control_methods.gd" id="13_lw56p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5xdp"]
+content_margin_left = 10.0
+content_margin_top = 0.0
+content_margin_right = 10.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ld4d5"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_srmbm"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+
+[node name="DoubtCardUI" type="Control" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description")]
+custom_minimum_size = Vector2(370, 320)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 370.0
+offset_bottom = 320.0
+scale = Vector2(0.81, 0.81)
+focus_mode = 2
+script = ExtResource("1_kulfk")
+cost = NodePath("CardBG/CostIcon/Cost")
+icon = NodePath("CardBG/PoseIcon")
+title = NodePath("CardBG/Title")
+artwork = NodePath("CardBG/CardTopLocation/Top")
+description = NodePath("CardBG/Description")
+
+[node name="Shadow" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.0745098)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 10.0
+offset_right = -9.99997
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_e0kwo")
+
+[node name="CardBG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 370.0
+offset_bottom = 320.0
+texture = ExtResource("3_xhy3s")
+
+[node name="Title" type="Label" parent="CardBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.125
+theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_fonts/font = ExtResource("4_sdgn3")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y5xdp")
+text = "Structured Argument"
+vertical_alignment = 1
+
+[node name="CardSetInformation" type="TextureRect" parent="CardBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.814
+anchor_top = 0.912
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.179973
+offset_top = 0.159969
+offset_right = 3.05176e-05
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("5_h5usa")
+
+[node name="CardNumber" type="Label" parent="CardBG/CardSetInformation"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_fonts/font = ExtResource("4_sdgn3")
+theme_override_font_sizes/font_size = 16
+text = "12/78"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostIcon" type="TextureRect" parent="CardBG"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 200.0
+offset_right = 292.0
+offset_bottom = 260.0
+texture = ExtResource("6_7ea68")
+stretch_mode = 5
+
+[node name="Cost" type="Label" parent="CardBG/CostIcon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.117
+anchor_top = 0.217
+anchor_right = 0.9
+anchor_bottom = 1.0
+offset_left = -0.0200005
+offset_top = -0.0200005
+theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_fonts/font = ExtResource("4_sdgn3")
+theme_override_font_sizes/font_size = 30
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PoseIcon" type="TextureRect" parent="CardBG"]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 200.0
+offset_right = 358.0
+offset_bottom = 260.0
+texture = ExtResource("7_j1gjj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Description" type="RichTextLabel" parent="CardBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.014
+anchor_top = 0.018
+anchor_right = 0.581
+anchor_bottom = 0.772
+offset_left = -0.18
+offset_top = 39.24
+offset_right = 0.0299889
+offset_bottom = -0.0400047
+theme_override_colors/default_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_fonts/normal_font = ExtResource("4_sdgn3")
+theme_override_fonts/bold_font = ExtResource("8_fujyd")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ld4d5")
+bbcode_enabled = true
+text = "Place 2 [b]Structured Conversation[/b] tops.
+
+Cost -1 for ever [b]pentagram[/b] top in play"
+
+[node name="FlavorText" type="RichTextLabel" parent="CardBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.046
+anchor_top = 0.778
+anchor_right = 0.546
+anchor_bottom = 0.944
+offset_left = -0.0200014
+offset_top = 0.0399818
+offset_right = -0.0200014
+offset_bottom = -0.0800209
+theme_override_colors/default_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_fonts/bold_font = ExtResource("8_fujyd")
+theme_override_fonts/italics_font = ExtResource("9_7edhn")
+theme_override_font_sizes/italics_font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxEmpty_srmbm")
+bbcode_enabled = true
+text = "[center][i]Sometimes, planning out your thoughts can really change the flow of conversation[/i][/center]"
+scroll_active = false
+
+[node name="CardTopLocation" type="TextureRect" parent="CardBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.616
+anchor_top = 0.144
+anchor_right = 0.981
+anchor_bottom = 0.566
+offset_left = 0.0799555
+offset_top = -0.0800018
+offset_right = 0.0299672
+offset_bottom = -0.120041
+texture = ExtResource("10_2mkuo")
+expand_mode = 1
+
+[node name="Shadow" type="TextureRect" parent="CardBG/CardTopLocation"]
+self_modulate = Color(0, 0, 0, 0.34902)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.026
+anchor_right = 0.974
+anchor_bottom = 0.974
+offset_left = -7.41739
+offset_top = 6.16284
+offset_right = -7.3974
+offset_bottom = 6.18283
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_2osqp")
+
+[node name="Top" type="TextureRect" parent="CardBG/CardTopLocation"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.026
+anchor_right = 0.974
+anchor_bottom = 0.974
+offset_left = -0.00999999
+offset_top = -0.00999999
+offset_right = 0.00999451
+offset_bottom = 0.00999451
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_n6eka")
+
+[node name="ExposedControlMethods" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("13_lw56p")
+root = NodePath("..")
+
+[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(1, 1)]]
+[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_z_index" binds= [1]]
+[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(0.81, 0.81)]]
+[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_z_index" binds= [0]]

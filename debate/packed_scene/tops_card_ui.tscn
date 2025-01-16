@@ -1,18 +1,18 @@
 [gd_scene load_steps=18 format=3 uid="uid://dj5ht84etvnd1"]
 
-[ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/general/top_card/card_base.png" id="1_yl0ks"]
-[ext_resource type="Script" path="res://script/debate/ui/top_card.gd" id="2_le11q"]
-[ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://asset/graphic/debate/general/top_card/clock_icon.png" id="3_eeilm"]
-[ext_resource type="Texture2D" uid="uid://bwgxr2lmka4v3" path="res://asset/graphic/debate/general/top_card/card_info.png" id="3_of1ou"]
-[ext_resource type="Texture2D" uid="uid://ble7s2jio4loi" path="res://asset/graphic/debate/general/top_card/card_description.png" id="4_drjom"]
-[ext_resource type="Texture2D" uid="uid://r5gxicmkm711" path="res://asset/graphic/debate/general/top_card/card_set_information.png" id="5_g3ris"]
+[ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/general_OLD/tops_card/card_base.png" id="1_yl0ks"]
+[ext_resource type="Script" path="res://script/debate/ui/tops_card_ui.gd" id="2_le11q"]
+[ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://asset/graphic/debate/general_OLD/tops_card/clock_icon.png" id="3_eeilm"]
+[ext_resource type="Texture2D" uid="uid://bwgxr2lmka4v3" path="res://asset/graphic/debate/general_OLD/tops_card/card_info.png" id="3_of1ou"]
+[ext_resource type="Texture2D" uid="uid://ble7s2jio4loi" path="res://asset/graphic/debate/general_OLD/tops_card/card_description.png" id="4_drjom"]
+[ext_resource type="Texture2D" uid="uid://r5gxicmkm711" path="res://asset/graphic/debate/general_OLD/tops_card/card_set_information.png" id="5_g3ris"]
 [ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://asset/font/TenorSans-Regular.ttf" id="5_ru4dt"]
-[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/general/pose/faith_icon.png" id="6_3ri0m"]
-[ext_resource type="Texture2D" uid="uid://bl81rf1rfjyuh" path="res://asset/graphic/debate/general/top_card/card_top_location.png" id="6_wy5e5"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/general_OLD/pose/faith_icon.png" id="6_3ri0m"]
+[ext_resource type="Texture2D" uid="uid://bl81rf1rfjyuh" path="res://asset/graphic/debate/general_OLD/tops_card/card_top_location.png" id="6_wy5e5"]
 [ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://asset/font/fahkwang/Fahkwang-Bold.ttf" id="9_ascio"]
-[ext_resource type="Texture2D" uid="uid://cpasg5witafv0" path="res://asset/graphic/debate/general/top/basic_doubt_tex.png" id="10_03dx4"]
+[ext_resource type="Texture2D" uid="uid://cpasg5witafv0" path="res://asset/graphic/debate/general_OLD/top/basic_doubt_tex.png" id="10_03dx4"]
 [ext_resource type="FontFile" uid="uid://bc31tvjxo02f" path="res://asset/font/fahkwang/Fahkwang-Italic.ttf" id="10_eycy5"]
-[ext_resource type="Texture2D" uid="uid://cu6c40kdnmjcc" path="res://asset/graphic/debate/general/top/test_top_tex.png" id="10_u4v2u"]
+[ext_resource type="Texture2D" uid="uid://cu6c40kdnmjcc" path="res://asset/graphic/debate/general_OLD/top/test_top_tex.png" id="10_u4v2u"]
 [ext_resource type="Script" path="res://script/exposed_control_methods.gd" id="12_73irc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5xdp"]
@@ -33,7 +33,7 @@ content_margin_top = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
 
-[node name="TopCardUI" type="TextureRect" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description", "colorable_elements")]
+[node name="TopCardUI" type="TextureRect" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description")]
 custom_minimum_size = Vector2(370, 320)
 anchors_preset = -1
 anchor_right = 0.156
@@ -50,7 +50,6 @@ icon = NodePath("CardInfo/PoseIcon")
 title = NodePath("CardInfo/Title")
 artwork = NodePath("CardTopLocation/Top")
 description = NodePath("CardDescription/Description")
-colorable_elements = [NodePath("CardInfo")]
 
 [node name="Shadow" type="TextureRect" parent="."]
 modulate = Color(0, 0, 0, 0.0745098)
@@ -170,10 +169,10 @@ anchor_left = 0.023
 anchor_top = 0.018
 anchor_right = 0.977
 anchor_bottom = 0.736
-offset_left = -0.0600004
-offset_top = -0.0400004
-offset_right = 0.0599823
-offset_bottom = -0.0800171
+offset_left = -0.0600005
+offset_top = -0.0400003
+offset_right = 0.0599699
+offset_bottom = -0.0800004
 theme_override_colors/default_color = Color(0.137255, 0.0862745, 0.0588235, 1)
 theme_override_fonts/normal_font = ExtResource("5_ru4dt")
 theme_override_fonts/bold_font = ExtResource("9_ascio")
@@ -192,10 +191,10 @@ anchor_left = 0.077
 anchor_top = 0.746
 anchor_right = 0.923
 anchor_bottom = 0.939
-offset_left = 0.0599985
-offset_top = 0.119986
-offset_right = -0.0600083
-offset_bottom = 0.0799804
+offset_left = 0.0599982
+offset_top = 0.119987
+offset_right = -0.0599952
+offset_bottom = 0.0799971
 theme_override_colors/default_color = Color(0.137255, 0.0862745, 0.0588235, 1)
 theme_override_fonts/bold_font = ExtResource("9_ascio")
 theme_override_fonts/italics_font = ExtResource("10_eycy5")

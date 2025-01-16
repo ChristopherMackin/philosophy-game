@@ -3,13 +3,9 @@ extends Node3D
 class_name TopsBoard3D
 
 @export var settings : DebateSettings
-@export var pose_tracks : Array[PoseTrack]
+@export var pose_tracks : Array[PoseTrack3D]
 
-func _ready():
-	for i in settings.poses.size():
-		pose_tracks[i].pose = settings.poses[i]
-
-func get_pose_track(top : Top) -> PoseTrack:
+func get_pose_track(top : Top) -> PoseTrack3D:
 	var index = settings.poses.find(top.data.pose)
 	
 	if index > pose_tracks.size() || index < 0: return

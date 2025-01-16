@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="InfiniteDeck" load_steps=5 format=3 uid="uid://dkq48q8q0yli4"]
 
-[ext_resource type="Script" path="res://script/system/top/top_deck_config.gd" id="1_56kyl"]
+[ext_resource type="Script" path="res://script/system/top/tops_deck_config.gd" id="1_7qbfx"]
 [ext_resource type="Script" path="res://script/system/deck/infinite_deck.gd" id="1_yxa1j"]
 [ext_resource type="Resource" uid="uid://cv6ila4yv7mgu" path="res://system/top/faith/twisted_words.tres" id="2_6d0sv"]
 
 [sub_resource type="Resource" id="Resource_p122j"]
-script = ExtResource("1_56kyl")
+script = ExtResource("1_7qbfx")
 top_data = ExtResource("2_6d0sv")
 count = 1
 
 [resource]
 script = ExtResource("1_yxa1j")
-composition_top_deck_config_array = Array[ExtResource("1_56kyl")]([SubResource("Resource_p122j")])
+composition_top_deck_config_array = Array[ExtResource("1_7qbfx")]([SubResource("Resource_p122j")])

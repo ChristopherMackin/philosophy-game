@@ -1,14 +1,13 @@
 @tool
 extends Node
 
-class_name TopCard
+class_name TopsCardUI
 
 @export var cost : Node
 @export var icon : Node
 @export var title : Node
 @export var artwork : Node
 @export var description : Node
-@export var colorable_elements : Array[Node]
 
 var top : Top:
 	set(val):
@@ -30,10 +29,3 @@ func update_card(top : Top) :
 		title.text = top.data.title
 		description.text = top.data.description
 		artwork.texture = top.data.artwork
-		
-		for e in colorable_elements:
-			if "self_modulate" in e:
-				e.self_modulate = top.data.pose.color
-			else:
-				e.modulate = top.data.pose.color
-

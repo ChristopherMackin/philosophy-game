@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://script/system/top/top_data.gd" id="1_yhn0r"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/pose/faith.tres" id="1_ywyu0"]
 [ext_resource type="Script" path="res://script/system/top/top_action/permanently_remove_and_play_top_action.gd" id="2_4x6kj"]
-[ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/general/top/basic_faith_tex.png" id="3_5mldk"]
+[ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/general_OLD/top/basic_faith_tex.png" id="3_5mldk"]
 
 [sub_resource type="Resource" id="Resource_o57u7"]
 script = ExtResource("2_4x6kj")

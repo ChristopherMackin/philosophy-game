@@ -1,16 +1,9 @@
-@tool
 extends Node
 
-class_name PoseTrack
+class_name PoseTrack3D
 
-@export var icon : Sprite3D
 @export var slots : Array[Node]
 var tops_3d: Array[Top3D]
-
-@export var pose : Pose:
-	set(val):
-		pose = val
-		update_pose.call_deferred(pose)
 
 func get_top_slot():
 	return slots[tops_3d.size()]
@@ -31,10 +24,3 @@ func remove_top_at(index : int):
 		tween.tween_property(tops_3d[i], "global_position", slots[i].global_position, .4) \
 		.set_trans(Tween.TRANS_SPRING) \
 		.set_ease(Tween.EASE_OUT)
-
-func update_pose(pose : Pose) :
-	icon.texture = pose.icon
-	icon.modulate = pose.color
-	
-	for e in slots:
-		e.modulate = pose.color

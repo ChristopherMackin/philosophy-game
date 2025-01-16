@@ -1,6 +1,6 @@
 extends Resource
 
-class_name TopDeckConfig
+class_name TopsDeckConfig
 
 @export var top_data : TopData
 @export var count : int

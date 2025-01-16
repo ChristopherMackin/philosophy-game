@@ -2,8 +2,8 @@ extends Node
 
 class_name HandUI
 
-@export_group("Prefab")
-@export var top_card_ui_prefab : PackedScene
+@export_group("Packed Scene")
+@export var tops_card_ui_pose_packed_scenes : Array[PosePackedScene]
 
 @export_group("Card Placement")
 @export var draw_pile : Control
@@ -12,7 +12,7 @@ class_name HandUI
 @export_group("Card Slot Size")
 @export var card_slot_size : Vector2 = Vector2(370, 320)
 
-var ui_cards : Array[TopCard]
+var ui_cards : Array[TopsCardUI]
 var card_slots : Array[Control]
 
 var lock : Lock = Lock.new()
@@ -84,22 +84,26 @@ func clear_hand():
 	ui_cards.clear()
 
 func _add_card(top : Top):
-	var top_card_slot : Control = Control.new()
-	top_card_slot.custom_minimum_size = card_slot_size
+	var tops_card_slot : Control = Control.new()
+	tops_card_slot.custom_minimum_size = card_slot_size
 	
-	var top_card : TopCard = top_card_ui_prefab.instantiate() as TopCard
-	top_card.top = top
+	var index = tops_card_ui_pose_packed_scenes.map(func(x): return x.pose).find(top.data.pose)
+	index = index if index >= 0 else 0
+	var tops_card_ui_packed_scene = tops_card_ui_pose_packed_scenes[index].packed_scene
 	
-	top_card_slot.add_child(top_card)	
-	card_parent.add_child(top_card_slot)
+	var tops_card : TopsCardUI = tops_card_ui_packed_scene.instantiate() as TopsCardUI
+	tops_card.top = top
 	
-	card_slots.append(top_card_slot)
-	ui_cards.append(top_card)
+	tops_card_slot.add_child(tops_card)	
+	card_parent.add_child(tops_card_slot)
+	
+	card_slots.append(tops_card_slot)
+	ui_cards.append(tops_card)
 
 func _remove_card(top : Top):	
-	var matching = ui_cards.filter(func (top_card): return top == top_card.top)
-	var top_card = matching[0] if not matching.is_empty() else null
-	var card_index = ui_cards.find(top_card)
+	var matching = ui_cards.filter(func (tops_card): return top == tops_card.top)
+	var tops_card = matching[0] if not matching.is_empty() else null
+	var card_index = ui_cards.find(tops_card)
 	
 	if card_index <0:
 		return
