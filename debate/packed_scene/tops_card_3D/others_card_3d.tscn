@@ -2,15 +2,14 @@
 
 [ext_resource type="Script" path="res://script/debate/tops_card_3d.gd" id="1_him04"]
 [ext_resource type="PackedScene" uid="uid://bhv1plx4fekqd" path="res://debate/packed_scene/tops_card_ui/others_card_ui.tscn" id="2_vaian"]
-[ext_resource type="Texture2D" uid="uid://bfesntksn6xx5" path="res://asset/graphic/debate/general_OLD/tops_card/old/tops_card_back.png" id="3_3mcyh"]
+[ext_resource type="Texture2D" uid="uid://dyox58taurrna" path="res://asset/graphic/debate/general/tops_card/tops_card_back.png" id="3_ikfix"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_wwxba"]
 viewport_path = NodePath("CardFront/SubViewport")
 
-[node name="OthersCard3D" type="Node3D" node_paths=PackedStringArray("tops_card_ui", "sub_viewport")]
+[node name="OthersCard3D" type="Node3D" node_paths=PackedStringArray("sub_viewport")]
 transform = Transform3D(0.032, -2.23224e-17, -9.75743e-25, 0, -1.39876e-09, 0.032, -2.23224e-17, -0.032, -1.39876e-09, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 script = ExtResource("1_him04")
-tops_card_ui = NodePath("")
 sub_viewport = NodePath("CardFront/SubViewport")
 
 [node name="CardFront" type="Sprite3D" parent="."]
@@ -40,6 +39,6 @@ visible = false
 [node name="CardBack" type="Sprite3D" parent="."]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0, -6.93889e-18)
 double_sided = false
-texture = ExtResource("3_3mcyh")
+texture = ExtResource("3_ikfix")
 
 [editable path="CardFront/SubViewport/OthersCardUI"]

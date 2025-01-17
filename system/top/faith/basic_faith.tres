@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/system/top/top_data.gd" id="1_hgh8s"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/pose/faith.tres" id="1_rjbhe"]
-[ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/general_OLD/top/basic_faith_tex.png" id="1_v0t1r"]
+[ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/general/top/basic_faith_tex.png" id="1_v0t1r"]
 
 [resource]
 script = ExtResource("1_hgh8s")

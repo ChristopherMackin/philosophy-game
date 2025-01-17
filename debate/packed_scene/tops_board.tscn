@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bsyesuw4ujeei"]
 
-[ext_resource type="Texture2D" uid="uid://wnxe7wkm381u" path="res://asset/graphic/debate/aaron/aaron_tops_board.jpg" id="1_16ef3"]
+[ext_resource type="Texture2D" uid="uid://wnxe7wkm381u" path="res://asset/graphic/aaron/aaron_tops_board.jpg" id="1_16ef3"]
 [ext_resource type="Script" path="res://script/ui/tops_board_3d.gd" id="2_gd3pm"]
 [ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://debate/main/debate_settings.tres" id="3_pjl57"]
 [ext_resource type="Script" path="res://script/debate/pose_track_3d.gd" id="4_r6gym"]
