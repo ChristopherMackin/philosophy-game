@@ -12,6 +12,8 @@ class_name HandUI
 @export_group("Card Slot Size")
 @export var card_slot_size : Vector2 = Vector2(370, 320)
 
+@export var focus_group : FocusGroup
+
 var ui_cards : Array[TopsCardUI]
 var card_slots : Array[Control]
 
@@ -46,6 +48,8 @@ func update_hand(hand : Array[Top]):
 	lock.release_lock()
 
 func set_up_focus_connections():
+	var i = 0
+	
 	for card in ui_cards:
 		card.focus_neighbor_left = NodePath()
 		card.focus_neighbor_top = NodePath()
@@ -71,10 +75,14 @@ func set_up_focus_connections():
 				elif(sign(direction_vector.y) >= 0):
 					if(card.focus_neighbor_bottom == NodePath()):
 						card.focus_neighbor_bottom = other.get_path()
+		
+		if i < ui_cards.size() - 1 : card.focus_next = ui_cards[i + 1].get_path() 
+		if i > 0: card.focus_previous = ui_cards[i - 1].get_path()
+		
+		i += 1
 	
-	#need to set up previous
-	if ui_cards.size() > 0:
-		ui_cards[0].grab_focus()
+	if focus_group.focused_node == null && ui_cards.size() > 0:
+		focus_group.focus(ui_cards[0])
 
 func clear_hand():
 	for child in card_slots:
@@ -107,6 +115,11 @@ func _remove_card(top : Top):
 	
 	if card_index <0:
 		return
+	
+	var new_focus = null
+	if ui_cards[card_index].focus_previous: new_focus = get_node(ui_cards[card_index].focus_previous)
+	elif ui_cards[card_index].focus_next: new_focus = get_node(ui_cards[card_index].focus_next)
+	focus_group.focus(new_focus) 
 	
 	card_slots[card_index].queue_free()
 	card_slots.remove_at(card_index)

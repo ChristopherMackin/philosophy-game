@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://c674050h413wq"]
+[gd_scene load_steps=81 format=3 uid="uid://c674050h413wq"]
 
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_c3gp0"]
 [ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://debate/main/debate_settings.tres" id="2_03waw"]
@@ -10,6 +10,9 @@
 [ext_resource type="Script" path="res://script/selection_manager.gd" id="8_a3tiy"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="9_gkl1m"]
 [ext_resource type="Script" path="res://script/system/animation/animation_player_handler.gd" id="10_bg7j3"]
+[ext_resource type="Resource" uid="uid://cw71yo3318tof" path="res://system/focus_group/idle_focus_group.tres" id="10_gx4pd"]
+[ext_resource type="Resource" uid="uid://ntuf87q0l32m" path="res://system/focus_group/hand_focus_group.tres" id="10_xhyii"]
+[ext_resource type="Resource" uid="uid://dywohm3ea6ydc" path="res://system/focus_group/tops_card_selector_focus_group.tres" id="11_1e8cx"]
 [ext_resource type="Environment" uid="uid://vowbyk10rg4v" path="res://level/debate_scene_environment.tres" id="11_5ne5n"]
 [ext_resource type="PackedScene" uid="uid://r4i5a44ihqej" path="res://asset/model/environment/lectern.glb" id="11_cga4j"]
 [ext_resource type="PackedScene" uid="uid://bsyesuw4ujeei" path="res://debate/packed_scene/tops_board.tscn" id="12_nxue7"]
@@ -50,6 +53,9 @@
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/pose/others.tres" id="41_u5dj4"]
 [ext_resource type="Texture2D" uid="uid://csnb8nne3qn56" path="res://asset/graphic/debate/general/stats_area/draw_pile.png" id="42_wa3e5"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/pose/self.tres" id="43_y1iqc"]
+[ext_resource type="Script" path="res://level/debate/pastor_aaron/tops_card_selector.gd" id="51_3qr11"]
+[ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/general/tops_card/card_base.png" id="52_ket0o"]
+[ext_resource type="PackedScene" uid="uid://dj5ht84etvnd1" path="res://debate/packed_scene/tops_card_ui.tscn" id="53_xp4py"]
 
 [sub_resource type="Animation" id="Animation_frnpg"]
 resource_name = "close_debate_cutscene"
@@ -219,18 +225,38 @@ script = ExtResource("37_ugb6p")
 pose = ExtResource("43_y1iqc")
 packed_scene = ExtResource("25_mngk4")
 
+[sub_resource type="Resource" id="Resource_dxosk"]
+script = ExtResource("37_ugb6p")
+pose = ExtResource("36_kjepc")
+packed_scene = ExtResource("18_sxkin")
+
+[sub_resource type="Resource" id="Resource_s2fhy"]
+script = ExtResource("37_ugb6p")
+pose = ExtResource("39_0grww")
+packed_scene = ExtResource("21_yt848")
+
+[sub_resource type="Resource" id="Resource_xx6uv"]
+script = ExtResource("37_ugb6p")
+pose = ExtResource("41_u5dj4")
+packed_scene = ExtResource("23_cumjs")
+
+[sub_resource type="Resource" id="Resource_rq6p4"]
+script = ExtResource("37_ugb6p")
+pose = ExtResource("43_y1iqc")
+packed_scene = ExtResource("25_mngk4")
+
 [node name="Debate3d" type="Node3D"]
 
 [node name="===MANAGER========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="DebateSceneManager" type="Node3D" parent="." node_paths=PackedStringArray("selection_manager", "player_3d", "computer_3d", "tops_board", "hand_ui", "energy_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
+[node name="DebateSceneManager" type="Node3D" parent="." node_paths=PackedStringArray("player_3d", "selection_manager", "computer_3d", "tops_board", "hand_ui", "energy_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
 script = ExtResource("1_c3gp0")
 debate_settings = ExtResource("2_03waw")
 event_manager = ExtResource("3_pgeyy")
-selection_manager = NodePath("../SelectionManager")
 player = ExtResource("4_vrocj")
 player_3d = NodePath("../Joy")
+selection_manager = NodePath("../SelectionManager")
 computer = ExtResource("5_a32kn")
 computer_3d = NodePath("../Aaron")
 tops_board = NodePath("../Lectern/TopsBoard")
@@ -247,11 +273,15 @@ scene_animator = NodePath("../SceneAnimator")
 actors = [NodePath("../Joy"), NodePath("../Aaron")]
 manager = ExtResource("3_pgeyy")
 
-[node name="SelectionManager" type="Node3D" parent="." node_paths=PackedStringArray("ui_clear_focus_node")]
+[node name="SelectionManager" type="Node3D" parent="." node_paths=PackedStringArray("ui_clear_focus_node", "tops_card_selector")]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 script = ExtResource("8_a3tiy")
-ui_clear_focus_node = NodePath("UIClearFocus")
 player_brain = ExtResource("9_gkl1m")
+idle_focus_group = ExtResource("10_gx4pd")
+hand_ui_focus_group = ExtResource("10_xhyii")
+tops_card_selector_focus_group = ExtResource("11_1e8cx")
+ui_clear_focus_node = NodePath("UIClearFocus")
+tops_card_selector = NodePath("../PlayArea/TopsCardSelector")
 
 [node name="UIClearFocus" type="Control" parent="SelectionManager"]
 layout_mode = 3
@@ -1013,6 +1043,7 @@ tops_card_ui_pose_packed_scenes = Array[ExtResource("37_ugb6p")]([SubResource("R
 draw_pile = NodePath("../DrawPile")
 card_parent = NodePath("CardParent")
 card_slot_size = Vector2(300, 260)
+focus_group = ExtResource("10_xhyii")
 
 [node name="CardParent" type="Container" parent="PlayArea/StatsArea/Hand"]
 layout_mode = 2
@@ -1027,6 +1058,117 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("40_uyd2d")
+
+[node name="TopsCardSelector" type="Panel" parent="PlayArea" node_paths=PackedStringArray("card_container")]
+visible = false
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("51_3qr11")
+tops_card_ui_pose_packed_scenes = Array[ExtResource("37_ugb6p")]([SubResource("Resource_dxosk"), SubResource("Resource_s2fhy"), SubResource("Resource_xx6uv"), SubResource("Resource_rq6p4")])
+card_container = NodePath("Background/HFlowContainer")
+focus_group = ExtResource("11_1e8cx")
+
+[node name="Border" type="NinePatchRect" parent="PlayArea/TopsCardSelector"]
+modulate = Color(0.996078, 0.694118, 0.266667, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -747.0
+offset_top = -392.0
+offset_right = 747.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("52_ket0o")
+region_rect = Rect2(4.16329e-12, 2.08165e-12, 370, 320)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Background" type="NinePatchRect" parent="PlayArea/TopsCardSelector"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -730.0
+offset_top = -375.0
+offset_right = 730.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("52_ket0o")
+region_rect = Rect2(4.16329e-12, 2.08165e-12, 370, 320)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="HFlowContainer" type="HFlowContainer" parent="PlayArea/TopsCardSelector/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.055
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.250003
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+alignment = 1
+
+[node name="TopCardUI" parent="PlayArea/TopsCardSelector/Background/HFlowContainer" instance=ExtResource("53_xp4py")]
+layout_mode = 2
+
+[node name="TopCardUI2" parent="PlayArea/TopsCardSelector/Background/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description") instance=ExtResource("53_xp4py")]
+layout_mode = 2
+cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
+icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
+title = NodePath("../TopCardUI/CardInfo/Title")
+artwork = NodePath("../TopCardUI/CardTopLocation/Top")
+description = NodePath("../TopCardUI/CardDescription/Description")
+
+[node name="TopCardUI3" parent="PlayArea/TopsCardSelector/Background/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description") instance=ExtResource("53_xp4py")]
+layout_mode = 2
+cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
+icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
+title = NodePath("../TopCardUI/CardInfo/Title")
+artwork = NodePath("../TopCardUI/CardTopLocation/Top")
+description = NodePath("../TopCardUI/CardDescription/Description")
+
+[node name="TopCardUI4" parent="PlayArea/TopsCardSelector/Background/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description") instance=ExtResource("53_xp4py")]
+layout_mode = 2
+cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
+icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
+title = NodePath("../TopCardUI/CardInfo/Title")
+artwork = NodePath("../TopCardUI/CardTopLocation/Top")
+description = NodePath("../TopCardUI/CardDescription/Description")
+
+[node name="TopCardUI5" parent="PlayArea/TopsCardSelector/Background/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description") instance=ExtResource("53_xp4py")]
+layout_mode = 2
+cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
+icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
+title = NodePath("../TopCardUI/CardInfo/Title")
+artwork = NodePath("../TopCardUI/CardTopLocation/Top")
+description = NodePath("../TopCardUI/CardDescription/Description")
+
+[node name="TopCardUI6" parent="PlayArea/TopsCardSelector/Background/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description") instance=ExtResource("53_xp4py")]
+layout_mode = 2
+cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
+icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
+title = NodePath("../TopCardUI/CardInfo/Title")
+artwork = NodePath("../TopCardUI/CardTopLocation/Top")
+description = NodePath("../TopCardUI/CardDescription/Description")
 
 [editable path="Joy"]
 [editable path="Aaron"]

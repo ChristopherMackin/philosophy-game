@@ -3,11 +3,11 @@ extends DebateSubscriber
 @export_group("Settings")
 @export var debate_settings : DebateSettings
 @export var event_manager : EventManager
-@export var selection_manager : SelectionManager
 
 @export_group ("Player")
 @export var player : Character
 @export var player_3d : DebateContestant3D
+@export var selection_manager : SelectionManager
 
 @export_group ("Computer")
 @export var computer : Character
@@ -33,13 +33,8 @@ func _ready():
 func on_debate_start():
 	pass
 	
-func on_player_change(contestant : Contestant):
-	if contestant.character == player:
-		selection_manager.continue_ui_input()
-	else:
-		selection_manager.pause_ui_input()
-	
-	await GlobalTimer.wait_for_seconds(1)
+func on_player_change(contestant : Contestant):	
+	selection_manager.pause_input()
 	
 func on_top_played(top: Top, active_contestant : Contestant):
 	if active_contestant.character == player:
