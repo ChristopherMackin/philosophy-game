@@ -117,8 +117,8 @@ func _remove_card(top : Top):
 		return
 	
 	var new_focus = null
-	if ui_cards[card_index].focus_previous: new_focus = get_node(ui_cards[card_index].focus_previous)
-	elif ui_cards[card_index].focus_next: new_focus = get_node(ui_cards[card_index].focus_next)
+	if ui_cards[card_index].focus_previous: new_focus = get_node_or_null(ui_cards[card_index].focus_previous)
+	elif ui_cards[card_index].focus_next: new_focus = get_node_or_null(ui_cards[card_index].focus_next)
 	focus_group.focus(new_focus) 
 	
 	card_slots[card_index].queue_free()

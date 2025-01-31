@@ -9,9 +9,9 @@ _entries = {
 "active_contestant": "player",
 "current_pose": "faith",
 "current_top": "twisted_words",
-"current_turn": 7,
-"previous_pose": "doubt",
-"previous_top": "doubt_everything"
+"current_turn": 1,
+"previous_pose": "faith",
+"previous_top": "twisted_words"
 }
 _expiration_tokens = {
 "aaron_db01_test.tres": 0,

@@ -10,7 +10,7 @@ script = ExtResource("1_fcfm3")
 
 [resource]
 script = ExtResource("1_xbbap")
-base_cost = 2
+base_cost = 1
 pose = ExtResource("2_tnm1e")
 title = "Doubt Everything"
 artwork = ExtResource("1_n00r1")

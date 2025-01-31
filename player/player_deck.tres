@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://script/system/top/tops_deck_config.gd" id="1_0kjp7"]
 [ext_resource type="Script" path="res://script/system/deck/deck.gd" id="1_8ujv4"]
-[ext_resource type="Resource" uid="uid://yenth0343uxc" path="res://system/top/doubt/doubt_everything.tres" id="2_q24os"]
+[ext_resource type="Resource" uid="uid://cv6ila4yv7mgu" path="res://system/top/faith/twisted_words.tres" id="2_pc7tk"]
 
 [sub_resource type="Resource" id="Resource_moban"]
 script = ExtResource("1_0kjp7")
-top_data = ExtResource("2_q24os")
+top_data = ExtResource("2_pc7tk")
 count = 8
 
 [resource]
