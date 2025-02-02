@@ -19,7 +19,11 @@ class_name SelectionManager
 var active_focus_group : FocusGroup
 
 var focused_node : Control:
-	get: return active_focus_group.focused_node
+	get:
+		if active_focus_group.focused_node is Focus3D:
+			return active_focus_group.focused_node.focus_parent
+		else:
+			return active_focus_group.focused_node
 
 func _ready():
 	idle_focus_group.focused_node = ui_clear_focus_node

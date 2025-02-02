@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://b5qju7etv13c2"]
 
 [ext_resource type="Script" path="res://script/character/character.gd" id="1_ixei5"]
-[ext_resource type="Resource" uid="uid://c40pc5d4h4ayv" path="res://system/main_blackboard.tres" id="1_nfqwg"]
+[ext_resource type="Resource" uid="uid://bukv7viar8doj" path="res://system/main_blackboard.tres" id="1_nfqwg"]
 [ext_resource type="Script" path="res://script/character/brain/simple_ai_brain.gd" id="1_u3hxw"]
 [ext_resource type="Resource" uid="uid://27sna6u0b0wj" path="res://character/aaron/aaron_event_factory.tres" id="2_5kp35"]
 [ext_resource type="Resource" uid="uid://dkq48q8q0yli4" path="res://character/aaron/aaron_deck.tres" id="3_y2hdd"]

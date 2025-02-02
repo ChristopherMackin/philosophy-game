@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="Event" load_steps=14 format=3 uid="uid://hhaf8ssw71s4"]
+
+[ext_resource type="Script" path="res://script/system/event/event.gd" id="1_nhks1"]
+[ext_resource type="Script" path="res://script/system/event/task_action/animation_task_action.gd" id="2_5i6bv"]
+[ext_resource type="Script" path="res://script/system/event/task.gd" id="3_a4btn"]
+[ext_resource type="Script" path="res://script/system/event/task_action/dialogue_task_action.gd" id="4_x0tmb"]
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("2_5i6bv")
+
+[sub_resource type="Resource" id="Resource_4n05v"]
+script = ExtResource("3_a4btn")
+outputs = Array[int]([0])
+inputs = ["accuse", "aaron", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("4_x0tmb")
+
+[sub_resource type="Resource" id="Resource_cm7xj"]
+script = ExtResource("3_a4btn")
+outputs = Array[int]([3])
+inputs = ["Ooga booga! You need to go mew to skibbidy!", "aaron", false, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_gilqe"]
+script = ExtResource("3_a4btn")
+outputs = Array[int]([4])
+inputs = ["Why??", "joy", false, 1.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_rv8xs"]
+script = ExtResource("3_a4btn")
+outputs = Array[int]([2])
+inputs = ["think", "joy", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_ihbgb"]
+script = ExtResource("3_a4btn")
+outputs = Array[int]([5])
+inputs = ["I've got to go to baby gronk soon.", "joy", false, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_f7vx8"]
+script = ExtResource("3_a4btn")
+outputs = Array[int]([6])
+inputs = ["praise", "aaron", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_xkie2"]
+script = ExtResource("3_a4btn")
+outputs = Array[int]([])
+inputs = ["Cause he's gonna fannum tax my gyatt!", "aaron", false, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_nhks1")
+is_major_event = false
+await_event = false
+frequency = 0
+start_task = SubResource("Resource_4n05v")
+tasks = Array[ExtResource("3_a4btn")]([SubResource("Resource_cm7xj"), SubResource("Resource_4n05v"), SubResource("Resource_gilqe"), SubResource("Resource_rv8xs"), SubResource("Resource_ihbgb"), SubResource("Resource_f7vx8"), SubResource("Resource_xkie2")])

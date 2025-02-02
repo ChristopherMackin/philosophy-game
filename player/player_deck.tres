@@ -1,14 +1,20 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=5 format=3 uid="uid://dv86ada6flar5"]
+[gd_resource type="Resource" script_class="Deck" load_steps=7 format=3 uid="uid://dv86ada6flar5"]
 
 [ext_resource type="Script" path="res://script/system/top/tops_deck_config.gd" id="1_0kjp7"]
 [ext_resource type="Script" path="res://script/system/deck/deck.gd" id="1_8ujv4"]
-[ext_resource type="Resource" uid="uid://cv6ila4yv7mgu" path="res://system/top/faith/twisted_words.tres" id="2_pc7tk"]
+[ext_resource type="Resource" uid="uid://clnyw55jxr6to" path="res://system/top/doubt/basic_doubt.tres" id="2_0pujk"]
+[ext_resource type="Resource" uid="uid://blcakrfj88pwk" path="res://system/top/self/basic_self.tres" id="3_pcm6f"]
 
 [sub_resource type="Resource" id="Resource_moban"]
 script = ExtResource("1_0kjp7")
-top_data = ExtResource("2_pc7tk")
+top_data = ExtResource("2_0pujk")
 count = 8
+
+[sub_resource type="Resource" id="Resource_g1n6b"]
+script = ExtResource("1_0kjp7")
+top_data = ExtResource("3_pcm6f")
+count = 5
 
 [resource]
 script = ExtResource("1_8ujv4")
-composition_top_deck_config_array = Array[ExtResource("1_0kjp7")]([SubResource("Resource_moban")])
+composition_top_deck_config_array = Array[ExtResource("1_0kjp7")]([SubResource("Resource_moban"), SubResource("Resource_g1n6b")])

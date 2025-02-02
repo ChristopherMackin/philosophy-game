@@ -7,11 +7,12 @@ script = ExtResource("1_421wn")
 _entries = {
 "aaron_db01_test.tres": true,
 "active_contestant": "player",
-"current_pose": "faith",
-"current_top": "twisted_words",
-"current_turn": 1,
+"current_pose": "doubt",
+"current_top": "basic_doubt",
+"current_turn": 3,
 "previous_pose": "faith",
-"previous_top": "twisted_words"
+"previous_top": "twisted_words",
+"terrible_event.tres": true
 }
 _expiration_tokens = {
 "aaron_db01_test.tres": 0,
@@ -20,5 +21,6 @@ _expiration_tokens = {
 "current_top": 2,
 "current_turn": 2,
 "previous_pose": 2,
-"previous_top": 2
+"previous_top": 2,
+"terrible_event.tres": 0
 }
