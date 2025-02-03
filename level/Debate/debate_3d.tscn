@@ -15,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event_manager.tres" id="7_0u80y"]
 [ext_resource type="Script" path="res://script/system/animation/animation_player_handler.gd" id="8_lncrh"]
 [ext_resource type="Script" path="res://script/debate/discard_3d.gd" id="8_r55tt"]
-[ext_resource type="Script" path="res://script/selection_manager.gd" id="8_unhyc"]
+[ext_resource type="Script" path="res://script/debate/ui/selection_manager.gd" id="8_unhyc"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="9_812v8"]
 [ext_resource type="Texture2D" path="res://asset/graphic/debate/general_OLD/tops_card/old/draw_pile.png" id="9_i0u2a"]
 [ext_resource type="Script" path="res://script/ui/debate_contestant_3d.gd" id="10_5u80s"]

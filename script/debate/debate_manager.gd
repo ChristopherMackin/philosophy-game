@@ -143,6 +143,14 @@ func push_top_to_queue(top : Top):
 	blackboard.add("current_top", top.data.title, Constants.ExpirationToken.ON_DEBATE_START)
 	blackboard.add("current_pose", top.data.pose.name, Constants.ExpirationToken.ON_DEBATE_START)
 
+func remove_top_from_queue(top : Top):
+	var top_queue : Array[Top] = top_queue_dictionary[top.data.pose.name]
+	var index = top_queue.find(top)
+	
+	if index <= 0: return
+	
+	top_queue.remove_at(index)
+
 func on_hand_updated(contestant : Contestant):
 	for sub : DebateSubscriber in subscriber_array: await sub.on_hand_updated(contestant)
 

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TopData" load_steps=6 format=3 uid="uid://cwcva1pg2bb7a"]
+
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/pose/doubt.tres" id="1_84rdq"]
+[ext_resource type="Script" path="res://script/system/top/top_data.gd" id="1_rfjk0"]
+[ext_resource type="Script" path="res://script/system/top/top_action/remove_top_from_board_top_action.gd" id="2_vuyuy"]
+[ext_resource type="Texture2D" uid="uid://cpasg5witafv0" path="res://asset/graphic/debate/general/top/basic_doubt_tex.png" id="3_tyjdd"]
+
+[sub_resource type="Resource" id="Resource_37hof"]
+script = ExtResource("2_vuyuy")
+allowedPoses = Array[Resource("res://script/system/pose/pose.gd")]([ExtResource("1_84rdq")])
+
+[resource]
+script = ExtResource("1_rfjk0")
+base_cost = 0
+pose = ExtResource("1_84rdq")
+title = "Fact Check"
+artwork = ExtResource("3_tyjdd")
+description = "Play evidence top. Remove any top from the doubt pose track."
+action = SubResource("Resource_37hof")
+tags = Array[int]([1])

@@ -56,3 +56,37 @@ static func array_difference(arr1, arr2) -> Array:
 		if not (v in arr2):
 			only_in_arr1.append(v)
 	return only_in_arr1
+
+static func set_up_focus_connections(controls : Array):
+	var i = 0
+	
+	for control in controls:
+		control.focus_neighbor_left = NodePath()
+		control.focus_neighbor_top = NodePath()
+		control.focus_neighbor_bottom = NodePath()
+		control.focus_neighbor_right = NodePath()
+		
+		var others = Util.array_difference(controls, [control])
+		others.sort_custom(func (a, b): return control.global_position.distance_to(a.global_position) < control.global_position.distance_to(b.global_position)) 
+		
+		for other in others:
+			var direction_vector = (other.global_position - control.global_position).normalized()
+			if(abs(direction_vector.x) > abs(direction_vector.y)):
+				if(sign(direction_vector.x) >= 0):
+					if(control.focus_neighbor_right == NodePath()):
+						control.focus_neighbor_right = other.get_path()
+				elif(sign(direction_vector.x) <= 0):
+					if(control.focus_neighbor_left == NodePath()):
+						control.focus_neighbor_left = other.get_path()
+			else:
+				if(sign(direction_vector.y) <= 0):
+					if(control.focus_neighbor_top == NodePath()):
+						control.focus_neighbor_top = other.get_path()
+				elif(sign(direction_vector.y) >= 0):
+					if(control.focus_neighbor_bottom == NodePath()):
+						control.focus_neighbor_bottom = other.get_path()
+		
+		if i < controls.size() - 1 : control.focus_next = controls[i + 1].get_path() 
+		if i > 0: control.focus_previous = controls[i - 1].get_path()
+		
+		i += 1

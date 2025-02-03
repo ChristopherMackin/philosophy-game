@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cliclfm7gbavn"]
+
+[ext_resource type="Texture2D" uid="uid://repj6csynu7c" path="res://asset/graphic/general/selector.png" id="1_o8uom"]
+
+[node name="Node3DSelectorUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+focus_mode = 2
+
+[node name="Icon" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -64.0
+offset_top = -110.0
+offset_right = 64.0
+texture = ExtResource("1_o8uom")
+
+[connection signal="focus_entered" from="." to="Icon" method="set_visible" binds= [true]]
+[connection signal="focus_exited" from="." to="Icon" method="set_visible" binds= [false]]

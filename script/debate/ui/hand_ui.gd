@@ -48,38 +48,7 @@ func update_hand(hand : Array[Top]):
 	lock.release_lock()
 
 func set_up_focus_connections():
-	var i = 0
-	
-	for card in ui_cards:
-		card.focus_neighbor_left = NodePath()
-		card.focus_neighbor_top = NodePath()
-		card.focus_neighbor_bottom = NodePath()
-		card.focus_neighbor_right = NodePath()
-		
-		var other_cards = Util.array_difference(ui_cards, [card])
-		other_cards.sort_custom(func (a, b): return card.global_position.distance_to(a.global_position) < card.global_position.distance_to(b.global_position)) 
-		
-		for other in other_cards:
-			var direction_vector = (other.global_position - card.global_position).normalized()
-			if(abs(direction_vector.x) > abs(direction_vector.y)):
-				if(sign(direction_vector.x) >= 0):
-					if(card.focus_neighbor_right == NodePath()):
-						card.focus_neighbor_right = other.get_path()
-				elif(sign(direction_vector.x) <= 0):
-					if(card.focus_neighbor_left == NodePath()):
-						card.focus_neighbor_left = other.get_path()
-			else:
-				if(sign(direction_vector.y) <= 0):
-					if(card.focus_neighbor_top == NodePath()):
-						card.focus_neighbor_top = other.get_path()
-				elif(sign(direction_vector.y) >= 0):
-					if(card.focus_neighbor_bottom == NodePath()):
-						card.focus_neighbor_bottom = other.get_path()
-		
-		if i < ui_cards.size() - 1 : card.focus_next = ui_cards[i + 1].get_path() 
-		if i > 0: card.focus_previous = ui_cards[i - 1].get_path()
-		
-		i += 1
+	Util.set_up_focus_connections(ui_cards as Array[Control])
 	
 	if focus_group.focused_node == null && ui_cards.size() > 0:
 		focus_group.focus(ui_cards[0])

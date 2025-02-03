@@ -233,7 +233,7 @@ texture = ExtResource("12_50oaw")
 script = ExtResource("13_lag2a")
 root = NodePath("..")
 
-[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(1, 1)]]
 [connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_z_index" binds= [1]]
-[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(0.81, 0.81)]]
+[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(1, 1)]]
 [connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_z_index" binds= [0]]
+[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(0.81, 0.81)]]

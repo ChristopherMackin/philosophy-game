@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://script/system/top/tops_deck_config.gd" id="1_0kjp7"]
 [ext_resource type="Script" path="res://script/system/deck/deck.gd" id="1_8ujv4"]
 [ext_resource type="Resource" uid="uid://clnyw55jxr6to" path="res://system/top/doubt/basic_doubt.tres" id="2_0pujk"]
-[ext_resource type="Resource" uid="uid://blcakrfj88pwk" path="res://system/top/self/basic_self.tres" id="3_pcm6f"]
+[ext_resource type="Resource" uid="uid://cwcva1pg2bb7a" path="res://system/top/doubt/fact_check.tres" id="3_w20ph"]
 
 [sub_resource type="Resource" id="Resource_moban"]
 script = ExtResource("1_0kjp7")
@@ -12,7 +12,7 @@ count = 8
 
 [sub_resource type="Resource" id="Resource_g1n6b"]
 script = ExtResource("1_0kjp7")
-top_data = ExtResource("3_pcm6f")
+top_data = ExtResource("3_w20ph")
 count = 5
 
 [resource]

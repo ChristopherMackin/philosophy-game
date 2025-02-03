@@ -17,6 +17,6 @@ title = "Structured Argument"
 artwork = ExtResource("1_42y4r")
 description = "Place 2 [color=red]Structured Conversation[/color] tops.
 
-Cost -1 for ever [color=red]pentagram[/color] top in play"
+Cost -1 for ever [color=red]evidence[/color] top in play"
 cost_modifier = SubResource("Resource_b63o0")
 tags = Array[int]([])

@@ -8,7 +8,7 @@ _entries = {
 "aaron_db01_test.tres": true,
 "active_contestant": "player",
 "current_pose": "doubt",
-"current_top": "basic_doubt",
+"current_top": "fact_check",
 "current_turn": 3,
 "previous_pose": "faith",
 "previous_top": "twisted_words",

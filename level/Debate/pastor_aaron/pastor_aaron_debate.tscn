@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://c674050h413wq"]
+[gd_scene load_steps=84 format=3 uid="uid://c674050h413wq"]
 
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_c3gp0"]
 [ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://debate/main/debate_settings.tres" id="2_03waw"]
@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://b5qju7etv13c2" path="res://character/aaron/aaron_data.tres" id="5_a32kn"]
 [ext_resource type="Resource" uid="uid://wlxm57wwnqi" path="res://debate/main/debate_manager.tres" id="6_ika5p"]
 [ext_resource type="Script" path="res://script/system/event/event_subscriber/debate_event_manager.gd" id="7_b5bxp"]
-[ext_resource type="Script" path="res://script/selection_manager.gd" id="8_a3tiy"]
+[ext_resource type="Script" path="res://script/debate/ui/selection_manager.gd" id="8_a3tiy"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="9_gkl1m"]
 [ext_resource type="Script" path="res://script/system/animation/animation_player_handler.gd" id="10_bg7j3"]
 [ext_resource type="Resource" uid="uid://cw71yo3318tof" path="res://system/focus_group/idle_focus_group.tres" id="10_gx4pd"]
@@ -45,9 +45,11 @@
 [ext_resource type="Script" path="res://script/debate/ui/draw_pile_ui.gd" id="33_r5u0j"]
 [ext_resource type="Script" path="res://script/debate/ui/hand_ui.gd" id="34_veub1"]
 [ext_resource type="Texture2D" uid="uid://cukex0q0jc621" path="res://asset/graphic/aaron/aaron_db_stats_area.png" id="34_yb4dt"]
-[ext_resource type="Texture2D" uid="uid://repj6csynu7c" path="res://asset/graphic/general/selector.png" id="35_ypfu1"]
+[ext_resource type="Script" path="res://script/debate/ui/play_area_selector.gd" id="35_cavrw"]
 [ext_resource type="Script" path="res://script/ui/staggered_flex_container.gd" id="36_f6xvy"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/pose/doubt.tres" id="36_kjepc"]
+[ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/node_3d_selector_ui.tscn" id="36_u3n2x"]
+[ext_resource type="Resource" uid="uid://dax1rw2k032he" path="res://system/focus_group/play_area_focus_group.tres" id="37_4nevq"]
 [ext_resource type="Script" path="res://script/system/top/pose_packed_scene.gd" id="37_ugb6p"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/pose/faith.tres" id="39_0grww"]
 [ext_resource type="Texture2D" uid="uid://cl8h4qdvv68ex" path="res://asset/graphic/aaron/aaron_db01_screen_filter.png" id="40_uyd2d"]
@@ -274,14 +276,16 @@ scene_animator = NodePath("../SceneAnimator")
 actors = [NodePath("../Joy"), NodePath("../Aaron")]
 manager = ExtResource("3_pgeyy")
 
-[node name="SelectionManager" type="Node3D" parent="." node_paths=PackedStringArray("ui_clear_focus_node", "tops_card_selector")]
+[node name="SelectionManager" type="Node3D" parent="." node_paths=PackedStringArray("ui_clear_focus_node", "play_area_selector", "tops_card_selector")]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 script = ExtResource("8_a3tiy")
 player_brain = ExtResource("9_gkl1m")
 idle_focus_group = ExtResource("10_gx4pd")
 hand_ui_focus_group = ExtResource("10_xhyii")
+play_area_selector_focus_group = ExtResource("37_4nevq")
 tops_card_selector_focus_group = ExtResource("11_1e8cx")
 ui_clear_focus_node = NodePath("UIClearFocus")
+play_area_selector = NodePath("../PlayArea/PlayAreaSelector")
 tops_card_selector = NodePath("../PlayArea/TopsCardSelector")
 
 [node name="UIClearFocus" type="Control" parent="SelectionManager"]
@@ -698,26 +702,19 @@ cull_mask = 1048569
 environment = ExtResource("11_5ne5n")
 far = 50.0
 
-[node name="TopSelectorUI" type="Control" parent="PlayArea"]
+[node name="PlayAreaSelector" type="Control" parent="PlayArea" node_paths=PackedStringArray("tops_board", "camera")]
 layout_mode = 3
-anchor_left = 0.378
+anchor_left = 0.375
 anchor_right = 1.0
 anchor_bottom = 0.759
-offset_left = 0.23996
-offset_right = 6.0
+offset_left = -5.72205e-05
 offset_bottom = 0.279932
 grow_horizontal = 0
-
-[node name="Selector" type="Control" parent="PlayArea/TopSelectorUI"]
-anchors_preset = 0
-focus_mode = 2
-
-[node name="Icon" type="TextureRect" parent="PlayArea/TopSelectorUI/Selector"]
-layout_mode = 0
-offset_left = -64.0
-offset_top = -110.0
-offset_right = 64.0
-texture = ExtResource("35_ypfu1")
+script = ExtResource("35_cavrw")
+tops_board = NodePath("../../Lectern/TopsBoard")
+camera = NodePath("../PlayAreaViewport/SubViewport/Camera3D")
+selector_packed_scene = ExtResource("36_u3n2x")
+focus_group = ExtResource("37_4nevq")
 
 [node name="DialogueArea" type="TextureRect" parent="PlayArea"]
 anchors_preset = -1
@@ -966,14 +963,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.137255, 0.0901961, 0.0588235, 1)
 
-[node name="TextureRect" type="TextureRect" parent="PlayArea"]
-texture_filter = 2
-offset_left = 660.0
-offset_top = 820.0
-offset_right = 700.0
-offset_bottom = 860.0
-metadata/_edit_use_anchors_ = true
-
 [node name="StatsArea" type="TextureRect" parent="PlayArea"]
 texture_filter = 2
 anchors_preset = -1
@@ -1074,7 +1063,6 @@ horizontal_spacing = 10
 perferred_vertical_spacing = 10
 
 [node name="ScreenFilter" type="TextureRect" parent="PlayArea"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1192,9 +1180,6 @@ icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
 title = NodePath("../TopCardUI/CardInfo/Title")
 artwork = NodePath("../TopCardUI/CardTopLocation/Top")
 description = NodePath("../TopCardUI/CardDescription/Description")
-
-[connection signal="focus_entered" from="PlayArea/TopSelectorUI/Selector" to="PlayArea/TopSelectorUI/Selector/Icon" method="set_visible" binds= [true]]
-[connection signal="focus_exited" from="PlayArea/TopSelectorUI/Selector" to="PlayArea/TopSelectorUI/Selector/Icon" method="set_visible" binds= [false]]
 
 [editable path="Joy"]
 [editable path="Aaron"]

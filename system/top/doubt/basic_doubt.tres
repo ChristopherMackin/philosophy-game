@@ -11,4 +11,4 @@ pose = ExtResource("1_tj2a4")
 title = "Basic Doubt"
 artwork = ExtResource("1_ruqxy")
 description = "Does nothing"
-tags = Array[int]([0])
+tags = Array[int]([])

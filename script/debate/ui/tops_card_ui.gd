@@ -1,5 +1,5 @@
 @tool
-extends Node
+extends Control
 
 class_name TopsCardUI
 

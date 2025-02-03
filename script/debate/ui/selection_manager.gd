@@ -8,22 +8,20 @@ class_name SelectionManager
 @export_group("Focus Groups")
 @export var idle_focus_group : FocusGroup
 @export var hand_ui_focus_group : FocusGroup
+@export var play_area_selector_focus_group : FocusGroup
 @export var tops_card_selector_focus_group : FocusGroup
 
 @export_group("Focus Clear")
 @export var ui_clear_focus_node : Control
 
 @export_group("Selectors")
+@export var play_area_selector : PlayAreaSelector
 @export var tops_card_selector : TopsCardSelector
 
 var active_focus_group : FocusGroup
 
 var focused_node : Control:
-	get:
-		if active_focus_group.focused_node is Focus3D:
-			return active_focus_group.focused_node.focus_parent
-		else:
-			return active_focus_group.focused_node
+	get: return active_focus_group.focused_node
 
 func _ready():
 	idle_focus_group.focused_node = ui_clear_focus_node
@@ -46,6 +44,9 @@ func _unhandled_input(event):
 func on_input_requested(top_array : Array[Top], what : String, visible_to_player : bool):
 	if what == "play":
 		set_focus_group(hand_ui_focus_group)
+	elif what == "board_top_removal":
+		play_area_selector.open_selector(top_array)
+		set_focus_group(play_area_selector_focus_group)
 	else:
 		tops_card_selector.open_selector(top_array, visible_to_player)
 		set_focus_group(tops_card_selector_focus_group)

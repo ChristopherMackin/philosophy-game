@@ -7,6 +7,7 @@ const save_path : String = "res://_save/"
 
 enum Tag {
 	PENTAGRAM,
+	EVIDENCE
 }
 
 enum ExpirationToken {
