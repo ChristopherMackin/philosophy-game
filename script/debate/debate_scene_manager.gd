@@ -37,11 +37,6 @@ func on_player_change(contestant : Contestant):
 	selection_manager.pause_input()
 	
 func on_top_played(top: Top, active_contestant : Contestant):
-	if active_contestant.character == player:
-		await player_3d.play_top(top)
-	else:
-		await computer_3d.play_top(top)
-	
 	await query_event("on_top_played")
 
 func on_score_updated(pose_score_dictionary : Dictionary):
@@ -52,6 +47,10 @@ func on_lines_cleared(count : int):
 
 func on_debate_finished():
 	print("Debate Finished")
+
+func on_top_board_updated(pose_track_dictionary : Dictionary):
+	var active_contestant = "player" if manager.active_contestant.character == player else "computer"
+	await tops_board.update_tops_board_3d(pose_track_dictionary, active_contestant)
 
 func on_hand_updated(contestant : Contestant):
 	if contestant.character == player:

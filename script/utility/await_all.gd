@@ -11,6 +11,7 @@ var function_count : int
 func _init(functions : Array[Callable]):
 	if functions.size() <= 0:
 		(func() : all_finished.emit()).call_deferred()
+		return
 	
 	finished.connect(complete)
 	

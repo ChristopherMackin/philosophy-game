@@ -21,6 +21,9 @@ func on_score_updated(_pose_score_dictionary : Dictionary):
 func on_lines_cleared(_count : int):
 	pass
 
+func on_top_board_updated(_pose_track_dictionary : Dictionary):
+	pass
+
 func on_debate_finished():
 	pass
 

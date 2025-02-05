@@ -39,7 +39,7 @@ var current_turn : int = 0:
 		current_turn = val
 		blackboard.add("current_turn", current_turn, Constants.ExpirationToken.ON_DEBATE_START)
 
-var top_queue_dictionary : Dictionary
+var pose_track_dictionary : Dictionary
 var top_history : Array[Top]
 
 func subscribe(subscriber : DebateSubscriber):
@@ -56,7 +56,8 @@ func init(player_character : Character, computer_character : Character, debate_s
 	self.debate_settings = debate_settings
 	
 	for pose in debate_settings.poses:
-		top_queue_dictionary[pose.name] = []
+		var pose_array : Array[Top] = []
+		pose_track_dictionary[pose.name] = pose_array
 	
 	player = Contestant.new(player_character)
 	computer = Contestant.new(computer_character)
@@ -92,7 +93,7 @@ func game_loop():
 	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_finished()
 
 func get_is_debate_over() -> bool:
-	for value in top_queue_dictionary.values():
+	for value in pose_track_dictionary.values():
 		if value.size() >= debate_settings.top_slots:
 			return true
 	
@@ -120,15 +121,15 @@ func active_player_turn():
 	active_contestant.clean_up()
 
 func clear_lines():
-	var min = top_queue_dictionary.values()[0].size()
+	var min = pose_track_dictionary.values()[0].size()
 	
-	for value in top_queue_dictionary.values():
+	for value in pose_track_dictionary.values():
 		if min > value.size():
 			min = value.size()
 	
 	if min > 0:
-		for key in top_queue_dictionary:
-			var array = top_queue_dictionary[key] as Array
+		for key in pose_track_dictionary:
+			var array = pose_track_dictionary[key] as Array
 			for i in min:
 				array.remove_at(0)
 		for sub : DebateSubscriber in subscriber_array: await sub.on_lines_cleared(min)
@@ -137,19 +138,23 @@ func push_top_to_queue(top : Top):
 	blackboard.add("previous_top", blackboard.get_value("current_top"), Constants.ExpirationToken.ON_DEBATE_START)
 	blackboard.add("previous_pose", blackboard.get_value("current_pose"), Constants.ExpirationToken.ON_DEBATE_START)
 	
-	top_queue_dictionary[top.data.pose.name].append(top)
+	pose_track_dictionary[top.data.pose.name].append(top)
 	top_history.append(top)
 	
 	blackboard.add("current_top", top.data.title, Constants.ExpirationToken.ON_DEBATE_START)
 	blackboard.add("current_pose", top.data.pose.name, Constants.ExpirationToken.ON_DEBATE_START)
+	
+	for sub : DebateSubscriber in subscriber_array: await sub.on_top_board_updated(pose_track_dictionary)
 
 func remove_top_from_queue(top : Top):
-	var top_queue : Array[Top] = top_queue_dictionary[top.data.pose.name]
+	var top_queue : Array[Top] = pose_track_dictionary[top.data.pose.name]
 	var index = top_queue.find(top)
 	
-	if index <= 0: return
+	if index < 0: return
 	
 	top_queue.remove_at(index)
+	
+	for sub : DebateSubscriber in subscriber_array: await sub.on_top_board_updated(pose_track_dictionary)
 
 func on_hand_updated(contestant : Contestant):
 	for sub : DebateSubscriber in subscriber_array: await sub.on_hand_updated(contestant)
@@ -161,7 +166,7 @@ func on_deck_updated(contestant : Contestant):
 	for sub : DebateSubscriber in subscriber_array: await sub.on_deck_updated(contestant)
 
 func play_top(top : Top, use_action : bool = true):
-	push_top_to_queue(top)
+	await push_top_to_queue(top)
 	
 	for sub : DebateSubscriber in subscriber_array: await sub.on_top_played(top, active_contestant)
 	

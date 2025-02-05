@@ -39,6 +39,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("select"):
 		if focused_node != null && "top" in focused_node:
 			player_brain.play_top(focused_node.top)
+			play_area_selector.close_selector()
 			tops_card_selector.close_selector()
 
 func on_input_requested(top_array : Array[Top], what : String, visible_to_player : bool):

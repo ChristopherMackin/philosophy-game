@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://c674050h413wq"]
+[gd_scene load_steps=80 format=3 uid="uid://c674050h413wq"]
 
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_c3gp0"]
 [ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://debate/main/debate_settings.tres" id="2_03waw"]
@@ -150,42 +150,22 @@ _data = {
 "open_debate_cutscene": SubResource("Animation_o8i11")
 }
 
-[sub_resource type="Resource" id="Resource_4ud12"]
+[sub_resource type="Resource" id="Resource_736aw"]
 script = ExtResource("37_ugb6p")
 pose = ExtResource("36_kjepc")
 packed_scene = ExtResource("18_ogkv3")
 
-[sub_resource type="Resource" id="Resource_pmypn"]
+[sub_resource type="Resource" id="Resource_edpqk"]
 script = ExtResource("37_ugb6p")
 pose = ExtResource("39_0grww")
 packed_scene = ExtResource("17_yn1fw")
 
-[sub_resource type="Resource" id="Resource_uusx5"]
+[sub_resource type="Resource" id="Resource_dfgg5"]
 script = ExtResource("37_ugb6p")
 pose = ExtResource("41_u5dj4")
 packed_scene = ExtResource("23_5hmw3")
 
-[sub_resource type="Resource" id="Resource_cy2ed"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("43_y1iqc")
-packed_scene = ExtResource("25_o43ex")
-
-[sub_resource type="Resource" id="Resource_we5q5"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("36_kjepc")
-packed_scene = ExtResource("18_ogkv3")
-
-[sub_resource type="Resource" id="Resource_rfh0b"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("39_0grww")
-packed_scene = ExtResource("17_yn1fw")
-
-[sub_resource type="Resource" id="Resource_ny5s7"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("41_u5dj4")
-packed_scene = ExtResource("23_5hmw3")
-
-[sub_resource type="Resource" id="Resource_acx0q"]
+[sub_resource type="Resource" id="Resource_k5r5d"]
 script = ExtResource("37_ugb6p")
 pose = ExtResource("43_y1iqc")
 packed_scene = ExtResource("25_o43ex")
@@ -325,8 +305,13 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 [node name="Lectern" parent="." instance=ExtResource("11_cga4j")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 
-[node name="TopsBoard" parent="Lectern" instance=ExtResource("12_nxue7")]
+[node name="TopsBoard" parent="Lectern" node_paths=PackedStringArray("discard", "player", "computer") instance=ExtResource("12_nxue7")]
 transform = Transform3D(0.0435746, 6.85665e-17, 2.48792e-17, 2.14145e-18, 0.00613971, 0.0431399, 0, -0.0431399, 0.00613971, -5.8598e-11, 1.11285, 0.0443622)
+top_3d_packed_scene = ExtResource("16_avk6u")
+tops_card_3d_pose_packed_scenes = Array[ExtResource("37_ugb6p")]([SubResource("Resource_736aw"), SubResource("Resource_edpqk"), SubResource("Resource_dfgg5"), SubResource("Resource_k5r5d")])
+discard = NodePath("../Discard")
+player = NodePath("../../Joy")
+computer = NodePath("../../Aaron")
 
 [node name="Discard" type="Marker3D" parent="Lectern"]
 transform = Transform3D(1, 5.38534e-16, 6.52825e-15, 3.45307e-16, 0.990024, -0.140901, 0, 0.140901, 0.990024, 0.00614627, 1.13504, -0.111529)
@@ -336,14 +321,10 @@ per_card_offset = Vector3(2.08165e-12, 2.08165e-12, 0.001)
 [node name="===ACTOR========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="Joy" parent="." node_paths=PackedStringArray("facial_animator", "discard", "tops_board") instance=ExtResource("14_d1e2n")]
+[node name="Joy" parent="." node_paths=PackedStringArray("facial_animator") instance=ExtResource("14_d1e2n")]
 transform = Transform3D(-1, 3.48787e-16, -1.50996e-07, 3.48787e-16, 1, -3.48787e-16, 1.50996e-07, -3.48787e-16, -1, 0, 0, 0.75)
 script = ExtResource("15_38s5e")
 facial_animator = NodePath("FacialAnimator")
-top_3d_packed_scene = ExtResource("16_avk6u")
-tops_card_3d_pose_packed_scenes = Array[ExtResource("37_ugb6p")]([SubResource("Resource_4ud12"), SubResource("Resource_pmypn"), SubResource("Resource_uusx5"), SubResource("Resource_cy2ed")])
-discard = NodePath("../Lectern/Discard")
-tops_board = NodePath("../Lectern/TopsBoard")
 max_random_rotation_degrees = 2.0
 play_duration = 0.4
 
@@ -500,14 +481,10 @@ default_dialogue_bubble = NodePath("../../PlayArea/DialogueArea/Contestants/Play
 script = ExtResource("10_bg7j3")
 animation_player = NodePath("../AnimationPlayer")
 
-[node name="Aaron" parent="." node_paths=PackedStringArray("facial_animator", "discard", "tops_board") instance=ExtResource("20_wk6p3")]
+[node name="Aaron" parent="." node_paths=PackedStringArray("facial_animator") instance=ExtResource("20_wk6p3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -0.75)
 script = ExtResource("15_38s5e")
 facial_animator = NodePath("FacialAnimator")
-top_3d_packed_scene = ExtResource("16_avk6u")
-tops_card_3d_pose_packed_scenes = Array[ExtResource("37_ugb6p")]([SubResource("Resource_we5q5"), SubResource("Resource_rfh0b"), SubResource("Resource_ny5s7"), SubResource("Resource_acx0q")])
-discard = NodePath("../Lectern/Discard")
-tops_board = NodePath("../Lectern/TopsBoard")
 
 [node name="Skeleton3D" parent="Aaron/root" index="0"]
 bones/0/rotation = Quaternion(4.86768e-08, 8.74228e-08, 3.30012e-15, 1)
