@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cliclfm7gbavn"]
 
-[ext_resource type="Script" path="res://debate/packed_scene/node_3d_selector_ui.gd" id="1_gutj5"]
+[ext_resource type="Script" path="res://script/debate/ui/node_3d_selector_ui.gd" id="1_gutj5"]
 [ext_resource type="Texture2D" uid="uid://repj6csynu7c" path="res://asset/graphic/general/selector.png" id="1_o8uom"]
 
 [node name="Node3DSelectorUI" type="Control"]

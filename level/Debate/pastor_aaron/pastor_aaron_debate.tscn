@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://c674050h413wq"]
+[gd_scene load_steps=71 format=3 uid="uid://c674050h413wq"]
 
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_c3gp0"]
 [ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://debate/main/debate_settings.tres" id="2_03waw"]
@@ -15,27 +15,22 @@
 [ext_resource type="Resource" uid="uid://dywohm3ea6ydc" path="res://system/focus_group/tops_card_selector_focus_group.tres" id="11_1e8cx"]
 [ext_resource type="Environment" uid="uid://vowbyk10rg4v" path="res://level/debate_scene_environment.tres" id="11_5ne5n"]
 [ext_resource type="PackedScene" uid="uid://r4i5a44ihqej" path="res://asset/model/environment/lectern.glb" id="11_cga4j"]
-[ext_resource type="PackedScene" uid="uid://bsyesuw4ujeei" path="res://debate/packed_scene/tops_board.tscn" id="12_nxue7"]
 [ext_resource type="PackedScene" uid="uid://bqwn6fre04ypq" path="res://character/joy/joy.tscn" id="14_d1e2n"]
 [ext_resource type="Script" path="res://script/debate/discard_3d.gd" id="14_pgvxw"]
 [ext_resource type="Script" path="res://script/ui/debate_contestant_3d.gd" id="15_38s5e"]
-[ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://debate/packed_scene/top_3d.tscn" id="16_avk6u"]
-[ext_resource type="PackedScene" uid="uid://d3gstm266f4t3" path="res://debate/packed_scene/tops_card_3D/faith_card_3d.tscn" id="17_yn1fw"]
-[ext_resource type="PackedScene" uid="uid://cq1g7aax3kvs7" path="res://debate/packed_scene/tops_card_3D/doubt_card_3d.tscn" id="18_ogkv3"]
+[ext_resource type="PackedScene" uid="uid://c2mat21re3sx3" path="res://debate/packed_scene/tops_board_3d.tscn" id="17_u7hpp"]
 [ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/tops_card_ui/doubt_card_ui.tscn" id="18_sxkin"]
 [ext_resource type="Script" path="res://script/utility/set_layer_mask.gd" id="18_w4hh5"]
 [ext_resource type="Script" path="res://script/system/dialogue_handler.gd" id="19_0dlld"]
 [ext_resource type="PackedScene" uid="uid://cajmwu8byfeoi" path="res://character/aaron/aaron.tscn" id="20_wk6p3"]
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="21_wuq6j"]
 [ext_resource type="PackedScene" uid="uid://c6470407tskde" path="res://debate/packed_scene/tops_card_ui/faith_card_ui.tscn" id="21_yt848"]
-[ext_resource type="PackedScene" uid="uid://bircaxs4rhnnk" path="res://debate/packed_scene/tops_card_3D/others_card_3d.tscn" id="23_5hmw3"]
 [ext_resource type="PackedScene" uid="uid://bhv1plx4fekqd" path="res://debate/packed_scene/tops_card_ui/others_card_ui.tscn" id="23_cumjs"]
 [ext_resource type="Texture2D" uid="uid://vm5ta6544ld7" path="res://asset/graphic/general/faith_tile_background.png" id="23_otlm2"]
 [ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://debate/debate_contestant_viewport.tres" id="23_xajd6"]
 [ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/packed_scene/basic_dialogue_bubble.tscn" id="24_0ghhw"]
 [ext_resource type="Texture2D" uid="uid://wsr15rl2wssm" path="res://asset/graphic/aaron/an_almighty_hand.png" id="24_twtn0"]
 [ext_resource type="PackedScene" uid="uid://ccs6t13kr4fum" path="res://debate/packed_scene/tops_card_ui/self_card_ui.tscn" id="25_mngk4"]
-[ext_resource type="PackedScene" uid="uid://djw1b2bxvw4mv" path="res://debate/packed_scene/tops_card_3D/self_card_3d.tscn" id="25_o43ex"]
 [ext_resource type="Texture2D" uid="uid://b5nlnbqopjyl8" path="res://asset/graphic/debate/general/dialogue_area/opponent_stats_area.png" id="25_yqlw1"]
 [ext_resource type="Texture2D" uid="uid://caks003lacvsp" path="res://asset/graphic/debate/general/stats_area/hand_icon.png" id="26_q81rk"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="27_68od4"]
@@ -56,7 +51,7 @@
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/pose/others.tres" id="41_u5dj4"]
 [ext_resource type="Texture2D" uid="uid://csnb8nne3qn56" path="res://asset/graphic/debate/general/stats_area/draw_pile.png" id="42_wa3e5"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/pose/self.tres" id="43_y1iqc"]
-[ext_resource type="Script" path="res://level/debate/pastor_aaron/tops_card_selector.gd" id="51_3qr11"]
+[ext_resource type="Script" path="res://script/debate/tops_card_selector.gd" id="51_3qr11"]
 [ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/general/tops_card/card_base.png" id="52_ket0o"]
 [ext_resource type="PackedScene" uid="uid://dj5ht84etvnd1" path="res://debate/packed_scene/tops_card_ui.tscn" id="53_xp4py"]
 
@@ -150,26 +145,6 @@ _data = {
 "open_debate_cutscene": SubResource("Animation_o8i11")
 }
 
-[sub_resource type="Resource" id="Resource_736aw"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("36_kjepc")
-packed_scene = ExtResource("18_ogkv3")
-
-[sub_resource type="Resource" id="Resource_edpqk"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("39_0grww")
-packed_scene = ExtResource("17_yn1fw")
-
-[sub_resource type="Resource" id="Resource_dfgg5"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("41_u5dj4")
-packed_scene = ExtResource("23_5hmw3")
-
-[sub_resource type="Resource" id="Resource_k5r5d"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("43_y1iqc")
-packed_scene = ExtResource("25_o43ex")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1mhlm"]
 shader = ExtResource("21_wuq6j")
 shader_parameter/color = Color(1, 1, 1, 1)
@@ -242,7 +217,7 @@ player_3d = NodePath("../Joy")
 selection_manager = NodePath("../SelectionManager")
 computer = ExtResource("5_a32kn")
 computer_3d = NodePath("../Aaron")
-tops_board = NodePath("../Lectern/TopsBoard")
+tops_board = NodePath("../Lectern/TopsBoard3D")
 hand_ui = NodePath("../PlayArea/StatsArea/Hand")
 energy_ui = NodePath("../PlayArea/StatsArea/Energy/Count")
 draw_pile_ui = NodePath("../PlayArea/StatsArea/DrawPile/Count")
@@ -305,10 +280,8 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 [node name="Lectern" parent="." instance=ExtResource("11_cga4j")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 
-[node name="TopsBoard" parent="Lectern" node_paths=PackedStringArray("discard", "player", "computer") instance=ExtResource("12_nxue7")]
-transform = Transform3D(0.0435746, 6.85665e-17, 2.48792e-17, 2.14145e-18, 0.00613971, 0.0431399, 0, -0.0431399, 0.00613971, -5.8598e-11, 1.11285, 0.0443622)
-top_3d_packed_scene = ExtResource("16_avk6u")
-tops_card_3d_pose_packed_scenes = Array[ExtResource("37_ugb6p")]([SubResource("Resource_736aw"), SubResource("Resource_edpqk"), SubResource("Resource_dfgg5"), SubResource("Resource_k5r5d")])
+[node name="TopsBoard3D" parent="Lectern" node_paths=PackedStringArray("discard", "player", "computer") instance=ExtResource("17_u7hpp")]
+transform = Transform3D(1, -8.95754e-09, -6.2939e-08, 3.45307e-16, 0.990024, -0.140901, 6.35732e-08, 0.140901, 0.990024, -6.46369e-09, 1.11139, 0.0427932)
 discard = NodePath("../Discard")
 player = NodePath("../../Joy")
 computer = NodePath("../../Aaron")
@@ -688,7 +661,7 @@ offset_left = -5.72205e-05
 offset_bottom = 0.279932
 grow_horizontal = 0
 script = ExtResource("35_cavrw")
-tops_board = NodePath("../../Lectern/TopsBoard")
+tops_board = NodePath("../../Lectern/TopsBoard3D")
 camera = NodePath("../PlayAreaViewport/SubViewport/Camera3D")
 selector_packed_scene = ExtResource("36_u3n2x")
 focus_group = ExtResource("37_4nevq")

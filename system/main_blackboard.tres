@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Blackboard" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="Blackboard" load_steps=2 format=3 uid="uid://c0r5gol05rjm4"]
 
 [ext_resource type="Script" path="res://script/system/blackboard/blackboard.gd" id="1_421wn"]
 
@@ -9,9 +9,9 @@ _entries = {
 "active_contestant": "player",
 "current_pose": "doubt",
 "current_top": "basic_doubt",
-"current_turn": 7,
+"current_turn": 3,
 "previous_pose": "doubt",
-"previous_top": "basic_doubt",
+"previous_top": "fact_check",
 "terrible_event.tres": true
 }
 _expiration_tokens = {

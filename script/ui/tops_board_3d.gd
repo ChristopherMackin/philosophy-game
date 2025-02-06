@@ -82,12 +82,15 @@ func _add_top(top : Top, contestant : DebateContestant3D):
 	var top_3d : Top3D = top_3d_packed_scene.instantiate()
 	var track = get_pose_track(top.data.pose)
 	get_tree().root.add_child(top_3d)
-	top_3d.reparent(track, true)
+	top_3d.global_position = contestant.global_position
+	
+	top_3d.quaternion = track.global_basis.get_rotation_quaternion()
+	
+	#top_3d.reparent(track)
 	
 	top_3d.set_top_texture(top)
 	#This will be replaced with a more suitable procedural animation 
-	top_3d.global_position = contestant.global_position + Vector3(0, 1, 0)
-
+	
 	var top_tween = get_tree().create_tween().tween_property(top_3d, "global_position", track.get_top_slot().global_position + Vector3(0,.002,0), contestant.play_duration)
 	track.tops_3d.append(top_3d)
 	await top_tween.finished

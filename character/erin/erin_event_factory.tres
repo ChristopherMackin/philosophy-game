@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=3 format=3 uid="uid://3dnw0mevj0a1"]
 
-[ext_resource type="Resource" uid="uid://bukv7viar8doj" path="res://system/main_blackboard.tres" id="1_ld061"]
+[ext_resource type="Resource" uid="uid://c0r5gol05rjm4" path="res://system/main_blackboard.tres" id="1_ld061"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/ordered_event_factory.gd" id="7_koiv1"]
 
 [resource]
