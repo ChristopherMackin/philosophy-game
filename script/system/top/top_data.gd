@@ -12,4 +12,4 @@ var cost : int:
 @export_multiline var description : String
 @export var action : TopAction = TopAction.new()
 @export var cost_modifier : TopCostModifier = TopCostModifier.new()
-@export var tags : Array[Constants.Tag]
+@export var tag : Constants.Tag

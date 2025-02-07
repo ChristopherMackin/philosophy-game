@@ -42,7 +42,7 @@ func ready_up(manager : DebateManager):
 func select_top(top_array : Array[Top] = hand, what : String = "play", visible_to_player : bool = true) -> Top:
 	var top = await brain.select_top(top_array, what, visible_to_player)
 	
-	if top_array.map(func(x): return x.data).find(top.data) == -1:
+	while top_array.map(func(x): return x.data).find(top.data) == -1:
 		top = await brain.select_top(top_array, what, visible_to_player)
 	
 	return top
@@ -83,3 +83,6 @@ func discard_top(top : Top):
 	
 	on_hand_updated.emit(self)
 	on_deck_updated.emit(self)
+
+func get_playable_tops() -> Array[Top]:
+	return hand.filter(func(x): return x.data.cost <= current_energy)

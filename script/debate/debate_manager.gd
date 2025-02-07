@@ -105,11 +105,9 @@ func get_is_debate_over() -> bool:
 
 func active_player_turn():
 	while active_contestant.current_energy > 0 and !get_is_debate_over():
+		var playable_tops = active_contestant.get_playable_tops()
 		
-		var top = await active_contestant.select_top()
-		
-		while active_contestant.current_energy < top.data.cost:
-			top = await active_contestant.select_top()
+		var top = await active_contestant.select_top(playable_tops)
 		
 		active_contestant.discard_top(top)
 		active_contestant.current_energy -= top.data.cost

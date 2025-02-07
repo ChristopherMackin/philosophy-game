@@ -17,4 +17,4 @@ title = "Twisted Words"
 artwork = ExtResource("3_y4j3f")
 description = "Take a faith card from the opponent, remove it from their deck, and play it for free"
 action = SubResource("Resource_o57u7")
-tags = Array[int]([])
+tag = 0

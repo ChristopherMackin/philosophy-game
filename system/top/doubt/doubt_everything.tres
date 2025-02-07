@@ -16,4 +16,4 @@ title = "Doubt Everything"
 artwork = ExtResource("1_n00r1")
 description = "Look at player's hand and remove one card"
 action = SubResource("Resource_rwsmw")
-tags = Array[int]([])
+tag = 0

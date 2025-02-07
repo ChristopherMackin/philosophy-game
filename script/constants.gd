@@ -6,7 +6,7 @@ const save_path : String = "res://_save/"
 #const save_path : String = "user://save/"
 
 enum Tag {
-	PENTAGRAM,
+	BASIC,
 	EVIDENCE
 }
 

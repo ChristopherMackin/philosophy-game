@@ -7,7 +7,7 @@ class_name MinusTagCostModifier
 func modify_cost(cost : int) -> int:
 	var new_cost = cost - \
 	manager.pose_track_dictionary[top_data.pose.name]\
-	.filter(func(x): return x.data.tags.has(tag)).size()
+	.filter(func(x): return x.data.tag == tag).size()
 	
 	if new_cost < 0: new_cost = 0
 	
