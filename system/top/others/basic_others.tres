@@ -10,5 +10,5 @@ base_cost = 1
 pose = ExtResource("1_f6egs")
 title = "Basic Others"
 artwork = ExtResource("1_5fuur")
-description = "Add one others top to the track"
-tags = Array[int]([])
+description = "Does nothing"
+tag = 0

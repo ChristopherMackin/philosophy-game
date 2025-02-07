@@ -18,13 +18,13 @@ func _process(delta):
 	if !top:
 			return
 		
-	cost.text = str(top.data.cost)
+	cost.text = str(top.cost)
 
 func update_card(top : Top) :
 		if !top:
 			return
 		
-		cost.text = str(top.data.cost)
+		cost.text = str(top.cost)
 		icon.texture = top.data.pose.icon
 		title.text = top.data.title
 		description.text = top.data.description

@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://script/system/top/top_action/remove_top_from_board_top_action.gd" id="2_vuyuy"]
 [ext_resource type="Texture2D" uid="uid://cvttgkimmjgjh" path="res://asset/graphic/debate/general/top/evidence_top.png" id="3_o07h4"]
 
-[sub_resource type="Resource" id="Resource_37hof"]
+[sub_resource type="Resource" id="Resource_pbc6q"]
 script = ExtResource("2_vuyuy")
 allowedPoses = Array[Resource("res://script/system/pose/pose.gd")]([ExtResource("1_84rdq")])
 
@@ -16,5 +16,5 @@ pose = ExtResource("1_84rdq")
 title = "Fact Check"
 artwork = ExtResource("3_o07h4")
 description = "Remove any top from the doubt pose track"
-action = SubResource("Resource_37hof")
+on_play_top_action = SubResource("Resource_pbc6q")
 tag = 1

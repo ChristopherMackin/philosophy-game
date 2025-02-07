@@ -16,7 +16,7 @@
 [ext_resource type="Environment" uid="uid://vowbyk10rg4v" path="res://level/debate_scene_environment.tres" id="11_5ne5n"]
 [ext_resource type="PackedScene" uid="uid://r4i5a44ihqej" path="res://asset/model/environment/lectern.glb" id="11_cga4j"]
 [ext_resource type="PackedScene" uid="uid://bqwn6fre04ypq" path="res://character/joy/joy.tscn" id="14_d1e2n"]
-[ext_resource type="Script" path="res://script/debate/discard_3d.gd" id="14_pgvxw"]
+[ext_resource type="Script" path="res://script/debate/play_stack_3d.gd" id="14_pgvxw"]
 [ext_resource type="Script" path="res://script/ui/debate_contestant_3d.gd" id="15_38s5e"]
 [ext_resource type="PackedScene" uid="uid://c2mat21re3sx3" path="res://debate/packed_scene/tops_board_3d.tscn" id="17_u7hpp"]
 [ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/tops_card_ui/doubt_card_ui.tscn" id="18_sxkin"]
@@ -280,13 +280,13 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 [node name="Lectern" parent="." instance=ExtResource("11_cga4j")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 
-[node name="TopsBoard3D" parent="Lectern" node_paths=PackedStringArray("discard", "player", "computer") instance=ExtResource("17_u7hpp")]
+[node name="TopsBoard3D" parent="Lectern" node_paths=PackedStringArray("play_stack", "player", "computer") instance=ExtResource("17_u7hpp")]
 transform = Transform3D(1, -8.95754e-09, -6.2939e-08, 3.45307e-16, 0.990024, -0.140901, 6.35732e-08, 0.140901, 0.990024, -6.46369e-09, 1.11139, 0.0427932)
-discard = NodePath("../Discard")
+play_stack = NodePath("../PlayStack")
 player = NodePath("../../Joy")
 computer = NodePath("../../Aaron")
 
-[node name="Discard" type="Marker3D" parent="Lectern"]
+[node name="PlayStack" type="Marker3D" parent="Lectern"]
 transform = Transform3D(1, 5.38534e-16, 6.52825e-15, 3.45307e-16, 0.990024, -0.140901, 0, 0.140901, 0.990024, 0.00614627, 1.13504, -0.111529)
 script = ExtResource("14_pgvxw")
 per_card_offset = Vector3(2.08165e-12, 2.08165e-12, 0.001)

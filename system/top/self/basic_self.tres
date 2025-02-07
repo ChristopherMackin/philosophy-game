@@ -10,5 +10,5 @@ base_cost = 1
 pose = ExtResource("1_jibq5")
 title = "Basic Self"
 artwork = ExtResource("1_xb68w")
-description = "Add one faith top to the track"
-tags = Array[int]([])
+description = "Does nothing"
+tag = 0

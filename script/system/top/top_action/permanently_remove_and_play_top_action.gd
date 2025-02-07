@@ -4,9 +4,9 @@ class_name PermanentlyRemoveAndPlayTopAction
 
 @export var pose_filters : Array[Pose]
 
-func invoke():
-	var ac = manager.active_contestant
-	var iac = manager.inactive_contestant
+func invoke(player : Contestant, manager : DebateManager):
+	var ac = player
+	var iac = manager.get_opponent(player)
 	
 	var tops : Array = iac.hand.filter(func(top : Top): return pose_filters.has(top.data.pose))
 	if tops.size() <= 0:
@@ -14,7 +14,7 @@ func invoke():
 	
 	var top = await ac.select_top(tops, "permanent_removal")
 	
-	iac.discard_top(top)
+	iac.remove_top_from_hand(top)
 	iac.deck.remove_from_deck(top)
 	
 	await manager.play_top(top)

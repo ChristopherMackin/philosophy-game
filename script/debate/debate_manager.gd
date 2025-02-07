@@ -107,12 +107,13 @@ func active_player_turn():
 	while active_contestant.current_energy > 0 and !get_is_debate_over():
 		var playable_tops = active_contestant.get_playable_tops()
 		
+		if playable_tops.size() <= 0:
+			break
+		
 		var top = await active_contestant.select_top(playable_tops)
+		await active_contestant.play_top(top)
 		
-		active_contestant.discard_top(top)
-		active_contestant.current_energy -= top.data.cost
-		
-		await play_top(top)
+		for sub : DebateSubscriber in subscriber_array: await sub.on_top_played(top, active_contestant)
 		
 		clear_lines()
 	
@@ -163,10 +164,5 @@ func on_energy_updated(contestant : Contestant):
 func on_deck_updated(contestant : Contestant):
 	for sub : DebateSubscriber in subscriber_array: await sub.on_deck_updated(contestant)
 
-func play_top(top : Top, use_action : bool = true):
-	await push_top_to_queue(top)
-	
-	for sub : DebateSubscriber in subscriber_array: await sub.on_top_played(top, active_contestant)
-	
-	if(use_action):
-		await top.data.action.invoke()
+func get_opponent(contestant : Contestant):
+	return computer if contestant == player else player

@@ -19,9 +19,9 @@ func remove_top_at(index : int):
 	tops_3d[index].queue_free()
 	tops_3d.remove_at(index)
 	
-	var tween = get_tree().create_tween().set_parallel()
-	
 	if range(index, tops_3d.size()).size() <= 0: return
+	
+	var tween = get_tree().create_tween().set_parallel()
 	
 	for i in range(index, tops_3d.size()):
 		tween.tween_property(tops_3d[i], "global_position", slots[i].global_position +  + Vector3(0,.002,0), .4) \

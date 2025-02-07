@@ -7,9 +7,10 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_wwxba"]
 viewport_path = NodePath("CardFront/SubViewport")
 
-[node name="OthersCard3D" type="Node3D" node_paths=PackedStringArray("sub_viewport")]
+[node name="OthersCard3D" type="Node3D" node_paths=PackedStringArray("tops_card_ui", "sub_viewport")]
 transform = Transform3D(0.032, -2.23224e-17, -9.75743e-25, 0, -1.39876e-09, 0.032, -2.23224e-17, -0.032, -1.39876e-09, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 script = ExtResource("1_him04")
+tops_card_ui = NodePath("CardFront/SubViewport/OthersCardUI")
 sub_viewport = NodePath("CardFront/SubViewport")
 
 [node name="CardFront" type="Sprite3D" parent="."]

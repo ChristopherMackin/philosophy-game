@@ -11,7 +11,7 @@ class_name TopsBoard3D
 @export var tops_card_3d_pose_packed_scenes : Array[PosePackedScene]
 
 @export_group("Tops")
-@export var discard : Discard3D
+@export var play_stack : PlayStack3D
 
 @export_group("Contestants")
 @export var player : DebateContestant3D
@@ -60,14 +60,13 @@ func update_tops_board_3d(pose_track_dictionary : Dictionary, active_contestant 
 	lock.release_lock()
 
 func _add_top(top : Top, contestant : DebateContestant3D):
-	
-	#Discard top card
+	#Add top card to play stack
 	var index = tops_card_3d_pose_packed_scenes.map(func(x): return x.pose).find(top.data.pose)
 	index = index if index >= 0 else 0
 	var tops_card_3d_packed_scene = tops_card_3d_pose_packed_scenes[index].packed_scene
 	
 	var tops_card : TopsCard3D = tops_card_3d_packed_scene.instantiate() as TopsCard3D
-	discard.add_child(tops_card)
+	play_stack.add_child(tops_card)
 	
 	tops_card.set_top(top)
 	
@@ -75,7 +74,7 @@ func _add_top(top : Top, contestant : DebateContestant3D):
 	tops_card.global_position = contestant.global_position + Vector3(0, 1, 0)
 	tops_card.rotation.z = contestant.get_random_rotation_rad()
 	
-	var card_tween = get_tree().create_tween().tween_property(tops_card, "global_position", discard.global_position + Vector3(0, .001, 0) * discard.get_child_count(), contestant.play_duration)
+	var card_tween = get_tree().create_tween().tween_property(tops_card, "global_position", play_stack.global_position + Vector3(0, .001, 0) * play_stack.get_child_count(), contestant.play_duration)
 	await card_tween.finished
 	
 	#Play top on board

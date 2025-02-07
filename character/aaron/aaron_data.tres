@@ -16,6 +16,6 @@ deck = ExtResource("3_y2hdd")
 brain = SubResource("Resource_xfikx")
 draw_limit = 5
 hand_limit = 8
-energy_level = 2
+energy_level = 3
 debate_event_factory = ExtResource("2_5kp35")
 blackboard = ExtResource("1_nfqwg")

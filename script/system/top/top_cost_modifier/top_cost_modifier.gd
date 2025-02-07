@@ -2,8 +2,5 @@ extends Resource
 
 class_name TopCostModifier
 
-var manager : DebateManager
-var top_data : TopData
-
-func modify_cost(cost : int) -> int:
-	return cost
+func modify_cost(base_cost : int, manager : DebateManager) -> int:
+	return base_cost

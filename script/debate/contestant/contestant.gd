@@ -6,6 +6,7 @@ signal on_hand_updated(contestant)
 signal on_energy_updated(contestant)
 signal on_deck_updated(contestant)
 
+var manager : DebateManager
 var character : Character
 var hand : Array[Top] = []
 
@@ -35,6 +36,7 @@ func _init(character : Character):
 	self.character.brain.contestant = self
 
 func ready_up(manager : DebateManager):
+	self.manager = manager
 	deck.initialize_deck(manager)
 	draw_full_hand()
 	current_energy = energy_limit
@@ -74,7 +76,7 @@ func _draw_top() -> bool:
 	hand.append(top)
 	return true
 
-func discard_top(top : Top):
+func remove_top_from_hand(top : Top):
 	var index = hand.find(top)
 	hand.remove_at(index)
 	
@@ -84,5 +86,19 @@ func discard_top(top : Top):
 	on_hand_updated.emit(self)
 	on_deck_updated.emit(self)
 
+func discard_top(top : Top):
+	remove_top_from_hand(top)
+	
+	await top.data.on_discard_top_action.invoke(self, manager)
+
+func play_top(top : Top, use_action : bool = true):
+	remove_top_from_hand(top)
+	current_energy -= top.cost
+	
+	await manager.push_top_to_queue(top)
+	
+	if(use_action):
+		await top.data.on_play_top_action.invoke(self, manager)
+
 func get_playable_tops() -> Array[Top]:
-	return hand.filter(func(x): return x.data.cost <= current_energy)
+	return hand.filter(func(x): return x.cost <= current_energy)

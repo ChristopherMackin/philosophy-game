@@ -2,8 +2,5 @@ extends Resource
 
 class_name TopAction
 
-var manager : DebateManager
-var top_data : TopData
-
-func invoke():
+func invoke(_player : Contestant, _manager : DebateManager):
 	pass

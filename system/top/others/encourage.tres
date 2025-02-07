@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TopData" load_steps=6 format=3 uid="uid://uhbfxr7y8o8k"]
 
-[ext_resource type="Script" path="res://script/system/top/top_action/opponent_energy_top_action.gd" id="1_5vynb"]
+[ext_resource type="Script" path="res://script/system/top/top_action/modify_opponent_energy_top_action.gd" id="1_5vynb"]
 [ext_resource type="Texture2D" uid="uid://cxg1vi58g02wv" path="res://asset/graphic/debate/general/top/basic_others_tex.png" id="1_dpxgu"]
 [ext_resource type="Script" path="res://script/system/top/top_data.gd" id="1_uwhxo"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/pose/others.tres" id="2_b2ikh"]
@@ -17,4 +17,4 @@ title = "Encourage"
 artwork = ExtResource("1_dpxgu")
 description = "Opponent gets +1 energy"
 action = SubResource("Resource_uhods")
-tags = Array[int]([])
+tag = 0

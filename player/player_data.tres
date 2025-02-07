@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://byrpux6co0rrw"]
 
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="1_it1nf"]
-[ext_resource type="Resource" uid="uid://drxjfo86nypw7" path="res://system/main_blackboard.tres" id="1_qhu2i"]
+[ext_resource type="Resource" uid="uid://bmktcet5liafn" path="res://system/main_blackboard.tres" id="1_qhu2i"]
 [ext_resource type="Script" path="res://script/character/character.gd" id="1_xfscq"]
 [ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/player_deck.tres" id="2_3opba"]
 
@@ -12,5 +12,5 @@ deck = ExtResource("2_3opba")
 brain = ExtResource("1_it1nf")
 draw_limit = 5
 hand_limit = 5
-energy_level = 2
+energy_level = 3
 blackboard = ExtResource("1_qhu2i")
