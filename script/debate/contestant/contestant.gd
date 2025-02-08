@@ -89,7 +89,8 @@ func remove_top_from_hand(top : Top):
 func discard_top(top : Top):
 	remove_top_from_hand(top)
 	
-	await top.data.on_discard_top_action.invoke(self, manager)
+	for action in top.data.on_discard_top_action:
+		await action.invoke(self, manager)
 
 func play_top(top : Top, use_action : bool = true):
 	remove_top_from_hand(top)
@@ -98,7 +99,8 @@ func play_top(top : Top, use_action : bool = true):
 	await manager.push_top_to_queue(top)
 	
 	if(use_action):
-		await top.data.on_play_top_action.invoke(self, manager)
+		for action in top.data.on_play_top_action:
+			await action.invoke(self, manager)
 
 func get_playable_tops() -> Array[Top]:
 	return hand.filter(func(x): return x.cost <= current_energy)

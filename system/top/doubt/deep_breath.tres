@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="TopData" load_steps=8 format=3 uid="uid://bikkawmtanm1m"]
+
+[ext_resource type="Texture2D" uid="uid://cpasg5witafv0" path="res://asset/graphic/debate/general/top/basic_doubt_tex.png" id="1_bpntc"]
+[ext_resource type="Script" path="res://script/system/top/top_data.gd" id="1_btbrx"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/pose/doubt.tres" id="2_5p67y"]
+[ext_resource type="Script" path="res://script/system/top/top_action/remove_top_from_board_top_action.gd" id="2_50ir2"]
+[ext_resource type="Script" path="res://script/system/top/top_action/modify_energy_top_action.gd" id="3_kq5am"]
+
+[sub_resource type="Resource" id="Resource_ftkbd"]
+script = ExtResource("2_50ir2")
+allowedPoses = Array[Resource("res://script/system/pose/pose.gd")]([ExtResource("2_5p67y")])
+
+[sub_resource type="Resource" id="Resource_gw0xt"]
+script = ExtResource("3_kq5am")
+amount = 1
+
+[resource]
+script = ExtResource("1_btbrx")
+base_cost = 0
+pose = ExtResource("2_5p67y")
+title = "Deep Breath"
+artwork = ExtResource("1_bpntc")
+description = "Remove a doubt top from the board. Gain one energy"
+on_play_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([SubResource("Resource_ftkbd"), SubResource("Resource_gw0xt")])
+on_discard_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+on_destroy_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+tag = 0

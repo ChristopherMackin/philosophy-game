@@ -13,7 +13,7 @@
 script = ExtResource("2_br3kr")
 tag = 1
 
-[sub_resource type="Resource" id="Resource_piy7f"]
+[sub_resource type="Resource" id="Resource_gw2va"]
 script = ExtResource("5_hdrqh")
 allowedPoses = Array[Resource("res://script/system/pose/pose.gd")]([ExtResource("3_qwj1p"), ExtResource("2_wdvgb"), ExtResource("3_0qmf0"), ExtResource("4_i30ox")])
 
@@ -26,6 +26,8 @@ artwork = ExtResource("1_42y4r")
 description = "Remove any top from the board
 
 Cost -1 for ever [color=red]evidence[/color] top in play"
-on_play_top_action = SubResource("Resource_piy7f")
+on_play_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([SubResource("Resource_gw2va")])
+on_discard_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+on_destroy_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
 cost_modifier = SubResource("Resource_b63o0")
 tag = 0

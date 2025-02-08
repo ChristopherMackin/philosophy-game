@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/pose/faith.tres" id="2_bmcs0"]
 [ext_resource type="Script" path="res://script/system/top/top_action/modify_energy_top_action.gd" id="2_hcf66"]
 
-[sub_resource type="Resource" id="Resource_t1v86"]
+[sub_resource type="Resource" id="Resource_mahwg"]
 script = ExtResource("2_hcf66")
 amount = 1
 
@@ -16,5 +16,7 @@ pose = ExtResource("2_bmcs0")
 title = "Heavy Burden"
 artwork = ExtResource("1_5bt5h")
 description = "If discarded, gain 1 energy"
-on_discard_top_action = SubResource("Resource_t1v86")
+on_play_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+on_discard_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([SubResource("Resource_mahwg")])
+on_destroy_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
 tag = 0

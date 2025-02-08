@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://script/system/deck/deck.gd" id="1_8ujv4"]
 [ext_resource type="Resource" uid="uid://clnyw55jxr6to" path="res://system/top/doubt/basic_doubt.tres" id="2_0pujk"]
 [ext_resource type="Resource" uid="uid://cwcva1pg2bb7a" path="res://system/top/doubt/fact_check.tres" id="3_w20ph"]
-[ext_resource type="Resource" uid="uid://cmleqdg6uf1gt" path="res://system/top/doubt/structured_argument.tres" id="4_cnuhk"]
 [ext_resource type="Resource" uid="uid://yenth0343uxc" path="res://system/top/doubt/self_doubt.tres" id="5_bd1oa"]
 [ext_resource type="Resource" uid="uid://dd2fegbb0380v" path="res://system/top/faith/heavy_burden.tres" id="6_0nbka"]
+[ext_resource type="Resource" uid="uid://cnt3v7c6se44p" path="res://system/top/doubt/hold_your_tongue.tres" id="6_mm3an"]
 
 [sub_resource type="Resource" id="Resource_moban"]
 script = ExtResource("1_0kjp7")
@@ -18,11 +18,6 @@ script = ExtResource("1_0kjp7")
 top_data = ExtResource("3_w20ph")
 count = 5
 
-[sub_resource type="Resource" id="Resource_8jwll"]
-script = ExtResource("1_0kjp7")
-top_data = ExtResource("4_cnuhk")
-count = 2
-
 [sub_resource type="Resource" id="Resource_56ysq"]
 script = ExtResource("1_0kjp7")
 top_data = ExtResource("5_bd1oa")
@@ -33,6 +28,11 @@ script = ExtResource("1_0kjp7")
 top_data = ExtResource("6_0nbka")
 count = 2
 
+[sub_resource type="Resource" id="Resource_qqipq"]
+script = ExtResource("1_0kjp7")
+top_data = ExtResource("6_mm3an")
+count = 3
+
 [resource]
 script = ExtResource("1_8ujv4")
-composition_top_deck_config_array = Array[ExtResource("1_0kjp7")]([SubResource("Resource_moban"), SubResource("Resource_g1n6b"), SubResource("Resource_8jwll"), SubResource("Resource_56ysq"), SubResource("Resource_gtswh")])
+composition_top_deck_config_array = Array[ExtResource("1_0kjp7")]([SubResource("Resource_moban"), SubResource("Resource_g1n6b"), SubResource("Resource_56ysq"), SubResource("Resource_gtswh"), SubResource("Resource_qqipq")])

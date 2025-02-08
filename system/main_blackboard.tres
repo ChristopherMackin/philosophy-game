@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Blackboard" load_steps=2 format=3 uid="uid://bmktcet5liafn"]
+[gd_resource type="Resource" script_class="Blackboard" load_steps=2 format=3 uid="uid://nt2dhs148uf8"]
 
 [ext_resource type="Script" path="res://script/system/blackboard/blackboard.gd" id="1_421wn"]
 
@@ -7,11 +7,11 @@ script = ExtResource("1_421wn")
 _entries = {
 "aaron_db01_test.tres": true,
 "active_contestant": "player",
-"current_pose": "doubt",
-"current_top": "self_doubt",
-"current_turn": 1,
-"previous_pose": null,
-"previous_top": null,
+"current_pose": "self",
+"current_top": "basic_self",
+"current_turn": 5,
+"previous_pose": "self",
+"previous_top": "basic_self",
 "terrible_event.tres": true
 }
 _expiration_tokens = {
