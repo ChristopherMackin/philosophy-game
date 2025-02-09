@@ -23,5 +23,5 @@ artwork = ExtResource("1_bpntc")
 description = "Remove a doubt top from the board. Gain one energy"
 on_play_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([SubResource("Resource_ftkbd"), SubResource("Resource_gw0xt")])
 on_discard_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
-on_destroy_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+on_banish_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
 tag = 0

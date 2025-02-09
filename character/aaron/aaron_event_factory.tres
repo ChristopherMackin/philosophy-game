@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=11 format=3 uid="uid://27sna6u0b0wj"]
 
-[ext_resource type="Resource" uid="uid://nt2dhs148uf8" path="res://system/main_blackboard.tres" id="1_0ml4n"]
+[ext_resource type="Resource" uid="uid://3ixgfpggn4ay" path="res://system/main_blackboard.tres" id="1_0ml4n"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/ordered_event_factory.gd" id="1_rb0rx"]
 [ext_resource type="Resource" uid="uid://hhaf8ssw71s4" path="res://character/aaron/event/terrible_event.tres" id="2_7gb1n"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/rule/rule.gd" id="3_5togk"]

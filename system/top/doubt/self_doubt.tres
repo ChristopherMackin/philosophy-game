@@ -17,5 +17,5 @@ artwork = ExtResource("1_81q4b")
 description = "Discard a top from your hand"
 on_play_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([SubResource("Resource_os42j")])
 on_discard_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
-on_destroy_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+on_banish_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
 tag = 0

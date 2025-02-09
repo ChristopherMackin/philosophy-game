@@ -20,5 +20,5 @@ artwork = ExtResource("1_fsura")
 description = "Add two [color=red]Deep Breath[/color] tops to your hand"
 on_play_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([SubResource("Resource_dom1c")])
 on_discard_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
-on_destroy_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+on_banish_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
 tag = 0

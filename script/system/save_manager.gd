@@ -2,13 +2,12 @@ extends Node
 
 class_name SaveManager
 
-@export var databases : Array[StateDatabase]
+@export var save_data : Array[SaveData]
 
 func _enter_tree():
-	for d : StateDatabase in databases:
-		d.load_database()
+	for data : SaveData in save_data:
+		data.load_data()
 
 func _notification(what):
-	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		for d : StateDatabase in databases:
-			d.save_database()
+	for data : SaveData in save_data:
+		data.save_data()

@@ -18,5 +18,5 @@ artwork = ExtResource("1_5bt5h")
 description = "If discarded, gain 1 energy"
 on_play_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
 on_discard_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([SubResource("Resource_mahwg")])
-on_destroy_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+on_banish_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
 tag = 0

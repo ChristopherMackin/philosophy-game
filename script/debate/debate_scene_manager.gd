@@ -27,7 +27,6 @@ var is_animation_locked := false
 
 func _ready():
 	super._ready()
-	
 	manager.init.call_deferred(player, computer, debate_settings)
 
 func on_debate_start():

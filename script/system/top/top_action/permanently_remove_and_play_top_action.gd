@@ -17,4 +17,4 @@ func invoke(player : Contestant, manager : DebateManager):
 	iac.remove_top_from_hand(top)
 	iac.deck.remove_from_deck(top)
 	
-	await manager.play_top(top)
+	await ac.play_top(top)
