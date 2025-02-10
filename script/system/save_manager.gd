@@ -9,5 +9,6 @@ func _enter_tree():
 		data.load_data()
 
 func _notification(what):
-	for data : SaveData in save_data:
-		data.save_data()
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		for data : SaveData in save_data:
+			data.save_data()
