@@ -88,8 +88,12 @@ func game_loop():
 		for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(active_contestant)
 		await active_player_turn()
 	
-	var debates_finished = computer.recall("debates_finished")
-	computer.remember("debates_finished", debates_finished + 1)
+	if !computer.character.can_recall("debates_finished"):
+		computer.character.remember("debates_finished", 1)
+	else:
+		var debates_finished = computer.character.recall("debates_finished")
+		computer.character.remember("debates_finished", debates_finished + 1)
+		
 	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_finished()
 
 func get_is_debate_over() -> bool:
@@ -98,7 +102,7 @@ func get_is_debate_over() -> bool:
 			return true
 	
 	for c : Contestant in contestants:
-		if c.deck.count + c.hand.size() <= 0:
+		if c.get_deck_count() + c.hand.size() <= 0:
 			return true
 	
 	return false

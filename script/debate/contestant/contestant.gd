@@ -12,9 +12,9 @@ var hand : Array[Top] = []
 
 var name : String:
 	get: return character.name
-var brain : Brain: 
+var _brain : Brain: 
 	get: return character.brain
-var deck : Deck:
+var _deck : Deck:
 	get: return character.deck
 var draw_limit : int:
 	get: return character.draw_limit
@@ -37,15 +37,15 @@ func _init(character : Character):
 
 func ready_up(manager : DebateManager):
 	self.manager = manager
-	deck.initialize_deck(manager)
+	_deck.initialize_deck(manager)
 	draw_full_hand()
 	current_energy = energy_limit
 
 func select_top(top_array : Array[Top] = hand, what : String = "play", visible_to_player : bool = true) -> Top:
-	var top = await brain.select_top(top_array, what, visible_to_player)
+	var top = await _brain.select_top(top_array, what, visible_to_player)
 	
 	while top_array.map(func(x): return x.data).find(top.data) == -1:
-		top = await brain.select_top(top_array, what, visible_to_player)
+		top = await _brain.select_top(top_array, what, visible_to_player)
 	
 	return top
 
@@ -69,7 +69,7 @@ func draw_number_of_tops(amount : int):
 	on_deck_updated.emit(self)
 
 func _draw_top() -> bool:
-	var top = deck.draw_top()
+	var top = _deck.draw_top()
 	if top == null:
 		return false
 	
@@ -90,7 +90,7 @@ func discard_top(top : Top):
 	remove_top_from_hand(top)
 	
 	for action in top.data.on_discard_top_action:
-		await action.invoke(self, manager)
+		await action.invoke(top, self, manager)
 
 func play_top(top : Top, use_action : bool = true):
 	remove_top_from_hand(top)
@@ -100,7 +100,34 @@ func play_top(top : Top, use_action : bool = true):
 	
 	if(use_action):
 		for action in top.data.on_play_top_action:
-			await action.invoke(self, manager)
+			await action.invoke(top, self, manager)
+
+func play_top_cost_override(top : Top, cost_override : int = 0, use_action : bool = true):
+	remove_top_from_hand(top)
+	current_energy -= cost_override
+	
+	await manager.push_top_to_queue(top)
+	
+	if(use_action):
+		for action in top.data.on_play_top_action:
+			await action.invoke(top, self, manager)
 
 func get_playable_tops() -> Array[Top]:
 	return hand.filter(func(x): return x.cost <= current_energy)
+
+func remove_from_deck(top : Top):
+	_deck.remove_from_deck(top)
+	for action in top.data.on_banish_top_action:
+		await action.invoke(top, self, manager)
+
+func add_to_deck(top : Top):
+	_deck.add_to_deck(top)
+
+func remove_from_draw_pile(top : Top):
+	_deck.remove_from_draw_pile(top)
+
+func add_to_draw_pile(top : Top):
+	_deck.add_to_draw_pile(top)
+
+func get_deck_count() -> int:
+	return _deck.count

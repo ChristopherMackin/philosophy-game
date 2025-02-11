@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="TopData" load_steps=8 format=3 uid="uid://o2ueegtogere"]
+
+[ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/general/top/basic_faith_tex.png" id="1_buydr"]
+[ext_resource type="Script" path="res://script/system/top/top_data.gd" id="1_wwld6"]
+[ext_resource type="Script" path="res://script/system/top/top_action/banish_self_top_action.gd" id="2_hhgyu"]
+[ext_resource type="Script" path="res://script/system/top/top_action/duplicate_top_action.gd" id="3_pd42y"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/pose/faith.tres" id="4_5lvga"]
+
+[sub_resource type="Resource" id="Resource_fivxj"]
+script = ExtResource("2_hhgyu")
+
+[sub_resource type="Resource" id="Resource_d5ngh"]
+script = ExtResource("3_pd42y")
+amount = 2
+
+[resource]
+script = ExtResource("1_wwld6")
+base_cost = 0
+pose = ExtResource("4_5lvga")
+title = "Bountiful Harvest"
+artwork = ExtResource("1_buydr")
+description = "Banished when played
+
+Add 2 copies of this top to the faith track"
+on_play_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([SubResource("Resource_fivxj"), SubResource("Resource_d5ngh")])
+on_discard_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+on_banish_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+tag = 0

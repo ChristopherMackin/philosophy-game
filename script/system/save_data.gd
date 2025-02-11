@@ -12,6 +12,7 @@ func save_data():
 
 func load_data():
 	if !ResourceLoader.exists(full_path):
+		DirAccess.make_dir_recursive_absolute(full_path.get_base_dir()) 
 		ResourceSaver.save(resource, full_path)
 		return
 		

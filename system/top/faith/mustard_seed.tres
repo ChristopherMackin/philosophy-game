@@ -1,8 +1,19 @@
-[gd_resource type="Resource" script_class="TopData" load_steps=4 format=3 uid="uid://dwxhxxjrq6a87"]
+[gd_resource type="Resource" script_class="TopData" load_steps=9 format=3 uid="uid://dwxhxxjrq6a87"]
 
 [ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/general/top/basic_faith_tex.png" id="1_fj6k1"]
 [ext_resource type="Script" path="res://script/system/top/top_data.gd" id="1_ohuhb"]
+[ext_resource type="Script" path="res://script/system/top/top_action/banish_self_top_action.gd" id="2_4fdvy"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/pose/faith.tres" id="2_sxlqg"]
+[ext_resource type="Script" path="res://script/system/top/top_action/add_top_to_deck_top_action.gd" id="2_x7a2r"]
+[ext_resource type="Resource" uid="uid://dxpvn8rsnbuek" path="res://system/top/faith/growing_roots.tres" id="3_oacwq"]
+
+[sub_resource type="Resource" id="Resource_ckryc"]
+script = ExtResource("2_x7a2r")
+top_data = ExtResource("3_oacwq")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_q6pdu"]
+script = ExtResource("2_4fdvy")
 
 [resource]
 script = ExtResource("1_ohuhb")
@@ -12,8 +23,8 @@ title = "Mustard Seed"
 artwork = ExtResource("1_fj6k1")
 description = "Banished when played
 
-When banished, add [color=red]Growing Roots[/color=red] top to deck"
-on_play_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+When banished, add [color=red]Growing Roots[/color] top to deck"
+on_play_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([SubResource("Resource_q6pdu")])
 on_discard_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
-on_banish_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+on_banish_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([SubResource("Resource_ckryc")])
 tag = 0

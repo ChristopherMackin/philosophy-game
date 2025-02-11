@@ -46,6 +46,7 @@ func on_lines_cleared(count : int):
 
 func on_debate_finished():
 	print("Debate Finished")
+	get_tree().quit()
 
 func on_top_board_updated(pose_track_dictionary : Dictionary):
 	var active_contestant = "player" if manager.active_contestant.character == player else "computer"
@@ -65,7 +66,7 @@ func on_energy_updated(contestant : Contestant):
 
 func on_deck_updated(contestant : Contestant):
 	if contestant.character == player:
-		draw_pile_ui.update_amount(manager.player.deck.count)
+		draw_pile_ui.update_amount(manager.player.get_deck_count())
 
 func query_event(concept : String):
 	var query : Dictionary
