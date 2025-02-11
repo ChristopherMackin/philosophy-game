@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://bircaxs4rhnnk"]
+
+[ext_resource type="Script" path="res://script/debate/card_3d.gd" id="1_him04"]
+[ext_resource type="PackedScene" uid="uid://bhv1plx4fekqd" path="res://debate/packed_scene/card_ui/others_card_ui.tscn" id="2_vaian"]
+[ext_resource type="Texture2D" uid="uid://dyox58taurrna" path="res://asset/graphic/debate/general/card/card_back.png" id="3_ikfix"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wwxba"]
+viewport_path = NodePath("CardFront/SubViewport")
+
+[node name="OthersCard3D" type="Node3D" node_paths=PackedStringArray("tops_card_ui", "sub_viewport")]
+transform = Transform3D(0.032, -2.23224e-17, -9.75743e-25, 0, -1.39876e-09, 0.032, -2.23224e-17, -0.032, -1.39876e-09, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+script = ExtResource("1_him04")
+tops_card_ui = NodePath("CardFront/SubViewport/OthersCardUI")
+sub_viewport = NodePath("CardFront/SubViewport")
+
+[node name="CardFront" type="Sprite3D" parent="."]
+transform = Transform3D(1, -5.0041e-24, 4.7029e-30, -1.32349e-23, 1, -8.88178e-16, 4.4794e-30, -6.92811e-16, 1, 0, 0, -6.93889e-18)
+modulate = Color(0.964706, 0.964706, 0.964706, 1)
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
+texture = SubResource("ViewportTexture_wwxba")
+
+[node name="SubViewport" type="SubViewport" parent="CardFront"]
+transparent_bg = true
+size = Vector2i(370, 320)
+
+[node name="OthersCardUI" parent="CardFront/SubViewport" instance=ExtResource("2_vaian")]
+scale = Vector2(1, 1)
+
+[node name="Shadow" parent="CardFront/SubViewport/OthersCardUI" index="0"]
+visible = false
+
+[node name="Shadow" parent="CardFront/SubViewport/OthersCardUI/CardBG/CardTopLocation" index="0"]
+visible = false
+
+[node name="Top" parent="CardFront/SubViewport/OthersCardUI/CardBG/CardTopLocation" index="1"]
+visible = false
+
+[node name="CardBack" type="Sprite3D" parent="."]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0, -6.93889e-18)
+double_sided = false
+texture = ExtResource("3_ikfix")
+
+[editable path="CardFront/SubViewport/OthersCardUI"]

@@ -39,8 +39,7 @@ var current_turn : int = 0:
 		current_turn = val
 		blackboard.add("current_turn", current_turn, Constants.ExpirationToken.ON_DEBATE_START)
 
-var pose_track_dictionary : Dictionary
-var top_history : Array[Top]
+var suit_track_dictionary : Dictionary
 
 func subscribe(subscriber : DebateSubscriber):
 	subscriber_array.append(subscriber)
@@ -55,9 +54,9 @@ func init(player_character : Character, computer_character : Character, debate_s
 	
 	self.debate_settings = debate_settings
 	
-	for pose in debate_settings.poses:
-		var pose_array : Array[Top] = []
-		pose_track_dictionary[pose.name] = pose_array
+	for suit in debate_settings.suits:
+		var suit_array : Array[Token] = []
+		suit_track_dictionary[suit.name] = suit_array
 	
 	player = Contestant.new(player_character)
 	computer = Contestant.new(computer_character)
@@ -97,8 +96,8 @@ func game_loop():
 	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_finished()
 
 func get_is_debate_over() -> bool:
-	for value in pose_track_dictionary.values():
-		if value.size() >= debate_settings.top_slots:
+	for value in suit_track_dictionary.values():
+		if value.size() >= debate_settings.slots:
 			return true
 	
 	for c : Contestant in contestants:
@@ -109,55 +108,62 @@ func get_is_debate_over() -> bool:
 
 func active_player_turn():
 	while active_contestant.current_energy > 0 and !get_is_debate_over():
-		var playable_tops = active_contestant.get_playable_tops()
+		var playable_cards = active_contestant.get_playable_cards()
 		
-		if playable_tops.size() <= 0:
+		if playable_cards.size() <= 0:
 			break
 		
-		var top = await active_contestant.select_top(playable_tops)
-		await active_contestant.play_top(top)
+		var card = await active_contestant.select(playable_cards)
+		await active_contestant.make_selection(card)
 		
-		for sub : DebateSubscriber in subscriber_array: await sub.on_top_played(top, active_contestant)
+		for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, active_contestant)
 		
 		clear_lines()
 	
 	active_contestant.clean_up()
 
 func clear_lines():
-	var min = pose_track_dictionary.values()[0].size()
+	var min = suit_track_dictionary.values()[0].size()
 	
-	for value in pose_track_dictionary.values():
+	for value in suit_track_dictionary.values():
 		if min > value.size():
 			min = value.size()
 	
 	if min > 0:
-		for key in pose_track_dictionary:
-			var array = pose_track_dictionary[key] as Array
+		for key in suit_track_dictionary:
+			var array = suit_track_dictionary[key] as Array
 			for i in min:
 				array.remove_at(0)
 		for sub : DebateSubscriber in subscriber_array: await sub.on_lines_cleared(min)
 
-func push_top_to_queue(top : Top):
-	blackboard.add("previous_top", blackboard.get_value("current_top"), Constants.ExpirationToken.ON_DEBATE_START)
-	blackboard.add("previous_pose", blackboard.get_value("current_pose"), Constants.ExpirationToken.ON_DEBATE_START)
+func push_token_to_queue(card : Card):
+	var token = Token.new(card.data.token_data)
 	
-	pose_track_dictionary[top.data.pose.name].append(top)
-	top_history.append(top)
+	blackboard.add("previous_card", blackboard.get_value("current_card"), Constants.ExpirationToken.ON_DEBATE_START)
+	blackboard.add("previous_suit", blackboard.get_value("current_suit"), Constants.ExpirationToken.ON_DEBATE_START)
 	
-	blackboard.add("current_top", top.data.title, Constants.ExpirationToken.ON_DEBATE_START)
-	blackboard.add("current_pose", top.data.pose.name, Constants.ExpirationToken.ON_DEBATE_START)
+	suit_track_dictionary[card.data.suit.name].append(token)
 	
-	for sub : DebateSubscriber in subscriber_array: await sub.on_top_board_updated(pose_track_dictionary)
+	blackboard.add("current_card", card.data.title, Constants.ExpirationToken.ON_DEBATE_START)
+	blackboard.add("current_suit", card.data.suit.name, Constants.ExpirationToken.ON_DEBATE_START)
+	
+	for sub : DebateSubscriber in subscriber_array: await sub.on_board_updated(suit_track_dictionary)
 
-func remove_top_from_queue(top : Top):
-	var top_queue : Array[Top] = pose_track_dictionary[top.data.pose.name]
-	var index = top_queue.find(top)
+func remove_token_from_suit_track(token : Token):
+	var index
+	var suit_name
+	
+	for key in suit_track_dictionary:
+		index = suit_track_dictionary[key].find(token)
+		if index >= 0: 
+			suit_name = key
+			break
 	
 	if index < 0: return
 	
-	top_queue.remove_at(index)
+	suit_track_dictionary[suit_name].remove_at(index)
 	
-	for sub : DebateSubscriber in subscriber_array: await sub.on_top_board_updated(pose_track_dictionary)
+	for sub : DebateSubscriber in subscriber_array: await sub.on_board_updated(suit_track_dictionary)
 
 func on_hand_updated(contestant : Contestant):
 	for sub : DebateSubscriber in subscriber_array: await sub.on_hand_updated(contestant)

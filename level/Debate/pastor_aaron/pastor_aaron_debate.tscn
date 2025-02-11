@@ -1,37 +1,33 @@
-[gd_scene load_steps=77 format=3 uid="uid://c674050h413wq"]
+[gd_scene load_steps=73 format=3 uid="uid://c674050h413wq"]
 
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_c3gp0"]
-[ext_resource type="Resource" uid="uid://r4ejaxobo8yy" path="res://debate/main/debate_settings.tres" id="2_03waw"]
 [ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event_manager.tres" id="3_pgeyy"]
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/main_blackboard.tres" id="4_l7ilm"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player_data.tres" id="4_vrocj"]
 [ext_resource type="Resource" uid="uid://b5qju7etv13c2" path="res://character/aaron/aaron_data.tres" id="5_a32kn"]
-[ext_resource type="Resource" uid="uid://wlxm57wwnqi" path="res://debate/main/debate_manager.tres" id="6_ika5p"]
+[ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://debate/main/debate_settings.tres" id="6_ika5p"]
 [ext_resource type="Script" path="res://script/system/event/event_subscriber/debate_event_manager.gd" id="7_b5bxp"]
 [ext_resource type="Script" path="res://script/debate/ui/selection_manager.gd" id="8_a3tiy"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="9_gkl1m"]
 [ext_resource type="Script" path="res://script/system/animation/animation_player_handler.gd" id="10_bg7j3"]
 [ext_resource type="Resource" uid="uid://cw71yo3318tof" path="res://system/focus_group/idle_focus_group.tres" id="10_gx4pd"]
+[ext_resource type="Resource" uid="uid://wlxm57wwnqi" path="res://debate/main/debate_manager.tres" id="10_l7e2n"]
 [ext_resource type="Resource" uid="uid://ntuf87q0l32m" path="res://system/focus_group/hand_focus_group.tres" id="10_xhyii"]
-[ext_resource type="Resource" uid="uid://dywohm3ea6ydc" path="res://system/focus_group/tops_card_selector_focus_group.tres" id="11_1e8cx"]
+[ext_resource type="Resource" uid="uid://dywohm3ea6ydc" path="res://system/focus_group/card_selector_focus_group.tres" id="11_1e8cx"]
 [ext_resource type="Environment" uid="uid://vowbyk10rg4v" path="res://level/debate_scene_environment.tres" id="11_5ne5n"]
 [ext_resource type="PackedScene" uid="uid://r4i5a44ihqej" path="res://asset/model/environment/lectern.glb" id="11_cga4j"]
 [ext_resource type="PackedScene" uid="uid://bqwn6fre04ypq" path="res://character/joy/joy.tscn" id="14_d1e2n"]
 [ext_resource type="Script" path="res://script/debate/play_stack_3d.gd" id="14_pgvxw"]
 [ext_resource type="Script" path="res://script/ui/debate_contestant_3d.gd" id="15_38s5e"]
-[ext_resource type="PackedScene" uid="uid://c2mat21re3sx3" path="res://debate/packed_scene/tops_board_3d.tscn" id="17_u7hpp"]
-[ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/tops_card_ui/doubt_card_ui.tscn" id="18_sxkin"]
+[ext_resource type="PackedScene" uid="uid://c2mat21re3sx3" path="res://debate/packed_scene/board_3d.tscn" id="17_u7hpp"]
 [ext_resource type="Script" path="res://script/utility/set_layer_mask.gd" id="18_w4hh5"]
 [ext_resource type="Script" path="res://script/system/dialogue_handler.gd" id="19_0dlld"]
 [ext_resource type="PackedScene" uid="uid://cajmwu8byfeoi" path="res://character/aaron/aaron.tscn" id="20_wk6p3"]
 [ext_resource type="Shader" path="res://ui/panning_background.gdshader" id="21_wuq6j"]
-[ext_resource type="PackedScene" uid="uid://c6470407tskde" path="res://debate/packed_scene/tops_card_ui/faith_card_ui.tscn" id="21_yt848"]
-[ext_resource type="PackedScene" uid="uid://bhv1plx4fekqd" path="res://debate/packed_scene/tops_card_ui/others_card_ui.tscn" id="23_cumjs"]
 [ext_resource type="Texture2D" uid="uid://vm5ta6544ld7" path="res://asset/graphic/general/faith_tile_background.png" id="23_otlm2"]
 [ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://debate/debate_contestant_viewport.tres" id="23_xajd6"]
 [ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/packed_scene/basic_dialogue_bubble.tscn" id="24_0ghhw"]
 [ext_resource type="Texture2D" uid="uid://wsr15rl2wssm" path="res://asset/graphic/aaron/an_almighty_hand.png" id="24_twtn0"]
-[ext_resource type="PackedScene" uid="uid://ccs6t13kr4fum" path="res://debate/packed_scene/tops_card_ui/self_card_ui.tscn" id="25_mngk4"]
 [ext_resource type="Texture2D" uid="uid://b5nlnbqopjyl8" path="res://asset/graphic/debate/general/dialogue_area/opponent_stats_area.png" id="25_yqlw1"]
 [ext_resource type="Texture2D" uid="uid://caks003lacvsp" path="res://asset/graphic/debate/general/stats_area/hand_icon.png" id="26_q81rk"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="27_68od4"]
@@ -43,18 +39,22 @@
 [ext_resource type="Texture2D" uid="uid://cukex0q0jc621" path="res://asset/graphic/aaron/aaron_db_stats_area.png" id="34_yb4dt"]
 [ext_resource type="Script" path="res://script/debate/ui/play_area_selector.gd" id="35_cavrw"]
 [ext_resource type="Script" path="res://script/ui/staggered_flex_container.gd" id="36_f6xvy"]
-[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/pose/doubt.tres" id="36_kjepc"]
 [ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/node_3d_selector_ui.tscn" id="36_u3n2x"]
 [ext_resource type="Resource" uid="uid://dax1rw2k032he" path="res://system/focus_group/play_area_focus_group.tres" id="37_4nevq"]
-[ext_resource type="Script" path="res://script/system/top/pose_packed_scene.gd" id="37_ugb6p"]
-[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/pose/faith.tres" id="39_0grww"]
 [ext_resource type="Texture2D" uid="uid://cl8h4qdvv68ex" path="res://asset/graphic/aaron/aaron_db01_screen_filter.png" id="40_uyd2d"]
-[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/pose/others.tres" id="41_u5dj4"]
 [ext_resource type="Texture2D" uid="uid://csnb8nne3qn56" path="res://asset/graphic/debate/general/stats_area/draw_pile.png" id="42_wa3e5"]
-[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/pose/self.tres" id="43_y1iqc"]
-[ext_resource type="Script" path="res://script/debate/tops_card_selector.gd" id="51_3qr11"]
-[ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/general/tops_card/card_base.png" id="52_ket0o"]
-[ext_resource type="PackedScene" uid="uid://dj5ht84etvnd1" path="res://debate/packed_scene/tops_card_ui.tscn" id="53_xp4py"]
+[ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/card_ui/doubt_card_ui.tscn" id="44_foc6m"]
+[ext_resource type="Script" path="res://script/system/card/suit_packed_scene.gd" id="44_si8pi"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="46_hgjh0"]
+[ext_resource type="PackedScene" uid="uid://c6470407tskde" path="res://debate/packed_scene/card_ui/faith_card_ui.tscn" id="47_n1gb1"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="48_i3oc5"]
+[ext_resource type="PackedScene" uid="uid://bhv1plx4fekqd" path="res://debate/packed_scene/card_ui/others_card_ui.tscn" id="49_k0074"]
+[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="50_kpa4e"]
+[ext_resource type="Script" path="res://script/debate/card_selector.gd" id="51_3qr11"]
+[ext_resource type="PackedScene" uid="uid://ccs6t13kr4fum" path="res://debate/packed_scene/card_ui/self_card_ui.tscn" id="51_5ds64"]
+[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="52_j58j1"]
+[ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/general/card/card_base.png" id="52_ket0o"]
+[ext_resource type="PackedScene" uid="uid://dj5ht84etvnd1" path="res://debate/packed_scene/card_ui.tscn" id="53_xp4py"]
 [ext_resource type="Script" path="res://script/system/save_manager.gd" id="55_qd7va"]
 [ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/player_deck.tres" id="56_g82aw"]
 [ext_resource type="Script" path="res://script/system/save_data.gd" id="57_ycv4i"]
@@ -177,45 +177,25 @@ shader_parameter/color = Color(0.964706, 0.964706, 0.964706, 1)
 shader_parameter/direction = Vector2(-1, -1)
 shader_parameter/speed_scale = 0.05
 
-[sub_resource type="Resource" id="Resource_bksmp"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("36_kjepc")
-packed_scene = ExtResource("18_sxkin")
+[sub_resource type="Resource" id="Resource_6pak2"]
+script = ExtResource("44_si8pi")
+suit = ExtResource("46_hgjh0")
+packed_scene = ExtResource("44_foc6m")
 
-[sub_resource type="Resource" id="Resource_6j6ha"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("39_0grww")
-packed_scene = ExtResource("21_yt848")
+[sub_resource type="Resource" id="Resource_vqklr"]
+script = ExtResource("44_si8pi")
+suit = ExtResource("48_i3oc5")
+packed_scene = ExtResource("47_n1gb1")
 
-[sub_resource type="Resource" id="Resource_kqvh2"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("41_u5dj4")
-packed_scene = ExtResource("23_cumjs")
+[sub_resource type="Resource" id="Resource_gia04"]
+script = ExtResource("44_si8pi")
+suit = ExtResource("50_kpa4e")
+packed_scene = ExtResource("49_k0074")
 
-[sub_resource type="Resource" id="Resource_f21t2"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("43_y1iqc")
-packed_scene = ExtResource("25_mngk4")
-
-[sub_resource type="Resource" id="Resource_dxosk"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("36_kjepc")
-packed_scene = ExtResource("18_sxkin")
-
-[sub_resource type="Resource" id="Resource_s2fhy"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("39_0grww")
-packed_scene = ExtResource("21_yt848")
-
-[sub_resource type="Resource" id="Resource_xx6uv"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("41_u5dj4")
-packed_scene = ExtResource("23_cumjs")
-
-[sub_resource type="Resource" id="Resource_rq6p4"]
-script = ExtResource("37_ugb6p")
-pose = ExtResource("43_y1iqc")
-packed_scene = ExtResource("25_mngk4")
+[sub_resource type="Resource" id="Resource_rtp6h"]
+script = ExtResource("44_si8pi")
+suit = ExtResource("52_j58j1")
+packed_scene = ExtResource("51_5ds64")
 
 [node name="Debate3d" type="Node3D"]
 
@@ -226,22 +206,22 @@ save_data = Array[ExtResource("57_ycv4i")]([SubResource("Resource_cjob1"), SubRe
 [node name="===MANAGER========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="DebateSceneManager" type="Node3D" parent="." node_paths=PackedStringArray("player_3d", "selection_manager", "computer_3d", "tops_board", "hand_ui", "energy_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
+[node name="DebateSceneManager" type="Node3D" parent="." node_paths=PackedStringArray("player_3d", "selection_manager", "computer_3d", "board", "hand_ui", "energy_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
 script = ExtResource("1_c3gp0")
-debate_settings = ExtResource("2_03waw")
+debate_settings = ExtResource("6_ika5p")
 event_manager = ExtResource("3_pgeyy")
 player = ExtResource("4_vrocj")
 player_3d = NodePath("../Joy")
 selection_manager = NodePath("../SelectionManager")
 computer = ExtResource("5_a32kn")
 computer_3d = NodePath("../Aaron")
-tops_board = NodePath("../Lectern/TopsBoard3D")
+board = NodePath("../Lectern/Board3D")
 hand_ui = NodePath("../PlayArea/StatsArea/Hand")
 energy_ui = NodePath("../PlayArea/StatsArea/Energy/Count")
 draw_pile_ui = NodePath("../PlayArea/StatsArea/DrawPile/Count")
 computer_energy_ui = NodePath("../PlayArea/DialogueArea/ComputerStatsArea/MarginContainer/VBoxContainer/Energy/Count")
 computer_hand_ui = NodePath("../PlayArea/DialogueArea/ComputerStatsArea/MarginContainer/VBoxContainer/Hand/Count")
-manager = ExtResource("6_ika5p")
+manager = ExtResource("10_l7e2n")
 
 [node name="EventManager" type="Node3D" parent="." node_paths=PackedStringArray("scene_animator", "actors")]
 script = ExtResource("7_b5bxp")
@@ -249,17 +229,17 @@ scene_animator = NodePath("../SceneAnimator")
 actors = [NodePath("../Joy"), NodePath("../Aaron")]
 manager = ExtResource("3_pgeyy")
 
-[node name="SelectionManager" type="Node3D" parent="." node_paths=PackedStringArray("ui_clear_focus_node", "play_area_selector", "tops_card_selector")]
+[node name="SelectionManager" type="Node3D" parent="." node_paths=PackedStringArray("ui_clear_focus_node", "play_area_selector", "card_selector")]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 script = ExtResource("8_a3tiy")
 player_brain = ExtResource("9_gkl1m")
 idle_focus_group = ExtResource("10_gx4pd")
 hand_ui_focus_group = ExtResource("10_xhyii")
 play_area_selector_focus_group = ExtResource("37_4nevq")
-tops_card_selector_focus_group = ExtResource("11_1e8cx")
+card_selector_focus_group = ExtResource("11_1e8cx")
 ui_clear_focus_node = NodePath("UIClearFocus")
 play_area_selector = NodePath("../PlayArea/PlayAreaSelector")
-tops_card_selector = NodePath("../PlayArea/TopsCardSelector")
+card_selector = NodePath("../PlayArea/CardSelector")
 
 [node name="UIClearFocus" type="Control" parent="SelectionManager"]
 layout_mode = 3
@@ -298,9 +278,8 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 [node name="Lectern" parent="." instance=ExtResource("11_cga4j")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 
-[node name="TopsBoard3D" parent="Lectern" node_paths=PackedStringArray("play_stack", "player", "computer") instance=ExtResource("17_u7hpp")]
+[node name="Board3D" parent="Lectern" node_paths=PackedStringArray("player", "computer") instance=ExtResource("17_u7hpp")]
 transform = Transform3D(1, -8.95754e-09, -6.2939e-08, 3.45307e-16, 0.990024, -0.140901, 6.35732e-08, 0.140901, 0.990024, -6.46369e-09, 1.11139, 0.0427932)
-play_stack = NodePath("../PlayStack")
 player = NodePath("../../Joy")
 computer = NodePath("../../Aaron")
 
@@ -339,7 +318,7 @@ bones/6/position = Vector3(-0.0380811, 0.1041, -0.0346195)
 bones/6/rotation = Quaternion(0.510213, -0.510213, -0.489574, -0.489574)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(2.38008e-08, 0.114243, 8.7724e-08)
-bones/7/rotation = Quaternion(-0.584255, -0.0740356, 0.027557, 0.807716)
+bones/7/rotation = Quaternion(-0.584255, -0.0740356, 0.0275571, 0.807716)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/position = Vector3(-3.72529e-09, -1.02911e-07, -1.3574e-07)
 bones/8/rotation = Quaternion(1.41412e-07, 0.102057, -1.10589e-07, 0.994779)
@@ -402,7 +381,7 @@ bones/27/position = Vector3(-1.10222e-08, 0.338191, 8.04204e-09)
 bones/27/rotation = Quaternion(-0.250738, 0.737975, -0.461851, -0.423341)
 bones/27/scale = Vector3(1, 1, 1)
 bones/28/position = Vector3(4.70312e-10, 0.215224, -7.39791e-09)
-bones/28/rotation = Quaternion(-0.00162599, 0.978574, 0.205892, -2.72132e-05)
+bones/28/rotation = Quaternion(-0.00162599, 0.978573, 0.205892, -2.72132e-05)
 bones/28/scale = Vector3(1, 1, 1)
 bones/29/position = Vector3(-4.65661e-09, 0.169096, 8.3819e-09)
 bones/29/rotation = Quaternion(-5.49819e-09, -0.016563, -1.75498e-09, 0.999863)
@@ -503,13 +482,13 @@ bones/8/position = Vector3(1.76951e-08, 1.18744e-07, -9.20845e-08)
 bones/8/rotation = Quaternion(1.24483e-07, 0.132673, -4.45721e-08, 0.99116)
 bones/8/scale = Vector3(1, 0.999999, 1)
 bones/9/position = Vector3(1.93514e-08, 0.24888, -2.93366e-08)
-bones/9/rotation = Quaternion(1.82705e-07, -7.99667e-08, 0.119637, 0.992818)
+bones/9/rotation = Quaternion(1.82705e-07, -7.99666e-08, 0.119637, 0.992818)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(-1.63439e-08, 0.112119, -5.09335e-08)
 bones/10/rotation = Quaternion(-1.40399e-06, 0.0746668, 5.40523e-06, 0.997209)
 bones/10/scale = Vector3(0.999987, 0.999985, 0.999994)
 bones/11/position = Vector3(-7.41482e-09, 0.224237, 1.67142e-09)
-bones/11/rotation = Quaternion(-0.0976961, -0.117547, 0.0828739, 0.984769)
+bones/11/rotation = Quaternion(-0.097696, -0.117547, 0.0828739, 0.984769)
 bones/11/scale = Vector3(1, 0.999999, 1)
 bones/12/position = Vector3(0.0517423, 0.128365, -0.0208983)
 bones/12/rotation = Quaternion(0.50766, 0.50766, 0.492221, -0.492221)
@@ -539,10 +518,10 @@ bones/20/position = Vector3(-1.04748e-08, 0.311902, -1.21075e-08)
 bones/20/rotation = Quaternion(6.29331e-08, -4.17e-08, 0.167742, 0.985831)
 bones/20/scale = Vector3(1, 1, 1)
 bones/21/position = Vector3(-9.84238e-09, 0.316624, -2.18414e-08)
-bones/21/rotation = Quaternion(0.305415, 0.578271, -0.29821, 0.695267)
+bones/21/rotation = Quaternion(0.305415, 0.57827, -0.29821, 0.695267)
 bones/21/scale = Vector3(1, 1, 1)
 bones/22/position = Vector3(1.04507e-08, 0.19029, -1.5877e-08)
-bones/22/rotation = Quaternion(-0.00705767, 0.913792, 0.40612, -0.000276991)
+bones/22/rotation = Quaternion(-0.00705767, 0.913792, 0.40612, -0.00027699)
 bones/22/scale = Vector3(1, 1, 1)
 bones/23/position = Vector3(-1.58325e-08, 0.158312, 1.73459e-08)
 bones/23/rotation = Quaternion(4.67347e-06, -0.0188559, 5.53149e-06, 0.999822)
@@ -670,7 +649,7 @@ cull_mask = 1048569
 environment = ExtResource("11_5ne5n")
 far = 50.0
 
-[node name="PlayAreaSelector" type="Control" parent="PlayArea" node_paths=PackedStringArray("tops_board", "camera")]
+[node name="PlayAreaSelector" type="Control" parent="PlayArea" node_paths=PackedStringArray("camera")]
 layout_mode = 3
 anchor_left = 0.375
 anchor_right = 1.0
@@ -679,7 +658,6 @@ offset_left = -5.72205e-05
 offset_bottom = 0.279932
 grow_horizontal = 0
 script = ExtResource("35_cavrw")
-tops_board = NodePath("../../Lectern/TopsBoard3D")
 camera = NodePath("../PlayAreaViewport/SubViewport/Camera3D")
 selector_packed_scene = ExtResource("36_u3n2x")
 focus_group = ExtResource("37_4nevq")
@@ -1018,7 +996,7 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 10
 script = ExtResource("34_veub1")
-tops_card_ui_pose_packed_scenes = Array[ExtResource("37_ugb6p")]([SubResource("Resource_bksmp"), SubResource("Resource_6j6ha"), SubResource("Resource_kqvh2"), SubResource("Resource_f21t2")])
+card_ui_suit_packed_scenes = Array[ExtResource("44_si8pi")]([SubResource("Resource_6pak2"), SubResource("Resource_vqklr"), SubResource("Resource_gia04"), SubResource("Resource_rtp6h")])
 draw_pile = NodePath("../DrawPile")
 card_parent = NodePath("CardParent")
 card_slot_size = Vector2(300, 260)
@@ -1038,7 +1016,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("40_uyd2d")
 
-[node name="TopsCardSelector" type="Panel" parent="PlayArea" node_paths=PackedStringArray("card_container")]
+[node name="CardSelector" type="Panel" parent="PlayArea" node_paths=PackedStringArray("card_container")]
 visible = false
 z_index = 10
 anchors_preset = 15
@@ -1047,11 +1025,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("51_3qr11")
-tops_card_ui_pose_packed_scenes = Array[ExtResource("37_ugb6p")]([SubResource("Resource_dxosk"), SubResource("Resource_s2fhy"), SubResource("Resource_xx6uv"), SubResource("Resource_rq6p4")])
 card_container = NodePath("Background/HFlowContainer")
 focus_group = ExtResource("11_1e8cx")
 
-[node name="Border" type="NinePatchRect" parent="PlayArea/TopsCardSelector"]
+[node name="Border" type="NinePatchRect" parent="PlayArea/CardSelector"]
 modulate = Color(0.996078, 0.694118, 0.266667, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -1072,7 +1049,7 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
-[node name="Background" type="NinePatchRect" parent="PlayArea/TopsCardSelector"]
+[node name="Background" type="NinePatchRect" parent="PlayArea/CardSelector"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1092,7 +1069,7 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
-[node name="HFlowContainer" type="HFlowContainer" parent="PlayArea/TopsCardSelector/Background"]
+[node name="HFlowContainer" type="HFlowContainer" parent="PlayArea/CardSelector/Background"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.055
@@ -1106,48 +1083,43 @@ theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 alignment = 1
 
-[node name="TopCardUI" parent="PlayArea/TopsCardSelector/Background/HFlowContainer" instance=ExtResource("53_xp4py")]
+[node name="CardUI" parent="PlayArea/CardSelector/Background/HFlowContainer" instance=ExtResource("53_xp4py")]
 layout_mode = 2
 
-[node name="TopCardUI2" parent="PlayArea/TopsCardSelector/Background/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description") instance=ExtResource("53_xp4py")]
+[node name="CardUI2" parent="PlayArea/CardSelector/Background/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "description") instance=ExtResource("53_xp4py")]
 layout_mode = 2
-cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
-icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
-title = NodePath("../TopCardUI/CardInfo/Title")
-artwork = NodePath("../TopCardUI/CardTopLocation/Top")
-description = NodePath("../TopCardUI/CardDescription/Description")
+cost = NodePath("../CardUI/CardInfo/CostIcon/Cost")
+icon = NodePath("../CardUI/CardInfo/PoseIcon")
+title = NodePath("../CardUI/CardInfo/Title")
+description = NodePath("../CardUI/CardDescription/Description")
 
-[node name="TopCardUI3" parent="PlayArea/TopsCardSelector/Background/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description") instance=ExtResource("53_xp4py")]
+[node name="CardUI3" parent="PlayArea/CardSelector/Background/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "description") instance=ExtResource("53_xp4py")]
 layout_mode = 2
-cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
-icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
-title = NodePath("../TopCardUI/CardInfo/Title")
-artwork = NodePath("../TopCardUI/CardTopLocation/Top")
-description = NodePath("../TopCardUI/CardDescription/Description")
+cost = NodePath("../CardUI/CardInfo/CostIcon/Cost")
+icon = NodePath("../CardUI/CardInfo/PoseIcon")
+title = NodePath("../CardUI/CardInfo/Title")
+description = NodePath("../CardUI/CardDescription/Description")
 
-[node name="TopCardUI4" parent="PlayArea/TopsCardSelector/Background/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description") instance=ExtResource("53_xp4py")]
+[node name="CardUI4" parent="PlayArea/CardSelector/Background/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "description") instance=ExtResource("53_xp4py")]
 layout_mode = 2
-cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
-icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
-title = NodePath("../TopCardUI/CardInfo/Title")
-artwork = NodePath("../TopCardUI/CardTopLocation/Top")
-description = NodePath("../TopCardUI/CardDescription/Description")
+cost = NodePath("../CardUI/CardInfo/CostIcon/Cost")
+icon = NodePath("../CardUI/CardInfo/PoseIcon")
+title = NodePath("../CardUI/CardInfo/Title")
+description = NodePath("../CardUI/CardDescription/Description")
 
-[node name="TopCardUI5" parent="PlayArea/TopsCardSelector/Background/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description") instance=ExtResource("53_xp4py")]
+[node name="CardUI5" parent="PlayArea/CardSelector/Background/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "description") instance=ExtResource("53_xp4py")]
 layout_mode = 2
-cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
-icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
-title = NodePath("../TopCardUI/CardInfo/Title")
-artwork = NodePath("../TopCardUI/CardTopLocation/Top")
-description = NodePath("../TopCardUI/CardDescription/Description")
+cost = NodePath("../CardUI/CardInfo/CostIcon/Cost")
+icon = NodePath("../CardUI/CardInfo/PoseIcon")
+title = NodePath("../CardUI/CardInfo/Title")
+description = NodePath("../CardUI/CardDescription/Description")
 
-[node name="TopCardUI6" parent="PlayArea/TopsCardSelector/Background/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description") instance=ExtResource("53_xp4py")]
+[node name="CardUI6" parent="PlayArea/CardSelector/Background/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "description") instance=ExtResource("53_xp4py")]
 layout_mode = 2
-cost = NodePath("../TopCardUI/CardInfo/CostIcon/Cost")
-icon = NodePath("../TopCardUI/CardInfo/PoseIcon")
-title = NodePath("../TopCardUI/CardInfo/Title")
-artwork = NodePath("../TopCardUI/CardTopLocation/Top")
-description = NodePath("../TopCardUI/CardDescription/Description")
+cost = NodePath("../CardUI/CardInfo/CostIcon/Cost")
+icon = NodePath("../CardUI/CardInfo/PoseIcon")
+title = NodePath("../CardUI/CardInfo/Title")
+description = NodePath("../CardUI/CardDescription/Description")
 
 [editable path="Joy"]
 [editable path="Aaron"]

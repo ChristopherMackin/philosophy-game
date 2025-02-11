@@ -3,5 +3,5 @@ extends Resource
 
 class_name DebateSettings
 
-@export var top_slots : int = 8
-@export var poses : Array[Pose]
+@export var slots : int = 8
+@export var suits : Array[Suit]

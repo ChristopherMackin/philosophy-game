@@ -8,7 +8,7 @@ signal on_deck_updated(contestant)
 
 var manager : DebateManager
 var character : Character
-var hand : Array[Top] = []
+var hand : Array[Card] = []
 
 var name : String:
 	get: return character.name
@@ -41,13 +41,13 @@ func ready_up(manager : DebateManager):
 	draw_full_hand()
 	current_energy = energy_limit
 
-func select_top(top_array : Array[Top] = hand, what : String = "play", visible_to_player : bool = true) -> Top:
-	var top = await _brain.select_top(top_array, what, visible_to_player)
+func select(card_array : Array[Card] = hand, what : String = "play", visible_to_player : bool = true) -> Card:
+	var card = await _brain.select(card_array, what, visible_to_player)
 	
-	while top_array.map(func(x): return x.data).find(top.data) == -1:
-		top = await _brain.select_top(top_array, what, visible_to_player)
+	while card_array.map(func(x): return x.data).find(card.data) == -1:
+		card = await _brain.select(card_array, what, visible_to_player)
 	
-	return top
+	return card
 
 func clean_up():
 	draw_full_hand()
@@ -56,28 +56,28 @@ func clean_up():
 func draw_full_hand():
 	var is_draw_pile_empty = false
 	while hand.size() < draw_limit && !is_draw_pile_empty:
-		is_draw_pile_empty = !_draw_top()
+		is_draw_pile_empty = !_draw_card()
 	on_hand_updated.emit(self)
 	on_deck_updated.emit(self)
 
-func draw_number_of_tops(amount : int):
+func draw_number_of_cards(amount : int):
 	var is_draw_pile_empty = false
 	while amount > 0 && !is_draw_pile_empty:
-		is_draw_pile_empty = !_draw_top()
+		is_draw_pile_empty = !_draw_card()
 		amount -= 1
 	on_hand_updated.emit(self)
 	on_deck_updated.emit(self)
 
-func _draw_top() -> bool:
-	var top = _deck.draw_top()
-	if top == null:
+func _draw_card() -> bool:
+	var card = _deck.draw_card()
+	if card == null:
 		return false
 	
-	hand.append(top)
+	hand.append(card)
 	return true
 
-func remove_top_from_hand(top : Top):
-	var index = hand.find(top)
+func remove_card_from_hand(card : Card):
+	var index = hand.find(card)
 	hand.remove_at(index)
 	
 	if hand.size() <= 0:
@@ -86,48 +86,48 @@ func remove_top_from_hand(top : Top):
 	on_hand_updated.emit(self)
 	on_deck_updated.emit(self)
 
-func discard_top(top : Top):
-	remove_top_from_hand(top)
+func discard_card(card : Card):
+	remove_card_from_hand(card)
 	
-	for action in top.data.on_discard_top_action:
-		await action.invoke(top, self, manager)
+	for action in card.data.on_discard_card_action:
+		await action.invoke(card, self, manager)
 
-func play_top(top : Top, use_action : bool = true):
-	remove_top_from_hand(top)
-	current_energy -= top.cost
+func make_selection(card : Card, use_action : bool = true):
+	remove_card_from_hand(card)
+	current_energy -= card.cost
 	
-	await manager.push_top_to_queue(top)
+	await manager.push_token_to_queue(card)
 	
 	if(use_action):
-		for action in top.data.on_play_top_action:
-			await action.invoke(top, self, manager)
+		for action in card.data.on_make_selection_action:
+			await action.invoke(card, self, manager)
 
-func play_top_cost_override(top : Top, cost_override : int = 0, use_action : bool = true):
-	remove_top_from_hand(top)
+func make_selection_cost_override(card : Card, cost_override : int = 0, use_action : bool = true):
+	remove_card_from_hand(card)
 	current_energy -= cost_override
 	
-	await manager.push_top_to_queue(top)
+	await manager.push_token_to_queue(card)
 	
 	if(use_action):
-		for action in top.data.on_play_top_action:
-			await action.invoke(top, self, manager)
+		for action in card.data.on_make_selection_action:
+			await action.invoke(card, self, manager)
 
-func get_playable_tops() -> Array[Top]:
+func get_playable_cards() -> Array[Card]:
 	return hand.filter(func(x): return x.cost <= current_energy)
 
-func remove_from_deck(top : Top):
-	_deck.remove_from_deck(top)
-	for action in top.data.on_banish_top_action:
-		await action.invoke(top, self, manager)
+func remove_from_deck(card : Card):
+	_deck.remove_from_deck(card)
+	for action in card.data.on_banish_card_action:
+		await action.invoke(card, self, manager)
 
-func add_to_deck(top : Top):
-	_deck.add_to_deck(top)
+func add_to_deck(card : Card):
+	_deck.add_to_deck(card)
 
-func remove_from_draw_pile(top : Top):
-	_deck.remove_from_draw_pile(top)
+func remove_from_draw_pile(card : Card):
+	_deck.remove_from_draw_pile(card)
 
-func add_to_draw_pile(top : Top):
-	_deck.add_to_draw_pile(top)
+func add_to_draw_pile(card : Card):
+	_deck.add_to_draw_pile(card)
 
 func get_deck_count() -> int:
 	return _deck.count

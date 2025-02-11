@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="DebateSettings" load_steps=6 format=3 uid="uid://r4ejaxobo8yy"]
+[gd_resource type="Resource" script_class="DebateSettings" load_steps=6 format=3 uid="uid://b51gfuqtvp857"]
 
-[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/pose/faith.tres" id="1_ahfvr"]
 [ext_resource type="Script" path="res://script/debate/debate_settings.gd" id="1_cdwd0"]
-[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/pose/doubt.tres" id="2_6wgoi"]
-[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/pose/self.tres" id="3_b7hh7"]
-[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/pose/others.tres" id="4_0cppg"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_p7u10"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="3_oowsw"]
+[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="4_tit4q"]
+[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="5_t3pf5"]
 
 [resource]
 script = ExtResource("1_cdwd0")
-top_slots = 8
-poses = Array[Resource("res://script/system/pose/pose.gd")]([ExtResource("1_ahfvr"), ExtResource("2_6wgoi"), ExtResource("4_0cppg"), ExtResource("3_b7hh7")])
+slots = 8
+suits = Array[Resource("res://script/system/suit/suit.gd")]([ExtResource("2_p7u10"), ExtResource("3_oowsw"), ExtResource("4_tit4q"), ExtResource("5_t3pf5")])

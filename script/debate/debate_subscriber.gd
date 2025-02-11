@@ -12,16 +12,16 @@ func on_debate_start():
 func on_player_change(_contestant : Contestant):
 	pass
 	
-func on_top_played(_top: Top, _active_contestant : Contestant):
+func on_card_played(_card: Card, _active_contestant : Contestant):
 	pass
 
-func on_score_updated(_pose_score_dictionary : Dictionary):
+func on_score_updated(_suit_score_dictionary : Dictionary):
 	pass
 
 func on_lines_cleared(_count : int):
 	pass
 
-func on_top_board_updated(_pose_track_dictionary : Dictionary):
+func on_board_updated(_suit_track_dictionary : Dictionary):
 	pass
 
 func on_debate_finished():

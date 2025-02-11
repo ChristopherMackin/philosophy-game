@@ -9,14 +9,14 @@ class_name SelectionManager
 @export var idle_focus_group : FocusGroup
 @export var hand_ui_focus_group : FocusGroup
 @export var play_area_selector_focus_group : FocusGroup
-@export var tops_card_selector_focus_group : FocusGroup
+@export var card_selector_focus_group : FocusGroup
 
 @export_group("Focus Clear")
 @export var ui_clear_focus_node : Control
 
 @export_group("Selectors")
 @export var play_area_selector : PlayAreaSelector
-@export var tops_card_selector : TopsCardSelector
+@export var card_selector : CardSelector
 
 var active_focus_group : FocusGroup
 
@@ -37,20 +37,20 @@ func on_focus_changed(node : Node):
 
 func _unhandled_input(event):
 	if event.is_action_pressed("select"):
-		if focused_node != null && "top" in focused_node:
-			player_brain.play_top(focused_node.top)
+		if focused_node != null && "card" in focused_node:
+			player_brain.make_selection(focused_node.card)
 			play_area_selector.close_selector()
-			tops_card_selector.close_selector()
+			card_selector.close_selector()
 
-func on_input_requested(top_array : Array[Top], what : String, visible_to_player : bool):
+func on_input_requested(options : Array, what : String, visible_to_player : bool):
 	if what == "play":
 		set_focus_group(hand_ui_focus_group)
-	elif what == "board_top_removal":
-		play_area_selector.open_selector(top_array)
+	elif what == "board_token_removal":
+		play_area_selector.open_selector(options)
 		set_focus_group(play_area_selector_focus_group)
 	else:
-		tops_card_selector.open_selector(top_array, visible_to_player)
-		set_focus_group(tops_card_selector_focus_group)
+		card_selector.open_selector(options, visible_to_player)
+		set_focus_group(card_selector_focus_group)
 
 func pause_input():
 	set_focus_group(idle_focus_group)

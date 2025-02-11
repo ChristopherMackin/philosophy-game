@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="TopData" load_steps=6 format=3 uid="uid://dd2fegbb0380v"]
+
+[ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/general/token/basic_faith_tex.png" id="1_5bt5h"]
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_aknv3"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="2_bmcs0"]
+[ext_resource type="Script" path="res://script/system/card/card_action/modify_energy_card_action.gd" id="2_hcf66"]
+
+[sub_resource type="Resource" id="Resource_mahwg"]
+script = ExtResource("2_hcf66")
+amount = 1
+
+[resource]
+script = ExtResource("1_aknv3")
+base_cost = 2
+pose = ExtResource("2_bmcs0")
+title = "Heavy Burden"
+artwork = ExtResource("1_5bt5h")
+description = "If discarded, gain 1 energy"
+on_play_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+on_discard_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([SubResource("Resource_mahwg")])
+on_banish_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+tag = 0

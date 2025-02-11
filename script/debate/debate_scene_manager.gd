@@ -14,7 +14,7 @@ extends DebateSubscriber
 @export var computer_3d : DebateContestant3D
 
 @export_group("Player UI")
-@export var tops_board : TopsBoard3D
+@export var board : Board3D
 @export var hand_ui : HandUI
 @export var energy_ui : EnergyUI
 @export var draw_pile_ui : DrawPileUI
@@ -35,22 +35,22 @@ func on_debate_start():
 func on_player_change(contestant : Contestant):	
 	selection_manager.pause_input()
 	
-func on_top_played(top: Top, active_contestant : Contestant):
-	await query_event("on_top_played")
+func on_card_played(card: Card, active_contestant : Contestant):
+	await query_event("on_card_played")
 
-func on_score_updated(pose_score_dictionary : Dictionary):
+func on_score_updated(suit_score_dictionary : Dictionary):
 	pass
 
 func on_lines_cleared(count : int):
-	await tops_board.clear_row(count)
+	await board.clear_row(count)
 
 func on_debate_finished():
 	print("Debate Finished")
 	get_tree().quit()
 
-func on_top_board_updated(pose_track_dictionary : Dictionary):
+func on_board_updated(suit_track_dictionary : Dictionary):
 	var active_contestant = "player" if manager.active_contestant.character == player else "computer"
-	await tops_board.update_tops_board_3d(pose_track_dictionary, active_contestant)
+	await board.update_board_3d(suit_track_dictionary, active_contestant)
 
 func on_hand_updated(contestant : Contestant):
 	if contestant.character == player:

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="InfiniteDeck" load_steps=5 format=3 uid="uid://dx84t8mdhci6e"]
 
-[ext_resource type="Script" path="res://script/system/top/tops_deck_config.gd" id="1_oqjm4"]
-[ext_resource type="Resource" uid="uid://clnyw55jxr6to" path="res://system/top/doubt/basic_doubt.tres" id="2_rrcn4"]
+[ext_resource type="Script" path="res://script/system/card/card_deck_config.gd" id="1_oqjm4"]
+[ext_resource type="Resource" uid="uid://clnyw55jxr6to" path="res://system/card/doubt/basic_doubt.tres" id="2_rrcn4"]
 [ext_resource type="Script" path="res://script/system/deck/infinite_deck.gd" id="3_k2gwi"]
 
 [sub_resource type="Resource" id="Resource_bnrab"]

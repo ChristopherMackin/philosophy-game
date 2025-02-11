@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Pose" load_steps=3 format=3 uid="uid://bqcg2g04h2bqp"]
+
+[ext_resource type="Texture2D" uid="uid://8m5h442qngjv" path="res://asset/graphic/debate/general/suit/others_icon.png" id="1_hggj1"]
+[ext_resource type="Script" path="res://script/system/suit/suit.gd" id="1_ucshs"]
+
+[resource]
+script = ExtResource("1_ucshs")
+name = "Others"
+color = Color(0.529412, 0.835294, 0.972549, 1)
+icon = ExtResource("1_hggj1")

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="TopData" load_steps=7 format=3 uid="uid://cnt3v7c6se44p"]
+
+[ext_resource type="Texture2D" uid="uid://cpasg5witafv0" path="res://asset/graphic/debate/general/token/basic_doubt_tex.png" id="1_fsura"]
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_otxna"]
+[ext_resource type="Script" path="res://script/system/card/card_action/add_card_to_hand_card_action.gd" id="2_2xb00"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_ss737"]
+[ext_resource type="Resource" uid="uid://bikkawmtanm1m" path="res://system/card/doubt/deep_breath.tres" id="3_8skib"]
+
+[sub_resource type="Resource" id="Resource_dom1c"]
+script = ExtResource("2_2xb00")
+top_data = ExtResource("3_8skib")
+amount = 2
+
+[resource]
+script = ExtResource("1_otxna")
+base_cost = 3
+pose = ExtResource("2_ss737")
+title = "Hold Your Tongue"
+artwork = ExtResource("1_fsura")
+description = "Add two [color=red]Deep Breath[/color] tops to your hand"
+on_play_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([SubResource("Resource_dom1c")])
+on_discard_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+on_banish_top_action = Array[Resource("res://script/system/top/top_action/top_action.gd")]([])
+tag = 0

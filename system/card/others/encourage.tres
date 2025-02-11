@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TopData" load_steps=6 format=3 uid="uid://uhbfxr7y8o8k"]
+
+[ext_resource type="Script" path="res://script/system/card/card_action/modify_opponent_energy_card_action.gd" id="1_5vynb"]
+[ext_resource type="Texture2D" uid="uid://cxg1vi58g02wv" path="res://asset/graphic/debate/general/token/basic_others_tex.png" id="1_dpxgu"]
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_uwhxo"]
+[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="2_b2ikh"]
+
+[sub_resource type="Resource" id="Resource_uhods"]
+script = ExtResource("1_5vynb")
+amount = 1
+
+[resource]
+script = ExtResource("1_uwhxo")
+base_cost = 0
+pose = ExtResource("2_b2ikh")
+title = "Encourage"
+artwork = ExtResource("1_dpxgu")
+description = "Opponent gets +1 energy"
+action = SubResource("Resource_uhods")
+tag = 0
