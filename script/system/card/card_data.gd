@@ -10,6 +10,8 @@ class_name CardData
 @export var on_play_card_action : Array[CardAction]
 @export var on_discard_card_action : Array[CardAction]
 @export var on_banish_card_action : Array[CardAction]
+@export var on_turn_start_card_action : Array[CardAction]
+@export var on_turn_end_card_action : Array[CardAction]
 @export var cost_modifier : CardCostModifier = CardCostModifier.new()
 
 func get_cost(manager : DebateManager) -> int:

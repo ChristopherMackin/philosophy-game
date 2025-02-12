@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=6 format=3 uid="uid://hu1i2psvxb3g"]
+
+[ext_resource type="Script" path="res://script/system/card/card_action/give_card_to_opponent_card_action.gd" id="1_7hsry"]
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_yuxfu"]
+[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="2_r6prq"]
+[ext_resource type="Resource" uid="uid://dqi64apd2c507" path="res://system/token/others/basic_others_token.tres" id="3_qjovf"]
+
+[sub_resource type="Resource" id="Resource_igbqe"]
+script = ExtResource("1_7hsry")
+
+[resource]
+script = ExtResource("1_yuxfu")
+token_data = ExtResource("3_qjovf")
+base_cost = 1
+suit = ExtResource("2_r6prq")
+title = "Helping Hand"
+description = "Pick a card from your hand and give it to your opponent"
+on_play_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_igbqe")])
+on_discard_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_banish_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_start_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_end_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

@@ -116,5 +116,9 @@ func remove_from_draw_pile(card : Card):
 func add_to_draw_pile(card : Card):
 	_deck.add_to_draw_pile(card)
 
+func add_card_to_hand(card : Card):
+	hand.append(card)
+	on_hand_updated.emit(self)
+
 func get_deck_count() -> int:
 	return _deck.count
