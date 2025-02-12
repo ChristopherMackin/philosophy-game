@@ -46,6 +46,7 @@ icon = NodePath("CardBG/PoseIcon")
 title = NodePath("CardBG/Title")
 artwork = NodePath("CardBG/CardTokenLocation/Token")
 description = NodePath("CardBG/Description")
+metadata/focus_var = "card"
 
 [node name="Shadow" type="TextureRect" parent="."]
 modulate = Color(0, 0, 0, 0.0745098)

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TokenData" load_steps=3 format=3 uid="uid://dqi64apd2c507"]
+
+[ext_resource type="Texture2D" uid="uid://cxg1vi58g02wv" path="res://asset/graphic/debate/general/token/basic_others_tex.png" id="1_i4arc"]
+[ext_resource type="Script" path="res://script/system/token/token_data.gd" id="2_v2f5n"]
+
+[resource]
+script = ExtResource("2_v2f5n")
+artwork = ExtResource("1_i4arc")
+tag = 0

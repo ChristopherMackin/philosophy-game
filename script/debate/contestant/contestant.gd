@@ -41,14 +41,6 @@ func ready_up(manager : DebateManager):
 	draw_full_hand()
 	current_energy = energy_limit
 
-func select(card_array : Array[Card] = hand, what : String = "play", visible_to_player : bool = true) -> Card:
-	var card = await _brain.select(card_array, what, visible_to_player)
-	
-	while card_array.map(func(x): return x.data).find(card.data) == -1:
-		card = await _brain.select(card_array, what, visible_to_player)
-	
-	return card
-
 func clean_up():
 	draw_full_hand()
 	current_energy = energy_limit
@@ -75,6 +67,14 @@ func _draw_card() -> bool:
 	
 	hand.append(card)
 	return true
+	
+func select(options : Array = hand, what : String = "play", visible_to_player : bool = true):
+	var option = await _brain.select(options, what, visible_to_player)
+	
+	while options.find(option) == -1:
+		option = await _brain.select(options, what, visible_to_player)
+	
+	return option
 
 func remove_card_from_hand(card : Card):
 	var index = hand.find(card)
@@ -86,34 +86,21 @@ func remove_card_from_hand(card : Card):
 	on_hand_updated.emit(self)
 	on_deck_updated.emit(self)
 
+func get_playable_cards() -> Array[Card]:
+	return hand.filter(func(x): return x.cost <= current_energy)
+
+func play_card(card : Card, cost_override : int = 0, use_action : bool = true):
+	remove_card_from_hand(card)
+	
+	if(use_action):
+		for action in card.data.on_play_card_action:
+			await action.invoke(card, self, manager)
+
 func discard_card(card : Card):
 	remove_card_from_hand(card)
 	
 	for action in card.data.on_discard_card_action:
 		await action.invoke(card, self, manager)
-
-func make_selection(card : Card, use_action : bool = true):
-	remove_card_from_hand(card)
-	current_energy -= card.cost
-	
-	await manager.push_token_to_queue(card)
-	
-	if(use_action):
-		for action in card.data.on_make_selection_action:
-			await action.invoke(card, self, manager)
-
-func make_selection_cost_override(card : Card, cost_override : int = 0, use_action : bool = true):
-	remove_card_from_hand(card)
-	current_energy -= cost_override
-	
-	await manager.push_token_to_queue(card)
-	
-	if(use_action):
-		for action in card.data.on_make_selection_action:
-			await action.invoke(card, self, manager)
-
-func get_playable_cards() -> Array[Card]:
-	return hand.filter(func(x): return x.cost <= current_energy)
 
 func remove_from_deck(card : Card):
 	_deck.remove_from_deck(card)

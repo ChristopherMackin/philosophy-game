@@ -2,8 +2,7 @@ extends Node3D
 
 class_name Board3D
 
-@export_group("Suit Settings")
-@export var settings : DebateSettings
+@export_group("Suit Track")
 @export var suit_tracks : Array[SuitTrack3D]
 
 @export_group("Packed Scene")

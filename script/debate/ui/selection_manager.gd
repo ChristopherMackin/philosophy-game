@@ -37,8 +37,12 @@ func on_focus_changed(node : Node):
 
 func _unhandled_input(event):
 	if event.is_action_pressed("select"):
-		if focused_node != null && "card" in focused_node:
-			player_brain.make_selection(focused_node.card)
+		if focused_node == null: return
+		
+		var property_name = focused_node.get_meta("focus_var")
+		
+		if property_name in focused_node:
+			player_brain.make_selection(focused_node.get(property_name))
 			play_area_selector.close_selector()
 			card_selector.close_selector()
 

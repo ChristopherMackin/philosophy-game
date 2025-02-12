@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2mat21re3sx3"]
+[gd_scene load_steps=9 format=3 uid="uid://c2mat21re3sx3"]
 
 [ext_resource type="Script" path="res://script/ui/board_3d.gd" id="1_84e7o"]
 [ext_resource type="Texture2D" uid="uid://wnxe7wkm381u" path="res://asset/graphic/aaron/aaron_board.jpg" id="2_m7gok"]
-[ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://debate/main/debate_settings.tres" id="3_wb0eu"]
 [ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://debate/packed_scene/token_3d.tscn" id="4_7i8i2"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="6_b4j2d"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="9_xtjld"]
@@ -13,7 +12,6 @@
 [node name="Board3D" type="Node3D" node_paths=PackedStringArray("suit_tracks")]
 transform = Transform3D(1, -3.48786e-16, 3.48786e-16, 3.48786e-16, 1, -3.48788e-16, -3.48786e-16, 3.48788e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 script = ExtResource("1_84e7o")
-settings = ExtResource("3_wb0eu")
 suit_tracks = [NodePath("Faith"), NodePath("Doubt"), NodePath("Self"), NodePath("Others")]
 token_3d_packed_scene = ExtResource("4_7i8i2")
 

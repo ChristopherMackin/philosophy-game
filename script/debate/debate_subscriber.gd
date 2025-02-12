@@ -21,7 +21,7 @@ func on_score_updated(_suit_score_dictionary : Dictionary):
 func on_lines_cleared(_count : int):
 	pass
 
-func on_board_updated(_suit_track_dictionary : Dictionary):
+func on_suit_track_updated(_suit_track_dictionary : Dictionary):
 	pass
 
 func on_debate_finished():

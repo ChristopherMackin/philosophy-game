@@ -19,9 +19,9 @@ func open_selector(tokens : Array[Token]):
 	
 	for suit_track in board.suit_tracks:
 		for token in tokens:
-			var index = suit_track.map(func(x): return x.token).find(token)
+			var index = suit_track.tokens_3d.map(func(x): return x.token).find(token)
 			if index >= 0:
-				tokens_3d.append(suit_track[index])
+				tokens_3d.append(suit_track.tokens_3d[index])
 	
 	for token_3d in tokens_3d:
 		var selector : Control = selector_packed_scene.instantiate()

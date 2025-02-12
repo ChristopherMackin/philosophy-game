@@ -1,8 +1,8 @@
 extends DebateSubscriber
 
 @export_group("Settings")
-@export var debate_settings : DebateSettings
 @export var event_manager : EventManager
+@export var debate_settings : DebateSettings
 
 @export_group ("Player")
 @export var player : Character
@@ -48,7 +48,7 @@ func on_debate_finished():
 	print("Debate Finished")
 	get_tree().quit()
 
-func on_board_updated(suit_track_dictionary : Dictionary):
+func on_suit_track_updated(suit_track_dictionary : Dictionary):
 	var active_contestant = "player" if manager.active_contestant.character == player else "computer"
 	await board.update_board_3d(suit_track_dictionary, active_contestant)
 

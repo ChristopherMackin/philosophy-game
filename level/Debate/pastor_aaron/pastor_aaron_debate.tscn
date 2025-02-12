@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://c674050h413wq"]
+[gd_scene load_steps=77 format=3 uid="uid://c674050h413wq"]
 
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_c3gp0"]
 [ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event_manager.tres" id="3_pgeyy"]
@@ -197,10 +197,31 @@ script = ExtResource("44_si8pi")
 suit = ExtResource("52_j58j1")
 packed_scene = ExtResource("51_5ds64")
 
+[sub_resource type="Resource" id="Resource_omd8t"]
+script = ExtResource("44_si8pi")
+suit = ExtResource("46_hgjh0")
+packed_scene = ExtResource("44_foc6m")
+
+[sub_resource type="Resource" id="Resource_ywx4c"]
+script = ExtResource("44_si8pi")
+suit = ExtResource("48_i3oc5")
+packed_scene = ExtResource("47_n1gb1")
+
+[sub_resource type="Resource" id="Resource_dv0iw"]
+script = ExtResource("44_si8pi")
+suit = ExtResource("50_kpa4e")
+packed_scene = ExtResource("49_k0074")
+
+[sub_resource type="Resource" id="Resource_s6005"]
+script = ExtResource("44_si8pi")
+suit = ExtResource("52_j58j1")
+packed_scene = ExtResource("51_5ds64")
+
 [node name="Debate3d" type="Node3D"]
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("55_qd7va")
+should_save_data = false
 save_data = Array[ExtResource("57_ycv4i")]([SubResource("Resource_cjob1"), SubResource("Resource_xhqun")])
 
 [node name="===MANAGER========" type="Node3D" parent="."]
@@ -208,8 +229,8 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 
 [node name="DebateSceneManager" type="Node3D" parent="." node_paths=PackedStringArray("player_3d", "selection_manager", "computer_3d", "board", "hand_ui", "energy_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
 script = ExtResource("1_c3gp0")
-debate_settings = ExtResource("6_ika5p")
 event_manager = ExtResource("3_pgeyy")
+debate_settings = ExtResource("6_ika5p")
 player = ExtResource("4_vrocj")
 player_3d = NodePath("../Joy")
 selection_manager = NodePath("../SelectionManager")
@@ -649,7 +670,7 @@ cull_mask = 1048569
 environment = ExtResource("11_5ne5n")
 far = 50.0
 
-[node name="PlayAreaSelector" type="Control" parent="PlayArea" node_paths=PackedStringArray("camera")]
+[node name="PlayAreaSelector" type="Control" parent="PlayArea" node_paths=PackedStringArray("board", "camera")]
 layout_mode = 3
 anchor_left = 0.375
 anchor_right = 1.0
@@ -658,6 +679,7 @@ offset_left = -5.72205e-05
 offset_bottom = 0.279932
 grow_horizontal = 0
 script = ExtResource("35_cavrw")
+board = NodePath("../../Lectern/Board3D")
 camera = NodePath("../PlayAreaViewport/SubViewport/Camera3D")
 selector_packed_scene = ExtResource("36_u3n2x")
 focus_group = ExtResource("37_4nevq")
@@ -1025,6 +1047,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("51_3qr11")
+card_ui_suit_packed_scenes = Array[ExtResource("44_si8pi")]([SubResource("Resource_omd8t"), SubResource("Resource_ywx4c"), SubResource("Resource_dv0iw"), SubResource("Resource_s6005")])
 card_container = NodePath("Background/HFlowContainer")
 focus_group = ExtResource("11_1e8cx")
 

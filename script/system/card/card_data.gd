@@ -7,7 +7,7 @@ class_name CardData
 @export var suit : Suit
 @export var title : String
 @export_multiline var description : String
-@export var on_make_selection_action : Array[CardAction]
+@export var on_play_card_action : Array[CardAction]
 @export var on_discard_card_action : Array[CardAction]
 @export var on_banish_card_action : Array[CardAction]
 @export var cost_modifier : CardCostModifier = CardCostModifier.new()

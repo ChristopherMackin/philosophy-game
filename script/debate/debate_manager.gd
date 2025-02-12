@@ -114,8 +114,19 @@ func active_player_turn():
 			break
 		
 		var card = await active_contestant.select(playable_cards)
-		await active_contestant.make_selection(card)
+		var token = Token.new(card.data.token_data)
 		
+		active_contestant.current_energy -= card.data.get_cost(self)
+		
+		blackboard.add("previous_card", blackboard.get_value("current_card"), Constants.ExpirationToken.ON_DEBATE_START)
+		blackboard.add("previous_suit", blackboard.get_value("current_suit"), Constants.ExpirationToken.ON_DEBATE_START)
+		blackboard.add("current_card", card.data.title, Constants.ExpirationToken.ON_DEBATE_START)
+		blackboard.add("current_suit", card.data.suit.name, Constants.ExpirationToken.ON_DEBATE_START)
+	
+		suit_track_dictionary[card.data.suit.name].append(token)
+		for sub : DebateSubscriber in subscriber_array: await sub.on_suit_track_updated(suit_track_dictionary)
+		
+		await active_contestant.play_card(card)
 		for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, active_contestant)
 		
 		clear_lines()
@@ -136,19 +147,6 @@ func clear_lines():
 				array.remove_at(0)
 		for sub : DebateSubscriber in subscriber_array: await sub.on_lines_cleared(min)
 
-func push_token_to_queue(card : Card):
-	var token = Token.new(card.data.token_data)
-	
-	blackboard.add("previous_card", blackboard.get_value("current_card"), Constants.ExpirationToken.ON_DEBATE_START)
-	blackboard.add("previous_suit", blackboard.get_value("current_suit"), Constants.ExpirationToken.ON_DEBATE_START)
-	
-	suit_track_dictionary[card.data.suit.name].append(token)
-	
-	blackboard.add("current_card", card.data.title, Constants.ExpirationToken.ON_DEBATE_START)
-	blackboard.add("current_suit", card.data.suit.name, Constants.ExpirationToken.ON_DEBATE_START)
-	
-	for sub : DebateSubscriber in subscriber_array: await sub.on_board_updated(suit_track_dictionary)
-
 func remove_token_from_suit_track(token : Token):
 	var index
 	var suit_name
@@ -163,7 +161,7 @@ func remove_token_from_suit_track(token : Token):
 	
 	suit_track_dictionary[suit_name].remove_at(index)
 	
-	for sub : DebateSubscriber in subscriber_array: await sub.on_board_updated(suit_track_dictionary)
+	for sub : DebateSubscriber in subscriber_array: await sub.on_suit_track_updated(suit_track_dictionary)
 
 func on_hand_updated(contestant : Contestant):
 	for sub : DebateSubscriber in subscriber_array: await sub.on_hand_updated(contestant)
