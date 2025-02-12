@@ -8,7 +8,7 @@ layout_mode = 3
 anchors_preset = 0
 focus_mode = 2
 script = ExtResource("1_gutj5")
-metadata/focus_var = "token"
+metadata/focus_property = "token"
 
 [node name="Icon" type="TextureRect" parent="."]
 visible = false

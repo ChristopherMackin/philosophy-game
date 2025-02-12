@@ -40,17 +40,17 @@ func update_board_3d(suit_track_dictionary : Dictionary, active_contestant : Str
 		var new_tokens = Util.array_difference(suit_track_dictionary[suit], current_tokens)
 		var removed_tokens = Util.array_difference(current_tokens, suit_track_dictionary[suit])
 		
-		var add_funcs : Array[Callable] = []
-		for token in new_tokens:
-			add_funcs.append(func() :await _add_token(token, track, contestant))
-		
-		await Util.await_all(add_funcs)
-		
 		var remove_funcs : Array[Callable] = []
 		for token in removed_tokens:
 			remove_funcs.append(func() :await _remove_token(token, track, contestant))
 		
 		await Util.await_all(remove_funcs)
+		
+		var add_funcs : Array[Callable] = []
+		for token in new_tokens:
+			add_funcs.append(func() :await _add_token(token, track, contestant))
+		
+		await Util.await_all(add_funcs)
 	
 	lock.release_lock()
 

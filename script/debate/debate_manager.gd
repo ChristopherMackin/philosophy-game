@@ -122,9 +122,8 @@ func active_player_turn():
 		blackboard.add("previous_suit", blackboard.get_value("current_suit"), Constants.ExpirationToken.ON_DEBATE_START)
 		blackboard.add("current_card", card.data.title, Constants.ExpirationToken.ON_DEBATE_START)
 		blackboard.add("current_suit", card.data.suit.name, Constants.ExpirationToken.ON_DEBATE_START)
-	
-		suit_track_dictionary[card.data.suit.name].append(token)
-		for sub : DebateSubscriber in subscriber_array: await sub.on_suit_track_updated(suit_track_dictionary)
+		
+		await add_token_to_suit_track(token, card.data.suit)
 		
 		await active_contestant.play_card(card)
 		for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, active_contestant)
@@ -174,3 +173,7 @@ func on_deck_updated(contestant : Contestant):
 
 func get_opponent(contestant : Contestant):
 	return computer if contestant == player else player
+
+func add_token_to_suit_track(token : Token, suit : Suit):
+	suit_track_dictionary[suit.name].append(token)
+	for sub : DebateSubscriber in subscriber_array: await sub.on_suit_track_updated(suit_track_dictionary)

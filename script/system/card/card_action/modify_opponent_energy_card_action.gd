@@ -5,6 +5,8 @@ class_name ModifyOpponentEnergyCardAction
 @export var amount : int
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	manager.get_opponent(player).current_energy += amount
-	if manager.get_opponent(player).current_energy <= 0:
-		manager.get_opponent(player).current_energy = 0
+	var opponent = manager.get_opponent(player)
+	
+	opponent.current_energy += amount
+	if opponent.current_energy <= 0:
+		opponent.current_energy = 0

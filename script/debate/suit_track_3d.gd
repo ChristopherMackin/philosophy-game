@@ -7,7 +7,7 @@ class_name SuitTrack3D
 var tokens_3d: Array[Token3D]
 
 func get_slot():
-	return slots[tokens_3d.size()]
+	return slots[tokens_3d.size()] if slots.size() >= tokens_3d.size() else null
 
 func remove_token(token : Token):
 	pass

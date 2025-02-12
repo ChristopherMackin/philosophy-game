@@ -1,9 +1,11 @@
 extends CardAction
 
-class_name DuplicateCardAction
+class_name AddTokenAction
 
-@export var amount : int
+@export var amount : int = 1
+@export var token_data : TokenData
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
 	for i in amount:
-		await player.play_card_cost_override(card, 0, false)
+		var token = Token.new(token_data)
+		await manager.add_token_to_suit_track(token, card.data.suit)
