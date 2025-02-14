@@ -120,5 +120,5 @@ func add_card_to_hand(card : Card):
 	hand.append(card)
 	on_hand_updated.emit(self)
 
-func get_deck_count() -> int:
-	return _deck.count
+func get_draw_pile_count() -> int:
+	return _deck.get_draw_pile_count()

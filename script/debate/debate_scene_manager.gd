@@ -66,7 +66,7 @@ func on_energy_updated(contestant : Contestant):
 
 func on_deck_updated(contestant : Contestant):
 	if contestant.character == player:
-		draw_pile_ui.update_amount(manager.player.get_deck_count())
+		draw_pile_ui.update_amount(manager.player.get_draw_pile_count())
 
 func query_event(concept : String):
 	var query : Dictionary

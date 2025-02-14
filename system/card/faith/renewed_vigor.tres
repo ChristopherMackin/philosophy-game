@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=8 format=3 uid="uid://c8f4knq3ftyfs"]
+
+[ext_resource type="Script" path="res://script/system/card/card_action/modify_energy_card_action.gd" id="1_ld53e"]
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_pw41y"]
+[ext_resource type="Script" path="res://script/system/card/card_action/banish_self_card_action.gd" id="2_vgkll"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="4_g4k6j"]
+[ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="5_wpfyl"]
+
+[sub_resource type="Resource" id="Resource_agyxo"]
+script = ExtResource("1_ld53e")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_70n0s"]
+script = ExtResource("2_vgkll")
+
+[resource]
+script = ExtResource("1_pw41y")
+token_data = ExtResource("5_wpfyl")
+base_cost = 0
+suit = ExtResource("4_g4k6j")
+title = "Renewed Vigor"
+description = "On turn start, gain 2 energy and banish this card"
+on_play_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_discard_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_banish_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_start_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_agyxo"), SubResource("Resource_70n0s")])
+on_turn_end_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

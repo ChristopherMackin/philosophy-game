@@ -101,12 +101,16 @@ func get_is_debate_over() -> bool:
 			return true
 	
 	for c : Contestant in contestants:
-		if c.get_deck_count() + c.hand.size() <= 0:
+		if c.get_draw_pile_count() + c.hand.size() <= 0:
 			return true
 	
 	return false
 
 func active_player_turn():
+	for card : Card in active_contestant.hand.duplicate():
+		for action in card.data.on_turn_start_card_action:
+			await action.invoke(card, active_contestant, self)
+	
 	while active_contestant.current_energy > 0 and !get_is_debate_over():
 		var playable_cards = active_contestant.get_playable_cards()
 		
@@ -129,6 +133,10 @@ func active_player_turn():
 		for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, active_contestant)
 		
 		clear_lines()
+	
+	for card : Card in active_contestant.hand.duplicate():
+		for action in card.data.on_turn_end_card_action:
+			await action.invoke(card, active_contestant, self)
 	
 	active_contestant.clean_up()
 

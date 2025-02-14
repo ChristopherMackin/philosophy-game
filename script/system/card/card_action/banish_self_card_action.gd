@@ -3,4 +3,6 @@ extends CardAction
 class_name BanishSelfCardAction
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	player.remove_from_deck(card)
+	if player.hand.has(card):
+		player.remove_card_from_hand(card)
+	await player.remove_from_deck(card)

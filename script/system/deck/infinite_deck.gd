@@ -3,7 +3,10 @@ extends Deck
 class_name InfiniteDeck
 
 func draw_card():
-	if draw_pile.size() <= 0:
+	if _draw_pile.size() <= 0:
 		initialize_deck(manager)
 	
-	return draw_pile.pop_front()
+	return _draw_pile.pop_front()
+
+func get_draw_pile_count():
+	return 1000000000

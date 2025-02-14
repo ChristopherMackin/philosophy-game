@@ -221,6 +221,7 @@ packed_scene = ExtResource("51_5ds64")
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("55_qd7va")
+should_save_data = false
 save_data = Array[ExtResource("57_ycv4i")]([SubResource("Resource_cjob1"), SubResource("Resource_xhqun")])
 
 [node name="===MANAGER========" type="Node3D" parent="."]
