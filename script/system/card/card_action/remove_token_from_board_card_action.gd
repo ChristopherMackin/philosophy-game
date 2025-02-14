@@ -2,13 +2,18 @@ extends CardAction
 
 class_name RemoveCardFromBoardCardAction
 
-@export var allowedSuits : Array[Suit]
+@export var suit_filter : Array[Suit]
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
 	var selectable_tokens : Array[Token]
 	
-	for suit in allowedSuits:
-		selectable_tokens.append_array(manager.suit_track_dictionary[suit.name])
+	if suit_filter.size() > 0:	
+		for suit in suit_filter:
+			selectable_tokens.append_array(manager.suit_track_dictionary[suit.name])
+	else:
+		for key in manager.suit_track_dictionary:
+			var track = manager.suit_track_dictionary[key]
+			selectable_tokens.append_array(track)
 	
 	var selected_token = await player.select(
 		selectable_tokens,
@@ -16,4 +21,4 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 		true
 	)
 	
-	manager.remove_token_from_suit_track(selected_token)
+	await manager.remove_token_from_suit_track(selected_token)

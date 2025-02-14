@@ -18,3 +18,5 @@ description = "Look at the opponents hand and discard 1 card"
 on_play_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_rimwk")])
 on_discard_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_banish_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_start_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_end_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

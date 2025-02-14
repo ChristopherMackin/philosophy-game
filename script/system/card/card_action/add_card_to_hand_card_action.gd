@@ -1,6 +1,6 @@
 extends CardAction
 
-class_name AddTopToHandPileCardAction
+class_name AddCardToHandCardAction
 
 @export var card_data : CardData
 @export var amount : int = 1

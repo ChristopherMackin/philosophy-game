@@ -1,20 +1,14 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=7 format=3 uid="uid://dv86ada6flar5"]
+[gd_resource type="Resource" script_class="Deck" load_steps=5 format=3 uid="uid://dv86ada6flar5"]
 
 [ext_resource type="Script" path="res://script/system/deck/deck.gd" id="1_8ujv4"]
-[ext_resource type="Resource" uid="uid://hu1i2psvxb3g" path="res://system/card/others/helping_hand.tres" id="1_lf4ep"]
+[ext_resource type="Resource" uid="uid://0typgs1qd50l" path="res://system/card/faith/glorify_card_arc/ratify.tres" id="1_cuwqu"]
 [ext_resource type="Script" path="res://script/system/card/card_deck_config.gd" id="2_1cty8"]
-[ext_resource type="Resource" uid="uid://r2wabvfabuo" path="res://system/card/doubt/fact_check.tres" id="3_5hply"]
 
 [sub_resource type="Resource" id="Resource_7ye4g"]
 script = ExtResource("2_1cty8")
-card_data = ExtResource("1_lf4ep")
-count = 8
-
-[sub_resource type="Resource" id="Resource_igopc"]
-script = ExtResource("2_1cty8")
-card_data = ExtResource("3_5hply")
+card_data = ExtResource("1_cuwqu")
 count = 2
 
 [resource]
 script = ExtResource("1_8ujv4")
-composition_card_deck_config_array = Array[ExtResource("2_1cty8")]([SubResource("Resource_7ye4g"), SubResource("Resource_igopc")])
+composition_card_deck_config_array = Array[ExtResource("2_1cty8")]([SubResource("Resource_7ye4g")])

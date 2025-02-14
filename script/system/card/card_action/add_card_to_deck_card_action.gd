@@ -1,6 +1,6 @@
 extends CardAction
 
-class_name AddTopToDeckCardAction
+class_name AddCardToDeckCardAction
 
 @export var card_data : CardData
 @export var amount : int = 1

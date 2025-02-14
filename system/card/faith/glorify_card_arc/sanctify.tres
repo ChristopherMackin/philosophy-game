@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=11 format=3 uid="uid://d3k1eggoknf2j"]
+
+[ext_resource type="Script" path="res://script/system/card/card_action/add_card_to_deck_card_action.gd" id="1_m8gwd"]
+[ext_resource type="Resource" uid="uid://doxs8qyg8y0ik" path="res://system/card/faith/glorify_card_arc/glorify.tres" id="1_ssm3n"]
+[ext_resource type="Script" path="res://script/system/card/card_action/add_token_action.gd" id="3_63ci4"]
+[ext_resource type="Script" path="res://script/system/card/card_action/banish_self_card_action.gd" id="4_vnjje"]
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="5_drkx7"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="6_ugjkw"]
+[ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="7_k5626"]
+
+[sub_resource type="Resource" id="Resource_gwjw0"]
+script = ExtResource("1_m8gwd")
+card_data = ExtResource("1_ssm3n")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_d2o31"]
+script = ExtResource("3_63ci4")
+amount = 1
+token_data = ExtResource("7_k5626")
+
+[sub_resource type="Resource" id="Resource_1vp3p"]
+script = ExtResource("4_vnjje")
+
+[resource]
+script = ExtResource("5_drkx7")
+token_data = ExtResource("7_k5626")
+base_cost = 1
+suit = ExtResource("6_ugjkw")
+title = "Sanctify"
+description = "Banished when played
+
+Add [color=red]Glorify[/color] card to your deck when banished
+
+Add 1 basic faith token to the faith track"
+on_play_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_d2o31"), SubResource("Resource_1vp3p")])
+on_discard_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_banish_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_gwjw0")])
+on_turn_start_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_end_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

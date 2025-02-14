@@ -1,20 +1,23 @@
-[gd_resource type="Resource" script_class="TopData" load_steps=6 format=3 uid="uid://uhbfxr7y8o8k"]
+[gd_resource type="Resource" script_class="CardData" load_steps=6 format=3 uid="uid://uhbfxr7y8o8k"]
 
 [ext_resource type="Script" path="res://script/system/card/card_action/modify_opponent_energy_card_action.gd" id="1_5vynb"]
-[ext_resource type="Texture2D" uid="uid://cxg1vi58g02wv" path="res://asset/graphic/debate/general/token/basic_others_tex.png" id="1_dpxgu"]
 [ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_uwhxo"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="2_b2ikh"]
+[ext_resource type="Resource" uid="uid://dqi64apd2c507" path="res://system/token/others/basic_others_token.tres" id="4_j0dkq"]
 
-[sub_resource type="Resource" id="Resource_uhods"]
+[sub_resource type="Resource" id="Resource_fxuxa"]
 script = ExtResource("1_5vynb")
 amount = 1
 
 [resource]
 script = ExtResource("1_uwhxo")
+token_data = ExtResource("4_j0dkq")
 base_cost = 0
-pose = ExtResource("2_b2ikh")
+suit = ExtResource("2_b2ikh")
 title = "Encourage"
-artwork = ExtResource("1_dpxgu")
 description = "Opponent gets +1 energy"
-action = SubResource("Resource_uhods")
-tag = 0
+on_play_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_fxuxa")])
+on_discard_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_banish_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_start_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_end_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
