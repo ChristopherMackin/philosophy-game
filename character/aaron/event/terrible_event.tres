@@ -8,7 +8,7 @@
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_5i6bv")
 
-[sub_resource type="Resource" id="Resource_4n05v"]
+[sub_resource type="Resource" id="Resource_oic28"]
 script = ExtResource("3_a4btn")
 outputs = Array[int]([0])
 inputs = ["accuse", "aaron", false]
@@ -17,37 +17,37 @@ action = SubResource("Resource_ml60a")
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("4_x0tmb")
 
-[sub_resource type="Resource" id="Resource_cm7xj"]
+[sub_resource type="Resource" id="Resource_sc60y"]
 script = ExtResource("3_a4btn")
 outputs = Array[int]([3])
-inputs = ["Ooga booga! You need to go mew to skibbidy!", "aaron", false, 2.0]
+inputs = ["Ooga booga! You need to go mew to skibbidy! It's a whole thing yo. Super grand! You should definitley go for that my boi!", "aaron", false, 2.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_gilqe"]
+[sub_resource type="Resource" id="Resource_db2nw"]
 script = ExtResource("3_a4btn")
 outputs = Array[int]([4])
 inputs = ["Why??", "joy", false, 1.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_rv8xs"]
+[sub_resource type="Resource" id="Resource_75eff"]
 script = ExtResource("3_a4btn")
 outputs = Array[int]([2])
 inputs = ["think", "joy", false]
 action = SubResource("Resource_ml60a")
 
-[sub_resource type="Resource" id="Resource_ihbgb"]
+[sub_resource type="Resource" id="Resource_dtf0w"]
 script = ExtResource("3_a4btn")
 outputs = Array[int]([5])
 inputs = ["I've got to go to baby gronk soon.", "joy", false, 2.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_f7vx8"]
+[sub_resource type="Resource" id="Resource_rooeo"]
 script = ExtResource("3_a4btn")
 outputs = Array[int]([6])
 inputs = ["praise", "aaron", false]
 action = SubResource("Resource_ml60a")
 
-[sub_resource type="Resource" id="Resource_xkie2"]
+[sub_resource type="Resource" id="Resource_ypmna"]
 script = ExtResource("3_a4btn")
 outputs = Array[int]([])
 inputs = ["Cause he's gonna fannum tax my gyatt!", "aaron", false, 2.0]
@@ -57,6 +57,6 @@ action = SubResource("Resource_x7ur8")
 script = ExtResource("1_nhks1")
 is_major_event = false
 await_event = false
-frequency = 0
-start_task = SubResource("Resource_4n05v")
-tasks = Array[ExtResource("3_a4btn")]([SubResource("Resource_cm7xj"), SubResource("Resource_4n05v"), SubResource("Resource_gilqe"), SubResource("Resource_rv8xs"), SubResource("Resource_ihbgb"), SubResource("Resource_f7vx8"), SubResource("Resource_xkie2")])
+frequency = 1
+start_task = SubResource("Resource_oic28")
+tasks = Array[ExtResource("3_a4btn")]([SubResource("Resource_sc60y"), SubResource("Resource_oic28"), SubResource("Resource_db2nw"), SubResource("Resource_75eff"), SubResource("Resource_dtf0w"), SubResource("Resource_rooeo"), SubResource("Resource_ypmna")])

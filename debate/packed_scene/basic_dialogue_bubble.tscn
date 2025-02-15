@@ -30,5 +30,7 @@ theme_override_fonts/normal_font = ExtResource("3_pdods")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "This is a test of the text and such"
+scroll_active = false
+scroll_following = true
 script = ExtResource("3_fjgyg")
 characters_per_second = 20

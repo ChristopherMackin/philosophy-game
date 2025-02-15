@@ -1,14 +1,18 @@
-[gd_resource type="Resource" script_class="TopData" load_steps=4 format=3 uid="uid://crvid8h870ryr"]
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://crvid8h870ryr"]
 
-[ext_resource type="Texture2D" uid="uid://cxg1vi58g02wv" path="res://asset/graphic/debate/general/token/basic_others_tex.png" id="1_5fuur"]
 [ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_e32fx"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="1_f6egs"]
+[ext_resource type="Resource" uid="uid://dqi64apd2c507" path="res://system/token/others/basic_others_token.tres" id="3_h1qfx"]
 
 [resource]
 script = ExtResource("1_e32fx")
+token_data = ExtResource("3_h1qfx")
 base_cost = 1
-pose = ExtResource("1_f6egs")
+suit = ExtResource("1_f6egs")
 title = "Basic Others"
-artwork = ExtResource("1_5fuur")
 description = "Does nothing"
-tag = 0
+on_play_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_discard_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_banish_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_start_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_end_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

@@ -1,28 +1,15 @@
-[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=11 format=3 uid="uid://27sna6u0b0wj"]
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=8 format=3 uid="uid://27sna6u0b0wj"]
 
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/main_blackboard.tres" id="1_0ml4n"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/ordered_event_factory.gd" id="1_rb0rx"]
 [ext_resource type="Resource" uid="uid://hhaf8ssw71s4" path="res://character/aaron/event/terrible_event.tres" id="2_7gb1n"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/rule/rule.gd" id="3_5togk"]
-[ext_resource type="Script" path="res://script/character/debate_event_factory/rule/criterion/criterion.gd" id="3_12nf5"]
 [ext_resource type="Script" path="res://script/character/debate_event_factory/event_factory_payload.gd" id="4_n3d1h"]
-
-[sub_resource type="Resource" id="Resource_1y4qj"]
-script = ExtResource("3_12nf5")
-comparator = 0
-key = "current_top"
-value = "basic_doubt"
-
-[sub_resource type="Resource" id="Resource_hyhb1"]
-script = ExtResource("3_12nf5")
-comparator = 0
-key = "active_contestant"
-value = "player"
 
 [sub_resource type="Resource" id="Resource_iiaj8"]
 script = ExtResource("3_5togk")
-concept = "on_top_played"
-criteria = Array[ExtResource("3_12nf5")]([SubResource("Resource_1y4qj"), SubResource("Resource_hyhb1")])
+concept = "on_card_played"
+criteria = Array[Resource("res://script/character/debate_event_factory/rule/criterion/criterion.gd")]([])
 
 [sub_resource type="Resource" id="Resource_th28h"]
 script = ExtResource("4_n3d1h")

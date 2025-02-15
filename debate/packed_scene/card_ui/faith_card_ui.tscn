@@ -163,7 +163,10 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ld4d5")
 bbcode_enabled = true
 text = "Place 2 [b]Structured Conversation[/b] tops.
 
-Cost -1 for ever [b]pentagram[/b] top in play"
+Cost -1 for ever [b]pentagram[/b] top in play
+
+this is a super dumb thing and it's making me mad"
+scroll_active = false
 
 [node name="FlavorText" type="RichTextLabel" parent="CardBG"]
 layout_mode = 1

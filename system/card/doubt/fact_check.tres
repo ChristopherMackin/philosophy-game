@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_muumm"]
 script = ExtResource("2_nlqu1")
-allowedSuits = Array[Resource("res://script/system/suit/suit.gd")]([ExtResource("1_ate6p")])
+suit_filter = Array[Resource("res://script/system/suit/suit.gd")]([ExtResource("1_ate6p")])
 
 [resource]
 script = ExtResource("1_5bdvc")
