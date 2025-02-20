@@ -49,7 +49,7 @@ func on_selection_requested(options : Array, what : String, visible_to_player : 
 	else:
 		var mode = CardSelector.CardSelectorMode.SINGLE
 		
-		if what.contains("multi-select"):
+		if what.contains("multi"):
 			mode = CardSelector.CardSelectorMode.MULTI
 		
 		card_selector.open_selector(options, visible_to_player, mode)

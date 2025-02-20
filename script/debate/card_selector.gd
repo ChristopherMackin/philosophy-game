@@ -65,7 +65,14 @@ func open_selector(card_array : Array[Card], visible_to_player : bool, mode : Ca
 			Util.set_up_focus_connections(ui_cards)
 			focus_group.focused_node = ui_cards[0]
 			focus_group.on_select.connect(on_select_single)
-	
+		CardSelectorMode.MULTI:
+			submit_button.visible = true
+			var focus_items : Array[Control] = []
+			focus_items.append_array(ui_cards)
+			focus_items.append(submit_button)
+			Util.set_up_focus_connections(focus_items)
+			focus_group.focused_node = ui_cards[0]
+			focus_group.on_select.connect(on_select_multi)
 	visible = true
 
 func close_selector():
@@ -88,6 +95,13 @@ func on_select_multi(data, focus_type : String):
 		focus_group.on_select.disconnect(on_select_multi)
 		close_selector()
 	else:
-		pass
-		#do the toggle stuff here
-
+		var ui_card_index = ui_cards.map(func(x): return x.card).find(data)
+		var ui_card = ui_cards[ui_card_index]
+		
+		if selection_array.has(data):
+			var index = selection_array.find(data)
+			selection_array.remove_at(index)
+			ui_card.modulate = Color.WHITE
+		else:
+			selection_array.append(data)
+			ui_card.modulate = Color.GOLD

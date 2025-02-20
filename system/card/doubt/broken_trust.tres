@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=6 format=3 uid="uid://ca48j54oowbwb"]
+[gd_resource type="Resource" script_class="CardData" load_steps=8 format=3 uid="uid://ca48j54oowbwb"]
 
 [ext_resource type="Script" path="res://script/system/card/card_cost_modifier/cost_minus_tag_card_cost_modifier.gd" id="1_4trln"]
 [ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_6pvtq"]
+[ext_resource type="Script" path="res://script/system/card/card_action/multi_discard_opponent_card_action.gd" id="2_pbxuj"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="3_aa5a1"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="3_ocuje"]
 
 [sub_resource type="Resource" id="Resource_qcjyk"]
 script = ExtResource("1_4trln")
 tag = 1
+
+[sub_resource type="Resource" id="Resource_f3o5j"]
+script = ExtResource("2_pbxuj")
 
 [resource]
 script = ExtResource("1_6pvtq")
@@ -18,7 +22,7 @@ title = "Broken Trust"
 description = "Look at opponents hand. You can either let them keep this hand or discard it
 
 It cost one less to play for each [color=red]evidence[/color] token in play"
-on_play_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_play_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_f3o5j")])
 on_discard_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_banish_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_start_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

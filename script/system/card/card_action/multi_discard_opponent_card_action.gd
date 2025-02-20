@@ -1,8 +1,8 @@
 extends CardAction
 
-class_name DiscardOpponentTopCardAction
+class_name MultiDiscardOpponentCardAction
 
-@export var suit_filter : Array[Suit]
+var suit_filter : Array[Suit]
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
 	var opponent = manager.get_opponent(player)
@@ -19,10 +19,12 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	if selectable_cards.size() <= 0: return
 	
-	var selected_card = await player.select(
+	var selected_cards = await player.select(
 		opponent.hand,
-		"discard_oppoenent_card",
+		"multi_discard_opponent_hand",
 		true
 	)
 	
-	opponent.discard_card(selected_card)
+	for selected_card in selected_cards:
+		opponent.discard_card(selected_card)
+
