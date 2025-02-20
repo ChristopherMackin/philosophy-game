@@ -58,11 +58,14 @@ func open_selector(card_array : Array[Card], visible_to_player : bool, mode : Ca
 	match mode:
 		CardSelectorMode.VIEW:
 			submit_button.visible = true
+			Util.set_up_focus_connections.call_deferred([submit_button])
+			
 			focus_group.focus(submit_button)
 			focus_group.on_select.connect(on_select_view)
 		CardSelectorMode.SINGLE:
 			submit_button.visible = false
-			Util.set_up_focus_connections(ui_cards)
+			Util.set_up_focus_connections.call_deferred(ui_cards)
+			
 			focus_group.focused_node = ui_cards[0]
 			focus_group.on_select.connect(on_select_single)
 		CardSelectorMode.MULTI:
@@ -70,7 +73,8 @@ func open_selector(card_array : Array[Card], visible_to_player : bool, mode : Ca
 			var focus_items : Array[Control] = []
 			focus_items.append_array(ui_cards)
 			focus_items.append(submit_button)
-			Util.set_up_focus_connections(focus_items)
+			Util.set_up_focus_connections.call_deferred(focus_items)
+			
 			focus_group.focused_node = ui_cards[0]
 			focus_group.on_select.connect(on_select_multi)
 	visible = true
