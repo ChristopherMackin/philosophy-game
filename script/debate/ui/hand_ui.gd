@@ -12,7 +12,9 @@ class_name HandUI
 @export_group("Card Slot Size")
 @export var card_slot_size : Vector2 = Vector2(370, 320)
 
+@export_group("Selection")
 @export var focus_group : FocusGroup
+@export var player_brain : PlayerBrain
 
 var ui_cards : Array[CardUI]
 var card_slots : Array[Control]
@@ -24,6 +26,10 @@ func _ready():
 		child.queue_free()
 	
 	card_parent.connect("sort_children", set_up_focus_connections)
+	focus_group.on_select.connect(on_select)
+
+func on_select(data, focus_type : String):
+	player_brain.make_selection(data)
 
 func update_hand(hand : Array[Card]):
 	while(!lock.obtain_lock()):

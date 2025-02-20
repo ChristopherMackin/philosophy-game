@@ -69,12 +69,26 @@ func _draw_card() -> bool:
 	return true
 	
 func select(options : Array = hand, what : String = "play", visible_to_player : bool = true):
-	var option = await _brain.select(options, what, visible_to_player)
+	var is_valid_selection : bool = false
+	var selection = null
 	
-	while options.find(option) == -1:
-		option = await _brain.select(options, what, visible_to_player)
+	while !is_valid_selection:
+		selection = await _brain.select(options, what, visible_to_player)
+		is_valid_selection = true
+		
+		if selection is Array:
+			for option in selection:
+				if options.find(option) == -1:
+					is_valid_selection = false
+					break
+		else:
+			if options.find(selection) == -1:
+				is_valid_selection = false
 	
-	return option
+	return selection
+
+func view(options : Array, what : String = "view"):
+	await _brain.view(options, what)
 
 func remove_card_from_hand(card : Card):
 	var index = hand.find(card)

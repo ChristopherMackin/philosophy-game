@@ -25,7 +25,8 @@ var focused_node : Control:
 
 func _ready():
 	idle_focus_group.focused_node = ui_clear_focus_node
-	player_brain.on_input_requested.connect(on_input_requested)
+	player_brain.on_selection_requested.connect(on_selection_requested)
+	player_brain.on_view.connect(on_view)
 	get_viewport().gui_focus_changed.connect(on_focus_changed)
 
 func on_focus_changed(node : Node):
@@ -37,24 +38,26 @@ func on_focus_changed(node : Node):
 
 func _unhandled_input(event):
 	if event.is_action_pressed("select"):
-		if focused_node == null: return
-		
-		var property_name = focused_node.get_meta("focus_property")
-		
-		if property_name && property_name in focused_node:
-			player_brain.make_selection(focused_node.get(property_name))
-			play_area_selector.close_selector()
-			card_selector.close_selector()
+		active_focus_group.select()
 
-func on_input_requested(options : Array, what : String, visible_to_player : bool):
+func on_selection_requested(options : Array, what : String, visible_to_player : bool):
 	if what == "play":
 		set_focus_group(hand_ui_focus_group)
 	elif what == "board_token_removal":
 		play_area_selector.open_selector(options)
 		set_focus_group(play_area_selector_focus_group)
 	else:
-		card_selector.open_selector(options, visible_to_player)
+		var mode = CardSelector.CardSelectorMode.SINGLE
+		
+		if what.contains("multi-select"):
+			mode = CardSelector.CardSelectorMode.MULTI
+		
+		card_selector.open_selector(options, visible_to_player, mode)
 		set_focus_group(card_selector_focus_group)
+
+func on_view(options : Array, what : String):
+	card_selector.open_selector(options, true, CardSelector.CardSelectorMode.VIEW)
+	set_focus_group(card_selector_focus_group)
 
 func pause_input():
 	set_focus_group(idle_focus_group)

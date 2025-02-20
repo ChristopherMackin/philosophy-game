@@ -2,13 +2,25 @@ extends Control
 
 class_name PlayAreaSelector
 
-@export var board : Board3D
-
-@export var camera : Camera3D
+@export_group("Packed Scene")
 @export var selector_packed_scene : PackedScene
+
+@export_group("3D Positioning")
+@export var board : Board3D
+@export var camera : Camera3D
+
+@export_group("Selection")
 @export var focus_group : FocusGroup
+@export var player_brain : PlayerBrain
 
 var selectors : Array[Node3DSelectorUI]
+
+func _ready():
+	focus_group.on_select.connect(on_select)
+
+func on_select(data, focus_type : String):
+	player_brain.make_selection(data)
+	close_selector()
 
 func _clear_card_container():
 	for selector in selectors: selector.queue_free()

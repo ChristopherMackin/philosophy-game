@@ -2,13 +2,23 @@ extends Brain
 
 class_name PlayerBrain
 
-signal on_input_requested(options : Array, what : String, visible_to_player : bool)
-signal on_user_input(option)
+signal on_selection_requested(options : Array, what : String, visible_to_player : bool)
+signal on_selection_made(option)
+
+signal on_view(options : Array, what : String)
+signal on_view_finished()
 
 func select(options : Array, what : String, visible_to_player : bool = true):
-	on_input_requested.emit(options, what, visible_to_player)
-	var output = await on_user_input
+	on_selection_requested.emit(options, what, visible_to_player)
+	var output = await on_selection_made
 	return output
 
+func view(options : Array, what : String):
+	on_view.emit(options, what)
+	await on_view_finished
+
+func finish_viewing():
+	on_view_finished.emit()
+
 func make_selection(option):
-	on_user_input.emit(option)
+	on_selection_made.emit(option)

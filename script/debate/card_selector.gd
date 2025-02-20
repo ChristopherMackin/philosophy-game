@@ -2,13 +2,27 @@ extends Control
 
 class_name CardSelector
 
+enum CardSelectorMode {
+	VIEW,
+	SINGLE,
+	MULTI
+}
+
+@export_group("Packed Scene")
 @export var card_ui_suit_packed_scenes : Array[SuitPackedScene]
+
+@export_group("Layout")
 @export var card_container : Container
 @export var card_slot_size : Vector2 = Vector2(370, 320)
+
+@export_group("Selection")
 @export var focus_group : FocusGroup
+@export var player_brain : PlayerBrain
+@export var submit_button : Control
 
 var ui_cards : Array[CardUI]
 var card_slots : Array[Control]
+var selection_array : Array
 
 func _ready():
 	_clear_card_container()
@@ -37,12 +51,43 @@ func _add_card(card : Card):
 	ui_cards.append(card_ui)
 	card_slots.append(card_slot)
 
-func open_selector(card_array : Array[Card], visible_to_player : bool):
+func open_selector(card_array : Array[Card], visible_to_player : bool, mode : CardSelectorMode):
 	for card in card_array:
 		_add_card(card)
-	focus_group.focus(ui_cards[0])
+	
+	match mode:
+		CardSelectorMode.VIEW:
+			submit_button.visible = true
+			focus_group.focus(submit_button)
+			focus_group.on_select.connect(on_select_view)
+		CardSelectorMode.SINGLE:
+			submit_button.visible = false
+			Util.set_up_focus_connections(ui_cards)
+			focus_group.focused_node = ui_cards[0]
+			focus_group.on_select.connect(on_select_single)
+	
 	visible = true
 
 func close_selector():
 	visible = false
 	_clear_card_container()
+
+func on_select_view(data, focus_type : String):
+	player_brain.finish_viewing()
+	focus_group.on_select.disconnect(on_select_view)
+	close_selector()
+
+func on_select_single(data, focus_type : String):
+	player_brain.make_selection(data)
+	focus_group.on_select.disconnect(on_select_single)
+	close_selector()
+
+func on_select_multi(data, focus_type : String):
+	if focus_type == "submit":
+		player_brain.make_selection(selection_array)
+		focus_group.on_select.disconnect(on_select_multi)
+		close_selector()
+	else:
+		pass
+		#do the toggle stuff here
+

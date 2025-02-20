@@ -39,6 +39,7 @@ anchors_preset = 0
 offset_right = 370.0
 offset_bottom = 320.0
 scale = Vector2(0.81, 0.81)
+pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
 focus_mode = 2
 script = ExtResource("1_kulfk")
 cost = NodePath("CardBG/CostIcon/Cost")
@@ -235,7 +236,7 @@ texture = ExtResource("12_n6eka")
 script = ExtResource("13_lw56p")
 root = NodePath("..")
 
-[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(1, 1)]]
 [connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_z_index" binds= [1]]
-[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(0.81, 0.81)]]
+[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(1, 1)]]
 [connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_z_index" binds= [0]]
+[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(0.81, 0.81)]]
