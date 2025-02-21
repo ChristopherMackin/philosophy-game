@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=6 format=3 uid="uid://bg1swavgd0yc4"]
+
+[ext_resource type="Script" path="res://script/system/card/card_action/draw_card_card_action.gd" id="1_1qeym"]
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_new7j"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="3_ay0is"]
+[ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_xmose"]
+
+[sub_resource type="Resource" id="Resource_vnat8"]
+script = ExtResource("1_1qeym")
+draw_amount = 2
+
+[resource]
+script = ExtResource("1_new7j")
+token_data = ExtResource("4_xmose")
+base_cost = 2
+suit = ExtResource("3_ay0is")
+title = "Careful Consideration"
+description = "On discard, draw two cards"
+on_play_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_discard_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_vnat8")])
+on_banish_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_start_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_end_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

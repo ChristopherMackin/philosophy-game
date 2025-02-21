@@ -75,6 +75,9 @@ func open_selector(card_array : Array[Card], visible_to_player : bool, mode : Ca
 			focus_items.append(submit_button)
 			Util.set_up_focus_connections.call_deferred(focus_items)
 			
+			for ui_card in ui_cards:
+				ui_card.modulate = Color.GRAY
+			
 			focus_group.focused_node = ui_cards[0]
 			focus_group.on_select.connect(on_select_multi)
 	visible = true
@@ -105,7 +108,7 @@ func on_select_multi(data, focus_type : String):
 		if selection_array.has(data):
 			var index = selection_array.find(data)
 			selection_array.remove_at(index)
-			ui_card.modulate = Color.WHITE
+			ui_card.modulate = Color.GRAY
 		else:
 			selection_array.append(data)
-			ui_card.modulate = Color.GOLD
+			ui_card.modulate = Color.WHITE

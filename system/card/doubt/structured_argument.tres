@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=6 format=3 uid="uid://cc04x3vnatfec"]
+
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_6r2gh"]
+[ext_resource type="Script" path="res://script/system/card/card_action/draw_card_per_tag_card_action.gd" id="1_llg26"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_kj6ic"]
+[ext_resource type="Resource" uid="uid://vebafhvqqdvk" path="res://system/token/doubt/evidence_token.tres" id="3_41b3r"]
+
+[sub_resource type="Resource" id="Resource_uibs0"]
+script = ExtResource("1_llg26")
+tag = 1
+tag_per_card = 2.0
+
+[resource]
+script = ExtResource("1_6r2gh")
+token_data = ExtResource("3_41b3r")
+base_cost = 2
+suit = ExtResource("2_kj6ic")
+title = "Structured Argument"
+description = "Draw 1 card for every 2 [color=red]evidence[/color] on the board"
+on_play_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_uibs0")])
+on_discard_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_banish_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_start_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_end_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
