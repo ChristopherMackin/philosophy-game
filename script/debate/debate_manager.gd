@@ -38,6 +38,10 @@ var current_turn : int = 0:
 	set(val): 
 		current_turn = val
 		blackboard.add("current_turn", current_turn, Constants.ExpirationToken.ON_DEBATE_START)
+		blackboard.add("current_round", current_round, Constants.ExpirationToken.ON_DEBATE_START)
+
+var current_round : int:
+	get: return floor(current_turn / 2)
 
 var suit_track_dictionary : Dictionary
 
