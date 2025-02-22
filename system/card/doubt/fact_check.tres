@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://script/system/card/card_action/remove_token_from_board_card_action.gd" id="2_nlqu1"]
 [ext_resource type="Resource" uid="uid://vebafhvqqdvk" path="res://system/token/doubt/evidence_token.tres" id="4_wgho0"]
 
-[sub_resource type="Resource" id="Resource_muumm"]
+[sub_resource type="Resource" id="Resource_jbiid"]
 script = ExtResource("2_nlqu1")
 suit_filter = Array[Resource("res://script/system/suit/suit.gd")]([ExtResource("1_ate6p")])
 
@@ -16,8 +16,9 @@ base_cost = 0
 suit = ExtResource("1_ate6p")
 title = "Fact Check"
 description = "Remove one token from the doubt track"
-on_play_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_muumm")])
-on_discard_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_banish_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_turn_start_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_turn_end_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_jbiid")])
+on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([])

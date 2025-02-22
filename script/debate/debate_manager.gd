@@ -108,7 +108,7 @@ func get_is_debate_over() -> bool:
 
 func active_player_turn():
 	for card : Card in active_contestant.hand.duplicate():
-		for action in card.data.on_turn_start_card_action:
+		for action in card.data.on_turn_start_card_actions:
 			await action.invoke(card, active_contestant, self)
 	
 	while active_contestant.current_energy > 0 and !get_is_debate_over():
@@ -138,7 +138,7 @@ func active_player_turn():
 		clear_lines()
 	
 	for card : Card in active_contestant.hand.duplicate():
-		for action in card.data.on_turn_end_card_action:
+		for action in card.data.on_turn_end_card_actions:
 			await action.invoke(card, active_contestant, self)
 	
 	active_contestant.clean_up()

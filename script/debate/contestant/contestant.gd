@@ -107,18 +107,18 @@ func play_card(card : Card, cost_override : int = 0, use_action : bool = true):
 	remove_card_from_hand(card)
 	
 	if(use_action):
-		for action in card.data.on_play_card_action:
+		for action in card.data.on_play_card_actions:
 			await action.invoke(card, self, manager)
 
 func discard_card(card : Card):
 	remove_card_from_hand(card)
 	
-	for action in card.data.on_discard_card_action:
+	for action in card.data.on_discard_card_actions:
 		await action.invoke(card, self, manager)
 
 func remove_from_deck(card : Card):
 	_deck.remove_from_deck(card)
-	for action in card.data.on_banish_card_action:
+	for action in card.data.on_banish_card_actions:
 		await action.invoke(card, self, manager)
 
 func add_to_deck(card : Card):

@@ -7,12 +7,19 @@ class_name CardData
 @export var suit : Suit
 @export var title : String
 @export_multiline var description : String
-@export var on_play_card_action : Array[CardAction]
-@export var on_discard_card_action : Array[CardAction]
-@export var on_banish_card_action : Array[CardAction]
-@export var on_turn_start_card_action : Array[CardAction]
-@export var on_turn_end_card_action : Array[CardAction]
-@export var cost_modifier : CardCostModifier = CardCostModifier.new()
+@export var on_play_card_actions : Array[CardAction]
+@export var on_discard_card_actions : Array[CardAction]
+@export var on_banish_card_actions : Array[CardAction]
+@export var on_turn_start_card_actions : Array[CardAction]
+@export var on_turn_end_card_actions : Array[CardAction]
+@export var cost_modifiers : Array[CardCostModifier]
 
 func get_cost(manager : DebateManager) -> int:
-	return cost_modifier.modify_cost(base_cost, manager)
+	var cost = base_cost
+	
+	cost_modifiers.sort_custom(func(a, b): return a.priority > b.priority)
+	
+	for modifier in cost_modifiers:
+		cost = modifier.modify_cost(cost, manager)
+	
+	return cost

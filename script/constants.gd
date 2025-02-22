@@ -14,4 +14,6 @@ enum ExpirationToken {
 	NEVER,
 	ON_GAME_RESET,
 	ON_DEBATE_START,
+	ON_TURN_END,
+	ON_TURN_START,
 }
