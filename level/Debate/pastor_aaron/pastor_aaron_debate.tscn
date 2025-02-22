@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://c674050h413wq"]
+[gd_scene load_steps=81 format=3 uid="uid://c674050h413wq"]
 
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_c3gp0"]
 [ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event_manager.tres" id="3_pgeyy"]
@@ -52,7 +52,8 @@
 [ext_resource type="Script" path="res://script/debate/card_selector.gd" id="51_3qr11"]
 [ext_resource type="PackedScene" uid="uid://ccs6t13kr4fum" path="res://debate/packed_scene/card_ui/self_card_ui.tscn" id="51_5ds64"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="52_j58j1"]
-[ext_resource type="PackedScene" uid="uid://dj5ht84etvnd1" path="res://debate/packed_scene/card_ui.tscn" id="53_xp4py"]
+[ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_ui/peace_card_ui.tscn" id="53_37x6j"]
+[ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="54_2y0fh"]
 [ext_resource type="Script" path="res://script/system/save_manager.gd" id="55_qd7va"]
 [ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/player_deck.tres" id="56_g82aw"]
 [ext_resource type="Texture2D" uid="uid://qiqjkvvjvbi4" path="res://asset/graphic/aaron/aaron_dialogue.png" id="56_mq8a7"]
@@ -199,6 +200,11 @@ packed_scene = ExtResource("49_k0074")
 script = ExtResource("44_si8pi")
 suit = ExtResource("52_j58j1")
 packed_scene = ExtResource("51_5ds64")
+
+[sub_resource type="Resource" id="Resource_kiv40"]
+script = ExtResource("44_si8pi")
+suit = ExtResource("54_2y0fh")
+packed_scene = ExtResource("53_37x6j")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cy1d4"]
 bg_color = Color(0.137255, 0.0862745, 0.0588235, 0.596078)
@@ -1025,7 +1031,7 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 10
 script = ExtResource("34_veub1")
-card_ui_suit_packed_scenes = Array[ExtResource("44_si8pi")]([SubResource("Resource_6pak2"), SubResource("Resource_vqklr"), SubResource("Resource_gia04"), SubResource("Resource_rtp6h")])
+card_ui_suit_packed_scenes = Array[ExtResource("44_si8pi")]([SubResource("Resource_6pak2"), SubResource("Resource_vqklr"), SubResource("Resource_gia04"), SubResource("Resource_rtp6h"), SubResource("Resource_kiv40")])
 draw_pile = NodePath("../DrawPile")
 card_parent = NodePath("CardParent")
 card_slot_size = Vector2(300, 260)
@@ -1089,44 +1095,6 @@ size_flags_vertical = 4
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 alignment = 1
-
-[node name="CardUI" parent="PlayArea/CardSelector/Dialogue/HFlowContainer" instance=ExtResource("53_xp4py")]
-layout_mode = 2
-
-[node name="CardUI2" parent="PlayArea/CardSelector/Dialogue/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "description") instance=ExtResource("53_xp4py")]
-layout_mode = 2
-cost = NodePath("../CardUI/CardInfo/CostIcon/Cost")
-icon = NodePath("../CardUI/CardInfo/PoseIcon")
-title = NodePath("../CardUI/CardInfo/Title")
-description = NodePath("../CardUI/CardDescription/Description")
-
-[node name="CardUI3" parent="PlayArea/CardSelector/Dialogue/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "description") instance=ExtResource("53_xp4py")]
-layout_mode = 2
-cost = NodePath("../CardUI/CardInfo/CostIcon/Cost")
-icon = NodePath("../CardUI/CardInfo/PoseIcon")
-title = NodePath("../CardUI/CardInfo/Title")
-description = NodePath("../CardUI/CardDescription/Description")
-
-[node name="CardUI4" parent="PlayArea/CardSelector/Dialogue/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "description") instance=ExtResource("53_xp4py")]
-layout_mode = 2
-cost = NodePath("../CardUI/CardInfo/CostIcon/Cost")
-icon = NodePath("../CardUI/CardInfo/PoseIcon")
-title = NodePath("../CardUI/CardInfo/Title")
-description = NodePath("../CardUI/CardDescription/Description")
-
-[node name="CardUI5" parent="PlayArea/CardSelector/Dialogue/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "description") instance=ExtResource("53_xp4py")]
-layout_mode = 2
-cost = NodePath("../CardUI/CardInfo/CostIcon/Cost")
-icon = NodePath("../CardUI/CardInfo/PoseIcon")
-title = NodePath("../CardUI/CardInfo/Title")
-description = NodePath("../CardUI/CardDescription/Description")
-
-[node name="CardUI6" parent="PlayArea/CardSelector/Dialogue/HFlowContainer" node_paths=PackedStringArray("cost", "icon", "title", "description") instance=ExtResource("53_xp4py")]
-layout_mode = 2
-cost = NodePath("../CardUI/CardInfo/CostIcon/Cost")
-icon = NodePath("../CardUI/CardInfo/PoseIcon")
-title = NodePath("../CardUI/CardInfo/Title")
-description = NodePath("../CardUI/CardDescription/Description")
 
 [node name="SubmitButton" type="TextureRect" parent="PlayArea/CardSelector/Dialogue"]
 layout_mode = 1

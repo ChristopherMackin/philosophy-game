@@ -33,6 +33,7 @@ func _clear_card_container():
 	
 	card_slots.clear()
 	ui_cards.clear()
+	selection_array.clear()
 
 func _add_card(card : Card):
 	var card_slot : Control = Control.new()

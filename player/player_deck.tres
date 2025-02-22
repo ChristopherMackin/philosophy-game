@@ -15,47 +15,47 @@
 [sub_resource type="Resource" id="Resource_d7pse"]
 script = ExtResource("2_1cty8")
 card_data = ExtResource("1_g3w8a")
-count = 2
+count = 4
 
 [sub_resource type="Resource" id="Resource_pxdqm"]
 script = ExtResource("2_1cty8")
 card_data = ExtResource("3_4tpo4")
-count = 1
+count = 2
 
 [sub_resource type="Resource" id="Resource_3hdil"]
 script = ExtResource("2_1cty8")
 card_data = ExtResource("4_2kef5")
-count = 1
+count = 2
 
 [sub_resource type="Resource" id="Resource_8tmvw"]
 script = ExtResource("2_1cty8")
 card_data = ExtResource("5_om6do")
-count = 1
+count = 2
 
 [sub_resource type="Resource" id="Resource_2sdok"]
 script = ExtResource("2_1cty8")
 card_data = ExtResource("6_pes1i")
-count = 3
+count = 6
 
 [sub_resource type="Resource" id="Resource_tfjja"]
 script = ExtResource("2_1cty8")
 card_data = ExtResource("7_dym3k")
-count = 1
+count = 2
 
 [sub_resource type="Resource" id="Resource_032jc"]
 script = ExtResource("2_1cty8")
 card_data = ExtResource("8_vscrt")
-count = 1
+count = 2
 
 [sub_resource type="Resource" id="Resource_i3v7g"]
 script = ExtResource("2_1cty8")
 card_data = ExtResource("9_1u4av")
-count = 2
+count = 4
 
 [sub_resource type="Resource" id="Resource_4gh05"]
 script = ExtResource("2_1cty8")
 card_data = ExtResource("10_4oc2d")
-count = 2
+count = 4
 
 [resource]
 script = ExtResource("1_8ujv4")

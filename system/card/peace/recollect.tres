@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://85up1kaei7cl"]
+
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_r26xh"]
+[ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="2_hctj1"]
+
+[resource]
+script = ExtResource("1_r26xh")
+base_cost = 1
+suit = ExtResource("2_hctj1")
+title = "Recollect"
+description = "Draw a card of a specified suit"
+on_play_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_discard_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_banish_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_start_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_end_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

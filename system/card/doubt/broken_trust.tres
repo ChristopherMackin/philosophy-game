@@ -16,10 +16,10 @@ script = ExtResource("2_pbxuj")
 [resource]
 script = ExtResource("1_6pvtq")
 token_data = ExtResource("3_aa5a1")
-base_cost = 4
+base_cost = 5
 suit = ExtResource("3_ocuje")
 title = "Broken Trust"
-description = "Look at opponents hand. You can either let them keep this hand or discard it
+description = "Look at opponents hand. Discard any cards you like
 
 It cost one less to play for each [color=red]evidence[/color] token in play"
 on_play_card_action = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_f3o5j")])

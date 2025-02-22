@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhv1plx4fekqd"]
+[gd_scene load_steps=16 format=3 uid="uid://bhv1plx4fekqd"]
 
 [ext_resource type="Script" path="res://script/debate/ui/card_ui.gd" id="1_ejljd"]
 [ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/general/card/card_base.png" id="2_w4crs"]
 [ext_resource type="Texture2D" uid="uid://cxa4j8j2mfx25" path="res://asset/graphic/debate/general/card/others_card_bg.png" id="3_ap1yh"]
 [ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://asset/font/TenorSans-Regular.ttf" id="4_c00vd"]
-[ext_resource type="Texture2D" uid="uid://r5gxicmkm711" path="res://asset/graphic/debate/general/card/card_set_information.png" id="5_mcgsm"]
 [ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://asset/graphic/debate/general/card/clock_icon.png" id="6_t6p6t"]
 [ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/general/suit/faith_icon.png" id="7_jeqnh"]
 [ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://asset/font/fahkwang/Fahkwang-Bold.ttf" id="8_cixf7"]
@@ -81,25 +80,15 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_y5xdp")
 text = "Structured Argument"
 vertical_alignment = 1
 
-[node name="CardSetInformation" type="TextureRect" parent="CardBG"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.814
-anchor_top = 0.912
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -0.179973
-offset_top = 0.159969
-offset_right = 3.05176e-05
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("5_mcgsm")
-
-[node name="CardNumber" type="Label" parent="CardBG/CardSetInformation"]
+[node name="CardSetNumber" type="Label" parent="CardBG"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 304.0
+offset_top = 294.0
+offset_right = 3.05176e-05
+offset_bottom = 3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
@@ -235,7 +224,7 @@ texture = ExtResource("12_h5lb8")
 script = ExtResource("13_j78nc")
 root = NodePath("..")
 
-[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_z_index" binds= [1]]
 [connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(1, 1)]]
-[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_z_index" binds= [0]]
+[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_z_index" binds= [1]]
 [connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(0.81, 0.81)]]
+[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_z_index" binds= [0]]

@@ -3,11 +3,11 @@ extends Control
 
 class_name CardUI
 
-@export var cost : Node
-@export var icon : Node
 @export var title : Node
 @export var artwork : Node
 @export var description : Node
+@export var cost : Node
+@export var icon : Node
 
 var card : Card:
 	set(val):
@@ -18,14 +18,14 @@ func _process(delta):
 	if !card:
 			return
 		
-	cost.text = str(card.cost)
+	if cost: cost.text = str(card.cost)
 
 func update_card(card : Card) :
 		if !card:
 			return
 		
-		cost.text = str(card.cost)
-		icon.texture = card.data.suit.icon
-		title.text = card.data.title
-		description.text = card.data.description
-		artwork.texture = card.data.token_data.artwork
+		if cost: cost.text = str(card.cost)
+		if icon: icon.texture = card.data.suit.icon
+		if title: title.text = card.data.title
+		if description: description.text = card.data.description
+		if artwork: artwork.texture = card.data.token_data.artwork

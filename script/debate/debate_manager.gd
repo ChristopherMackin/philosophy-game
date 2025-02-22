@@ -118,7 +118,6 @@ func active_player_turn():
 			break
 		
 		var card = await active_contestant.select(playable_cards)
-		var token = Token.new(card.data.token_data)
 		
 		active_contestant.current_energy -= card.data.get_cost(self)
 		
@@ -127,7 +126,11 @@ func active_player_turn():
 		blackboard.add("current_card", card.data.title, Constants.ExpirationToken.ON_DEBATE_START)
 		blackboard.add("current_suit", card.data.suit.name, Constants.ExpirationToken.ON_DEBATE_START)
 		
-		await add_token_to_suit_track(token, card.data.suit)
+		var token_data = card.data.token_data
+		
+		if token_data:
+			var token = Token.new(token_data)
+			await add_token_to_suit_track(token, card.data.suit)
 		
 		await active_contestant.play_card(card)
 		for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, active_contestant)
