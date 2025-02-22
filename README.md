@@ -42,8 +42,6 @@
     <a href="https://github.com/ChristopherMackin/philosophy-game"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/ChristopherMackin/philosophy-game">View Demo</a>
-    &middot;
     <a href="https://github.com/ChristopherMackin/philosophy-game/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
     <a href="https://github.com/ChristopherMackin/philosophy-game/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
@@ -75,7 +73,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Radical Shapes Screen Shot][product-screenshot]]
+![Radical Shapes Screen Shot][product-screenshot]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -134,9 +132,9 @@ Project Link: [https://github.com/ChristopherMackin/philosophy-game](https://git
 [issues-shield]: https://img.shields.io/github/issues/ChristopherMackin/philosophy-game.svg?style=for-the-badge
 [issues-url]: https://github.com/ChristopherMackin/philosophy-game/issues
 [license-shield]: https://img.shields.io/github/license/ChristopherMackin/philosophy-game.svg?style=for-the-badge
-[license-url]: https://github.com/ChristopherMackin/philosophy-game/blob/master/LICENSE.txt
+[license-url]: https://github.com/ChristopherMackin/philosophy-game/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/christopher_mackin
+[linkedin-url]: https://www.linkedin.com/in/christopher-daniel-mackin/
 [product-screenshot]: images/screenshot.png
-[Godot-sheild]: [https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white](https://img.shields.io/badge/Godot%20Engine-478CBF?logo=godotengine&logoColor=fff&style=flat)
+[Godot-sheild]: https://img.shields.io/badge/Godot%20Engine-478CBF?logo=godotengine&logoColor=fff&style=flat
 [Godot-url]: https://godotengine.org/
