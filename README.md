@@ -31,7 +31,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/ChristopherMackin/philosophy-game">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.svg" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Radical Shapes</h3>
@@ -75,7 +75,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Radical Shapes Screen Shot][product-screenshot]]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -117,9 +117,7 @@ Project Link: [https://github.com/ChristopherMackin/philosophy-game](https://git
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+* Comming Soon
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -142,11 +140,3 @@ Project Link: [https://github.com/ChristopherMackin/philosophy-game](https://git
 [product-screenshot]: images/screenshot.png
 [Godot-sheild]: [https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white](https://img.shields.io/badge/Godot%20Engine-478CBF?logo=godotengine&logoColor=fff&style=flat)
 [Godot-url]: https://godotengine.org/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
