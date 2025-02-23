@@ -1,7 +1,12 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=3 format=3 uid="uid://c614582y5sixk"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=5 format=3 uid="uid://c614582y5sixk"]
 
 [ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_8qbll"]
+[ext_resource type="Script" path="res://script/system/card/card_action/draw_card_of_suit_card_action.gd" id="1_gtop3"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="2_hctj1"]
+
+[sub_resource type="Resource" id="Resource_cv8y7"]
+script = ExtResource("1_gtop3")
+suits = Array[Resource("res://script/system/suit/suit.gd")]([])
 
 [resource]
 script = ExtResource("1_8qbll")
@@ -9,7 +14,7 @@ suit = ExtResource("2_hctj1")
 title = "Recollect"
 base_cost = 1
 description = "Draw a card of a specified suit"
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_cv8y7")])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

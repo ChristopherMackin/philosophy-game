@@ -10,6 +10,7 @@ class_name SelectionManager
 @export var hand_ui_focus_group : FocusGroup
 @export var play_area_selector_focus_group : FocusGroup
 @export var card_selector_focus_group : FocusGroup
+@export var suit_selector_focus_group : FocusGroup
 
 @export_group("Focus Clear")
 @export var ui_clear_focus_node : Control
@@ -17,6 +18,7 @@ class_name SelectionManager
 @export_group("Selectors")
 @export var play_area_selector : PlayAreaSelector
 @export var card_selector : CardSelector
+@export var suit_selector : SuitSelector
 
 var active_focus_group : FocusGroup
 
@@ -41,9 +43,19 @@ func _unhandled_input(event):
 		active_focus_group.select()
 
 func on_selection_requested(options : Array, what : String, type : String, visible_to_player : bool):
+	if type == "suit":
+		focus_suit_selector(options, what, visible_to_player)
+	else:
+		focus_card_selector(options, what, visible_to_player)
+
+func focus_suit_selector(options : Array, what : String, visible_to_player : bool):
+	suit_selector.open_selector(options)
+	set_focus_group(suit_selector_focus_group)
+
+func focus_card_selector(options : Array, what : String, visible_to_player : bool):
 	if what == "play":
 		set_focus_group(hand_ui_focus_group)
-	elif what == "board_token_removal":
+	elif what.contains("board"):
 		play_area_selector.open_selector(options)
 		set_focus_group(play_area_selector_focus_group)
 	else:

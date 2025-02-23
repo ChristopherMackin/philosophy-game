@@ -9,3 +9,6 @@ func set_scale(val : Vector2):
 
 func set_z_index(val : int):
 	root.z_index = val
+
+func set_modulate(val : Color):
+	root.modulate = val
