@@ -1,6 +1,6 @@
 extends CardAction
 
-class_name RemoveCardFromBoardCardAction
+class_name RemoveTokenFromBoardCardAction
 
 @export var suit_filter : Array[Suit]
 
@@ -17,8 +17,7 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	var selected_token = await player.select(
 		selectable_tokens,
-		"board_token_removal",
-		true
+		"remove_token_from_board",
 	)
 	
 	await manager.remove_token_from_suit_track(selected_token)

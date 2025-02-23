@@ -19,8 +19,7 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	var selected_card : Card = await player.select(
 		selectable_cards,
-		"add_cost_modifier_to_hand",
-		true
+		"add_cost_modifier_to_hand"
 	)
 	
 	selected_card.cost_modifiers.append(cost_modifier.duplicate(true))

@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://c674050h413wq"]
+[gd_scene load_steps=86 format=3 uid="uid://c674050h413wq"]
 
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_c3gp0"]
 [ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event_manager.tres" id="3_pgeyy"]
@@ -59,6 +59,10 @@
 [ext_resource type="Texture2D" uid="uid://qiqjkvvjvbi4" path="res://asset/graphic/aaron/aaron_dialogue.png" id="56_mq8a7"]
 [ext_resource type="Script" path="res://script/system/save_data.gd" id="57_ycv4i"]
 [ext_resource type="Texture2D" uid="uid://duwx1hkh07na8" path="res://asset/graphic/aaron/aaron_confirm_button.png" id="58_ahb43"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/general/suit/faith_icon.png" id="58_g287s"]
+[ext_resource type="Texture2D" uid="uid://c3y4fyen3ymom" path="res://asset/graphic/debate/general/suit/doubt_icon.png" id="59_03okg"]
+[ext_resource type="Texture2D" uid="uid://crmlj17ur3ikf" path="res://asset/graphic/debate/general/suit/self_icon.png" id="60_s28ng"]
+[ext_resource type="Texture2D" uid="uid://8m5h442qngjv" path="res://asset/graphic/debate/general/suit/others_icon.png" id="61_5j3vw"]
 
 [sub_resource type="Resource" id="Resource_cjob1"]
 script = ExtResource("57_ycv4i")
@@ -1057,6 +1061,139 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("40_uyd2d")
+
+[node name="SuitSelector" type="Panel" parent="PlayArea"]
+visible = false
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cy1d4")
+
+[node name="Dialogue" type="TextureRect" parent="PlayArea/SuitSelector"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -700.0
+offset_top = -449.0
+offset_right = 700.0
+offset_bottom = 351.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("56_mq8a7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayArea/SuitSelector/Dialogue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 236.0
+offset_top = 135.0
+offset_right = -236.0
+offset_bottom = -135.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Faith" type="ColorRect" parent="PlayArea/SuitSelector/Dialogue/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_right = NodePath("../Doubt")
+focus_mode = 2
+color = Color(0.996078, 0.694118, 0.266667, 1)
+
+[node name="Icon" type="TextureRect" parent="PlayArea/SuitSelector/Dialogue/HBoxContainer/Faith"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("58_g287s")
+stretch_mode = 5
+
+[node name="Doubt" type="ColorRect" parent="PlayArea/SuitSelector/Dialogue/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Faith")
+focus_neighbor_right = NodePath("../Self")
+focus_mode = 2
+color = Color(1, 0.4, 0.388235, 1)
+
+[node name="Icon" type="TextureRect" parent="PlayArea/SuitSelector/Dialogue/HBoxContainer/Doubt"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("59_03okg")
+stretch_mode = 5
+
+[node name="Self" type="ColorRect" parent="PlayArea/SuitSelector/Dialogue/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Doubt")
+focus_neighbor_right = NodePath("../Others")
+focus_mode = 2
+color = Color(0.619608, 0.878431, 0.619608, 1)
+
+[node name="Icon" type="TextureRect" parent="PlayArea/SuitSelector/Dialogue/HBoxContainer/Self"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("60_s28ng")
+stretch_mode = 5
+
+[node name="Others" type="ColorRect" parent="PlayArea/SuitSelector/Dialogue/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Self")
+focus_mode = 2
+color = Color(0.529412, 0.835294, 0.972549, 1)
+
+[node name="Icon" type="TextureRect" parent="PlayArea/SuitSelector/Dialogue/HBoxContainer/Others"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("61_5j3vw")
+stretch_mode = 5
 
 [node name="CardSelector" type="Panel" parent="PlayArea" node_paths=PackedStringArray("card_container", "submit_button")]
 visible = false

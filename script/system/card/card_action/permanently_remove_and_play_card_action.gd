@@ -12,7 +12,10 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	if cards.size() <= 0:
 		return
 	
-	var selected_card = await ac.select(cards, "permanent_removal")
+	var selected_card = await ac.select(
+		cards, 
+		"permanently_remove_and_play"
+	)
 	
 	iac.remove_card_from_hand(selected_card)
 	iac.deck.remove_from_deck(selected_card)

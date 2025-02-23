@@ -5,25 +5,25 @@
 [ext_resource type="Script" path="res://script/system/card/card_cost_modifier/additive_card_cost_modifier.gd" id="3_7ycni"]
 [ext_resource type="Script" path="res://script/system/card/card_action/add_cost_modifier_to_hand_card_action.gd" id="4_j3210"]
 
-[sub_resource type="Resource" id="Resource_m47vu"]
+[sub_resource type="Resource" id="Resource_qcgr8"]
 script = ExtResource("3_7ycni")
 amount = 1
 priority = 0
 can_expire = true
 turn_lifetime = 1
 
-[sub_resource type="Resource" id="Resource_csxch"]
+[sub_resource type="Resource" id="Resource_aqjgk"]
 script = ExtResource("4_j3210")
 suit_filter = Array[Resource("res://script/system/suit/suit.gd")]([])
-cost_modifier = SubResource("Resource_m47vu")
+cost_modifier = SubResource("Resource_qcgr8")
 
 [resource]
 script = ExtResource("1_syt8x")
 suit = ExtResource("2_7kola")
 title = "Overthink"
 base_cost = 0
-description = "Make a card in your hand cost 1 more energy"
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_csxch")])
+description = "Make a card in your hand cost 1 more energy this turn"
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_aqjgk")])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

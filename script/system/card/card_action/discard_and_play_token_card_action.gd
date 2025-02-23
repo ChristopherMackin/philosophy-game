@@ -18,8 +18,7 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	var selected_card = await player.select(
 		selectable_cards,
-		"self_discard",
-		true
+		"discard_and_play_token",
 	)
 	
 	await manager.add_token_to_suit_track(card.token, card.suit)

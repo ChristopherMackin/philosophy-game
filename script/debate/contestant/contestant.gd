@@ -75,12 +75,12 @@ func _draw_card() -> bool:
 	hand.append(card)
 	return true
 	
-func select(options : Array = hand, what : String = "play", visible_to_player : bool = true):
+func select(options : Array = hand, what : String = "play", type : String = "card", visible_to_player : bool = true):
 	var is_valid_selection : bool = false
 	var selection = null
 	
 	while !is_valid_selection:
-		selection = await _brain.select(options, what, visible_to_player)
+		selection = await _brain.select(options, what, type, visible_to_player)
 		is_valid_selection = true
 		
 		if selection is Array:
@@ -94,8 +94,8 @@ func select(options : Array = hand, what : String = "play", visible_to_player : 
 	
 	return selection
 
-func view(options : Array, what : String = "view"):
-	await _brain.view(options, what)
+func view(options : Array, what : String = "view", type : String = "card"):
+	await _brain.view(options, what, type)
 
 func remove_card_from_hand(card : Card):
 	var index = hand.find(card)

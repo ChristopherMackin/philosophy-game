@@ -4,8 +4,8 @@ class_name Brain
 
 var contestant : Contestant
 
-func select(options : Array, _what : String, _visible_to_player : bool = true):
+func select(_options : Array, _what : String, _type : String, _visible_to_player : bool = true):
 	return null
 
-func view(options : Array, what : String):
+func view(_options : Array, _what : String, _type : String):
 	pass

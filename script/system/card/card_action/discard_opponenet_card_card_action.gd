@@ -21,8 +21,7 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	var selected_card = await player.select(
 		opponent.hand,
-		"discard_oppoenent_card",
-		true
+		"discard_opponent_top",
 	)
 	
 	opponent.discard_card(selected_card)

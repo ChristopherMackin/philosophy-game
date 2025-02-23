@@ -40,7 +40,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("select"):
 		active_focus_group.select()
 
-func on_selection_requested(options : Array, what : String, visible_to_player : bool):
+func on_selection_requested(options : Array, what : String, type : String, visible_to_player : bool):
 	if what == "play":
 		set_focus_group(hand_ui_focus_group)
 	elif what == "board_token_removal":
