@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=5 format=3 uid="uid://hi2quif7qp3d"]
+
+[ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_5q01n"]
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_h5qeu"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="2_fe270"]
+
+[sub_resource type="Resource" id="Resource_gqw8v"]
+script = ExtResource("1_h5qeu")
+suit = ExtResource("2_fe270")
+base_cost = 3
+title = "Twisted Words"
+description = "Banish a faith card from your opponents hand
+
+Take that card's action"
+
+[resource]
+script = ExtResource("1_5q01n")
+card_data = SubResource("Resource_gqw8v")
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([])

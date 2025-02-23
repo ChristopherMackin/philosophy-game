@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=5 format=3 uid="uid://kw4u4olg2ul6"]
+
+[ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_3eey4"]
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_es168"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="2_yodxx"]
+
+[sub_resource type="Resource" id="Resource_o6e81"]
+script = ExtResource("1_es168")
+suit = ExtResource("2_yodxx")
+base_cost = 1
+title = "Blessed Faith"
+description = "Play one basic faith token"
+
+[resource]
+script = ExtResource("1_3eey4")
+card_data = SubResource("Resource_o6e81")
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([])

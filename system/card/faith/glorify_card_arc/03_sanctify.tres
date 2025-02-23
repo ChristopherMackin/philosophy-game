@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=5 format=3 uid="uid://dyh4btjsjv2no"]
+
+[ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_iyjof"]
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_l5k04"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="2_kf57p"]
+
+[sub_resource type="Resource" id="Resource_1okkp"]
+script = ExtResource("1_l5k04")
+suit = ExtResource("2_kf57p")
+base_cost = 1
+title = "Sanctify"
+description = "Banished when played
+
+Add [color=red]Glorify[/color] card to your deck when banished
+
+Add 1 basic faith token to the faith track"
+
+[resource]
+script = ExtResource("1_iyjof")
+card_data = SubResource("Resource_1okkp")
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([])

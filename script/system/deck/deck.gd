@@ -28,7 +28,7 @@ func draw_card():
 	return _draw_pile.pop_front()
 
 func remove_from_deck(card : Card):
-	var cards = composition_card_deck_config_array.map(func(x : DeckConfig): return x.card_data)
+	var cards = composition_card_deck_config_array.map(func(x : DeckConfig): return x.base)
 	var index = cards.find(card.data)
 	
 	if index < 0:
@@ -39,7 +39,7 @@ func remove_from_deck(card : Card):
 		composition_card_deck_config_array.remove_at(index)
 
 func add_to_deck(card : Card):
-	var cards = composition_card_deck_config_array.map(func(x : DeckConfig): return x.card_data)
+	var cards = composition_card_deck_config_array.map(func(x : DeckConfig): return x.base)
 	var index = cards.find(card.data)
 	
 	if index < 0:
@@ -49,8 +49,8 @@ func add_to_deck(card : Card):
 	composition_card_deck_config_array[index].count += 1
 
 func remove_from_draw_pile(card : Card):
-	var card_data = _draw_pile.filter(func(x): return x.card_data)
-	var index = card_data.find(card.data)
+	var card_bases = _draw_pile.filter(func(x): return x.base)
+	var index = card_bases.find(card.base)
 	
 	if index < 0: return
 	

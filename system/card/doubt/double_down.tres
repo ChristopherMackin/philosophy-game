@@ -1,17 +1,8 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://pgdw6runvuns"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=5 format=3 uid="uid://pgdw6runvuns"]
 
 [ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_80fv0"]
-[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_ihtf7"]
-[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_i0em8"]
 [ext_resource type="Script" path="res://script/system/card/card_action/add_token_card_action.gd" id="3_ktdf0"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_v2kix"]
-
-[sub_resource type="Resource" id="Resource_cifpq"]
-script = ExtResource("1_ihtf7")
-suit = ExtResource("2_i0em8")
-base_cost = 2
-title = "Double Down"
-description = "Play one basic doubt token"
 
 [sub_resource type="Resource" id="Resource_6pok6"]
 script = ExtResource("3_ktdf0")
@@ -20,7 +11,9 @@ token_data = ExtResource("4_v2kix")
 
 [resource]
 script = ExtResource("1_80fv0")
-card_data = SubResource("Resource_cifpq")
+title = ""
+base_cost = 0
+description = ""
 token_data = ExtResource("4_v2kix")
 on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_6pok6")])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

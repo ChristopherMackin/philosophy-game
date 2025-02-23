@@ -1042,6 +1042,7 @@ card_parent = NodePath("CardParent")
 card_slot_size = Vector2(300, 260)
 focus_group = ExtResource("10_xhyii")
 player_brain = ExtResource("9_gkl1m")
+metadata/_edit_use_anchors_ = true
 
 [node name="CardParent" type="Container" parent="PlayArea/StatsArea/Hand"]
 layout_mode = 2

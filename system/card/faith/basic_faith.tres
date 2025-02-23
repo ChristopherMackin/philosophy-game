@@ -1,16 +1,16 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=4 format=3 uid="uid://dywkncxr0n466"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=4 format=3 uid="uid://db58qj03gumn7"]
 
-[ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_7mdk1"]
-[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="1_tj2a4"]
-[ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_1bfdo"]
+[ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_4xsf3"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="2_wfv5m"]
+[ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="4_kyfl8"]
 
 [resource]
-script = ExtResource("1_7mdk1")
-suit = ExtResource("1_tj2a4")
-title = "Basic Doubt"
+script = ExtResource("1_4xsf3")
+suit = ExtResource("2_wfv5m")
+title = "Basic Faith"
 base_cost = 1
 description = "Does Nothing"
-token_data = ExtResource("4_1bfdo")
+token_data = ExtResource("4_kyfl8")
 on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

@@ -1,17 +1,9 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://7dxlwt46oaq5"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://7dxlwt46oaq5"]
 
-[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_4tyt7"]
 [ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_hp23h"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_de5os"]
 [ext_resource type="Script" path="res://script/system/card/card_action/remove_token_from_board_card_action.gd" id="3_4u8a3"]
 [ext_resource type="Resource" uid="uid://vebafhvqqdvk" path="res://system/token/doubt/evidence_token.tres" id="4_htv2q"]
-
-[sub_resource type="Resource" id="Resource_yetbu"]
-script = ExtResource("1_4tyt7")
-suit = ExtResource("2_de5os")
-base_cost = 0
-title = "Fact Check"
-description = "Remove one token from the doubt track"
 
 [sub_resource type="Resource" id="Resource_k672g"]
 script = ExtResource("3_4u8a3")
@@ -19,7 +11,9 @@ suit_filter = Array[Resource("res://script/system/suit/suit.gd")]([ExtResource("
 
 [resource]
 script = ExtResource("1_hp23h")
-card_data = SubResource("Resource_yetbu")
+title = ""
+base_cost = 0
+description = ""
 token_data = ExtResource("4_htv2q")
 on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_k672g")])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=5 format=3 uid="uid://bkx523dy7qpxa"]
+
+[ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_iax4f"]
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_mvvpd"]
+[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="2_scodr"]
+
+[sub_resource type="Resource" id="Resource_qq3ku"]
+script = ExtResource("1_mvvpd")
+suit = ExtResource("2_scodr")
+base_cost = 1
+title = "Helping Hand"
+description = "Pick a card from your hand and give it to your opponent"
+
+[resource]
+script = ExtResource("1_iax4f")
+card_data = SubResource("Resource_qq3ku")
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([])
