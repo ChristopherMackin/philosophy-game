@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=9 format=3 uid="uid://0typgs1qd50l"]
 
-[ext_resource type="Resource" uid="uid://i6a01qooq42i" path="res://system/card/faith/glorify_card_arc/02_justify.tres" id="1_it0yq"]
+[ext_resource type="Resource" uid="uid://i6a01qooq42i" path="res://system/card/faith_old/glorify_card_arc/02_justify.tres" id="1_it0yq"]
 [ext_resource type="Script" path="res://script/system/card/card_action/add_card_to_deck_card_action.gd" id="2_2lo4t"]
 [ext_resource type="Script" path="res://script/system/card/card_action/banish_self_card_action.gd" id="3_rgkt7"]
 [ext_resource type="Script" path="res://script/system/card/card_data.gd" id="4_po8ov"]

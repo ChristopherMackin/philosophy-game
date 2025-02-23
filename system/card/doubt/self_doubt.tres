@@ -1,22 +1,27 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://cguj4a6513hg2"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://cguj4a6513hg2"]
 
 [ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_5rbu0"]
 [ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_14sjy"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_gcjd3"]
+[ext_resource type="Script" path="res://script/system/card/card_action/discard_card_from_hand_card_action.gd" id="3_rkb61"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_fl3yq"]
 
 [sub_resource type="Resource" id="Resource_l3oif"]
 script = ExtResource("1_14sjy")
-base_cost = 2
 suit = ExtResource("2_gcjd3")
+base_cost = 2
 title = "Self Doubt"
 description = "Discard one card from your hand"
+
+[sub_resource type="Resource" id="Resource_o3xrp"]
+script = ExtResource("3_rkb61")
+suit_filter = Array[Resource("res://script/system/suit/suit.gd")]([])
 
 [resource]
 script = ExtResource("1_5rbu0")
 card_data = SubResource("Resource_l3oif")
 token_data = ExtResource("4_fl3yq")
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_o3xrp")])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

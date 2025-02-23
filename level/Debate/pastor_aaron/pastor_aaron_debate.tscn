@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://c674050h413wq"]
+[gd_scene load_steps=82 format=3 uid="uid://c674050h413wq"]
 
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="1_c3gp0"]
 [ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event_manager.tres" id="3_pgeyy"]
@@ -228,6 +228,11 @@ packed_scene = ExtResource("49_k0074")
 script = ExtResource("44_si8pi")
 suit = ExtResource("52_j58j1")
 packed_scene = ExtResource("51_5ds64")
+
+[sub_resource type="Resource" id="Resource_iyvri"]
+script = ExtResource("44_si8pi")
+suit = ExtResource("54_2y0fh")
+packed_scene = ExtResource("53_37x6j")
 
 [node name="Debate3d" type="Node3D"]
 
@@ -1062,7 +1067,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cy1d4")
 script = ExtResource("51_3qr11")
-card_ui_suit_packed_scenes = Array[ExtResource("44_si8pi")]([SubResource("Resource_omd8t"), SubResource("Resource_ywx4c"), SubResource("Resource_dv0iw"), SubResource("Resource_s6005")])
+card_ui_suit_packed_scenes = Array[ExtResource("44_si8pi")]([SubResource("Resource_omd8t"), SubResource("Resource_ywx4c"), SubResource("Resource_dv0iw"), SubResource("Resource_s6005"), SubResource("Resource_iyvri")])
 card_container = NodePath("Dialogue/HFlowContainer")
 focus_group = ExtResource("11_1e8cx")
 player_brain = ExtResource("9_gkl1m")

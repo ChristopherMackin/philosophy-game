@@ -1,22 +1,28 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://183t81u40bp0"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://183t81u40bp0"]
 
 [ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_8b32b"]
 [ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_aw5is"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_eqmcf"]
+[ext_resource type="Script" path="res://script/system/card/card_action/draw_card_per_tag_card_action.gd" id="3_x0gcc"]
 [ext_resource type="Resource" uid="uid://vebafhvqqdvk" path="res://system/token/doubt/evidence_token.tres" id="4_jjdmp"]
 
 [sub_resource type="Resource" id="Resource_7gmua"]
 script = ExtResource("1_8b32b")
-base_cost = 2
 suit = ExtResource("2_eqmcf")
+base_cost = 2
 title = "Structured Argument"
 description = "Draw 1 card for every 2 [color=red]evidence[/color] on the board"
+
+[sub_resource type="Resource" id="Resource_70erk"]
+script = ExtResource("3_x0gcc")
+tag = 1
+tag_per_card = 2.0
 
 [resource]
 script = ExtResource("1_aw5is")
 card_data = SubResource("Resource_7gmua")
 token_data = ExtResource("4_jjdmp")
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_70erk")])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

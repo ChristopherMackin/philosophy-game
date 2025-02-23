@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=8 format=3 uid="uid://doxs8qyg8y0ik"]
 
-[ext_resource type="Script" path="res://script/system/card/card_action/add_token_action.gd" id="1_vevma"]
+[ext_resource type="Script" path="res://script/system/card/card_action/add_token_card_action.gd" id="1_vevma"]
 [ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="2_d8plg"]
 [ext_resource type="Script" path="res://script/system/card/card_action/banish_self_card_action.gd" id="3_xloqw"]
 [ext_resource type="Script" path="res://script/system/card/card_data.gd" id="4_2id3q"]

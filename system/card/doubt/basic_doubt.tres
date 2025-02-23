@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://dywkncxr0n466"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://dywkncxr0n466"]
 
 [ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_7mdk1"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="1_tj2a4"]
 [ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_wsbuc"]
-[ext_resource type="Script" path="res://script/system/card/card_cost_modifier/additive_card_cost_modifier.gd" id="3_31r5i"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_1bfdo"]
 
 [sub_resource type="Resource" id="Resource_tl3h5"]
@@ -12,13 +11,6 @@ suit = ExtResource("1_tj2a4")
 base_cost = 1
 title = "Basic Doubt"
 description = "Does nothing"
-
-[sub_resource type="Resource" id="Resource_kgtyg"]
-script = ExtResource("3_31r5i")
-amount = 1
-priority = 0
-can_expire = true
-turn_lifetime = 3
 
 [resource]
 script = ExtResource("1_7mdk1")
@@ -29,4 +21,4 @@ on_discard_card_actions = Array[Resource("res://script/system/card/card_action/c
 on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([SubResource("Resource_kgtyg")])
+cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([])

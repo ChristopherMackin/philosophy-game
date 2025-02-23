@@ -1,24 +1,28 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://bun8m733alh6v"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://bun8m733alh6v"]
 
 [ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_18t8h"]
 [ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_frcpv"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_fw44m"]
+[ext_resource type="Script" path="res://script/system/card/card_action/multi_discard_opponent_card_action.gd" id="3_rl0ah"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_87jad"]
 
 [sub_resource type="Resource" id="Resource_d3wrd"]
 script = ExtResource("1_frcpv")
-base_cost = 5
 suit = ExtResource("2_fw44m")
+base_cost = 5
 title = "Broken Trust"
 description = "Look at opponents hand. Discard any cards you like
 
 It cost one less to play for each [color=red]evidence[/color] token in play"
 
+[sub_resource type="Resource" id="Resource_3lch6"]
+script = ExtResource("3_rl0ah")
+
 [resource]
 script = ExtResource("1_18t8h")
 card_data = SubResource("Resource_d3wrd")
 token_data = ExtResource("4_87jad")
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_3lch6")])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

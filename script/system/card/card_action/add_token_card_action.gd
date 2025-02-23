@@ -1,6 +1,6 @@
 extends CardAction
 
-class_name AddTokenAction
+class_name AddTokenCardAction
 
 @export var amount : int = 1
 @export var token_data : TokenData
