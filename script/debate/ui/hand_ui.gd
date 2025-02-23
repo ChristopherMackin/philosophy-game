@@ -70,7 +70,7 @@ func _add_card(card : Card):
 	var card_slot : Control = Control.new()
 	card_slot.custom_minimum_size = card_slot_size
 	
-	var index = card_ui_suit_packed_scenes.map(func(x): return x.suit).find(card.data.suit)
+	var index = card_ui_suit_packed_scenes.map(func(x): return x.suit).find(card.suit)
 	index = index if index >= 0 else 0
 	var card_ui_packed_scene = card_ui_suit_packed_scenes[index].packed_scene
 	

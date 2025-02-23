@@ -1,20 +1,7 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=7 format=3 uid="uid://d0no8tbjk0y2m"]
+[gd_resource type="Resource" script_class="Deck" load_steps=2 format=3 uid="uid://d0no8tbjk0y2m"]
 
-[ext_resource type="Resource" uid="uid://85up1kaei7cl" path="res://system/card/peace/recollect.tres" id="1_8h1be"]
 [ext_resource type="Script" path="res://script/system/deck/deck.gd" id="1_tnq5e"]
-[ext_resource type="Script" path="res://script/system/card/card_deck_config.gd" id="2_mhjss"]
-[ext_resource type="Resource" uid="uid://clnyw55jxr6to" path="res://system/card/doubt/basic_doubt.tres" id="3_wjx5d"]
-
-[sub_resource type="Resource" id="Resource_x0ygn"]
-script = ExtResource("2_mhjss")
-card_data = ExtResource("1_8h1be")
-count = 10
-
-[sub_resource type="Resource" id="Resource_2cksc"]
-script = ExtResource("2_mhjss")
-card_data = ExtResource("3_wjx5d")
-count = 10
 
 [resource]
 script = ExtResource("1_tnq5e")
-composition_card_deck_config_array = Array[ExtResource("2_mhjss")]([SubResource("Resource_x0ygn"), SubResource("Resource_2cksc")])
+composition_card_deck_config_array = Array[Resource("res://script/system/card/card_deck_config.gd")]([])

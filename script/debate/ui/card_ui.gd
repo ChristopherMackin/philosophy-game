@@ -25,7 +25,7 @@ func update_card(card : Card) :
 			return
 		
 		if cost: cost.text = str(card.cost)
-		if icon: icon.texture = card.data.suit.icon
-		if title: title.text = card.data.title
-		if description: description.text = card.data.description
-		if artwork: artwork.texture = card.data.token_data.artwork
+		if icon: icon.texture = card.suit.icon
+		if title: title.text = card.title
+		if description: description.text = card.description
+		if artwork: artwork.texture = card.token.artwork

@@ -10,7 +10,7 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	var selectable_cards : Array[Card]
 	
 	if suit_filter.size() > 0:
-		selectable_cards.append_array(player.hand.filter(func(card): return suit_filter.has(card.data.suit)))
+		selectable_cards.append_array(player.hand.filter(func(card): return suit_filter.has(card.suit)))
 	else:
 		selectable_cards = player.hand
 	
@@ -22,6 +22,6 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 		true
 	)
 	
-	await manager.add_token_to_suit_track(Token.new(selected_card.data.token_data), card.data.suit)
+	await manager.add_token_to_suit_track(card.token, card.suit)
 	await player.discard_card(selected_card)
 

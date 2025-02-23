@@ -7,5 +7,5 @@ class_name CardCostModifier
 @export var turn_lifetime : int = -1
 var current_turn : int = 0
 
-func modify_cost(base_cost : int, manager : DebateManager) -> int:
+func modify_cost(base_cost : int, _manager : DebateManager) -> int:
 	return base_cost

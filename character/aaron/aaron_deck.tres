@@ -1,32 +1,14 @@
-[gd_resource type="Resource" script_class="InfiniteDeck" load_steps=11 format=3 uid="uid://dkq48q8q0yli4"]
+[gd_resource type="Resource" script_class="InfiniteDeck" load_steps=5 format=3 uid="uid://dkq48q8q0yli4"]
 
-[ext_resource type="Resource" uid="uid://clnyw55jxr6to" path="res://system/card/doubt/basic_doubt.tres" id="1_cpgut"]
+[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="1_intwy"]
 [ext_resource type="Script" path="res://script/system/deck/infinite_deck.gd" id="1_yxa1j"]
-[ext_resource type="Script" path="res://script/system/card/card_deck_config.gd" id="2_ndyr0"]
-[ext_resource type="Resource" uid="uid://by2toymbldwte" path="res://system/card/faith/basic_faith.tres" id="3_xqqjs"]
-[ext_resource type="Resource" uid="uid://crvid8h870ryr" path="res://system/card/others/basic_others.tres" id="4_3ujrw"]
-[ext_resource type="Resource" uid="uid://blcakrfj88pwk" path="res://system/card/self/basic_self.tres" id="5_cb0c2"]
+[ext_resource type="Script" path="res://script/system/card/card_deck_config.gd" id="2_6ug3c"]
 
-[sub_resource type="Resource" id="Resource_1uexh"]
-script = ExtResource("2_ndyr0")
-card_data = ExtResource("1_cpgut")
-count = 2
-
-[sub_resource type="Resource" id="Resource_cimer"]
-script = ExtResource("2_ndyr0")
-card_data = ExtResource("3_xqqjs")
-count = 2
-
-[sub_resource type="Resource" id="Resource_2mwf0"]
-script = ExtResource("2_ndyr0")
-card_data = ExtResource("4_3ujrw")
-count = 2
-
-[sub_resource type="Resource" id="Resource_id8mk"]
-script = ExtResource("2_ndyr0")
-card_data = ExtResource("5_cb0c2")
-count = 2
+[sub_resource type="Resource" id="Resource_50mgs"]
+script = ExtResource("2_6ug3c")
+base = ExtResource("1_intwy")
+count = 20
 
 [resource]
 script = ExtResource("1_yxa1j")
-composition_card_deck_config_array = Array[ExtResource("2_ndyr0")]([SubResource("Resource_1uexh"), SubResource("Resource_cimer"), SubResource("Resource_2mwf0"), SubResource("Resource_id8mk")])
+composition_card_deck_config_array = Array[ExtResource("2_6ug3c")]([SubResource("Resource_50mgs")])

@@ -1,23 +1,23 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=6 format=3 uid="uid://bg1swavgd0yc4"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://dh3w51x3vqnlg"]
 
-[ext_resource type="Script" path="res://script/system/card/card_action/draw_card_card_action.gd" id="1_1qeym"]
-[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_new7j"]
-[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="3_ay0is"]
-[ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_xmose"]
+[ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_676n2"]
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_bfioq"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_6xagw"]
+[ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_cnw4b"]
 
-[sub_resource type="Resource" id="Resource_1gv3s"]
-script = ExtResource("1_1qeym")
-draw_amount = 2
-
-[resource]
-script = ExtResource("1_new7j")
-token_data = ExtResource("4_xmose")
+[sub_resource type="Resource" id="Resource_ymi0y"]
+script = ExtResource("1_bfioq")
 base_cost = 2
-suit = ExtResource("3_ay0is")
+suit = ExtResource("2_6xagw")
 title = "Careful Consideration"
 description = "On discard, draw two cards"
+
+[resource]
+script = ExtResource("1_676n2")
+card_data = SubResource("Resource_ymi0y")
+token_data = ExtResource("4_cnw4b")
 on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_1gv3s")])
+on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

@@ -1,14 +1,7 @@
-[gd_resource type="Resource" script_class="InfiniteDeck" load_steps=5 format=3 uid="uid://dx84t8mdhci6e"]
+[gd_resource type="Resource" script_class="InfiniteDeck" load_steps=2 format=3 uid="uid://i1l0656ky2sr"]
 
-[ext_resource type="Script" path="res://script/system/card/card_deck_config.gd" id="1_oqjm4"]
-[ext_resource type="Resource" uid="uid://clnyw55jxr6to" path="res://system/card/doubt/basic_doubt.tres" id="2_rrcn4"]
 [ext_resource type="Script" path="res://script/system/deck/infinite_deck.gd" id="3_k2gwi"]
-
-[sub_resource type="Resource" id="Resource_bnrab"]
-script = ExtResource("1_oqjm4")
-top_data = ExtResource("2_rrcn4")
-count = 1
 
 [resource]
 script = ExtResource("3_k2gwi")
-composition_top_deck_config_array = Array[ExtResource("1_oqjm4")]([SubResource("Resource_bnrab")])
+composition_card_deck_config_array = Array[Resource("res://script/system/card/card_deck_config.gd")]([])

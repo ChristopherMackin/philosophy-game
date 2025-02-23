@@ -8,4 +8,4 @@ class_name AddTokenAction
 func invoke(card : Card, player : Contestant, manager : DebateManager):
 	for i in amount:
 		var token = Token.new(token_data)
-		await manager.add_token_to_suit_track(token, card.data.suit)
+		await manager.add_token_to_suit_track(token, card.suit)

@@ -13,7 +13,7 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	var selectable_cards : Array[Card]
 	
 	if suit_filter.size() > 0:
-		selectable_cards.append_array(opponent.hand.filter(func(card): return suit_filter.has(card.data.suit)))
+		selectable_cards.append_array(opponent.hand.filter(func(card): return suit_filter.has(card.suit)))
 	else:
 		selectable_cards = opponent.hand
 	

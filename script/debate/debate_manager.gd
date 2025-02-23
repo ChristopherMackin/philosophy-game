@@ -112,7 +112,7 @@ func get_is_debate_over() -> bool:
 
 func active_player_turn():
 	for card : Card in active_contestant.hand.duplicate():
-		for action in card.data.on_turn_start_card_actions:
+		for action in card.on_turn_start_card_actions:
 			await action.invoke(card, active_contestant, self)
 	
 	while active_contestant.current_energy > 0 and !get_is_debate_over():
@@ -123,18 +123,15 @@ func active_player_turn():
 		
 		var card = await active_contestant.select(playable_cards)
 		
-		active_contestant.current_energy -= card.data.get_cost(self)
+		active_contestant.current_energy -= card.cost
 		
 		blackboard.add("previous_card", blackboard.get_value("current_card"), Constants.ExpirationToken.ON_DEBATE_START)
 		blackboard.add("previous_suit", blackboard.get_value("current_suit"), Constants.ExpirationToken.ON_DEBATE_START)
-		blackboard.add("current_card", card.data.title, Constants.ExpirationToken.ON_DEBATE_START)
-		blackboard.add("current_suit", card.data.suit.name, Constants.ExpirationToken.ON_DEBATE_START)
+		blackboard.add("current_card", card.title, Constants.ExpirationToken.ON_DEBATE_START)
+		blackboard.add("current_suit", card.suit.name, Constants.ExpirationToken.ON_DEBATE_START)
 		
-		var token_data = card.data.token_data
-		
-		if token_data:
-			var token = Token.new(token_data)
-			await add_token_to_suit_track(token, card.data.suit)
+		if card.token:
+			await add_token_to_suit_track(card.token, card.suit)
 		
 		await active_contestant.play_card(card)
 		for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, active_contestant)
@@ -142,7 +139,7 @@ func active_player_turn():
 		clear_lines()
 	
 	for card : Card in active_contestant.hand.duplicate():
-		for action in card.data.on_turn_end_card_actions:
+		for action in card.on_turn_end_card_actions:
 			await action.invoke(card, active_contestant, self)
 	
 	active_contestant.clean_up()

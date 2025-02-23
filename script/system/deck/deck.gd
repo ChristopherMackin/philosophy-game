@@ -16,7 +16,7 @@ func initialize_deck(manager : DebateManager):
 	
 	for config in composition_card_deck_config_array:
 		for index in config.count:
-			var card = Card.new(config.card_data, manager)
+			var card = Card.new(config.base, manager)
 			_draw_pile.append(card)
 	
 	_draw_pile.shuffle()

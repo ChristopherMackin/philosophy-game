@@ -10,5 +10,5 @@ func set_texture(token : Token):
 	self.token = token
 	
 	var mat = StandardMaterial3D.new()
-	mat.albedo_texture = token.data.artwork
+	mat.albedo_texture = token.artwork
 	mesh_instance.set_surface_override_material(0, mat)

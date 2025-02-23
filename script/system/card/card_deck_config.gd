@@ -2,9 +2,9 @@ extends Resource
 
 class_name DeckConfig
 
-@export var card_data : CardData
+@export var base : CardBase
 @export var count : int
 
-func _init(card_data : CardData = null, count : int = 0):
-	self.card_data = card_data
+func _init(base : CardBase = null, count : int = 0):
+	self.base = base
 	self.count = count

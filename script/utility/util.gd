@@ -90,3 +90,10 @@ static func set_up_focus_connections(controls : Array):
 		if i > 0: control.focus_previous = controls[i - 1].get_path()
 		
 		i += 1
+
+static func deep_copy_resource_array(resource_array : Array):
+	var deep_copy = []
+	for resource in resource_array:
+		deep_copy.append(resource.duplicate())
+	
+	return deep_copy

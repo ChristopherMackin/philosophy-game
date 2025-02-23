@@ -1,23 +1,22 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=6 format=3 uid="uid://do0rt5ottntxa"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://pgdw6runvuns"]
 
-[ext_resource type="Script" path="res://script/system/card/card_action/add_token_action.gd" id="1_j7gs4"]
-[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_w5w5u"]
-[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_hhwcg"]
-[ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="3_0mtk4"]
+[ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_80fv0"]
+[ext_resource type="Script" path="res://script/system/card/card_data.gd" id="1_ihtf7"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_i0em8"]
+[ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_v2kix"]
 
-[sub_resource type="Resource" id="Resource_xa1sq"]
-script = ExtResource("1_j7gs4")
-amount = 1
-token_data = ExtResource("3_0mtk4")
-
-[resource]
-script = ExtResource("1_w5w5u")
-token_data = ExtResource("3_0mtk4")
+[sub_resource type="Resource" id="Resource_cifpq"]
+script = ExtResource("1_ihtf7")
 base_cost = 2
-suit = ExtResource("2_hhwcg")
+suit = ExtResource("2_i0em8")
 title = "Double Down"
 description = "Play one basic doubt token"
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_xa1sq")])
+
+[resource]
+script = ExtResource("1_80fv0")
+card_data = SubResource("Resource_cifpq")
+token_data = ExtResource("4_v2kix")
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

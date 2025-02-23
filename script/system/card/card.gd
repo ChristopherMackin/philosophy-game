@@ -2,12 +2,45 @@ extends Object
 
 class_name Card
 
-var data : CardData
+var token : Token
+
+var _card_data : CardData
+var suit : Suit:
+	get: return _card_data.suit
+var base_cost : int:
+	get: return _card_data.base_cost
+var title : String:
+	get: return _card_data.title
+var description : String:
+	get: return _card_data.description
+
+var on_play_card_actions : Array[CardAction]
+var on_discard_card_actions : Array[CardAction]
+var on_banish_card_actions : Array[CardAction]
+var on_turn_start_card_actions : Array[CardAction]
+var on_turn_end_card_actions : Array[CardAction]
+var cost_modifiers : Array[CardCostModifier]
 var manager : DebateManager
 
 var cost : int :
-	get: return data.get_cost(manager)
+	get:
+		var ret = base_cost
+	
+		cost_modifiers.sort_custom(func(a, b): return a.priority > b.priority)
+	
+		for modifier in cost_modifiers:
+			ret = modifier.modify_cost(ret, manager)
+	
+		return ret
 
-func _init(card_data: CardData, manager : DebateManager):
-	data = card_data
+func _init(base: CardBase, manager : DebateManager):
+	token = Token.new(base.token_data) if base.token_data else null
+	_card_data = base.card_data
+	on_play_card_actions.assign(Util.deep_copy_resource_array(base.on_play_card_actions))
+	on_discard_card_actions.assign(Util.deep_copy_resource_array(base.on_discard_card_actions))
+	on_banish_card_actions.assign(Util.deep_copy_resource_array(base.on_banish_card_actions))
+	on_turn_start_card_actions.assign(Util.deep_copy_resource_array(base.on_turn_start_card_actions))
+	on_turn_end_card_actions.assign(Util.deep_copy_resource_array(base.on_turn_end_card_actions))
+	cost_modifiers.assign(Util.deep_copy_resource_array(base.cost_modifiers))
+	
 	self.manager = manager

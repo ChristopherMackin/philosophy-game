@@ -8,7 +8,7 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	var ac = player
 	var iac = manager.get_opponent(player)
 	
-	var cards : Array = iac.hand.filter(func(x : Card): return suit_filters.has(x.data.suit))
+	var cards : Array = iac.hand.filter(func(x : Card): return suit_filters.has(x.suit))
 	if cards.size() <= 0:
 		return
 	
