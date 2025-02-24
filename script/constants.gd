@@ -17,3 +17,8 @@ enum ExpirationToken {
 	ON_TURN_END,
 	ON_TURN_START,
 }
+
+enum Contestant {
+	PLAYER,
+	OPPONENT
+}

@@ -1,14 +1,15 @@
 extends CardAction
 
-class_name DiscardAndPlayTokenCardAction
+class_name MultiDiscardCardFromHand
 
 @export var which_contestant : Constants.Contestant
-@export var suit_filter : Array[Suit]
+var suit_filter : Array[Suit]
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
 	var contestant = player if which_contestant == Constants.Contestant.PLAYER else manager.get_opponent(player)
 	
-	if contestant.hand.size() <= 0: return
+	if contestant.hand.size() <= 0:
+		return
 	
 	var selectable_cards : Array[Card]
 	
@@ -19,11 +20,11 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	if selectable_cards.size() <= 0: return
 	
-	var selected_card = await player.select(
+	var selected_cards = await player.select(
 		selectable_cards,
-		"discard_and_play_token",
+		"multi_discard_opponent",
 	)
 	
-	await manager.add_token_to_suit_track(card.token, card.suit)
-	await contestant.discard_card(selected_card)
+	for selected_card in selected_cards:
+		contestant.discard_card(selected_card)
 

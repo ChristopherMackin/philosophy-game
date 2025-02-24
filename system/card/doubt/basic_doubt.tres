@@ -1,12 +1,8 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://dywkncxr0n466"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=4 format=3 uid="uid://dywkncxr0n466"]
 
 [ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_7mdk1"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="1_tj2a4"]
-[ext_resource type="Script" path="res://script/system/card/card_action/view_opponents_hand_card_action.gd" id="1_xob3b"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_1bfdo"]
-
-[sub_resource type="Resource" id="Resource_tivyf"]
-script = ExtResource("1_xob3b")
 
 [resource]
 script = ExtResource("1_7mdk1")
@@ -15,7 +11,7 @@ title = "Basic Doubt"
 base_cost = 1
 description = "Does Nothing"
 token_data = ExtResource("4_1bfdo")
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_tivyf")])
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

@@ -2,17 +2,20 @@ extends CardAction
 
 class_name DiscardCardFromHandCardAction
 
+@export var which_contestant : Constants.Contestant
 @export var suit_filter : Array[Suit]
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	if player.hand.size() <= 0: return
+	var contestant = player if which_contestant == Constants.Contestant.PLAYER else manager.get_opponent(player)
+	
+	if contestant.hand.size() <= 0: return
 	
 	var selectable_cards : Array[Card]
 	
 	if suit_filter.size() > 0:
-		selectable_cards.append_array(player.hand.filter(func(card): return suit_filter.has(card.suit)))
+		selectable_cards.append_array(contestant.hand.filter(func(card): return suit_filter.has(card.suit)))
 	else:
-		selectable_cards = player.hand
+		selectable_cards = contestant.hand
 	
 	if selectable_cards.size() <= 0: return
 	
@@ -21,4 +24,4 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 		"discard_card_from_hand",
 	)
 	
-	player.discard_card(selected_card)
+	contestant.discard_card(selected_card)

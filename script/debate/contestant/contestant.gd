@@ -122,12 +122,11 @@ func remove_card_from_hand(card : Card):
 func get_playable_cards() -> Array[Card]:
 	return hand.filter(func(x): return x.cost <= current_energy)
 
-func play_card(card : Card, cost_override : int = 0, use_action : bool = true):
+func play_card(card : Card):
 	remove_card_from_hand(card)
 	
-	if(use_action):
-		for action in card.on_play_card_actions:
-			await action.invoke(card, self, manager)
+	for action in card.on_play_card_actions:
+		await action.invoke(card, self, manager)
 
 func discard_card(card : Card):
 	remove_card_from_hand(card)
