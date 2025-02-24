@@ -2,11 +2,15 @@ extends Deck
 
 class_name InfiniteDeck
 
-func draw_card():
-	if _draw_pile.size() <= 0:
-		initialize_deck(manager)
+func create_draw_pile(manager : DebateManager):
+	self.manager = manager
+	var draw_pile = []
 	
-	return _draw_pile.pop_front()
-
-func get_draw_pile_count():
-	return 1000000000
+	for config in composition_card_deck_config_array:
+		for index in config.count:
+			var card = Card.new(config.base, manager)
+			draw_pile.append(card)
+	
+	draw_pile.shuffle()
+	
+	return draw_pile

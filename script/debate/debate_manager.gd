@@ -71,7 +71,7 @@ func init(player_character : Character, computer_character : Character, debate_s
 	for contestant in contestants: 
 		contestant.on_hand_updated.connect(on_hand_updated)
 		contestant.on_energy_updated.connect(on_energy_updated)
-		contestant.on_deck_updated.connect(on_deck_updated)
+		contestant.on_draw_pile_updated.connect(on_draw_pile_updated)
 		contestant.ready_up(self)
 
 	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_start()
@@ -105,7 +105,7 @@ func get_is_debate_over() -> bool:
 			return true
 	
 	for c : Contestant in contestants:
-		if c.get_draw_pile_count() + c.hand.size() <= 0:
+		if c.draw_pile.size() + c.hand.size() <= 0:
 			return true
 	
 	return false
@@ -180,8 +180,8 @@ func on_hand_updated(contestant : Contestant):
 func on_energy_updated(contestant : Contestant):
 	for sub : DebateSubscriber in subscriber_array: await sub.on_energy_updated(contestant)
 
-func on_deck_updated(contestant : Contestant):
-	for sub : DebateSubscriber in subscriber_array: await sub.on_deck_updated(contestant)
+func on_draw_pile_updated(contestant : Contestant):
+	for sub : DebateSubscriber in subscriber_array: await sub.on_draw_pile_updated(contestant)
 
 func get_opponent(contestant : Contestant):
 	return computer if contestant == player else player

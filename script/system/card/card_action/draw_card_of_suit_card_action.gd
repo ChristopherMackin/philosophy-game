@@ -14,5 +14,9 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 		"suit"
 	)
 	
-	print(selected_suit.name)
-
+	var index = player.draw_pile.map(func(x): return x.suit).find(selected_suit)
+	
+	if index < 0:
+		return
+	
+	player.draw_at_index(index)

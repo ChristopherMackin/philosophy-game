@@ -4,11 +4,12 @@ class_name Contestant
 
 signal on_hand_updated(contestant)
 signal on_energy_updated(contestant)
-signal on_deck_updated(contestant)
+signal on_draw_pile_updated(contestant)
 
 var manager : DebateManager
 var character : Character
 var hand : Array[Card] = []
+var draw_pile : Array[Card] = []
 
 var name : String:
 	get: return character.name
@@ -37,7 +38,7 @@ func _init(character : Character):
 
 func ready_up(manager : DebateManager):
 	self.manager = manager
-	_deck.initialize_deck(manager)
+	draw_pile.assign(_deck.create_draw_pile(manager))
 	draw_full_hand()
 	current_energy = energy_limit
 
@@ -52,12 +53,24 @@ func clean_up():
 	draw_full_hand()
 	current_energy = energy_limit
 
+func draw_at_index(index : int) -> bool:
+	if index < 0 || index >= draw_pile.size():
+		return false
+	
+	hand.append(draw_pile[index])
+	draw_pile.remove_at(index)
+	
+	on_hand_updated.emit(self)
+	on_draw_pile_updated.emit(self)
+	
+	return true
+
 func draw_full_hand():
 	var is_draw_pile_empty = false
 	while hand.size() < draw_limit && !is_draw_pile_empty:
 		is_draw_pile_empty = !_draw_card()
 	on_hand_updated.emit(self)
-	on_deck_updated.emit(self)
+	on_draw_pile_updated.emit(self)
 
 func draw_number_of_cards(amount : int):
 	var is_draw_pile_empty = false
@@ -65,14 +78,13 @@ func draw_number_of_cards(amount : int):
 		is_draw_pile_empty = !_draw_card()
 		amount -= 1
 	on_hand_updated.emit(self)
-	on_deck_updated.emit(self)
+	on_draw_pile_updated.emit(self)
 
 func _draw_card() -> bool:
-	var card = _deck.draw_card()
-	if card == null:
+	if draw_pile.size() <= 0:
 		return false
 	
-	hand.append(card)
+	hand.append(draw_pile.pop_front())
 	return true
 	
 func select(options : Array = hand, what : String = "play", type : String = "card", visible_to_player : bool = true):
@@ -105,7 +117,7 @@ func remove_card_from_hand(card : Card):
 		draw_full_hand()
 	
 	on_hand_updated.emit(self)
-	on_deck_updated.emit(self)
+	on_draw_pile_updated.emit(self)
 
 func get_playable_cards() -> Array[Card]:
 	return hand.filter(func(x): return x.cost <= current_energy)
@@ -131,15 +143,19 @@ func remove_from_deck(card : Card):
 func add_to_deck(card : Card):
 	_deck.add_to_deck(card)
 
-func remove_from_draw_pile(card : Card):
-	_deck.remove_from_draw_pile(card)
-
 func add_to_draw_pile(card : Card):
-	_deck.add_to_draw_pile(card)
+	draw_pile.append(card)
+	draw_pile.shuffle()
+
+func remove_from_draw_pile(card : Card):
+	var card_bases = draw_pile.filter(func(x): return x.base)
+	var index = card_bases.find(card.base)
+	
+	if index < 0: return
+	
+	draw_pile.remove_at(index)
+	draw_pile.shuffle()
 
 func add_card_to_hand(card : Card):
 	hand.append(card)
 	on_hand_updated.emit(self)
-
-func get_draw_pile_count() -> int:
-	return _deck.get_draw_pile_count()

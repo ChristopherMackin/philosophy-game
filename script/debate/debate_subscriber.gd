@@ -33,5 +33,5 @@ func on_hand_updated(_contestant : Contestant):
 func on_energy_updated(_contestant : Contestant):
 	pass
 
-func on_deck_updated(_contestant : Contestant):
+func on_draw_pile_updated(_contestant : Contestant):
 	pass
