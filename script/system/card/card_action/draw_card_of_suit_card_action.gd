@@ -13,7 +13,7 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	var selected_suit = await player.select(
 		suits,
-		"draw_card_of_suit",
+		"%s_draw_card_of_suit" % Constants.Contestant.keys()[which_contestant],
 		"suit"
 	)
 	

@@ -1,7 +1,18 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=3 format=3 uid="uid://d4cywj8g05x5n"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=9 format=3 uid="uid://d4cywj8g05x5n"]
 
+[ext_resource type="Script" path="res://script/system/card/card_action/change_card_suit_card_action.gd" id="1_cpin4"]
 [ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_gy1ft"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="1_peqir"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="2_fulcm"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="2_vke27"]
+[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="3_4i21k"]
+[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="4_74qb2"]
+
+[sub_resource type="Resource" id="Resource_mutsv"]
+script = ExtResource("1_cpin4")
+which_contestant = 0
+suits = Array[Resource("res://script/system/suit/suit.gd")]([])
+card_filter = Array[Resource("res://script/system/suit/suit.gd")]([ExtResource("1_peqir"), ExtResource("2_vke27"), ExtResource("3_4i21k"), ExtResource("4_74qb2")])
 
 [resource]
 script = ExtResource("1_gy1ft")
@@ -9,7 +20,7 @@ suit = ExtResource("2_fulcm")
 title = "Recontextualize"
 base_cost = 1
 description = "Change the suit of any colored card"
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_mutsv")])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

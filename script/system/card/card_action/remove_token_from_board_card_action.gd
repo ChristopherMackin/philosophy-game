@@ -2,13 +2,13 @@ extends CardAction
 
 class_name RemoveTokenFromBoardCardAction
 
-@export var suit_filter : Array[Suit]
+@export var card_filter : Array[Suit]
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
 	var selectable_tokens : Array[Token]
 	
-	if suit_filter.size() > 0:	
-		for suit in suit_filter:
+	if card_filter.size() > 0:	
+		for suit in card_filter:
 			selectable_tokens.append_array(manager.suit_track_dictionary[suit.name])
 	else:
 		for key in manager.suit_track_dictionary:

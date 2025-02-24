@@ -3,18 +3,18 @@ extends CardAction
 class_name PermanentlyRemoveAndPlayCardAction
 
 @export var which_contestant : Constants.Contestant
-@export var suit_filters : Array[Suit]
+@export var card_filters : Array[Suit]
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
 	var contestant = player if which_contestant == Constants.Contestant.PLAYER else manager.get_opponent(player)
 	
-	var cards : Array = contestant.hand.filter(func(x : Card): return suit_filters.has(x.suit))
+	var cards : Array = contestant.hand.filter(func(x : Card): return card_filters.has(x.suit))
 	if cards.size() <= 0:
 		return
 	
 	var selected_card : Card = await player.select(
 		cards, 
-		"permanently_remove_and_play"
+		"%s_permanently_remove_and_play" % Constants.Contestant.keys()[which_contestant]
 	)
 	
 	contestant.remove_card_from_hand(selected_card)
