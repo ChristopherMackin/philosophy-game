@@ -25,7 +25,6 @@ func _ready():
 	for child in card_parent.get_children():
 		child.queue_free()
 	
-	card_parent.connect("sort_children", set_up_focus_connections)
 	focus_group.on_select.connect(on_select)
 
 func on_select(data, focus_type : String):
@@ -35,9 +34,10 @@ func update_hand(hand : Array[Card]):
 	while(!lock.obtain_lock()):
 		await lock.on_released
 	
-	var current_tokens = ui_cards.map(func(x): return x.card)
-	var new_cards = Util.array_difference(hand, current_tokens)
-	var removed_cards = Util.array_difference(current_tokens, hand)
+	var current_cards = ui_cards.map(func(x): return x.card)
+	var new_cards = Util.array_difference(hand, current_cards)
+	var removed_cards = Util.array_difference(current_cards, hand)
+	var remaining_cards = Util.array_difference(current_cards, removed_cards)
 	
 	var add_funcs : Array[Callable] = []
 	for card in new_cards:
@@ -50,6 +50,14 @@ func update_hand(hand : Array[Card]):
 		remove_funcs.append(func() :await _remove_card(card))
 	
 	await Util.await_all(remove_funcs)
+	
+	var update_funcs : Array[Callable] = []
+	for card in remaining_cards:
+		update_funcs.append(func(): await _update_card(card))
+	
+	await Util.await_all(update_funcs)
+	
+	card_parent.queue_sort()
 	
 	lock.release_lock()
 
@@ -99,3 +107,27 @@ func _remove_card(card : Card):
 	card_slots[card_index].queue_free()
 	card_slots.remove_at(card_index)
 	ui_cards.remove_at(card_index)
+
+func _update_card(card):
+	var matching = ui_cards.filter(func (ui_card): return card == ui_card.card)
+	var old_card = matching[0] if not matching.is_empty() else null
+	var card_index = ui_cards.find(old_card)
+	
+	if card_index <0:
+		return
+	
+	var index = card_ui_suit_packed_scenes.map(func(x): return x.suit).find(card.suit)
+	index = index if index >= 0 else 0
+	var card_ui_packed_scene = card_ui_suit_packed_scenes[index].packed_scene
+	
+	var ui_card = card_ui_packed_scene.instantiate() as CardUI
+	ui_card.card = card
+	
+	ui_cards[card_index] = ui_card
+	
+	card_slots[card_index].add_child(ui_card)
+	
+	if focus_group.focused_node == old_card:
+		focus_group.focus(ui_card)
+	
+	old_card.queue_free()

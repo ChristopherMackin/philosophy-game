@@ -31,7 +31,7 @@ content_margin_top = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
 
-[node name="DoubtCardUI" type="Control" node_paths=PackedStringArray("cost", "icon", "title", "artwork", "description")]
+[node name="DoubtCardUI" type="Control" node_paths=PackedStringArray("title", "artwork", "description", "cost", "icon")]
 custom_minimum_size = Vector2(370, 320)
 layout_mode = 3
 anchors_preset = 0
@@ -41,11 +41,11 @@ scale = Vector2(0.81, 0.81)
 pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
 focus_mode = 2
 script = ExtResource("1_kulfk")
-cost = NodePath("CardBG/CostIcon/Cost")
-icon = NodePath("CardBG/PoseIcon")
 title = NodePath("CardBG/Title")
 artwork = NodePath("CardBG/CardTokenLocation/Token")
 description = NodePath("CardBG/Description")
+cost = NodePath("CardBG/CostIcon/Cost")
+icon = NodePath("CardBG/PoseIcon")
 metadata/focus_property = "card"
 
 [node name="Shadow" type="TextureRect" parent="."]

@@ -6,6 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_cv8y7"]
 script = ExtResource("1_gtop3")
+which_contestant = 0
 suits = Array[Resource("res://script/system/suit/suit.gd")]([])
 
 [resource]
