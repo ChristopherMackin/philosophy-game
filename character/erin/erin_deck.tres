@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InfiniteDeck" load_steps=2 format=3 uid="uid://i1l0656ky2sr"]
 
-[ext_resource type="Script" path="res://script/system/deck/infinite_deck.gd" id="3_k2gwi"]
+[ext_resource type="Script" path="res://script/system/deck/duplicate_deck.gd" id="3_k2gwi"]
 
 [resource]
 script = ExtResource("3_k2gwi")

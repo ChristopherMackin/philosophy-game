@@ -14,7 +14,7 @@ func select(options : Array, what : String, type : String = "card", visible_to_p
 	return output
 
 func view(options : Array, what : String, type : String):
-	on_view.emit(options, type, what)
+	on_view.emit(options, what, type)
 	await on_view_finished
 
 func finish_viewing():

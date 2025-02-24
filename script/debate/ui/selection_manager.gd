@@ -67,7 +67,7 @@ func focus_card_selector(options : Array, what : String, visible_to_player : boo
 		card_selector.open_selector(options, visible_to_player, mode)
 		set_focus_group(card_selector_focus_group)
 
-func on_view(options : Array, what : String):
+func on_view(options : Array, what : String, type : String):
 	card_selector.open_selector(options, true, CardSelector.CardSelectorMode.VIEW)
 	set_focus_group(card_selector_focus_group)
 
