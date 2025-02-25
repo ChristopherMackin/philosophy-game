@@ -25,6 +25,8 @@ func _ready():
 	for child in card_parent.get_children():
 		child.queue_free()
 	
+	card_parent.sort_children.connect(set_up_focus_connections, CONNECT_DEFERRED)
+	
 	focus_group.on_select.connect(on_select)
 
 func on_select(data, focus_type : String):

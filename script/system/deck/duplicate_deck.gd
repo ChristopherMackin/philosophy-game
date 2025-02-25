@@ -6,18 +6,14 @@ class_name DuplicateDeck
 
 func create_draw_pile(manager : DebateManager):
 	self.manager = manager
-	var pile_to_duplicate = []
-	
-	for config in composition_card_deck_config_array:
-		for index in config.count:
-			var card = Card.new(config.base, manager)
-			pile_to_duplicate.append(card)
-	
 	var draw_pile = []
 	
 	for i in number_of_duplications:
-		var append = pile_to_duplicate.duplicate(true)
-		append.shuffle()
-		draw_pile.append_array(append)
+		for config in composition_card_deck_config_array:
+			var pile_to_append = []
+			for index in config.count:
+				var card = Card.new(config.base, manager)
+				pile_to_append.append(card)
+			draw_pile.append_array(pile_to_append)
 	
 	return draw_pile

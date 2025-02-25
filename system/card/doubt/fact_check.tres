@@ -7,13 +7,14 @@
 
 [sub_resource type="Resource" id="Resource_k672g"]
 script = ExtResource("3_4u8a3")
-suit_filter = Array[Resource("res://script/system/suit/suit.gd")]([ExtResource("2_de5os")])
+card_filter = Array[Resource("res://script/system/suit/suit.gd")]([])
 
 [resource]
 script = ExtResource("1_hp23h")
-title = ""
+suit = ExtResource("2_de5os")
+title = "Fact Check"
 base_cost = 0
-description = ""
+description = "Remove a top from the doubt track"
 token_data = ExtResource("4_htv2q")
 on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_k672g")])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

@@ -21,7 +21,7 @@ func create_draw_pile(manager : DebateManager) -> Array[Card]:
 
 func remove_from_deck(card : Card):
 	var cards = composition_card_deck_config_array.map(func(x : DeckConfig): return x.base)
-	var index = cards.find(card.data)
+	var index = cards.find(card._base)
 	
 	if index < 0:
 		return

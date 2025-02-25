@@ -1,21 +1,34 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=5 format=3 uid="uid://bun8m733alh6v"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://bun8m733alh6v"]
 
 [ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_18t8h"]
+[ext_resource type="Script" path="res://script/system/card/card_cost_modifier/minus_tag_card_cost_modifier.gd" id="1_qqapa"]
 [ext_resource type="Script" path="res://script/system/card/card_action/multi_discard_card_from_hand_action.gd" id="3_rl0ah"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="3_wyghd"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_87jad"]
+
+[sub_resource type="Resource" id="Resource_aktqb"]
+script = ExtResource("1_qqapa")
+tag = 1
+priority = 0
+can_expire = false
+turn_lifetime = -1
 
 [sub_resource type="Resource" id="Resource_3lch6"]
 script = ExtResource("3_rl0ah")
+which_contestant = 1
 
 [resource]
 script = ExtResource("1_18t8h")
-title = ""
-base_cost = 0
-description = ""
+suit = ExtResource("3_wyghd")
+title = "Broken Trust"
+base_cost = 5
+description = "Look at opponent's hand and remove any number of cards
+
+Costs 1 less energy for each [color=red]evidence[/color] token on the board"
 token_data = ExtResource("4_87jad")
 on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_3lch6")])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([])
+cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([SubResource("Resource_aktqb")])

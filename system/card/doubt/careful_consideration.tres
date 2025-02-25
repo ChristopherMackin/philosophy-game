@@ -1,18 +1,21 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=5 format=3 uid="uid://dh3w51x3vqnlg"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://dh3w51x3vqnlg"]
 
 [ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_676n2"]
 [ext_resource type="Script" path="res://script/system/card/card_action/draw_card_card_action.gd" id="3_nfbrf"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="3_s4jof"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_cnw4b"]
 
 [sub_resource type="Resource" id="Resource_0gl3t"]
 script = ExtResource("3_nfbrf")
+which_contestant = 0
 draw_amount = 2
 
 [resource]
 script = ExtResource("1_676n2")
-title = ""
-base_cost = 0
-description = ""
+suit = ExtResource("3_s4jof")
+title = "Careful Consideration"
+base_cost = 2
+description = "Draw 2 cards"
 token_data = ExtResource("4_cnw4b")
 on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_0gl3t")])

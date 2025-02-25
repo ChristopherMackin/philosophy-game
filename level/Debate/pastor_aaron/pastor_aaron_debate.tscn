@@ -55,7 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_ui/peace_card_ui.tscn" id="53_37x6j"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="54_2y0fh"]
 [ext_resource type="Script" path="res://script/system/save_manager.gd" id="55_qd7va"]
-[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/player_deck.tres" id="56_g82aw"]
+[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/basic_deck.tres" id="56_g82aw"]
 [ext_resource type="Texture2D" uid="uid://qiqjkvvjvbi4" path="res://asset/graphic/aaron/aaron_dialogue.png" id="56_mq8a7"]
 [ext_resource type="Script" path="res://level/debate/pastor_aaron/suit_selector.gd" id="57_omw2k"]
 [ext_resource type="Script" path="res://script/system/save_data.gd" id="57_ycv4i"]
@@ -260,7 +260,7 @@ script = ExtResource("44_si8pi")
 suit = ExtResource("54_2y0fh")
 packed_scene = ExtResource("53_37x6j")
 
-[node name="Debate3d" type="Node3D"]
+[node name="Root" type="Node3D"]
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("55_qd7va")
@@ -1189,8 +1189,6 @@ grow_vertical = 0
 focus_mode = 2
 texture = ExtResource("58_ahb43")
 metadata/focus_type = "submit"
-
-[connection signal="sort_children" from="PlayArea/StatsArea/Hand/CardParent" to="PlayArea/StatsArea/Hand" method="set_up_focus_connections" flags=3]
 
 [editable path="Joy"]
 [editable path="Aaron"]
