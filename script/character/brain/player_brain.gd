@@ -2,15 +2,15 @@ extends Brain
 
 class_name PlayerBrain
 
-signal on_selection_requested(selection_request : SelectionRequest)
-signal on_selection_made(option)
+signal on_selection_requested(request : SelectionRequest)
+signal on_selection_made(response : SelectionResponse)
 
 signal on_view(options : Array, what : String, type : String)
 signal on_view_finished()
 
-func select(selection_request : SelectionRequest):
-	on_selection_requested.emit(selection_request)
-	var output = await on_selection_made
+func select(request : SelectionRequest) -> SelectionResponse:
+	on_selection_requested.emit(request)
+	var output : SelectionResponse = await on_selection_made
 	return output
 
 func view(options : Array, what : String, type : String):
@@ -20,5 +20,5 @@ func view(options : Array, what : String, type : String):
 func finish_viewing():
 	on_view_finished.emit()
 
-func make_selection(option):
-	on_selection_made.emit(option)
+func make_selection(response: SelectionResponse):
+	on_selection_made.emit(response)

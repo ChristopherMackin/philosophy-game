@@ -11,13 +11,13 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	if suits.size() <= 0:
 		suits = manager.debate_settings.suits
 	
-	var selected_suit = await player.select(SelectionRequest.new(
+	var response = await player.select(SelectionRequest.new(
 		suits,
 		"%s_draw_card_of_suit" % Constants.Contestant.keys()[which_contestant],
 		"suit"
 	))
 	
-	var index = contestant.draw_pile.map(func(x): return x.suit).find(selected_suit)
+	var index = contestant.draw_pile.map(func(x): return x.suit).find(response.data)
 	
 	if index < 0:
 		return

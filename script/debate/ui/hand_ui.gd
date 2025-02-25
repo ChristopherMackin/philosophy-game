@@ -30,7 +30,7 @@ func _ready():
 	focus_group.on_select.connect(on_select)
 
 func on_select(data, focus_type : String):
-	player_brain.make_selection(data)
+	player_brain.make_selection(SelectionResponse.new(data))
 
 func update_hand(hand : Array[Card]):
 	while(!lock.obtain_lock()):

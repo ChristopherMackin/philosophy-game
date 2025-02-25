@@ -20,11 +20,11 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	if selectable_cards.size() <= 0: return
 	
-	var selected_cards = await player.select(SelectionRequest.new(
+	var response = await player.select(SelectionRequest.new(
 		selectable_cards,
 		"multi_discard_opponent",
 	))
 	
-	for selected_card in selected_cards:
+	for selected_card in response.data:
 		contestant.discard_card(selected_card)
 

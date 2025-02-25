@@ -42,29 +42,29 @@ func _unhandled_input(event):
 	if event.is_action_pressed("select"):
 		active_focus_group.select()
 
-func on_selection_requested(selection_request : SelectionRequest):
-	if selection_request.type == "suit":
-		focus_suit_selector(selection_request)
+func on_selection_requested(request : SelectionRequest):
+	if request.type == "suit":
+		focus_suit_selector(request)
 	else:
-		focus_card_selector(selection_request)
+		focus_card_selector(request)
 
-func focus_suit_selector(selection_request : SelectionRequest):
-	suit_selector.open_selector(selection_request.options)
+func focus_suit_selector(request : SelectionRequest):
+	suit_selector.open_selector(request.options)
 	set_focus_group(suit_selector_focus_group)
 
-func focus_card_selector(selection_request : SelectionRequest):
-	if selection_request.what == "play":
+func focus_card_selector(request : SelectionRequest):
+	if request.what == "play":
 		set_focus_group(hand_ui_focus_group)
-	elif selection_request.what.contains("board"):
-		play_area_selector.open_selector(selection_request.options)
+	elif request.what.contains("board"):
+		play_area_selector.open_selector(request.options)
 		set_focus_group(play_area_selector_focus_group)
 	else:
 		var mode = CardSelector.CardSelectorMode.SINGLE
 		
-		if selection_request.what.contains("multi"):
+		if request.what.contains("multi"):
 			mode = CardSelector.CardSelectorMode.MULTI
 		
-		card_selector.open_selector(selection_request.options, selection_request.visible_to_player, mode)
+		card_selector.open_selector(request.options, request.visible_to_player, mode)
 		set_focus_group(card_selector_focus_group)
 
 func on_view(options : Array, what : String, type : String):

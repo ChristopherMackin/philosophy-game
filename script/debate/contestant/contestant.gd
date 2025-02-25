@@ -87,24 +87,24 @@ func _draw_card() -> bool:
 	hand.append(draw_pile.pop_front())
 	return true
 	
-func select(selection_request : SelectionRequest):
+func select(request : SelectionRequest) -> SelectionResponse:
 	var is_valid_selection : bool = false
-	var selection = null
+	var response : SelectionResponse
 	
 	while !is_valid_selection:
-		selection = await _brain.select(selection_request)
+		response = await _brain.select(request)
 		is_valid_selection = true
 		
-		if selection is Array:
-			for option in selection:
-				if selection_request.options.find(option) == -1:
+		if response.data is Array:
+			for option in response.data:
+				if request.options.find(option) == -1:
 					is_valid_selection = false
 					break
 		else:
-			if selection_request.options.find(selection) == -1:
+			if request.options.find(response.data) == -1:
 				is_valid_selection = false
 	
-	return selection
+	return response
 
 func view(options : Array, what : String = "view", type : String = "card"):
 	await _brain.view(options, what, type)

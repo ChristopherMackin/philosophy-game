@@ -19,11 +19,11 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	if selectable_cards.size() <= 0: return
 	
-	var selected_card = await player.select(
+	var response = await player.select(SelectionRequest.new(
 		selectable_cards,
 		"%s_discard_and_play_token" % Constants.Contestant.keys()[which_contestant]
-	)
+	))
 	
 	await manager.add_token_to_suit_track(card.token, card.suit)
-	await contestant.discard_card(selected_card)
+	await contestant.discard_card(response.data)
 

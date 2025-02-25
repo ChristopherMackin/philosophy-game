@@ -93,13 +93,13 @@ func on_select_view(data, focus_type : String):
 	close_selector()
 
 func on_select_single(data, focus_type : String):
-	player_brain.make_selection(data)
+	player_brain.make_selection(SelectionResponse.new(data))
 	focus_group.on_select.disconnect(on_select_single)
 	close_selector()
 
 func on_select_multi(data, focus_type : String):
 	if focus_type == "submit":
-		player_brain.make_selection(selection_array)
+		player_brain.make_selection(SelectionResponse.new(selection_array))
 		focus_group.on_select.disconnect(on_select_multi)
 		close_selector()
 	else:

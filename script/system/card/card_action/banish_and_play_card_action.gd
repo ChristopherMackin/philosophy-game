@@ -12,15 +12,15 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	if cards.size() <= 0:
 		return
 	
-	var selected_card : Card = await player.select(SelectionRequest.new(
+	var response : Card = await player.select(SelectionRequest.new(
 		cards, 
 		"%s_permanently_remove_and_play" % Constants.Contestant.keys()[which_contestant]
 	))
 	
-	contestant.remove_card_from_hand(selected_card)
-	contestant.deck.remove_from_deck(selected_card)
+	contestant.remove_card_from_hand(response.data)
+	contestant.deck.remove_from_deck(response.data)
 	var modifier := ZeroCostModifier.new()
 	modifier.priority = 999
-	selected_card.cost_modifiers.append(modifier)
+	response.data.cost_modifiers.append(modifier)
 	
-	await contestant.play_card(selected_card)
+	await contestant.play_card(response.data)
