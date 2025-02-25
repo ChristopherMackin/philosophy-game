@@ -15,9 +15,9 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 			var track = manager.suit_track_dictionary[key]
 			selectable_tokens.append_array(track)
 	
-	var selected_token = await player.select(
+	var selected_token = await player.select(SelectionRequest.new(
 		selectable_tokens,
 		"remove_token_from_board",
-	)
+	))
 	
 	await manager.remove_token_from_suit_track(selected_token)

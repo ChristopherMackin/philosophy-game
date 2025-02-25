@@ -4,7 +4,7 @@ class_name Brain
 
 var contestant : Contestant
 
-func select(_options : Array, _what : String, _type : String, _visible_to_player : bool = true):
+func select(_selection_request : SelectionRequest):
 	return null
 
 func view(_options : Array, _what : String, _type : String):

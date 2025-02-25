@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_rig8v")
-name = ""
+name = "Peace"
 color = Color(1, 1, 1, 1)

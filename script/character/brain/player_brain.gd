@@ -2,14 +2,14 @@ extends Brain
 
 class_name PlayerBrain
 
-signal on_selection_requested(options : Array, what : String, type : String, visible_to_player : bool)
+signal on_selection_requested(selection_request : SelectionRequest)
 signal on_selection_made(option)
 
 signal on_view(options : Array, what : String, type : String)
 signal on_view_finished()
 
-func select(options : Array, what : String, type : String = "card", visible_to_player : bool = true):
-	on_selection_requested.emit(options, what, type, visible_to_player)
+func select(selection_request : SelectionRequest):
+	on_selection_requested.emit(selection_request)
 	var output = await on_selection_made
 	return output
 

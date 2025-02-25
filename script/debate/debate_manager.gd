@@ -121,7 +121,7 @@ func active_player_turn():
 		if playable_cards.size() <= 0:
 			break
 		
-		var card = await active_contestant.select(playable_cards)
+		var card = await active_contestant.select(SelectionRequest.new(playable_cards))
 		
 		active_contestant.current_energy -= card.cost
 		

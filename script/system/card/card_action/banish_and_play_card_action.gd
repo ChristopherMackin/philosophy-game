@@ -1,6 +1,6 @@
 extends CardAction
 
-class_name PermanentlyRemoveAndPlayCardAction
+class_name BanishAndPlayCardAction
 
 @export var which_contestant : Constants.Contestant
 @export var card_filters : Array[Suit]
@@ -12,10 +12,10 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	if cards.size() <= 0:
 		return
 	
-	var selected_card : Card = await player.select(
+	var selected_card : Card = await player.select(SelectionRequest.new(
 		cards, 
 		"%s_permanently_remove_and_play" % Constants.Contestant.keys()[which_contestant]
-	)
+	))
 	
 	contestant.remove_card_from_hand(selected_card)
 	contestant.deck.remove_from_deck(selected_card)

@@ -1,22 +1,22 @@
 [gd_resource type="Resource" script_class="CardBase" load_steps=7 format=3 uid="uid://ylhvgo4gct1r"]
 
+[ext_resource type="Script" path="res://script/system/card/card_cost_modifier/additive_card_cost_modifier.gd" id="1_erk5n"]
 [ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_syt8x"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="2_7kola"]
-[ext_resource type="Script" path="res://script/system/card/card_cost_modifier/additive_card_cost_modifier.gd" id="3_7ycni"]
-[ext_resource type="Script" path="res://script/system/card/card_action/add_cost_modifier_to_hand_card_action.gd" id="4_j3210"]
+[ext_resource type="Script" path="res://script/system/card/card_action/add_cost_modifier_to_hand_card_action.gd" id="2_ocvke"]
 
-[sub_resource type="Resource" id="Resource_qcgr8"]
-script = ExtResource("3_7ycni")
+[sub_resource type="Resource" id="Resource_btiwr"]
+script = ExtResource("1_erk5n")
 amount = 1
 priority = 0
 can_expire = true
 turn_lifetime = 1
 
-[sub_resource type="Resource" id="Resource_aqjgk"]
-script = ExtResource("4_j3210")
+[sub_resource type="Resource" id="Resource_62yyp"]
+script = ExtResource("2_ocvke")
 which_contestant = 0
 card_filter = Array[Resource("res://script/system/suit/suit.gd")]([])
-cost_modifier = SubResource("Resource_qcgr8")
+cost_modifier = SubResource("Resource_btiwr")
 
 [resource]
 script = ExtResource("1_syt8x")
@@ -24,7 +24,7 @@ suit = ExtResource("2_7kola")
 title = "Overthink"
 base_cost = 0
 description = "Make a card in your hand cost 1 more energy this turn"
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_aqjgk")])
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_62yyp")])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

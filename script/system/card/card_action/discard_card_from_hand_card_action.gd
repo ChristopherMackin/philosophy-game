@@ -19,9 +19,9 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	if selectable_cards.size() <= 0: return
 	
-	var selected_card = await player.select(
+	var selected_card = await player.select(SelectionRequest.new(
 		selectable_cards,
 		"%s_discard_card_from_hand" % Constants.Contestant.keys()[which_contestant]
-	)
+	))
 	
 	contestant.discard_card(selected_card)

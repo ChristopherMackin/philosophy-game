@@ -20,19 +20,19 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	if selectable_cards.size() <= 0: return
 	
-	var selected_card : Card = await player.select(
+	var selected_card : Card = await player.select(SelectionRequest.new(
 		selectable_cards,
 		"%s_change_card_suit" % Constants.Contestant.keys()[which_contestant]
-	)
+	))
 	
 	if suits.size() <= 0:
 		suits = manager.debate_settings.suits
 	
-	var selected_suit = await player.select(
+	var selected_suit = await player.select(SelectionRequest.new(
 		suits,
 		"%s_change_card_suit" % Constants.Contestant.keys()[which_contestant],
 		"suit"
-	)
+	))
 	
 	selected_card.suit = selected_suit
 	

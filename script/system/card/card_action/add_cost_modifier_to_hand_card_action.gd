@@ -20,10 +20,10 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	if selectable_cards.size() <= 0: return
 	
-	var selected_card : Card = await player.select(
+	var selected_card : Card = await player.select(SelectionRequest.new(
 		selectable_cards,
 		"%s_add_cost_modifier_to_hand" % Constants.Contestant.keys()[which_contestant]
-	)
+	))
 	
 	selected_card.cost_modifiers.append(cost_modifier.duplicate(true))
 
