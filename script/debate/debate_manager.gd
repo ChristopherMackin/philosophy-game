@@ -149,8 +149,8 @@ func active_player_turn():
 				
 				if old_hold != card:
 					active_contestant.remove_card_from_hand(card)
-				if old_hold:
-					active_contestant.add_card_to_hand(old_hold, index)
+					if old_hold:
+						active_contestant.add_card_to_hand(old_hold, index)
 				
 				on_hand_updated(active_contestant)
 		
