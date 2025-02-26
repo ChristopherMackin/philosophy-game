@@ -59,6 +59,8 @@ func update_hand(hand : Array[Card]):
 	
 	await Util.await_all(update_funcs)
 	
+	sort_hand(hand)
+	
 	card_parent.queue_sort()
 	
 	lock.release_lock()
@@ -75,6 +77,14 @@ func clear_hand():
 	
 	card_slots.clear()
 	ui_cards.clear()
+
+func sort_hand(hand : Array[Card]):
+	var children = card_parent.get_children()
+	
+	for card in hand:
+		var index = ui_cards.map(func(x): return x.card).find(card)
+		card_slots[index].move_to_front()
+
 
 func _add_card(card : Card):
 	var card_slot : Control = Control.new()

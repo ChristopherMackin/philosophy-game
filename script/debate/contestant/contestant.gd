@@ -10,6 +10,8 @@ var manager : DebateManager
 var character : Character
 var hand : Array[Card] = []
 var draw_pile : Array[Card] = []
+var held_card : Card
+var can_hold : bool = true
 
 var name : String:
 	get: return character.name
@@ -52,6 +54,7 @@ func clean_up():
 	
 	draw_full_hand()
 	current_energy = energy_limit
+	can_hold = true
 
 func draw_at_index(index : int) -> bool:
 	if index < 0 || index >= draw_pile.size():
@@ -93,6 +96,16 @@ func select(request : SelectionRequest) -> SelectionResponse:
 
 func view(options : Array, what : String = "view", type : String = "card"):
 	await _brain.view(options, what, type)
+
+func hold_card(card : Card) -> Card:
+	if !can_hold:
+		return card
+	
+	can_hold = false
+	var old_card = held_card
+	held_card = card
+	
+	return old_card
 
 func remove_card_from_hand(card : Card):
 	var index = hand.find(card)
@@ -140,6 +153,10 @@ func remove_from_draw_pile(card : Card):
 	draw_pile.remove_at(index)
 	draw_pile.shuffle()
 
-func add_card_to_hand(card : Card):
-	hand.append(card)
+func add_card_to_hand(card : Card, index: int = -1):
+	if index == -1 || index >= hand.size():
+		hand.append(card)
+	else:
+		hand.insert(index, card)
+	
 	on_hand_updated.emit(self)

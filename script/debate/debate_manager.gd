@@ -144,7 +144,15 @@ func active_player_turn():
 				
 				clear_lines()
 			"hold":
-				print("HOLD!")
+				var index = active_contestant.hand.find(card)
+				var old_hold = active_contestant.hold_card(card)
+				
+				if old_hold != card:
+					active_contestant.remove_card_from_hand(card)
+				if old_hold:
+					active_contestant.add_card_to_hand(old_hold, index)
+				
+				on_hand_updated(active_contestant)
 		
 	for card : Card in active_contestant.hand.duplicate():
 		for action in card.on_turn_end_card_actions:
