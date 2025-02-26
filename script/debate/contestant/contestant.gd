@@ -89,22 +89,7 @@ func _draw_card() -> bool:
 	
 func select(request : SelectionRequest) -> SelectionResponse:
 	var is_valid_selection : bool = false
-	var response : SelectionResponse
-	
-	while !is_valid_selection:
-		response = await _brain.select(request)
-		is_valid_selection = true
-		
-		if response.data is Array:
-			for option in response.data:
-				if request.options.find(option) == -1:
-					is_valid_selection = false
-					break
-		else:
-			if request.options.find(response.data) == -1:
-				is_valid_selection = false
-	
-	return response
+	return await _brain.select(request)
 
 func view(options : Array, what : String = "view", type : String = "card"):
 	await _brain.view(options, what, type)

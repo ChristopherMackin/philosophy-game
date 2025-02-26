@@ -2,7 +2,7 @@ extends Resource
 
 class_name FocusGroup
 
-signal on_select(data : Variant, type : String)
+signal on_select(data : Variant, what: String, type : String)
 signal on_focus_changed(focused_node : Node)
 signal on_group_selected
 signal on_group_deselected
@@ -15,7 +15,7 @@ func focus(node : Node):
 	focused_node = node
 	on_focus_changed.emit(focused_node)
 
-func select():
+func select(what: String = "play"):
 	var property = null
 	var focus_type = "default"
 	
@@ -27,4 +27,4 @@ func select():
 	if focused_node.has_meta("focus_type"):
 		focus_type = focused_node.get_meta("focus_type")
 	
-	on_select.emit(property, focus_type)
+	on_select.emit(property, what, focus_type)

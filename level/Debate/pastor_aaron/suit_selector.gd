@@ -52,7 +52,10 @@ func close_selector():
 	visible = false
 	_clear_banners()
 
-func on_select(data, focus_type : String):
-	player_brain.make_selection(SelectionResponse.new(data))
-	focus_group.on_select.disconnect(on_select)
-	close_selector()
+func on_select(data, what, focus_type : String):
+	if what != "play":
+		return
+	
+	if player_brain.make_selection(SelectionResponse.new(data, what)):
+		focus_group.on_select.disconnect(on_select)
+		close_selector()

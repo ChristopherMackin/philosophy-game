@@ -23,9 +23,11 @@ enum CardSelectorMode {
 var ui_cards : Array[CardUI]
 var card_slots : Array[Control]
 var selection_array : Array
+var selection_callable : Callable
 
 func _ready():
 	_clear_card_container()
+	focus_group.on_select.connect(on_select)
 
 func _clear_card_container():
 	for child in card_container.get_children():
@@ -59,49 +61,55 @@ func open_selector(card_array : Array[Card], visible_to_player : bool, mode : Ca
 	match mode:
 		CardSelectorMode.VIEW:
 			submit_button.visible = true
-			Util.set_up_focus_connections.call_deferred([submit_button])
 			
+			Util.set_up_focus_connections.call_deferred([submit_button])
 			focus_group.focus(submit_button)
-			focus_group.on_select.connect(on_select_view)
+			
+			selection_callable = select_view
+		
 		CardSelectorMode.SINGLE:
 			submit_button.visible = false
-			Util.set_up_focus_connections.call_deferred(ui_cards)
 			
+			Util.set_up_focus_connections.call_deferred(ui_cards)
 			focus_group.focused_node = ui_cards[0]
-			focus_group.on_select.connect(on_select_single)
+			
+			selection_callable = select_single
+		
 		CardSelectorMode.MULTI:
 			submit_button.visible = true
+			
 			var focus_items : Array[Control] = []
 			focus_items.append_array(ui_cards)
 			focus_items.append(submit_button)
 			Util.set_up_focus_connections.call_deferred(focus_items)
+			focus_group.focused_node = ui_cards[0]
 			
 			for ui_card in ui_cards:
 				ui_card.modulate = Color.GRAY
 			
-			focus_group.focused_node = ui_cards[0]
-			focus_group.on_select.connect(on_select_multi)
+			selection_callable = select_multi
+			
 	visible = true
 
 func close_selector():
 	visible = false
 	_clear_card_container()
 
-func on_select_view(data, focus_type : String):
+func on_select(data, what: String, focus_type : String):
+	if what == "play": selection_callable.call(data, what, focus_type)
+
+func select_view(data, what: String, focus_type : String):
 	player_brain.finish_viewing()
-	focus_group.on_select.disconnect(on_select_view)
 	close_selector()
 
-func on_select_single(data, focus_type : String):
-	player_brain.make_selection(SelectionResponse.new(data))
-	focus_group.on_select.disconnect(on_select_single)
-	close_selector()
-
-func on_select_multi(data, focus_type : String):
-	if focus_type == "submit":
-		player_brain.make_selection(SelectionResponse.new(selection_array))
-		focus_group.on_select.disconnect(on_select_multi)
+func select_single(data, what: String, focus_type : String):
+	if player_brain.make_selection(SelectionResponse.new(data)):
 		close_selector()
+
+func select_multi(data, what: String, focus_type : String):
+	if focus_type == "submit":
+		if player_brain.make_selection(SelectionResponse.new(selection_array)):
+			close_selector()
 	else:
 		var ui_card_index = ui_cards.map(func(x): return x.card).find(data)
 		var ui_card = ui_cards[ui_card_index]
