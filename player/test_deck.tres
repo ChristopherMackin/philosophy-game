@@ -1,14 +1,26 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=5 format=3 uid="uid://d0no8tbjk0y2m"]
+[gd_resource type="Resource" script_class="Deck" load_steps=9 format=3 uid="uid://d0no8tbjk0y2m"]
 
 [ext_resource type="Script" path="res://script/system/deck/deck.gd" id="1_tnq5e"]
 [ext_resource type="Script" path="res://script/system/card/card_deck_config.gd" id="2_dhmrg"]
+[ext_resource type="Resource" uid="uid://7dxlwt46oaq5" path="res://system/card/doubt/fact_check.tres" id="3_1btl5"]
 [ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="3_n447c"]
+[ext_resource type="Resource" uid="uid://bun8m733alh6v" path="res://system/card/doubt/broken_trust.tres" id="4_u31ae"]
 
 [sub_resource type="Resource" id="Resource_8q6i6"]
 script = ExtResource("2_dhmrg")
 base = ExtResource("3_n447c")
 count = 4
 
+[sub_resource type="Resource" id="Resource_5lnnf"]
+script = ExtResource("2_dhmrg")
+base = ExtResource("3_1btl5")
+count = 4
+
+[sub_resource type="Resource" id="Resource_38f6m"]
+script = ExtResource("2_dhmrg")
+base = ExtResource("4_u31ae")
+count = 1
+
 [resource]
 script = ExtResource("1_tnq5e")
-composition_card_deck_config_array = Array[ExtResource("2_dhmrg")]([SubResource("Resource_8q6i6")])
+composition_card_deck_config_array = Array[ExtResource("2_dhmrg")]([SubResource("Resource_8q6i6"), SubResource("Resource_5lnnf"), SubResource("Resource_38f6m")])

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cfr37mhe3tadq"]
 
-[ext_resource type="Script" path="res://debate/packed_scene/suit_banner_ui/banner_ui.gd" id="1_ha4v2"]
+[ext_resource type="Script" path="res://script/debate/ui/banner_ui.gd" id="1_ha4v2"]
 [ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/general/suit/faith_icon.png" id="1_m33ff"]
 [ext_resource type="Script" path="res://script/exposed_control_methods.gd" id="2_36m63"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="2_v2vwh"]

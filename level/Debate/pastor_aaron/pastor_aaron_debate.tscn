@@ -57,7 +57,7 @@
 [ext_resource type="Script" path="res://script/system/save_manager.gd" id="55_qd7va"]
 [ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/basic_deck.tres" id="56_g82aw"]
 [ext_resource type="Texture2D" uid="uid://qiqjkvvjvbi4" path="res://asset/graphic/aaron/aaron_dialogue.png" id="56_mq8a7"]
-[ext_resource type="Script" path="res://level/debate/pastor_aaron/suit_selector.gd" id="57_omw2k"]
+[ext_resource type="Script" path="res://script/debate/ui/suit_selector.gd" id="57_omw2k"]
 [ext_resource type="Script" path="res://script/system/save_data.gd" id="57_ycv4i"]
 [ext_resource type="Texture2D" uid="uid://duwx1hkh07na8" path="res://asset/graphic/aaron/aaron_confirm_button.png" id="58_ahb43"]
 [ext_resource type="PackedScene" uid="uid://p7gbun4jgavh" path="res://debate/packed_scene/suit_banner_ui/doubt_banner.tscn" id="58_pkk1m"]

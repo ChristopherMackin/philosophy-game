@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_k672g"]
 script = ExtResource("3_4u8a3")
-card_filter = Array[Resource("res://script/system/suit/suit.gd")]([])
+card_filter = Array[Resource("res://script/system/suit/suit.gd")]([ExtResource("2_de5os")])
 
 [resource]
 script = ExtResource("1_hp23h")

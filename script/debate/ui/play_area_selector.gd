@@ -18,9 +18,12 @@ var selectors : Array[Node3DSelectorUI]
 func _ready():
 	focus_group.on_select.connect(on_select)
 
-func on_select(data, focus_type : String):
-	player_brain.make_selection(data)
-	close_selector()
+func on_select(data, what: String, focus_type : String):
+	if what != "play":
+		return
+	
+	if player_brain.make_selection(SelectionResponse.new(data, what)):
+		close_selector()
 
 func _clear_card_container():
 	for selector in selectors: selector.queue_free()

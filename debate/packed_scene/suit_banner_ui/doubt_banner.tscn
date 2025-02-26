@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://p7gbun4jgavh"]
 
-[ext_resource type="Script" path="res://debate/packed_scene/suit_banner_ui/banner_ui.gd" id="1_ekdl5"]
+[ext_resource type="Script" path="res://script/debate/ui/banner_ui.gd" id="1_ekdl5"]
 [ext_resource type="Texture2D" uid="uid://c3y4fyen3ymom" path="res://asset/graphic/debate/general/suit/doubt_icon.png" id="1_sou4q"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_4rlg4"]
 [ext_resource type="Script" path="res://script/exposed_control_methods.gd" id="2_cckne"]
