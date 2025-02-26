@@ -5,12 +5,16 @@ class_name Contestant
 signal on_hand_updated(contestant)
 signal on_energy_updated(contestant)
 signal on_draw_pile_updated(contestant)
+signal on_card_hold_updated(card, contestant)
 
 var manager : DebateManager
 var character : Character
 var hand : Array[Card] = []
 var draw_pile : Array[Card] = []
-var held_card : Card
+var held_card : Card:
+	set(val):
+		held_card = val
+		on_card_hold_updated.emit(held_card, self)
 var can_hold : bool = true
 
 var name : String:

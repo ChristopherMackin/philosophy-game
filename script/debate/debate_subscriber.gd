@@ -15,7 +15,7 @@ func on_player_change(_contestant : Contestant):
 func on_card_played(_card: Card, _active_contestant : Contestant):
 	pass
 
-func on_score_updated(_suit_score_dictionary : Dictionary):
+func on_card_hold_updated(_card : Card, _active_contestant : Contestant):
 	pass
 
 func on_lines_cleared(_count : int):

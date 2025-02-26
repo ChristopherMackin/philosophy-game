@@ -17,6 +17,7 @@ extends DebateSubscriber
 @export var board : Board3D
 @export var hand_ui : HandUI
 @export var energy_ui : EnergyUI
+@export var hold_area_ui : HoldAreaUI
 @export var draw_pile_ui : DrawPileUI
 
 @export_group("Computer UI")
@@ -31,15 +32,16 @@ func _ready():
 
 func on_debate_start():
 	pass
-	
+
 func on_player_change(contestant : Contestant):	
 	selection_manager.pause_input()
-	
+
 func on_card_played(card: Card, active_contestant : Contestant):
 	await query_event("on_card_played")
 
-func on_score_updated(suit_score_dictionary : Dictionary):
-	pass
+func on_card_hold_updated(card : Card, active_contestant : Contestant):
+	if active_contestant.character == player:
+		hold_area_ui.set_hold_card(card)
 
 func on_lines_cleared(count : int):
 	await board.clear_row(count)

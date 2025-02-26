@@ -72,6 +72,7 @@ func init(player_character : Character, computer_character : Character, debate_s
 		contestant.on_hand_updated.connect(on_hand_updated)
 		contestant.on_energy_updated.connect(on_energy_updated)
 		contestant.on_draw_pile_updated.connect(on_draw_pile_updated)
+		contestant.on_card_hold_updated.connect(on_card_hold_updated)
 		contestant.ready_up(self)
 
 	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_start()
@@ -198,6 +199,9 @@ func on_energy_updated(contestant : Contestant):
 
 func on_draw_pile_updated(contestant : Contestant):
 	for sub : DebateSubscriber in subscriber_array: await sub.on_draw_pile_updated(contestant)
+
+func on_card_hold_updated(card : Card, contestant : Contestant):
+	for sub : DebateSubscriber in subscriber_array: await sub.on_card_hold_updated(card, contestant)
 
 func get_opponent(contestant : Contestant):
 	return computer if contestant == player else player

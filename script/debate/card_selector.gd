@@ -51,6 +51,8 @@ func _add_card(card : Card):
 	card_slot.add_child(card_ui)	
 	card_container.add_child(card_slot)
 	
+	card_ui.scale = Vector2(.81, .81)
+	
 	ui_cards.append(card_ui)
 	card_slots.append(card_slot)
 
