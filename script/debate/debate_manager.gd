@@ -45,6 +45,8 @@ var current_round : int:
 
 var suit_track_dictionary : Dictionary
 
+var play_stack : Array[Card]
+
 func subscribe(subscriber : DebateSubscriber):
 	subscriber_array.append(subscriber)
 
@@ -140,13 +142,13 @@ func active_player_turn():
 				if card.token:
 					await add_token_to_suit_track(card.token, card.suit)
 				
-				await active_contestant.play_card(card)
+				await active_contestant.play_card_from_hand(card)
 				for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, active_contestant)
 				
 				clear_lines()
 			"hold":
 				var index = active_contestant.hand.find(card)
-				var old_hold = active_contestant.hold_card(card)
+				var old_hold = await active_contestant.hold_card(card)
 				
 				if old_hold != card:
 					active_contestant.remove_card_from_hand(card)
@@ -165,6 +167,12 @@ func active_player_turn():
 			action.invoke(held_card, active_contestant, self)
 	
 	active_contestant.clean_up()
+
+func play_card(card : Card, contestant : Contestant):
+	play_stack.append(card)
+	
+	for action in card.on_play_card_actions:
+		await action.invoke(card, contestant, self)
 
 func clear_lines():
 	var min = suit_track_dictionary.values()[0].size()

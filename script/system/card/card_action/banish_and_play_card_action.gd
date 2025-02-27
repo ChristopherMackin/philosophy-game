@@ -12,7 +12,7 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	if cards.size() <= 0:
 		return
 	
-	var response : Card = await player.select(SelectionRequest.new(
+	var response = await player.select(SelectionRequest.new(
 		cards, 
 		"%s_permanently_remove_and_play" % Constants.Contestant.keys()[which_contestant]
 	))
@@ -23,4 +23,4 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	modifier.priority = 999
 	response.data.cost_modifiers.append(modifier)
 	
-	await contestant.play_card(response.data)
+	await contestant.play_card_from_hand(response.data)

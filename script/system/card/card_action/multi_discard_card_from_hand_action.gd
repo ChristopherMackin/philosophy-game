@@ -26,5 +26,5 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	))
 	
 	for selected_card in response.data:
-		contestant.discard_card(selected_card)
+		contestant.discard_card_from_hand(selected_card)
 

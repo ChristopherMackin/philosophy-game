@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=17 format=3 uid="uid://dv86ada6flar5"]
+[gd_resource type="Resource" script_class="Deck" load_steps=21 format=3 uid="uid://dv86ada6flar5"]
 
 [ext_resource type="Script" path="res://script/system/deck/deck.gd" id="1_8ujv4"]
 [ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="1_f6p05"]
@@ -9,42 +9,54 @@
 [ext_resource type="Resource" uid="uid://ylhvgo4gct1r" path="res://system/card/peace/overthink.tres" id="6_kh1jb"]
 [ext_resource type="Resource" uid="uid://c614582y5sixk" path="res://system/card/peace/recollect.tres" id="7_25a85"]
 [ext_resource type="Resource" uid="uid://d4cywj8g05x5n" path="res://system/card/peace/recontextualize.tres" id="8_k2rce"]
+[ext_resource type="Resource" uid="uid://bmipydv28i6px" path="res://system/card/peace/closed_window.tres" id="9_nc16d"]
+[ext_resource type="Resource" uid="uid://cul52u3nu01i1" path="res://system/card/peace/forget.tres" id="10_gs3yy"]
 
 [sub_resource type="Resource" id="Resource_3dpgd"]
 script = ExtResource("2_53v8v")
 base = ExtResource("1_f6p05")
-count = 3
+count = 2
 
 [sub_resource type="Resource" id="Resource_knmrv"]
 script = ExtResource("2_53v8v")
 base = ExtResource("3_f3ce1")
-count = 3
+count = 2
 
 [sub_resource type="Resource" id="Resource_43cn6"]
 script = ExtResource("2_53v8v")
 base = ExtResource("4_vk1pu")
-count = 3
+count = 2
 
 [sub_resource type="Resource" id="Resource_pn2ol"]
 script = ExtResource("2_53v8v")
 base = ExtResource("5_tek1k")
-count = 3
+count = 2
 
 [sub_resource type="Resource" id="Resource_pgtkg"]
 script = ExtResource("2_53v8v")
 base = ExtResource("6_kh1jb")
-count = 2
+count = 1
 
 [sub_resource type="Resource" id="Resource_4oq50"]
 script = ExtResource("2_53v8v")
 base = ExtResource("7_25a85")
-count = 2
+count = 1
 
 [sub_resource type="Resource" id="Resource_i63n3"]
 script = ExtResource("2_53v8v")
 base = ExtResource("8_k2rce")
+count = 1
+
+[sub_resource type="Resource" id="Resource_ot082"]
+script = ExtResource("2_53v8v")
+base = ExtResource("9_nc16d")
+count = 1
+
+[sub_resource type="Resource" id="Resource_m2kny"]
+script = ExtResource("2_53v8v")
+base = ExtResource("10_gs3yy")
 count = 2
 
 [resource]
 script = ExtResource("1_8ujv4")
-composition_card_deck_config_array = Array[ExtResource("2_53v8v")]([SubResource("Resource_3dpgd"), SubResource("Resource_knmrv"), SubResource("Resource_43cn6"), SubResource("Resource_pn2ol"), SubResource("Resource_pgtkg"), SubResource("Resource_4oq50"), SubResource("Resource_i63n3")])
+composition_card_deck_config_array = Array[ExtResource("2_53v8v")]([SubResource("Resource_3dpgd"), SubResource("Resource_knmrv"), SubResource("Resource_43cn6"), SubResource("Resource_pn2ol"), SubResource("Resource_pgtkg"), SubResource("Resource_4oq50"), SubResource("Resource_i63n3"), SubResource("Resource_ot082"), SubResource("Resource_m2kny")])

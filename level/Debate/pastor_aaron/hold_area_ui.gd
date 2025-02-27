@@ -8,6 +8,9 @@ var held_card : CardUI = null
 func set_hold_card(card: Card):
 	if held_card:
 		held_card.queue_free()
+		held_card = null
+	
+	if card == null: return
 	
 	var index = card_ui_suit_packed_scenes.map(func(x): return x.suit).find(card.suit)
 	index = index if index >= 0 else 0

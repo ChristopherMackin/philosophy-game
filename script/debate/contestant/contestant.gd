@@ -11,6 +11,7 @@ var manager : DebateManager
 var character : Character
 var hand : Array[Card] = []
 var draw_pile : Array[Card] = []
+var discard_pile : Array[Card] = []
 var held_card : Card:
 	set(val):
 		held_card = val
@@ -109,13 +110,13 @@ func hold_card(card : Card) -> Card:
 	
 	if old_card:
 		for action : CardAction in old_card.on_hold_end_card_actions:
-			action.invoke(old_card, self, manager)
+			await action.invoke(old_card, self, manager)
 	
 	held_card = card
 	
 	if held_card:
 		for action : CardAction in held_card.on_hold_start_card_actions:
-			action.invoke(held_card, self, manager)
+			await action.invoke(held_card, self, manager)
 	
 	can_hold = false
 
@@ -134,17 +135,21 @@ func remove_card_from_hand(card : Card):
 func get_playable_cards() -> Array[Card]:
 	return hand.filter(func(x): return x.cost <= current_energy)
 
-func play_card(card : Card):
+func play_card_from_hand(card : Card):
 	remove_card_from_hand(card)
-	
-	for action in card.on_play_card_actions:
-		await action.invoke(card, self, manager)
+	await play_card(card)
+
+func play_card(card : Card):
+	await manager.play_card(card, self)
 
 func discard_card(card : Card):
-	remove_card_from_hand(card)
-	
+	discard_pile.append(card)
 	for action in card.on_discard_card_actions:
 		await action.invoke(card, self, manager)
+
+func discard_card_from_hand(card : Card):
+	remove_card_from_hand(card)
+	await discard_card(card)
 
 func remove_from_deck(card : Card):
 	_deck.remove_from_deck(card)
