@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bd8ykdcrcff7f"]
+[gd_scene load_steps=9 format=3 uid="uid://bd8ykdcrcff7f"]
 
 [ext_resource type="Script" path="res://script/debate/ui/card_ui.gd" id="1_qq0ek"]
 [ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/general/card/card_base.png" id="2_cseqi"]
 [ext_resource type="Texture2D" uid="uid://c08xx2yg7vleh" path="res://asset/graphic/debate/general/card/peace_card_bg.png" id="3_swoww"]
 [ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://asset/font/TenorSans-Regular.ttf" id="4_08p8r"]
 [ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://asset/font/fahkwang/Fahkwang-Bold.ttf" id="7_sl8k2"]
-[ext_resource type="FontFile" uid="uid://bc31tvjxo02f" path="res://asset/font/fahkwang/Fahkwang-Italic.ttf" id="8_oanxe"]
 [ext_resource type="Script" path="res://script/exposed_control_methods.gd" id="12_vka25"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5xdp"]
@@ -19,12 +18,6 @@ content_margin_left = 10.0
 content_margin_top = 5.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_srmbm"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
 
 [node name="DoubtCardUI" type="Control" node_paths=PackedStringArray("title", "description", "cost")]
 custom_minimum_size = Vector2(370, 320)
@@ -111,17 +104,18 @@ vertical_alignment = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.014
-anchor_top = 0.309
-anchor_right = 1.0
-anchor_bottom = 0.772
+anchor_top = 0.281
+anchor_right = 0.984
+anchor_bottom = 0.981
 offset_left = -0.18
-offset_top = -8.88
-offset_bottom = -0.0400047
+offset_top = 0.0799942
+offset_right = -0.0800101
+offset_bottom = 0.0799789
 theme_override_colors/default_color = Color(0.137255, 0.0862745, 0.0588235, 1)
 theme_override_fonts/normal_font = ExtResource("4_08p8r")
 theme_override_fonts/bold_font = ExtResource("7_sl8k2")
-theme_override_font_sizes/normal_font_size = 20
-theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/bold_font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ld4d5")
 bbcode_enabled = true
 text = "Place 2 [b]Structured Conversation[/b] tops.
@@ -129,31 +123,11 @@ text = "Place 2 [b]Structured Conversation[/b] tops.
 Cost -1 for ever [b]pentagram[/b] top in play"
 scroll_active = false
 
-[node name="FlavorText" type="RichTextLabel" parent="CardBG"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.052
-anchor_top = 0.775
-anchor_right = 0.778
-anchor_bottom = 0.944
-offset_left = -2.24
-offset_top = -1.14441e-05
-offset_right = 0.139979
-offset_bottom = -0.0800018
-theme_override_colors/default_color = Color(0.137255, 0.0862745, 0.0588235, 1)
-theme_override_fonts/bold_font = ExtResource("7_sl8k2")
-theme_override_fonts/italics_font = ExtResource("8_oanxe")
-theme_override_font_sizes/italics_font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxEmpty_srmbm")
-bbcode_enabled = true
-text = "[center][i]Sometimes, planning out your thoughts can really change the flow of conversation[/i][/center]"
-scroll_active = false
-
 [node name="ExposedControlMethods" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("12_vka25")
 root = NodePath("..")
 
-[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(1, 1)]]
 [connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_z_index" binds= [1]]
-[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(0.81, 0.81)]]
+[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(1, 1)]]
 [connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_z_index" binds= [0]]
+[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(0.81, 0.81)]]

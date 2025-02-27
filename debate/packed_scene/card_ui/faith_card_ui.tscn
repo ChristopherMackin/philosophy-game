@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6470407tskde"]
+[gd_scene load_steps=14 format=3 uid="uid://c6470407tskde"]
 
 [ext_resource type="Script" path="res://script/debate/ui/card_ui.gd" id="1_7ckds"]
 [ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/general/card/card_base.png" id="2_jfg0n"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://asset/graphic/debate/general/card/clock_icon.png" id="6_xuwts"]
 [ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/general/suit/faith_icon.png" id="7_yrqcw"]
 [ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://asset/font/fahkwang/Fahkwang-Bold.ttf" id="8_522ps"]
-[ext_resource type="FontFile" uid="uid://bc31tvjxo02f" path="res://asset/font/fahkwang/Fahkwang-Italic.ttf" id="9_bp52i"]
 [ext_resource type="Texture2D" uid="uid://bl81rf1rfjyuh" path="res://asset/graphic/debate/general/card/card_token_location.png" id="10_x1tcp"]
 [ext_resource type="Texture2D" uid="uid://cu6c40kdnmjcc" path="res://asset/graphic/debate/general/token/test_token_tex.png" id="11_roapy"]
 [ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://asset/graphic/debate/general/token/basic_faith_tex.png" id="12_4c8e5"]
@@ -24,12 +23,6 @@ content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_srmbm"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
 
 [node name="FaithCardUI" type="Control" node_paths=PackedStringArray("title", "artwork", "description", "cost", "icon")]
 custom_minimum_size = Vector2(370, 320)
@@ -138,16 +131,16 @@ anchors_preset = -1
 anchor_left = 0.014
 anchor_top = 0.018
 anchor_right = 0.581
-anchor_bottom = 0.772
+anchor_bottom = 0.981
 offset_left = -0.18
 offset_top = 39.24
 offset_right = 0.0299889
-offset_bottom = -0.0400047
+offset_bottom = 0.0799789
 theme_override_colors/default_color = Color(0.137255, 0.0862745, 0.0588235, 1)
 theme_override_fonts/normal_font = ExtResource("4_5egbt")
 theme_override_fonts/bold_font = ExtResource("8_522ps")
-theme_override_font_sizes/normal_font_size = 20
-theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ld4d5")
 bbcode_enabled = true
 text = "Place 2 [b]Structured Conversation[/b] tops.
@@ -155,26 +148,6 @@ text = "Place 2 [b]Structured Conversation[/b] tops.
 Cost -1 for ever [b]pentagram[/b] top in play
 
 this is a super dumb thing and it's making me mad"
-scroll_active = false
-
-[node name="FlavorText" type="RichTextLabel" parent="CardBG"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.046
-anchor_top = 0.778
-anchor_right = 0.546
-anchor_bottom = 0.944
-offset_left = -0.0200014
-offset_top = 0.0399818
-offset_right = -0.0200014
-offset_bottom = -0.0800209
-theme_override_colors/default_color = Color(0.137255, 0.0862745, 0.0588235, 1)
-theme_override_fonts/bold_font = ExtResource("8_522ps")
-theme_override_fonts/italics_font = ExtResource("9_bp52i")
-theme_override_font_sizes/italics_font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxEmpty_srmbm")
-bbcode_enabled = true
-text = "[center][i]Sometimes, planning out your thoughts can really change the flow of conversation[/i][/center]"
 scroll_active = false
 
 [node name="CardTokenLocation" type="TextureRect" parent="CardBG"]
@@ -226,7 +199,7 @@ texture = ExtResource("12_4c8e5")
 script = ExtResource("13_s1a4s")
 root = NodePath("..")
 
-[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(1, 1)]]
 [connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_z_index" binds= [1]]
-[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(0.81, 0.81)]]
+[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(1, 1)]]
 [connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_z_index" binds= [0]]
+[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(0.81, 0.81)]]
