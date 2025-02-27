@@ -159,6 +159,11 @@ func active_player_turn():
 		for action in card.on_turn_end_card_actions:
 			await action.invoke(card, active_contestant, self)
 	
+	var held_card = active_contestant.held_card
+	if held_card:
+		for action in held_card.on_hold_stay_card_actions:
+			action.invoke(held_card, active_contestant, self)
+	
 	active_contestant.clean_up()
 
 func clear_lines():

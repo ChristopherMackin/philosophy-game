@@ -20,6 +20,9 @@ var on_discard_card_actions : Array[CardAction]
 var on_banish_card_actions : Array[CardAction]
 var on_turn_start_card_actions : Array[CardAction]
 var on_turn_end_card_actions : Array[CardAction]
+var on_hold_start_card_actions : Array[CardAction]
+var on_hold_stay_card_actions : Array[CardAction]
+var on_hold_end_card_actions : Array[CardAction]
 var cost_modifiers : Array[CardCostModifier]
 var manager : DebateManager
 
@@ -32,7 +35,7 @@ var cost : int :
 		for modifier in cost_modifiers:
 			ret = modifier.modify_cost(ret, manager)
 	
-		return ret
+		return ret if ret >= 0 else 0
 
 func _init(base: CardBase, manager : DebateManager):
 	token = Token.new(base.token_data) if base.token_data else null
@@ -46,6 +49,9 @@ func _init(base: CardBase, manager : DebateManager):
 	on_banish_card_actions.assign(Util.deep_copy_resource_array(base.on_banish_card_actions))
 	on_turn_start_card_actions.assign(Util.deep_copy_resource_array(base.on_turn_start_card_actions))
 	on_turn_end_card_actions.assign(Util.deep_copy_resource_array(base.on_turn_end_card_actions))
+	on_hold_start_card_actions.assign(Util.deep_copy_resource_array(base.on_hold_start_card_actions))
+	on_hold_stay_card_actions.assign(Util.deep_copy_resource_array(base.on_hold_stay_card_actions))
+	on_hold_end_card_actions.assign(Util.deep_copy_resource_array(base.on_hold_end_card_actions))
 	cost_modifiers.assign(Util.deep_copy_resource_array(base.cost_modifiers))
 	
 	self.manager = manager

@@ -105,10 +105,20 @@ func hold_card(card : Card) -> Card:
 	if !can_hold:
 		return card
 	
-	can_hold = false
 	var old_card = held_card
+	
+	if old_card:
+		for action : CardAction in old_card.on_hold_end_card_actions:
+			action.invoke(old_card, self, manager)
+	
 	held_card = card
 	
+	if held_card:
+		for action : CardAction in held_card.on_hold_start_card_actions:
+			action.invoke(held_card, self, manager)
+	
+	can_hold = false
+
 	return old_card
 
 func remove_card_from_hand(card : Card):
