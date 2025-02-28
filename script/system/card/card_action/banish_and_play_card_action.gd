@@ -6,7 +6,7 @@ class_name BanishAndPlayCardAction
 @export var card_filters : Array[Suit]
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	var contestant = player if which_contestant == Constants.Contestant.PLAYER else manager.get_opponent(player)
+	var contestant : Contestant = player if which_contestant == Constants.Contestant.PLAYER else manager.get_opponent(player)
 	
 	var cards : Array = contestant.hand.filter(func(x : Card): return card_filters.has(x.suit))
 	if cards.size() <= 0:
@@ -17,10 +17,10 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 		"%s_permanently_remove_and_play" % Constants.Contestant.keys()[which_contestant]
 	))
 	
-	contestant.remove_card_from_hand(response.data)
+	contestant.remove_from_hand(response.data)
 	contestant.deck.remove_from_deck(response.data)
 	var modifier := ZeroCostModifier.new()
 	modifier.priority = 999
 	response.data.cost_modifiers.append(modifier)
 	
-	await contestant.play_card_from_hand(response.data)
+	

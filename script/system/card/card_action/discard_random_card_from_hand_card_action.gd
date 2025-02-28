@@ -21,4 +21,4 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	if selectable_cards.size() <= 0: return
 	
 	var i := randi_range(0, selectable_cards.size() - 1)
-	contestant.discard_card_from_hand(selectable_cards[i])
+	contestant.discard_from_hand(selectable_cards[i])

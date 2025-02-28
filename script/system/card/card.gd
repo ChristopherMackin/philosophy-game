@@ -4,7 +4,7 @@ class_name Card
 
 var _base : CardBase
 
-var token : Token
+var _token : Token
 
 var suit : Suit
 
@@ -14,6 +14,8 @@ var title : String:
 	get: return _base.title
 var description : String:
 	get: return _base.description
+var token_artwork : Texture2D:
+	get: return _token.artwork if _token else null
 
 var on_play_card_actions : Array[CardAction]
 var on_discard_card_actions : Array[CardAction]
@@ -38,7 +40,7 @@ var cost : int :
 		return ret if ret >= 0 else 0
 
 func _init(base: CardBase, manager : DebateManager):
-	token = Token.new(base.token_data) if base.token_data else null
+	_token = Token.new(base.token_data) if base.token_data else null
 	
 	suit = base.suit
 	
@@ -55,3 +57,19 @@ func _init(base: CardBase, manager : DebateManager):
 	cost_modifiers.assign(Util.deep_copy_resource_array(base.cost_modifiers))
 	
 	self.manager = manager
+
+func dupliate_token() -> Token:
+	return _token.duplicate()
+
+func pop_token() -> Token:
+	if !_token: return null
+	
+	var ret = _token
+	_token = null
+	return ret
+
+func destroy_token():
+	_token = null
+
+func replace_token(token: Token):
+	_token = token

@@ -10,5 +10,5 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 		"give_card_to_opponent"
 	))
 	
-	player.remove_card_from_hand(response.data)
-	manager.get_opponent(player).add_card_to_hand(response.data)
+	player.remove_from_hand(response.data)
+	manager.get_opponent(player).add_to_hand(response.data)

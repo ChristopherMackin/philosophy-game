@@ -70,11 +70,7 @@ func init(player_character : Character, computer_character : Character, debate_s
 	contestants.append(player)
 	contestants.append(computer)
 	
-	for contestant in contestants: 
-		contestant.on_hand_updated.connect(on_hand_updated)
-		contestant.on_energy_updated.connect(on_energy_updated)
-		contestant.on_draw_pile_updated.connect(on_draw_pile_updated)
-		contestant.on_card_hold_updated.connect(on_card_hold_updated)
+	for contestant in contestants:
 		contestant.ready_up(self)
 
 	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_start()
@@ -86,6 +82,7 @@ func init(player_character : Character, computer_character : Character, debate_s
 func game_loop():
 	current_turn = 1
 	active_contestant = player
+	for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(active_contestant)
 	await active_player_turn()
 	
 	while !get_is_debate_over():
@@ -114,65 +111,39 @@ func get_is_debate_over() -> bool:
 	return false
 
 func active_player_turn():
-	for card : Card in active_contestant.hand.duplicate():
-		for action in card.on_turn_start_card_actions:
-			await action.invoke(card, active_contestant, self)
+	await active_contestant.start_turn()
 	
-	while active_contestant.current_energy > 0 and !get_is_debate_over():
-		var playable_cards = active_contestant.get_playable_cards()
+	while active_contestant.can_play and !get_is_debate_over():
+		var card = await active_contestant.take_turn()
+		
+		active_contestant.current_energy -= card.cost
+		
+		blackboard.add("previous_card", blackboard.get_value("current_card"), Constants.ExpirationToken.ON_DEBATE_START)
+		blackboard.add("previous_suit", blackboard.get_value("current_suit"), Constants.ExpirationToken.ON_DEBATE_START)
+		blackboard.add("current_card", card.title, Constants.ExpirationToken.ON_DEBATE_START)
+		blackboard.add("current_suit", card.suit.name, Constants.ExpirationToken.ON_DEBATE_START)
+		
+		var token = card.pop_token()
+		if token:
+			await play_token(token, card, active_contestant)
+		
+		await play_card(card, active_contestant)
+		
+		clear_lines()
+	
+	await active_contestant.end_turn()
 
-		if playable_cards.size() <= 0:
-			break
-		
-		var response = await active_contestant.select(SelectionRequest.new(active_contestant.hand))
-		var card = response.data
-		
-		match response.what:
-			"play":
-				if !playable_cards.has(card):
-					continue
-				
-				active_contestant.current_energy -= card.cost
-				
-				blackboard.add("previous_card", blackboard.get_value("current_card"), Constants.ExpirationToken.ON_DEBATE_START)
-				blackboard.add("previous_suit", blackboard.get_value("current_suit"), Constants.ExpirationToken.ON_DEBATE_START)
-				blackboard.add("current_card", card.title, Constants.ExpirationToken.ON_DEBATE_START)
-				blackboard.add("current_suit", card.suit.name, Constants.ExpirationToken.ON_DEBATE_START)
-				
-				if card.token:
-					await add_token_to_suit_track(card.token, card.suit)
-				
-				await active_contestant.play_card_from_hand(card)
-				for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, active_contestant)
-				
-				clear_lines()
-			"hold":
-				var index = active_contestant.hand.find(card)
-				var old_hold = await active_contestant.hold_card(card)
-				
-				if old_hold != card:
-					active_contestant.remove_card_from_hand(card)
-					if old_hold:
-						active_contestant.add_card_to_hand(old_hold, index)
-				
-				on_hand_updated(active_contestant)
-		
-	for card : Card in active_contestant.hand.duplicate():
-		for action in card.on_turn_end_card_actions:
-			await action.invoke(card, active_contestant, self)
-	
-	var held_card = active_contestant.held_card
-	if held_card:
-		for action in held_card.on_hold_stay_card_actions:
-			action.invoke(held_card, active_contestant, self)
-	
-	active_contestant.clean_up()
+func play_token(token : Token, parent : Card, contestant : Contestant):
+	await add_token_to_suit_track(token, parent.suit)
+	for sub : DebateSubscriber in subscriber_array: await sub.on_token_played(token, parent, contestant)
 
 func play_card(card : Card, contestant : Contestant):
 	play_stack.append(card)
 	
 	for action in card.on_play_card_actions:
 		await action.invoke(card, contestant, self)
+	
+	for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, contestant)
 
 func clear_lines():
 	var min = suit_track_dictionary.values()[0].size()
@@ -201,24 +172,9 @@ func remove_token_from_suit_track(token : Token):
 	if index < 0: return
 	
 	suit_track_dictionary[suit_name].remove_at(index)
-	
-	for sub : DebateSubscriber in subscriber_array: await sub.on_suit_track_updated(suit_track_dictionary)
-
-func on_hand_updated(contestant : Contestant):
-	for sub : DebateSubscriber in subscriber_array: await sub.on_hand_updated(contestant)
-
-func on_energy_updated(contestant : Contestant):
-	for sub : DebateSubscriber in subscriber_array: await sub.on_energy_updated(contestant)
-
-func on_draw_pile_updated(contestant : Contestant):
-	for sub : DebateSubscriber in subscriber_array: await sub.on_draw_pile_updated(contestant)
-
-func on_card_hold_updated(card : Card, contestant : Contestant):
-	for sub : DebateSubscriber in subscriber_array: await sub.on_card_hold_updated(card, contestant)
 
 func get_opponent(contestant : Contestant):
 	return computer if contestant == player else player
 
 func add_token_to_suit_track(token : Token, suit : Suit):
 	suit_track_dictionary[suit.name].append(token)
-	for sub : DebateSubscriber in subscriber_array: await sub.on_suit_track_updated(suit_track_dictionary)

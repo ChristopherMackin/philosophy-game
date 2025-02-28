@@ -31,17 +31,32 @@ func _ready():
 	manager.init.call_deferred(player, computer, debate_settings)
 
 func on_debate_start():
-	pass
+	await update_player_ui()
+	await update_computer_ui()
 
 func on_player_change(contestant : Contestant):	
+	await update_player_ui()
+	await update_computer_ui()
+	
 	selection_manager.pause_input()
 
-func on_card_played(card: Card, active_contestant : Contestant):
+func on_card_played(card: Card, contestant : Contestant):
+	await update_player_ui()
+	await update_computer_ui()
+	
 	await query_event("on_card_played")
 
+func on_token_played(token: Token, parent: Card, contestant : Contestant):	
+	var active_contestant = "player" if contestant.character_is(player) else "computer"
+	
+	await update_player_ui()
+	await update_computer_ui()
+		
+	await board.update_board_3d(manager.suit_track_dictionary, active_contestant)
+
 func on_card_hold_updated(card : Card, active_contestant : Contestant):
-	if active_contestant.character == player:
-		hold_area_ui.set_hold_card(card)
+	await update_player_ui()
+	await update_computer_ui()
 
 func on_lines_cleared(count : int):
 	await board.clear_row(count)
@@ -49,26 +64,6 @@ func on_lines_cleared(count : int):
 func on_debate_finished():
 	print("Debate Finished")
 	get_tree().quit()
-
-func on_suit_track_updated(suit_track_dictionary : Dictionary):
-	var active_contestant = "player" if manager.active_contestant.character == player else "computer"
-	await board.update_board_3d(suit_track_dictionary, active_contestant)
-
-func on_hand_updated(contestant : Contestant):
-	if contestant.character == player:
-		hand_ui.update_hand(contestant.hand)
-	elif contestant.character == computer:
-		computer_hand_ui.update_amount(contestant.hand.size())
-
-func on_energy_updated(contestant : Contestant):
-	if contestant.character == player:
-		energy_ui.update_amount(contestant.current_energy)
-	elif contestant.character == computer:
-		computer_energy_ui.update_amount(contestant.current_energy)
-
-func on_draw_pile_updated(contestant : Contestant):
-	if contestant.character == player:
-		draw_pile_ui.update_amount(manager.player.draw_pile.size())
 
 func query_event(concept : String):
 	var query : Dictionary
@@ -83,3 +78,13 @@ func query_event(concept : String):
 		await event_manager.start_event(event)
 	else:
 		event_manager.start_event(event)
+
+func update_player_ui():
+	await hand_ui.update_hand(manager.player.hand)
+	await energy_ui.update_amount(manager.player.current_energy)
+	await hold_area_ui.set_hold_card(manager.player.held_card)
+	await draw_pile_ui.update_amount(manager.player.draw_pile.size())
+
+func update_computer_ui():
+	await computer_hand_ui.update_amount(manager.computer.hand.size())
+	await computer_energy_ui.update_amount(manager.computer.hand.size())

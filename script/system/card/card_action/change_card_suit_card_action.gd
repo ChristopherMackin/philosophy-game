@@ -35,5 +35,3 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	))
 	
 	card_response.data.suit = suit_response.data
-	
-	player.on_hand_updated.emit(player)

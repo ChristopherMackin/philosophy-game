@@ -25,5 +25,5 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	))
 	
 	await manager.add_token_to_suit_track(card.token, card.suit)
-	await contestant.discard_card_from_hand(response.data)
+	await contestant.discard_from_hand(response.data)
 

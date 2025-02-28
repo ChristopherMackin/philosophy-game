@@ -12,6 +12,9 @@ func view(_options : Array, _what : String, _type : String):
 	pass
 
 func check_validity(request : SelectionRequest, response : SelectionResponse) -> bool:
+	if !active_request:
+		return false
+	
 	var is_valid_selection = true
 	
 	if response.data is Array:

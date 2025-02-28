@@ -21,7 +21,7 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	var response = await player.select(SelectionRequest.new(
 		selectable_cards,
-		"%s_discard_card_from_hand_from_hand" % Constants.Contestant.keys()[which_contestant]
+		"%s_discard_from_hand_from_hand" % Constants.Contestant.keys()[which_contestant]
 	))
 	
-	contestant.discard_card_from_hand(response.data)
+	contestant.discard_from_hand(response.data)
