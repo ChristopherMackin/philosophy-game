@@ -7,8 +7,8 @@
 
 [sub_resource type="Resource" id="Resource_hqbyd"]
 script = ExtResource("1_ogwod")
-which_contestant = 0
-card_filters = Array[Resource("res://script/system/suit/suit.gd")]([])
+which_contestant = 1
+card_filters = Array[Resource("res://script/system/suit/suit.gd")]([ExtResource("2_fe270")])
 
 [resource]
 script = ExtResource("1_5q01n")

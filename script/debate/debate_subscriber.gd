@@ -27,5 +27,5 @@ func on_lines_cleared(_count : int):
 func on_debate_finished():
 	pass
 
-func on_action_invoked(_action : CardAction, _card : Card, _contestant : Contestant):
+func on_actions_invoked(_card : Card, _action_type: Constants.ActionType, _contestant : Contestant):
 	pass

@@ -140,10 +140,12 @@ func play_token(token : Token, parent : Card, contestant : Contestant):
 func play_card(card : Card, contestant : Contestant):
 	play_stack.append(card)
 	
+	for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, contestant)
+	
 	for action in card.on_play_card_actions:
 		await action.invoke(card, contestant, self)
 	
-	for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, contestant)
+	for sub : DebateSubscriber in subscriber_array: await sub.on_actions_invoked(card, Constants.ActionType.ON_PLAY, contestant)
 
 func clear_lines():
 	var min = suit_track_dictionary.values()[0].size()

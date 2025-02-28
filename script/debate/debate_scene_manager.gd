@@ -41,6 +41,8 @@ func on_player_change(contestant : Contestant):
 	selection_manager.pause_input()
 
 func on_card_played(card: Card, contestant : Contestant):
+	await GlobalTimer.wait_for_seconds(.3)
+	
 	await update_player_ui()
 	await update_computer_ui()
 	
@@ -60,6 +62,10 @@ func on_card_hold_updated(card : Card, active_contestant : Contestant):
 
 func on_lines_cleared(count : int):
 	await board.clear_row(count)
+
+func on_actions_invoked(card : Card, action_type: Constants.ActionType, contestant : Contestant):
+	await update_player_ui()
+	await update_computer_ui()
 
 func on_debate_finished():
 	print("Debate Finished")

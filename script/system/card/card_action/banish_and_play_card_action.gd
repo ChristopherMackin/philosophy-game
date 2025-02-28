@@ -17,10 +17,10 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 		"%s_permanently_remove_and_play" % Constants.Contestant.keys()[which_contestant]
 	))
 	
-	contestant.remove_from_hand(response.data)
-	contestant.deck.remove_from_deck(response.data)
-	var modifier := ZeroCostModifier.new()
-	modifier.priority = 999
-	response.data.cost_modifiers.append(modifier)
+	var card_to_remove = response.data
 	
+	contestant.remove_from_hand(card_to_remove)
+	contestant.remove_from_deck(card_to_remove)
 	
+	await manager.play_token(card_to_remove.pop_token(), card_to_remove, player)
+	await manager.play_card(card_to_remove, player)
