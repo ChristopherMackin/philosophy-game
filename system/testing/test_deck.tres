@@ -1,20 +1,14 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=7 format=3 uid="uid://d0no8tbjk0y2m"]
+[gd_resource type="Resource" script_class="Deck" load_steps=5 format=3 uid="uid://d0no8tbjk0y2m"]
 
 [ext_resource type="Script" path="res://script/system/deck/deck.gd" id="1_tnq5e"]
 [ext_resource type="Script" path="res://script/system/card/card_deck_config.gd" id="2_dhmrg"]
-[ext_resource type="Resource" uid="uid://bmipydv28i6px" path="res://system/card/peace/closed_window.tres" id="3_rqlw1"]
-[ext_resource type="Resource" uid="uid://dao5hnjj82iw5" path="res://system/card/faith/hail_marry.tres" id="5_o1sc6"]
+[ext_resource type="Resource" uid="uid://crhjyva3ycrl0" path="res://system/card/others/eat_a_cake.tres" id="4_1bxkb"]
 
-[sub_resource type="Resource" id="Resource_yxno2"]
+[sub_resource type="Resource" id="Resource_t1oi4"]
 script = ExtResource("2_dhmrg")
-base = ExtResource("5_o1sc6")
-count = 5
-
-[sub_resource type="Resource" id="Resource_7d36p"]
-script = ExtResource("2_dhmrg")
-base = ExtResource("3_rqlw1")
+base = ExtResource("4_1bxkb")
 count = 5
 
 [resource]
 script = ExtResource("1_tnq5e")
-composition_card_deck_config_array = Array[ExtResource("2_dhmrg")]([SubResource("Resource_yxno2"), SubResource("Resource_7d36p")])
+composition_card_deck_config_array = Array[ExtResource("2_dhmrg")]([SubResource("Resource_t1oi4")])

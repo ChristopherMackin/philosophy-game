@@ -101,4 +101,4 @@ func update_player_ui():
 
 func update_computer_ui():
 	await computer_hand_ui.update_amount(manager.computer.hand.size())
-	await computer_energy_ui.update_amount(manager.computer.hand.size())
+	await computer_energy_ui.update_amount(manager.computer.current_energy)

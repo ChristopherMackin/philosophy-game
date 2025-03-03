@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=9 format=3 uid="uid://crhjyva3ycrl0"]
+
+[ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_pyj55"]
+[ext_resource type="Script" path="res://script/system/card/card_action/modify_energy_card_action.gd" id="1_vwvuy"]
+[ext_resource type="Script" path="res://script/system/card/card_action/banish_self_card_action.gd" id="2_iujjv"]
+[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="4_gkovm"]
+[ext_resource type="Resource" uid="uid://dqi64apd2c507" path="res://system/token/others/basic_others_token.tres" id="5_7x1u3"]
+
+[sub_resource type="Resource" id="Resource_wli0l"]
+script = ExtResource("1_vwvuy")
+which_contestant = 0
+amount = 2
+
+[sub_resource type="Resource" id="Resource_wgb5w"]
+script = ExtResource("1_vwvuy")
+which_contestant = 1
+amount = 2
+
+[sub_resource type="Resource" id="Resource_kmp3l"]
+script = ExtResource("2_iujjv")
+
+[resource]
+script = ExtResource("1_pyj55")
+suit = ExtResource("4_gkovm")
+title = "Eat A Cake"
+base_cost = 0
+description = "Eat a cake! It give each player 2 energy
+
+Banished when eaten"
+token_data = ExtResource("5_7x1u3")
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_wli0l"), SubResource("Resource_wgb5w"), SubResource("Resource_kmp3l")])
+on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_hold_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_hold_stay_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_hold_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([])
