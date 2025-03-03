@@ -9,9 +9,15 @@ func _ready():
 func on_debate_start():
 	pass
 	
-func on_player_change(_contestant : Contestant):
+func on_player_change(_contestant: Contestant):
 	pass
-	
+
+func on_turn_start(_contestant: Contestant):
+	pass
+
+func on_turn_end(_contestant: Contestant):
+	pass
+
 func on_card_played(_card: Card, _contestant : Contestant):
 	pass
 

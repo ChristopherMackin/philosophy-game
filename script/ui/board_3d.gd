@@ -63,9 +63,13 @@ func _add_token(token : Token, suit_track : SuitTrack3D, contestant : DebateCont
 	
 	token_3d.set_texture(token)
 	
-	var token_tween = get_tree().create_tween().tween_property(token_3d, "global_position", suit_track.get_slot().global_position + Vector3(0,.002,0), contestant.play_duration)
-	suit_track.tokens_3d.append(token_3d)
-	await token_tween.finished
+	var token_slot = suit_track.get_slot()
+	
+	if token_slot != null:
+		var token_tween = get_tree().create_tween().tween_property(token_3d, "global_position", token_slot.global_position + Vector3(0,.002,0), contestant.play_duration)
+		suit_track.tokens_3d.append(token_3d)
+		await token_tween.finished
+	else: token_3d.visible = false
 
 func _remove_token(token : Token, suit_track : SuitTrack3D, contestant : DebateContestant3D):
 	var matching = suit_track.tokens_3d.filter(func (token_3d): return token == token_3d.token)

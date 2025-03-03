@@ -31,41 +31,38 @@ func _ready():
 	manager.init.call_deferred(player, computer, debate_settings)
 
 func on_debate_start():
-	await update_player_ui()
-	await update_computer_ui()
+	await update_everything()
 
 func on_player_change(contestant : Contestant):	
-	await update_player_ui()
-	await update_computer_ui()
-	
+	await update_everything()
+
 	selection_manager.pause_input()
+
+
+func on_turn_start(_contestant: Contestant):
+	await update_everything()
+
+func on_turn_end(_contestant: Contestant):
+	await update_everything()
 
 func on_card_played(card: Card, contestant : Contestant):
 	await GlobalTimer.wait_for_seconds(.3)
 	
-	await update_player_ui()
-	await update_computer_ui()
+	await update_everything()
 	
 	await query_event("on_card_played")
 
 func on_token_played(token: Token, parent: Card, contestant : Contestant):	
-	var active_contestant = "player" if contestant.character_is(player) else "computer"
-	
-	await update_player_ui()
-	await update_computer_ui()
-		
-	await board.update_board_3d(manager.suit_track_dictionary, active_contestant)
+	await update_everything()
 
 func on_card_hold_updated(card : Card, active_contestant : Contestant):
-	await update_player_ui()
-	await update_computer_ui()
+	await update_everything()
 
 func on_lines_cleared(count : int):
 	await board.clear_row(count)
 
 func on_actions_invoked(card : Card, action_type: Constants.ActionType, contestant : Contestant):
-	await update_player_ui()
-	await update_computer_ui()
+	await update_everything()
 
 func on_debate_finished():
 	print("Debate Finished")
@@ -84,6 +81,17 @@ func query_event(concept : String):
 		await event_manager.start_event(event)
 	else:
 		event_manager.start_event(event)
+
+func update_everything():
+	await update_board()
+	await update_player_ui()
+	await update_computer_ui()
+
+func update_board():
+	if !manager.active_contestant: return
+	
+	var active_contestant = "player" if manager.active_contestant.character_is(player) else "computer"
+	await board.update_board_3d(manager.suit_track_dictionary, active_contestant)
 
 func update_player_ui():
 	await hand_ui.update_hand(manager.player.hand)

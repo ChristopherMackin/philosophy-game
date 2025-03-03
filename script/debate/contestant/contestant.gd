@@ -99,6 +99,9 @@ func end_turn():
 	can_hold = true
 
 func take_turn():
+	if hand.size() <= 0:
+		draw_full_hand()
+	
 	while true:
 		var response = await select(SelectionRequest.new(hand))
 		var card = response.data
@@ -163,9 +166,6 @@ func remove_from_hand(card : Card) -> bool:
 	if index < 0: return false
 	
 	hand.remove_at(index)
-	
-	if hand.size() <= 0:
-		draw_full_hand()
 	
 	return true
 

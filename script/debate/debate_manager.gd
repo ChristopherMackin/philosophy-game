@@ -112,6 +112,7 @@ func get_is_debate_over() -> bool:
 
 func active_player_turn():
 	await active_contestant.start_turn()
+	for sub : DebateSubscriber in subscriber_array: await sub.on_turn_start(active_contestant)
 	
 	while active_contestant.can_play and !get_is_debate_over():
 		var card = await active_contestant.take_turn()
@@ -132,6 +133,7 @@ func active_player_turn():
 		clear_lines()
 	
 	await active_contestant.end_turn()
+	for sub : DebateSubscriber in subscriber_array: await sub.on_turn_end(active_contestant)
 
 func play_token(token : Token, parent : Card, contestant : Contestant):
 	await add_token_to_suit_track(token, parent.suit)
@@ -160,6 +162,15 @@ func clear_lines():
 			for i in min:
 				array.remove_at(0)
 		for sub : DebateSubscriber in subscriber_array: await sub.on_lines_cleared(min)
+
+
+
+func remove_at_from_suit_track(suit : Suit, index : int):
+	if suit_track_dictionary.size() <= index: return
+	suit_track_dictionary[suit.name].remove_at(index)
+
+func pop_from_suit_track(suit : Suit) -> Token:
+	return suit_track_dictionary[suit.name].pop_back()
 
 func remove_token_from_suit_track(token : Token):
 	var index
