@@ -38,7 +38,6 @@ func on_player_change(contestant : Contestant):
 
 	selection_manager.pause_input()
 
-
 func on_turn_start(_contestant: Contestant):
 	await update_everything()
 
@@ -62,6 +61,9 @@ func on_lines_cleared(count : int):
 	await board.clear_row(count)
 
 func on_actions_invoked(card : Card, action_type: Constants.ActionType, contestant : Contestant):
+	await update_everything()
+
+func on_card_drawn(_card : Card, _contestant: Contestant):
 	await update_everything()
 
 func on_debate_finished():

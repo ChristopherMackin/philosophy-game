@@ -71,7 +71,7 @@ func init(player_character : Character, computer_character : Character, debate_s
 	contestants.append(computer)
 	
 	for contestant in contestants:
-		contestant.ready_up(self)
+		await contestant.ready_up(self)
 
 	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_start()
 	
@@ -129,6 +129,9 @@ func active_player_turn():
 			await play_token(token, card, active_contestant)
 		
 		await play_card(card, active_contestant)
+		
+		if active_contestant.hand.size() <= 0:
+			await active_contestant.draw_full_hand()
 		
 		clear_lines()
 	

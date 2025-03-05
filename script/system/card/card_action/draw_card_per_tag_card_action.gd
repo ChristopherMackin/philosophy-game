@@ -13,5 +13,5 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	var draw_amount = floor(tag_count / tag_per_card)
 	
-	player.draw_number_of_cards(draw_amount)
+	await player.draw_number_of_cards(draw_amount)
 

@@ -1,34 +1,32 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=9 format=3 uid="uid://crhjyva3ycrl0"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://bvplhelpfi13v"]
 
 [ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_pyj55"]
 [ext_resource type="Script" path="res://script/system/card/card_action/modify_energy_card_action.gd" id="1_vwvuy"]
 [ext_resource type="Script" path="res://script/system/card/card_action/banish_self_card_action.gd" id="2_iujjv"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="4_gkovm"]
-[ext_resource type="Resource" uid="uid://dqi64apd2c507" path="res://system/token/others/basic_others_token.tres" id="5_7x1u3"]
 
-[sub_resource type="Resource" id="Resource_wli0l"]
+[sub_resource type="Resource" id="Resource_da4on"]
 script = ExtResource("1_vwvuy")
 which_contestant = 0
 amount = 2
 
-[sub_resource type="Resource" id="Resource_wgb5w"]
+[sub_resource type="Resource" id="Resource_pcbb7"]
 script = ExtResource("1_vwvuy")
 which_contestant = 1
 amount = 2
 
-[sub_resource type="Resource" id="Resource_kmp3l"]
+[sub_resource type="Resource" id="Resource_f8yxk"]
 script = ExtResource("2_iujjv")
 
 [resource]
 script = ExtResource("1_pyj55")
 suit = ExtResource("4_gkovm")
-title = "Eat A Cake"
+title = "Eat a Cake"
 base_cost = 0
-description = "Eat a cake! It give each player 2 energy
+description = "Eat a cake!
 
-Banished when eaten"
-token_data = ExtResource("5_7x1u3")
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_wli0l"), SubResource("Resource_wgb5w"), SubResource("Resource_kmp3l")])
+Restore 2 energy on yourself and opponent. Banish on play"
+on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_da4on"), SubResource("Resource_pcbb7"), SubResource("Resource_f8yxk")])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

@@ -22,7 +22,7 @@ var draw_limit : int:
 	get: return character.draw_limit
 var hand_limit : int:
 	get: return character.hand_limit
-var energy_limit : int:
+var energy_level : int:
 	get: return character.energy_level
 var current_energy : int
 var debate_event_factory : EventFactory:
@@ -43,14 +43,18 @@ func _init(character : Character):
 func ready_up(manager : DebateManager):
 	self.manager = manager
 	draw_pile.assign(_deck.create_draw_pile(manager))
-	draw_full_hand()
-	current_energy = energy_limit
+	await draw_full_hand()
+	current_energy = energy_level
 
 func _draw_card() -> bool:
 	if draw_pile.size() <= 0:
 		return false
 	
-	hand.append(draw_pile.pop_front())
+	var card = draw_pile.pop_front()
+	hand.append(card)
+	
+	for sub : DebateSubscriber in manager.subscriber_array: await sub.on_card_drawn(card, self)
+	
 	return true
 
 func draw_at_index(index : int) -> bool:
@@ -65,13 +69,13 @@ func draw_at_index(index : int) -> bool:
 func draw_number_of_cards(amount : int):
 	var is_draw_pile_empty = false
 	while amount > 0 && !is_draw_pile_empty:
-		is_draw_pile_empty = !_draw_card()
+		is_draw_pile_empty = !await _draw_card()
 		amount -= 1
 
 func draw_full_hand():
 	var is_draw_pile_empty = false
 	while hand.size() < draw_limit && !is_draw_pile_empty:
-		is_draw_pile_empty = !_draw_card()
+		is_draw_pile_empty = !await _draw_card()
 
 func start_turn():
 	for card : Card in hand.duplicate():
@@ -94,13 +98,13 @@ func end_turn():
 				var index = card.cost_modifiers.find(modifier)
 				card.cost_modifiers.remove_at(index)
 	
-	draw_full_hand()
-	current_energy = energy_limit
+	await draw_full_hand()
+	current_energy = energy_level
 	can_hold = true
 
 func take_turn():
 	if hand.size() <= 0:
-		draw_full_hand()
+		await draw_full_hand()
 	
 	while true:
 		var response = await select(SelectionRequest.new(hand))

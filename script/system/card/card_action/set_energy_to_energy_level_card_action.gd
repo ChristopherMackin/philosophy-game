@@ -1,10 +1,12 @@
 extends CardAction
 
-class_name DrawCardCardAction
+class_name SetEnergyToEnergyLevelCardAction
 
 @export var which_contestant : Constants.Contestant
-@export var draw_amount : int
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
 	var contestant = player if which_contestant == Constants.Contestant.PLAYER else manager.get_opponent(player)
-	await contestant.draw_number_of_cards(draw_amount)
+	
+	if contestant.current_energy <= contestant.energy_level:
+		contestant.current_energy = contestant.energy_level
+

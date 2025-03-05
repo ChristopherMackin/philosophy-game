@@ -35,3 +35,6 @@ func on_debate_finished():
 
 func on_actions_invoked(_card : Card, _action_type: Constants.ActionType, _contestant : Contestant):
 	pass
+
+func on_card_drawn(_card : Card, _contestant: Contestant):
+	pass
