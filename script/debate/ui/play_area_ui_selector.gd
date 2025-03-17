@@ -1,6 +1,6 @@
 extends Control
 
-class_name PlayAreaSelector
+class_name PlayAreaUISelector
 
 func on_select(data, what: String, focus_type : String):
 	pass

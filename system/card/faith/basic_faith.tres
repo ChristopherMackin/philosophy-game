@@ -8,7 +8,7 @@
 script = ExtResource("1_4xsf3")
 suit = ExtResource("2_wfv5m")
 title = "Basic Faith"
-base_cost = 1
+base_cost = 2
 description = "Does Nothing"
 token_data = ExtResource("4_kyfl8")
 on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])

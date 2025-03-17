@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqet8vee0dfje"]
+
+[ext_resource type="Texture2D" uid="uid://bl81rf1rfjyuh" path="res://asset/graphic/debate/general/card/card_token_location.png" id="1_y0x26"]
+
+[node name="TokenSlot" type="TextureRect"]
+size_flags_horizontal = 3
+texture = ExtResource("1_y0x26")
+expand_mode = 1
+stretch_mode = 5

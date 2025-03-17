@@ -1,4 +1,4 @@
-extends Node3D
+extends Board
 
 class_name Board3D
 
@@ -14,10 +14,6 @@ class_name Board3D
 
 var lock : Lock = Lock.new()
 
-func get_suit_track(token : Token):
-	for track in suit_tracks:
-		if track.tokens_3d.map(func(x): return x.token).find(token) >= 0: return track
-
 func clear_row(amount : int):
 	for i in amount:
 		var remove_funcs : Array[Callable] = []
@@ -27,7 +23,7 @@ func clear_row(amount : int):
 		
 		Util.await_all(remove_funcs)
 
-func update_board_3d(suit_track_dictionary : Dictionary, active_contestant : String):
+func update_board(suit_track_dictionary : Dictionary, active_contestant : String):
 	while(!lock.obtain_lock()):
 		await lock.on_released
 	
@@ -61,7 +57,7 @@ func _add_token(token : Token, suit_track : SuitTrack3D, contestant : DebateCont
 	
 	token_3d.quaternion = suit_track.global_basis.get_rotation_quaternion()
 	
-	token_3d.set_texture(token)
+	token_3d.token = token
 	
 	var token_slot = suit_track.get_slot()
 	

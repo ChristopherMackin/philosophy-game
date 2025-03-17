@@ -8,7 +8,7 @@
 script = ExtResource("1_jvfby")
 suit = ExtResource("2_l6g5l")
 title = "Basic Others"
-base_cost = 1
+base_cost = 2
 description = "Does Nothing"
 token_data = ExtResource("4_d7nwq")
 on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
@@ -16,4 +16,7 @@ on_discard_card_actions = Array[Resource("res://script/system/card/card_action/c
 on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_hold_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_hold_stay_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
+on_hold_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([])

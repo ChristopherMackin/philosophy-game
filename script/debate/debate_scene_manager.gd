@@ -14,7 +14,7 @@ extends DebateSubscriber
 @export var computer_3d : DebateContestant3D
 
 @export_group("Player UI")
-@export var board : Board3D
+@export var board : Board
 @export var hand_ui : HandUI
 @export var energy_ui : EnergyUI
 @export var hold_area_ui : HoldAreaUI
@@ -93,7 +93,7 @@ func update_board():
 	if !manager.active_contestant: return
 	
 	var active_contestant = "player" if manager.active_contestant.character_is(player) else "computer"
-	await board.update_board_3d(manager.suit_track_dictionary, active_contestant)
+	await board.update_board(manager.suit_track_dictionary, active_contestant)
 
 func update_player_ui():
 	await hand_ui.update_hand(manager.player.hand)

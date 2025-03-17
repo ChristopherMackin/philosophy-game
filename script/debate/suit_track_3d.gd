@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 class_name SuitTrack3D
 
@@ -11,7 +11,10 @@ func get_slot():
 	
 	return slots[tokens_3d.size()]
 
-func remove_token(token : Token):
+func add_token(token: Token):
+	pass
+
+func remove_token(token: Token):
 	pass
 
 func remove_token_at(index : int):

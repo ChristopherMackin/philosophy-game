@@ -25,7 +25,7 @@ title = "The 11th Hour"
 base_cost = 99
 description = "On turn start remove 3 tokens from the faith track and discard this card
 
-On Discard, banish this card"
+On discard, banish this card"
 token_data = ExtResource("3_vvg6n")
 on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
 on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_uajp8")])
