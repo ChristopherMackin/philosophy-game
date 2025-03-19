@@ -1,4 +1,4 @@
-extends Control
+extends PlayAreaSelector
 
 class_name PlayArea3DSelector
 
@@ -13,7 +13,7 @@ class_name PlayArea3DSelector
 @export var focus_group : FocusGroup
 @export var player_brain : PlayerBrain
 
-var selectors : Array[Node3DSelectorUI]
+var selectors : Array[TokenSelectorUI]
 
 func _ready():
 	focus_group.on_select.connect(on_select)

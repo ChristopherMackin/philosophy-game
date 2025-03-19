@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://dq2nxpktgndnl"]
+[gd_scene load_steps=94 format=3 uid="uid://dq2nxpktgndnl"]
 
 [ext_resource type="Script" path="res://script/system/save_manager.gd" id="1_veaak"]
 [ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/basic_deck.tres" id="2_qgy4n"]
@@ -63,6 +63,7 @@
 [ext_resource type="Script" path="res://script/debate/ui/card_selector.gd" id="62_2dsbf"]
 [ext_resource type="Script" path="res://script/debate/ui/play_area_ui_selector.gd" id="62_qfjbt"]
 [ext_resource type="Texture2D" uid="uid://duwx1hkh07na8" path="res://asset/graphic/aaron/aaron_confirm_button.png" id="63_m8wa2"]
+[ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/token_selector_ui.tscn" id="64_xgyfy"]
 [ext_resource type="Script" path="res://script/debate/ui/hold_area_ui.gd" id="66_sve2w"]
 
 [sub_resource type="Resource" id="Resource_cjob1"]
@@ -1116,7 +1117,7 @@ focus_mode = 2
 texture = ExtResource("63_m8wa2")
 metadata/focus_type = "submit"
 
-[node name="PlayAreaSelector" type="Control" parent="PlayArea"]
+[node name="PlayAreaSelector" type="Control" parent="PlayArea" node_paths=PackedStringArray("board")]
 layout_mode = 3
 anchor_left = 0.375
 anchor_right = 1.0
@@ -1125,6 +1126,10 @@ offset_left = -6.10352e-05
 offset_bottom = 0.279935
 grow_horizontal = 0
 script = ExtResource("62_qfjbt")
+selector_packed_scene = ExtResource("64_xgyfy")
+board = NodePath("../PlayArea/Board")
+focus_group = ExtResource("16_r7j2n")
+player_brain = ExtResource("13_o3173")
 
 [node name="HoldArea" type="Control" parent="PlayArea"]
 layout_mode = 3

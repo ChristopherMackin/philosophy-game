@@ -38,7 +38,7 @@
 [ext_resource type="Script" path="res://script/debate/ui/hand_ui.gd" id="34_veub1"]
 [ext_resource type="Script" path="res://script/debate/ui/play_area_3d_selector.gd" id="35_cavrw"]
 [ext_resource type="Script" path="res://script/ui/staggered_flex_container.gd" id="36_f6xvy"]
-[ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/node_3d_selector_ui.tscn" id="36_u3n2x"]
+[ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/token_selector_ui.tscn" id="36_u3n2x"]
 [ext_resource type="Resource" uid="uid://gxn0k63lex4l" path="res://system/focus_group/play_area_focus_group.tres" id="37_4nevq"]
 [ext_resource type="Texture2D" uid="uid://cl8h4qdvv68ex" path="res://asset/graphic/aaron/aaron_db01_screen_filter.png" id="40_uyd2d"]
 [ext_resource type="Texture2D" uid="uid://csnb8nne3qn56" path="res://asset/graphic/debate/general/stats_area/draw_pile.png" id="42_wa3e5"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Philosophy"
-run/main_scene="res://level/debate/pastor_aaron/pastor_aaron_debate.tscn"
+run/main_scene="res://level/debate/test_debate.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://asset/graphic/debate/icon.svg"
 

@@ -3,12 +3,12 @@
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="1_it1nf"]
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/main_blackboard.tres" id="1_qhu2i"]
 [ext_resource type="Script" path="res://script/character/character.gd" id="1_xfscq"]
-[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/basic_deck.tres" id="3_bcmof"]
+[ext_resource type="Resource" uid="uid://d0no8tbjk0y2m" path="res://system/testing/test_deck.tres" id="3_bpgpf"]
 
 [resource]
 script = ExtResource("1_xfscq")
 name = "Joy"
-deck = ExtResource("3_bcmof")
+deck = ExtResource("3_bpgpf")
 brain = ExtResource("1_it1nf")
 draw_limit = 5
 hand_limit = 8
