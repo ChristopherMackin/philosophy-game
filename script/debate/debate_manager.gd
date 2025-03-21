@@ -81,7 +81,7 @@ func init(player_character : Character, computer_character : Character, debate_s
 
 func game_loop():
 	current_turn = 1
-	active_contestant = player
+	active_contestant = player if debate_settings.starting_player == Constants.Player.HUMAN else computer
 	for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(active_contestant)
 	await active_player_turn()
 	
@@ -130,7 +130,7 @@ func active_player_turn():
 		
 		await play_card(card, active_contestant)
 		
-		if active_contestant.hand.size() <= 0:
+		if debate_settings.redraw_on_hand_depleted && active_contestant.hand.size() <= 0:
 			await active_contestant.draw_full_hand()
 		
 		clear_lines()
@@ -193,4 +193,5 @@ func get_opponent(contestant : Contestant):
 	return computer if contestant == player else player
 
 func add_token_to_suit_track(token : Token, suit : Suit):
-	suit_track_dictionary[suit.name].append(token)
+	if suit_track_dictionary.has(suit.name):
+		suit_track_dictionary[suit.name].append(token)

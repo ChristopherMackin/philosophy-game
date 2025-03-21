@@ -23,6 +23,11 @@ enum Contestant {
 	OPPONENT
 }
 
+enum Player {
+	HUMAN,
+	COMPUTER
+}
+
 enum ActionType {
 	ON_PLAY,
 	ON_DISCARD,

@@ -1,7 +1,6 @@
-[gd_scene load_steps=94 format=3 uid="uid://dq2nxpktgndnl"]
+[gd_scene load_steps=92 format=3 uid="uid://dq2nxpktgndnl"]
 
 [ext_resource type="Script" path="res://script/system/save_manager.gd" id="1_veaak"]
-[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/basic_deck.tres" id="2_qgy4n"]
 [ext_resource type="Script" path="res://script/system/save_data.gd" id="3_8u7hi"]
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/main_blackboard.tres" id="4_1kai6"]
 [ext_resource type="Script" path="res://script/debate/debate_scene_manager.gd" id="5_burep"]
@@ -66,14 +65,9 @@
 [ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/token_selector_ui.tscn" id="64_xgyfy"]
 [ext_resource type="Script" path="res://script/debate/ui/hold_area_ui.gd" id="66_sve2w"]
 
-[sub_resource type="Resource" id="Resource_cjob1"]
+[sub_resource type="Resource" id="Resource_q6ssy"]
 script = ExtResource("3_8u7hi")
-path = "player/player_deck.res"
-resource = ExtResource("2_qgy4n")
-
-[sub_resource type="Resource" id="Resource_xhqun"]
-script = ExtResource("3_8u7hi")
-path = "system/blackboard.res"
+path = "main_blackboard.res"
 resource = ExtResource("4_1kai6")
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8mmwu"]
@@ -201,8 +195,7 @@ packed_scene = ExtResource("52_vs5jr")
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("1_veaak")
-should_save_data = false
-save_data = Array[ExtResource("3_8u7hi")]([SubResource("Resource_cjob1"), SubResource("Resource_xhqun")])
+save_data_list = Array[ExtResource("3_8u7hi")]([SubResource("Resource_q6ssy")])
 
 [node name="===MANAGER========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)

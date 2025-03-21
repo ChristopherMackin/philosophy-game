@@ -8,5 +8,7 @@
 
 [resource]
 script = ExtResource("1_cdwd0")
+starting_player = 0
+redraw_on_hand_depleted = false
 slots = 12
 suits = Array[Resource("res://script/system/suit/suit.gd")]([ExtResource("2_p7u10"), ExtResource("3_oowsw"), ExtResource("4_tit4q"), ExtResource("5_t3pf5")])

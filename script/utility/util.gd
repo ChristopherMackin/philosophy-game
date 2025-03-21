@@ -30,7 +30,7 @@ static func await_any(functions : Array[Callable]):
 	await AwaitAny.new(functions).any_finished
 
 static func build_query(queryables : Array) -> Dictionary:
-	var query : Dictionary
+	var query : Dictionary = {}
 	
 	for q : Object in queryables:
 		if q.has_method("build_query"):

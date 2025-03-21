@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/main_blackboard.tres" id="1_nfqwg"]
 [ext_resource type="Script" path="res://script/character/brain/simple_ai_brain.gd" id="1_u3hxw"]
 [ext_resource type="Resource" uid="uid://27sna6u0b0wj" path="res://character/aaron/aaron_event_factory.tres" id="2_5kp35"]
-[ext_resource type="Resource" uid="uid://dkq48q8q0yli4" path="res://system/testing/basic_enemy_deck.tres" id="4_3e83u"]
+[ext_resource type="Resource" uid="uid://dkq48q8q0yli4" path="res://system/test/basic_enemy_deck.tres" id="4_3e83u"]
 
 [sub_resource type="Resource" id="Resource_xfikx"]
 script = ExtResource("1_u3hxw")
