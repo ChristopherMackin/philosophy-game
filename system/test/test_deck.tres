@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Deck" load_steps=5 format=3 uid="uid://d0no8tbjk0y2m"]
 
-[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="1_226ah"]
-[ext_resource type="Script" path="res://script/system/deck/deck.gd" id="1_jkxy4"]
-[ext_resource type="Script" path="res://script/system/card/card_deck_config.gd" id="2_mbuc0"]
+[ext_resource type="Script" uid="uid://dhdtv0v6h0rkq" path="res://script/system/deck/deck.gd" id="1_jkxy4"]
+[ext_resource type="Resource" uid="uid://7dxlwt46oaq5" path="res://system/card/doubt/fact_check.tres" id="2_5kklq"]
+[ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://script/system/card/card_deck_config.gd" id="2_mbuc0"]
 
 [sub_resource type="Resource" id="Resource_20eil"]
 script = ExtResource("2_mbuc0")
-base = ExtResource("1_226ah")
+base = ExtResource("2_5kklq")
 count = 20
 
 [resource]

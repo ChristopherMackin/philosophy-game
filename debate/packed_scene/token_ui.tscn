@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://do5swux8f3nq3"]
 
 [ext_resource type="Texture2D" uid="uid://cpasg5witafv0" path="res://asset/graphic/debate/general/token/basic_doubt_tex.png" id="1_28g7m"]
-[ext_resource type="Script" path="res://script/debate/token_ui.gd" id="2_2loan"]
+[ext_resource type="Script" uid="uid://5hy6foryn0tf" path="res://script/debate/token_ui.gd" id="2_2loan"]
 
 [node name="TokenUI" type="TextureRect"]
 anchors_preset = 15

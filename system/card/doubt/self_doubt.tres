@@ -1,14 +1,17 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://cguj4a6513hg2"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=9 format=3 uid="uid://cguj4a6513hg2"]
 
-[ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_5rbu0"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_5rbu0"]
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_rfwc0"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_mbh5s"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="3_6qp1c"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="3_mp3f8"]
-[ext_resource type="Script" path="res://script/system/card/card_action/discard_card_from_hand_card_action.gd" id="3_rkb61"]
+[ext_resource type="Script" uid="uid://cye125cpxyynj" path="res://script/system/card/card_action/discard_card_from_hand_card_action.gd" id="3_rkb61"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_fl3yq"]
 
 [sub_resource type="Resource" id="Resource_o3xrp"]
 script = ExtResource("3_rkb61")
 which_contestant = 0
-card_filter = Array[Resource("res://script/system/suit/suit.gd")]([])
+card_filter = Array[ExtResource("3_6qp1c")]([])
 
 [resource]
 script = ExtResource("1_5rbu0")
@@ -17,12 +20,12 @@ title = "Self Doubt"
 base_cost = 2
 description = "Remove a card from your hand"
 token_data = ExtResource("4_fl3yq")
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_o3xrp")])
-on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_hold_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_hold_stay_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_hold_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([])
+on_play_card_actions = Array[ExtResource("2_mbh5s")]([SubResource("Resource_o3xrp")])
+on_discard_card_actions = Array[ExtResource("2_mbh5s")]([])
+on_banish_card_actions = Array[ExtResource("2_mbh5s")]([])
+on_turn_start_card_actions = Array[ExtResource("2_mbh5s")]([])
+on_turn_end_card_actions = Array[ExtResource("2_mbh5s")]([])
+on_hold_start_card_actions = Array[ExtResource("2_mbh5s")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_mbh5s")]([])
+on_hold_end_card_actions = Array[ExtResource("2_mbh5s")]([])
+cost_modifiers = Array[ExtResource("1_rfwc0")]([])

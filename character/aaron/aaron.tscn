@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cajmwu8byfeoi"]
 
 [ext_resource type="PackedScene" uid="uid://doagmnjb5kjij" path="res://asset/model/character/aaron/aaron.glb" id="1_tib51"]
-[ext_resource type="Script" path="res://script/facial_animator.gd" id="2_0i4e4"]
+[ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://script/facial_animator.gd" id="2_0i4e4"]
 [ext_resource type="AnimationLibrary" uid="uid://c7aqovwpelfbc" path="res://character/aaron/animation/aaron_animation_library.res" id="2_wq1tm"]
 
 [node name="Aaron" instance=ExtResource("1_tib51")]

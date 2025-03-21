@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=4 format=3 uid="uid://dgsd4p0ynlqhk"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://dgsd4p0ynlqhk"]
 
-[ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_d6ivo"]
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_a55mm"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_d6ivo"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="2_5u3xt"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_my4gt"]
 [ext_resource type="Resource" uid="uid://cyaf6uq2v4gob" path="res://system/token/self/basic_self_token.tres" id="4_7yeya"]
 
 [resource]
@@ -11,12 +13,12 @@ title = "Basic Self"
 base_cost = 2
 description = "Does Nothing"
 token_data = ExtResource("4_7yeya")
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_hold_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_hold_stay_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_hold_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([])
+on_play_card_actions = Array[ExtResource("2_my4gt")]([])
+on_discard_card_actions = Array[ExtResource("2_my4gt")]([])
+on_banish_card_actions = Array[ExtResource("2_my4gt")]([])
+on_turn_start_card_actions = Array[ExtResource("2_my4gt")]([])
+on_turn_end_card_actions = Array[ExtResource("2_my4gt")]([])
+on_hold_start_card_actions = Array[ExtResource("2_my4gt")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_my4gt")]([])
+on_hold_end_card_actions = Array[ExtResource("2_my4gt")]([])
+cost_modifiers = Array[ExtResource("1_a55mm")]([])

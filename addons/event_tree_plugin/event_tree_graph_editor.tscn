@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://cigpy34phehbr"]
 
-[ext_resource type="Script" path="res://addons/event_tree_plugin/event_tree_graph_editor.gd" id="1_5451c"]
-[ext_resource type="Script" path="res://addons/event_tree_plugin/event_type_list.gd" id="1_mpg4u"]
-[ext_resource type="Script" path="res://addons/event_tree_plugin/file_menu_button.gd" id="2_bqkbo"]
-[ext_resource type="Script" path="res://addons/event_tree_plugin/event_tree_graph.gd" id="2_hkr87"]
+[ext_resource type="Script" uid="uid://cgrbakyn86j8w" path="res://addons/event_tree_plugin/event_tree_graph_editor.gd" id="1_5451c"]
+[ext_resource type="Script" uid="uid://cmxpujb4d3phc" path="res://addons/event_tree_plugin/event_type_list.gd" id="1_mpg4u"]
+[ext_resource type="Script" uid="uid://d1ne6ebbocmy3" path="res://addons/event_tree_plugin/file_menu_button.gd" id="2_bqkbo"]
+[ext_resource type="Script" uid="uid://c0vmla0a2bpmf" path="res://addons/event_tree_plugin/event_tree_graph.gd" id="2_hkr87"]
 [ext_resource type="PackedScene" uid="uid://djsotsx2h2akd" path="res://addons/event_tree_plugin/task_node/start_node.tscn" id="4_cq1ix"]
-[ext_resource type="Script" path="res://addons/event_tree_plugin/event_picker.gd" id="5_5212g"]
+[ext_resource type="Script" uid="uid://oiadbip6ma0h" path="res://addons/event_tree_plugin/event_picker.gd" id="5_5212g"]
 [ext_resource type="PackedScene" uid="uid://dhjaa2rvtsb4w" path="res://addons/event_tree_plugin/task_node/console_log_node.tscn" id="5_rlkc1"]
 [ext_resource type="PackedScene" uid="uid://cr37f2ebcj6kc" path="res://addons/event_tree_plugin/task_node/dialogue_node.tscn" id="8_dwr4h"]
 [ext_resource type="PackedScene" uid="uid://djq6hwf312whs" path="res://addons/event_tree_plugin/task_node/wait_node.tscn" id="9_vr2na"]
@@ -56,7 +56,6 @@ popup/item_0/text = "New"
 popup/item_0/id = 0
 popup/item_1/text = "Open"
 popup/item_1/id = 1
-popup/item_2/text = ""
 popup/item_2/id = 2
 popup/item_2/separator = true
 popup/item_3/text = "Save"
@@ -80,7 +79,6 @@ layout_mode = 2
 size_flags_vertical = 3
 right_disconnects = true
 script = ExtResource("2_hkr87")
-start_node_prefab = ExtResource("4_cq1ix")
 
 [node name="StartNode" parent="GraphContainer/EventGraph" instance=ExtResource("4_cq1ix")]
 layout_mode = 0
@@ -155,7 +153,6 @@ script = ExtResource("5_5212g")
 title = "Create a new event"
 initial_position = 1
 size = Vector2i(800, 800)
-ok_button_text = "Create"
 access = 2
 filters = PackedStringArray("*.tres")
 script = ExtResource("5_5212g")
@@ -164,7 +161,6 @@ script = ExtResource("5_5212g")
 title = "Save event"
 initial_position = 1
 size = Vector2i(800, 800)
-ok_button_text = "Save"
 access = 2
 filters = PackedStringArray("*.tres")
 script = ExtResource("5_5212g")

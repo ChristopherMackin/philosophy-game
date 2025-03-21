@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://x6gdbsfbnihf"]
 
 [ext_resource type="Texture2D" uid="uid://33p4i0eyh11w" path="res://asset/graphic/debate/general/dialogue_area/dialogue_bubble.png" id="1_841q7"]
-[ext_resource type="Script" path="res://script/ui/dialogue_bubble.gd" id="2_gik7h"]
-[ext_resource type="Script" path="res://script/ui/scrolling-text.gd" id="3_fjgyg"]
+[ext_resource type="Script" uid="uid://4bchriocygww" path="res://script/ui/dialogue_bubble.gd" id="2_gik7h"]
+[ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://script/ui/scrolling-text.gd" id="3_fjgyg"]
 [ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://asset/font/TenorSans-Regular.ttf" id="3_pdods"]
 
 [node name="BasicDialogueBubble" type="TextureRect" node_paths=PackedStringArray("scrolling_text")]

@@ -93,4 +93,3 @@ func confirmation_confirmed():
 
 func set_path_label():
 	path_label.text = "%s%s" % ["*" if dirty else "", resource_path]
-

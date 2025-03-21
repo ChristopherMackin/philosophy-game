@@ -50,8 +50,10 @@ func update_event_from_graph(event : Event) -> Event:
 	if start_connections.size() > 0:
 		first_node_name = start_connections[0].to_node
 	
+	var task_nodes = get_task_nodes()
+	
 	#Set inputs and outputs for all events
-	for node : TaskNode in get_task_nodes():
+	for node : TaskNode in task_nodes:
 		#Get all connections for this event node
 		var connections = get_connection_list().filter(func (x):
 			return x.from_node == node.name
@@ -65,7 +67,8 @@ func update_event_from_graph(event : Event) -> Event:
 		#Make an array of the events
 		var indexes : Array[int] 
 		indexes.assign(connections.map(func(x):
-			return get_node(NodePath(x.to_node)).get_index() - 1
+			var task_node = get_node(NodePath(x.to_node))
+			return task_nodes.find(task_node)
 		))
 		
 		var task = node.get_task(indexes)
@@ -121,15 +124,18 @@ func load_event_tree(event: Event):
 func clear_graph():
 	clear_connections()
 	
-	for c in get_children():
-		if c != start_node:
-			c.free()
+	for c in get_task_nodes():
+		c.free()
 
-func get_task_nodes():
-	var task_nodes = get_children()
+func get_task_nodes() -> Array[TaskNode]:
+	var children = get_children()
+	var task_nodes = children.filter(func(node): return node is GraphNode)	
 	var index = task_nodes.find(start_node)
 	task_nodes.remove_at(index)
-	return task_nodes
+	
+	var ret: Array[TaskNode] = []
+	ret.assign(task_nodes)
+	return ret
 
 func _can_drop_data(at_position, data):
 	if data is TaskNode:

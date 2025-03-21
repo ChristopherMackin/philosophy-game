@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="DebateSettings" load_steps=6 format=3 uid="uid://b51gfuqtvp857"]
+[gd_resource type="Resource" script_class="DebateSettings" load_steps=7 format=3 uid="uid://b51gfuqtvp857"]
 
-[ext_resource type="Script" path="res://script/debate/debate_settings.gd" id="1_cdwd0"]
+[ext_resource type="Script" uid="uid://bsgp8gq0j6wbn" path="res://script/debate/debate_settings.gd" id="1_cdwd0"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="2_4blar"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_p7u10"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="3_oowsw"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="4_tit4q"]
@@ -11,4 +12,4 @@ script = ExtResource("1_cdwd0")
 starting_player = 0
 redraw_on_hand_depleted = false
 slots = 12
-suits = Array[Resource("res://script/system/suit/suit.gd")]([ExtResource("2_p7u10"), ExtResource("3_oowsw"), ExtResource("4_tit4q"), ExtResource("5_t3pf5")])
+suits = Array[ExtResource("2_4blar")]([ExtResource("2_p7u10"), ExtResource("3_oowsw"), ExtResource("4_tit4q"), ExtResource("5_t3pf5")])

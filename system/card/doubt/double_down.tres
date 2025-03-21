@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://pgdw6runvuns"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://pgdw6runvuns"]
 
-[ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_80fv0"]
-[ext_resource type="Script" path="res://script/system/card/card_action/add_token_to_suit_track_card_action.gd" id="3_ktdf0"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_80fv0"]
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_gl3c0"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_3y3ks"]
+[ext_resource type="Script" uid="uid://c3lkfwpiubfe0" path="res://script/system/card/card_action/add_token_to_suit_track_card_action.gd" id="3_ktdf0"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="4_dm4yj"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_v2kix"]
 
@@ -17,9 +19,12 @@ title = "Double Down"
 base_cost = 2
 description = "Play a basic doubt token"
 token_data = ExtResource("4_v2kix")
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_6pok6")])
-on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([])
+on_play_card_actions = Array[ExtResource("2_3y3ks")]([SubResource("Resource_6pok6")])
+on_discard_card_actions = Array[ExtResource("2_3y3ks")]([])
+on_banish_card_actions = Array[ExtResource("2_3y3ks")]([])
+on_turn_start_card_actions = Array[ExtResource("2_3y3ks")]([])
+on_turn_end_card_actions = Array[ExtResource("2_3y3ks")]([])
+on_hold_start_card_actions = Array[ExtResource("2_3y3ks")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_3y3ks")]([])
+on_hold_end_card_actions = Array[ExtResource("2_3y3ks")]([])
+cost_modifiers = Array[ExtResource("1_gl3c0")]([])

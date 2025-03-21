@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://bd8ykdcrcff7f"]
 
-[ext_resource type="Script" path="res://script/debate/ui/card_ui.gd" id="1_qq0ek"]
+[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://script/debate/ui/card_ui.gd" id="1_qq0ek"]
 [ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/general/card/card_base.png" id="2_cseqi"]
 [ext_resource type="Texture2D" uid="uid://c08xx2yg7vleh" path="res://asset/graphic/debate/general/card/peace_card_bg.png" id="3_swoww"]
 [ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://asset/font/TenorSans-Regular.ttf" id="4_08p8r"]
 [ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://asset/font/fahkwang/Fahkwang-Bold.ttf" id="7_sl8k2"]
-[ext_resource type="Script" path="res://script/exposed_control_methods.gd" id="12_vka25"]
+[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://script/exposed_control_methods.gd" id="12_vka25"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5xdp"]
 content_margin_left = 10.0

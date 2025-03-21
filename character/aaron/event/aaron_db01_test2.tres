@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Event" load_steps=10 format=3 uid="uid://doyad8jhqruny"]
 
-[ext_resource type="Script" path="res://script/system/event/event.gd" id="1_2gkwb"]
-[ext_resource type="Script" path="res://script/system/event/task_action/animation_task_action.gd" id="2_cku7l"]
-[ext_resource type="Script" path="res://script/system/event/task.gd" id="3_38p5l"]
-[ext_resource type="Script" path="res://script/system/event/task_action/dialogue_task_action.gd" id="4_ur6f3"]
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://script/system/event/event.gd" id="1_2gkwb"]
+[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://script/system/event/task_action/animation_task_action.gd" id="2_cku7l"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://script/system/event/task.gd" id="3_38p5l"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://script/system/event/task_action/dialogue_task_action.gd" id="4_ur6f3"]
 
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_cku7l")

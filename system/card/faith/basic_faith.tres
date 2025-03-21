@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=4 format=3 uid="uid://db58qj03gumn7"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://db58qj03gumn7"]
 
-[ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_4xsf3"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_4xsf3"]
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_wfxh0"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_3lqtf"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="2_wfv5m"]
 [ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="4_kyfl8"]
 
@@ -11,12 +13,12 @@ title = "Basic Faith"
 base_cost = 2
 description = "Does Nothing"
 token_data = ExtResource("4_kyfl8")
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_hold_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_hold_stay_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_hold_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([])
+on_play_card_actions = Array[ExtResource("2_3lqtf")]([])
+on_discard_card_actions = Array[ExtResource("2_3lqtf")]([])
+on_banish_card_actions = Array[ExtResource("2_3lqtf")]([])
+on_turn_start_card_actions = Array[ExtResource("2_3lqtf")]([])
+on_turn_end_card_actions = Array[ExtResource("2_3lqtf")]([])
+on_hold_start_card_actions = Array[ExtResource("2_3lqtf")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_3lqtf")]([])
+on_hold_end_card_actions = Array[ExtResource("2_3lqtf")]([])
+cost_modifiers = Array[ExtResource("1_wfxh0")]([])

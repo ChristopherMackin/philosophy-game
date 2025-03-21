@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://bun8m733alh6v"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=10 format=3 uid="uid://bun8m733alh6v"]
 
-[ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_18t8h"]
-[ext_resource type="Script" path="res://script/system/card/card_cost_modifier/minus_tag_card_cost_modifier.gd" id="1_qqapa"]
-[ext_resource type="Script" path="res://script/system/card/card_action/multi_discard_card_from_hand_action.gd" id="3_rl0ah"]
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_2mtfl"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_18t8h"]
+[ext_resource type="Script" uid="uid://hv64uhpg5oql" path="res://script/system/card/card_cost_modifier/minus_tag_card_cost_modifier.gd" id="1_qqapa"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="3_5lkcp"]
+[ext_resource type="Script" uid="uid://4v61ulpu2ysv" path="res://script/system/card/card_action/multi_discard_card_from_hand_action.gd" id="3_rl0ah"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="3_wyghd"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_87jad"]
 
@@ -26,12 +28,12 @@ description = "Look at opponent's hand and remove any number of cards
 
 Costs 1 less energy for each [color=red]evidence[/color] token on the board"
 token_data = ExtResource("4_87jad")
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_3lch6")])
-on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_hold_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_hold_stay_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_hold_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([SubResource("Resource_aktqb")])
+on_play_card_actions = Array[ExtResource("3_5lkcp")]([SubResource("Resource_3lch6")])
+on_discard_card_actions = Array[ExtResource("3_5lkcp")]([])
+on_banish_card_actions = Array[ExtResource("3_5lkcp")]([])
+on_turn_start_card_actions = Array[ExtResource("3_5lkcp")]([])
+on_turn_end_card_actions = Array[ExtResource("3_5lkcp")]([])
+on_hold_start_card_actions = Array[ExtResource("3_5lkcp")]([])
+on_hold_stay_card_actions = Array[ExtResource("3_5lkcp")]([])
+on_hold_end_card_actions = Array[ExtResource("3_5lkcp")]([])
+cost_modifiers = Array[ExtResource("1_2mtfl")]([SubResource("Resource_aktqb")])

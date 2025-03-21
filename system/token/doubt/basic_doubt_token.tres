@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="TokenData" load_steps=3 format=3 uid="uid://dlmgmycw0djem"]
 
 [ext_resource type="Texture2D" uid="uid://cpasg5witafv0" path="res://asset/graphic/debate/general/token/basic_doubt_tex.png" id="1_0klc6"]
-[ext_resource type="Script" path="res://script/system/token/token_data.gd" id="1_swlgb"]
+[ext_resource type="Script" uid="uid://cip7nwc18tb27" path="res://script/system/token/token_data.gd" id="1_swlgb"]
 
 [resource]
 script = ExtResource("1_swlgb")

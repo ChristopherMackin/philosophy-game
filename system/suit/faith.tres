@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Pose" load_steps=3 format=3 uid="uid://d2pl5fnaluyfr"]
+[gd_resource type="Resource" script_class="Suit" load_steps=3 format=3 uid="uid://d2pl5fnaluyfr"]
 
 [ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/general/suit/faith_icon.png" id="1_cy58r"]
-[ext_resource type="Script" path="res://script/system/suit/suit.gd" id="1_lx4ug"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="1_lx4ug"]
 
 [resource]
 script = ExtResource("1_lx4ug")

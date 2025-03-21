@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3gstm266f4t3"]
 
-[ext_resource type="Script" path="res://script/debate/card_3d.gd" id="1_hca6i"]
+[ext_resource type="Script" uid="uid://831usyralle4" path="res://script/debate/card_3d.gd" id="1_hca6i"]
 [ext_resource type="PackedScene" uid="uid://c6470407tskde" path="res://debate/packed_scene/card_ui/faith_card_ui.tscn" id="2_cijk3"]
 [ext_resource type="Texture2D" uid="uid://dyox58taurrna" path="res://asset/graphic/debate/general/card/card_back.png" id="3_0gwat"]
 

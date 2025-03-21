@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://d21frda3buspp"]
 
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/main_blackboard.tres" id="1_6gxgx"]
-[ext_resource type="Script" path="res://script/character/brain/simple_ai_brain.gd" id="1_dtmr8"]
+[ext_resource type="Script" uid="uid://2hwgbl7c4ebq" path="res://script/character/brain/simple_ai_brain.gd" id="1_dtmr8"]
 [ext_resource type="Resource" uid="uid://3dnw0mevj0a1" path="res://character/erin/erin_event_factory.tres" id="2_y5jle"]
 [ext_resource type="Resource" uid="uid://i1l0656ky2sr" path="res://character/erin/erin_deck.tres" id="3_fqstn"]
-[ext_resource type="Script" path="res://script/character/character.gd" id="5_0k8v5"]
+[ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://script/character/character.gd" id="5_0k8v5"]
 
 [sub_resource type="Resource" id="Resource_dm86r"]
 script = ExtResource("1_dtmr8")

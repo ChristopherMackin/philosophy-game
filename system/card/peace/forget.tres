@@ -1,17 +1,20 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=9 format=3 uid="uid://cul52u3nu01i1"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=12 format=3 uid="uid://cul52u3nu01i1"]
 
-[ext_resource type="Script" path="res://script/system/card/card_base.gd" id="1_6y23r"]
-[ext_resource type="Script" path="res://script/system/card/card_action/discard_random_card_from_hand_card_action.gd" id="1_7ohho"]
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_1mpm3"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_6y23r"]
+[ext_resource type="Script" uid="uid://gbg5fg6pxi6c" path="res://script/system/card/card_action/discard_random_card_from_hand_card_action.gd" id="1_7ohho"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="1_y3rsb"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="2_0ka1l"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="2_elhx2"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_otdrs"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="3_bri0y"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="3_yk7lx"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="4_28b22"]
 
 [sub_resource type="Resource" id="Resource_tyyne"]
 script = ExtResource("1_7ohho")
 which_contestant = 0
-card_filter = Array[Resource("res://script/system/suit/suit.gd")]([ExtResource("1_y3rsb"), ExtResource("2_elhx2"), ExtResource("3_yk7lx"), ExtResource("4_28b22")])
+card_filter = Array[ExtResource("3_bri0y")]([ExtResource("1_y3rsb"), ExtResource("2_elhx2"), ExtResource("3_yk7lx"), ExtResource("4_28b22")])
 
 [resource]
 script = ExtResource("1_6y23r")
@@ -19,12 +22,12 @@ suit = ExtResource("2_0ka1l")
 title = "Forget"
 base_cost = 1
 description = "Discard a random color card from your hand"
-on_play_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([SubResource("Resource_tyyne")])
-on_discard_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_banish_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_turn_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_turn_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_hold_start_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_hold_stay_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-on_hold_end_card_actions = Array[Resource("res://script/system/card/card_action/card_action.gd")]([])
-cost_modifiers = Array[Resource("res://script/system/card/card_cost_modifier/card_cost_modifier.gd")]([])
+on_play_card_actions = Array[ExtResource("2_otdrs")]([SubResource("Resource_tyyne")])
+on_discard_card_actions = Array[ExtResource("2_otdrs")]([])
+on_banish_card_actions = Array[ExtResource("2_otdrs")]([])
+on_turn_start_card_actions = Array[ExtResource("2_otdrs")]([])
+on_turn_end_card_actions = Array[ExtResource("2_otdrs")]([])
+on_hold_start_card_actions = Array[ExtResource("2_otdrs")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_otdrs")]([])
+on_hold_end_card_actions = Array[ExtResource("2_otdrs")]([])
+cost_modifiers = Array[ExtResource("1_1mpm3")]([])

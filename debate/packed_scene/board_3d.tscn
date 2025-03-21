@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://c2mat21re3sx3"]
 
-[ext_resource type="Script" path="res://script/ui/board_3d.gd" id="1_84e7o"]
-[ext_resource type="Texture2D" uid="uid://wnxe7wkm381u" path="res://asset/graphic/aaron/aaron_board.jpg" id="2_m7gok"]
+[ext_resource type="Script" uid="uid://cde2wsdjn62td" path="res://script/ui/board_3d.gd" id="1_84e7o"]
+[ext_resource type="Texture2D" uid="uid://bams26764pivy" path="res://asset/graphic/aaron/aaron_board.jpg" id="2_m7gok"]
 [ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://debate/packed_scene/token_3d.tscn" id="4_7i8i2"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="6_b4j2d"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="9_xtjld"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="11_jgc4o"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="13_eriu7"]
-[ext_resource type="Script" path="res://script/debate/suit_track_3d.gd" id="14_331gy"]
+[ext_resource type="Script" uid="uid://u0ddlhnnxaym" path="res://script/debate/suit_track_3d.gd" id="14_331gy"]
 
 [node name="Board3D" type="Node3D" node_paths=PackedStringArray("suit_tracks")]
 transform = Transform3D(1, -3.48786e-16, 3.48786e-16, 3.48786e-16, 1, -3.48788e-16, -3.48786e-16, 3.48788e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)

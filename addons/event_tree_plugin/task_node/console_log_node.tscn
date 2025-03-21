@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhjaa2rvtsb4w"]
 
-[ext_resource type="Script" path="res://addons/event_tree_plugin/task_node.gd" id="1_14l8n"]
-[ext_resource type="Script" path="res://script/system/event/task_action/console_task_action.gd" id="2_jy3ra"]
+[ext_resource type="Script" uid="uid://8qc3j4r3w1d4" path="res://addons/event_tree_plugin/task_node.gd" id="1_14l8n"]
+[ext_resource type="Script" uid="uid://cnwb80jbsgd2s" path="res://script/system/event/task_action/console_task_action.gd" id="2_jy3ra"]
 
 [sub_resource type="Resource" id="Resource_kfrek"]
 script = ExtResource("2_jy3ra")

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FocusGroup" load_steps=2 format=3 uid="uid://cw71yo3318tof"]
 
-[ext_resource type="Script" path="res://script/system/focus_group.gd" id="1_vibsx"]
+[ext_resource type="Script" uid="uid://ds2g4jk5n5nx" path="res://script/system/focus_group.gd" id="1_vibsx"]
 
 [resource]
 script = ExtResource("1_vibsx")
