@@ -18,10 +18,14 @@ enum ExpirationToken {
 	ON_TURN_START,
 }
 
-enum Contestant {
-	PLAYER,
+enum WhichContestant {
+	SELF,
 	OPPONENT
 }
+
+static func GetContestant(player, opponent, which_contestant):
+	return player if which_contestant == Constants.WhichContestant.SELF else opponent
+
 
 enum Player {
 	HUMAN,

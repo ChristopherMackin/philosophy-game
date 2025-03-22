@@ -10,7 +10,7 @@
 [sub_resource type="Resource" id="Resource_70erk"]
 script = ExtResource("3_x0gcc")
 tag = 1
-tag_per_card = 2.0
+card_per_tag = 0.5
 
 [resource]
 script = ExtResource("1_aw5is")

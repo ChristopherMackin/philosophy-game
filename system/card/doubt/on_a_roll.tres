@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://cc01q6jjqayh6"]
+
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_365d0"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_jfrpq"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="3_7yv6i"]
+[ext_resource type="Script" uid="uid://cbogtpodmwi6f" path="res://script/system/card/card_action/modify_energy_per_tag_card_action.gd" id="3_fpih5"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="4_7yv6i"]
+[ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="5_fpih5"]
+
+[sub_resource type="Resource" id="Resource_87p25"]
+script = ExtResource("3_fpih5")
+which_contestant = 0
+tag = 1
+energy_per_tag = 0.5
+metadata/_custom_type_script = "uid://cbogtpodmwi6f"
+
+[resource]
+script = ExtResource("3_7yv6i")
+suit = ExtResource("4_7yv6i")
+title = "On A Roll"
+base_cost = 1
+description = "Gain 1 energy for every 2 evidence tokens on the board"
+token_data = ExtResource("5_fpih5")
+on_play_card_actions = Array[ExtResource("2_jfrpq")]([SubResource("Resource_87p25")])
+on_discard_card_actions = Array[ExtResource("2_jfrpq")]([])
+on_banish_card_actions = Array[ExtResource("2_jfrpq")]([])
+on_turn_start_card_actions = Array[ExtResource("2_jfrpq")]([])
+on_turn_end_card_actions = Array[ExtResource("2_jfrpq")]([])
+on_hold_start_card_actions = Array[ExtResource("2_jfrpq")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_jfrpq")]([])
+on_hold_end_card_actions = Array[ExtResource("2_jfrpq")]([])
+cost_modifiers = Array[ExtResource("1_365d0")]([])
+metadata/_custom_type_script = "uid://dy4e7i5501yv5"

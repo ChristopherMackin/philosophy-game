@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="DuplicateDeck" load_steps=5 format=3 uid="uid://b8trtqto8w2iv"]
+[gd_resource type="Resource" script_class="DuplicateDeck" load_steps=7 format=3 uid="uid://b8trtqto8w2iv"]
 
 [ext_resource type="Resource" uid="uid://hi2quif7qp3d" path="res://system/card/faith/twisted_words.tres" id="1_2qagk"]
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://script/system/card/card_deck_config.gd" id="2_6ug3c"]
+[ext_resource type="Resource" uid="uid://dao5hnjj82iw5" path="res://system/card/faith/hail_marry.tres" id="3_dygrr"]
 [ext_resource type="Script" uid="uid://g6ni26k2tmaw" path="res://script/system/deck/duplicate_deck.gd" id="6_pialk"]
 
 [sub_resource type="Resource" id="Resource_pm2js"]
@@ -9,7 +10,13 @@ script = ExtResource("2_6ug3c")
 base = ExtResource("1_2qagk")
 count = 2
 
+[sub_resource type="Resource" id="Resource_n5w3i"]
+script = ExtResource("2_6ug3c")
+base = ExtResource("3_dygrr")
+count = 2
+metadata/_custom_type_script = "uid://bcrhpdjlreow5"
+
 [resource]
 script = ExtResource("6_pialk")
 number_of_duplications = 10
-composition_card_deck_config_array = Array[ExtResource("2_6ug3c")]([SubResource("Resource_pm2js")])
+composition_card_deck_config_array = Array[ExtResource("2_6ug3c")]([SubResource("Resource_pm2js"), SubResource("Resource_n5w3i")])

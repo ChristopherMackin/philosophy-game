@@ -2,12 +2,12 @@ extends CardAction
 
 class_name AddCostModifierToHandCardAction
 
-@export var which_contestant : Constants.Contestant
+@export var which_contestant : Constants.WhichContestant
 @export var card_filter : Array[Suit]
 @export var cost_modifier : CardCostModifier
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	var contestant = player if which_contestant == Constants.Contestant.PLAYER else manager.get_opponent(player)
+	var contestant = player if which_contestant == Constants.WhichContestant.SELF else manager.get_opponent(player)
 	
 	if contestant.hand.size() <= 0: return
 	
@@ -22,7 +22,7 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	var response : SelectionResponse = await player.select(SelectionRequest.new(
 		selectable_cards,
-		"%s_add_cost_modifier_to_hand" % Constants.Contestant.keys()[which_contestant]
+		"%s_add_cost_modifier_to_hand" % Constants.WhichContestant.keys()[which_contestant]
 	))
 	
 	response.data.cost_modifiers.append(cost_modifier.duplicate(true))

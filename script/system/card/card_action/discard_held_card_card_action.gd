@@ -2,10 +2,10 @@ extends CardAction
 
 class_name DiscardHeldCardCardAction
 
-var which_contestant : Constants.Contestant
+var which_contestant : Constants.WhichContestant
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	var contestant = player if which_contestant == Constants.Contestant.PLAYER else manager.get_opponent(player)
+	var contestant = player if which_contestant == Constants.WhichContestant.SELF else manager.get_opponent(player)
 	var held_card = contestant.held_card
 	
 	if !held_card:

@@ -2,11 +2,11 @@ extends CardAction
 
 class_name DiscardAndPlayTokenCardAction
 
-@export var which_contestant : Constants.Contestant
+@export var which_contestant : Constants.WhichContestant
 @export var card_filter : Array[Suit]
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	var contestant = player if which_contestant == Constants.Contestant.PLAYER else manager.get_opponent(player)
+	var contestant = player if which_contestant == Constants.WhichContestant.SELF else manager.get_opponent(player)
 	
 	if contestant.hand.size() <= 0: return
 	
@@ -21,7 +21,7 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	var response = await player.select(SelectionRequest.new(
 		selectable_cards,
-		"%s_discard_and_play_token" % Constants.Contestant.keys()[which_contestant]
+		"%s_discard_and_play_token" % Constants.WhichContestant.keys()[which_contestant]
 	))
 	
 	await manager.add_token_to_suit_track(card.token, card.suit)
