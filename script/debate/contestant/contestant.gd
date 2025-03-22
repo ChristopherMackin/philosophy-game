@@ -118,7 +118,6 @@ func take_turn() -> SelectionResponse:
 	
 	return response
 
-
 func select(request : SelectionRequest) -> SelectionResponse:
 	var is_valid_selection : bool = false
 	return await _brain.select(request)
@@ -146,11 +145,29 @@ func hold_card(card : Card):
 	
 	for sub : DebateSubscriber in manager.subscriber_array: await sub.on_card_hold_updated(held_card, self)
 
+func discard_card(card : Card):
+	discard_pile.append(card)
+	
+	for action in card.on_discard_card_actions:
+		await action.invoke(card, self, manager)
+
 func add_to_hand(card : Card, index: int = -1):
 	if index == -1 || index >= hand.size():
 		hand.append(card)
 	else:
 		hand.insert(index, card)
+
+func remove_from_hand(card : Card) -> bool:
+	var index = hand.find(card)
+	if index < 0: return false
+	
+	hand.remove_at(index)
+	
+	return true
+
+func discard_from_hand(card : Card):
+	if !remove_from_hand(card): return
+	await discard_card(card)
 
 func add_to_draw_pile(card : Card):
 	draw_pile.append(card)
@@ -165,28 +182,10 @@ func remove_from_draw_pile(card : Card):
 	draw_pile.remove_at(index)
 	draw_pile.shuffle()
 
-func remove_from_hand(card : Card) -> bool:
-	var index = hand.find(card)
-	if index < 0: return false
-	
-	hand.remove_at(index)
-	
-	return true
-
 func add_to_deck(card : Card):
 	_deck.add_to_deck(card)
 
 func remove_from_deck(card : Card):
 	_deck.remove_from_deck(card)
 	for action in card.on_banish_card_actions:
-		await action.invoke(card, self, manager)
-
-func discard_from_hand(card : Card):
-	if !remove_from_hand(card): return
-	await discard_card(card)
-
-func discard_card(card : Card):
-	discard_pile.append(card)
-	
-	for action in card.on_discard_card_actions:
 		await action.invoke(card, self, manager)

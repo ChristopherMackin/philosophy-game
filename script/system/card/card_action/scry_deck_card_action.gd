@@ -2,5 +2,17 @@ extends CardAction
 
 class_name ScryDeckCardAction
 
+@export var which_contestant : Constants.WhichContestant
+@export var amount : int
+
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	pass
+	var contestant := Constants.GetContestant(player, manager.get_opponent(player), which_contestant)
+	
+	if contestant.draw_pile.size() <= 0: return
+	
+	var viewable_cards = contestant.draw_pile.slice(0, amount if amount <= contestant.draw_pile.size() else contestant.draw_pile.size())
+	
+	await player.view(
+		viewable_cards,
+		"%s_scry_deck" % Constants.WhichContestant.keys()[which_contestant]
+	)

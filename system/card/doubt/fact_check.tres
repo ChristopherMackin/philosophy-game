@@ -1,25 +1,26 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=9 format=3 uid="uid://7dxlwt46oaq5"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://cidckdf830rce"]
 
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_hp23h"]
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_hysfy"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_78far"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_de5os"]
-[ext_resource type="Script" uid="uid://ceyj6hx4iom4n" path="res://script/system/card/card_action/remove_token_from_board_card_action.gd" id="3_4u8a3"]
-[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="3_wfopu"]
-[ext_resource type="Resource" uid="uid://vebafhvqqdvk" path="res://system/token/doubt/evidence_token.tres" id="4_htv2q"]
+[ext_resource type="Script" uid="uid://cevxuucq5lrxi" path="res://script/system/card/card_action/scry_deck_card_action.gd" id="3_thfvi"]
+[ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="6_hysfy"]
 
-[sub_resource type="Resource" id="Resource_k672g"]
-script = ExtResource("3_4u8a3")
-card_filter = Array[ExtResource("3_wfopu")]([ExtResource("2_de5os")])
+[sub_resource type="Resource" id="Resource_78far"]
+script = ExtResource("3_thfvi")
+which_contestant = 0
+amount = 3
+metadata/_custom_type_script = "uid://cevxuucq5lrxi"
 
 [resource]
 script = ExtResource("1_hp23h")
 suit = ExtResource("2_de5os")
 title = "Fact Check"
-base_cost = 0
-description = "Remove a top from the doubt track"
-token_data = ExtResource("4_htv2q")
-on_play_card_actions = Array[ExtResource("2_78far")]([SubResource("Resource_k672g")])
+base_cost = 1
+description = "Scry the top 3 cards of your deck"
+token_data = ExtResource("6_hysfy")
+on_play_card_actions = Array[ExtResource("2_78far")]([SubResource("Resource_78far")])
 on_discard_card_actions = Array[ExtResource("2_78far")]([])
 on_banish_card_actions = Array[ExtResource("2_78far")]([])
 on_turn_start_card_actions = Array[ExtResource("2_78far")]([])
@@ -28,3 +29,4 @@ on_hold_start_card_actions = Array[ExtResource("2_78far")]([])
 on_hold_stay_card_actions = Array[ExtResource("2_78far")]([])
 on_hold_end_card_actions = Array[ExtResource("2_78far")]([])
 cost_modifiers = Array[ExtResource("1_hysfy")]([])
+metadata/_custom_type_script = "uid://dy4e7i5501yv5"

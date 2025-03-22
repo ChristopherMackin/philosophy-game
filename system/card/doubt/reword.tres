@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=9 format=3 uid="uid://7dxlwt46oaq5"]
+
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_vl55p"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_tchf5"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="3_h471i"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="4_pqxh1"]
+[ext_resource type="Script" uid="uid://ceyj6hx4iom4n" path="res://script/system/card/card_action/remove_token_from_board_card_action.gd" id="5_mytkp"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="6_fpba1"]
+[ext_resource type="Resource" uid="uid://vebafhvqqdvk" path="res://system/token/doubt/evidence_token.tres" id="7_hiw01"]
+
+[sub_resource type="Resource" id="Resource_k672g"]
+script = ExtResource("5_mytkp")
+card_filter = Array[ExtResource("3_h471i")]([ExtResource("4_pqxh1")])
+
+[resource]
+script = ExtResource("6_fpba1")
+suit = ExtResource("4_pqxh1")
+title = "Reword"
+base_cost = 0
+description = "Remove a top from the doubt track"
+token_data = ExtResource("7_hiw01")
+on_play_card_actions = Array[ExtResource("2_tchf5")]([SubResource("Resource_k672g")])
+on_discard_card_actions = Array[ExtResource("2_tchf5")]([])
+on_banish_card_actions = Array[ExtResource("2_tchf5")]([])
+on_turn_start_card_actions = Array[ExtResource("2_tchf5")]([])
+on_turn_end_card_actions = Array[ExtResource("2_tchf5")]([])
+on_hold_start_card_actions = Array[ExtResource("2_tchf5")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_tchf5")]([])
+on_hold_end_card_actions = Array[ExtResource("2_tchf5")]([])
+cost_modifiers = Array[ExtResource("1_vl55p")]([])

@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=11 format=3 uid="uid://dsiqjktled8er"]
+
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_vymyq"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_d03oh"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="3_f55ym"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="3_o5ybp"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="4_f55ym"]
+[ext_resource type="Script" uid="uid://cye125cpxyynj" path="res://script/system/card/card_action/discard_card_from_hand_card_action.gd" id="4_xi8yq"]
+[ext_resource type="Script" uid="uid://cnsu06fkkodsm" path="res://script/system/card/card_action/draw_card_card_action.gd" id="5_o5ybp"]
+[ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="5_q2akr"]
+
+[sub_resource type="Resource" id="Resource_r72rp"]
+script = ExtResource("4_xi8yq")
+which_contestant = 0
+card_filter = Array[ExtResource("3_o5ybp")]([])
+metadata/_custom_type_script = "uid://cye125cpxyynj"
+
+[sub_resource type="Resource" id="Resource_xi8yq"]
+script = ExtResource("5_o5ybp")
+which_contestant = 0
+draw_amount = 2
+metadata/_custom_type_script = "uid://cnsu06fkkodsm"
+
+[resource]
+script = ExtResource("3_f55ym")
+suit = ExtResource("4_f55ym")
+title = "Easy Answers"
+base_cost = 1
+description = "Discard a card and draw 2 cards"
+token_data = ExtResource("5_q2akr")
+on_play_card_actions = Array[ExtResource("2_d03oh")]([SubResource("Resource_r72rp"), SubResource("Resource_xi8yq")])
+on_discard_card_actions = Array[ExtResource("2_d03oh")]([])
+on_banish_card_actions = Array[ExtResource("2_d03oh")]([])
+on_turn_start_card_actions = Array[ExtResource("2_d03oh")]([])
+on_turn_end_card_actions = Array[ExtResource("2_d03oh")]([])
+on_hold_start_card_actions = Array[ExtResource("2_d03oh")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_d03oh")]([])
+on_hold_end_card_actions = Array[ExtResource("2_d03oh")]([])
+cost_modifiers = Array[ExtResource("1_vymyq")]([])
+metadata/_custom_type_script = "uid://dy4e7i5501yv5"
