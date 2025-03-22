@@ -19,7 +19,8 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 		selectable_tokens,
 		"remove_token_from_board",
 		Const.WhichContestant.SELF,
-		Const.SelectionAction.BOARD
+		Const.SelectionAction.SINGLE,
+		Const.SelectionType.TOKEN
 	))
 	
 	await manager.remove_token_from_suit_track(response.data)

@@ -45,7 +45,6 @@ enum ActionType {
 
 enum SelectionAction {
 	VIEW,
-	BOARD,
 	SINGLE,
 	MULTI
 }
