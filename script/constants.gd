@@ -23,7 +23,7 @@ enum WhichContestant {
 	OPPONENT
 }
 
-static func GetContestant(player, opponent, which_contestant):
+static func GetContestant(player, opponent, which_contestant) -> Contestant:
 	return player if which_contestant == Constants.WhichContestant.SELF else opponent
 
 

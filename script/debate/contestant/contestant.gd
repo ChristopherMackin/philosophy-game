@@ -102,22 +102,22 @@ func end_turn():
 	current_energy = energy_level
 	can_hold = true
 
-func take_turn():
+func take_turn() -> SelectionResponse:
 	if hand.size() <= 0:
 		await draw_full_hand()
 	
-	while true:
-		var response = await select(SelectionRequest.new(hand))
-		var card = response.data
-		
-		match response.what:
-			"play":
-				if playable_cards.has(card):
-					remove_from_hand(card)
-					return card
-			"hold":
-				hold_card(card)
-				response = null
+	var response = await select(SelectionRequest.new(hand))
+	var card = response.data
+	
+	match response.what:
+		"play":
+			if playable_cards.has(card):
+				remove_from_hand(card)
+		"hold":
+			hold_card(card)
+	
+	return response
+
 
 func select(request : SelectionRequest) -> SelectionResponse:
 	var is_valid_selection : bool = false
@@ -132,7 +132,7 @@ func hold_card(card : Card):
 	
 	if held_card:
 		var index = hand.find(card)
-		add_to_hand(card, index)
+		add_to_hand(held_card, index)
 		for action : CardAction in held_card.on_hold_end_card_actions:
 			await action.invoke(held_card, self, manager)
 	

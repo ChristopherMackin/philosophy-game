@@ -6,7 +6,7 @@ class_name BanishAndPlayCardAction
 @export var card_filters : Array[Suit]
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	var contestant : Contestant = player if which_contestant == Constants.WhichContestant.SELF else manager.get_opponent(player)
+	var contestant : contestant := Constants.GetContestant(player, manager.get_opponent(player), which_contestant)
 	
 	var cards : Array = contestant.hand.filter(func(x : Card): return card_filters.has(x.suit))
 	if cards.size() <= 0:

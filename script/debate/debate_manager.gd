@@ -115,20 +115,22 @@ func active_player_turn():
 	for sub : DebateSubscriber in subscriber_array: await sub.on_turn_start(active_contestant)
 	
 	while active_contestant.can_play and !get_is_debate_over():
-		var card = await active_contestant.take_turn()
+		var response = await active_contestant.take_turn()
+		var card = response.data
 		
-		active_contestant.current_energy -= card.cost
+		if response.what == "play":
+			active_contestant.current_energy -= card.cost
 		
-		blackboard.add("previous_card", blackboard.get_value("current_card"), Constants.ExpirationToken.ON_DEBATE_START)
-		blackboard.add("previous_suit", blackboard.get_value("current_suit"), Constants.ExpirationToken.ON_DEBATE_START)
-		blackboard.add("current_card", card.title, Constants.ExpirationToken.ON_DEBATE_START)
-		blackboard.add("current_suit", card.suit.name, Constants.ExpirationToken.ON_DEBATE_START)
-		
-		var token = card.pop_token()
-		if token:
-			await play_token(token, card, active_contestant)
-		
-		await play_card(card, active_contestant)
+			blackboard.add("previous_card", blackboard.get_value("current_card"), Constants.ExpirationToken.ON_DEBATE_START)
+			blackboard.add("previous_suit", blackboard.get_value("current_suit"), Constants.ExpirationToken.ON_DEBATE_START)
+			blackboard.add("current_card", card.title, Constants.ExpirationToken.ON_DEBATE_START)
+			blackboard.add("current_suit", card.suit.name, Constants.ExpirationToken.ON_DEBATE_START)
+			
+			var token = card.pop_token()
+			if token:
+				await play_token(token, card, active_contestant)
+			
+			await play_card(card, active_contestant)
 		
 		if debate_settings.redraw_on_hand_depleted && active_contestant.hand.size() <= 0:
 			await active_contestant.draw_full_hand()

@@ -6,7 +6,7 @@ class_name ModifyEnergyCardAction
 @export var amount : int
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	var contestant = player if which_contestant == Constants.WhichContestant.SELF else manager.get_opponent(player)
+	var contestant := Constants.GetContestant(player, manager.get_opponent(player), which_contestant)
 	
 	contestant.current_energy += amount
 	if contestant.current_energy < 0:

@@ -7,7 +7,7 @@ class_name ModifyEnergyPerTagCardAction
 @export var energy_per_tag : float
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	var contestant = player if which_contestant == Constants.WhichContestant.SELF else manager.get_opponent(player)
+	var contestant := Constants.GetContestant(player, manager.get_opponent(player), which_contestant)
 	
 	var tag_count = 0
 	for key in manager.suit_track_dictionary:

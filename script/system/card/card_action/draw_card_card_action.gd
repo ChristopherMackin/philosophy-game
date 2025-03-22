@@ -6,5 +6,5 @@ class_name DrawCardCardAction
 @export var draw_amount : int
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	var contestant = player if which_contestant == Constants.WhichContestant.SELF else manager.get_opponent(player)
+	var contestant := Constants.GetContestant(player, manager.get_opponent(player), which_contestant)
 	await contestant.draw_number_of_cards(draw_amount)

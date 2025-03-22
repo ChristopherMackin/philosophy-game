@@ -6,7 +6,7 @@ class_name DrawCardOfSuitCardAction
 @export var suits : Array[Suit]
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	var contestant = player if which_contestant == Constants.WhichContestant.SELF else manager.get_opponent(player)
+	var contestant := Constants.GetContestant(player, manager.get_opponent(player), which_contestant)
 	
 	if suits.size() <= 0:
 		suits = manager.debate_settings.suits
