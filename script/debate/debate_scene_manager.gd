@@ -51,7 +51,7 @@ func on_card_played(card: Card, contestant : Contestant):
 	
 	await query_event("on_card_played")
 
-func on_token_played(token: Token, parent: Card, contestant : Contestant):	
+func on_token_played(token: Token, suit: Suit, contestant : Contestant):	
 	await update_everything()
 
 func on_card_hold_updated(card : Card, active_contestant : Contestant):

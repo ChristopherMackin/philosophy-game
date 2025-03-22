@@ -3,7 +3,7 @@ extends CardAction
 class_name MultiDiscardCardFromHand
 
 @export var which_contestant : Const.WhichContestant
-var card_filter : Array[Suit]
+@export var card_filter : Array[Suit]
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
 	var contestant := Const.GetContestant(player, manager.get_opponent(player), which_contestant)

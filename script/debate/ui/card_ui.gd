@@ -5,6 +5,7 @@ class_name CardUI
 
 @export var title : Node
 @export var artwork : Node
+@export var shadow : Node
 @export var description : Node
 @export var cost : Node
 @export var icon : Node
@@ -28,4 +29,6 @@ func update_card(card : Card) :
 		if icon: icon.texture = card.suit.icon
 		if title: title.text = card.title
 		if description: description.text = card.description
-		if artwork: artwork.texture = card.token_artwork
+		if artwork: 
+			artwork.texture = card.token_artwork
+			shadow.visible = !artwork.texture == null

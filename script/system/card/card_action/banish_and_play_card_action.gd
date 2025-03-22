@@ -23,5 +23,5 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	contestant.remove_from_hand(card_to_remove)
 	contestant.remove_from_deck(card_to_remove)
 	
-	await manager.play_token(card_to_remove.pop_token(), card_to_remove, player)
+	await manager.play_token(card_to_remove.pop_token(), card_to_remove.suit, player)
 	await manager.play_card(card_to_remove, player)

@@ -24,7 +24,7 @@ content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
 
-[node name="OthersCardUI" type="Control" node_paths=PackedStringArray("title", "artwork", "description", "cost", "icon")]
+[node name="OthersCardUI" type="Control" node_paths=PackedStringArray("title", "artwork", "shadow", "description", "cost", "icon")]
 custom_minimum_size = Vector2(370, 320)
 layout_mode = 3
 anchors_preset = 0
@@ -35,6 +35,7 @@ focus_mode = 2
 script = ExtResource("1_ejljd")
 title = NodePath("CardBG/Title")
 artwork = NodePath("CardBG/CardTokenLocation/Token")
+shadow = NodePath("CardBG/CardTokenLocation/Shadow")
 description = NodePath("CardBG/Description")
 cost = NodePath("CardBG/CostIcon/Cost")
 icon = NodePath("CardBG/PoseIcon")
@@ -196,7 +197,7 @@ texture = ExtResource("12_h5lb8")
 script = ExtResource("13_j78nc")
 root = NodePath("..")
 
-[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_z_index" binds= [1]]
 [connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(1, 1)]]
-[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_z_index" binds= [0]]
+[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_z_index" binds= [1]]
 [connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(0.81, 0.81)]]
+[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_z_index" binds= [0]]

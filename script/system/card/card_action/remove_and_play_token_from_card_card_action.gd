@@ -1,8 +1,9 @@
 extends CardAction
 
-class_name DiscardAndPlayTokenCardAction
+class_name RemoveAndPlayTokenFromCardCardAction
 
 @export var which_contestant : Const.WhichContestant
+@export var suit: Suit
 @export var card_filter : Array[Suit]
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
@@ -21,9 +22,10 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	var response = await player.select(SelectionRequest.new(
 		selectable_cards,
-		"discard_and_play_token",
+		"remove_and_play_token_from_card",
 		which_contestant
 	))
 	
-	await manager.add_token_to_suit_track(card.token, card.suit)
-	await contestant.discard_from_hand(response.data)
+	var token: Token = response.data.pop_token()
+	if token:
+		manager.play_token(token, suit, player)

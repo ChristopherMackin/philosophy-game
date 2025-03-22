@@ -128,7 +128,7 @@ func active_player_turn():
 			
 			var token = card.pop_token()
 			if token:
-				await play_token(token, card, active_contestant)
+				await play_token(token, card.suit, active_contestant)
 			
 			await play_card(card, active_contestant)
 		
@@ -140,9 +140,9 @@ func active_player_turn():
 	await active_contestant.end_turn()
 	for sub : DebateSubscriber in subscriber_array: await sub.on_turn_end(active_contestant)
 
-func play_token(token : Token, parent : Card, contestant : Contestant):
-	await add_token_to_suit_track(token, parent.suit)
-	for sub : DebateSubscriber in subscriber_array: await sub.on_token_played(token, parent, contestant)
+func play_token(token : Token, suit : Suit, contestant : Contestant):
+	await add_token_to_suit_track(token, suit)
+	for sub : DebateSubscriber in subscriber_array: await sub.on_token_played(token, suit, contestant)
 
 func play_card(card : Card, contestant : Contestant):
 	play_stack.append(card)
