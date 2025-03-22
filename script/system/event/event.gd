@@ -25,8 +25,8 @@ func get_task(index : int):
 func get_expiration_token():
 	match frequency:
 		Frequency.ONCE:
-			return Constants.ExpirationToken.NEVER
+			return Const.ExpirationToken.NEVER
 		Frequency.ONCE_PER_DEBATE:
-			return Constants.ExpirationToken.ON_DEBATE_START
+			return Const.ExpirationToken.ON_DEBATE_START
 	
 	return null

@@ -2,7 +2,7 @@ extends CardCostModifier
 
 class_name MinusTagCardCostModifier
 
-@export var tag : Constants.Tag
+@export var tag : Const.Tag
 
 func modify_cost(base_cost : int, manager : DebateManager) -> int:
 	var tag_count = 0

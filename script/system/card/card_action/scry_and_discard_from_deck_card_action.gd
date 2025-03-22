@@ -1,6 +1,6 @@
 extends CardAction
 
-class_name ScryDeckCardAction
+class_name ScryAndDiscardFromDeckCardAction
 
 @export var which_contestant : Const.WhichContestant
 @export var amount : int
@@ -14,5 +14,5 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	await player.view(
 		viewable_cards,
-		"scry_deck"
+		"scry_and_discard_from_deck"
 	)

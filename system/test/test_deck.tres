@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://script/system/card/card_deck_config.gd" id="2_mbuc0"]
 [ext_resource type="Resource" uid="uid://cc01q6jjqayh6" path="res://system/card/doubt/on_a_roll.tres" id="3_sgx72"]
 [ext_resource type="Resource" uid="uid://db07dth8iua8f" path="res://system/card/peace/rethink.tres" id="4_lslfs"]
-[ext_resource type="Resource" uid="uid://dsiqjktled8er" path="res://system/card/doubt/easy_answers.tres" id="5_5u61n"]
+[ext_resource type="Resource" uid="uid://dsiqjktled8er" path="res://system/card/doubt/hold_my_tongue.tres" id="5_5u61n"]
 [ext_resource type="Resource" uid="uid://xcna1a1uiro7" path="res://system/card/doubt/misinformation.tres" id="6_wko4y"]
 [ext_resource type="Resource" uid="uid://e1d37ph7u0ag" path="res://system/card/peace/reclaim.tres" id="8_lb8jv"]
 

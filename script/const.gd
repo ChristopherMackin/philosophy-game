@@ -1,6 +1,6 @@
 extends Object
 
-class_name Constants
+class_name Const
 
 const save_path : String = "res://_save/"
 #const save_path : String = "user://save/"
@@ -24,7 +24,7 @@ enum WhichContestant {
 }
 
 static func GetContestant(player, opponent, which_contestant) -> Contestant:
-	return player if which_contestant == Constants.WhichContestant.SELF else opponent
+	return player if which_contestant == Const.WhichContestant.SELF else opponent
 
 
 enum Player {
@@ -41,4 +41,17 @@ enum ActionType {
 	ON_HOLD_START,
 	ON_HOLD_STAY,
 	ON_HOLD_END
+}
+
+enum SelectionAction {
+	VIEW,
+	BOARD,
+	SINGLE,
+	MULTI
+}
+
+enum SelectionType {
+	TOKEN,
+	CARD,
+	SUIT
 }

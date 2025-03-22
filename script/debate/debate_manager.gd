@@ -8,18 +8,18 @@ var debate_settings : DebateSettings
 var player : Contestant:
 	set(val):
 		player = val
-		blackboard.add("player", player.name, Constants.ExpirationToken.ON_DEBATE_START)
+		blackboard.add("player", player.name, Const.ExpirationToken.ON_DEBATE_START)
 var computer : Contestant:
 	set(val):
 		computer = val
-		blackboard.add("computer", computer.name, Constants.ExpirationToken.ON_DEBATE_START)
+		blackboard.add("computer", computer.name, Const.ExpirationToken.ON_DEBATE_START)
 
 var active_contestant : Contestant:
 	get: return active_contestant
 	set(val):
 		active_contestant = val
 		var contestant = "player" if active_contestant == player else "computer"
-		blackboard.add("active_contestant", contestant, Constants.ExpirationToken.ON_DEBATE_START)
+		blackboard.add("active_contestant", contestant, Const.ExpirationToken.ON_DEBATE_START)
 
 var inactive_contestant : Contestant:
 	get:
@@ -37,8 +37,8 @@ var subscriber_array : Array[DebateSubscriber]
 var current_turn : int = 0:
 	set(val): 
 		current_turn = val
-		blackboard.add("current_turn", current_turn, Constants.ExpirationToken.ON_DEBATE_START)
-		blackboard.add("current_round", current_round, Constants.ExpirationToken.ON_DEBATE_START)
+		blackboard.add("current_turn", current_turn, Const.ExpirationToken.ON_DEBATE_START)
+		blackboard.add("current_round", current_round, Const.ExpirationToken.ON_DEBATE_START)
 
 var current_round : int:
 	get: return floor(current_turn / 2)
@@ -75,13 +75,13 @@ func init(player_character : Character, computer_character : Character, debate_s
 
 	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_start()
 	
-	blackboard.expire(Constants.ExpirationToken.ON_DEBATE_START)
+	blackboard.expire(Const.ExpirationToken.ON_DEBATE_START)
 	
 	game_loop()
 
 func game_loop():
 	current_turn = 1
-	active_contestant = player if debate_settings.starting_player == Constants.Player.HUMAN else computer
+	active_contestant = player if debate_settings.starting_player == Const.Player.HUMAN else computer
 	for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(active_contestant)
 	await active_player_turn()
 	
@@ -121,10 +121,10 @@ func active_player_turn():
 		if response.what == "play":
 			active_contestant.current_energy -= card.cost
 		
-			blackboard.add("previous_card", blackboard.get_value("current_card"), Constants.ExpirationToken.ON_DEBATE_START)
-			blackboard.add("previous_suit", blackboard.get_value("current_suit"), Constants.ExpirationToken.ON_DEBATE_START)
-			blackboard.add("current_card", card.title, Constants.ExpirationToken.ON_DEBATE_START)
-			blackboard.add("current_suit", card.suit.name, Constants.ExpirationToken.ON_DEBATE_START)
+			blackboard.add("previous_card", blackboard.get_value("current_card"), Const.ExpirationToken.ON_DEBATE_START)
+			blackboard.add("previous_suit", blackboard.get_value("current_suit"), Const.ExpirationToken.ON_DEBATE_START)
+			blackboard.add("current_card", card.title, Const.ExpirationToken.ON_DEBATE_START)
+			blackboard.add("current_suit", card.suit.name, Const.ExpirationToken.ON_DEBATE_START)
 			
 			var token = card.pop_token()
 			if token:
@@ -152,7 +152,7 @@ func play_card(card : Card, contestant : Contestant):
 	for action in card.on_play_card_actions:
 		await action.invoke(card, contestant, self)
 	
-	for sub : DebateSubscriber in subscriber_array: await sub.on_actions_invoked(card, Constants.ActionType.ON_PLAY, contestant)
+	for sub : DebateSubscriber in subscriber_array: await sub.on_actions_invoked(card, Const.ActionType.ON_PLAY, contestant)
 
 func clear_lines():
 	var min = suit_track_dictionary.values()[0].size()

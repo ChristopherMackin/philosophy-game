@@ -18,6 +18,8 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	var response = await player.select(SelectionRequest.new(
 		selectable_tokens,
 		"remove_token_from_board",
+		Const.WhichContestant.SELF,
+		Const.SelectionAction.BOARD
 	))
 	
 	await manager.remove_token_from_suit_track(response.data)

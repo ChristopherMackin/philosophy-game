@@ -56,11 +56,13 @@ func on_token_played(token: Token, parent: Card, contestant : Contestant):
 
 func on_card_hold_updated(card : Card, active_contestant : Contestant):
 	await update_everything()
+	
+	await query_event("on_card_hold_updated")
 
 func on_lines_cleared(count : int):
 	await board.clear_row(count)
 
-func on_actions_invoked(card : Card, action_type: Constants.ActionType, contestant : Contestant):
+func on_actions_invoked(card : Card, action_type: Const.ActionType, contestant : Contestant):
 	await update_everything()
 
 func on_card_drawn(_card : Card, _contestant: Contestant):

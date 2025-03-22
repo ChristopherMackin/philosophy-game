@@ -2,7 +2,7 @@ extends CardAction
 
 class_name DrawCardPerTagCardAction
 
-@export var tag : Constants.Tag
+@export var tag : Const.Tag
 @export var card_per_tag : float
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):

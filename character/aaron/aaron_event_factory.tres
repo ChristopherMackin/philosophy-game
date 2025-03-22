@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=9 format=3 uid="uid://27sna6u0b0wj"]
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=12 format=3 uid="uid://27sna6u0b0wj"]
 
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/main_blackboard.tres" id="1_0ml4n"]
 [ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://script/character/debate_event_factory/ordered_event_factory.gd" id="1_rb0rx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://b8omebsn1wpsb" path="res://character/aaron/event/aaron_db01_test.tres" id="3_v05lr"]
 [ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://script/character/debate_event_factory/event_factory_payload.gd" id="4_n3d1h"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://script/character/debate_event_factory/rule/criterion/criterion.gd" id="4_v05lr"]
+[ext_resource type="Resource" uid="uid://bqjeno4tr3ecf" path="res://character/aaron/event/aaron_db01_hold_card_generic.tres" id="6_121dc"]
 
 [sub_resource type="Resource" id="Resource_iiaj8"]
 script = ExtResource("3_5togk")
@@ -17,7 +18,19 @@ script = ExtResource("4_n3d1h")
 event = ExtResource("3_v05lr")
 rule = SubResource("Resource_iiaj8")
 
+[sub_resource type="Resource" id="Resource_v05lr"]
+script = ExtResource("3_5togk")
+concept = "on_card_hold_updated"
+criteria = Array[ExtResource("4_v05lr")]([])
+metadata/_custom_type_script = "uid://bal31j6jwdxqy"
+
+[sub_resource type="Resource" id="Resource_121dc"]
+script = ExtResource("4_n3d1h")
+event = ExtResource("6_121dc")
+rule = SubResource("Resource_v05lr")
+metadata/_custom_type_script = "uid://dftjqkpxopsus"
+
 [resource]
 script = ExtResource("1_rb0rx")
-payload_list = Array[ExtResource("4_n3d1h")]([SubResource("Resource_th28h")])
+payload_list = Array[ExtResource("4_n3d1h")]([SubResource("Resource_th28h"), SubResource("Resource_121dc")])
 blackboard = ExtResource("1_0ml4n")

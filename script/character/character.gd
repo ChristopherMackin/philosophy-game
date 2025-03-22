@@ -11,7 +11,7 @@ class_name Character
 @export var debate_event_factory : EventFactory
 @export var blackboard : Blackboard
 
-func remember(key : String, value, expiration_token : Constants.ExpirationToken = Constants.ExpirationToken.NEVER):
+func remember(key : String, value, expiration_token : Const.ExpirationToken = Const.ExpirationToken.NEVER):
 	var char_key = "%s.%s" % [name.to_snake_case(), key]
 	blackboard.add(char_key, value, expiration_token)
 

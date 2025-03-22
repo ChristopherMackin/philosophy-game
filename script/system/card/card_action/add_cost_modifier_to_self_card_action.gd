@@ -6,4 +6,3 @@ class_name AddCostModifierToSelfCardAction
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
 	card.cost_modifiers.append(cost_modifier)
-

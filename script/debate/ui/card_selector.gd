@@ -2,12 +2,6 @@ extends Control
 
 class_name CardSelector
 
-enum CardSelectorMode {
-	VIEW,
-	SINGLE,
-	MULTI
-}
-
 @export_group("Packed Scene")
 @export var card_ui_suit_packed_scenes : Array[SuitPackedScene]
 
@@ -56,12 +50,12 @@ func _add_card(card : Card):
 	ui_cards.append(card_ui)
 	card_slots.append(card_slot)
 
-func open_selector(card_array : Array[Card], visible_to_player : bool, mode : CardSelectorMode):
+func open_selector(card_array : Array[Card], visible_to_player : bool, mode : Const.SelectionAction):
 	for card in card_array:
 		_add_card(card)
 	
 	match mode:
-		CardSelectorMode.VIEW:
+		Const.SelectionAction.VIEW:
 			submit_button.visible = true
 			
 			Util.set_up_focus_connections.call_deferred([submit_button])
@@ -69,7 +63,7 @@ func open_selector(card_array : Array[Card], visible_to_player : bool, mode : Ca
 			
 			selection_callable = select_view
 		
-		CardSelectorMode.SINGLE:
+		Const.SelectionAction.SINGLE:
 			submit_button.visible = false
 			
 			Util.set_up_focus_connections.call_deferred(ui_cards)
@@ -77,7 +71,7 @@ func open_selector(card_array : Array[Card], visible_to_player : bool, mode : Ca
 			
 			selection_callable = select_single
 		
-		CardSelectorMode.MULTI:
+		Const.SelectionAction.MULTI:
 			submit_button.visible = true
 			
 			var focus_items : Array[Control] = []

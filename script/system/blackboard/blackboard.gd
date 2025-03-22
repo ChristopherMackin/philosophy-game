@@ -15,7 +15,7 @@ func get_value(key: String):
 func get_expiration_token(key: String):
 	return _expiration_tokens.get(key, null)
 
-func add(key: String, value, expiration_token : Constants.ExpirationToken = Constants.ExpirationToken.NEVER):
+func add(key: String, value, expiration_token : Const.ExpirationToken = Const.ExpirationToken.NEVER):
 	if typeof(value) == TYPE_STRING:
 		value = value.to_snake_case()
 	_entries[key] = value
@@ -25,7 +25,7 @@ func erase(key: String):
 	_entries.erase(key)
 	_expiration_tokens.erase(key)
 
-func expire(expiration_token : Constants.ExpirationToken):
+func expire(expiration_token : Const.ExpirationToken):
 	var keys_to_erase : Array[String] = []
 	for key in _expiration_tokens:
 		if _expiration_tokens[key] == expiration_token:

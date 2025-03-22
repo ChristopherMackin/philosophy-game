@@ -2,12 +2,12 @@ extends CardAction
 
 class_name ChangeCardSuitCardAction
 
-@export var which_contestant : Constants.WhichContestant
+@export var which_contestant : Const.WhichContestant
 @export var suits : Array[Suit]
 @export var card_filter : Array[Suit]
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	var contestant := Constants.GetContestant(player, manager.get_opponent(player), which_contestant)
+	var contestant := Const.GetContestant(player, manager.get_opponent(player), which_contestant)
 	
 	if contestant.hand.size() <= 0: return
 	
@@ -22,7 +22,8 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	var card_response = await player.select(SelectionRequest.new(
 		selectable_cards,
-		"%s_change_card_suit" % Constants.WhichContestant.keys()[which_contestant]
+		"change_card_suit",
+		which_contestant
 	))
 	
 	if suits.size() <= 0:
@@ -30,8 +31,10 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	var suit_response = await player.select(SelectionRequest.new(
 		suits,
-		"%s_change_card_suit" % Constants.WhichContestant.keys()[which_contestant],
-		"suit"
+		"change_card_suit",
+		which_contestant,
+		Const.SelectionAction.SINGLE,
+		Const.SelectionType.SUIT
 	))
 	
 	card_response.data.suit = suit_response.data

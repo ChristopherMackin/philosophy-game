@@ -2,11 +2,11 @@ extends CardAction
 
 class_name MultiDiscardCardFromHand
 
-@export var which_contestant : Constants.WhichContestant
+@export var which_contestant : Const.WhichContestant
 var card_filter : Array[Suit]
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	var contestant := Constants.GetContestant(player, manager.get_opponent(player), which_contestant)
+	var contestant := Const.GetContestant(player, manager.get_opponent(player), which_contestant)
 	
 	if contestant.hand.size() <= 0:
 		return
@@ -22,9 +22,10 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	var response = await player.select(SelectionRequest.new(
 		selectable_cards,
-		"multi_discard_opponent",
+		"multi_discard_from_hand",
+		which_contestant,
+		Const.SelectionAction.MULTI
 	))
 	
 	for selected_card in response.data:
 		contestant.discard_from_hand(selected_card)
-

@@ -45,7 +45,7 @@ func _unhandled_input(event):
 		active_focus_group.select("hold")
 
 func on_selection_requested(request : SelectionRequest):
-	if request.type == "suit":
+	if request.type == Const.SelectionType.SUIT:
 		focus_suit_selector(request)
 	else:
 		focus_card_selector(request)
@@ -57,20 +57,15 @@ func focus_suit_selector(request : SelectionRequest):
 func focus_card_selector(request : SelectionRequest):
 	if request.what == "play":
 		set_focus_group(hand_ui_focus_group)
-	elif request.what.contains("board"):
+	elif request.action == Const.SelectionAction.BOARD:
 		play_area_selector.open_selector(request.options)
 		set_focus_group(play_area_selector_focus_group)
 	else:
-		var mode = CardSelector.CardSelectorMode.SINGLE
-		
-		if request.what.contains("multi"):
-			mode = CardSelector.CardSelectorMode.MULTI
-		
-		card_selector.open_selector(request.options, request.visible_to_player, mode)
+		card_selector.open_selector(request.options, request.visible_to_player, request.action)
 		set_focus_group(card_selector_focus_group)
 
 func on_view(options : Array, what : String, type : String):
-	card_selector.open_selector(options, true, CardSelector.CardSelectorMode.VIEW)
+	card_selector.open_selector(options, true, Const.SelectionAction.VIEW)
 	set_focus_group(card_selector_focus_group)
 
 func pause_input():

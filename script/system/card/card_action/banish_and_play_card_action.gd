@@ -2,11 +2,11 @@ extends CardAction
 
 class_name BanishAndPlayCardAction
 
-@export var which_contestant : Constants.WhichContestant
+@export var which_contestant : Const.WhichContestant
 @export var card_filters : Array[Suit]
 
 func invoke(card : Card, player : Contestant, manager : DebateManager):
-	var contestant : contestant := Constants.GetContestant(player, manager.get_opponent(player), which_contestant)
+	var contestant := Const.GetContestant(player, manager.get_opponent(player), which_contestant)
 	
 	var cards : Array = contestant.hand.filter(func(x : Card): return card_filters.has(x.suit))
 	if cards.size() <= 0:
@@ -14,7 +14,8 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	var response = await player.select(SelectionRequest.new(
 		cards, 
-		"%s_permanently_remove_and_play" % Constants.WhichContestant.keys()[which_contestant]
+		"permanently_remove_and_play",
+		which_contestant
 	))
 	
 	var card_to_remove = response.data

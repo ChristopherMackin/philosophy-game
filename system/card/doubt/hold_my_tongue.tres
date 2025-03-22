@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=11 format=3 uid="uid://dsiqjktled8er"]
+
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_qf3vq"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_wcfsb"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="3_qqb3a"]
+[ext_resource type="Script" uid="uid://cye125cpxyynj" path="res://script/system/card/card_action/discard_card_from_hand_card_action.gd" id="4_qpnl4"]
+[ext_resource type="Script" uid="uid://cnsu06fkkodsm" path="res://script/system/card/card_action/draw_card_card_action.gd" id="5_s3h7t"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="6_xn01e"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="7_8mi16"]
+[ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="8_7wo3j"]
+
+[sub_resource type="Resource" id="Resource_r72rp"]
+script = ExtResource("4_qpnl4")
+which_contestant = 0
+card_filter = Array[ExtResource("3_qqb3a")]([])
+metadata/_custom_type_script = "uid://cye125cpxyynj"
+
+[sub_resource type="Resource" id="Resource_xi8yq"]
+script = ExtResource("5_s3h7t")
+which_contestant = 0
+draw_amount = 2
+metadata/_custom_type_script = "uid://cnsu06fkkodsm"
+
+[resource]
+script = ExtResource("6_xn01e")
+suit = ExtResource("7_8mi16")
+title = "Hold My Tongue"
+base_cost = 1
+description = "Discard a card and draw 2 cards"
+token_data = ExtResource("8_7wo3j")
+on_play_card_actions = Array[ExtResource("2_wcfsb")]([SubResource("Resource_r72rp"), SubResource("Resource_xi8yq")])
+on_discard_card_actions = Array[ExtResource("2_wcfsb")]([])
+on_banish_card_actions = Array[ExtResource("2_wcfsb")]([])
+on_turn_start_card_actions = Array[ExtResource("2_wcfsb")]([])
+on_turn_end_card_actions = Array[ExtResource("2_wcfsb")]([])
+on_hold_start_card_actions = Array[ExtResource("2_wcfsb")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_wcfsb")]([])
+on_hold_end_card_actions = Array[ExtResource("2_wcfsb")]([])
+cost_modifiers = Array[ExtResource("1_qf3vq")]([])
+metadata/_custom_type_script = "uid://dy4e7i5501yv5"

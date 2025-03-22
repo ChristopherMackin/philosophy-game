@@ -18,7 +18,7 @@ script = ExtResource("3_s7v8y")
 suit = ExtResource("4_3g4bq")
 title = "Rethink"
 base_cost = 0
-description = "Trade a card for a different card of the same suit then shuffle your deck
+description = "Trade a card for the first different card of the same suit
 (If no other card is present, you gain the same card)"
 on_play_card_actions = Array[ExtResource("2_3g4bq")]([SubResource("Resource_frbhu")])
 on_discard_card_actions = Array[ExtResource("2_3g4bq")]([])

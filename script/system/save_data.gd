@@ -4,7 +4,7 @@ class_name SaveData
 
 @export var path : String
 var full_path:
-	get: return Constants.save_path + path
+	get: return Const.save_path + path
 @export var resource : Resource
 
 func save_data():
