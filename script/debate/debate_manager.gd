@@ -165,7 +165,10 @@ func clear_lines():
 		for key in suit_track_dictionary:
 			var array = suit_track_dictionary[key] as Array
 			for i in min:
-				array.remove_at(array.size() - 1)
+				if debate_settings.line_clear_direction == Const.Direction.RIGHT:
+					array.remove_at(array.size() - 1)
+				else:
+					array.remove_at(0)
 		for sub : DebateSubscriber in subscriber_array: await sub.on_lines_cleared(min)
 
 

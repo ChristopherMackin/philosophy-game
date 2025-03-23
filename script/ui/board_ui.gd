@@ -26,7 +26,11 @@ func clear_row(amount : int):
 		var remove_funcs : Array[Callable] = []
 		
 		for track in suit_tracks:
-			remove_funcs.append(func(): await track.remove_token_at(track.tokens_ui.size() - 1))
+			if debate_settings.line_clear_direction == Const.Direction.RIGHT:
+				remove_funcs.append(func(): await track.remove_token_at(track.tokens_ui.size() - 1))
+			else:
+				remove_funcs.append(func(): await track.remove_token_at(0))
+
 		
 		Util.await_all(remove_funcs)
 

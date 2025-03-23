@@ -33,4 +33,4 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	var index = contestant.draw_pile.find(cards[0])
 	contestant.draw_at_index(index)
 	contestant.remove_from_hand(selected_card)
-	contestant.add_to_draw_pile(selected_card)
+	contestant.append_to_draw_pile(selected_card)

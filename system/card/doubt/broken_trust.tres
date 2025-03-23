@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=10 format=3 uid="uid://bun8m733alh6v"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=11 format=3 uid="uid://bun8m733alh6v"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_2mtfl"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_18t8h"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="3_5lkcp"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="3_wyghd"]
 [ext_resource type="Script" uid="uid://4v61ulpu2ysv" path="res://script/system/card/card_action/multi_discard_card_from_hand_action.gd" id="4_2mtfl"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="4_5lkcp"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_87jad"]
 
 [sub_resource type="Resource" id="Resource_aktqb"]
@@ -18,6 +19,7 @@ turn_lifetime = -1
 [sub_resource type="Resource" id="Resource_5lkcp"]
 script = ExtResource("4_2mtfl")
 which_contestant = 1
+card_filter = Array[ExtResource("4_5lkcp")]([])
 metadata/_custom_type_script = "uid://4v61ulpu2ysv"
 
 [resource]

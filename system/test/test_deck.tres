@@ -1,63 +1,76 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=19 format=3 uid="uid://d0no8tbjk0y2m"]
+[gd_resource type="Resource" script_class="Deck" load_steps=25 format=3 uid="uid://b150jnrliiino"]
 
-[ext_resource type="Script" uid="uid://dhdtv0v6h0rkq" path="res://script/system/deck/deck.gd" id="1_jkxy4"]
-[ext_resource type="Resource" uid="uid://cidckdf830rce" path="res://system/card/doubt/fact_check.tres" id="2_5kklq"]
-[ext_resource type="Resource" uid="uid://7dxlwt46oaq5" path="res://system/card/doubt/reword.tres" id="2_gpcjf"]
-[ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://script/system/card/card_deck_config.gd" id="2_mbuc0"]
-[ext_resource type="Resource" uid="uid://cc01q6jjqayh6" path="res://system/card/doubt/on_a_roll.tres" id="3_sgx72"]
-[ext_resource type="Resource" uid="uid://db07dth8iua8f" path="res://system/card/peace/rethink.tres" id="4_lslfs"]
-[ext_resource type="Resource" uid="uid://dsiqjktled8er" path="res://system/card/doubt/hold_my_tongue.tres" id="5_5u61n"]
-[ext_resource type="Resource" uid="uid://xcna1a1uiro7" path="res://system/card/doubt/misinformation.tres" id="6_wko4y"]
-[ext_resource type="Resource" uid="uid://e1d37ph7u0ag" path="res://system/card/peace/reclaim.tres" id="8_lb8jv"]
-[ext_resource type="Resource" uid="uid://byuc46tg3sms6" path="res://system/card/faith/sanctify.tres" id="9_ii747"]
+[ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://script/system/card/card_deck_config.gd" id="1_xxq85"]
+[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="2_kyf3s"]
+[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/basic_faith.tres" id="3_nsb3u"]
+[ext_resource type="Resource" uid="uid://hn3fmi2k8xsl" path="res://system/card/others/basic_others.tres" id="4_8s3dr"]
+[ext_resource type="Resource" uid="uid://dgsd4p0ynlqhk" path="res://system/card/self/basic_self.tres" id="5_bmtnq"]
+[ext_resource type="Resource" uid="uid://ylhvgo4gct1r" path="res://system/card/_peace/overthink.tres" id="6_ikn7p"]
+[ext_resource type="Resource" uid="uid://c614582y5sixk" path="res://system/card/_peace/recollect.tres" id="7_5vafv"]
+[ext_resource type="Resource" uid="uid://d4cywj8g05x5n" path="res://system/card/_peace/recontextualize.tres" id="8_kccx2"]
+[ext_resource type="Resource" uid="uid://bmipydv28i6px" path="res://system/card/_peace/closed_window.tres" id="9_j4mh4"]
+[ext_resource type="Resource" uid="uid://cul52u3nu01i1" path="res://system/card/_peace/forget.tres" id="10_mbnax"]
+[ext_resource type="Resource" uid="uid://c66eaviw3ebfd" path="res://system/card/doubt/two_steps_ahead.tres" id="11_cdujy"]
+[ext_resource type="Script" uid="uid://dhdtv0v6h0rkq" path="res://script/system/deck/deck.gd" id="11_ynqog"]
+[ext_resource type="Resource" uid="uid://xcna1a1uiro7" path="res://system/card/doubt/misinformation.tres" id="12_oj6rx"]
 
-[sub_resource type="Resource" id="Resource_20eil"]
-script = ExtResource("2_mbuc0")
-base = ExtResource("2_gpcjf")
-count = 3
-
-[sub_resource type="Resource" id="Resource_lslfs"]
-script = ExtResource("2_mbuc0")
-base = ExtResource("3_sgx72")
-count = 3
-metadata/_custom_type_script = "uid://bcrhpdjlreow5"
-
-[sub_resource type="Resource" id="Resource_5u61n"]
-script = ExtResource("2_mbuc0")
-base = ExtResource("4_lslfs")
+[sub_resource type="Resource" id="Resource_3dpgd"]
+script = ExtResource("1_xxq85")
+base = ExtResource("2_kyf3s")
 count = 2
-metadata/_custom_type_script = "uid://bcrhpdjlreow5"
 
-[sub_resource type="Resource" id="Resource_wko4y"]
-script = ExtResource("2_mbuc0")
-base = ExtResource("5_5u61n")
+[sub_resource type="Resource" id="Resource_knmrv"]
+script = ExtResource("1_xxq85")
+base = ExtResource("3_nsb3u")
+count = 2
+
+[sub_resource type="Resource" id="Resource_43cn6"]
+script = ExtResource("1_xxq85")
+base = ExtResource("4_8s3dr")
+count = 2
+
+[sub_resource type="Resource" id="Resource_pn2ol"]
+script = ExtResource("1_xxq85")
+base = ExtResource("5_bmtnq")
+count = 2
+
+[sub_resource type="Resource" id="Resource_pgtkg"]
+script = ExtResource("1_xxq85")
+base = ExtResource("6_ikn7p")
+count = 1
+
+[sub_resource type="Resource" id="Resource_4oq50"]
+script = ExtResource("1_xxq85")
+base = ExtResource("7_5vafv")
+count = 1
+
+[sub_resource type="Resource" id="Resource_i63n3"]
+script = ExtResource("1_xxq85")
+base = ExtResource("8_kccx2")
+count = 1
+
+[sub_resource type="Resource" id="Resource_ot082"]
+script = ExtResource("1_xxq85")
+base = ExtResource("9_j4mh4")
+count = 1
+
+[sub_resource type="Resource" id="Resource_m2kny"]
+script = ExtResource("1_xxq85")
+base = ExtResource("10_mbnax")
+count = 2
+
+[sub_resource type="Resource" id="Resource_oj6rx"]
+script = ExtResource("1_xxq85")
+base = ExtResource("11_cdujy")
 count = 3
 metadata/_custom_type_script = "uid://bcrhpdjlreow5"
 
-[sub_resource type="Resource" id="Resource_lb8jv"]
-script = ExtResource("2_mbuc0")
-base = ExtResource("6_wko4y")
-count = 3
-metadata/_custom_type_script = "uid://bcrhpdjlreow5"
-
-[sub_resource type="Resource" id="Resource_ii747"]
-script = ExtResource("2_mbuc0")
-base = ExtResource("2_5kklq")
-count = 3
-metadata/_custom_type_script = "uid://bcrhpdjlreow5"
-
-[sub_resource type="Resource" id="Resource_k6n8y"]
-script = ExtResource("2_mbuc0")
-base = ExtResource("8_lb8jv")
-count = 3
-metadata/_custom_type_script = "uid://bcrhpdjlreow5"
-
-[sub_resource type="Resource" id="Resource_cdujy"]
-script = ExtResource("2_mbuc0")
-base = ExtResource("9_ii747")
+[sub_resource type="Resource" id="Resource_0bj7o"]
+script = ExtResource("1_xxq85")
+base = ExtResource("12_oj6rx")
 count = 5
 metadata/_custom_type_script = "uid://bcrhpdjlreow5"
 
 [resource]
-script = ExtResource("1_jkxy4")
-composition_card_deck_config_array = Array[ExtResource("2_mbuc0")]([SubResource("Resource_20eil"), SubResource("Resource_lslfs"), SubResource("Resource_5u61n"), SubResource("Resource_wko4y"), SubResource("Resource_lb8jv"), SubResource("Resource_ii747"), SubResource("Resource_k6n8y"), SubResource("Resource_cdujy")])
+script = ExtResource("11_ynqog")
+composition_card_deck_config_array = Array[ExtResource("1_xxq85")]([SubResource("Resource_3dpgd"), SubResource("Resource_knmrv"), SubResource("Resource_43cn6"), SubResource("Resource_pn2ol"), SubResource("Resource_pgtkg"), SubResource("Resource_4oq50"), SubResource("Resource_i63n3"), SubResource("Resource_ot082"), SubResource("Resource_m2kny"), SubResource("Resource_oj6rx"), SubResource("Resource_0bj7o")])

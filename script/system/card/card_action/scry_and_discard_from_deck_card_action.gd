@@ -12,7 +12,15 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	
 	var viewable_cards = contestant.draw_pile.slice(0, amount if amount <= contestant.draw_pile.size() else contestant.draw_pile.size())
 	
-	await player.view(
+	var response : SelectionResponse = await player.select(SelectionRequest.new(
 		viewable_cards,
-		"scry_and_discard_from_deck"
-	)
+		"scry_and_discard_from_deck",
+		which_contestant,
+		Const.SelectionAction.MULTI
+	))
+	
+	for selected_card: Card in response.data:
+		contestant.remove_from_draw_pile(selected_card)
+	
+	for selected_card: Card in response.data:
+		contestant.discard_card(selected_card)

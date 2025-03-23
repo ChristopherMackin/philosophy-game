@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=12 format=3 uid="uid://bhmt67f1vltyw"]
+
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_ex78c"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_8vplh"]
+[ext_resource type="Script" uid="uid://rrdu42eofb1a" path="res://script/system/card/card_action/banish_self_card_action.gd" id="3_ng02t"]
+[ext_resource type="Script" uid="uid://c8m4npdajyfs4" path="res://script/system/card/card_action/remove_token_from_suit_track_card_action.gd" id="4_cflqw"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="5_n16bf"]
+[ext_resource type="Script" uid="uid://bhd0wojvsopbk" path="res://script/system/card/card_action/discard_self_card_action.gd" id="6_2ct3m"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="7_4ypbb"]
+[ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="8_6ijqb"]
+
+[sub_resource type="Resource" id="Resource_uajp8"]
+script = ExtResource("3_ng02t")
+
+[sub_resource type="Resource" id="Resource_snqdm"]
+script = ExtResource("4_cflqw")
+suit = ExtResource("5_n16bf")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_4kr6m"]
+script = ExtResource("6_2ct3m")
+
+[resource]
+script = ExtResource("7_4ypbb")
+suit = ExtResource("5_n16bf")
+title = "The 11th Hour"
+base_cost = 99
+description = "On turn start remove 3 tokens from the faith track and discard this card
+
+On discard, banish this card"
+token_data = ExtResource("8_6ijqb")
+on_play_card_actions = Array[ExtResource("2_8vplh")]([])
+on_discard_card_actions = Array[ExtResource("2_8vplh")]([SubResource("Resource_uajp8")])
+on_banish_card_actions = Array[ExtResource("2_8vplh")]([])
+on_turn_start_card_actions = Array[ExtResource("2_8vplh")]([SubResource("Resource_snqdm"), SubResource("Resource_4kr6m")])
+on_turn_end_card_actions = Array[ExtResource("2_8vplh")]([])
+on_hold_start_card_actions = Array[ExtResource("2_8vplh")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_8vplh")]([])
+on_hold_end_card_actions = Array[ExtResource("2_8vplh")]([])
+cost_modifiers = Array[ExtResource("1_ex78c")]([])

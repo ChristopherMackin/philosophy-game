@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=7 format=3 uid="uid://e1d37ph7u0ag"]
+
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_ngntv"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_x22cc"]
+[ext_resource type="Script" uid="uid://bt2jilhoi5ok6" path="res://script/system/card/card_action/add_hold_to_hand_card_action.gd" id="3_guljh"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="4_2kpma"]
+[ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="5_ihkjb"]
+
+[sub_resource type="Resource" id="Resource_2ougd"]
+script = ExtResource("3_guljh")
+which_contestant_hold = 0
+which_contestant_hand = 0
+metadata/_custom_type_script = "uid://bt2jilhoi5ok6"
+
+[resource]
+script = ExtResource("4_2kpma")
+suit = ExtResource("5_ihkjb")
+title = "Reclaim"
+base_cost = 0
+description = "Add your hold card back to your hand"
+on_play_card_actions = Array[ExtResource("2_x22cc")]([SubResource("Resource_2ougd")])
+on_discard_card_actions = Array[ExtResource("2_x22cc")]([])
+on_banish_card_actions = Array[ExtResource("2_x22cc")]([])
+on_turn_start_card_actions = Array[ExtResource("2_x22cc")]([])
+on_turn_end_card_actions = Array[ExtResource("2_x22cc")]([])
+on_hold_start_card_actions = Array[ExtResource("2_x22cc")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_x22cc")]([])
+on_hold_end_card_actions = Array[ExtResource("2_x22cc")]([])
+cost_modifiers = Array[ExtResource("1_ngntv")]([])
+metadata/_custom_type_script = "uid://dy4e7i5501yv5"

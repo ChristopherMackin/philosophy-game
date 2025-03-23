@@ -111,16 +111,24 @@ func take_turn() -> SelectionResponse:
 	if hand.size() <= 0:
 		await draw_full_hand()
 	
-	var response = await select(SelectionRequest.new(hand))
-	var card = response.data
+	var valid_response := false
+	var response = null
 	
-	match response.what:
-		"play":
-			if playable_cards.has(card):
-				remove_from_hand(card)
-		"hold":
-			hold_card(card)
-	
+	while(!valid_response):
+		response = await select(SelectionRequest.new(hand))
+		valid_response = true
+		var card = response.data
+		
+		match response.what:
+			"play":
+				if playable_cards.has(card):
+					remove_from_hand(card)
+				else: valid_response = false
+			"hold":
+				if can_hold:
+					hold_card(card)
+				else: valid_response = false
+				
 	return response
 
 func select(request : SelectionRequest) -> SelectionResponse:
@@ -131,9 +139,6 @@ func view(options : Array, what : String = "view", type : String = "card"):
 	await _brain.view(options, what, type)
 
 func hold_card(card : Card):
-	if !can_hold:
-		return
-	
 	if held_card:
 		var index = hand.find(card)
 		add_to_hand(held_card, index)
@@ -174,18 +179,15 @@ func discard_from_hand(card : Card):
 	if !remove_from_hand(card): return
 	await discard_card(card)
 
-func add_to_draw_pile(card : Card):
+func append_to_draw_pile(card : Card):
 	draw_pile.append(card)
-	draw_pile.shuffle()
 
 func remove_from_draw_pile(card : Card):
-	var card_bases = draw_pile.filter(func(x): return x.base)
-	var index = card_bases.find(card.base)
+	var index = draw_pile.find(card)
 	
 	if index < 0: return
 	
 	draw_pile.remove_at(index)
-	draw_pile.shuffle()
 
 func add_to_deck(card : Card):
 	_deck.add_to_deck(card)

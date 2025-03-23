@@ -10,4 +10,4 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	var contestant := Const.GetContestant(player, manager.get_opponent(player), which_contestant)
 	
 	for i in amount:
-		contestant.add_to_draw_pile(Card.new(base, manager))
+		contestant.append_to_draw_pile(Card.new(base, manager))

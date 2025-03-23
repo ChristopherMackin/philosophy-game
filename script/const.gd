@@ -54,3 +54,8 @@ enum SelectionType {
 	CARD,
 	SUIT
 }
+
+enum Direction {
+	LEFT,
+	RIGHT
+}

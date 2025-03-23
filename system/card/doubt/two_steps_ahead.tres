@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://c66eaviw3ebfd"]
+
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_k8ny0"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_iwuws"]
+[ext_resource type="Script" uid="uid://b8wdtiaax5pgd" path="res://script/system/card/card_action/scry_and_discard_from_deck_card_action.gd" id="3_nylev"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="4_avvn6"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="5_yltp7"]
+[ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="6_vm5at"]
+
+[sub_resource type="Resource" id="Resource_jthyb"]
+script = ExtResource("3_nylev")
+which_contestant = 0
+amount = 2
+metadata/_custom_type_script = "uid://b8wdtiaax5pgd"
+
+[resource]
+script = ExtResource("4_avvn6")
+suit = ExtResource("5_yltp7")
+title = "Two Steps Ahead"
+base_cost = 2
+description = "Scry the top two cards of your deck and discard any you choose"
+token_data = ExtResource("6_vm5at")
+on_play_card_actions = Array[ExtResource("2_iwuws")]([SubResource("Resource_jthyb")])
+on_discard_card_actions = Array[ExtResource("2_iwuws")]([])
+on_banish_card_actions = Array[ExtResource("2_iwuws")]([])
+on_turn_start_card_actions = Array[ExtResource("2_iwuws")]([])
+on_turn_end_card_actions = Array[ExtResource("2_iwuws")]([])
+on_hold_start_card_actions = Array[ExtResource("2_iwuws")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_iwuws")]([])
+on_hold_end_card_actions = Array[ExtResource("2_iwuws")]([])
+cost_modifiers = Array[ExtResource("1_k8ny0")]([])
+metadata/_custom_type_script = "uid://dy4e7i5501yv5"
