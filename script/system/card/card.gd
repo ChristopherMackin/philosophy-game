@@ -39,9 +39,7 @@ var cost : int :
 	
 		return ret if ret >= 0 else 0
 
-func _init(base: CardBase, manager : DebateManager):
-	_token = Token.new(base.token_data) if base.token_data else null
-	
+func _init(base: CardBase, manager : DebateManager):	
 	suit = base.suit
 	
 	_base = base
@@ -57,6 +55,9 @@ func _init(base: CardBase, manager : DebateManager):
 	cost_modifiers.assign(Util.deep_copy_resource_array(base.cost_modifiers))
 	
 	self.manager = manager
+
+func generate_token():
+	_token = Token.new(_base.token_data) if _base.token_data else null
 
 func dupliate_token() -> Token:
 	return _token.duplicate()

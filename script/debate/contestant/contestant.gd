@@ -51,6 +51,8 @@ func _draw_card() -> bool:
 		return false
 	
 	var card = draw_pile.pop_front()
+	card.generate_token()
+	
 	hand.append(card)
 	
 	for sub : DebateSubscriber in manager.subscriber_array: await sub.on_card_drawn(card, self)
@@ -61,7 +63,10 @@ func draw_at_index(index : int) -> bool:
 	if index < 0 || index >= draw_pile.size():
 		return false
 	
-	hand.append(draw_pile[index])
+	var card = draw_pile[index]
+	card.generate_token()
+	
+	hand.append(card)
 	draw_pile.remove_at(index)
 	
 	return true

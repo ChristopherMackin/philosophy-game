@@ -10,7 +10,7 @@
 script = ExtResource("1_jvfby")
 suit = ExtResource("2_l6g5l")
 title = "Basic Others"
-base_cost = 2
+base_cost = 1
 description = "Does Nothing"
 token_data = ExtResource("4_d7nwq")
 on_play_card_actions = Array[ExtResource("2_akm83")]([])

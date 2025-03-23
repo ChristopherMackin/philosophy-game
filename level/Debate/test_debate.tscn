@@ -982,6 +982,7 @@ script = ExtResource("52_ihgvd")
 suit_track_parent = NodePath("MarginContainer/VBoxContainer")
 debate_settings = ExtResource("7_bx4xu")
 suit_track_packed_scene = ExtResource("53_3tqoq")
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="PlayArea/PlayArea/Board"]
 layout_mode = 1

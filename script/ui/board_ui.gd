@@ -26,7 +26,7 @@ func clear_row(amount : int):
 		var remove_funcs : Array[Callable] = []
 		
 		for track in suit_tracks:
-			remove_funcs.append(func(): await track.remove_token_at(0))
+			remove_funcs.append(func(): await track.remove_token_at(track.tokens_ui.size() - 1))
 		
 		Util.await_all(remove_funcs)
 
