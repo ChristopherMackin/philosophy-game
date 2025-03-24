@@ -1,0 +1,39 @@
+extends CardAction
+
+class_name DiscardFromHandAndModifyEnergyCardAction
+
+@export var which_contestant : Const.WhichContestant
+@export var card_filter : Array[Suit]
+
+@export var suits_to_discard : Array[Suit] = []
+@export var energy_amount : int = 0
+
+func invoke(card : Card, player : Contestant, manager : DebateManager):
+	var contestant := Const.GetContestant(player, manager.get_opponent(player), which_contestant)
+	
+	if contestant.hand.size() <= 0: return
+	
+	var selectable_cards : Array[Card]
+	
+	if card_filter.size() > 0:
+		selectable_cards.append_array(contestant.hand.filter(func(card): return card_filter.has(card.suit)))
+	else:
+		selectable_cards = contestant.hand
+	
+	if selectable_cards.size() <= 0: return
+	
+	var response = await player.select(SelectionRequest.new(
+		selectable_cards,
+		"discard_from_hand_from_hand",
+		which_contestant
+	))
+	
+	contestant.discard_from_hand(response.data)
+	
+	var add_energy := false
+	
+	if suits_to_discard.size() <= 0 : add_energy = true
+	else: add_energy = suits_to_discard.has(card.suit)
+	
+	if add_energy:
+		player.current_energy += energy_amount

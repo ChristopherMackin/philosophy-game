@@ -24,7 +24,10 @@ var hand_limit : int:
 	get: return character.hand_limit
 var energy_level : int:
 	get: return character.energy_level
-var current_energy : int
+var current_energy : int:
+	get: return current_energy
+	set(val):
+		current_energy = val if val >= 0 else 0
 var debate_event_factory : EventFactory:
 	get: return character.debate_event_factory
 var blackboard : Blackboard:
