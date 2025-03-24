@@ -19,16 +19,38 @@ var token_artwork : Texture2D:
 var has_token : bool:
 	get: return _base.token_data != null
 
-var on_play_card_actions : Array[CardAction] = []
-var on_discard_card_actions : Array[CardAction] = []
-var on_banish_card_actions : Array[CardAction] = []
-var on_turn_start_card_actions : Array[CardAction] = []
-var on_turn_end_card_actions : Array[CardAction] = []
-var on_hold_start_card_actions : Array[CardAction] = []
-var on_hold_stay_card_actions : Array[CardAction] = []
-var on_hold_end_card_actions : Array[CardAction] = []
+var _on_play_card_actions : Array[CardAction] = []
+var _on_discard_card_actions : Array[CardAction] = []
+var _on_banish_card_actions : Array[CardAction] = []
+var _on_turn_start_card_actions : Array[CardAction] = []
+var _on_turn_end_card_actions : Array[CardAction] = []
+var _on_hold_start_card_actions : Array[CardAction] = []
+var _on_hold_stay_card_actions : Array[CardAction] = []
+var _on_hold_end_card_actions : Array[CardAction] = []
 var cost_modifiers : Array[CardCostModifier] = []
 var manager : DebateManager
+
+func on_play(contestant: Contestant, manager: DebateManager):
+	await _invoke_action_set(_on_play_card_actions, contestant, manager)
+func on_discard(contestant: Contestant, manager: DebateManager):
+	await _invoke_action_set(_on_discard_card_actions, contestant, manager)
+func on_banish(contestant: Contestant, manager: DebateManager):
+	await _invoke_action_set(_on_banish_card_actions, contestant, manager)
+func on_turn_start(contestant: Contestant, manager: DebateManager):
+	await _invoke_action_set(_on_turn_start_card_actions, contestant, manager)
+func on_turn_end(contestant: Contestant, manager: DebateManager):
+	await _invoke_action_set(_on_turn_end_card_actions, contestant, manager)
+func on_hold_start(contestant: Contestant, manager: DebateManager):
+	await _invoke_action_set(_on_hold_start_card_actions, contestant, manager)
+func on_hold_stay(contestant: Contestant, manager: DebateManager):
+	await _invoke_action_set(_on_hold_stay_card_actions, contestant, manager)
+func on_hold_end(contestant: Contestant, manager: DebateManager):
+	await _invoke_action_set(_on_hold_end_card_actions, contestant, manager)
+
+func _invoke_action_set(card_actions : Array[CardAction], contestant: Contestant, manager: DebateManager):
+	for action in card_actions:
+		var success = await action.invoke(self, contestant, manager)
+		if !success: break
 
 var cost : int :
 	get:
@@ -46,14 +68,14 @@ func _init(base: CardBase, manager : DebateManager):
 	
 	_base = base
 	
-	on_play_card_actions.assign(Util.deep_copy_resource_array(base.on_play_card_actions))
-	on_discard_card_actions.assign(Util.deep_copy_resource_array(base.on_discard_card_actions))
-	on_banish_card_actions.assign(Util.deep_copy_resource_array(base.on_banish_card_actions))
-	on_turn_start_card_actions.assign(Util.deep_copy_resource_array(base.on_turn_start_card_actions))
-	on_turn_end_card_actions.assign(Util.deep_copy_resource_array(base.on_turn_end_card_actions))
-	on_hold_start_card_actions.assign(Util.deep_copy_resource_array(base.on_hold_start_card_actions))
-	on_hold_stay_card_actions.assign(Util.deep_copy_resource_array(base.on_hold_stay_card_actions))
-	on_hold_end_card_actions.assign(Util.deep_copy_resource_array(base.on_hold_end_card_actions))
+	_on_play_card_actions.assign(Util.deep_copy_resource_array(base.on_play_card_actions))
+	_on_discard_card_actions.assign(Util.deep_copy_resource_array(base.on_discard_card_actions))
+	_on_banish_card_actions.assign(Util.deep_copy_resource_array(base.on_banish_card_actions))
+	_on_turn_start_card_actions.assign(Util.deep_copy_resource_array(base.on_turn_start_card_actions))
+	_on_turn_end_card_actions.assign(Util.deep_copy_resource_array(base.on_turn_end_card_actions))
+	_on_hold_start_card_actions.assign(Util.deep_copy_resource_array(base.on_hold_start_card_actions))
+	_on_hold_stay_card_actions.assign(Util.deep_copy_resource_array(base.on_hold_stay_card_actions))
+	_on_hold_end_card_actions.assign(Util.deep_copy_resource_array(base.on_hold_end_card_actions))
 	cost_modifiers.assign(Util.deep_copy_resource_array(base.cost_modifiers))
 	
 	self.manager = manager

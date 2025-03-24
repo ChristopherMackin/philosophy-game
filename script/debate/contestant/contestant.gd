@@ -101,17 +101,14 @@ func draw_full_hand():
 
 func start_turn():
 	for card : Card in hand.duplicate():
-		for action in card.on_turn_start_card_actions:
-			await action.invoke(card, self, manager)
+		await card.on_turn_start(self, manager)
 
 func end_turn():
 	for card : Card in hand.duplicate():
-		for action in card.on_turn_end_card_actions:
-			await action.invoke(card, self, manager)
+		await card.on_turn_end(self, manager)
 	
 	if held_card:
-		for action in held_card.on_hold_stay_card_actions:
-			await action.invoke(held_card, self, manager)
+		await held_card.on_hold_stay(self, manager)
 	
 	for card in hand:
 		for modifier : CardCostModifier in card.cost_modifiers.filter(func(x): return x.can_expire).duplicate():
@@ -156,14 +153,12 @@ func hold_card(card : Card):
 	if held_card:
 		var index = hand.find(card)
 		add_to_hand(held_card, index)
-		for action : CardAction in held_card.on_hold_end_card_actions:
-			await action.invoke(held_card, self, manager)
+		await held_card.on_hold_end(self, manager)
 	
 	if card:
 		held_card = card
 		remove_from_hand(card)
-		for action : CardAction in held_card.on_hold_start_card_actions:
-			await action.invoke(held_card, self, manager)
+		await held_card.on_hold_start(self, manager)
 	
 	can_hold = false
 	
@@ -172,8 +167,7 @@ func hold_card(card : Card):
 func discard_card(card : Card):
 	discard_pile.append(card)
 	
-	for action in card.on_discard_card_actions:
-		await action.invoke(card, self, manager)
+	await card.on_discard(self, manager)
 
 func add_to_hand(card : Card, index: int = -1):
 	if index == -1 || index >= hand.size():
@@ -208,5 +202,4 @@ func add_to_deck(card : Card):
 
 func remove_from_deck(card : Card):
 	_deck.remove_from_deck(card)
-	for action in card.on_banish_card_actions:
-		await action.invoke(card, self, manager)
+	card.on_banish(self, manager)
