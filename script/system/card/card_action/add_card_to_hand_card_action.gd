@@ -10,4 +10,6 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	var contestant := Const.GetContestant(player, manager.get_opponent(player), which_contestant)
 	
 	for i in amount:
-		contestant.hand.append(Card.new(base, manager))
+		var card_to_add = Card.new(base, manager)
+		card_to_add.generate_token()
+		contestant.hand.append(card_to_add)

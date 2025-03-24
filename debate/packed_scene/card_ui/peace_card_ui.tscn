@@ -1,17 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://bd8ykdcrcff7f"]
+[gd_scene load_steps=12 format=3 uid="uid://bmxatnrtkqwmu"]
 
-[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://script/debate/ui/card_ui.gd" id="1_qq0ek"]
-[ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/general/card/card_base.png" id="2_cseqi"]
-[ext_resource type="Shader" uid="uid://tnou2ig6rqyn" path="res://color_swap.gdshader" id="3_bq4c2"]
-[ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://asset/font/TenorSans-Regular.ttf" id="4_08p8r"]
-[ext_resource type="Texture2D" uid="uid://dcddfgqbb0arx" path="res://asset/graphic/debate/general/card/tokenless_card_bg.png" id="4_vkr7h"]
-[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/general/suit/faith_icon.png" id="5_aw4th"]
-[ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://asset/font/fahkwang/Fahkwang-Bold.ttf" id="7_sl8k2"]
-[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://script/exposed_control_methods.gd" id="12_vka25"]
+[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://script/debate/ui/card_ui.gd" id="1_bq4c2"]
+[ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/general/card/card_base.png" id="2_vkr7h"]
+[ext_resource type="Shader" uid="uid://tnou2ig6rqyn" path="res://color_swap.gdshader" id="3_aw4th"]
+[ext_resource type="Texture2D" uid="uid://dcddfgqbb0arx" path="res://asset/graphic/debate/general/card/tokenless_card_bg.png" id="4_3y6m8"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/general/suit/faith_icon.png" id="5_yw3yo"]
+[ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://asset/font/TenorSans-Regular.ttf" id="6_78tlw"]
+[ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://asset/font/fahkwang/Fahkwang-Bold.ttf" id="7_vwcdj"]
+[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://script/exposed_control_methods.gd" id="8_v3r2e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3y6m8"]
 resource_local_to_scene = true
-shader = ExtResource("3_bq4c2")
+shader = ExtResource("3_aw4th")
 shader_parameter/target_color = Color(0.0117647, 1, 0, 1)
 shader_parameter/replace_color = Color(0.278431, 0.278431, 0.278431, 1)
 shader_parameter/tolerance = 0.8
@@ -36,7 +36,7 @@ offset_right = 370.0
 offset_bottom = 320.0
 pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
 focus_mode = 2
-script = ExtResource("1_qq0ek")
+script = ExtResource("1_bq4c2")
 card_bg = NodePath("CardBG")
 title = NodePath("CardBG/Title")
 description = NodePath("CardBG/Description")
@@ -56,14 +56,14 @@ offset_right = -9.99997
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_cseqi")
+texture = ExtResource("2_vkr7h")
 
 [node name="CardBG" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_3y6m8")
 layout_mode = 0
 offset_right = 370.0
 offset_bottom = 320.0
-texture = ExtResource("4_vkr7h")
+texture = ExtResource("4_3y6m8")
 
 [node name="SuitIcon" type="TextureRect" parent="CardBG"]
 self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
@@ -76,7 +76,7 @@ offset_top = 42.0
 offset_right = 16.0
 offset_bottom = 73.0
 grow_horizontal = 2
-texture = ExtResource("5_aw4th")
+texture = ExtResource("5_yw3yo")
 expand_mode = 1
 stretch_mode = 5
 
@@ -85,8 +85,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.125
-theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
-theme_override_fonts/font = ExtResource("4_08p8r")
+theme_override_colors/font_color = Color(0.964706, 0.964706, 0.964706, 1)
+theme_override_fonts/font = ExtResource("6_78tlw")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_y5xdp")
 text = "Structured Argument"
@@ -103,7 +103,7 @@ offset_top = 294.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
-theme_override_fonts/font = ExtResource("4_08p8r")
+theme_override_fonts/font = ExtResource("6_78tlw")
 theme_override_font_sizes/font_size = 16
 text = "12/78"
 horizontal_alignment = 1
@@ -121,7 +121,7 @@ offset_top = 172.535
 offset_right = 25.1111
 offset_bottom = -32.0247
 theme_override_colors/font_color = Color(0.964706, 0.964706, 0.964706, 1)
-theme_override_fonts/font = ExtResource("4_08p8r")
+theme_override_fonts/font = ExtResource("6_78tlw")
 theme_override_font_sizes/font_size = 30
 text = "5"
 horizontal_alignment = 1
@@ -139,8 +139,8 @@ offset_top = 0.0799942
 offset_right = -0.0800101
 offset_bottom = 0.0799789
 theme_override_colors/default_color = Color(0.137255, 0.0862745, 0.0588235, 1)
-theme_override_fonts/normal_font = ExtResource("4_08p8r")
-theme_override_fonts/bold_font = ExtResource("7_sl8k2")
+theme_override_fonts/normal_font = ExtResource("6_78tlw")
+theme_override_fonts/bold_font = ExtResource("7_vwcdj")
 theme_override_font_sizes/normal_font_size = 22
 theme_override_font_sizes/bold_font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ld4d5")
@@ -151,7 +151,7 @@ Cost -1 for ever [b]pentagram[/b] top in play"
 scroll_active = false
 
 [node name="ExposedControlMethods" type="Node" parent="." node_paths=PackedStringArray("root")]
-script = ExtResource("12_vka25")
+script = ExtResource("8_v3r2e")
 root = NodePath("..")
 
 [connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_scale" binds= [Vector2(1, 1)]]

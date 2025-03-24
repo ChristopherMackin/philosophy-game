@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=9 format=3 uid="uid://c8apy3s8dwvhh"]
+
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_ica6v"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_8nwue"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="3_vxvrv"]
+[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="3_wkqc6"]
+[ext_resource type="Script" uid="uid://bs3ipoydhtmsi" path="res://script/system/card/card_action/add_card_to_hand_card_action.gd" id="4_xpfkb"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="6_3d5u1"]
+[ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="7_47i3b"]
+
+[sub_resource type="Resource" id="Resource_mcxym"]
+script = ExtResource("4_xpfkb")
+which_contestant = 0
+base = ExtResource("3_wkqc6")
+amount = 1
+metadata/_custom_type_script = "uid://bs3ipoydhtmsi"
+
+[resource]
+script = ExtResource("3_vxvrv")
+suit = ExtResource("6_3d5u1")
+title = "Holding Out"
+base_cost = 0
+description = "Add a [color=blue]Basic Doubt[/color] to your hand"
+token_data = ExtResource("7_47i3b")
+on_play_card_actions = Array[ExtResource("2_8nwue")]([SubResource("Resource_mcxym")])
+on_discard_card_actions = Array[ExtResource("2_8nwue")]([])
+on_banish_card_actions = Array[ExtResource("2_8nwue")]([])
+on_turn_start_card_actions = Array[ExtResource("2_8nwue")]([])
+on_turn_end_card_actions = Array[ExtResource("2_8nwue")]([])
+on_hold_start_card_actions = Array[ExtResource("2_8nwue")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_8nwue")]([])
+on_hold_end_card_actions = Array[ExtResource("2_8nwue")]([])
+cost_modifiers = Array[ExtResource("1_ica6v")]([])
+metadata/_custom_type_script = "uid://dy4e7i5501yv5"
