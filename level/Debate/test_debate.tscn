@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://dq2nxpktgndnl"]
+[gd_scene load_steps=73 format=3 uid="uid://dq2nxpktgndnl"]
 
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://script/system/save_manager.gd" id="1_veaak"]
 [ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://script/system/save_data.gd" id="3_8u7hi"]
@@ -38,18 +38,14 @@
 [ext_resource type="Texture2D" uid="uid://csnb8nne3qn56" path="res://asset/graphic/debate/general/stats_area/draw_pile.png" id="40_djl8m"]
 [ext_resource type="Script" uid="uid://5deqam17jqt3" path="res://script/debate/ui/draw_pile_ui.gd" id="41_so85g"]
 [ext_resource type="Script" uid="uid://dur1nyt0adfmo" path="res://script/debate/ui/hand_ui.gd" id="42_ya2q4"]
-[ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/card_ui/doubt_card_ui.tscn" id="43_w5hq6"]
+[ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/card_ui/card_ui.tscn" id="43_w5hq6"]
 [ext_resource type="Script" uid="uid://ct7j27rex1yjk" path="res://script/system/card/suit_packed_scene.gd" id="44_3pkyo"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="45_g1gb6"]
-[ext_resource type="PackedScene" uid="uid://c6470407tskde" path="res://debate/packed_scene/card_ui/faith_card_ui.tscn" id="46_aggrw"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="47_6ue40"]
-[ext_resource type="PackedScene" uid="uid://bhv1plx4fekqd" path="res://debate/packed_scene/card_ui/others_card_ui.tscn" id="48_d0etv"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="49_056ey"]
-[ext_resource type="PackedScene" uid="uid://ccs6t13kr4fum" path="res://debate/packed_scene/card_ui/self_card_ui.tscn" id="50_k8gl4"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="51_38g4j"]
 [ext_resource type="Script" uid="uid://b7h2dcftdphdd" path="res://script/ui/board_ui.gd" id="52_ihgvd"]
-[ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_ui/peace_card_ui.tscn" id="52_vs5jr"]
-[ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="53_3iqj0"]
+[ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_ui/tokenless_card_ui.tscn" id="52_vs5jr"]
 [ext_resource type="PackedScene" uid="uid://vl4omq8dgeem" path="res://debate/packed_scene/suit_track_ui.tscn" id="53_3tqoq"]
 [ext_resource type="Script" uid="uid://wtvgrx8a8f5p" path="res://script/ui/staggered_flex_container.gd" id="54_tlmri"]
 [ext_resource type="Texture2D" uid="uid://cl8h4qdvv68ex" path="res://asset/graphic/aaron/aaron_db01_screen_filter.png" id="55_ywg81"]
@@ -93,31 +89,6 @@ shader_parameter/speed_scale = 0.05
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_thvpg"]
 load_path = "res://.godot/imported/aaron_db_stats_area.png-b8c29e6e53a0c64cf2b1bf758fc259cc.ctex"
 
-[sub_resource type="Resource" id="Resource_6pak2"]
-script = ExtResource("44_3pkyo")
-suit = ExtResource("45_g1gb6")
-packed_scene = ExtResource("43_w5hq6")
-
-[sub_resource type="Resource" id="Resource_vqklr"]
-script = ExtResource("44_3pkyo")
-suit = ExtResource("47_6ue40")
-packed_scene = ExtResource("46_aggrw")
-
-[sub_resource type="Resource" id="Resource_gia04"]
-script = ExtResource("44_3pkyo")
-suit = ExtResource("49_056ey")
-packed_scene = ExtResource("48_d0etv")
-
-[sub_resource type="Resource" id="Resource_rtp6h"]
-script = ExtResource("44_3pkyo")
-suit = ExtResource("51_38g4j")
-packed_scene = ExtResource("50_k8gl4")
-
-[sub_resource type="Resource" id="Resource_kiv40"]
-script = ExtResource("44_3pkyo")
-suit = ExtResource("53_3iqj0")
-packed_scene = ExtResource("52_vs5jr")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cy1d4"]
 bg_color = Color(0.137255, 0.0862745, 0.0588235, 0.596078)
 
@@ -140,56 +111,6 @@ packed_scene = ExtResource("59_1du5r")
 script = ExtResource("44_3pkyo")
 suit = ExtResource("51_38g4j")
 packed_scene = ExtResource("60_gbgkg")
-
-[sub_resource type="Resource" id="Resource_omd8t"]
-script = ExtResource("44_3pkyo")
-suit = ExtResource("45_g1gb6")
-packed_scene = ExtResource("43_w5hq6")
-
-[sub_resource type="Resource" id="Resource_ywx4c"]
-script = ExtResource("44_3pkyo")
-suit = ExtResource("47_6ue40")
-packed_scene = ExtResource("46_aggrw")
-
-[sub_resource type="Resource" id="Resource_dv0iw"]
-script = ExtResource("44_3pkyo")
-suit = ExtResource("49_056ey")
-packed_scene = ExtResource("48_d0etv")
-
-[sub_resource type="Resource" id="Resource_s6005"]
-script = ExtResource("44_3pkyo")
-suit = ExtResource("51_38g4j")
-packed_scene = ExtResource("50_k8gl4")
-
-[sub_resource type="Resource" id="Resource_iyvri"]
-script = ExtResource("44_3pkyo")
-suit = ExtResource("53_3iqj0")
-packed_scene = ExtResource("52_vs5jr")
-
-[sub_resource type="Resource" id="Resource_sb0wo"]
-script = ExtResource("44_3pkyo")
-suit = ExtResource("45_g1gb6")
-packed_scene = ExtResource("43_w5hq6")
-
-[sub_resource type="Resource" id="Resource_46oic"]
-script = ExtResource("44_3pkyo")
-suit = ExtResource("47_6ue40")
-packed_scene = ExtResource("46_aggrw")
-
-[sub_resource type="Resource" id="Resource_taah5"]
-script = ExtResource("44_3pkyo")
-suit = ExtResource("49_056ey")
-packed_scene = ExtResource("48_d0etv")
-
-[sub_resource type="Resource" id="Resource_by0lv"]
-script = ExtResource("44_3pkyo")
-suit = ExtResource("51_38g4j")
-packed_scene = ExtResource("50_k8gl4")
-
-[sub_resource type="Resource" id="Resource_bsgqn"]
-script = ExtResource("44_3pkyo")
-suit = ExtResource("53_3iqj0")
-packed_scene = ExtResource("52_vs5jr")
 
 [node name="Root" type="Node3D"]
 
@@ -950,7 +871,8 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 10
 script = ExtResource("42_ya2q4")
-card_ui_suit_packed_scenes = Array[ExtResource("44_3pkyo")]([SubResource("Resource_6pak2"), SubResource("Resource_vqklr"), SubResource("Resource_gia04"), SubResource("Resource_rtp6h"), SubResource("Resource_kiv40")])
+default_card_ui_packed_scene = ExtResource("43_w5hq6")
+default_tokenless_card_ui_packed_scene = ExtResource("52_vs5jr")
 draw_pile = NodePath("../DrawPile")
 card_parent = NodePath("CardParent")
 card_slot_size = Vector2(300, 260)
@@ -1062,7 +984,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cy1d4")
 script = ExtResource("62_2dsbf")
-card_ui_suit_packed_scenes = Array[ExtResource("44_3pkyo")]([SubResource("Resource_omd8t"), SubResource("Resource_ywx4c"), SubResource("Resource_dv0iw"), SubResource("Resource_s6005"), SubResource("Resource_iyvri")])
+default_card_ui_packed_scene = ExtResource("43_w5hq6")
+default_tokenless_card_ui_packed_scene = ExtResource("52_vs5jr")
 card_container = NodePath("Dialogue/HFlowContainer")
 focus_group = ExtResource("17_serq5")
 player_brain = ExtResource("13_o3173")
@@ -1135,7 +1058,8 @@ offset_right = 518.0
 offset_bottom = 905.0
 scale = Vector2(0.485, 0.485)
 script = ExtResource("66_sve2w")
-card_ui_suit_packed_scenes = Array[ExtResource("44_3pkyo")]([SubResource("Resource_sb0wo"), SubResource("Resource_46oic"), SubResource("Resource_taah5"), SubResource("Resource_by0lv"), SubResource("Resource_bsgqn")])
+default_card_ui_packed_scene = ExtResource("43_w5hq6")
+default_tokenless_card_ui_packed_scene = ExtResource("52_vs5jr")
 
 [editable path="Joy"]
 [editable path="Aaron"]

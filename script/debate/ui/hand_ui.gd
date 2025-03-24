@@ -3,7 +3,11 @@ extends Node
 class_name HandUI
 
 @export_group("Packed Scene")
+@export var default_card_ui_packed_scene: PackedScene
+@export var default_tokenless_card_ui_packed_scene: PackedScene
+
 @export var card_ui_suit_packed_scenes : Array[SuitPackedScene]
+@export var tokenless_card_ui_suit_packed_scenes : Array[SuitPackedScene]
 
 @export_group("Card Placement")
 @export var draw_pile : Control
@@ -90,9 +94,7 @@ func _add_card(card : Card):
 	var card_slot : Control = Control.new()
 	card_slot.custom_minimum_size = card_slot_size
 	
-	var index = card_ui_suit_packed_scenes.map(func(x): return x.suit).find(card.suit)
-	index = index if index >= 0 else 0
-	var card_ui_packed_scene = card_ui_suit_packed_scenes[index].packed_scene
+	var card_ui_packed_scene = get_card_ui_packed_scene(card)
 	
 	var card_ui : CardUI = card_ui_packed_scene.instantiate() as CardUI
 	card_ui.card = card
@@ -130,9 +132,7 @@ func _update_card(card):
 	if card_index <0:
 		return
 	
-	var index = card_ui_suit_packed_scenes.map(func(x): return x.suit).find(card.suit)
-	index = index if index >= 0 else 0
-	var card_ui_packed_scene = card_ui_suit_packed_scenes[index].packed_scene
+	var card_ui_packed_scene = get_card_ui_packed_scene(card)
 	
 	var ui_card = card_ui_packed_scene.instantiate() as CardUI
 	ui_card.card = card
@@ -147,3 +147,21 @@ func _update_card(card):
 		focus_group.focus(ui_card)
 	
 	old_card.queue_free()
+
+func get_card_ui_packed_scene(card: Card) -> PackedScene:
+	var card_ui_packed_scene
+	
+	if card.has_token:
+		var index = card_ui_suit_packed_scenes.map(func(x): return x.suit).find(card.suit)
+		if index < 0:
+			card_ui_packed_scene = default_card_ui_packed_scene
+		else:
+			card_ui_packed_scene = card_ui_suit_packed_scenes[index].packed_scene
+	else:
+		var index = tokenless_card_ui_suit_packed_scenes.map(func(x): return x.suit).find(card.suit)
+		if index < 0:
+			card_ui_packed_scene = default_tokenless_card_ui_packed_scene
+		else:
+			card_ui_packed_scene = tokenless_card_ui_suit_packed_scenes[index].packed_scene
+	
+	return card_ui_packed_scene

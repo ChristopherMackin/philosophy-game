@@ -3,6 +3,7 @@ extends Control
 
 class_name CardUI
 
+@export var card_bg : Node
 @export var title : Node
 @export var artwork : Node
 @export var shadow : Node
@@ -25,6 +26,7 @@ func update_card(card : Card) :
 		if !card:
 			return
 		
+		if card_bg : card_bg.material.set_shader_parameter("replace_color", card.suit.color);
 		if cost: cost.text = str(card.cost)
 		if icon: icon.texture = card.suit.icon
 		if title: title.text = card.title

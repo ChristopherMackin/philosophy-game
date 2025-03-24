@@ -59,6 +59,20 @@ func _draw_card() -> bool:
 	
 	return true
 
+func draw_specified_card(card : Card) -> bool:
+	var index = draw_pile.find(card)
+	if index < 0: return false
+	
+	var found_card = draw_pile.pop_at(index)
+	
+	found_card.generate_token()
+	
+	hand.append(found_card)
+	
+	for sub : DebateSubscriber in manager.subscriber_array: await sub.on_card_drawn(found_card, self)
+	
+	return true
+
 func draw_at_index(index : int) -> bool:
 	if index < 0 || index >= draw_pile.size():
 		return false
@@ -134,9 +148,6 @@ func take_turn() -> SelectionResponse:
 func select(request : SelectionRequest) -> SelectionResponse:
 	var is_valid_selection : bool = false
 	return await _brain.select(request)
-
-func view(options : Array, what : String = "view", type : String = "card"):
-	await _brain.view(options, what, type)
 
 func hold_card(card : Card):
 	if held_card:

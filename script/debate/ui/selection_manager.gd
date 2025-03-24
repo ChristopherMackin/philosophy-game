@@ -28,7 +28,6 @@ var focused_node : Control:
 func _ready():
 	idle_focus_group.focused_node = ui_clear_focus_node
 	player_brain.on_selection_requested.connect(on_selection_requested)
-	player_brain.on_view.connect(on_view)
 	get_viewport().gui_focus_changed.connect(on_focus_changed)
 
 func on_focus_changed(node : Node):
@@ -63,10 +62,6 @@ func focus_card_selector(request : SelectionRequest):
 	else:
 		card_selector.open_selector(request.options, request.visible_to_player, request.action)
 		set_focus_group(card_selector_focus_group)
-
-func on_view(options : Array, what : String, type : String):
-	card_selector.open_selector(options, true, Const.SelectionAction.VIEW)
-	set_focus_group(card_selector_focus_group)
 
 func pause_input():
 	set_focus_group(idle_focus_group)

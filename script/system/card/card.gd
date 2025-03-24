@@ -16,16 +16,18 @@ var description : String:
 	get: return _base.description
 var token_artwork : Texture2D:
 	get: return _token.artwork if _token else null
+var has_token : bool:
+	get: return _base.token_data != null
 
-var on_play_card_actions : Array[CardAction]
-var on_discard_card_actions : Array[CardAction]
-var on_banish_card_actions : Array[CardAction]
-var on_turn_start_card_actions : Array[CardAction]
-var on_turn_end_card_actions : Array[CardAction]
-var on_hold_start_card_actions : Array[CardAction]
-var on_hold_stay_card_actions : Array[CardAction]
-var on_hold_end_card_actions : Array[CardAction]
-var cost_modifiers : Array[CardCostModifier]
+var on_play_card_actions : Array[CardAction] = []
+var on_discard_card_actions : Array[CardAction] = []
+var on_banish_card_actions : Array[CardAction] = []
+var on_turn_start_card_actions : Array[CardAction] = []
+var on_turn_end_card_actions : Array[CardAction] = []
+var on_hold_start_card_actions : Array[CardAction] = []
+var on_hold_stay_card_actions : Array[CardAction] = []
+var on_hold_end_card_actions : Array[CardAction] = []
+var cost_modifiers : Array[CardCostModifier] = []
 var manager : DebateManager
 
 var cost : int :

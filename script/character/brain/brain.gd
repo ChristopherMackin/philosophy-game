@@ -8,12 +8,10 @@ var active_request : SelectionRequest
 func select(_request : SelectionRequest) -> SelectionResponse:
 	return SelectionResponse.new()
 
-func view(_options : Array, _what : String, _type : String):
-	pass
-
 func check_validity(request : SelectionRequest, response : SelectionResponse) -> bool:
-	if !active_request:
-		return false
+	if !active_request: return false
+	
+	if active_request.action == Const.SelectionAction.VIEW: return true
 	
 	var is_valid_selection = true
 	

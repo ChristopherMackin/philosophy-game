@@ -152,7 +152,7 @@ func play_card(card : Card, contestant : Contestant):
 	for action in card.on_play_card_actions:
 		await action.invoke(card, contestant, self)
 	
-	for sub : DebateSubscriber in subscriber_array: await sub.on_actions_invoked(card, Const.ActionType.ON_PLAY, contestant)
+	for sub : DebateSubscriber in subscriber_array: await sub.on_actions_invoked(card, Const.CardActionType.ON_PLAY, contestant)
 
 func clear_lines():
 	var min = suit_track_dictionary.values()[0].size()

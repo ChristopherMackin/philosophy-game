@@ -32,7 +32,7 @@ enum Player {
 	COMPUTER
 }
 
-enum ActionType {
+enum CardActionType {
 	ON_PLAY,
 	ON_DISCARD,
 	ON_BANISH,

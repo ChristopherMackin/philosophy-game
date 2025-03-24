@@ -3,7 +3,11 @@ extends Control
 class_name CardSelector
 
 @export_group("Packed Scene")
+@export var default_card_ui_packed_scene: PackedScene
+@export var default_tokenless_card_ui_packed_scene: PackedScene
+
 @export var card_ui_suit_packed_scenes : Array[SuitPackedScene]
+@export var tokenless_card_ui_suit_packed_scenes : Array[SuitPackedScene]
 
 @export_group("Layout")
 @export var card_container : Container
@@ -35,9 +39,7 @@ func _add_card(card : Card):
 	var card_slot : Control = Control.new()
 	card_slot.custom_minimum_size = card_slot_size
 	
-	var index = card_ui_suit_packed_scenes.map(func(x): return x.suit).find(card.suit)
-	index = index if index >= 0 else 0
-	var card_ui_packed_scene = card_ui_suit_packed_scenes[index].packed_scene
+	var card_ui_packed_scene = get_card_ui_packed_scene(card)
 	
 	var card_ui : CardUI = card_ui_packed_scene.instantiate() as CardUI
 	card_ui.card = card
@@ -95,7 +97,7 @@ func on_select(data, what: String, focus_type : String):
 	if what == "play": selection_callable.call(data, what, focus_type)
 
 func select_view(data, what: String, focus_type : String):
-	player_brain.finish_viewing()
+	player_brain.make_selection(null)
 	close_selector()
 
 func select_single(data, what: String, focus_type : String):
@@ -117,3 +119,21 @@ func select_multi(data, what: String, focus_type : String):
 		else:
 			selection_array.append(data)
 			ui_card.modulate = Color.WHITE
+
+func get_card_ui_packed_scene(card: Card) -> PackedScene:
+	var card_ui_packed_scene
+	
+	if card.has_token:
+		var index = card_ui_suit_packed_scenes.map(func(x): return x.suit).find(card.suit)
+		if index < 0:
+			card_ui_packed_scene = default_card_ui_packed_scene
+		else:
+			card_ui_packed_scene = card_ui_suit_packed_scenes[index].packed_scene
+	else:
+		var index = tokenless_card_ui_suit_packed_scenes.map(func(x): return x.suit).find(card.suit)
+		if index < 0:
+			card_ui_packed_scene = default_tokenless_card_ui_packed_scene
+		else:
+			card_ui_packed_scene = tokenless_card_ui_suit_packed_scenes[index].packed_scene
+	
+	return card_ui_packed_scene
