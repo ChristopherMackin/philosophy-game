@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="Deck" load_steps=5 format=3 uid="uid://b150jnrliiino"]
 
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://script/system/card/card_deck_config.gd" id="1_xxq85"]
-[ext_resource type="Resource" uid="uid://dao5hnjj82iw5" path="res://system/card/faith/hail_marry/hail_marry.tres" id="2_5kklq"]
+[ext_resource type="Resource" uid="uid://b4obrq230bi37" path="res://system/card/_peace/test_card.tres" id="2_5kklq"]
 [ext_resource type="Script" uid="uid://dhdtv0v6h0rkq" path="res://script/system/deck/deck.gd" id="11_ynqog"]
 
 [sub_resource type="Resource" id="Resource_lb8jv"]
 script = ExtResource("1_xxq85")
 base = ExtResource("2_5kklq")
-count = 3
+count = 20
 metadata/_custom_type_script = "uid://bcrhpdjlreow5"
 
 [resource]

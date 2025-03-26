@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_ex78c"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_8vplh"]
-[ext_resource type="Script" uid="uid://rrdu42eofb1a" path="res://script/system/card/card_action/banish_self_card_action.gd" id="3_ng02t"]
+[ext_resource type="Script" uid="uid://rrdu42eofb1a" path="res://script/system/card/card_action/banish_card_collection_card_action.gd" id="3_ng02t"]
 [ext_resource type="Script" uid="uid://c8m4npdajyfs4" path="res://script/system/card/card_action/remove_token_from_suit_track_card_action.gd" id="4_cflqw"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="5_n16bf"]
 [ext_resource type="Script" uid="uid://bhd0wojvsopbk" path="res://script/system/card/card_action/discard_self_card_action.gd" id="6_2ct3m"]

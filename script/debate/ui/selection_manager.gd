@@ -54,7 +54,7 @@ func focus_suit_selector(request : SelectionRequest):
 	set_focus_group(suit_selector_focus_group)
 
 func focus_card_selector(request : SelectionRequest):
-	if request.what == "play":
+	if request.action == Const.SelectionAction.PLAY:
 		set_focus_group(hand_ui_focus_group)
 	elif request.type == Const.SelectionType.TOKEN:
 		play_area_selector.open_selector(request.options)

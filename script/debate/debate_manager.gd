@@ -149,8 +149,7 @@ func play_card(card : Card, contestant : Contestant):
 	
 	for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, contestant)
 	
-	for action in card.on_play_card_actions:
-		await action.invoke(card, contestant, self)
+	await card.on_play(contestant, self)
 	
 	for sub : DebateSubscriber in subscriber_array: await sub.on_actions_invoked(card, Const.CardActionType.ON_PLAY, contestant)
 

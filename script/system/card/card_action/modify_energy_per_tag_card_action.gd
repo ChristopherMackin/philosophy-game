@@ -6,7 +6,7 @@ class_name ModifyEnergyPerTagCardAction
 @export var tag : Const.Tag
 @export var energy_per_tag : float
 
-func invoke(card : Card, player : Contestant, manager : DebateManager):
+func invoke(caller : Card, player : Contestant, manager : DebateManager):
 	var contestant := Const.GetContestant(player, manager.get_opponent(player), which_contestant)
 	
 	var tag_count = 0

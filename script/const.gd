@@ -46,7 +46,9 @@ enum CardActionType {
 enum SelectionAction {
 	VIEW,
 	SINGLE,
-	MULTI
+	MULTI,
+	ALL,
+	PLAY
 }
 
 enum SelectionType {

@@ -4,5 +4,5 @@ extends CardAction
 
 class_name _CLASS_
 
-func invoke(card : Card, player : Contestant, manager : DebateManager):
+func invoke(caller : Card, player : Contestant, manager : DebateManager):
 	pass

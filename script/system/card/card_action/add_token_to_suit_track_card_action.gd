@@ -6,7 +6,7 @@ class_name AddTokenToSuitTrackCardAction
 @export var amount : int = 1
 @export var token_data : TokenData
 
-func invoke(card : Card, player : Contestant, manager : DebateManager):
+func invoke(caller : Card, player : Contestant, manager : DebateManager):
 	suit = suit if suit else card.suit
 	
 	for i in amount:
