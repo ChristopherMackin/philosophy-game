@@ -11,3 +11,5 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager):
 	
 	for card in cards:
 		card.cost_modifiers.append(cost_modifier.duplicate(true))
+	
+	manager.blackboard.add("action.added_cost_modifier", cost_modifier, Const.ExpirationToken.ON_ACTION_END)

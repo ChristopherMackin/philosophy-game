@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection/collection_filter/collection_filter.gd" id="3_y58wo"]
 [ext_resource type="Script" uid="uid://bbr50dvcf2gmc" path="res://script/system/card/card_action/card_collection/collection_filter/suit_collection_filter.gd" id="4_4g70h"]
 [ext_resource type="Script" uid="uid://d3yewkkdwyepo" path="res://script/system/card/card_action/card_collection/filtered_card_collection.gd" id="4_tnawf"]
-[ext_resource type="Script" uid="uid://4v61ulpu2ysv" path="res://script/system/card/card_action/discard_card_from_card_collection_card_action.gd" id="5_if0ua"]
+[ext_resource type="Script" uid="uid://4v61ulpu2ysv" path="res://script/system/card/card_action/discard_card_collection_card_action.gd" id="5_if0ua"]
 [ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection/contestant_hand.gd" id="6_4g70h"]
 [ext_resource type="Script" uid="uid://bwc82j6d8fvd4" path="res://script/system/card/card_action/card_collection/collection_filter/slice_collection_filter.gd" id="7_4g70h"]
 

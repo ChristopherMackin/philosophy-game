@@ -15,3 +15,5 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager):
 		card.generate_token()
 		
 		card_collection.add_card_to_collection(card)
+	
+	manager.blackboard.add("action.added_card_base", base, Const.ExpirationToken.ON_ACTION_END)

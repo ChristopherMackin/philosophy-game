@@ -1,25 +1,38 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=15 format=3 uid="uid://dsiqjktled8er"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=20 format=3 uid="uid://dsiqjktled8er"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_qf3vq"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_wcfsb"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection/collection_filter/collection_filter.gd" id="3_s3h7t"]
 [ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection/contestant_hand.gd" id="3_wcfsb"]
-[ext_resource type="Script" uid="uid://4v61ulpu2ysv" path="res://script/system/card/card_action/discard_card_from_card_collection_card_action.gd" id="4_qqb3a"]
+[ext_resource type="Script" uid="uid://4v61ulpu2ysv" path="res://script/system/card/card_action/discard_card_collection_card_action.gd" id="4_qqb3a"]
+[ext_resource type="Script" uid="uid://16samtkb1lb4" path="res://script/system/card/card_action/card_collection/collection_filter/selection_collection_filter.gd" id="4_xn01e"]
 [ext_resource type="Script" uid="uid://c2f31cka87uk4" path="res://script/system/card/card_action/card_collection/contestant_draw_pile.gd" id="5_qpnl4"]
+[ext_resource type="Script" uid="uid://d3yewkkdwyepo" path="res://script/system/card/card_action/card_collection/filtered_card_collection.gd" id="6_8mi16"]
 [ext_resource type="Script" uid="uid://cm5qf41iurdc3" path="res://script/system/card/card_action/move_card_collection_to_card_collection_card_action.gd" id="6_s3h7t"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="6_xn01e"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="7_8mi16"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="8_7wo3j"]
 
-[sub_resource type="Resource" id="Resource_xn01e"]
+[sub_resource type="Resource" id="Resource_mk7p1"]
+script = ExtResource("4_xn01e")
+selection_action = 1
+metadata/_custom_type_script = "uid://16samtkb1lb4"
+
+[sub_resource type="Resource" id="Resource_dphyk"]
 script = ExtResource("3_wcfsb")
 which_contestant = 0
 metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
 
+[sub_resource type="Resource" id="Resource_kmahb"]
+script = ExtResource("6_8mi16")
+card_collection = SubResource("Resource_dphyk")
+card_array_filters = Array[ExtResource("3_s3h7t")]([SubResource("Resource_mk7p1")])
+metadata/_custom_type_script = "uid://d3yewkkdwyepo"
+
 [sub_resource type="Resource" id="Resource_8mi16"]
 script = ExtResource("4_qqb3a")
-card_collection_factory = SubResource("Resource_xn01e")
+card_collection = SubResource("Resource_kmahb")
 which_contestant = 0
-selection_action = 1
 metadata/_custom_type_script = "uid://4v61ulpu2ysv"
 
 [sub_resource type="Resource" id="Resource_7wo3j"]

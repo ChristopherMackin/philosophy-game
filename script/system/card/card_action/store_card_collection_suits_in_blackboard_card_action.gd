@@ -3,7 +3,7 @@ extends CardAction
 class_name StoreCardCollectionSuitsInBlackboardCardAction
 
 @export var card_collection : CardCollection
-@export var key: String
+@export var key: String = "suits"
 
 func invoke(caller : Card, player : Contestant, manager : DebateManager):
 	card_collection.init(caller, player, manager)

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=19 format=3 uid="uid://d4cywj8g05x5n"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=21 format=3 uid="uid://d4cywj8g05x5n"]
 
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_gy1ft"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="1_jqeuj"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection/contestant_hand.gd" id="3_xoo0k"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="4_fq5gy"]
 [ext_resource type="Script" uid="uid://bbr50dvcf2gmc" path="res://script/system/card/card_action/card_collection/collection_filter/suit_collection_filter.gd" id="4_rmax7"]
+[ext_resource type="Script" uid="uid://16samtkb1lb4" path="res://script/system/card/card_action/card_collection/collection_filter/selection_collection_filter.gd" id="7_rmax7"]
 [ext_resource type="Script" uid="uid://d3yewkkdwyepo" path="res://script/system/card/card_action/card_collection/filtered_card_collection.gd" id="8_5lxe7"]
 
 [sub_resource type="Resource" id="Resource_2brx2"]
@@ -20,6 +21,11 @@ script = ExtResource("4_rmax7")
 suits = Array[ExtResource("3_npya2")]([ExtResource("2_fulcm")])
 filter_mode = 1
 metadata/_custom_type_script = "uid://bbr50dvcf2gmc"
+
+[sub_resource type="Resource" id="Resource_5lxe7"]
+script = ExtResource("7_rmax7")
+selection_action = 1
+metadata/_custom_type_script = "uid://16samtkb1lb4"
 
 [sub_resource type="Resource" id="Resource_7nmo0"]
 script = ExtResource("3_xoo0k")
@@ -29,13 +35,12 @@ metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
 [sub_resource type="Resource" id="Resource_q08m1"]
 script = ExtResource("8_5lxe7")
 card_collection = SubResource("Resource_7nmo0")
-card_array_filters = Array[ExtResource("3_4fqn7")]([SubResource("Resource_2brx2")])
+card_array_filters = Array[ExtResource("3_4fqn7")]([SubResource("Resource_2brx2"), SubResource("Resource_5lxe7")])
 metadata/_custom_type_script = "uid://d3yewkkdwyepo"
 
 [sub_resource type="Resource" id="Resource_qyjmn"]
 script = ExtResource("1_o2uxv")
 card_collection = SubResource("Resource_q08m1")
-selection_action = 1
 suit_options = Array[ExtResource("3_npya2")]([ExtResource("2_me1i8"), ExtResource("1_jqeuj"), ExtResource("3_b0e0o"), ExtResource("4_fq5gy")])
 suit_selection_action = 1
 metadata/_custom_type_script = "uid://c8vo05rn5al6v"
@@ -45,7 +50,7 @@ script = ExtResource("1_gy1ft")
 suit = ExtResource("2_fulcm")
 title = "Recontextualize"
 base_cost = 1
-description = "Change the suit of any colored card"
+description = "Change the suit of any colored card in your hand"
 on_play_card_actions = Array[ExtResource("2_gv2gf")]([SubResource("Resource_qyjmn")])
 on_discard_card_actions = Array[ExtResource("2_gv2gf")]([])
 on_banish_card_actions = Array[ExtResource("2_gv2gf")]([])
