@@ -59,6 +59,9 @@ func focus_card_selector(request : SelectionRequest):
 	elif request.type == Const.SelectionType.TOKEN:
 		play_area_selector.open_selector(request.options)
 		set_focus_group(play_area_selector_focus_group)
+	elif request.type == Const.SelectionType.SUIT:
+		suit_selector.open_selector(request.options, request.visible_to_player)
+		set_focus_group(suit_selector_focus_group)
 	else:
 		card_selector.open_selector(request.options, request.visible_to_player, request.action)
 		set_focus_group(card_selector_focus_group)

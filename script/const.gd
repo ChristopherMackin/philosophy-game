@@ -48,6 +48,7 @@ enum SelectionAction {
 	SINGLE,
 	MULTI,
 	ALL,
+	FIRST,
 	PLAY
 }
 
