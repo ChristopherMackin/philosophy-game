@@ -13,7 +13,7 @@ func get_card_collection() -> Array[Card]:
 	var card_array := card_collection.get_card_collection()
 	
 	for filter in card_array_filters:
-		card_array = filter.filter(card_array, caller, player, manager)
+		card_array = await filter.filter(card_array, caller, player, manager)
 	
 	return card_array
 

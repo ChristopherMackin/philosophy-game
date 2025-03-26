@@ -16,6 +16,7 @@ enum ExpirationToken {
 	ON_DEBATE_START,
 	ON_TURN_END,
 	ON_TURN_START,
+	ON_ACTION_END
 }
 
 enum WhichContestant {

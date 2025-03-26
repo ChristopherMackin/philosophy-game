@@ -7,16 +7,15 @@
 [ext_resource type="Script" uid="uid://rqidt26nwrc8" path="res://script/system/card/card_action/card_collection/contestant_hold.gd" id="3_0fe25"]
 [ext_resource type="Script" uid="uid://4v61ulpu2ysv" path="res://script/system/card/card_action/discard_card_from_card_collection_card_action.gd" id="4_67ah5"]
 
-[sub_resource type="Resource" id="Resource_qnjsl"]
+[sub_resource type="Resource" id="Resource_0fe25"]
 script = ExtResource("3_0fe25")
 which_contestant = 0
 metadata/_custom_type_script = "uid://rqidt26nwrc8"
 
 [sub_resource type="Resource" id="Resource_pdd32"]
 script = ExtResource("4_67ah5")
-card_collection_factory = SubResource("Resource_qnjsl")
+card_collection = SubResource("Resource_0fe25")
 which_contestant = 0
-selection_action = 1
 metadata/_custom_type_script = "uid://4v61ulpu2ysv"
 
 [resource]

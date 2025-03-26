@@ -1,16 +1,48 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://183t81u40bp0"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=17 format=3 uid="uid://183t81u40bp0"]
 
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_aw5is"]
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_km71s"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_s37dr"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="3_17d0o"]
-[ext_resource type="Script" uid="uid://r1peufvafigh" path="res://script/system/card/card_action/draw_card_per_tag_card_action.gd" id="3_x0gcc"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection/collection_filter/collection_filter.gd" id="3_hnfvr"]
 [ext_resource type="Resource" uid="uid://vebafhvqqdvk" path="res://system/token/doubt/evidence_token.tres" id="4_jjdmp"]
+[ext_resource type="Script" uid="uid://can8uq8rvfaws" path="res://script/system/card/card_action/card_collection/collection_filter/per_tag_collection_filter.gd" id="4_k08em"]
+[ext_resource type="Script" uid="uid://c2f31cka87uk4" path="res://script/system/card/card_action/card_collection/contestant_draw_pile.gd" id="5_rdb0g"]
+[ext_resource type="Script" uid="uid://d3yewkkdwyepo" path="res://script/system/card/card_action/card_collection/filtered_card_collection.gd" id="6_lwpgk"]
+[ext_resource type="Script" uid="uid://cm5qf41iurdc3" path="res://script/system/card/card_action/move_card_collection_to_card_collection_card_action.gd" id="7_y0vy4"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection/contestant_hand.gd" id="8_yb77p"]
 
-[sub_resource type="Resource" id="Resource_70erk"]
-script = ExtResource("3_x0gcc")
+[sub_resource type="Resource" id="Resource_ovuoe"]
+script = ExtResource("4_k08em")
+slice_direction = 0
+amount_per_tag = 0.5
 tag = 1
-card_per_tag = 0.5
+metadata/_custom_type_script = "uid://can8uq8rvfaws"
+
+[sub_resource type="Resource" id="Resource_t2m8d"]
+script = ExtResource("5_rdb0g")
+which_contestant = 0
+amount = -1
+starting_point = 0
+insertion_point = 0
+metadata/_custom_type_script = "uid://c2f31cka87uk4"
+
+[sub_resource type="Resource" id="Resource_thp75"]
+script = ExtResource("6_lwpgk")
+card_collection = SubResource("Resource_t2m8d")
+card_array_filters = Array[ExtResource("3_hnfvr")]([SubResource("Resource_ovuoe")])
+metadata/_custom_type_script = "uid://d3yewkkdwyepo"
+
+[sub_resource type="Resource" id="Resource_48fmq"]
+script = ExtResource("8_yb77p")
+which_contestant = 0
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_xwheo"]
+script = ExtResource("7_y0vy4")
+from_collection = SubResource("Resource_thp75")
+to_collection = SubResource("Resource_48fmq")
+metadata/_custom_type_script = "uid://cm5qf41iurdc3"
 
 [resource]
 script = ExtResource("1_aw5is")
@@ -19,7 +51,7 @@ title = "Structured Argument"
 base_cost = 2
 description = "Draw 1 card for every 2 [color=red]evidence[/color] tokens on the board"
 token_data = ExtResource("4_jjdmp")
-on_play_card_actions = Array[ExtResource("2_s37dr")]([SubResource("Resource_70erk")])
+on_play_card_actions = Array[ExtResource("2_s37dr")]([SubResource("Resource_xwheo")])
 on_discard_card_actions = Array[ExtResource("2_s37dr")]([])
 on_banish_card_actions = Array[ExtResource("2_s37dr")]([])
 on_turn_start_card_actions = Array[ExtResource("2_s37dr")]([])

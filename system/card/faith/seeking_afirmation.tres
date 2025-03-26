@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=11 format=3 uid="uid://cuwj4q1mieou5"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=13 format=3 uid="uid://cuwj4q1mieou5"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_qbw0r"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_2bo3l"]
@@ -7,21 +7,27 @@
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="4_4hr0j"]
 [ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="5_5xwmt"]
 [ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="6_wtjx8"]
-[ext_resource type="Script" uid="uid://bs3ipoydhtmsi" path="res://script/system/card/card_action/add_card_to_hand_card_action.gd" id="7_6epcm"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection/contestant_hand.gd" id="7_4hr0j"]
+[ext_resource type="Script" uid="uid://cirje5ssvlb5e" path="res://script/system/card/card_action/add_card_to_card_collection_card_action.gd" id="8_5xwmt"]
 
-[sub_resource type="Resource" id="Resource_niy0h"]
+[sub_resource type="Resource" id="Resource_1dico"]
 script = ExtResource("3_jqg31")
 suit = ExtResource("4_4hr0j")
 amount = 1
 token_data = ExtResource("5_5xwmt")
 metadata/_custom_type_script = "uid://c3lkfwpiubfe0"
 
-[sub_resource type="Resource" id="Resource_n2sek"]
-script = ExtResource("7_6epcm")
+[sub_resource type="Resource" id="Resource_wtjx8"]
+script = ExtResource("7_4hr0j")
 which_contestant = 0
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_6epcm"]
+script = ExtResource("8_5xwmt")
+card_collection = SubResource("Resource_wtjx8")
 base = ExtResource("6_wtjx8")
 amount = 1
-metadata/_custom_type_script = "uid://bs3ipoydhtmsi"
+metadata/_custom_type_script = "uid://cirje5ssvlb5e"
 
 [resource]
 script = ExtResource("3_lekc0")
@@ -32,7 +38,7 @@ description = "Play one basic faith token
 
 Add a [color=blue]Basic Doubt[/color] card to your hand"
 token_data = ExtResource("5_5xwmt")
-on_play_card_actions = Array[ExtResource("2_2bo3l")]([SubResource("Resource_niy0h"), SubResource("Resource_n2sek")])
+on_play_card_actions = Array[ExtResource("2_2bo3l")]([SubResource("Resource_1dico"), SubResource("Resource_6epcm")])
 on_discard_card_actions = Array[ExtResource("2_2bo3l")]([])
 on_banish_card_actions = Array[ExtResource("2_2bo3l")]([])
 on_turn_start_card_actions = Array[ExtResource("2_2bo3l")]([])

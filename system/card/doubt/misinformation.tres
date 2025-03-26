@@ -1,17 +1,32 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=9 format=3 uid="uid://xcna1a1uiro7"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=13 format=3 uid="uid://xcna1a1uiro7"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_cx6cb"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_kos4r"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="3_5xsxo"]
-[ext_resource type="Script" uid="uid://cnsu06fkkodsm" path="res://script/system/card/card_action/draw_card_card_action.gd" id="3_x4y0k"]
+[ext_resource type="Script" uid="uid://c2f31cka87uk4" path="res://script/system/card/card_action/card_collection/contestant_draw_pile.gd" id="3_lbiw2"]
+[ext_resource type="Script" uid="uid://cm5qf41iurdc3" path="res://script/system/card/card_action/move_card_collection_to_card_collection_card_action.gd" id="4_02gve"]
 [ext_resource type="Script" uid="uid://ry8dl84ft1kn" path="res://script/system/card/card_action/modify_energy_card_action.gd" id="4_x4y0k"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection/contestant_hand.gd" id="5_1dwc4"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="5_g1i5i"]
 
-[sub_resource type="Resource" id="Resource_02gve"]
-script = ExtResource("3_x4y0k")
+[sub_resource type="Resource" id="Resource_gflqj"]
+script = ExtResource("3_lbiw2")
 which_contestant = 0
-draw_amount = 1
-metadata/_custom_type_script = "uid://cnsu06fkkodsm"
+amount = 1
+starting_point = 0
+insertion_point = 0
+metadata/_custom_type_script = "uid://c2f31cka87uk4"
+
+[sub_resource type="Resource" id="Resource_570lk"]
+script = ExtResource("5_1dwc4")
+which_contestant = 0
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_htaqt"]
+script = ExtResource("4_02gve")
+from_collection = SubResource("Resource_gflqj")
+to_collection = SubResource("Resource_570lk")
+metadata/_custom_type_script = "uid://cm5qf41iurdc3"
 
 [sub_resource type="Resource" id="Resource_g1i5i"]
 script = ExtResource("4_x4y0k")
@@ -27,7 +42,7 @@ base_cost = 1
 description = "On play, opponent gain 1 energy
 On discard draw a card"
 on_play_card_actions = Array[ExtResource("2_kos4r")]([SubResource("Resource_g1i5i")])
-on_discard_card_actions = Array[ExtResource("2_kos4r")]([SubResource("Resource_02gve")])
+on_discard_card_actions = Array[ExtResource("2_kos4r")]([SubResource("Resource_htaqt")])
 on_banish_card_actions = Array[ExtResource("2_kos4r")]([])
 on_turn_start_card_actions = Array[ExtResource("2_kos4r")]([])
 on_turn_end_card_actions = Array[ExtResource("2_kos4r")]([])

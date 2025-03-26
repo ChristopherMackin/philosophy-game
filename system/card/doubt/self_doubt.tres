@@ -1,26 +1,33 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=9 format=3 uid="uid://cguj4a6513hg2"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=10 format=3 uid="uid://cguj4a6513hg2"]
 
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_5rbu0"]
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_rfwc0"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_mbh5s"]
-[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="3_6qp1c"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="3_mp3f8"]
-[ext_resource type="Script" uid="uid://cye125cpxyynj" path="res://script/system/card/card_action/discard_card_from_hand_card_action.gd" id="3_rkb61"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection/contestant_hand.gd" id="3_rfwc0"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_fl3yq"]
+[ext_resource type="Script" uid="uid://4v61ulpu2ysv" path="res://script/system/card/card_action/discard_card_from_card_collection_card_action.gd" id="4_mbh5s"]
 
-[sub_resource type="Resource" id="Resource_o3xrp"]
-script = ExtResource("3_rkb61")
+[sub_resource type="Resource" id="Resource_6qp1c"]
+script = ExtResource("3_rfwc0")
 which_contestant = 0
-card_filter = Array[ExtResource("3_6qp1c")]([])
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_2hgpe"]
+script = ExtResource("4_mbh5s")
+card_collection_factory = SubResource("Resource_6qp1c")
+which_contestant = 0
+selection_action = 1
+metadata/_custom_type_script = "uid://4v61ulpu2ysv"
 
 [resource]
 script = ExtResource("1_5rbu0")
 suit = ExtResource("3_mp3f8")
 title = "Self Doubt"
-base_cost = 2
-description = "Remove a card from your hand"
+base_cost = 1
+description = "Discard a card from your hand"
 token_data = ExtResource("4_fl3yq")
-on_play_card_actions = Array[ExtResource("2_mbh5s")]([SubResource("Resource_o3xrp")])
+on_play_card_actions = Array[ExtResource("2_mbh5s")]([SubResource("Resource_2hgpe")])
 on_discard_card_actions = Array[ExtResource("2_mbh5s")]([])
 on_banish_card_actions = Array[ExtResource("2_mbh5s")]([])
 on_turn_start_card_actions = Array[ExtResource("2_mbh5s")]([])
