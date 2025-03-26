@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_5adsc"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_676n2"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_x51mm"]
-[ext_resource type="Script" uid="uid://cnsu06fkkodsm" path="res://script/system/card/card_action/draw_card_card_action.gd" id="3_5adsc"]
+[ext_resource type="Script" path="res://script/system/card/old_card_actions/draw_card_card_action.gd" id="3_5adsc"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="3_s4jof"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_cnw4b"]
 

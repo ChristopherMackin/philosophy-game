@@ -1,25 +1,40 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=10 format=3 uid="uid://ylhvgo4gct1r"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=13 format=3 uid="uid://ylhvgo4gct1r"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_256gh"]
 [ext_resource type="Script" uid="uid://cafx678ucokyp" path="res://script/system/card/card_cost_modifier/additive_card_cost_modifier.gd" id="1_erk5n"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_syt8x"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="2_7kola"]
-[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_88kws"]
-[ext_resource type="Script" uid="uid://cli7rttnpf5db" path="res://script/system/card/card_action/add_cost_modifier_to_hand_card_action.gd" id="2_ocvke"]
-[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="3_5h62l"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_co5og"]
+[ext_resource type="Script" uid="uid://v5wf20ls6mqe" path="res://script/system/card/card_action/fill_options_with_card_collection_card_action.gd" id="3_clr8q"]
+[ext_resource type="Script" uid="uid://dy8fbv5tognrw" path="res://script/system/card/card_action/select_options_card_action.gd" id="4_m10b6"]
+[ext_resource type="Script" uid="uid://qf7quftak67t" path="res://script/system/card/card_action/add_card_modifier_to_selected_cards_card_action.gd" id="6_m10b6"]
 
-[sub_resource type="Resource" id="Resource_btiwr"]
+[sub_resource type="Resource" id="Resource_rr5hx"]
+script = ExtResource("3_clr8q")
+which_contestant = 0
+card_collection = 0
+pull_from_end = false
+amount = -1
+metadata/_custom_type_script = "uid://v5wf20ls6mqe"
+
+[sub_resource type="Resource" id="Resource_cuc2a"]
+script = ExtResource("4_m10b6")
+selection_action = 2
+selection_type = 0
+metadata/_custom_type_script = "uid://dy8fbv5tognrw"
+
+[sub_resource type="Resource" id="Resource_clr8q"]
 script = ExtResource("1_erk5n")
 amount = 1
 priority = 0
 can_expire = true
 turn_lifetime = 1
+metadata/_custom_type_script = "uid://cafx678ucokyp"
 
-[sub_resource type="Resource" id="Resource_62yyp"]
-script = ExtResource("2_ocvke")
-which_contestant = 0
-card_filter = Array[ExtResource("3_5h62l")]([])
-cost_modifier = SubResource("Resource_btiwr")
+[sub_resource type="Resource" id="Resource_utwmg"]
+script = ExtResource("6_m10b6")
+cost_modifier = SubResource("Resource_clr8q")
+metadata/_custom_type_script = "uid://qf7quftak67t"
 
 [resource]
 script = ExtResource("1_syt8x")
@@ -27,12 +42,12 @@ suit = ExtResource("2_7kola")
 title = "Overthink"
 base_cost = 0
 description = "Make a card in your hand cost 1 more energy this turn"
-on_play_card_actions = Array[ExtResource("2_88kws")]([SubResource("Resource_62yyp")])
-on_discard_card_actions = Array[ExtResource("2_88kws")]([])
-on_banish_card_actions = Array[ExtResource("2_88kws")]([])
-on_turn_start_card_actions = Array[ExtResource("2_88kws")]([])
-on_turn_end_card_actions = Array[ExtResource("2_88kws")]([])
-on_hold_start_card_actions = Array[ExtResource("2_88kws")]([])
-on_hold_stay_card_actions = Array[ExtResource("2_88kws")]([])
-on_hold_end_card_actions = Array[ExtResource("2_88kws")]([])
+on_play_card_actions = Array[ExtResource("2_co5og")]([SubResource("Resource_rr5hx"), SubResource("Resource_cuc2a"), SubResource("Resource_utwmg")])
+on_discard_card_actions = Array[ExtResource("2_co5og")]([])
+on_banish_card_actions = Array[ExtResource("2_co5og")]([])
+on_turn_start_card_actions = Array[ExtResource("2_co5og")]([])
+on_turn_end_card_actions = Array[ExtResource("2_co5og")]([])
+on_hold_start_card_actions = Array[ExtResource("2_co5og")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_co5og")]([])
+on_hold_end_card_actions = Array[ExtResource("2_co5og")]([])
 cost_modifiers = Array[ExtResource("1_256gh")]([])

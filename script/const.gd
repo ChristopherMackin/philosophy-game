@@ -16,6 +16,7 @@ enum ExpirationToken {
 	ON_DEBATE_START,
 	ON_TURN_END,
 	ON_TURN_START,
+	ON_ACTION_END,
 }
 
 enum WhichContestant {
@@ -26,6 +27,15 @@ enum WhichContestant {
 static func GetContestant(player, opponent, which_contestant) -> Contestant:
 	return player if which_contestant == Const.WhichContestant.SELF else opponent
 
+enum CardCollection {
+	HAND,
+	DISCARD,
+	DRAW_PILE,
+	DECK,
+	PLAY_STACK,
+	HOLD,
+	SELF
+}
 
 enum Player {
 	HUMAN,
@@ -44,18 +54,24 @@ enum CardActionType {
 }
 
 enum SelectionAction {
+	PLAY,
 	VIEW,
 	SINGLE,
 	MULTI
 }
 
 enum SelectionType {
-	TOKEN,
 	CARD,
+	TOKEN,
 	SUIT
 }
 
 enum Direction {
 	LEFT,
 	RIGHT
+}
+
+enum ActionParameterType{
+	VALUE,
+	KEY
 }

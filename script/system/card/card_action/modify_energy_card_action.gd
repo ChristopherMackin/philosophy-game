@@ -11,3 +11,5 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	contestant.current_energy += amount
 	if contestant.current_energy < 0:
 		contestant.current_energy = 0
+	
+	return true

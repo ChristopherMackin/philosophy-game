@@ -1,16 +1,9 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://c614582y5sixk"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=5 format=3 uid="uid://c614582y5sixk"]
 
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_8qbll"]
-[ext_resource type="Script" uid="uid://cq5t5b47eelyd" path="res://script/system/card/card_action/draw_card_of_suit_card_action.gd" id="1_eplcu"]
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_mhacy"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="2_hctj1"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_i5s1o"]
-[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="4_x48ah"]
-
-[sub_resource type="Resource" id="Resource_xpav7"]
-script = ExtResource("1_eplcu")
-which_contestant = 0
-suits = Array[ExtResource("4_x48ah")]([])
 
 [resource]
 script = ExtResource("1_8qbll")
@@ -18,7 +11,7 @@ suit = ExtResource("2_hctj1")
 title = "Recollect"
 base_cost = 1
 description = "Draw a card of a specified suit"
-on_play_card_actions = Array[ExtResource("2_i5s1o")]([SubResource("Resource_xpav7")])
+on_play_card_actions = Array[ExtResource("2_i5s1o")]([])
 on_discard_card_actions = Array[ExtResource("2_i5s1o")]([])
 on_banish_card_actions = Array[ExtResource("2_i5s1o")]([])
 on_turn_start_card_actions = Array[ExtResource("2_i5s1o")]([])

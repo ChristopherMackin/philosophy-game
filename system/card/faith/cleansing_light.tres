@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_2725i"]
 [ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="3_670gc"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="3_id0nr"]
-[ext_resource type="Script" uid="uid://0iw33432b7ii" path="res://script/system/card/card_action/discard_from_hand_and_modify_energy_card_action.gd" id="4_2ddr1"]
+[ext_resource type="Script" path="res://script/system/card/old_card_actions/discard_from_hand_and_modify_energy_card_action.gd" id="4_2ddr1"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="4_2725i"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="5_eic8o"]
 [ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="8_vny10"]

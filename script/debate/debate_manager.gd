@@ -151,8 +151,6 @@ func play_card(card : Card, contestant : Contestant):
 	
 	await card.on_play(contestant, self)
 	
-	for sub : DebateSubscriber in subscriber_array: await sub.on_actions_invoked(card, Const.CardActionType.ON_PLAY, contestant)
-
 func clear_lines():
 	var min = suit_track_dictionary.values()[0].size()
 	
@@ -199,3 +197,10 @@ func get_opponent(contestant : Contestant):
 func add_token_to_suit_track(token : Token, suit : Suit):
 	if suit_track_dictionary.has(suit.name):
 		suit_track_dictionary[suit.name].append(token)
+
+func remove_from_playstack(card : Card):
+	var index = play_stack.find(card)
+	
+	if index < 0: return
+	
+	play_stack.remove_at(index)

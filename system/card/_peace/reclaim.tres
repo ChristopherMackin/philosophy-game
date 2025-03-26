@@ -1,16 +1,41 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=7 format=3 uid="uid://e1d37ph7u0ag"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=13 format=3 uid="uid://e1d37ph7u0ag"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_ngntv"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_x22cc"]
-[ext_resource type="Script" uid="uid://bt2jilhoi5ok6" path="res://script/system/card/card_action/add_hold_to_hand_card_action.gd" id="3_guljh"]
+[ext_resource type="Script" uid="uid://v5wf20ls6mqe" path="res://script/system/card/card_action/fill_options_with_card_collection_card_action.gd" id="3_2kpma"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="4_2kpma"]
+[ext_resource type="Script" uid="uid://dy8fbv5tognrw" path="res://script/system/card/card_action/select_options_card_action.gd" id="4_ihkjb"]
+[ext_resource type="Script" uid="uid://dnilaiv7knnhb" path="res://script/system/card/card_action/remove_selected_cards_card_action.gd" id="5_1lu8h"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="5_ihkjb"]
+[ext_resource type="Script" uid="uid://di1u2elqx7esm" path="res://script/system/card/card_action/add_selected_cards_to_card_collection_card_action.gd" id="6_3ljbt"]
 
-[sub_resource type="Resource" id="Resource_2ougd"]
-script = ExtResource("3_guljh")
-which_contestant_hold = 0
-which_contestant_hand = 0
-metadata/_custom_type_script = "uid://bt2jilhoi5ok6"
+[sub_resource type="Resource" id="Resource_kli22"]
+script = ExtResource("3_2kpma")
+which_contestant = 0
+card_collection = 5
+pull_from_end = false
+amount = -1
+metadata/_custom_type_script = "uid://v5wf20ls6mqe"
+
+[sub_resource type="Resource" id="Resource_3vbp5"]
+script = ExtResource("4_ihkjb")
+selection_action = 2
+key = "selection"
+metadata/_custom_type_script = "uid://dy8fbv5tognrw"
+
+[sub_resource type="Resource" id="Resource_prumt"]
+script = ExtResource("5_1lu8h")
+which_contestant = 0
+card_collection = 5
+key = "selection"
+metadata/_custom_type_script = "uid://dnilaiv7knnhb"
+
+[sub_resource type="Resource" id="Resource_chdw1"]
+script = ExtResource("6_3ljbt")
+which_contestant = 0
+card_collection = 0
+key = "selection"
+metadata/_custom_type_script = "uid://di1u2elqx7esm"
 
 [resource]
 script = ExtResource("4_2kpma")
@@ -18,7 +43,7 @@ suit = ExtResource("5_ihkjb")
 title = "Reclaim"
 base_cost = 0
 description = "Add your hold card back to your hand"
-on_play_card_actions = Array[ExtResource("2_x22cc")]([SubResource("Resource_2ougd")])
+on_play_card_actions = Array[ExtResource("2_x22cc")]([SubResource("Resource_kli22"), SubResource("Resource_3vbp5"), SubResource("Resource_prumt"), SubResource("Resource_chdw1")])
 on_discard_card_actions = Array[ExtResource("2_x22cc")]([])
 on_banish_card_actions = Array[ExtResource("2_x22cc")]([])
 on_turn_start_card_actions = Array[ExtResource("2_x22cc")]([])

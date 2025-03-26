@@ -149,7 +149,7 @@ func select(request : SelectionRequest) -> SelectionResponse:
 	var is_valid_selection : bool = false
 	return await _brain.select(request)
 
-func hold_card(card : Card):
+func hold_card(card : Card, use_up_hold_action = true):
 	if held_card:
 		var index = hand.find(card)
 		add_to_hand(held_card, index)
@@ -160,14 +160,28 @@ func hold_card(card : Card):
 		remove_from_hand(card)
 		await held_card.on_hold_start(self, manager)
 	
-	can_hold = false
+	if(use_up_hold_action):
+		can_hold = false
 	
 	for sub : DebateSubscriber in manager.subscriber_array: await sub.on_card_hold_updated(held_card, self)
 
 func discard_card(card : Card):
+	if card == null: return
+	
 	discard_pile.append(card)
 	
 	await card.on_discard(self, manager)
+
+func discard_from_hand(card : Card):
+	if !remove_from_hand(card): return
+	await discard_card(card)
+
+func remove_from_discard(card : Card):
+	var index = discard_pile.find(card)
+	
+	if index < 0: return
+	
+	discard_pile.remove_at(index)
 
 func add_to_hand(card : Card, index: int = -1):
 	if index == -1 || index >= hand.size():
@@ -182,10 +196,6 @@ func remove_from_hand(card : Card) -> bool:
 	hand.remove_at(index)
 	
 	return true
-
-func discard_from_hand(card : Card):
-	if !remove_from_hand(card): return
-	await discard_card(card)
 
 func append_to_draw_pile(card : Card):
 	draw_pile.append(card)

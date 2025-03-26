@@ -1,36 +1,29 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=11 format=3 uid="uid://b150jnrliiino"]
+[gd_resource type="Resource" script_class="Deck" load_steps=9 format=3 uid="uid://b150jnrliiino"]
 
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://script/system/card/card_deck_config.gd" id="1_xxq85"]
-[ext_resource type="Resource" uid="uid://01o3rik3bc3n" path="res://system/card/faith/prophesy.tres" id="8_lb8jv"]
-[ext_resource type="Resource" uid="uid://bo0iae2cuofoh" path="res://system/card/faith/divine_inspiration.tres" id="9_ii747"]
-[ext_resource type="Resource" uid="uid://c8apy3s8dwvhh" path="res://system/card/faith/holding_out.tres" id="10_k6n8y"]
-[ext_resource type="Resource" uid="uid://bi4b6yrbrei1b" path="res://system/card/faith/cleansing_light.tres" id="11_cdujy"]
+[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="2_5kklq"]
+[ext_resource type="Resource" uid="uid://db07dth8iua8f" path="res://system/card/_peace/rethink.tres" id="2_lslfs"]
+[ext_resource type="Resource" uid="uid://cidckdf830rce" path="res://system/card/doubt/fact_check.tres" id="4_5u61n"]
 [ext_resource type="Script" uid="uid://dhdtv0v6h0rkq" path="res://script/system/deck/deck.gd" id="11_ynqog"]
 
-[sub_resource type="Resource" id="Resource_lb8jv"]
+[sub_resource type="Resource" id="Resource_k6n8y"]
 script = ExtResource("1_xxq85")
-base = ExtResource("8_lb8jv")
-count = 3
+base = ExtResource("2_lslfs")
+count = 100
 metadata/_custom_type_script = "uid://bcrhpdjlreow5"
 
-[sub_resource type="Resource" id="Resource_ii747"]
+[sub_resource type="Resource" id="Resource_sgx72"]
 script = ExtResource("1_xxq85")
-base = ExtResource("9_ii747")
-count = 4
+base = ExtResource("2_5kklq")
+count = 100
 metadata/_custom_type_script = "uid://bcrhpdjlreow5"
 
-[sub_resource type="Resource" id="Resource_cdujy"]
+[sub_resource type="Resource" id="Resource_wko4y"]
 script = ExtResource("1_xxq85")
-base = ExtResource("10_k6n8y")
-count = 3
-metadata/_custom_type_script = "uid://bcrhpdjlreow5"
-
-[sub_resource type="Resource" id="Resource_7jsq1"]
-script = ExtResource("1_xxq85")
-base = ExtResource("11_cdujy")
-count = 5
+base = ExtResource("4_5u61n")
+count = 1
 metadata/_custom_type_script = "uid://bcrhpdjlreow5"
 
 [resource]
 script = ExtResource("11_ynqog")
-composition_card_deck_config_array = Array[ExtResource("1_xxq85")]([SubResource("Resource_lb8jv"), SubResource("Resource_ii747"), SubResource("Resource_cdujy"), SubResource("Resource_7jsq1")])
+composition_card_deck_config_array = Array[ExtResource("1_xxq85")]([SubResource("Resource_k6n8y"), SubResource("Resource_sgx72"), SubResource("Resource_wko4y")])
