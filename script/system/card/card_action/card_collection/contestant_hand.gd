@@ -9,8 +9,8 @@ var contestant: Contestant:
 func get_card_collection() -> Array[Card]:
 	return contestant.hand.duplicate()
 
-func remove_card_from_collection(card: Card):
-	contestant.remove_from_hand(card)
+func remove_card_from_collection(card: Card) -> bool:
+	return contestant.remove_from_hand(card)
 
-func add_card_to_collection(card: Card):
-	contestant.add_to_hand(card)
+func add_card_to_collection(card: Card) -> bool:
+	return contestant.add_to_hand(card)

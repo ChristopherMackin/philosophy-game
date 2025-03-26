@@ -11,5 +11,5 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager):
 	to_collection.init(caller, player, manager)
 	
 	for card in from_collection.get_card_collection():
-		to_collection.add_card_to_collection(card)
+		if !to_collection.add_card_to_collection(card): continue
 		from_collection.remove_card_from_collection(card)

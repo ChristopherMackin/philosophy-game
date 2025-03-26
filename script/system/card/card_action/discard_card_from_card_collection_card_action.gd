@@ -4,7 +4,7 @@ class_name DiscardCardFromCardCollectionCardAction
 
 @export var card_collection_factory : CardCollection
 @export var which_contestant : Const.WhichContestant
-@export_enum("Single:1", "Multi:2", "ALL:3") var selection_action : int
+@export_enum("Single:1", "Multi:2", "All:3") var selection_action := 1
 var action: Const.SelectionAction: 
 	get(): return selection_action as Const.SelectionAction
 	

@@ -50,8 +50,7 @@ func ready_up(manager : DebateManager):
 	current_energy = energy_level
 
 func _draw_card() -> bool:
-	if draw_pile.size() <= 0:
-		return false
+	if hand.size() >= hand_limit || draw_pile.size() <= 0: return false
 	
 	var card = draw_pile.pop_front()
 	card.generate_token()
@@ -63,6 +62,8 @@ func _draw_card() -> bool:
 	return true
 
 func draw_specified_card(card : Card) -> bool:
+	if hand.size() >= hand_limit || draw_pile.size() <= 0: return false
+	
 	var index = draw_pile.find(card)
 	if index < 0: return false
 	
@@ -77,6 +78,8 @@ func draw_specified_card(card : Card) -> bool:
 	return true
 
 func draw_at_index(index : int) -> bool:
+	if hand.size() >= hand_limit || draw_pile.size() <= 0: return false
+
 	if index < 0 || index >= draw_pile.size():
 		return false
 	
@@ -176,11 +179,15 @@ func discard_card(card : Card):
 	
 	await card.on_discard(self, manager)
 
-func add_to_hand(card : Card, index: int = -1):
+func add_to_hand(card : Card, index: int = -1) -> bool:
+	if hand.size() >= hand_limit: return false
+	
 	if index == -1 || index >= hand.size():
 		hand.append(card)
 	else:
 		hand.insert(index, card)
+	
+	return true
 
 func remove_from_hand(card : Card) -> bool:
 	var index = hand.find(card)
@@ -206,9 +213,11 @@ func random_insert_to_draw_pile(card: Card):
 func remove_from_draw_pile(card : Card):
 	var index = draw_pile.find(card)
 	
-	if index < 0: return
+	if index < 0: return false
 	
 	draw_pile.remove_at(index)
+	
+	return true
 
 func add_to_deck(card : Card):
 	_deck.add_to_deck(card)

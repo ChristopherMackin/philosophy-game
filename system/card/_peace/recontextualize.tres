@@ -1,21 +1,9 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=12 format=3 uid="uid://d4cywj8g05x5n"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=5 format=3 uid="uid://d4cywj8g05x5n"]
 
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_gy1ft"]
-[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="1_jqeuj"]
-[ext_resource type="Script" uid="uid://c8vo05rn5al6v" path="res://script/system/card/card_action/change_card_collection_suit_card_action.gd" id="1_o2uxv"]
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_q0f8d"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="2_fulcm"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_gv2gf"]
-[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="2_me1i8"]
-[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="3_b0e0o"]
-[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="3_npya2"]
-[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="4_fq5gy"]
-
-[sub_resource type="Resource" id="Resource_kmokk"]
-script = ExtResource("1_o2uxv")
-which_contestant = 0
-suits = Array[ExtResource("3_npya2")]([])
-card_filter = Array[ExtResource("3_npya2")]([ExtResource("1_jqeuj"), ExtResource("2_me1i8"), ExtResource("3_b0e0o"), ExtResource("4_fq5gy")])
 
 [resource]
 script = ExtResource("1_gy1ft")
@@ -23,7 +11,7 @@ suit = ExtResource("2_fulcm")
 title = "Recontextualize"
 base_cost = 1
 description = "Change the suit of any colored card"
-on_play_card_actions = Array[ExtResource("2_gv2gf")]([SubResource("Resource_kmokk")])
+on_play_card_actions = Array[ExtResource("2_gv2gf")]([])
 on_discard_card_actions = Array[ExtResource("2_gv2gf")]([])
 on_banish_card_actions = Array[ExtResource("2_gv2gf")]([])
 on_turn_start_card_actions = Array[ExtResource("2_gv2gf")]([])

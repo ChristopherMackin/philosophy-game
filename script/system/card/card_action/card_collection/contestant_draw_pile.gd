@@ -4,8 +4,8 @@ class_name ContestantDrawPile
 
 @export var which_contestant : Const.WhichContestant
 @export var amount = -1
-@export_enum("Beginning", "End") var starting_point : int
-@export_enum("Beginning", "End", "Random") var insertion_point : int
+@export_enum("Beginning", "End") var starting_point := 0
+@export_enum("Beginning", "End", "Random") var insertion_point := 0
 
 var contestant: Contestant:
 	get(): return Const.GetContestant(player, manager.get_opponent(player), which_contestant)
@@ -28,10 +28,10 @@ func get_card_collection() -> Array[Card]:
 	
 	return card_array
 
-func remove_card_from_collection(card: Card):
-	contestant.remove_from_draw_pile(card)
+func remove_card_from_collection(card: Card) -> bool:
+	return contestant.remove_from_draw_pile(card)
 
-func add_card_to_collection(card: Card):
+func add_card_to_collection(card: Card) -> bool:
 	card.destroy_token()
 	
 	match  insertion_point:
@@ -41,3 +41,5 @@ func add_card_to_collection(card: Card):
 			contestant.append_to_draw_pile(card)
 		2:
 			contestant.random_insert_to_draw_pile(card)
+	
+	return true

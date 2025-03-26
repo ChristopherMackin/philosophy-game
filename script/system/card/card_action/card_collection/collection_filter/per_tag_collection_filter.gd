@@ -2,7 +2,7 @@ extends CollectionFilter
 
 class_name PerTagCollectionFilter
 
-@export_enum("Forwards", "Backwards") var slice_direction = 0
+@export_enum("Forwards", "Backwards") var slice_direction := 0
 @export var amount_per_tag: float
 @export var tag: Const.Tag
 

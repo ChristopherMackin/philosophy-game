@@ -14,8 +14,8 @@ func init(caller: Card, player: Contestant, manager : DebateManager):
 func get_card_collection() -> Array[Card]:
 	return []
 
-func remove_card_from_collection(card: Card):
-	pass
+func remove_card_from_collection(card: Card) -> bool:
+	return true
 
-func add_card_to_collection(card: Card):
-	pass
+func add_card_to_collection(card: Card) -> bool:
+	return true

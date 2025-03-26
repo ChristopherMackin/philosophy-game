@@ -3,7 +3,7 @@ extends CardAction
 class_name ChangeCardCollectionSuitCardAction
 
 @export var card_collection : CardCollection
-@export_enum("Single:1", "Multi:2", "All:3") var selection_action : int
+@export_enum("Single:1", "Multi:2", "All:3") var selection_action := 1
 var action: Const.SelectionAction: 
 	get(): return selection_action as Const.SelectionAction
 

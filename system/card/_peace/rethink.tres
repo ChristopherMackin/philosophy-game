@@ -1,17 +1,9 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://db07dth8iua8f"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=5 format=3 uid="uid://db07dth8iua8f"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_gs7bv"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_3g4bq"]
-[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="3_cprjj"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="3_s7v8y"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="4_3g4bq"]
-[ext_resource type="Script" uid="uid://dhhqyqapiptm2" path="res://script/system/card/card_action/same_suit_swap_card_action.gd" id="4_g864l"]
-
-[sub_resource type="Resource" id="Resource_frbhu"]
-script = ExtResource("4_g864l")
-which_contestant = 0
-card_filter = Array[ExtResource("3_cprjj")]([])
-metadata/_custom_type_script = "uid://dhhqyqapiptm2"
 
 [resource]
 script = ExtResource("3_s7v8y")
@@ -20,7 +12,7 @@ title = "Rethink"
 base_cost = 0
 description = "Trade a card for the first different card of the same suit
 (If no other card is present, you gain the same card)"
-on_play_card_actions = Array[ExtResource("2_3g4bq")]([SubResource("Resource_frbhu")])
+on_play_card_actions = Array[ExtResource("2_3g4bq")]([])
 on_discard_card_actions = Array[ExtResource("2_3g4bq")]([])
 on_banish_card_actions = Array[ExtResource("2_3g4bq")]([])
 on_turn_start_card_actions = Array[ExtResource("2_3g4bq")]([])
