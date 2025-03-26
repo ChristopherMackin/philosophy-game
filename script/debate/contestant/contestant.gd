@@ -210,3 +210,12 @@ func remove_from_deck(card : Card):
 	_deck.remove_from_deck(card)
 	for action in card.on_banish_card_actions:
 		await action.invoke(card, self, manager)
+
+func draw_pile_push_front(card: Card):
+	draw_pile.push_front(card)
+
+func draw_pile_append(card: Card):
+	draw_pile.append(card)
+
+func draw_pile_random_insert(card: Card):
+	draw_pile.insert(randi() % (draw_pile.size() + 1), card)

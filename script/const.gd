@@ -59,3 +59,11 @@ enum Direction {
 	LEFT,
 	RIGHT
 }
+
+enum CardCollection {
+	HAND,
+	DRAW_PILE,
+	DECK,
+	DISCARD,
+	PLAY_STACK,
+}
