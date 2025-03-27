@@ -44,8 +44,9 @@ func on_turn_start(_contestant: Contestant):
 func on_turn_end(_contestant: Contestant):
 	await update_everything()
 
-func on_card_played(card: Card, contestant : Contestant):
-	await GlobalTimer.wait_for_seconds(.3)
+func on_card_played(card: Card, contestant : Contestant):	
+	if contestant.character_is(computer):
+		await GlobalTimer.wait_for_seconds(.5)
 	
 	await update_everything()
 	

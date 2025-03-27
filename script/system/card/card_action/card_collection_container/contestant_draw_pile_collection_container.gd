@@ -28,18 +28,11 @@ func get_collection_cards() -> Array[Card]:
 	
 	return card_array
 
-func remove_card_from_collection(card: Card) -> bool:
-	return contestant.remove_from_draw_pile(card)
-
-func add_card_to_collection(card: Card) -> bool:
-	card.destroy_token()
-	
+func add_card_to_collection(card: Card):	
 	match  insertion_point:
 		0:
-			contestant.push_front_to_draw_pile(card)
+			contestant.draw_pile.push_front(card)
 		1:
-			contestant.append_to_draw_pile(card)
+			contestant.draw_pile.push_back(card)
 		2:
-			contestant.random_insert_to_draw_pile(card)
-	
-	return true
+			contestant.draw_pile.insert_random(card)

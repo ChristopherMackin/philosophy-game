@@ -15,5 +15,5 @@ func init(caller: Card, player: Contestant, manager : DebateManager):
 func get_collection_cards() -> Array[Card]:
 	return card_collection.get_cards()
 
-func add_card_to_collection(card: Card) -> bool:
-	return true
+func add_card_to_collection(card: Card):
+	pass

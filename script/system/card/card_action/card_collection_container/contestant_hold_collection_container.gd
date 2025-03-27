@@ -12,8 +12,5 @@ func get_collection_cards() -> Array[Card]:
 	else:
 		return []
 
-func remove_card_from_collection(card: Card):
-	contestant.remove_held_card()
-
 func add_card_to_collection(card: Card):
 	contestant.hold_card(card)

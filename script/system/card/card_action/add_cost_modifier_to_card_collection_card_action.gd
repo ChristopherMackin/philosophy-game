@@ -7,7 +7,7 @@ class_name AddCostModifierToCardCollectionContainerCardAction
 
 func invoke(caller : Card, player : Contestant, manager : DebateManager):
 	collection_container.init(caller, player, manager)
-	var cards = await collection_container.get_collection_container()
+	var cards = await collection_container.get_collection_cards()
 	
 	for card in cards:
 		card.cost_modifiers.append(cost_modifier.duplicate(true))

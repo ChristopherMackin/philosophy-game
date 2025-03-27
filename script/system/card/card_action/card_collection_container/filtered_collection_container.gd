@@ -17,8 +17,5 @@ func get_collection_cards() -> Array[Card]:
 	
 	return card_array
 
-func remove_card_from_collection(card: Card):
-	collection_container.remove_card_from_collection(card)
-
 func add_card_to_collection(card: Card):
 	collection_container.add_card_to_collection(card)

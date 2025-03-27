@@ -35,6 +35,7 @@ enum Player {
 
 enum CardActionType {
 	ON_PLAY,
+	ON_DRAW,
 	ON_DISCARD,
 	ON_BANISH,
 	ON_TURN_START,

@@ -13,4 +13,4 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager):
 	
 	for card in cards:
 		contestant.remove_from_deck(card)
-		collection_container.remove_card_from_collection(card)
+		await card.card_collection.remove(card)

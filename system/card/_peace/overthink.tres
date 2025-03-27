@@ -11,20 +11,20 @@
 [ext_resource type="Script" uid="uid://16samtkb1lb4" path="res://script/system/card/card_action/card_collection_container/container_filter/selection_collection_filter.gd" id="4_rr5hx"]
 [ext_resource type="Script" uid="uid://d3yewkkdwyepo" path="res://script/system/card/card_action/card_collection_container/filtered_collection_container.gd" id="6_cuc2a"]
 
-[sub_resource type="Resource" id="Resource_utwmg"]
-script = ExtResource("4_rr5hx")
-selection_action = 1
-metadata/_custom_type_script = "uid://16samtkb1lb4"
-
-[sub_resource type="Resource" id="Resource_qjp07"]
+[sub_resource type="Resource" id="Resource_m10b6"]
 script = ExtResource("3_w73fe")
 which_contestant = 0
 metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
 
-[sub_resource type="Resource" id="Resource_4t1t4"]
+[sub_resource type="Resource" id="Resource_rr5hx"]
+script = ExtResource("4_rr5hx")
+selection_action = 1
+metadata/_custom_type_script = "uid://16samtkb1lb4"
+
+[sub_resource type="Resource" id="Resource_cuc2a"]
 script = ExtResource("6_cuc2a")
-card_collection = SubResource("Resource_qjp07")
-card_array_filters = Array[ExtResource("3_m10b6")]([SubResource("Resource_utwmg")])
+collection_container = SubResource("Resource_m10b6")
+collection_filters = Array[ExtResource("3_m10b6")]([SubResource("Resource_rr5hx")])
 metadata/_custom_type_script = "uid://d3yewkkdwyepo"
 
 [sub_resource type="Resource" id="Resource_btiwr"]
@@ -36,7 +36,7 @@ turn_lifetime = 1
 
 [sub_resource type="Resource" id="Resource_62yyp"]
 script = ExtResource("2_ocvke")
-card_collection = SubResource("Resource_4t1t4")
+collection_container = SubResource("Resource_cuc2a")
 cost_modifier = SubResource("Resource_btiwr")
 
 [resource]

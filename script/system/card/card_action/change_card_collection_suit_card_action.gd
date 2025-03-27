@@ -13,7 +13,9 @@ var suit_action: Const.SelectionAction:
 func invoke(caller : Card, player : Contestant, manager : DebateManager):
 	collection_container.init(caller, player, manager)
 	var cards = await collection_container.get_collection_cards()
-		
+	
+	if cards.size() <= 0: return
+	
 	#Select Suit =====================================
 	var new_suit: Suit
 	

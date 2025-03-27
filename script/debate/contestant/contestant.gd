@@ -45,11 +45,15 @@ func _init(character : Character, manager : DebateManager):
 	self.character.brain.contestant = self
 	
 	hand.on_added.add_listener(func(card: Card): await card.on_draw(self, manager))
+	hand.on_added.add_listener(func(card: Card):
+		for sub : DebateSubscriber in manager.subscriber_array: await sub.on_card_drawn(card, self)
+	)
 	
 	draw_pile.on_added.add_listener(func(card: Card): await card.destroy_token())
 	draw_pile.on_removed.add_listener(func(card: Card): await card.generate_token())
 	
 	discard_pile.on_added.add_listener(func(card: Card): card.on_discard(self, manager))
+	
 
 func ready_up():
 	var draw_pile_array : Array[Card]
@@ -141,7 +145,7 @@ func select(request : SelectionRequest) -> SelectionResponse:
 	return await _brain.select(request)
 
 func hold_card(card : Card):
-	if held_card:
+	if held_card.size() > 0:
 		var index = hand.get_card_index(card)
 		await hand.insert(index, card)
 	
@@ -150,7 +154,7 @@ func hold_card(card : Card):
 	
 	can_hold = false
 	
-	for sub : DebateSubscriber in manager.subscriber_array: await sub.on_card_hold_updated(held_card, self)
+	for sub : DebateSubscriber in manager.subscriber_array: await sub.on_card_hold_updated(held_card.get_card_at_index(0), self)
 
 func remove_held_card():
 	if held_card.size() > 0:

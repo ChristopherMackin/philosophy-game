@@ -30,6 +30,8 @@ var inactive_contestant : Contestant:
 		else:
 			return null
 
+var card_player : Contestant
+
 var contestants : Array[Contestant]
 
 var subscriber_array : Array[DebateSubscriber]
@@ -64,7 +66,11 @@ func init(player_character : Character, computer_character : Character, debate_s
 		var suit_array : Array[Token] = []
 		suit_track_dictionary[suit.name] = suit_array
 	
-	play_stack.on_added.add_listener(func(card: Card): await card.on_play(active_contestant, self))
+	play_stack.on_added.add_listener(func(card: Card): await card.on_play(card_player, self))
+	play_stack.on_added.add_listener(func(card: Card): 
+		for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, card_player)
+	)
+
 	
 	player = Contestant.new(player_character, self)
 	computer = Contestant.new(computer_character, self)
@@ -147,12 +153,9 @@ func play_token(token : Token, suit : Suit, contestant : Contestant):
 	for sub : DebateSubscriber in subscriber_array: await sub.on_token_played(token, suit, contestant)
 
 func play_card(card : Card, contestant : Contestant):
+	card_player = contestant
 	await play_stack.push_back(card)
 	
-	for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, contestant)
-		
-	for sub : DebateSubscriber in subscriber_array: await sub.on_actions_invoked(card, Const.CardActionType.ON_PLAY, contestant)
-
 func clear_lines():
 	var min = suit_track_dictionary.values()[0].size()
 	

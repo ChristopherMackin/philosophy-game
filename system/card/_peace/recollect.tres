@@ -25,19 +25,7 @@ suit_options = Array[ExtResource("4_5dh6k")]([ExtResource("5_o12v6"), ExtResourc
 suit_selection_action = 1
 metadata/_custom_type_script = "uid://bkcitaxix1ncs"
 
-[sub_resource type="Resource" id="Resource_40tr3"]
-script = ExtResource("10_jsiak")
-key = "suits"
-filter_mode = 0
-metadata/_custom_type_script = "uid://ba0lgn6ygtilc"
-
-[sub_resource type="Resource" id="Resource_t371b"]
-script = ExtResource("11_jsiak")
-slice_direction = 0
-amount = 1
-metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
-
-[sub_resource type="Resource" id="Resource_1xwgc"]
+[sub_resource type="Resource" id="Resource_jsiak"]
 script = ExtResource("11_t371b")
 which_contestant = 0
 amount = -1
@@ -45,10 +33,22 @@ starting_point = 0
 insertion_point = 0
 metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
+[sub_resource type="Resource" id="Resource_t371b"]
+script = ExtResource("10_jsiak")
+key = "suits"
+filter_mode = 0
+metadata/_custom_type_script = "uid://ba0lgn6ygtilc"
+
+[sub_resource type="Resource" id="Resource_u1sng"]
+script = ExtResource("11_jsiak")
+slice_direction = 0
+amount = 1
+metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
+
 [sub_resource type="Resource" id="Resource_eemua"]
 script = ExtResource("12_u1sng")
-card_collection = SubResource("Resource_1xwgc")
-card_array_filters = Array[ExtResource("9_w4ypc")]([SubResource("Resource_40tr3"), SubResource("Resource_t371b")])
+collection_container = SubResource("Resource_jsiak")
+collection_filters = Array[ExtResource("9_w4ypc")]([SubResource("Resource_t371b"), SubResource("Resource_u1sng")])
 metadata/_custom_type_script = "uid://d3yewkkdwyepo"
 
 [sub_resource type="Resource" id="Resource_w874e"]

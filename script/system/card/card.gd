@@ -35,27 +35,29 @@ var cost_modifiers : Array[CardCostModifier] = []
 var manager : DebateManager
 
 func on_play(contestant: Contestant, manager: DebateManager):
-	await _invoke_actions(_on_play_card_actions, contestant, manager)
+	await _invoke_actions(_on_play_card_actions, Const.CardActionType.ON_PLAY, contestant, manager)
 func on_draw(contestant: Contestant, manager: DebateManager):
-	await _invoke_actions(_on_draw_card_actions, contestant, manager)
+	await _invoke_actions(_on_draw_card_actions, Const.CardActionType.ON_DRAW, contestant, manager)
 func on_discard(contestant: Contestant, manager: DebateManager):
-	await _invoke_actions(_on_discard_card_actions, contestant, manager)
+	await _invoke_actions(_on_discard_card_actions, Const.CardActionType.ON_DISCARD, contestant, manager)
 func on_banish(contestant: Contestant, manager: DebateManager):
-	await _invoke_actions(_on_banish_card_actions, contestant, manager)
+	await _invoke_actions(_on_banish_card_actions, Const.CardActionType.ON_BANISH, contestant, manager)
 func on_turn_start(contestant: Contestant, manager: DebateManager):
-	await _invoke_actions(_on_turn_start_card_actions, contestant, manager)
+	await _invoke_actions(_on_turn_start_card_actions, Const.CardActionType.ON_TURN_START, contestant, manager)
 func on_turn_end(contestant: Contestant, manager: DebateManager):
-	await _invoke_actions(_on_turn_end_card_actions, contestant, manager)
+	await _invoke_actions(_on_turn_end_card_actions, Const.CardActionType.ON_TURN_END, contestant, manager)
 func on_hold_start(contestant: Contestant, manager: DebateManager):
-	await _invoke_actions(_on_hold_start_card_actions, contestant, manager)
+	await _invoke_actions(_on_hold_start_card_actions, Const.CardActionType.ON_HOLD_START, contestant, manager)
 func on_hold_stay(contestant: Contestant, manager: DebateManager):
-	await _invoke_actions(_on_hold_stay_card_actions, contestant, manager)
+	await _invoke_actions(_on_hold_stay_card_actions, Const.CardActionType.ON_HOLD_STAY, contestant, manager)
 func on_hold_end(contestant: Contestant, manager: DebateManager):
-	await _invoke_actions(_on_hold_end_card_actions, contestant, manager)
+	await _invoke_actions(_on_hold_end_card_actions, Const.CardActionType.ON_HOLD_END, contestant, manager)
 
-func _invoke_actions(actions: Array[CardAction], contestant: Contestant, manager: DebateManager):
+func _invoke_actions(actions: Array[CardAction], action_type: Const.CardActionType, contestant: Contestant, manager: DebateManager):
 	for action : CardAction in actions:
 		await action.invoke(self, contestant, manager)
+	
+	for sub : DebateSubscriber in manager.subscriber_array: await sub.on_actions_invoked(self, action_type, contestant)
 
 var cost : int :
 	get:
