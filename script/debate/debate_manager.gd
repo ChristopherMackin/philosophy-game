@@ -45,7 +45,7 @@ var current_round : int:
 
 var suit_track_dictionary : Dictionary
 
-var play_stack : Array[Card]
+var play_stack : CardCollection = CardCollection.new()
 
 func subscribe(subscriber : DebateSubscriber):
 	subscriber_array.append(subscriber)
@@ -64,15 +64,17 @@ func init(player_character : Character, computer_character : Character, debate_s
 		var suit_array : Array[Token] = []
 		suit_track_dictionary[suit.name] = suit_array
 	
-	player = Contestant.new(player_character)
-	computer = Contestant.new(computer_character)
+	play_stack.on_added.add_listener(func(card: Card): await card.on_play(active_contestant, self))
+	
+	player = Contestant.new(player_character, self)
+	computer = Contestant.new(computer_character, self)
 	
 	contestants.append(player)
 	contestants.append(computer)
 	
 	for contestant in contestants:
-		await contestant.ready_up(self)
-
+		await contestant.ready_up()
+	
 	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_start()
 	
 	blackboard.expire(Const.ExpirationToken.ON_DEBATE_START)
@@ -145,12 +147,10 @@ func play_token(token : Token, suit : Suit, contestant : Contestant):
 	for sub : DebateSubscriber in subscriber_array: await sub.on_token_played(token, suit, contestant)
 
 func play_card(card : Card, contestant : Contestant):
-	play_stack.append(card)
+	await play_stack.push_back(card)
 	
 	for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, contestant)
-	
-	await card.on_play(contestant, self)
-	
+		
 	for sub : DebateSubscriber in subscriber_array: await sub.on_actions_invoked(card, Const.CardActionType.ON_PLAY, contestant)
 
 func clear_lines():

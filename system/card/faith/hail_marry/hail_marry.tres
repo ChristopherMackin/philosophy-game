@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://bhmt67f1vltyw" path="res://system/card/faith/hail_marry/the_11th_hour.tres" id="3_isoy0"]
 [ext_resource type="Script" uid="uid://c3lkfwpiubfe0" path="res://script/system/card/card_action/add_token_to_suit_track_card_action.gd" id="3_rrtuu"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="6_xh80a"]
-[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection/contestant_hand.gd" id="7_isoy0"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/contestant_hand_collection_container.gd" id="7_isoy0"]
 [ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="7_jypbk"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="8_gmkph"]
 

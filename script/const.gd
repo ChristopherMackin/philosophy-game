@@ -64,7 +64,7 @@ enum Direction {
 	RIGHT
 }
 
-enum CardCollection {
+enum CardCollectionContainer {
 	HAND,
 	DRAW_PILE,
 	DECK,

@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_cx6cb"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_kos4r"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="3_5xsxo"]
-[ext_resource type="Script" uid="uid://c2f31cka87uk4" path="res://script/system/card/card_action/card_collection/contestant_draw_pile.gd" id="3_lbiw2"]
+[ext_resource type="Script" uid="uid://c2f31cka87uk4" path="res://script/system/card/card_action/card_collection_container/contestant_draw_pile_collection_container.gd" id="3_lbiw2"]
 [ext_resource type="Script" uid="uid://cm5qf41iurdc3" path="res://script/system/card/card_action/move_card_collection_to_card_collection_card_action.gd" id="4_02gve"]
 [ext_resource type="Script" uid="uid://ry8dl84ft1kn" path="res://script/system/card/card_action/modify_energy_card_action.gd" id="4_x4y0k"]
-[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection/contestant_hand.gd" id="5_1dwc4"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/contestant_hand_collection_container.gd" id="5_1dwc4"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="5_g1i5i"]
 
 [sub_resource type="Resource" id="Resource_gflqj"]

@@ -1,13 +1,13 @@
 extends CardAction
 
-class_name StoreCardCollectionSuitsInBlackboardCardAction
+class_name StoreCardCollectionContainerSuitsInBlackboardCardAction
 
-@export var card_collection : CardCollection
+@export var collection_container : CardCollectionContainer
 @export var key: String = "suits"
 
 func invoke(caller : Card, player : Contestant, manager : DebateManager):
-	card_collection.init(caller, player, manager)
-	var cards = await card_collection.get_card_collection()
+	collection_container.init(caller, player, manager)
+	var cards = await collection_container.get_card_collection()
 	var suits = cards.map(func(card): return card.suit)
 	
 	for card in cards:

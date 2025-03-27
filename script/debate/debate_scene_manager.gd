@@ -100,7 +100,7 @@ func update_board():
 func update_player_ui():
 	await hand_ui.update_hand(manager.player.hand)
 	await energy_ui.update_amount(manager.player.current_energy)
-	await hold_area_ui.set_hold_card(manager.player.held_card)
+	await hold_area_ui.set_hold_card(manager.player.held_card.get_card_at_index(0))
 	await draw_pile_ui.update_amount(manager.player.draw_pile.size())
 
 func update_computer_ui():

@@ -1,13 +1,13 @@
-extends CardCollection
+extends CardCollectionContainer
 
-class_name ContestantHand
+class_name ContestantHandCollectionContainer
 
 @export var which_contestant : Const.WhichContestant
 var contestant: Contestant:
 	get(): return Const.GetContestant(player, manager.get_opponent(player), which_contestant)
 
-func get_card_collection() -> Array[Card]:
-	return contestant.hand.duplicate()
+func get_collection_cards() -> Array[Card]:
+	return contestant.hand.get_cards()
 
 func remove_card_from_collection(card: Card) -> bool:
 	return contestant.remove_from_hand(card)

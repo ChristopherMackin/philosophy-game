@@ -52,8 +52,8 @@ func _add_card(card : Card):
 	ui_cards.append(card_ui)
 	card_slots.append(card_slot)
 
-func open_selector(card_array : Array[Card], visible_to_player : bool, mode : Const.SelectionAction):
-	for card in card_array:
+func open_selector(cards : Array[Card], visible_to_player : bool, mode : Const.SelectionAction):
+	for card in cards:
 		_add_card(card)
 	
 	match mode:

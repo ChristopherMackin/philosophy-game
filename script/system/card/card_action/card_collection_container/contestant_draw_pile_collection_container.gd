@@ -1,6 +1,6 @@
-extends CardCollection
+extends CardCollectionContainer
 
-class_name ContestantDrawPile
+class_name ContestantDrawPileCollectionContainer
 
 @export var which_contestant : Const.WhichContestant
 @export var amount = -1
@@ -10,11 +10,11 @@ class_name ContestantDrawPile
 var contestant: Contestant:
 	get(): return Const.GetContestant(player, manager.get_opponent(player), which_contestant)
 
-func get_card_collection() -> Array[Card]:
+func get_collection_cards() -> Array[Card]:
 	var draw_pile = contestant.draw_pile
 	var card_array = []
 	
-	if amount == -1: card_array = draw_pile
+	if amount == -1: card_array = draw_pile.get_cards()
 	else:
 		var amount = self.amount if self.amount <= draw_pile.size() else draw_pile.size()
 		

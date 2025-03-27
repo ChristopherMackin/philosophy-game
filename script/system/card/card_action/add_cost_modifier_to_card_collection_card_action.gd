@@ -1,13 +1,13 @@
 extends CardAction
 
-class_name AddCostModifierToCardCollectionCardAction
+class_name AddCostModifierToCardCollectionContainerCardAction
 
-@export var card_collection: CardCollection 
+@export var collection_container: CardCollectionContainer 
 @export var cost_modifier : CardCostModifier
 
 func invoke(caller : Card, player : Contestant, manager : DebateManager):
-	card_collection.init(caller, player, manager)
-	var cards = await card_collection.get_card_collection()
+	collection_container.init(caller, player, manager)
+	var cards = await collection_container.get_collection_container()
 	
 	for card in cards:
 		card.cost_modifiers.append(cost_modifier.duplicate(true))

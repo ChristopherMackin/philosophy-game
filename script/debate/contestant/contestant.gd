@@ -4,12 +4,12 @@ class_name Contestant
 
 var manager : DebateManager
 var character : Character
-var hand : Array[Card] = []
-var draw_pile : Array[Card] = []
-var discard_pile : Array[Card] = []
+var hand : CardCollection = CardCollection.new()
+var draw_pile : CardCollection = CardCollection.new()
+var discard_pile : CardCollection = CardCollection.new()
 var playable_cards : Array[Card]:
-	get: return hand.filter(func(x): return x.cost <= current_energy)
-var held_card : Card
+	get: return hand.get_cards().filter(func(x): return x.cost <= current_energy)
+var held_card : CardCollection = CardCollection.new()
 var can_hold : bool = true
 
 var name : String:
@@ -39,81 +39,71 @@ var can_play:
 func character_is(character : Character):
 	return self.character == character
 
-func _init(character : Character):
+func _init(character : Character, manager : DebateManager):
+	self.manager = manager
 	self.character = character
 	self.character.brain.contestant = self
+	
+	hand.on_added.add_listener(func(card: Card): await card.on_draw(self, manager))
+	
+	draw_pile.on_added.add_listener(func(card: Card): await card.destroy_token())
+	draw_pile.on_removed.add_listener(func(card: Card): await card.generate_token())
+	
+	discard_pile.on_added.add_listener(func(card: Card): card.on_discard(self, manager))
 
-func ready_up(manager : DebateManager):
-	self.manager = manager
-	draw_pile.assign(_deck.create_draw_pile(manager))
+func ready_up():
+	var draw_pile_array : Array[Card]
+	draw_pile_array.assign(_deck.create_draw_pile(manager))
+	
+	draw_pile.replace(draw_pile_array)
 	await draw_full_hand()
 	current_energy = energy_level
 
 func _draw_card() -> bool:
 	if hand.size() >= hand_limit || draw_pile.size() <= 0: return false
 	
-	var card = draw_pile.pop_front()
-	card.generate_token()
-	
-	hand.append(card)
-	
-	for sub : DebateSubscriber in manager.subscriber_array: await sub.on_card_drawn(card, self)
+	await hand.push_back(draw_pile.get_card_at_index(0))	
 	
 	return true
 
 func draw_specified_card(card : Card) -> bool:
 	if hand.size() >= hand_limit || draw_pile.size() <= 0: return false
 	
-	var index = draw_pile.find(card)
-	if index < 0: return false
-	
-	var found_card = draw_pile.pop_at(index)
-	
-	found_card.generate_token()
-	
-	hand.append(found_card)
-	
-	for sub : DebateSubscriber in manager.subscriber_array: await sub.on_card_drawn(found_card, self)
+	await hand.push_back(draw_pile.get_card(card))	
 	
 	return true
 
 func draw_at_index(index : int) -> bool:
 	if hand.size() >= hand_limit || draw_pile.size() <= 0: return false
-
-	if index < 0 || index >= draw_pile.size():
-		return false
 	
-	var card = draw_pile[index]
-	card.generate_token()
-	
-	hand.append(card)
-	draw_pile.remove_at(index)
+	await hand.push_back(draw_pile.get_card_at_index(index))	
 	
 	return true
 
 func draw_number_of_cards(amount : int):
-	var is_draw_pile_empty = false
-	while amount > 0 && !is_draw_pile_empty:
-		is_draw_pile_empty = !await _draw_card()
+	var can_draw = true
+	while amount > 0 && can_draw:
+		can_draw = await _draw_card()
 		amount -= 1
 
 func draw_full_hand():
-	var is_draw_pile_empty = false
-	while hand.size() < draw_limit && !is_draw_pile_empty:
-		is_draw_pile_empty = !await _draw_card()
+	var can_draw = true
+	while hand.size() < draw_limit && can_draw:
+		can_draw = await _draw_card()
 
 func start_turn():
-	for card : Card in hand.duplicate():
-		card.on_turn_start(self, manager)
+	for card : Card in hand.get_cards():
+		await card.on_turn_start(self, manager)
 
 func end_turn():
-	for card : Card in hand.duplicate():
-		card.on_turn_end(self, manager)
+	for card : Card in hand.get_cards():
+		await card.on_turn_end(self, manager)
 	
-	if held_card:
-		held_card.on_hold_stay(self, manager)
+	if held_card.size() > 0:
+		for card in held_card:
+			await card.on_hold_stay(self, manager)
 	
-	for card in hand:
+	for card in hand.get_cards():
 		for modifier : CardCostModifier in card.cost_modifiers.filter(func(x): return x.can_expire).duplicate():
 			modifier.turn_lifetime -= 1
 			if modifier.turn_lifetime <= 0:
@@ -121,29 +111,27 @@ func end_turn():
 				card.cost_modifiers.remove_at(index)
 	
 	await draw_full_hand()
-	current_energy = energy_level
+	
+	if current_energy < energy_level:
+		current_energy = energy_level
+	
 	can_hold = true
 
 func take_turn() -> SelectionResponse:
-	if hand.size() <= 0:
-		await draw_full_hand()
-	
 	var valid_response := false
 	var response = null
 	
 	while(!valid_response):
-		response = await select(SelectionRequest.new(hand))
+		response = await select(SelectionRequest.new(hand.get_cards()))
 		valid_response = true
 		var card = response.data
 		
 		match response.what:
 			"play":
-				if playable_cards.has(card):
-					remove_from_hand(card)
-				else: valid_response = false
+				valid_response = playable_cards.has(card)
 			"hold":
 				if can_hold:
-					hold_card(card)
+					await hold_card(card)
 				else: valid_response = false
 				
 	return response
@@ -154,83 +142,24 @@ func select(request : SelectionRequest) -> SelectionResponse:
 
 func hold_card(card : Card):
 	if held_card:
-		var index = hand.find(card)
-		add_to_hand(held_card, index)
-		held_card.on_hold_end(self, manager)
+		var index = hand.get_card_index(card)
+		await hand.insert(index, card)
 	
 	if card:
-		held_card = card
-		remove_from_hand(card)
-		held_card.on_hold_start(self, manager)
+		await held_card.push_back(card)
 	
 	can_hold = false
 	
 	for sub : DebateSubscriber in manager.subscriber_array: await sub.on_card_hold_updated(held_card, self)
 
 func remove_held_card():
-	if held_card:
-		var card = held_card
-		held_card = null
-		card.on_hold_end(self, manager)
-	
-
-func discard_card(card : Card):
-	discard_pile.append(card)
-	
-	await card.on_discard(self, manager)
-
-func add_to_hand(card : Card, index: int = -1) -> bool:
-	if hand.size() >= hand_limit: return false
-	
-	if index == -1 || index >= hand.size():
-		hand.append(card)
-	else:
-		hand.insert(index, card)
-	
-	return true
-
-func remove_from_hand(card : Card) -> bool:
-	var index = hand.find(card)
-	if index < 0: return false
-	
-	hand.remove_at(index)
-	
-	return true
-
-func discard_from_hand(card : Card):
-	if !remove_from_hand(card): return
-	await discard_card(card)
-
-func push_front_to_draw_pile(card: Card):
-	draw_pile.push_front(card)
-
-func append_to_draw_pile(card: Card):
-	draw_pile.append(card)
-
-func random_insert_to_draw_pile(card: Card):
-	draw_pile.insert(randi() % (draw_pile.size() + 1), card)
-
-func remove_from_draw_pile(card : Card):
-	var index = draw_pile.find(card)
-	
-	if index < 0: return false
-	
-	draw_pile.remove_at(index)
-	
-	return true
+	if held_card.size() > 0:
+		var card = held_card.get_card_at_index(0)
+		held_card.remove(card)
 
 func add_to_deck(card : Card):
 	_deck.add_to_deck(card)
 
 func remove_from_deck(card : Card):
 	_deck.remove_from_deck(card)
-	card.on_banish(self, manager)
-
-func draw_pile_push_front(card: Card):
-	draw_pile.push_front(card)
-
-func draw_pile_append(card: Card):
-	draw_pile.append(card)
-
-func draw_pile_random_insert(card: Card):
-	draw_pile.insert(randi() % (draw_pile.size() + 1), card)
+	await card.on_banish(self, manager)

@@ -36,13 +36,13 @@ func _ready():
 func on_select(data, what: String, focus_type : String):
 	player_brain.make_selection(SelectionResponse.new(data, what))
 
-func update_hand(hand : Array[Card]):
+func update_hand(hand : CardCollection):
 	while(!lock.obtain_lock()):
 		await lock.on_released
 	
 	var current_cards = ui_cards.map(func(x): return x.card)
-	var new_cards = Util.array_difference(hand, current_cards)
-	var removed_cards = Util.array_difference(current_cards, hand)
+	var new_cards = Util.array_difference(hand.get_cards(), current_cards)
+	var removed_cards = Util.array_difference(current_cards, hand.get_cards())
 	var remaining_cards = Util.array_difference(current_cards, removed_cards)
 	
 	var add_funcs : Array[Callable] = []
@@ -82,10 +82,10 @@ func clear_hand():
 	card_slots.clear()
 	ui_cards.clear()
 
-func sort_hand(hand : Array[Card]):
+func sort_hand(hand : CardCollection):
 	var children = card_parent.get_children()
 	
-	for card in hand:
+	for card in hand.get_cards():
 		var index = ui_cards.map(func(x): return x.card).find(card)
 		card_slots[index].move_to_front()
 

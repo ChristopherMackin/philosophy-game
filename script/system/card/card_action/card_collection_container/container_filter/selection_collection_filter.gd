@@ -6,7 +6,7 @@ class_name SelectionCollectionFilter
 var action: Const.SelectionAction: 
 	get(): return selection_action as Const.SelectionAction
 
-func filter(card_array: Array[Card], caller: Card, contestant: Contestant, manager: DebateManager) -> Array[Card]:	
+func filter(card_array: Array[Card], caller: Card, contestant: Contestant, manager: DebateManager) -> Array[Card]:
 	if card_array.size() <= 0: return card_array
 	
 	var cards : Array[Card]

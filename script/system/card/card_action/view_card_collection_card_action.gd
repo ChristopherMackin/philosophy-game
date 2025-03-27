@@ -1,13 +1,13 @@
 extends CardAction
 
-class_name ViewCardCollectionCardAction
+class_name ViewCardCollectionContainerCardAction
 
-@export var card_collection: CardCollection
+@export var collection_container: CardCollectionContainer
 
 func invoke(caller : Card, player : Contestant, manager : DebateManager):
-	card_collection.init(caller, player, manager)
+	collection_container.init(caller, player, manager)
 	
-	var cards = card_collection.get_card_collection()
+	var cards = collection_container.get_card_collection()
 	
 	await player.select(SelectionRequest.new(
 		cards,

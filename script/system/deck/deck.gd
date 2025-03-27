@@ -13,7 +13,7 @@ func create_draw_pile(manager : DebateManager) -> Array[Card]:
 	for config in composition_card_deck_config_array:
 		for index in config.count:
 			var card = Card.new(config.base, manager)
-			draw_pile.append(card)
+			draw_pile.push_back(card)
 	
 	draw_pile.shuffle()
 	

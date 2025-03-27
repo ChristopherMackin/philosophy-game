@@ -1,8 +1,8 @@
 extends CardAction
 
-class_name ChangeCardCollectionSuitCardAction
+class_name ChangeCardCollectionContainerSuitCardAction
 
-@export var card_collection : CardCollection
+@export var collection_container : CardCollectionContainer
 
 @export var suit_options: Array[Suit]
 @export_enum("Single:1", "First:4") var suit_selection_action := 4
@@ -11,8 +11,8 @@ var suit_action: Const.SelectionAction:
 
 
 func invoke(caller : Card, player : Contestant, manager : DebateManager):
-	card_collection.init(caller, player, manager)
-	var cards = await card_collection.get_card_collection()
+	collection_container.init(caller, player, manager)
+	var cards = await collection_container.get_collection_cards()
 		
 	#Select Suit =====================================
 	var new_suit: Suit

@@ -2,6 +2,8 @@ extends Object
 
 class_name Card
 
+var collection : CardCollection
+
 var _base : CardBase
 
 var _token : Token
@@ -19,20 +21,23 @@ var token_artwork : Texture2D:
 var has_token : bool:
 	get: return _base.token_data != null
 
-var _on_play_card_actions : Array[CardAction] = []
-var _on_discard_card_actions : Array[CardAction] = []
-var _on_banish_card_actions : Array[CardAction] = []
-var _on_turn_start_card_actions : Array[CardAction] = []
-var _on_turn_end_card_actions : Array[CardAction] = []
-var _on_hold_start_card_actions : Array[CardAction] = []
-var _on_hold_stay_card_actions : Array[CardAction] = []
-var _on_hold_end_card_actions : Array[CardAction] = []
+var _on_play_card_actions: Array[CardAction] = []
+var _on_draw_card_actions: Array[CardAction] = []
+var _on_discard_card_actions: Array[CardAction] = []
+var _on_banish_card_actions: Array[CardAction] = []
+var _on_turn_start_card_actions: Array[CardAction] = []
+var _on_turn_end_card_actions: Array[CardAction] = []
+var _on_hold_start_card_actions: Array[CardAction] = []
+var _on_hold_stay_card_actions: Array[CardAction] = []
+var _on_hold_end_card_actions: Array[CardAction] = []
 
 var cost_modifiers : Array[CardCostModifier] = []
 var manager : DebateManager
 
 func on_play(contestant: Contestant, manager: DebateManager):
 	await _invoke_actions(_on_play_card_actions, contestant, manager)
+func on_draw(contestant: Contestant, manager: DebateManager):
+	await _invoke_actions(_on_draw_card_actions, contestant, manager)
 func on_discard(contestant: Contestant, manager: DebateManager):
 	await _invoke_actions(_on_discard_card_actions, contestant, manager)
 func on_banish(contestant: Contestant, manager: DebateManager):

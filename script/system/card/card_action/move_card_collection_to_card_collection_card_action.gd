@@ -1,10 +1,10 @@
 @tool
 extends CardAction
 
-class_name MoveCardCollectionToCardCollectionCardAction
+class_name MoveCardCollectionContainerToCardCollectionContainerCardAction
 
-@export var from_collection : CardCollection
-@export var to_collection : CardCollection
+@export var from_collection : CardCollectionContainer
+@export var to_collection : CardCollectionContainer
 
 func invoke(caller : Card, player : Contestant, manager : DebateManager):	
 	from_collection.init(caller, player, manager)
