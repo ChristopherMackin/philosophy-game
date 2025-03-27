@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=15 format=3 uid="uid://bhmt67f1vltyw"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=14 format=3 uid="uid://bhmt67f1vltyw"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_ex78c"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_8vplh"]
@@ -18,17 +18,10 @@ metadata/_custom_type_script = "uid://bw3sfhshf5fwh"
 script = ExtResource("3_ng02t")
 card_collection = SubResource("Resource_ex78c")
 which_contestant = 0
-selection_action = 3
-
-[sub_resource type="Resource" id="Resource_ng02t"]
-script = ExtResource("4_ex78c")
-metadata/_custom_type_script = "uid://bw3sfhshf5fwh"
 
 [sub_resource type="Resource" id="Resource_cflqw"]
 script = ExtResource("5_8vplh")
-card_collection_factory = SubResource("Resource_ng02t")
 which_contestant = 0
-selection_action = 3
 metadata/_custom_type_script = "uid://4v61ulpu2ysv"
 
 [sub_resource type="Resource" id="Resource_n16bf"]
