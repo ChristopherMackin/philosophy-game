@@ -1,11 +1,11 @@
 extends CardAction
 
-class_name BanishCardCollectionContainerCardAction
+class_name BanishCardCollectionCardAction
 
 @export var collection_container : CardCollectionContainer
 @export var which_contestant : Const.WhichContestant
 
-func invoke(caller : Card, player : Contestant, manager : DebateManager):
+func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool:
 	collection_container.init(caller, player, manager)
 	var cards = await collection_container.get_card_collection()
 	
@@ -16,3 +16,5 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager):
 		await card.card_collection.remove(card)
 	
 	manager.blackboard.add("action.banished_cards", cards, Const.ExpirationToken.ON_ACTION_END)
+	
+	return true

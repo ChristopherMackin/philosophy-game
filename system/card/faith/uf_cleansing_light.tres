@@ -1,46 +1,19 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=15 format=3 uid="uid://bi4b6yrbrei1b"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://bi4b6yrbrei1b"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_5vbhn"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_2725i"]
-[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_eic8o"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="3_id0nr"]
-[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="4_2725i"]
-[ext_resource type="Script" uid="uid://16samtkb1lb4" path="res://script/system/card/card_action/card_collection_container/container_filter/selection_collection_filter.gd" id="4_vny10"]
-[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/contestant_hand_collection_container.gd" id="5_20bl1"]
-[ext_resource type="Script" uid="uid://d3yewkkdwyepo" path="res://script/system/card/card_action/card_collection_container/filtered_collection_container.gd" id="6_6lhta"]
-[ext_resource type="Script" uid="uid://4v61ulpu2ysv" path="res://script/system/card/card_action/discard_card_collection_card_action.gd" id="7_qbxxr"]
 [ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="8_vny10"]
-
-[sub_resource type="Resource" id="Resource_ihtgu"]
-script = ExtResource("4_vny10")
-selection_action = 1
-metadata/_custom_type_script = "uid://16samtkb1lb4"
-
-[sub_resource type="Resource" id="Resource_23net"]
-script = ExtResource("5_20bl1")
-which_contestant = 0
-metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
-
-[sub_resource type="Resource" id="Resource_pu1gw"]
-script = ExtResource("6_6lhta")
-card_collection = SubResource("Resource_23net")
-card_array_filters = Array[ExtResource("3_eic8o")]([SubResource("Resource_ihtgu")])
-metadata/_custom_type_script = "uid://d3yewkkdwyepo"
-
-[sub_resource type="Resource" id="Resource_8apdp"]
-script = ExtResource("7_qbxxr")
-card_collection = SubResource("Resource_pu1gw")
-which_contestant = 0
-metadata/_custom_type_script = "uid://4v61ulpu2ysv"
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="9_0fb8e"]
 
 [resource]
 script = ExtResource("3_id0nr")
-suit = ExtResource("4_2725i")
+suit = ExtResource("9_0fb8e")
 title = "Cleansing Light"
 base_cost = 1
 description = "Discard a card from you hand. If it is a doubt card gain an energy"
 token_data = ExtResource("8_vny10")
-on_play_card_actions = Array[ExtResource("2_2725i")]([SubResource("Resource_8apdp")])
+on_play_card_actions = Array[ExtResource("2_2725i")]([])
 on_discard_card_actions = Array[ExtResource("2_2725i")]([])
 on_banish_card_actions = Array[ExtResource("2_2725i")]([])
 on_turn_start_card_actions = Array[ExtResource("2_2725i")]([])

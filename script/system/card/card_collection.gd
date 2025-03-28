@@ -33,7 +33,6 @@ func insert(index: int, card: Card):
 	_cards.insert(index, card)
 	await on_added.invoke(card)
 
-
 func insert_random(card: Card):
 	insert(randi() % (_cards.size() + 1), card)
 

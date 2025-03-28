@@ -1,13 +1,13 @@
 extends CardAction
 
-class_name AddCardToCardCollectionContainerCardAction
+class_name AddCardToCardCollectionCardAction
 
 @export var collection_container : CardCollectionContainer
 
 @export var base : CardBase
 @export var amount : int = 1
 
-func invoke(caller : Card, player : Contestant, manager : DebateManager):	
+func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool:
 	collection_container.init(caller, player, manager)
 	
 	for i in amount:
@@ -17,3 +17,5 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager):
 		collection_container.add_card_to_collection(card)
 	
 	manager.blackboard.add("action.added_card_base", base, Const.ExpirationToken.ON_ACTION_END)
+	
+	return true

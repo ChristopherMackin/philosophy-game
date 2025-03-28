@@ -8,7 +8,7 @@ class_name SelectAndStoreSuitsInBlackboardCardAction
 var suit_action: Const.SelectionAction:
 	get(): return suit_selection_action as Const.SelectionAction
 
-func invoke(caller : Card, player : Contestant, manager : DebateManager):
+func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool:
 	#Select Suit =====================================
 	var suits: Array[Suit]
 	
@@ -30,3 +30,5 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager):
 			suits = response.data
 	
 	manager.blackboard.add("action.%s" % key, suits, Const.ExpirationToken.ON_ACTION_END)
+	
+	return true

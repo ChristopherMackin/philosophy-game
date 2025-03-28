@@ -70,7 +70,6 @@ func init(player_character : Character, computer_character : Character, debate_s
 	play_stack.on_added.add_listener(func(card: Card): 
 		for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, card_player)
 	)
-
 	
 	player = Contestant.new(player_character, self)
 	computer = Contestant.new(computer_character, self)

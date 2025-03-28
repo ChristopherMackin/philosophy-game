@@ -4,7 +4,7 @@ class_name RemoveSelectedTokenFromBoard
 
 @export var suit_filter : Array[Suit]
 
-func invoke(card : Card, player : Contestant, manager : DebateManager):
+func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool:
 	var selectable_tokens : Array[Token]
 	
 	if suit_filter.size() > 0:	
@@ -22,3 +22,5 @@ func invoke(card : Card, player : Contestant, manager : DebateManager):
 	))
 	
 	await manager.remove_token_from_suit_track(response.data)
+	
+	return true

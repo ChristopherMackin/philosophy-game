@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cgmtcfsq1rn5n" path="res://script/system/card/card_action/view_card_collection_card_action.gd" id="4_hr5ul"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="5_qda3y"]
 
-[sub_resource type="Resource" id="Resource_qda3y"]
+[sub_resource type="Resource" id="Resource_hr5ul"]
 script = ExtResource("3_hr5ul")
 which_contestant = 0
 amount = 3
@@ -17,7 +17,7 @@ metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
 [sub_resource type="Resource" id="Resource_rjau2"]
 script = ExtResource("4_hr5ul")
-card_collection = SubResource("Resource_qda3y")
+collection_container = SubResource("Resource_hr5ul")
 metadata/_custom_type_script = "uid://cgmtcfsq1rn5n"
 
 [resource]
