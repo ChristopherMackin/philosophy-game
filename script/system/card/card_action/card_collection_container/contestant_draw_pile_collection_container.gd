@@ -19,9 +19,9 @@ func get_collection_cards() -> Array[Card]:
 		var amount = self.amount if self.amount <= draw_pile.size() else draw_pile.size()
 		
 		if starting_point == 0:
-			card_array = draw_pile.slice(0, amount)
+			card_array = draw_pile.get_cards().slice(0, amount)
 		else:
-			card_array = draw_pile.slice(0, -(amount), -1)
+			card_array = draw_pile.get_cards().slice(0, -(amount), -1)
 	
 	for card: Card in card_array:
 		card.generate_token()

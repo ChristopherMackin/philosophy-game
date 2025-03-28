@@ -104,7 +104,7 @@ func end_turn():
 		await card.on_turn_end(self, manager)
 	
 	if held_card.size() > 0:
-		for card in held_card:
+		for card in held_card.get_cards():
 			await card.on_hold_stay(self, manager)
 	
 	for card in hand.get_cards():
@@ -147,7 +147,9 @@ func select(request : SelectionRequest) -> SelectionResponse:
 func hold_card(card : Card):
 	if held_card.size() > 0:
 		var index = hand.get_card_index(card)
-		await hand.insert(index, card)
+		var old_held_card = held_card.get_card_at_index(0)
+		await held_card.push_back(card)
+		await hand.insert(index, old_held_card)
 	
 	if card:
 		await held_card.push_back(card)

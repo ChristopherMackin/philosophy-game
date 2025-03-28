@@ -66,7 +66,7 @@ func get_card_at_index(index: int):
 	return _cards[index]
 
 func get_card_index(card: Card):
-	var index = _cards.find(card)
+	return _cards.find(card)
 
 func size():
 	return _cards.size()

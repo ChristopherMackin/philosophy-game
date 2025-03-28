@@ -14,3 +14,5 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager):
 	for card in cards:
 		contestant.remove_from_deck(card)
 		await card.card_collection.remove(card)
+	
+	manager.blackboard.add("action.banished_cards", cards, Const.ExpirationToken.ON_ACTION_END)
