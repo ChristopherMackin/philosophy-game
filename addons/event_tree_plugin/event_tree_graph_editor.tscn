@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cigpy34phehbr"]
+[gd_scene load_steps=12 format=3 uid="uid://cigpy34phehbr"]
 
 [ext_resource type="Script" uid="uid://cgrbakyn86j8w" path="res://addons/event_tree_plugin/event_tree_graph_editor.gd" id="1_5451c"]
 [ext_resource type="Script" uid="uid://cmxpujb4d3phc" path="res://addons/event_tree_plugin/event_type_list.gd" id="1_mpg4u"]
@@ -9,10 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dhjaa2rvtsb4w" path="res://addons/event_tree_plugin/task_node/console_log_node.tscn" id="5_rlkc1"]
 [ext_resource type="PackedScene" uid="uid://cr37f2ebcj6kc" path="res://addons/event_tree_plugin/task_node/dialogue_node.tscn" id="8_dwr4h"]
 [ext_resource type="PackedScene" uid="uid://djq6hwf312whs" path="res://addons/event_tree_plugin/task_node/wait_node.tscn" id="9_vr2na"]
-[ext_resource type="PackedScene" uid="uid://bebhxac2vqi8n" path="res://addons/event_tree_plugin/task_node/increment_value.tscn" id="10_lgvi0"]
 [ext_resource type="PackedScene" uid="uid://b8grwpsb8a8t5" path="res://addons/event_tree_plugin/task_node/animation_node.tscn" id="11_1e0xf"]
 [ext_resource type="PackedScene" uid="uid://du3ueixbb1wck" path="res://addons/event_tree_plugin/task_node/set_value_node.tscn" id="11_y5fjh"]
-[ext_resource type="PackedScene" uid="uid://by584kw2dy5t8" path="res://addons/event_tree_plugin/task_node/decrement_value.tscn" id="11_yw6to"]
 
 [node name="Event Tree Graph Editor" type="Control"]
 custom_minimum_size = Vector2(500, 0)
@@ -99,14 +97,12 @@ offset_top = -0.400085
 offset_right = 0.319992
 grow_vertical = 0
 size_flags_vertical = 3
-item_count = 7
+item_count = 5
 item_0/text = "ConsoleLog"
 item_1/text = "Dialogue"
 item_2/text = "Wait"
 item_3/text = "Animate"
-item_4/text = "IncrementValue"
-item_5/text = "DecrementValue"
-item_6/text = "SetValue"
+item_4/text = "SetValue"
 script = ExtResource("1_mpg4u")
 event_graph = NodePath("../GraphContainer/EventGraph")
 task_node_type_parent = NodePath("../TaskNodeTypeParent")
@@ -128,12 +124,6 @@ layout_mode = 0
 layout_mode = 0
 
 [node name="Animate" parent="TaskNodeTypeParent" instance=ExtResource("11_1e0xf")]
-layout_mode = 0
-
-[node name="IncrementValue" parent="TaskNodeTypeParent" instance=ExtResource("10_lgvi0")]
-layout_mode = 0
-
-[node name="DecrementValue" parent="TaskNodeTypeParent" instance=ExtResource("11_yw6to")]
 layout_mode = 0
 
 [node name="SetValue" parent="TaskNodeTypeParent" instance=ExtResource("11_y5fjh")]

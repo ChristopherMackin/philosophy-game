@@ -129,9 +129,7 @@ func active_player_turn():
 			active_contestant.current_energy -= card.cost
 		
 			blackboard.add("previous_card", blackboard.get_value("current_card"), Const.ExpirationToken.ON_DEBATE_START)
-			blackboard.add("previous_suit", blackboard.get_value("current_suit"), Const.ExpirationToken.ON_DEBATE_START)
-			blackboard.add("current_card", card.title, Const.ExpirationToken.ON_DEBATE_START)
-			blackboard.add("current_suit", card.suit.name, Const.ExpirationToken.ON_DEBATE_START)
+			blackboard.add("current_card", card, Const.ExpirationToken.ON_DEBATE_START)
 			
 			var token = card.pop_token()
 			if token:

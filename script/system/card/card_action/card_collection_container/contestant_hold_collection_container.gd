@@ -6,7 +6,7 @@ class_name ContestantHoldCollectionContainer
 var contestant: Contestant:
 	get(): return Const.GetContestant(player, manager.get_opponent(player), which_contestant)
 
-func get_collection_cards() -> Array[Card]:
+func _get_unfiltered_collection() -> Array[Card]:
 	if contestant.held_card:
 		return contestant.held_card.get_cards()
 	else:

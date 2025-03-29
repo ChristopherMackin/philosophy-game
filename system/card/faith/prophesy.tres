@@ -1,18 +1,25 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=9 format=3 uid="uid://01o3rik3bc3n"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=12 format=3 uid="uid://01o3rik3bc3n"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_w14tu"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_1xqb1"]
 [ext_resource type="Script" uid="uid://c2f31cka87uk4" path="res://script/system/card/card_action/card_collection_container/contestant_draw_pile_collection_container.gd" id="3_hr5ul"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="3_nsxl4"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_rjau2"]
 [ext_resource type="Script" uid="uid://cgmtcfsq1rn5n" path="res://script/system/card/card_action/view_card_collection_card_action.gd" id="4_hr5ul"]
+[ext_resource type="Script" uid="uid://bwc82j6d8fvd4" path="res://script/system/card/card_action/card_collection_container/container_filter/slice_collection_filter.gd" id="4_m6tnw"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="5_qda3y"]
+
+[sub_resource type="Resource" id="Resource_m064l"]
+script = ExtResource("4_m6tnw")
+slice_direction = 0
+amount = 3
+metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
 
 [sub_resource type="Resource" id="Resource_hr5ul"]
 script = ExtResource("3_hr5ul")
 which_contestant = 0
-amount = 3
-starting_point = 0
 insertion_point = 0
+collection_filters = Array[ExtResource("3_rjau2")]([SubResource("Resource_m064l")])
 metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
 [sub_resource type="Resource" id="Resource_rjau2"]

@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=9 format=3 uid="uid://b150jnrliiino"]
+[gd_resource type="Resource" script_class="Deck" load_steps=7 format=3 uid="uid://b150jnrliiino"]
 
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://script/system/card/card_deck_config.gd" id="1_xxq85"]
-[ext_resource type="Resource" uid="uid://db07dth8iua8f" path="res://system/card/_peace/rethink.tres" id="2_lslfs"]
+[ext_resource type="Resource" uid="uid://bi4b6yrbrei1b" path="res://system/card/faith/uf_cleansing_light.tres" id="2_lslfs"]
 [ext_resource type="Resource" uid="uid://01o3rik3bc3n" path="res://system/card/faith/prophesy.tres" id="2_sgx72"]
-[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/basic_faith.tres" id="3_lslfs"]
 [ext_resource type="Script" uid="uid://dhdtv0v6h0rkq" path="res://script/system/deck/deck.gd" id="11_ynqog"]
 
 [sub_resource type="Resource" id="Resource_5u61n"]
@@ -18,12 +17,6 @@ base = ExtResource("2_sgx72")
 count = 10
 metadata/_custom_type_script = "uid://bcrhpdjlreow5"
 
-[sub_resource type="Resource" id="Resource_wko4y"]
-script = ExtResource("1_xxq85")
-base = ExtResource("3_lslfs")
-count = 10
-metadata/_custom_type_script = "uid://bcrhpdjlreow5"
-
 [resource]
 script = ExtResource("11_ynqog")
-composition_card_deck_config_array = Array[ExtResource("1_xxq85")]([SubResource("Resource_5u61n"), SubResource("Resource_lslfs"), SubResource("Resource_wko4y")])
+composition_card_deck_config_array = Array[ExtResource("1_xxq85")]([SubResource("Resource_5u61n"), SubResource("Resource_lslfs")])

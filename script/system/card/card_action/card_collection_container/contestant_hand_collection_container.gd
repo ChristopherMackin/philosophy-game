@@ -6,7 +6,7 @@ class_name ContestantHandCollectionContainer
 var contestant: Contestant:
 	get(): return Const.GetContestant(player, manager.get_opponent(player), which_contestant)
 
-func get_collection_cards() -> Array[Card]:
+func _get_unfiltered_collection() -> Array[Card]:
 	return contestant.hand.get_cards()
 
 func add_card_to_collection(card: Card):

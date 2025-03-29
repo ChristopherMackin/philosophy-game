@@ -28,7 +28,7 @@ func file_selected(path):
 func _on_id_selected(index : int):
 	dialogue = FileDialog.new()
 	dialogue.add_filter("*.tres")
-	dialogue.size = Vector2(400, 400)
+	dialogue.size = Vector2(1200, 800)
 	dialogue.file_mode = FileDialog.FILE_MODE_OPEN_FILE
 	dialogue.access = FileDialog.ACCESS_FILESYSTEM
 	dialogue.initial_position = Window.WINDOW_INITIAL_POSITION_CENTER_PRIMARY_SCREEN

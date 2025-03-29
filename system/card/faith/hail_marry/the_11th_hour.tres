@@ -1,22 +1,16 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=14 format=3 uid="uid://bhmt67f1vltyw"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=12 format=3 uid="uid://bhmt67f1vltyw"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_ex78c"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_8vplh"]
 [ext_resource type="Script" uid="uid://rrdu42eofb1a" path="res://script/system/card/card_action/banish_card_collection_card_action.gd" id="3_ng02t"]
-[ext_resource type="Script" uid="uid://bw3sfhshf5fwh" path="res://script/system/card/card_action/card_collection_container/caller_collection_container.gd" id="4_ex78c"]
 [ext_resource type="Script" uid="uid://4v61ulpu2ysv" path="res://script/system/card/card_action/discard_card_collection_card_action.gd" id="5_8vplh"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="5_n16bf"]
 [ext_resource type="Script" uid="uid://c51otnpgvxovp" path="res://script/system/card/card_action/remove_amount_of_tokens_from_suit_track_card_action.gd" id="6_8vplh"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="7_4ypbb"]
 [ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="8_6ijqb"]
 
-[sub_resource type="Resource" id="Resource_ex78c"]
-script = ExtResource("4_ex78c")
-metadata/_custom_type_script = "uid://bw3sfhshf5fwh"
-
 [sub_resource type="Resource" id="Resource_uajp8"]
 script = ExtResource("3_ng02t")
-card_collection = SubResource("Resource_ex78c")
 which_contestant = 0
 
 [sub_resource type="Resource" id="Resource_cflqw"]

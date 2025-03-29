@@ -9,8 +9,8 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager):
 	collection_container_1.init(caller, player, manager)
 	collection_container_2.init(caller, player, manager)
 	
-	var cards_1 := collection_container_1.get_collection_cards()
-	var cards_2 := collection_container_2.get_collection_cards()
+	var cards_1 := await collection_container_1.get_collection_cards()
+	var cards_2 := await collection_container_2.get_collection_cards()
 	
 	var size = cards_1.size() if cards_1.size() <= cards_2.size() else cards_2.size()
 	

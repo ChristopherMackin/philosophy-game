@@ -7,7 +7,7 @@ class_name ViewCardCollectionCardAction
 func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool:
 	collection_container.init(caller, player, manager)
 	
-	var cards = collection_container.get_collection_cards()
+	var cards = await collection_container.get_collection_cards()
 	
 	await player.select(SelectionRequest.new(
 		cards,

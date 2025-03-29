@@ -2,45 +2,25 @@ extends Resource
 
 class_name Criterion
 
-enum Comparator {
-	EQUALS,
-	NOT,
-	GREATER,
-	LESS,
-	GREATER_EQUALS,
-	LESS_EQUALS
-}
- 
-@export var comparator : Criterion.Comparator
-
-@export var key : String
-@export var value : String
-var _value:
-	get: 
-		var val = str_to_var(value)
-		return val if typeof(val) != 0 else value.to_snake_case()
+@export_multiline var expression : String
+@export var variables : Dictionary[String, Variant]
 
 func check(query : Dictionary) -> bool:
-	if !query.has(key):
-		return false
-	else: return query.get(key) == _value
+	var _query_and_variables = variables.duplicate()
+	_query_and_variables.merge(query)
+	return evaluate(expression, _query_and_variables.keys(), _query_and_variables.values())
 
-func compare(value1, value2, comparator : Comparator) -> bool:
-	if typeof(value1) != typeof(value2):
+func evaluate(command, variable_names = [], variable_values = []) -> bool:
+	var expression = Expression.new()
+	var error = expression.parse(command, variable_names)
+	if error != OK:
+		push_error(expression.get_error_text())
+		return false
+
+	var result : bool = expression.execute(variable_values, self)
+
+	if expression.has_execute_failed():
 		return false
 	
-	match comparator:
-		Comparator.EQUALS:
-			return value1 == value2
-		Comparator.NOT:
-			return value1 != value2
-		Comparator.GREATER:
-			return value1 > value2
-		Comparator.GREATER_EQUALS:
-			return value1 >= value2
-		Comparator.LESS:
-			return value1 < value2
-		Comparator.LESS_EQUALS :
-			return value1 <= value2
-		_:
-			return false
+	print(str(result))
+	return result

@@ -2,7 +2,7 @@ extends CardCollectionContainer
 
 class_name CallerCollectionContainer
 
-func get_collection_cards() -> Array[Card]:
+func _get_unfiltered_collection() -> Array[Card]:
 	return [caller]
 
 func add_card_to_collection(card: Card):
