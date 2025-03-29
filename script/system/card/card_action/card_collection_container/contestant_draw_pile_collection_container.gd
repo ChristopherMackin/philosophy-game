@@ -22,10 +22,6 @@ func get_collection_cards() -> Array[Card]:
 			card_array = draw_pile.get_cards().slice(0, amount)
 		else:
 			card_array = draw_pile.get_cards().slice(0, -(amount), -1)
-	
-	for card: Card in card_array:
-		card.generate_token()
-	
 	return card_array
 
 func add_card_to_collection(card: Card):	

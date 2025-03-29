@@ -58,6 +58,7 @@ func _invoke_actions(actions: Array[CardAction], action_type: Const.CardActionTy
 		if !await action.invoke(self, contestant, manager): break
 	
 	for sub : DebateSubscriber in manager.subscriber_array: await sub.on_actions_invoked(self, action_type, contestant)
+	manager.blackboard.expire(Const.ExpirationToken.ON_ACTION_END)
 
 var cost : int :
 	get:
