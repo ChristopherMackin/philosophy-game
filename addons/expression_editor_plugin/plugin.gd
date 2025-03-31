@@ -1,4 +1,3 @@
-# plugin.gd
 @tool
 extends EditorPlugin
 
