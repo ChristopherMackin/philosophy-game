@@ -1,35 +1,29 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=15 format=3 uid="uid://cguj4a6513hg2"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=13 format=3 uid="uid://cguj4a6513hg2"]
 
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_5rbu0"]
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_rfwc0"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_mbh5s"]
 [ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_2hgpe"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="3_mp3f8"]
-[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/contestant_hand_collection_container.gd" id="3_rfwc0"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/hand_collection_container.gd" id="3_rfwc0"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_fl3yq"]
 [ext_resource type="Script" uid="uid://16samtkb1lb4" path="res://script/system/card/card_action/card_collection_container/container_filter/selection_collection_filter.gd" id="4_g4ccb"]
-[ext_resource type="Script" uid="uid://d3yewkkdwyepo" path="res://script/system/card/card_action/card_collection_container/filtered_collection_container.gd" id="6_xyhmw"]
 [ext_resource type="Script" uid="uid://4v61ulpu2ysv" path="res://script/system/card/card_action/discard_card_collection_card_action.gd" id="7_2hgpe"]
 
-[sub_resource type="Resource" id="Resource_ije41"]
+[sub_resource type="Resource" id="Resource_6qp1c"]
 script = ExtResource("4_g4ccb")
 selection_action = 1
 metadata/_custom_type_script = "uid://16samtkb1lb4"
 
-[sub_resource type="Resource" id="Resource_g7ncd"]
+[sub_resource type="Resource" id="Resource_g4ccb"]
 script = ExtResource("3_rfwc0")
 which_contestant = 0
+collection_filters = Array[ExtResource("3_2hgpe")]([SubResource("Resource_6qp1c")])
 metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
-
-[sub_resource type="Resource" id="Resource_1pqrq"]
-script = ExtResource("6_xyhmw")
-card_collection = SubResource("Resource_g7ncd")
-card_array_filters = Array[ExtResource("3_2hgpe")]([SubResource("Resource_ije41")])
-metadata/_custom_type_script = "uid://d3yewkkdwyepo"
 
 [sub_resource type="Resource" id="Resource_2hgpe"]
 script = ExtResource("7_2hgpe")
-card_collection = SubResource("Resource_1pqrq")
+collection_container = SubResource("Resource_g4ccb")
 which_contestant = 0
 metadata/_custom_type_script = "uid://4v61ulpu2ysv"
 

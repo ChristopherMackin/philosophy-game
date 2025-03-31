@@ -19,7 +19,6 @@ func _enter_tree():
 		get_popup().id_pressed.connect(_on_id_selected)
 
 func file_selected(path):
-	print("PISS")
 	if !ResourceLoader.exists(path):
 		return
 	

@@ -1,6 +1,6 @@
 extends CardCollectionContainer
 
-class_name ContestantHandCollectionContainer
+class_name HandCollectionContainer
 
 @export var which_contestant : Const.WhichContestant
 var contestant: Contestant:

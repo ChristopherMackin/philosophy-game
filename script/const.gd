@@ -48,8 +48,6 @@ enum SelectionAction {
 	VIEW,
 	SINGLE,
 	MULTI,
-	ALL,
-	FIRST,
 	PLAY
 }
 
@@ -84,5 +82,6 @@ const autocomplete = [
 	"action_moved_cards",
 	"action_discarded_cards",
 	"action_bniahsed_cards",
+	"action_viewed_cards",
 	"action_",
 ]

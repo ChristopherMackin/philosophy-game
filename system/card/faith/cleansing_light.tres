@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_ihtgu"]
 [ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_23net"]
 [ext_resource type="Script" uid="uid://16samtkb1lb4" path="res://script/system/card/card_action/card_collection_container/container_filter/selection_collection_filter.gd" id="4_pu1gw"]
-[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/contestant_hand_collection_container.gd" id="5_8apdp"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/hand_collection_container.gd" id="5_8apdp"]
 [ext_resource type="Script" uid="uid://3bcejrl3rpfw" path="res://script/system/card/card_action/store_card_collection_in_blackboard_card_action.gd" id="6_ydbnq"]
 [ext_resource type="Script" uid="uid://b8ux8avexlyhr" path="res://script/system/card/card_action/card_collection_container/blackboard_collection_container.gd" id="7_ht6mx"]
 [ext_resource type="Script" uid="uid://4v61ulpu2ysv" path="res://script/system/card/card_action/discard_card_collection_card_action.gd" id="8_jet7g"]

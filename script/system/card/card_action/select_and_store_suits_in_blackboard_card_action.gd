@@ -12,9 +12,9 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool
 	#Select Suit =====================================
 	var suits: Array[Suit]
 	
-	if suit_options.size() == 1 && suit_action == Const.SelectionAction.SINGLE:
+	if suit_options.size() == 1 && suit_action == Const.SelectionAction.SINGLE || suit_selection_action == 3:
 		suits = suit_options
-	elif suit_action == Const.SelectionAction.FIRST:
+	elif suit_selection_action == 4:
 		suits = [suit_options[0]]
 	
 	else:

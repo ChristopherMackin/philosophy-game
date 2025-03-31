@@ -151,7 +151,7 @@ func play_token(token : Token, suit : Suit, contestant : Contestant):
 
 func play_card(card : Card, contestant : Contestant):
 	card_player = contestant
-	await play_stack.push_back(card)
+	await play_stack.push_front(card)
 	
 func clear_lines():
 	var min = suit_track_dictionary.values()[0].size()

@@ -1,27 +1,32 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=26 format=3 uid="uid://bo0iae2cuofoh"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=29 format=3 uid="uid://bo0iae2cuofoh"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_dxln0"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_ia643"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="3_1cbp6"]
-[ext_resource type="Script" uid="uid://c2f31cka87uk4" path="res://script/system/card/card_action/card_collection_container/contestant_draw_pile_collection_container.gd" id="3_hrgjx"]
+[ext_resource type="Script" uid="uid://c2f31cka87uk4" path="res://script/system/card/card_action/card_collection_container/draw_pile_collection_container.gd" id="3_hrgjx"]
+[ext_resource type="Script" uid="uid://bwc82j6d8fvd4" path="res://script/system/card/card_action/card_collection_container/container_filter/slice_collection_filter.gd" id="4_bukpj"]
 [ext_resource type="Script" uid="uid://cgmtcfsq1rn5n" path="res://script/system/card/card_action/view_card_collection_card_action.gd" id="4_tgslw"]
 [ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="5_0t5pe"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="5_bukpj"]
-[ext_resource type="Script" uid="uid://bbr50dvcf2gmc" path="res://script/system/card/card_action/card_collection_container/container_filter/suit_collection_filter.gd" id="6_yxyat"]
-[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="7_gvmac"]
-[ext_resource type="Script" uid="uid://d3yewkkdwyepo" path="res://script/system/card/card_action/card_collection_container/filtered_collection_container.gd" id="9_gp6wa"]
+[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://script/character/debate_event_factory/rule/criterion/criterion.gd" id="7_a5c2m"]
+[ext_resource type="Script" uid="uid://dv3r8bflihqwc" path="res://script/system/card/card_action/criterion_card_action.gd" id="8_8ly7j"]
 [ext_resource type="Script" uid="uid://cm5qf41iurdc3" path="res://script/system/card/card_action/move_card_collection_to_card_collection_card_action.gd" id="10_cxx5q"]
-[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/contestant_hand_collection_container.gd" id="11_a2os3"]
-[ext_resource type="Script" uid="uid://b8ux8avexlyhr" path="res://script/system/card/card_action/card_collection_container/blackboard_collection_container.gd" id="12_5l04b"]
+[ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="11_62gy4"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/hand_collection_container.gd" id="11_a2os3"]
 [ext_resource type="Script" uid="uid://cli7rttnpf5db" path="res://script/system/card/card_action/add_cost_modifier_to_card_collection_card_action.gd" id="13_1c3nx"]
 [ext_resource type="Script" uid="uid://dyif3nbemyr0d" path="res://script/system/card/card_cost_modifier/set_cost_modifier.gd" id="13_tgslw"]
+
+[sub_resource type="Resource" id="Resource_holyy"]
+script = ExtResource("4_bukpj")
+slice_direction = 0
+amount = 1
+metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
 
 [sub_resource type="Resource" id="Resource_ruq48"]
 script = ExtResource("3_hrgjx")
 which_contestant = 0
-amount = 1
-starting_point = 0
 insertion_point = 0
+collection_filters = Array[ExtResource("5_0t5pe")]([SubResource("Resource_holyy")])
 metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
 [sub_resource type="Resource" id="Resource_bx3cr"]
@@ -29,43 +34,33 @@ script = ExtResource("4_tgslw")
 collection_container = SubResource("Resource_ruq48")
 metadata/_custom_type_script = "uid://cgmtcfsq1rn5n"
 
-[sub_resource type="Resource" id="Resource_4ghj5"]
-script = ExtResource("3_hrgjx")
-which_contestant = 0
-amount = 1
-starting_point = 0
-insertion_point = 0
-metadata/_custom_type_script = "uid://c2f31cka87uk4"
+[sub_resource type="Resource" id="Resource_hrgjx"]
+script = ExtResource("7_a5c2m")
+expression = "action_viewed_cards[0].suit == faith"
+variables = Dictionary[String, Variant]({
+"faith": ExtResource("5_bukpj")
+})
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
 
-[sub_resource type="Resource" id="Resource_x5rqu"]
-script = ExtResource("6_yxyat")
-suits = Array[ExtResource("7_gvmac")]([ExtResource("5_bukpj")])
-filter_mode = 0
-metadata/_custom_type_script = "uid://bbr50dvcf2gmc"
-
-[sub_resource type="Resource" id="Resource_age0u"]
-script = ExtResource("9_gp6wa")
-collection_container = SubResource("Resource_4ghj5")
-collection_filters = Array[ExtResource("5_0t5pe")]([SubResource("Resource_x5rqu")])
-metadata/_custom_type_script = "uid://d3yewkkdwyepo"
-
-[sub_resource type="Resource" id="Resource_nj0x5"]
-script = ExtResource("11_a2os3")
-which_contestant = 0
-metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
-
-[sub_resource type="Resource" id="Resource_fvq3j"]
-script = ExtResource("10_cxx5q")
-from_collection = SubResource("Resource_age0u")
-to_collection = SubResource("Resource_nj0x5")
-metadata/_custom_type_script = "uid://cm5qf41iurdc3"
-
-[sub_resource type="Resource" id="Resource_iwp2w"]
-script = ExtResource("12_5l04b")
-key = "action.moved_cards"
-metadata/_custom_type_script = "uid://b8ux8avexlyhr"
+[sub_resource type="Resource" id="Resource_tgslw"]
+script = ExtResource("8_8ly7j")
+criterion = SubResource("Resource_hrgjx")
+metadata/_custom_type_script = "uid://dv3r8bflihqwc"
 
 [sub_resource type="Resource" id="Resource_0t5pe"]
+script = ExtResource("4_bukpj")
+slice_direction = 0
+amount = 1
+metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
+
+[sub_resource type="Resource" id="Resource_yxyat"]
+script = ExtResource("3_hrgjx")
+which_contestant = 0
+insertion_point = 0
+collection_filters = Array[ExtResource("5_0t5pe")]([SubResource("Resource_0t5pe")])
+metadata/_custom_type_script = "uid://c2f31cka87uk4"
+
+[sub_resource type="Resource" id="Resource_gvmac"]
 script = ExtResource("13_tgslw")
 amount = 0
 priority = 99
@@ -73,19 +68,45 @@ can_expire = false
 turn_lifetime = -1
 metadata/_custom_type_script = "uid://dyif3nbemyr0d"
 
-[sub_resource type="Resource" id="Resource_lfcai"]
+[sub_resource type="Resource" id="Resource_gp6wa"]
 script = ExtResource("13_1c3nx")
-collection_container = SubResource("Resource_iwp2w")
-cost_modifier = SubResource("Resource_0t5pe")
+collection_container = SubResource("Resource_yxyat")
+cost_modifier = SubResource("Resource_gvmac")
 metadata/_custom_type_script = "uid://cli7rttnpf5db"
+
+[sub_resource type="Resource" id="Resource_cxx5q"]
+script = ExtResource("4_bukpj")
+slice_direction = 0
+amount = 1
+metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
+
+[sub_resource type="Resource" id="Resource_a2os3"]
+script = ExtResource("3_hrgjx")
+which_contestant = 0
+insertion_point = 0
+collection_filters = Array[ExtResource("5_0t5pe")]([SubResource("Resource_cxx5q")])
+metadata/_custom_type_script = "uid://c2f31cka87uk4"
+
+[sub_resource type="Resource" id="Resource_5l04b"]
+script = ExtResource("11_a2os3")
+which_contestant = 0
+collection_filters = Array[ExtResource("5_0t5pe")]([])
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_1c3nx"]
+script = ExtResource("10_cxx5q")
+from_collection = SubResource("Resource_a2os3")
+to_collection = SubResource("Resource_5l04b")
+metadata/_custom_type_script = "uid://cm5qf41iurdc3"
 
 [resource]
 script = ExtResource("3_1cbp6")
 suit = ExtResource("5_bukpj")
 title = "Divine Inspiration"
-base_cost = 1
+base_cost = 2
 description = "Scry 1. If it is faith, add it to your hand. It now costs 0 to play"
-on_play_card_actions = Array[ExtResource("2_ia643")]([SubResource("Resource_bx3cr"), SubResource("Resource_fvq3j"), SubResource("Resource_lfcai")])
+token_data = ExtResource("11_62gy4")
+on_play_card_actions = Array[ExtResource("2_ia643")]([SubResource("Resource_bx3cr"), SubResource("Resource_tgslw"), SubResource("Resource_gp6wa"), SubResource("Resource_1c3nx")])
 on_discard_card_actions = Array[ExtResource("2_ia643")]([])
 on_banish_card_actions = Array[ExtResource("2_ia643")]([])
 on_turn_start_card_actions = Array[ExtResource("2_ia643")]([])

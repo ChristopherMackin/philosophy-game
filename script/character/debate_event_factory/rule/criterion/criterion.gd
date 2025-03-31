@@ -23,6 +23,5 @@ func evaluate(command, variable_names = [], variable_values = []) -> bool:
 
 	if expression.has_execute_failed():
 		return false
-	
-	print(str(result))
+
 	return result

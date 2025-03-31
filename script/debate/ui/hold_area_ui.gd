@@ -30,7 +30,7 @@ func set_hold_card(card: Card):
 func get_card_ui_packed_scene(card: Card) -> PackedScene:
 	var card_ui_packed_scene
 	
-	if card.has_token:
+	if card.has_token_base:
 		var index = card_ui_suit_packed_scenes.map(func(x): return x.suit).find(card.suit)
 		if index < 0:
 			card_ui_packed_scene = default_card_ui_packed_scene

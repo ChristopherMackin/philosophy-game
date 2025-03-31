@@ -1,26 +1,38 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=10 format=3 uid="uid://c66eaviw3ebfd"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=15 format=3 uid="uid://c66eaviw3ebfd"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_i5xso"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_d48ah"]
-[ext_resource type="Script" uid="uid://c2f31cka87uk4" path="res://script/system/card/card_action/card_collection_container/contestant_draw_pile_collection_container.gd" id="3_d48ah"]
+[ext_resource type="Script" uid="uid://c2f31cka87uk4" path="res://script/system/card/card_action/card_collection_container/draw_pile_collection_container.gd" id="3_d48ah"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_n5vcg"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="4_3bpt5"]
 [ext_resource type="Script" uid="uid://4v61ulpu2ysv" path="res://script/system/card/card_action/discard_card_collection_card_action.gd" id="4_13lqg"]
+[ext_resource type="Script" uid="uid://bwc82j6d8fvd4" path="res://script/system/card/card_action/card_collection_container/container_filter/slice_collection_filter.gd" id="4_pudgo"]
+[ext_resource type="Script" uid="uid://16samtkb1lb4" path="res://script/system/card/card_action/card_collection_container/container_filter/selection_collection_filter.gd" id="5_7ml3h"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="5_n5vcg"]
 [ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="6_i5xso"]
 
-[sub_resource type="Resource" id="Resource_3bpt5"]
+[sub_resource type="Resource" id="Resource_6qldv"]
+script = ExtResource("4_pudgo")
+slice_direction = 0
+amount = 3
+metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
+
+[sub_resource type="Resource" id="Resource_mbo3g"]
+script = ExtResource("5_7ml3h")
+selection_action = 2
+metadata/_custom_type_script = "uid://16samtkb1lb4"
+
+[sub_resource type="Resource" id="Resource_1x2hj"]
 script = ExtResource("3_d48ah")
 which_contestant = 0
-amount = 3
-starting_point = 0
 insertion_point = 0
+collection_filters = Array[ExtResource("3_n5vcg")]([SubResource("Resource_6qldv"), SubResource("Resource_mbo3g")])
 metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
 [sub_resource type="Resource" id="Resource_n5vcg"]
 script = ExtResource("4_13lqg")
-card_collection_factory = SubResource("Resource_3bpt5")
+collection_container = SubResource("Resource_1x2hj")
 which_contestant = 0
-selection_action = 2
 metadata/_custom_type_script = "uid://4v61ulpu2ysv"
 
 [resource]
@@ -28,7 +40,7 @@ script = ExtResource("4_3bpt5")
 suit = ExtResource("5_n5vcg")
 title = "Guidance"
 base_cost = 2
-description = "Scry the top three cards of your deck and discard any you choose"
+description = "Scry 3 and discard any you choose"
 token_data = ExtResource("6_i5xso")
 on_play_card_actions = Array[ExtResource("2_d48ah")]([SubResource("Resource_n5vcg")])
 on_discard_card_actions = Array[ExtResource("2_d48ah")]([])

@@ -18,8 +18,10 @@ var description : String:
 	get: return _base.description
 var token_artwork : Texture2D:
 	get: return _token.artwork if _token else null
-var has_token : bool:
+var has_token_base : bool:
 	get: return _base.token_data != null
+var has_token: bool:
+	get: return _token != null
 
 var _on_play_card_actions: Array[CardAction] = []
 var _on_draw_card_actions: Array[CardAction] = []

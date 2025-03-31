@@ -1,9 +1,33 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=5 format=3 uid="uid://byuc46tg3sms6"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=13 format=3 uid="uid://byuc46tg3sms6"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_nhfrn"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_kp5kt"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="3_0sspn"]
+[ext_resource type="Script" uid="uid://bq8w0nkqhr517" path="res://script/system/card/card_action/play_tokens_from_card_collection_card_action.gd" id="3_bx5nh"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_h8p7o"]
+[ext_resource type="Script" uid="uid://16samtkb1lb4" path="res://script/system/card/card_action/card_collection_container/container_filter/selection_collection_filter.gd" id="4_4a0um"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="5_h8p7o"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/hand_collection_container.gd" id="5_m18bc"]
+[ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="9_4a0um"]
+
+[sub_resource type="Resource" id="Resource_3q3jn"]
+script = ExtResource("4_4a0um")
+selection_action = 1
+metadata/_custom_type_script = "uid://16samtkb1lb4"
+
+[sub_resource type="Resource" id="Resource_vcy7c"]
+script = ExtResource("5_m18bc")
+which_contestant = 0
+collection_filters = Array[ExtResource("3_h8p7o")]([SubResource("Resource_3q3jn")])
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_wkl2n"]
+script = ExtResource("3_bx5nh")
+card_collection = SubResource("Resource_vcy7c")
+suit_selection_mode = 0
+suit = ExtResource("5_h8p7o")
+key = "action_suits"
+metadata/_custom_type_script = "uid://bq8w0nkqhr517"
 
 [resource]
 script = ExtResource("3_0sspn")
@@ -11,7 +35,8 @@ suit = ExtResource("5_h8p7o")
 title = "Sanctify"
 base_cost = 1
 description = "Take a token from another card in your hand and play it on the faith track"
-on_play_card_actions = Array[ExtResource("2_kp5kt")]([])
+token_data = ExtResource("9_4a0um")
+on_play_card_actions = Array[ExtResource("2_kp5kt")]([SubResource("Resource_wkl2n")])
 on_discard_card_actions = Array[ExtResource("2_kp5kt")]([])
 on_banish_card_actions = Array[ExtResource("2_kp5kt")]([])
 on_turn_start_card_actions = Array[ExtResource("2_kp5kt")]([])

@@ -5,7 +5,7 @@ class_name ChangeCardCollectionSuitCardAction
 @export var collection_container : CardCollectionContainer
 
 @export var suit_options: Array[Suit]
-@export_enum("Single:1", "First:4") var suit_selection_action := 4
+@export_enum("Single:1", "First:-1") var suit_selection_action := -1
 var suit_action: Const.SelectionAction:
 	get(): return suit_selection_action as Const.SelectionAction
 
@@ -19,7 +19,7 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool
 		var new_suit: Suit
 		
 		if suit_options.size() == 1 || \
-			suit_action == Const.SelectionAction.FIRST:
+			suit_selection_action == -1:
 			new_suit = suit_options[0]
 		
 		else:

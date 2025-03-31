@@ -7,13 +7,13 @@ class_name BanishCardCollectionCardAction
 
 func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool:
 	collection_container.init(caller, player, manager)
-	var cards = await collection_container.get_card_collection()
+	var cards = await collection_container.get_collection_cards()
 	
 	var contestant := Const.GetContestant(player, manager.get_opponent(player), which_contestant)
 	
 	for card in cards:
+		await card.collection.remove(card)
 		contestant.remove_from_deck(card)
-		await card.card_collection.remove(card)
 	
 	manager.blackboard.add("action_banished_cards", cards, Const.ExpirationToken.ON_ACTION_END)
 	

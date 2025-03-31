@@ -1,6 +1,6 @@
 extends CardCollectionContainer
 
-class_name ContestantDrawPileCollectionContainer
+class_name DrawPileCollectionContainer
 
 @export var which_contestant : Const.WhichContestant
 @export_enum("Beginning", "End", "Random") var insertion_point := 0
