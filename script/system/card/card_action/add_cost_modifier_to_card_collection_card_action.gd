@@ -12,6 +12,6 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool
 	for card in cards:
 		card.cost_modifiers.append(cost_modifier.duplicate(true))
 	
-	manager.blackboard.add("action.added_cost_modifier", cost_modifier, Const.ExpirationToken.ON_ACTION_END)
+	manager.blackboard.add("action_added_cost_modifier", cost_modifier, Const.ExpirationToken.ON_ACTION_END)
 	
 	return true

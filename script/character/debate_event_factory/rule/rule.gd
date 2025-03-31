@@ -2,7 +2,7 @@ extends Resource
 
 class_name Rule
 
-@export var concept : String
+@export var concept : Const.Concept
 @export var criteria : Array[Criterion]
 
 func check(query : Dictionary) -> bool:

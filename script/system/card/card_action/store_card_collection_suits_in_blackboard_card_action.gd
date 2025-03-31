@@ -10,6 +10,6 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool
 	var cards = await collection_container.get_collection_cards()
 	var suits = cards.map(func(card): return card.suit)
 	
-	manager.blackboard.add("action.%s" % key, suits, Const.ExpirationToken.ON_ACTION_END)
+	manager.blackboard.add("action_%s" % key, suits, Const.ExpirationToken.ON_ACTION_END)
 	
 	return true

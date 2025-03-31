@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=12 format=3 uid="uid://27sna6u0b0wj"]
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=19 format=3 uid="uid://27sna6u0b0wj"]
 
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/main_blackboard.tres" id="1_0ml4n"]
 [ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://script/character/debate_event_factory/ordered_event_factory.gd" id="1_rb0rx"]
@@ -7,20 +7,57 @@
 [ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://script/character/debate_event_factory/event_factory_payload.gd" id="4_n3d1h"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://script/character/debate_event_factory/rule/criterion/criterion.gd" id="4_v05lr"]
 [ext_resource type="Resource" uid="uid://bqjeno4tr3ecf" path="res://character/aaron/event/aaron_db01_hold_card_generic.tres" id="6_121dc"]
+[ext_resource type="Resource" uid="uid://d0g0xpm3ms5xg" path="res://character/aaron/event/aaron_db01_hold_doubt.tres" id="8_rq7iq"]
+
+[sub_resource type="Resource" id="Resource_lputh"]
+script = ExtResource("4_v05lr")
+expression = ""
+variables = Dictionary[String, Variant]({})
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
+[sub_resource type="Resource" id="Resource_rq7iq"]
+script = ExtResource("4_v05lr")
+expression = ""
+variables = Dictionary[String, Variant]({})
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
 
 [sub_resource type="Resource" id="Resource_iiaj8"]
 script = ExtResource("3_5togk")
-concept = "on_card_played"
-criteria = Array[ExtResource("4_v05lr")]([])
+concept = 0
+criteria = Array[ExtResource("4_v05lr")]([SubResource("Resource_lputh"), SubResource("Resource_rq7iq")])
 
 [sub_resource type="Resource" id="Resource_th28h"]
 script = ExtResource("4_n3d1h")
 event = ExtResource("3_v05lr")
 rule = SubResource("Resource_iiaj8")
 
+[sub_resource type="Resource" id="Resource_15kia"]
+script = ExtResource("4_v05lr")
+expression = ""
+variables = Dictionary[String, Variant]({})
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
+[sub_resource type="Resource" id="Resource_ib6ms"]
+script = ExtResource("4_v05lr")
+expression = ""
+variables = Dictionary[String, Variant]({})
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
+[sub_resource type="Resource" id="Resource_sep1i"]
+script = ExtResource("3_5togk")
+concept = 0
+criteria = Array[ExtResource("4_v05lr")]([SubResource("Resource_15kia"), SubResource("Resource_ib6ms")])
+metadata/_custom_type_script = "uid://bal31j6jwdxqy"
+
+[sub_resource type="Resource" id="Resource_upldr"]
+script = ExtResource("4_n3d1h")
+event = ExtResource("8_rq7iq")
+rule = SubResource("Resource_sep1i")
+metadata/_custom_type_script = "uid://dftjqkpxopsus"
+
 [sub_resource type="Resource" id="Resource_v05lr"]
 script = ExtResource("3_5togk")
-concept = "on_card_hold_updated"
+concept = 1
 criteria = Array[ExtResource("4_v05lr")]([])
 metadata/_custom_type_script = "uid://bal31j6jwdxqy"
 
@@ -32,5 +69,5 @@ metadata/_custom_type_script = "uid://dftjqkpxopsus"
 
 [resource]
 script = ExtResource("1_rb0rx")
-payload_list = Array[ExtResource("4_n3d1h")]([SubResource("Resource_th28h"), SubResource("Resource_121dc")])
+payload_list = Array[ExtResource("4_n3d1h")]([SubResource("Resource_th28h"), SubResource("Resource_upldr"), SubResource("Resource_121dc")])
 blackboard = ExtResource("1_0ml4n")

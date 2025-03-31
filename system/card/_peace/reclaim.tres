@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=11 format=3 uid="uid://e1d37ph7u0ag"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=12 format=3 uid="uid://e1d37ph7u0ag"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_ngntv"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_x22cc"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_2kpma"]
 [ext_resource type="Script" uid="uid://rqidt26nwrc8" path="res://script/system/card/card_action/card_collection_container/contestant_hold_collection_container.gd" id="3_guljh"]
 [ext_resource type="Script" uid="uid://cm5qf41iurdc3" path="res://script/system/card/card_action/move_card_collection_to_card_collection_card_action.gd" id="3_ngntv"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="4_2kpma"]
@@ -11,14 +12,16 @@
 [sub_resource type="Resource" id="Resource_ihkjb"]
 script = ExtResource("3_guljh")
 which_contestant = 0
+collection_filters = Array[ExtResource("3_2kpma")]([])
 metadata/_custom_type_script = "uid://rqidt26nwrc8"
 
 [sub_resource type="Resource" id="Resource_1lu8h"]
 script = ExtResource("5_2kpma")
 which_contestant = 0
+collection_filters = Array[ExtResource("3_2kpma")]([])
 metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
 
-[sub_resource type="Resource" id="Resource_x22cc"]
+[sub_resource type="Resource" id="Resource_3ljbt"]
 script = ExtResource("3_ngntv")
 from_collection = SubResource("Resource_ihkjb")
 to_collection = SubResource("Resource_1lu8h")
@@ -30,7 +33,7 @@ suit = ExtResource("5_ihkjb")
 title = "Reclaim"
 base_cost = 0
 description = "Add your hold card back to your hand"
-on_play_card_actions = Array[ExtResource("2_x22cc")]([SubResource("Resource_x22cc")])
+on_play_card_actions = Array[ExtResource("2_x22cc")]([SubResource("Resource_3ljbt")])
 on_discard_card_actions = Array[ExtResource("2_x22cc")]([])
 on_banish_card_actions = Array[ExtResource("2_x22cc")]([])
 on_turn_start_card_actions = Array[ExtResource("2_x22cc")]([])

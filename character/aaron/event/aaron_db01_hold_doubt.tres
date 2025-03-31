@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Event" load_steps=9 format=3 uid="uid://d0g0xpm3ms5xg"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://script/system/event/event.gd" id="1_ukvvg"]
+[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://script/system/event/task_action/animation_task_action.gd" id="2_gajju"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://script/system/event/task.gd" id="2_m0fgj"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://script/system/event/task_action/dialogue_task_action.gd" id="4_p7ows"]
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("2_gajju")
+
+[sub_resource type="Resource" id="Resource_twpgx"]
+script = ExtResource("2_m0fgj")
+outputs = Array[int]([1])
+inputs = ["shy_away", "joy", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("4_p7ows")
+
+[sub_resource type="Resource" id="Resource_xblbb"]
+script = ExtResource("2_m0fgj")
+outputs = Array[int]([])
+inputs = ["I probably shouldn't hold on to ideas like that...", "joy", false, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_ukvvg")
+is_major_event = false
+await_event = false
+frequency = 0
+start_task = SubResource("Resource_twpgx")
+tasks = Array[ExtResource("2_m0fgj")]([SubResource("Resource_twpgx"), SubResource("Resource_xblbb")])

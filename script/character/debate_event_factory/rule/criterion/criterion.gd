@@ -1,8 +1,9 @@
+@tool
 extends Resource
 
 class_name Criterion
 
-@export_multiline var expression : String
+@export_custom(PROPERTY_HINT_EXPRESSION, "") var expression : String = ""
 @export var variables : Dictionary[String, Variant]
 
 func check(query : Dictionary) -> bool:

@@ -14,6 +14,6 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool
 	for card in cards:
 		await contestant.discard_pile.push_front(card)
 	
-	manager.blackboard.add("discarded_cards", cards, Const.ExpirationToken.ON_ACTION_END)
+	manager.blackboard.add("action_discarded_cards", cards, Const.ExpirationToken.ON_ACTION_END)
 	
 	return true

@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=11 format=3 uid="uid://c8apy3s8dwvhh"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=12 format=3 uid="uid://c8apy3s8dwvhh"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_ica6v"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_8nwue"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="3_vxvrv"]
 [ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="3_xpfkb"]
 [ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/contestant_hand_collection_container.gd" id="4_3d5u1"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="4_47i3b"]
 [ext_resource type="Script" uid="uid://cirje5ssvlb5e" path="res://script/system/card/card_action/add_card_to_card_collection_card_action.gd" id="5_47i3b"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="6_3d5u1"]
 [ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="7_47i3b"]
@@ -12,11 +13,12 @@
 [sub_resource type="Resource" id="Resource_mcxym"]
 script = ExtResource("4_3d5u1")
 which_contestant = 0
+collection_filters = Array[ExtResource("4_47i3b")]([])
 metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
 
 [sub_resource type="Resource" id="Resource_p7n4c"]
 script = ExtResource("5_47i3b")
-card_collection = SubResource("Resource_mcxym")
+collection_container = SubResource("Resource_mcxym")
 base = ExtResource("3_xpfkb")
 amount = 1
 metadata/_custom_type_script = "uid://cirje5ssvlb5e"

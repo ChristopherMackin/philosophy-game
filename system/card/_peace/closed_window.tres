@@ -1,15 +1,17 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=9 format=3 uid="uid://bmipydv28i6px"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=10 format=3 uid="uid://bmipydv28i6px"]
 
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_08ivs"]
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_jq1pd"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="2_p5gsa"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_xe0ix"]
 [ext_resource type="Script" uid="uid://rqidt26nwrc8" path="res://script/system/card/card_action/card_collection_container/contestant_hold_collection_container.gd" id="3_0fe25"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_67ah5"]
 [ext_resource type="Script" uid="uid://4v61ulpu2ysv" path="res://script/system/card/card_action/discard_card_collection_card_action.gd" id="4_67ah5"]
 
 [sub_resource type="Resource" id="Resource_0fe25"]
 script = ExtResource("3_0fe25")
 which_contestant = 0
+collection_filters = Array[ExtResource("3_67ah5")]([])
 metadata/_custom_type_script = "uid://rqidt26nwrc8"
 
 [sub_resource type="Resource" id="Resource_pdd32"]

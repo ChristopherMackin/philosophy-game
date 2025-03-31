@@ -50,7 +50,7 @@ func on_card_played(card: Card, contestant : Contestant):
 	
 	await update_everything()
 	
-	await query_event("on_card_played")
+	await query_event(Const.Concept.ON_PLAY)
 
 func on_token_played(token: Token, suit: Suit, contestant : Contestant):	
 	await update_everything()
@@ -58,7 +58,7 @@ func on_token_played(token: Token, suit: Suit, contestant : Contestant):
 func on_card_hold_updated(card : Card, active_contestant : Contestant):
 	await update_everything()
 	
-	await query_event("on_card_hold_updated")
+	await query_event(Const.Concept.ON_HOLD)
 
 func on_lines_cleared(count : int):
 	await board.clear_row(count)
@@ -73,7 +73,7 @@ func on_debate_finished():
 	print("Debate Finished")
 	get_tree().quit()
 
-func query_event(concept : String):
+func query_event(concept : Const.Concept):
 	var query : Dictionary
 	query["concept"] = concept
 	query.merge(manager.blackboard.get_query())
