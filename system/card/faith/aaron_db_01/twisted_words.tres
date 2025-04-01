@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=25 format=3 uid="uid://hi2quif7qp3d"]
+
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_8h0yu"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_qxvmm"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_84cft"]
+[ext_resource type="Script" uid="uid://bbr50dvcf2gmc" path="res://script/system/card/card_action/card_collection_container/container_filter/suit_collection_filter.gd" id="4_84cft"]
+[ext_resource type="Script" uid="uid://16samtkb1lb4" path="res://script/system/card/card_action/card_collection_container/container_filter/selection_collection_filter.gd" id="4_xlq1u"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/hand_collection_container.gd" id="5_wu68s"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="5_xlq1u"]
+[ext_resource type="Script" uid="uid://3bcejrl3rpfw" path="res://script/system/card/card_action/store_card_collection_in_blackboard_card_action.gd" id="6_wlkku"]
+[ext_resource type="Script" uid="uid://b8ux8avexlyhr" path="res://script/system/card/card_action/card_collection_container/blackboard_collection_container.gd" id="7_0o63f"]
+[ext_resource type="Script" uid="uid://cm5qf41iurdc3" path="res://script/system/card/card_action/move_card_collection_to_card_collection_card_action.gd" id="8_hf344"]
+[ext_resource type="Script" uid="uid://c01o3g4pilnun" path="res://script/system/card/card_action/card_collection_container/play_stack_collection_container.gd" id="9_bpmrm"]
+[ext_resource type="Script" uid="uid://rrdu42eofb1a" path="res://script/system/card/card_action/banish_card_collection_card_action.gd" id="10_bamsk"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="11_f8wpb"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="12_ji7dy"]
+[ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="13_tkgrv"]
+
+[sub_resource type="Resource" id="Resource_wu68s"]
+script = ExtResource("4_84cft")
+suits = Array[ExtResource("5_xlq1u")]([ExtResource("12_ji7dy")])
+filter_mode = 0
+metadata/_custom_type_script = "uid://bbr50dvcf2gmc"
+
+[sub_resource type="Resource" id="Resource_3xhbu"]
+script = ExtResource("4_xlq1u")
+selection_action = 1
+metadata/_custom_type_script = "uid://16samtkb1lb4"
+
+[sub_resource type="Resource" id="Resource_l3f5q"]
+script = ExtResource("5_wu68s")
+which_contestant = 1
+collection_filters = Array[ExtResource("3_84cft")]([SubResource("Resource_wu68s"), SubResource("Resource_3xhbu")])
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_f4kei"]
+script = ExtResource("6_wlkku")
+collection_container = SubResource("Resource_l3f5q")
+key = "cards"
+metadata/_custom_type_script = "uid://3bcejrl3rpfw"
+
+[sub_resource type="Resource" id="Resource_8vtef"]
+script = ExtResource("7_0o63f")
+key = "action_cards"
+collection_filters = Array[ExtResource("3_84cft")]([])
+metadata/_custom_type_script = "uid://b8ux8avexlyhr"
+
+[sub_resource type="Resource" id="Resource_yjmhk"]
+script = ExtResource("9_bpmrm")
+collection_filters = Array[ExtResource("3_84cft")]([])
+metadata/_custom_type_script = "uid://c01o3g4pilnun"
+
+[sub_resource type="Resource" id="Resource_f3sta"]
+script = ExtResource("8_hf344")
+from_collection = SubResource("Resource_8vtef")
+to_collection = SubResource("Resource_yjmhk")
+metadata/_custom_type_script = "uid://cm5qf41iurdc3"
+
+[sub_resource type="Resource" id="Resource_bvgs1"]
+script = ExtResource("7_0o63f")
+key = "action_cards"
+collection_filters = Array[ExtResource("3_84cft")]([])
+metadata/_custom_type_script = "uid://b8ux8avexlyhr"
+
+[sub_resource type="Resource" id="Resource_mv573"]
+script = ExtResource("10_bamsk")
+collection_container = SubResource("Resource_bvgs1")
+which_contestant = 1
+metadata/_custom_type_script = "uid://rrdu42eofb1a"
+
+[resource]
+script = ExtResource("11_f8wpb")
+suit = ExtResource("12_ji7dy")
+title = "Twisted Words"
+base_cost = 2
+description = "Play a faith card from your opponents hand
+
+Banish the card and remove it from the play stack"
+token_data = ExtResource("13_tkgrv")
+on_play_card_actions = Array[ExtResource("2_qxvmm")]([SubResource("Resource_f4kei"), SubResource("Resource_f3sta"), SubResource("Resource_mv573")])
+on_discard_card_actions = Array[ExtResource("2_qxvmm")]([])
+on_banish_card_actions = Array[ExtResource("2_qxvmm")]([])
+on_turn_start_card_actions = Array[ExtResource("2_qxvmm")]([])
+on_turn_end_card_actions = Array[ExtResource("2_qxvmm")]([])
+on_hold_start_card_actions = Array[ExtResource("2_qxvmm")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_qxvmm")]([])
+on_hold_end_card_actions = Array[ExtResource("2_qxvmm")]([])
+cost_modifiers = Array[ExtResource("1_8h0yu")]([])

@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="1_it1nf"]
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/main_blackboard.tres" id="1_qhu2i"]
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://script/character/character.gd" id="1_xfscq"]
-[ext_resource type="Resource" uid="uid://b150jnrliiino" path="res://system/test/test_deck.tres" id="3_78mj1"]
+[ext_resource type="Resource" uid="uid://m818bhiagnjq" path="res://character/aaron/aaron_deck.tres" id="3_78mj1"]
 
 [resource]
 script = ExtResource("1_xfscq")

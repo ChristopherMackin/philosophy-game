@@ -11,6 +11,6 @@
 script = ExtResource("1_cdwd0")
 starting_player = 0
 redraw_on_hand_depleted = false
-suits = Array[ExtResource("2_4blar")]([ExtResource("2_p7u10"), ExtResource("3_oowsw"), ExtResource("4_tit4q"), ExtResource("5_t3pf5")])
+suits = Array[ExtResource("2_4blar")]([ExtResource("3_oowsw"), ExtResource("2_p7u10"), ExtResource("5_t3pf5"), ExtResource("4_tit4q")])
 slots = 12
 line_clear_direction = 1

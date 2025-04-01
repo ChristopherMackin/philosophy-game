@@ -7,7 +7,8 @@ const save_path : String = "res://_save/"
 
 enum Tag {
 	BASIC,
-	EVIDENCE
+	EVIDENCE,
+	SUPERNATURAL
 }
 
 enum ExpirationToken {

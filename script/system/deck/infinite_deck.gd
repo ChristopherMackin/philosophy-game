@@ -1,10 +1,6 @@
-extends Resource
+extends Deck
 
-class_name Deck
-
-@export var composition_card_deck_config_array : Array[DeckConfig]
-
-var manager : DebateManager
+class_name InfiniteDeck
 
 func create_draw_pile(manager : DebateManager) -> CardCollection:
 	self.manager = manager
@@ -17,7 +13,7 @@ func create_draw_pile(manager : DebateManager) -> CardCollection:
 	
 	draw_pile.shuffle()
 	
-	return CardCollection.new(draw_pile)
+	return InfiniteCardCollection.new(draw_pile)
 
 func remove_from_deck(card : Card):
 	var cards = composition_card_deck_config_array.map(func(x : DeckConfig): return x.base)

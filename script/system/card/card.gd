@@ -5,6 +5,8 @@ class_name Card
 var collection : CardCollection
 
 var _base : CardBase
+var base : CardBase:
+	get(): return _base
 
 var _token : Token
 
@@ -108,3 +110,6 @@ func destroy_token():
 
 func replace_token(token: Token):
 	_token = token
+
+func duplicate():
+	return Card.new(_base, manager)

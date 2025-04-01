@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=13 format=3 uid="uid://dkt43f0inrcka"]
+
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_yhswe"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_jqoqn"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_5brxy"]
+[ext_resource type="Script" uid="uid://16samtkb1lb4" path="res://script/system/card/card_action/card_collection_container/container_filter/selection_collection_filter.gd" id="4_woxop"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/hand_collection_container.gd" id="5_360je"]
+[ext_resource type="Script" uid="uid://bq8w0nkqhr517" path="res://script/system/card/card_action/play_tokens_from_card_collection_card_action.gd" id="6_genmg"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="7_plph6"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="8_7ixh1"]
+[ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="9_d7af4"]
+
+[sub_resource type="Resource" id="Resource_3q3jn"]
+script = ExtResource("4_woxop")
+selection_action = 1
+metadata/_custom_type_script = "uid://16samtkb1lb4"
+
+[sub_resource type="Resource" id="Resource_vcy7c"]
+script = ExtResource("5_360je")
+which_contestant = 1
+collection_filters = Array[ExtResource("3_5brxy")]([SubResource("Resource_3q3jn")])
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_wkl2n"]
+script = ExtResource("6_genmg")
+card_collection = SubResource("Resource_vcy7c")
+suit_selection_mode = 0
+suit = ExtResource("7_plph6")
+key = "action_suits"
+metadata/_custom_type_script = "uid://bq8w0nkqhr517"
+
+[resource]
+script = ExtResource("8_7ixh1")
+suit = ExtResource("7_plph6")
+title = "Steer The Flock"
+base_cost = 1
+description = "Take a token from a card in your opponent's hand and play it on the faith track"
+token_data = ExtResource("9_d7af4")
+on_play_card_actions = Array[ExtResource("2_jqoqn")]([SubResource("Resource_wkl2n")])
+on_discard_card_actions = Array[ExtResource("2_jqoqn")]([])
+on_banish_card_actions = Array[ExtResource("2_jqoqn")]([])
+on_turn_start_card_actions = Array[ExtResource("2_jqoqn")]([])
+on_turn_end_card_actions = Array[ExtResource("2_jqoqn")]([])
+on_hold_start_card_actions = Array[ExtResource("2_jqoqn")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_jqoqn")]([])
+on_hold_end_card_actions = Array[ExtResource("2_jqoqn")]([])
+cost_modifiers = Array[ExtResource("1_yhswe")]([])
+metadata/_custom_type_script = "uid://dy4e7i5501yv5"

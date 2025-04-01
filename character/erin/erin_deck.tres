@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="DuplicateDeck" load_steps=3 format=3 uid="uid://i1l0656ky2sr"]
-
-[ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://script/system/card/card_deck_config.gd" id="1_bjiir"]
-[ext_resource type="Script" uid="uid://g6ni26k2tmaw" path="res://script/system/deck/duplicate_deck.gd" id="3_k2gwi"]
-
-[resource]
-script = ExtResource("3_k2gwi")
-number_of_duplications = 10
-composition_card_deck_config_array = Array[ExtResource("1_bjiir")]([])

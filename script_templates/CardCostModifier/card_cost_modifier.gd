@@ -1,5 +1,5 @@
 # meta-description: Modifiers to card energy cost
-
+@tool
 extends CardCostModifier
 
 class_name _CLASS_

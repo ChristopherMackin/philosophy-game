@@ -1,3 +1,4 @@
+@tool
 extends CardCostModifier
 
 class_name MinusTagCardCostModifier

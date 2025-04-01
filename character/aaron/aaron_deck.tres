@@ -1,15 +1,23 @@
-[gd_resource type="Resource" script_class="DuplicateDeck" load_steps=5 format=3 uid="uid://b8trtqto8w2iv"]
+[gd_resource type="Resource" script_class="InfiniteDeck" load_steps=7 format=3 uid="uid://m818bhiagnjq"]
 
-[ext_resource type="Resource" uid="uid://hi2quif7qp3d" path="res://system/card/faith/twisted_words.tres" id="1_2qagk"]
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://script/system/card/card_deck_config.gd" id="2_6ug3c"]
-[ext_resource type="Script" uid="uid://g6ni26k2tmaw" path="res://script/system/deck/duplicate_deck.gd" id="6_pialk"]
+[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="2_7fyka"]
+[ext_resource type="Script" uid="uid://dlqqr4qxqi2ht" path="res://script/system/deck/infinite_deck.gd" id="6_7ks3b"]
+[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/basic_faith.tres" id="7_7ks3b"]
 
-[sub_resource type="Resource" id="Resource_pm2js"]
+[sub_resource type="Resource" id="Resource_dygrr"]
 script = ExtResource("2_6ug3c")
-base = ExtResource("1_2qagk")
-count = 4
+base = ExtResource("7_7ks3b")
+count = 1
+metadata/_custom_type_script = "uid://bcrhpdjlreow5"
+
+[sub_resource type="Resource" id="Resource_n5w3i"]
+script = ExtResource("2_6ug3c")
+base = ExtResource("2_7fyka")
+count = 1
+metadata/_custom_type_script = "uid://bcrhpdjlreow5"
 
 [resource]
-script = ExtResource("6_pialk")
-number_of_duplications = 10
-composition_card_deck_config_array = Array[ExtResource("2_6ug3c")]([SubResource("Resource_pm2js")])
+script = ExtResource("6_7ks3b")
+composition_card_deck_config_array = Array[ExtResource("2_6ug3c")]([SubResource("Resource_dygrr"), SubResource("Resource_n5w3i")])
+metadata/_custom_type_script = "uid://dlqqr4qxqi2ht"

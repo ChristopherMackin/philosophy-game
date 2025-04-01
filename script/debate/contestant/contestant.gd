@@ -5,7 +5,7 @@ class_name Contestant
 var manager : DebateManager
 var character : Character
 var hand : CardCollection = CardCollection.new()
-var draw_pile : CardCollection = CardCollection.new()
+var draw_pile : CardCollection
 var discard_pile : CardCollection = CardCollection.new()
 var playable_cards : Array[Card]:
 	get: return hand.get_cards().filter(func(x): return x.cost <= current_energy)
@@ -35,6 +35,8 @@ var blackboard : Blackboard:
 
 var can_play:
 	get: return current_energy > 0 && playable_cards.size() > 0
+var can_draw:
+	get: return hand.size() < hand_limit && draw_pile.size() > 0
 
 func character_is(character : Character):
 	return self.character == character
@@ -49,26 +51,20 @@ func _init(character : Character, manager : DebateManager):
 		for sub : DebateSubscriber in manager.subscriber_array: await sub.on_card_drawn(card, self)
 	)
 	
+	draw_pile = _deck.create_draw_pile(manager)
 	draw_pile.on_added.add_listener(func(card: Card): await card.destroy_token())
 	draw_pile.on_removed.add_listener(func(card: Card): await card.generate_token())
 	
 	discard_pile.on_added.add_listener(func(card: Card): card.on_discard(self, manager))
 	
 
-func ready_up():
-	var draw_pile_array : Array[Card]
-	draw_pile_array.assign(_deck.create_draw_pile(manager))
-	
-	draw_pile.replace(draw_pile_array)
+func ready_up():	
 	await draw_full_hand()
 	current_energy = energy_level
 
-func _draw_card() -> bool:
-	if hand.size() >= hand_limit || draw_pile.size() <= 0: return false
-	
-	await hand.push_back(draw_pile.get_card_at_index(0))	
-	
-	return true
+func _draw_card():
+	var card = draw_pile.get_card_at_index(0)
+	await hand.push_back(card)
 
 func draw_specified_card(card : Card) -> bool:
 	if hand.size() >= hand_limit || draw_pile.size() <= 0: return false
@@ -85,15 +81,13 @@ func draw_at_index(index : int) -> bool:
 	return true
 
 func draw_number_of_cards(amount : int):
-	var can_draw = true
 	while amount > 0 && can_draw:
-		can_draw = await _draw_card()
+		await _draw_card()
 		amount -= 1
 
 func draw_full_hand():
-	var can_draw = true
 	while hand.size() < draw_limit && can_draw:
-		can_draw = await _draw_card()
+		await _draw_card()
 
 func start_turn():
 	for card : Card in hand.get_cards():
@@ -155,6 +149,8 @@ func hold_card(card : Card):
 		await held_card.push_back(card)
 	
 	can_hold = false
+	
+	
 	
 	for sub : DebateSubscriber in manager.subscriber_array: await sub.on_card_hold_updated(held_card.get_card_at_index(0), self)
 

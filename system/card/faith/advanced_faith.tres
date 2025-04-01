@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://b40pequrkvdu1"]
+
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_kwhjk"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_engqd"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="3_7nayt"]
+[ext_resource type="Script" uid="uid://c3lkfwpiubfe0" path="res://script/system/card/card_action/add_token_to_suit_track_card_action.gd" id="3_wyjts"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="4_tk7q0"]
+[ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="5_1uw5l"]
+
+[sub_resource type="Resource" id="Resource_r0645"]
+script = ExtResource("3_wyjts")
+suit = ExtResource("4_tk7q0")
+amount = 1
+token_data = ExtResource("5_1uw5l")
+metadata/_custom_type_script = "uid://c3lkfwpiubfe0"
+
+[resource]
+script = ExtResource("3_7nayt")
+suit = ExtResource("4_tk7q0")
+title = "Advanced Faith"
+base_cost = 1
+description = "Play 1 basic faith token"
+token_data = ExtResource("5_1uw5l")
+on_play_card_actions = Array[ExtResource("2_engqd")]([SubResource("Resource_r0645")])
+on_discard_card_actions = Array[ExtResource("2_engqd")]([])
+on_banish_card_actions = Array[ExtResource("2_engqd")]([])
+on_turn_start_card_actions = Array[ExtResource("2_engqd")]([])
+on_turn_end_card_actions = Array[ExtResource("2_engqd")]([])
+on_hold_start_card_actions = Array[ExtResource("2_engqd")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_engqd")]([])
+on_hold_end_card_actions = Array[ExtResource("2_engqd")]([])
+cost_modifiers = Array[ExtResource("1_kwhjk")]([])
+metadata/_custom_type_script = "uid://dy4e7i5501yv5"
