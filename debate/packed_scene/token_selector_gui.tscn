@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://cliclfm7gbavn"]
 
-[ext_resource type="Script" uid="uid://cv3tbwyio5eha" path="res://script/debate/ui/node_3d_selector_ui.gd" id="1_v3j6h"]
+[ext_resource type="Script" uid="uid://cv3tbwyio5eha" path="res://script/debate/ui/gui/node_3d_selector_gui.gd" id="1_v3j6h"]
 [ext_resource type="Texture2D" uid="uid://repj6csynu7c" path="res://asset/graphic/general/selector.png" id="2_y7njb"]
 
-[node name="TokenSelectorUI" type="Control"]
+[node name="TokenSelectorGUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 focus_mode = 2

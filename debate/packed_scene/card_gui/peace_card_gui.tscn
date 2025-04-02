@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bmxatnrtkqwmu"]
 
-[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://script/debate/ui/card_ui.gd" id="1_bq4c2"]
+[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://script/debate/ui/card_gui.gd" id="1_bq4c2"]
 [ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/general/card/card_base.png" id="2_vkr7h"]
 [ext_resource type="Shader" uid="uid://tnou2ig6rqyn" path="res://color_swap.gdshader" id="3_aw4th"]
 [ext_resource type="Texture2D" uid="uid://dcddfgqbb0arx" path="res://asset/graphic/debate/general/card/tokenless_card_bg.png" id="4_3y6m8"]
@@ -28,7 +28,7 @@ content_margin_top = 5.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
 
-[node name="TokenlessCardUI" type="Control" node_paths=PackedStringArray("card_bg", "title", "description", "cost", "icon")]
+[node name="TokenlessCardGUI" type="Control" node_paths=PackedStringArray("card_bg", "title", "description", "cost", "icon")]
 custom_minimum_size = Vector2(370, 320)
 layout_mode = 3
 anchors_preset = 0

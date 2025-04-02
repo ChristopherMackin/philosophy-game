@@ -1,17 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5x4pryb3x8hp"]
+[gd_scene load_steps=5 format=3 uid="uid://cfr37mhe3tadq"]
 
-[ext_resource type="Texture2D" uid="uid://8m5h442qngjv" path="res://asset/graphic/debate/general/suit/others_icon.png" id="1_41xp2"]
-[ext_resource type="Script" uid="uid://0f7kri64cayx" path="res://script/debate/ui/banner_ui.gd" id="1_185hb"]
-[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://script/exposed_control_methods.gd" id="2_62e33"]
-[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="2_74xxh"]
+[ext_resource type="Script" uid="uid://0f7kri64cayx" path="res://script/debate/ui/banner_gui.gd" id="1_ha4v2"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/general/suit/faith_icon.png" id="1_m33ff"]
+[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://script/exposed_control_methods.gd" id="2_36m63"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="2_v2vwh"]
 
-[node name="OthersBanner" type="ColorRect"]
+[node name="FaithBanner" type="ColorRect"]
 modulate = Color(0.489622, 0.489622, 0.489622, 1)
 size_flags_horizontal = 3
 focus_mode = 2
-color = Color(0.529412, 0.835294, 0.972549, 1)
-script = ExtResource("1_185hb")
-suit = ExtResource("2_74xxh")
+color = Color(0.996078, 0.694118, 0.266667, 1)
+script = ExtResource("1_ha4v2")
+suit = ExtResource("2_v2vwh")
 metadata/focus_property = "suit"
 
 [node name="Icon" type="TextureRect" parent="."]
@@ -27,11 +27,11 @@ offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_41xp2")
+texture = ExtResource("1_m33ff")
 stretch_mode = 5
 
 [node name="ExposedControlMethods" type="Node" parent="." node_paths=PackedStringArray("root")]
-script = ExtResource("2_62e33")
+script = ExtResource("2_36m63")
 root = NodePath("..")
 
 [connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_modulate" binds= [Color(1, 1, 1, 1)]]

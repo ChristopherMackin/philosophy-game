@@ -1,6 +1,6 @@
 extends TextureRect
 
-class_name TokenUI
+class_name TokenGUI
 
 var token : Token:
 	get: return token

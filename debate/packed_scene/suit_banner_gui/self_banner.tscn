@@ -1,17 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://p7gbun4jgavh"]
+[gd_scene load_steps=5 format=3 uid="uid://d32w30jhpgu6v"]
 
-[ext_resource type="Script" uid="uid://0f7kri64cayx" path="res://script/debate/ui/banner_ui.gd" id="1_ekdl5"]
-[ext_resource type="Texture2D" uid="uid://c3y4fyen3ymom" path="res://asset/graphic/debate/general/suit/doubt_icon.png" id="1_sou4q"]
-[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_4rlg4"]
-[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://script/exposed_control_methods.gd" id="2_cckne"]
+[ext_resource type="Texture2D" uid="uid://crmlj17ur3ikf" path="res://asset/graphic/debate/general/suit/self_icon.png" id="1_374ob"]
+[ext_resource type="Script" uid="uid://0f7kri64cayx" path="res://script/debate/ui/banner_gui.gd" id="1_ws23k"]
+[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://script/exposed_control_methods.gd" id="2_b7ptw"]
+[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="2_metey"]
 
-[node name="DoubtBanner" type="ColorRect"]
+[node name="SelfBanner" type="ColorRect"]
 modulate = Color(0.489622, 0.489622, 0.489622, 1)
 size_flags_horizontal = 3
 focus_mode = 2
-color = Color(1, 0.4, 0.388235, 1)
-script = ExtResource("1_ekdl5")
-suit = ExtResource("2_4rlg4")
+color = Color(0.619608, 0.878431, 0.619608, 1)
+script = ExtResource("1_ws23k")
+suit = ExtResource("2_metey")
 metadata/focus_property = "suit"
 
 [node name="Icon" type="TextureRect" parent="."]
@@ -27,11 +27,11 @@ offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_sou4q")
+texture = ExtResource("1_374ob")
 stretch_mode = 5
 
 [node name="ExposedControlMethods" type="Node" parent="." node_paths=PackedStringArray("root")]
-script = ExtResource("2_cckne")
+script = ExtResource("2_b7ptw")
 root = NodePath("..")
 
 [connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_modulate" binds= [Color(1, 1, 1, 1)]]

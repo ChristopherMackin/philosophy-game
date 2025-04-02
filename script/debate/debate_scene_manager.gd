@@ -15,14 +15,14 @@ extends DebateSubscriber
 
 @export_group("Player UI")
 @export var board : Board
-@export var hand_ui : HandUI
-@export var energy_ui : EnergyUI
-@export var hold_area_ui : HoldAreaUI
-@export var draw_pile_ui : DrawPileUI
+@export var hand_ui : HandGUI
+@export var energy_ui : EnergyGUI
+@export var hold_area_ui : HoldAreaGUI
+@export var draw_pile_ui : DrawPileGUI
 
 @export_group("Computer UI")
-@export var computer_energy_ui : EnergyUI
-@export var computer_hand_ui : HandCountUI
+@export var computer_energy_ui : EnergyGUI
+@export var computer_hand_ui : HandCountGUI
 
 var is_animation_locked := false
 

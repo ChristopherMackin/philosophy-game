@@ -1,17 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfr37mhe3tadq"]
+[gd_scene load_steps=5 format=3 uid="uid://p7gbun4jgavh"]
 
-[ext_resource type="Script" uid="uid://0f7kri64cayx" path="res://script/debate/ui/banner_ui.gd" id="1_ha4v2"]
-[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/general/suit/faith_icon.png" id="1_m33ff"]
-[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://script/exposed_control_methods.gd" id="2_36m63"]
-[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="2_v2vwh"]
+[ext_resource type="Script" uid="uid://0f7kri64cayx" path="res://script/debate/ui/banner_gui.gd" id="1_ekdl5"]
+[ext_resource type="Texture2D" uid="uid://c3y4fyen3ymom" path="res://asset/graphic/debate/general/suit/doubt_icon.png" id="1_sou4q"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_4rlg4"]
+[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://script/exposed_control_methods.gd" id="2_cckne"]
 
-[node name="FaithBanner" type="ColorRect"]
+[node name="DoubtBanner" type="ColorRect"]
 modulate = Color(0.489622, 0.489622, 0.489622, 1)
 size_flags_horizontal = 3
 focus_mode = 2
-color = Color(0.996078, 0.694118, 0.266667, 1)
-script = ExtResource("1_ha4v2")
-suit = ExtResource("2_v2vwh")
+color = Color(1, 0.4, 0.388235, 1)
+script = ExtResource("1_ekdl5")
+suit = ExtResource("2_4rlg4")
 metadata/focus_property = "suit"
 
 [node name="Icon" type="TextureRect" parent="."]
@@ -27,11 +27,11 @@ offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_m33ff")
+texture = ExtResource("1_sou4q")
 stretch_mode = 5
 
 [node name="ExposedControlMethods" type="Node" parent="." node_paths=PackedStringArray("root")]
-script = ExtResource("2_36m63")
+script = ExtResource("2_cckne")
 root = NodePath("..")
 
 [connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_modulate" binds= [Color(1, 1, 1, 1)]]
