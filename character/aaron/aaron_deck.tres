@@ -1,23 +1,58 @@
-[gd_resource type="Resource" script_class="InfiniteDeck" load_steps=7 format=3 uid="uid://m818bhiagnjq"]
+[gd_resource type="Resource" script_class="InfiniteDeck" load_steps=17 format=3 uid="uid://m818bhiagnjq"]
 
+[ext_resource type="Resource" uid="uid://hi2quif7qp3d" path="res://system/card/faith/aaron_db_01/twisted_words.tres" id="2_5ea6q"]
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://script/system/card/card_deck_config.gd" id="2_6ug3c"]
-[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="2_7fyka"]
+[ext_resource type="Resource" uid="uid://bo0iae2cuofoh" path="res://system/card/faith/aaron_db_01/divine_inspiration.tres" id="2_7ks3b"]
+[ext_resource type="Resource" uid="uid://dkt43f0inrcka" path="res://system/card/faith/aaron_db_01/steer_the_flock.tres" id="3_n5w3i"]
+[ext_resource type="Resource" uid="uid://dsxlu61i4pxko" path="res://system/card/faith/aaron_db_01/looks_at_the_heart.tres" id="4_7fyka"]
+[ext_resource type="Resource" uid="uid://db0178glph5w0" path="res://system/card/faith/aaron_db_01/the_third_day.tres" id="5_7fyka"]
 [ext_resource type="Script" uid="uid://dlqqr4qxqi2ht" path="res://script/system/deck/infinite_deck.gd" id="6_7ks3b"]
+[ext_resource type="Resource" uid="uid://b40pequrkvdu1" path="res://system/card/faith/advanced_faith.tres" id="6_veu2k"]
 [ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/basic_faith.tres" id="7_7ks3b"]
 
-[sub_resource type="Resource" id="Resource_dygrr"]
+[sub_resource type="Resource" id="Resource_bqhr5"]
 script = ExtResource("2_6ug3c")
-base = ExtResource("7_7ks3b")
+base = ExtResource("2_7ks3b")
+count = 2
+metadata/_custom_type_script = "uid://bcrhpdjlreow5"
+
+[sub_resource type="Resource" id="Resource_4as1j"]
+script = ExtResource("2_6ug3c")
+base = ExtResource("4_7fyka")
+count = 2
+metadata/_custom_type_script = "uid://bcrhpdjlreow5"
+
+[sub_resource type="Resource" id="Resource_qmfxh"]
+script = ExtResource("2_6ug3c")
+base = ExtResource("3_n5w3i")
+count = 2
+metadata/_custom_type_script = "uid://bcrhpdjlreow5"
+
+[sub_resource type="Resource" id="Resource_lcptj"]
+script = ExtResource("2_6ug3c")
+base = ExtResource("5_7fyka")
 count = 1
 metadata/_custom_type_script = "uid://bcrhpdjlreow5"
 
-[sub_resource type="Resource" id="Resource_n5w3i"]
+[sub_resource type="Resource" id="Resource_ptmsn"]
 script = ExtResource("2_6ug3c")
-base = ExtResource("2_7fyka")
+base = ExtResource("2_5ea6q")
 count = 1
+metadata/_custom_type_script = "uid://bcrhpdjlreow5"
+
+[sub_resource type="Resource" id="Resource_tggs0"]
+script = ExtResource("2_6ug3c")
+base = ExtResource("6_veu2k")
+count = 4
+metadata/_custom_type_script = "uid://bcrhpdjlreow5"
+
+[sub_resource type="Resource" id="Resource_a6wom"]
+script = ExtResource("2_6ug3c")
+base = ExtResource("7_7ks3b")
+count = 2
 metadata/_custom_type_script = "uid://bcrhpdjlreow5"
 
 [resource]
 script = ExtResource("6_7ks3b")
-composition_card_deck_config_array = Array[ExtResource("2_6ug3c")]([SubResource("Resource_dygrr"), SubResource("Resource_n5w3i")])
+composition_card_deck_config_array = Array[ExtResource("2_6ug3c")]([SubResource("Resource_bqhr5"), SubResource("Resource_4as1j"), SubResource("Resource_qmfxh"), SubResource("Resource_lcptj"), SubResource("Resource_ptmsn"), SubResource("Resource_tggs0"), SubResource("Resource_a6wom")])
 metadata/_custom_type_script = "uid://dlqqr4qxqi2ht"

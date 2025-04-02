@@ -72,7 +72,7 @@ metadata/_custom_type_script = "uid://rrdu42eofb1a"
 script = ExtResource("11_f8wpb")
 suit = ExtResource("12_ji7dy")
 title = "Twisted Words"
-base_cost = 2
+base_cost = 3
 description = "Play a faith card from your opponents hand
 
 Banish the card and remove it from the play stack"

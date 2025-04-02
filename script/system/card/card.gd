@@ -113,3 +113,18 @@ func replace_token(token: Token):
 
 func duplicate():
 	return Card.new(_base, manager)
+
+func equals(card: Card) -> bool:
+	if card.cost_modifiers.size() == cost_modifiers.size():
+		for i in cost_modifiers.size():
+			if card.cost_modifiers[i] != cost_modifiers[i]: return false
+	else:
+		return false
+	
+	if card.has_token != has_token: return false
+	
+	if card.has_token:
+		if card._token.equals(_token): return false
+	
+	return card.base == base && \
+	card.suit == suit

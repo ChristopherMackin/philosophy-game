@@ -11,3 +11,7 @@ var tag : Const.Tag:
 func _init(token_data: TokenData):
 	_token_data = token_data
 
+func equals(token: Token) -> bool:
+	return token._token_data == _token_data && \
+	token.artwork == artwork && \
+	token.tag == tag

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=29 format=3 uid="uid://bo0iae2cuofoh"]
+[gd_resource type="Resource" script_class="CardBase" load_steps=28 format=3 uid="uid://bo0iae2cuofoh"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_dxln0"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_ia643"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://script/character/debate_event_factory/rule/criterion/criterion.gd" id="7_a5c2m"]
 [ext_resource type="Script" uid="uid://dv3r8bflihqwc" path="res://script/system/card/card_action/criterion_card_action.gd" id="8_8ly7j"]
 [ext_resource type="Script" uid="uid://cm5qf41iurdc3" path="res://script/system/card/card_action/move_card_collection_to_card_collection_card_action.gd" id="10_cxx5q"]
-[ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="11_62gy4"]
 [ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/hand_collection_container.gd" id="11_a2os3"]
 [ext_resource type="Script" uid="uid://cli7rttnpf5db" path="res://script/system/card/card_action/add_cost_modifier_to_card_collection_card_action.gd" id="13_1c3nx"]
 [ext_resource type="Script" uid="uid://dyif3nbemyr0d" path="res://script/system/card/card_cost_modifier/set_cost_modifier.gd" id="13_tgslw"]
@@ -105,7 +104,6 @@ suit = ExtResource("5_bukpj")
 title = "Divine Inspiration"
 base_cost = 2
 description = "Scry 1. If it is faith, add it to your hand. It now costs 0 to play"
-token_data = ExtResource("11_62gy4")
 on_play_card_actions = Array[ExtResource("2_ia643")]([SubResource("Resource_bx3cr"), SubResource("Resource_tgslw"), SubResource("Resource_gp6wa"), SubResource("Resource_1c3nx")])
 on_discard_card_actions = Array[ExtResource("2_ia643")]([])
 on_banish_card_actions = Array[ExtResource("2_ia643")]([])

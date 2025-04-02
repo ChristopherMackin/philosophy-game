@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cm5qf41iurdc3" path="res://script/system/card/card_action/move_card_collection_to_card_collection_card_action.gd" id="4_7vdjt"]
 [ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="4_borpk"]
 [ext_resource type="Script" uid="uid://16samtkb1lb4" path="res://script/system/card/card_action/card_collection_container/container_filter/selection_collection_filter.gd" id="5_2amx5"]
-[ext_resource type="Script" uid="uid://db7ssfsuhgkqv" path="res://script/system/card/card_action/card_collection_container/container_filter/remove_duplicates_collection_filter.gd" id="5_kn6fj"]
+[ext_resource type="Script" uid="uid://db7ssfsuhgkqv" path="res://script/system/card/card_action/card_collection_container/container_filter/unique_collection_filter.gd" id="5_kn6fj"]
 [ext_resource type="Script" uid="uid://bw3sfhshf5fwh" path="res://script/system/card/card_action/card_collection_container/caller_collection_container.gd" id="5_llqlm"]
 [ext_resource type="Script" uid="uid://b1plf5m5kk3ib" path="res://script/system/card/card_action/card_collection_container/container_filter/card_base_collection_filter.gd" id="6_rfvs5"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="6_sf1jt"]
