@@ -61,7 +61,7 @@ metadata/_custom_type_script = "uid://dv3r8bflihqwc"
 [sub_resource type="Resource" id="Resource_35tdd"]
 script = ExtResource("11_aj5k0")
 which_contestant = 0
-amount = 1
+amount = 2
 metadata/_custom_type_script = "uid://ry8dl84ft1kn"
 
 [resource]
@@ -69,7 +69,7 @@ script = ExtResource("12_87kmm")
 suit = ExtResource("13_qbxxr")
 title = "Cleansing Light"
 base_cost = 1
-description = "Discard a card from you hand. If it is a doubt card gain an energy"
+description = "Discard a card from you hand. If it is a doubt card gain 2 energy"
 token_data = ExtResource("14_cf2y1")
 on_play_card_actions = Array[ExtResource("2_ihtgu")]([SubResource("Resource_j7b8q"), SubResource("Resource_5wfr2"), SubResource("Resource_x34w6"), SubResource("Resource_35tdd")])
 on_discard_card_actions = Array[ExtResource("2_ihtgu")]([])

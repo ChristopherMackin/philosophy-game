@@ -92,7 +92,7 @@ metadata/_custom_type_script = "uid://d2h2omerhxcqv"
 script = ExtResource("14_qwsg0")
 suit = ExtResource("15_cm2oe")
 title = "Rethink"
-base_cost = 0
+base_cost = 3
 description = "Trade a card for the first different card of the same suit
 (If no other card is present, you redraw the same card)"
 on_play_card_actions = Array[ExtResource("2_jue21")]([SubResource("Resource_rb8u6"), SubResource("Resource_72no7"), SubResource("Resource_p1ccn")])
