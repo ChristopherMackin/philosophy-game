@@ -11,15 +11,15 @@
 script = ExtResource("3_3pawf")
 which_contestant = 0
 tag = 2
-energy_per_tag = 1.0
+energy_per_tag = 0.5
 metadata/_custom_type_script = "uid://cbogtpodmwi6f"
 
 [resource]
 script = ExtResource("3_ei6fj")
 suit = ExtResource("4_35018")
 title = "Seeing is Believing"
-base_cost = 2
-description = "Gan an energy for ever [color=red]supernatural[/color] in play"
+base_cost = 1
+description = "Gan an energy for every 2 [color=red]supernatural[/color] tokens in play"
 token_data = ExtResource("6_3pawf")
 on_play_card_actions = Array[ExtResource("2_35018")]([SubResource("Resource_t1sxg")])
 on_discard_card_actions = Array[ExtResource("2_35018")]([])

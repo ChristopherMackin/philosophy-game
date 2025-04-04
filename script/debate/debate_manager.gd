@@ -107,13 +107,8 @@ func game_loop():
 	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_finished()
 
 func get_is_debate_over() -> bool:
-	for value in suit_track_dictionary.values():
-		if value.size() >= debate_settings.slots:
-			return true
-	
-	for c : Contestant in contestants:
-		if c.draw_pile.size() + c.hand.size() <= 0:
-			return true
+	for condition in debate_settings.game_end_conditions:
+		if condition.check_condition(self): return true
 	
 	return false
 

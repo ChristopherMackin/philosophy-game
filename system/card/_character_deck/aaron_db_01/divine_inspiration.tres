@@ -103,7 +103,9 @@ script = ExtResource("14_g8k5p")
 suit = ExtResource("8_cufm7")
 title = "Divine Inspiration"
 base_cost = 1
-description = "Scry 1. If it is faith, add it to your hand. It now costs 0 to play"
+description = "Scry 1
+If it is faith, draw it
+It costs 0 to play"
 on_play_card_actions = Array[ExtResource("2_6l0oi")]([SubResource("Resource_bx3cr"), SubResource("Resource_tgslw"), SubResource("Resource_gp6wa"), SubResource("Resource_1c3nx")])
 on_discard_card_actions = Array[ExtResource("2_6l0oi")]([])
 on_banish_card_actions = Array[ExtResource("2_6l0oi")]([])

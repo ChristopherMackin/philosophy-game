@@ -1,16 +1,27 @@
-[gd_resource type="Resource" script_class="DebateSettings" load_steps=7 format=3 uid="uid://b51gfuqtvp857"]
+[gd_resource type="Resource" script_class="DebateSettings" load_steps=12 format=3 uid="uid://b51gfuqtvp857"]
 
+[ext_resource type="Script" uid="uid://dyxs1xiriknno" path="res://script/debate/game_end_condition/game_end_condition.gd" id="1_86ws4"]
 [ext_resource type="Script" uid="uid://bsgp8gq0j6wbn" path="res://script/debate/debate_settings.gd" id="1_cdwd0"]
 [ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="2_4blar"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_p7u10"]
+[ext_resource type="Script" uid="uid://bla5l1dnib1db" path="res://script/debate/game_end_condition/suit_track_filled_end_condition.gd" id="2_sm8jn"]
+[ext_resource type="Script" uid="uid://dyvi3tsnsuye5" path="res://script/debate/game_end_condition/empty_hand_end_condition.gd" id="3_0g3v2"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="3_oowsw"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="4_tit4q"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="5_t3pf5"]
+
+[sub_resource type="Resource" id="Resource_po6lf"]
+script = ExtResource("2_sm8jn")
+
+[sub_resource type="Resource" id="Resource_o0xxy"]
+script = ExtResource("3_0g3v2")
 
 [resource]
 script = ExtResource("1_cdwd0")
 starting_player = 0
 redraw_on_hand_depleted = false
+retain_excess_energy = false
 suits = Array[ExtResource("2_4blar")]([ExtResource("3_oowsw"), ExtResource("2_p7u10"), ExtResource("5_t3pf5"), ExtResource("4_tit4q")])
 slots = 12
 line_clear_direction = 1
+game_end_conditions = Array[ExtResource("1_86ws4")]([SubResource("Resource_po6lf"), SubResource("Resource_o0xxy")])

@@ -110,7 +110,7 @@ func end_turn():
 	
 	await draw_full_hand()
 	
-	if current_energy < energy_level:
+	if current_energy < energy_level || !manager.debate_settings.retain_excess_energy:
 		current_energy = energy_level
 	
 	can_hold = true
