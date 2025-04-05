@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="9_xtjld"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="11_jgc4o"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="13_eriu7"]
-[ext_resource type="Script" uid="uid://u0ddlhnnxaym" path="res://script/debate/suit_track_3d.gd" id="14_331gy"]
+[ext_resource type="Script" uid="uid://u0ddlhnnxaym" path="res://script/debate/ui/3d/suit_track_3d.gd" id="14_331gy"]
 
 [node name="Board3D" type="Node3D" node_paths=PackedStringArray("suit_tracks")]
 transform = Transform3D(1, -3.48786e-16, 3.48786e-16, 3.48786e-16, 1, -3.48788e-16, -3.48786e-16, 3.48788e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)

@@ -19,7 +19,7 @@ func code_request_code_completion():
 	emit_changed(get_edited_property(), property_control.text)
 	
 	if property_control.get_word_at_pos(property_control.get_caret_draw_pos()) != "":
-		for option in Const.autocomplete:
+		for option in Const.Autocomplete:
 			property_control.add_code_completion_option(CodeEdit.KIND_VARIABLE, option, option)
 	
 	property_control.update_code_completion_options(true)

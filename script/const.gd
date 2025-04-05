@@ -11,15 +11,6 @@ enum Tag {
 	SUPERNATURAL
 }
 
-enum ExpirationToken {
-	NEVER,
-	ON_GAME_RESET,
-	ON_DEBATE_START,
-	ON_TURN_END,
-	ON_TURN_START,
-	ON_ACTION_END
-}
-
 enum WhichContestant {
 	SELF,
 	OPPONENT
@@ -31,18 +22,6 @@ static func GetContestant(player, opponent, which_contestant) -> Contestant:
 enum Player {
 	HUMAN,
 	COMPUTER
-}
-
-enum CardActionType {
-	ON_PLAY,
-	ON_DRAW,
-	ON_DISCARD,
-	ON_BANISH,
-	ON_TURN_START,
-	ON_TURN_END,
-	ON_HOLD_START,
-	ON_HOLD_STAY,
-	ON_HOLD_END
 }
 
 enum SelectionAction {
@@ -70,14 +49,16 @@ enum Concept{
 	ON_DEBATE_END,
 }
 
-const autocomplete = [
+const Autocomplete = [
 	"player",
 	"computer",
 	"active_contestant",
 	"current_turn",
 	"current_round",
-	"previous_card",
-	"current_card",
+	"card_history",
+	"turn_card_history",
+	"token_history",
+	"turn_token_history",
 	"action_added_cost_modifier",
 	"action_added_card_base",
 	"action_moved_cards",

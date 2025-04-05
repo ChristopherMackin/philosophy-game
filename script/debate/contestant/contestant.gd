@@ -33,10 +33,19 @@ var debate_event_factory : EventFactory:
 var blackboard : Blackboard:
 	get: return character.blackboard
 
+var can_play_condition_effects: Array[ConditionEffect]
+var can_draw_condition_effects: Array[ConditionEffect]
+
 var can_play:
-	get: return current_energy > 0 && playable_cards.size() > 0
+	get:
+		for condition in can_play_condition_effects:
+			if !condition.check(manager): return false 
+		return current_energy > 0 && playable_cards.size() > 0
 var can_draw:
-	get: return hand.size() < hand_limit && draw_pile.size() > 0
+	get:
+		for condition in can_draw_condition_effects:
+			if !condition.check(manager): return false  
+		return hand.size() < hand_limit && draw_pile.size() > 0
 
 func character_is(character : Character):
 	return self.character == character
@@ -48,7 +57,7 @@ func _init(character : Character, manager : DebateManager):
 	
 	hand.on_added.add_listener(func(card: Card): await card.on_draw(self, manager))
 	hand.on_added.add_listener(func(card: Card):
-		for sub : DebateSubscriber in manager.subscriber_array: await sub.on_card_drawn(card, self)
+		for sub in manager.subscribers: await sub.on_card_drawn(card, self)
 	)
 	
 	draw_pile = _deck.create_draw_pile(manager)
@@ -56,9 +65,8 @@ func _init(character : Character, manager : DebateManager):
 	draw_pile.on_removed.add_listener(func(card: Card): await card.generate_token())
 	
 	discard_pile.on_added.add_listener(func(card: Card): card.on_discard(self, manager))
-	
 
-func ready_up():	
+func ready_up():
 	await draw_full_hand()
 	current_energy = energy_level
 
@@ -115,6 +123,10 @@ func end_turn():
 	
 	can_hold = true
 
+func phase_end():
+	if manager.debate_settings.redraw_on_hand_depleted && hand.size() <= 0:
+		await draw_full_hand()
+
 func take_turn() -> SelectionResponse:
 	var valid_response := false
 	var response = null
@@ -135,7 +147,6 @@ func take_turn() -> SelectionResponse:
 	return response
 
 func select(request : SelectionRequest) -> SelectionResponse:
-	var is_valid_selection : bool = false
 	return await _brain.select(request)
 
 func hold_card(card : Card):
@@ -150,9 +161,7 @@ func hold_card(card : Card):
 	
 	can_hold = false
 	
-	
-	
-	for sub : DebateSubscriber in manager.subscriber_array: await sub.on_card_hold_updated(held_card.get_card_at_index(0), self)
+	for sub in manager.subscribers: await sub.on_card_hold_updated(held_card.get_card_at_index(0), self)
 
 func remove_held_card():
 	if held_card.size() > 0:

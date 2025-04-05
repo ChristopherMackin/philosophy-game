@@ -29,6 +29,6 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool
 		elif suit_action == Const.SelectionAction.MULTI:
 			suits = response.data
 	
-	manager.blackboard.add("action_%s" % key, suits, Const.ExpirationToken.ON_ACTION_END)
+	manager.blackboard.add("action_%s" % key, suits, Blackboard.ExpirationToken.ON_ACTION_END)
 	
 	return true

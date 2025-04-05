@@ -1,14 +1,14 @@
-[gd_scene load_steps=66 format=3 uid="uid://dq2nxpktgndnl"]
+[gd_scene load_steps=78 format=3 uid="uid://dq2nxpktgndnl"]
 
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://script/system/save_manager.gd" id="1_veaak"]
 [ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://script/system/save_data.gd" id="3_8u7hi"]
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/main_blackboard.tres" id="4_1kai6"]
-[ext_resource type="Script" uid="uid://dhulr5f133qcw" path="res://script/debate/debate_scene_manager.gd" id="5_burep"]
+[ext_resource type="Script" uid="uid://dhulr5f133qcw" path="res://script/debate/subscriber/node_based/debate_scene_manager.gd" id="5_burep"]
 [ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event_manager.tres" id="6_d0j7c"]
 [ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://debate/main/debate_settings.tres" id="7_bx4xu"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player_data.tres" id="8_5nc1l"]
+[ext_resource type="Resource" uid="uid://cmbx7ikxhaphj" path="res://debate/main/debate_manager.tres" id="9_ev6cj"]
 [ext_resource type="Resource" uid="uid://b5qju7etv13c2" path="res://character/aaron/aaron_data.tres" id="9_v0t4d"]
-[ext_resource type="Resource" uid="uid://wlxm57wwnqi" path="res://debate/main/debate_manager.tres" id="10_53vru"]
 [ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://script/system/event/event_subscriber/debate_event_manager.gd" id="11_v8fjy"]
 [ext_resource type="Script" uid="uid://syaosi1lkwul" path="res://script/debate/ui/selection_manager.gd" id="12_wi4ro"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="13_o3173"]
@@ -32,28 +32,36 @@
 [ext_resource type="Texture2D" uid="uid://b5nlnbqopjyl8" path="res://asset/graphic/debate/general/dialogue_area/opponent_stats_area.png" id="34_p8iu5"]
 [ext_resource type="Texture2D" uid="uid://caks003lacvsp" path="res://asset/graphic/debate/general/stats_area/hand_icon.png" id="35_qaugi"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/font/Fredoka-VariableFont_wdth,wght.ttf" id="36_ej4fl"]
-[ext_resource type="Script" uid="uid://ks6wf626gfx2" path="res://script/debate/ui/hand_count_gui.gd" id="37_waxos"]
+[ext_resource type="Script" uid="uid://ks6wf626gfx2" path="res://script/debate/ui/gui/hand_count_gui.gd" id="37_waxos"]
 [ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/graphic/debate/general/stats_area/turn_counter_background.png" id="38_61heh"]
-[ext_resource type="Script" uid="uid://ba8ai3bmpwetc" path="res://script/debate/ui/energy_gui.gd" id="39_77gns"]
+[ext_resource type="Script" uid="uid://ba8ai3bmpwetc" path="res://script/debate/ui/gui/energy_gui.gd" id="39_77gns"]
 [ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/card_gui/card_gui.tscn" id="39_swvjr"]
 [ext_resource type="Texture2D" uid="uid://csnb8nne3qn56" path="res://asset/graphic/debate/general/stats_area/draw_pile.png" id="40_djl8m"]
 [ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_gui/tokenless_card_gui.tscn" id="40_svr5q"]
-[ext_resource type="Script" uid="uid://5deqam17jqt3" path="res://script/debate/ui/draw_pile_gui.gd" id="41_so85g"]
+[ext_resource type="Script" uid="uid://5deqam17jqt3" path="res://script/debate/ui/gui/draw_pile_gui.gd" id="41_so85g"]
 [ext_resource type="PackedScene" uid="uid://bmxatnrtkqwmu" path="res://debate/packed_scene/card_gui/peace_card_gui.tscn" id="42_d0dx4"]
-[ext_resource type="Script" uid="uid://dur1nyt0adfmo" path="res://script/debate/ui/hand_gui.gd" id="42_ya2q4"]
+[ext_resource type="Script" uid="uid://dur1nyt0adfmo" path="res://script/debate/ui/gui/hand_gui.gd" id="42_ya2q4"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="43_28j04"]
 [ext_resource type="Script" uid="uid://ct7j27rex1yjk" path="res://script/system/card/suit_packed_scene.gd" id="44_3pkyo"]
+[ext_resource type="PackedScene" uid="uid://p7gbun4jgavh" path="res://debate/packed_scene/suit_banner_gui/doubt_banner.tscn" id="49_ev6cj"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="50_28j04"]
+[ext_resource type="PackedScene" uid="uid://cfr37mhe3tadq" path="res://debate/packed_scene/suit_banner_gui/faith_banner.tscn" id="51_cwibg"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="52_br37m"]
 [ext_resource type="Script" uid="uid://b7h2dcftdphdd" path="res://script/ui/board_gui.gd" id="52_ihgvd"]
 [ext_resource type="PackedScene" uid="uid://vl4omq8dgeem" path="res://debate/packed_scene/suit_track_gui.tscn" id="53_3tqoq"]
+[ext_resource type="PackedScene" uid="uid://b5x4pryb3x8hp" path="res://debate/packed_scene/suit_banner_gui/others_banner.tscn" id="53_hm1uf"]
+[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="54_2ad5d"]
 [ext_resource type="Script" uid="uid://wtvgrx8a8f5p" path="res://script/ui/staggered_flex_container.gd" id="54_tlmri"]
+[ext_resource type="PackedScene" uid="uid://d32w30jhpgu6v" path="res://debate/packed_scene/suit_banner_gui/self_banner.tscn" id="55_2swo1"]
 [ext_resource type="Texture2D" uid="uid://cl8h4qdvv68ex" path="res://asset/graphic/aaron/aaron_db01_screen_filter.png" id="55_ywg81"]
+[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="56_got8r"]
 [ext_resource type="Script" uid="uid://dh6wdv1jmcd8j" path="res://script/debate/ui/suit_selector.gd" id="56_lxw5v"]
 [ext_resource type="Texture2D" uid="uid://qiqjkvvjvbi4" path="res://asset/graphic/aaron/aaron_dialogue.png" id="61_rfuu0"]
 [ext_resource type="Script" uid="uid://i6q2q68f73y6" path="res://script/debate/ui/card_selector.gd" id="62_2dsbf"]
 [ext_resource type="Script" uid="uid://ddig2iswn7qy4" path="res://script/debate/ui/play_area_selector_gui.gd" id="62_qfjbt"]
 [ext_resource type="Texture2D" uid="uid://duwx1hkh07na8" path="res://asset/graphic/aaron/aaron_confirm_button.png" id="63_m8wa2"]
 [ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/token_selector_gui.tscn" id="64_xgyfy"]
-[ext_resource type="Script" uid="uid://duts3e4cshe3t" path="res://script/debate/ui/hold_area_gui.gd" id="66_sve2w"]
+[ext_resource type="Script" uid="uid://duts3e4cshe3t" path="res://script/debate/ui/gui/hold_area_gui.gd" id="66_sve2w"]
 
 [sub_resource type="Resource" id="Resource_q6ssy"]
 script = ExtResource("3_8u7hi")
@@ -91,6 +99,30 @@ metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cy1d4"]
 bg_color = Color(0.137255, 0.0862745, 0.0588235, 0.596078)
+
+[sub_resource type="Resource" id="Resource_d0dx4"]
+script = ExtResource("44_3pkyo")
+suit = ExtResource("50_28j04")
+packed_scene = ExtResource("49_ev6cj")
+metadata/_custom_type_script = "uid://ct7j27rex1yjk"
+
+[sub_resource type="Resource" id="Resource_v3sbc"]
+script = ExtResource("44_3pkyo")
+suit = ExtResource("52_br37m")
+packed_scene = ExtResource("51_cwibg")
+metadata/_custom_type_script = "uid://ct7j27rex1yjk"
+
+[sub_resource type="Resource" id="Resource_cff6m"]
+script = ExtResource("44_3pkyo")
+suit = ExtResource("54_2ad5d")
+packed_scene = ExtResource("53_hm1uf")
+metadata/_custom_type_script = "uid://ct7j27rex1yjk"
+
+[sub_resource type="Resource" id="Resource_f2s5c"]
+script = ExtResource("44_3pkyo")
+suit = ExtResource("56_got8r")
+packed_scene = ExtResource("55_2swo1")
+metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 
 [sub_resource type="Resource" id="Resource_swvjr"]
 script = ExtResource("44_3pkyo")
@@ -130,7 +162,7 @@ hold_area_ui = NodePath("../PlayArea/HoldArea")
 draw_pile_ui = NodePath("../PlayArea/StatsArea/DrawPile/Count")
 computer_energy_ui = NodePath("../PlayArea/DialogueArea/ComputerStatsArea/MarginContainer/VBoxContainer/Energy/Count")
 computer_hand_ui = NodePath("../PlayArea/DialogueArea/ComputerStatsArea/MarginContainer/VBoxContainer/Hand/Count")
-manager = ExtResource("10_53vru")
+manager = ExtResource("9_ev6cj")
 
 [node name="EventManager" type="Node3D" parent="." node_paths=PackedStringArray("scene_animator", "actors")]
 script = ExtResource("11_v8fjy")
@@ -849,6 +881,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cy1d4")
 script = ExtResource("56_lxw5v")
+suit_banner_gui_suit_packed_scene = Array[ExtResource("44_3pkyo")]([SubResource("Resource_d0dx4"), SubResource("Resource_v3sbc"), SubResource("Resource_cff6m"), SubResource("Resource_f2s5c")])
 card_container = NodePath("Dialogue/HBoxContainer")
 focus_group = ExtResource("18_hmk2u")
 player_brain = ExtResource("13_o3173")

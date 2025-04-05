@@ -16,6 +16,6 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool
 		
 		collection_container.add_card_to_collection(card)
 	
-	manager.blackboard.add("action_added_card_base", base, Const.ExpirationToken.ON_ACTION_END)
+	manager.blackboard.add("action_added_card_base", base, Blackboard.ExpirationToken.ON_ACTION_END)
 	
 	return true

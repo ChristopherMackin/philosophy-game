@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://bc773b0nxnftk"]
 
-[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://script/debate/ui/card_gui.gd" id="1_4n5p8"]
+[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://script/debate/ui/gui/card_gui.gd" id="1_4n5p8"]
 [ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/graphic/debate/general/card/card_base.png" id="2_v7m6f"]
-[ext_resource type="Shader" uid="uid://tnou2ig6rqyn" path="res://color_swap.gdshader" id="3_vo8an"]
+[ext_resource type="Shader" uid="uid://tnou2ig6rqyn" path="res://ui/color_swap.gdshader" id="3_vo8an"]
 [ext_resource type="Texture2D" uid="uid://b4oathyg4ij35" path="res://asset/graphic/debate/general/card/card_bg.png" id="4_7kep3"]
 [ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://asset/graphic/debate/general/card/clock_icon.png" id="5_bdolc"]
 [ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://asset/font/TenorSans-Regular.ttf" id="6_nob55"]

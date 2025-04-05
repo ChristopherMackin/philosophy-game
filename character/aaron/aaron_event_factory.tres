@@ -11,7 +11,7 @@
 
 [sub_resource type="Resource" id="Resource_rq7iq"]
 script = ExtResource("4_v05lr")
-expression = "current_card._base == card_base"
+expression = "card_history[0].base == card_base"
 variables = Dictionary[String, Variant]({
 "card_base": ExtResource("5_rq7iq")
 })

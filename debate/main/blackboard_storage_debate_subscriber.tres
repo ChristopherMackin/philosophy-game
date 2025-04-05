@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="BlackboardStorageDebateSubscriber" load_steps=2 format=3 uid="uid://x7jhf53rxpyl"]
+
+[ext_resource type="Script" uid="uid://cn7dp7sjtn8p" path="res://script/debate/subscriber/resource_based/blackboard_storage_debate_subscriber.gd" id="1_r85uh"]
+
+[resource]
+script = ExtResource("1_r85uh")
+metadata/_custom_type_script = "uid://cn7dp7sjtn8p"

@@ -8,18 +8,11 @@ var debate_settings : DebateSettings
 var player : Contestant:
 	set(val):
 		player = val
-		blackboard.add("player", player.name, Const.ExpirationToken.ON_DEBATE_START)
 var computer : Contestant:
 	set(val):
 		computer = val
-		blackboard.add("computer", computer.name, Const.ExpirationToken.ON_DEBATE_START)
 
-var active_contestant : Contestant:
-	get: return active_contestant
-	set(val):
-		active_contestant = val
-		var contestant = "player" if active_contestant == player else "computer"
-		blackboard.add("active_contestant", contestant, Const.ExpirationToken.ON_DEBATE_START)
+var active_contestant : Contestant
 
 var inactive_contestant : Contestant:
 	get:
@@ -34,31 +27,32 @@ var card_player : Contestant
 
 var contestants : Array[Contestant]
 
-var subscriber_array : Array[DebateSubscriber]
+@export var subscribers : Array = []
 
-var current_turn : int = 0:
-	set(val): 
-		current_turn = val
-		blackboard.add("current_turn", current_turn, Const.ExpirationToken.ON_DEBATE_START)
-		blackboard.add("current_round", current_round, Const.ExpirationToken.ON_DEBATE_START)
+var current_turn : int = 0
 
 var current_round : int:
 	get: return floor(current_turn / 2)
+
+var lines_cleared : int = 0
 
 var suit_track_dictionary : Dictionary
 
 var play_stack : CardCollection = CardCollection.new()
 
-func subscribe(subscriber : DebateSubscriber):
-	subscriber_array.append(subscriber)
+func subscribe(subscriber):
+	subscribers.append(subscriber)
 
-func unsubscribe(subscriber : DebateSubscriber):
-	var index = subscriber_array.find(subscriber)
+func unsubscribe(subscriber):
+	var index = subscribers.find(subscriber)
 	
 	if index != -1:
-		subscriber_array.remove_at(index)
+		subscribers.remove_at(index)
 
 func init(player_character : Character, computer_character : Character, debate_settings : DebateSettings):
+	
+	for subscriber in subscribers:
+		subscriber.manager = self
 	
 	self.debate_settings = debate_settings
 	
@@ -68,7 +62,7 @@ func init(player_character : Character, computer_character : Character, debate_s
 	
 	play_stack.on_added.add_listener(func(card: Card): await card.on_play(card_player, self))
 	play_stack.on_added.add_listener(func(card: Card): 
-		for sub : DebateSubscriber in subscriber_array: await sub.on_card_played(card, card_player)
+		for sub in subscribers: await sub.on_card_played(card, card_player)
 	)
 	
 	player = Contestant.new(player_character, self)
@@ -80,31 +74,23 @@ func init(player_character : Character, computer_character : Character, debate_s
 	for contestant in contestants:
 		await contestant.ready_up()
 	
-	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_start()
+	for sub in subscribers: await sub.on_debate_start()
 	
-	blackboard.expire(Const.ExpirationToken.ON_DEBATE_START)
+	blackboard.expire(Blackboard.ExpirationToken.ON_DEBATE_START)
 	
 	game_loop()
 
 func game_loop():
 	current_turn = 1
 	active_contestant = player if debate_settings.starting_player == Const.Player.HUMAN else computer
-	for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(active_contestant)
 	await active_player_turn()
 	
 	while !get_is_debate_over():
 		current_turn += 1
 		active_contestant = inactive_contestant
-		for sub : DebateSubscriber in subscriber_array: await sub.on_player_change(active_contestant)
 		await active_player_turn()
-	
-	if !computer.character.can_recall("debates_finished"):
-		computer.character.remember("debates_finished", 1)
-	else:
-		var debates_finished = computer.character.recall("debates_finished")
-		computer.character.remember("debates_finished", debates_finished + 1)
 		
-	for sub : DebateSubscriber in subscriber_array: await sub.on_debate_finished()
+	for sub in subscribers: await sub.on_debate_finished()
 
 func get_is_debate_over() -> bool:
 	for condition in debate_settings.game_end_conditions:
@@ -114,7 +100,7 @@ func get_is_debate_over() -> bool:
 
 func active_player_turn():
 	await active_contestant.start_turn()
-	for sub : DebateSubscriber in subscriber_array: await sub.on_turn_start(active_contestant)
+	for sub in subscribers: await sub.on_turn_start(active_contestant)
 	
 	while active_contestant.can_play and !get_is_debate_over():
 		var response = await active_contestant.take_turn()
@@ -122,9 +108,6 @@ func active_player_turn():
 		
 		if response.what == "play":
 			active_contestant.current_energy -= card.cost
-		
-			blackboard.add("previous_card", blackboard.get_value("current_card"), Const.ExpirationToken.ON_DEBATE_START)
-			blackboard.add("current_card", card, Const.ExpirationToken.ON_DEBATE_START)
 			
 			var token = card.pop_token()
 			if token:
@@ -132,17 +115,16 @@ func active_player_turn():
 			
 			await play_card(card, active_contestant)
 		
-		if debate_settings.redraw_on_hand_depleted && active_contestant.hand.size() <= 0:
-			await active_contestant.draw_full_hand()
+		active_contestant.phase_end()
 		
 		clear_lines()
 	
 	await active_contestant.end_turn()
-	for sub : DebateSubscriber in subscriber_array: await sub.on_turn_end(active_contestant)
+	for sub in subscribers: await sub.on_turn_end(active_contestant)
 
 func play_token(token : Token, suit : Suit, contestant : Contestant):
 	await add_token_to_suit_track(token, suit)
-	for sub : DebateSubscriber in subscriber_array: await sub.on_token_played(token, suit, contestant)
+	for sub in subscribers: await sub.on_token_played(token, suit, contestant)
 
 func play_card(card : Card, contestant : Contestant):
 	card_player = contestant
@@ -163,7 +145,9 @@ func clear_lines():
 					array.remove_at(array.size() - 1)
 				else:
 					array.remove_at(0)
-		for sub : DebateSubscriber in subscriber_array: await sub.on_lines_cleared(min)
+		
+		lines_cleared += min
+		for sub in subscribers: await sub.on_lines_cleared(min)
 
 
 

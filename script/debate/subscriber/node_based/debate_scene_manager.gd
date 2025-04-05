@@ -1,4 +1,4 @@
-extends DebateSubscriber
+extends NodeBasedDebateSubscriber
 
 @export_group("Settings")
 @export var event_manager : EventManager
@@ -28,21 +28,18 @@ var is_animation_locked := false
 
 func _ready():
 	super._ready()
-	manager.init.call_deferred(player, computer, debate_settings)
+	manager.init(player, computer, debate_settings)
 
 func on_debate_start():
 	await update_everything()
 
-func on_player_change(contestant : Contestant):	
-	await update_everything()
-
-	selection_manager.pause_input()
-
 func on_turn_start(_contestant: Contestant):
 	await update_everything()
 
-func on_turn_end(_contestant: Contestant):
+func on_turn_end(contestant: Contestant):
 	await update_everything()
+	
+	if contestant.character_is(player): selection_manager.pause_input()
 
 func on_card_played(card: Card, contestant : Contestant):	
 	if contestant.character_is(computer):
@@ -63,7 +60,7 @@ func on_card_hold_updated(card : Card, active_contestant : Contestant):
 func on_lines_cleared(count : int):
 	await board.clear_row(count)
 
-func on_actions_invoked(card : Card, action_type: Const.CardActionType, contestant : Contestant):
+func on_actions_invoked(card : Card, action_type: CardAction.Type, contestant : Contestant):
 	await update_everything()
 
 func on_card_drawn(_card : Card, _contestant: Contestant):

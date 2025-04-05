@@ -14,6 +14,6 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool
 		Const.SelectionAction.VIEW
 	))
 	
-	manager.blackboard.add("action_viewed_cards", cards, Const.ExpirationToken.ON_ACTION_END)
+	manager.blackboard.add("action_viewed_cards", cards, Blackboard.ExpirationToken.ON_ACTION_END)
 	
 	return true
