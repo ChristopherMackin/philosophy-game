@@ -40,12 +40,12 @@ var can_draw_condition_effects: Array[ConditionEffect]
 var can_play:
 	get:
 		for condition in can_play_condition_effects:
-			if !condition.check(manager): return false 
+			if !condition.check(): return false 
 		return current_energy > 0 && playable_cards.size() > 0
 var can_draw:
 	get:
 		for condition in can_draw_condition_effects:
-			if !condition.check(manager): return false  
+			if !condition.check(): return false  
 		return hand.size() < hand_limit && draw_pile.size() > 0
 
 func character_is(character : Character):

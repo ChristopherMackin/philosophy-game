@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://debate/main/debate_settings.tres" id="7_bx4xu"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player_data.tres" id="8_5nc1l"]
 [ext_resource type="Resource" uid="uid://cmbx7ikxhaphj" path="res://debate/main/debate_manager.tres" id="9_ev6cj"]
-[ext_resource type="Resource" uid="uid://b5qju7etv13c2" path="res://character/aaron/aaron_data.tres" id="9_v0t4d"]
+[ext_resource type="Resource" uid="uid://b5qju7etv13c2" path="res://character/aaron/db01/aaron_db01_data.tres" id="9_v0t4d"]
 [ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://script/system/event/event_subscriber/debate_event_manager.gd" id="11_v8fjy"]
 [ext_resource type="Script" uid="uid://syaosi1lkwul" path="res://script/debate/ui/selection_manager.gd" id="12_wi4ro"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="13_o3173"]

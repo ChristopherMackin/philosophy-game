@@ -1,16 +1,18 @@
-[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://byrpux6co0rrw"]
+[gd_resource type="Resource" script_class="Character" load_steps=6 format=3 uid="uid://byrpux6co0rrw"]
 
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="1_it1nf"]
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/main_blackboard.tres" id="1_qhu2i"]
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://script/character/character.gd" id="1_xfscq"]
-[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/basic_deck.tres" id="3_78mj1"]
+[ext_resource type="Resource" uid="uid://m818bhiagnjq" path="res://character/aaron/db01/aaron_db01_deck.tres" id="3_lbckr"]
+[ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://script/character/contestant_status_effect.gd" id="5_lbckr"]
 
 [resource]
 script = ExtResource("1_xfscq")
 name = "Joy"
-deck = ExtResource("3_78mj1")
 brain = ExtResource("1_it1nf")
+deck = ExtResource("3_lbckr")
+starting_effects = Array[ExtResource("5_lbckr")]([])
+energy_level = 3
 draw_limit = 5
 hand_limit = 8
-energy_level = 3
 blackboard = ExtResource("1_qhu2i")

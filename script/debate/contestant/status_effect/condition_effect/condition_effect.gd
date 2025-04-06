@@ -9,7 +9,7 @@ enum Application{
 
 @export var application: Application
 
-func check(manager : DebateManager) -> bool:
+func check() -> bool:
 	return false
 
 func apply(contestant: Contestant):

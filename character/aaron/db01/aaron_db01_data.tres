@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="Character" load_steps=13 format=3 uid="uid://b5qju7etv13c2"]
+
+[ext_resource type="Resource" uid="uid://834b58c6f0ru" path="res://character/aaron/aaron_memory.tres" id="1_c8eq6"]
+[ext_resource type="Script" uid="uid://2hwgbl7c4ebq" path="res://script/character/brain/simple_ai_brain.gd" id="2_ne43b"]
+[ext_resource type="Resource" uid="uid://27sna6u0b0wj" path="res://character/aaron/db01/aaron_db01_event_factory.tres" id="3_87ydi"]
+[ext_resource type="Resource" uid="uid://m818bhiagnjq" path="res://character/aaron/db01/aaron_db01_deck.tres" id="4_fkwkh"]
+[ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://script/character/character.gd" id="5_1gk3u"]
+[ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://script/character/contestant_status_effect.gd" id="6_tmoqv"]
+[ext_resource type="Script" uid="uid://dbi71fiylwg0o" path="res://script/debate/contestant/status_effect/condition_effect/tokens_played_condition_effect.gd" id="7_8ped1"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="8_60a18"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="9_pw4fj"]
+
+[sub_resource type="Resource" id="Resource_xfikx"]
+script = ExtResource("2_ne43b")
+
+[sub_resource type="Resource" id="Resource_yj38g"]
+script = ExtResource("7_8ped1")
+amount = 4
+suits = Array[ExtResource("8_60a18")]([ExtResource("9_pw4fj")])
+filter_mode = 0
+application = 1
+name = ""
+description = ""
+priority = 0
+can_expire = false
+turn_lifetime = -1
+metadata/_custom_type_script = "uid://dbi71fiylwg0o"
+
+[sub_resource type="Resource" id="Resource_1mxse"]
+script = ExtResource("6_tmoqv")
+which_contestant = 1
+status_effect = SubResource("Resource_yj38g")
+metadata/_custom_type_script = "uid://bkr7ctg24gqrv"
+
+[resource]
+script = ExtResource("5_1gk3u")
+name = "Aaron"
+brain = SubResource("Resource_xfikx")
+deck = ExtResource("4_fkwkh")
+starting_effects = Array[ExtResource("6_tmoqv")]([SubResource("Resource_1mxse")])
+energy_level = 3
+draw_limit = 5
+hand_limit = 8
+blackboard = ExtResource("1_c8eq6")
+debate_event_factory = ExtResource("3_87ydi")
