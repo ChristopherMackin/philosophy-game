@@ -33,6 +33,7 @@ var debate_event_factory : EventFactory:
 var blackboard : Blackboard:
 	get: return character.blackboard
 
+var status_effects: Array[StatusEffect]
 var can_play_condition_effects: Array[ConditionEffect]
 var can_draw_condition_effects: Array[ConditionEffect]
 
@@ -115,6 +116,11 @@ func end_turn():
 			if modifier.turn_lifetime <= 0:
 				var index = card.cost_modifiers.find(modifier)
 				card.cost_modifiers.remove_at(index)
+	
+	for status_effect: StatusEffect in status_effects.filter(func(x): return x.can_expire).duplicate():
+		status_effect.turn_lifetime -= 1
+		if status_effect.turn_lifetime <= 0:
+			status_effect.remove(self)
 	
 	await draw_full_hand()
 	

@@ -1,13 +1,40 @@
-[gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://b5qju7etv13c2"]
+[gd_resource type="Resource" script_class="Character" load_steps=14 format=3 uid="uid://b5qju7etv13c2"]
 
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://script/character/character.gd" id="1_ixei5"]
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/main_blackboard.tres" id="1_nfqwg"]
 [ext_resource type="Script" uid="uid://2hwgbl7c4ebq" path="res://script/character/brain/simple_ai_brain.gd" id="1_u3hxw"]
 [ext_resource type="Resource" uid="uid://27sna6u0b0wj" path="res://character/aaron/aaron_event_factory.tres" id="2_5kp35"]
 [ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/basic_deck.tres" id="4_kukn2"]
+[ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://script/character/contestant_status_effect.gd" id="6_15awf"]
+[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://script/character/debate_event_factory/rule/criterion/criterion.gd" id="7_rfh10"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="8_rfh10"]
+[ext_resource type="Script" uid="uid://diuc5eqt6xuu2" path="res://script/debate/contestant/status_effect/condition_effect/criterion_condition_effect.gd" id="8_yj38g"]
 
 [sub_resource type="Resource" id="Resource_xfikx"]
 script = ExtResource("1_u3hxw")
+
+[sub_resource type="Resource" id="Resource_rfh10"]
+script = ExtResource("7_rfh10")
+expression = "false"
+variables = Dictionary[String, Variant]({
+"doubt": ExtResource("8_rfh10")
+})
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
+[sub_resource type="Resource" id="Resource_yj38g"]
+script = ExtResource("8_yj38g")
+criterion = SubResource("Resource_rfh10")
+application = 1
+priority = 0
+can_expire = true
+turn_lifetime = 2
+metadata/_custom_type_script = "uid://diuc5eqt6xuu2"
+
+[sub_resource type="Resource" id="Resource_1mxse"]
+script = ExtResource("6_15awf")
+which_contestant = 1
+status_effect = SubResource("Resource_yj38g")
+metadata/_custom_type_script = "uid://bkr7ctg24gqrv"
 
 [resource]
 script = ExtResource("1_ixei5")
@@ -19,3 +46,4 @@ hand_limit = 8
 energy_level = 3
 debate_event_factory = ExtResource("2_5kp35")
 blackboard = ExtResource("1_nfqwg")
+starting_effects = Array[ExtResource("6_15awf")]([SubResource("Resource_1mxse")])

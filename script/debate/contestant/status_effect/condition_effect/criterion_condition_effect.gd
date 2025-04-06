@@ -1,3 +1,4 @@
+@tool
 extends ConditionEffect
 
 class_name CriterionConditionEffect

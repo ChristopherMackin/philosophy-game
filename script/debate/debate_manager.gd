@@ -72,6 +72,9 @@ func init(player_character : Character, computer_character : Character, debate_s
 	contestants.append(computer)
 	
 	for contestant in contestants:
+		for cse: ContestantStatusEffect in contestant.character.starting_effects:
+			var recipient = Const.GetContestant(contestant, get_opponent(contestant), cse.which_contestant)
+			cse.status_effect.apply(recipient)
 		await contestant.ready_up()
 	
 	for sub in subscribers: await sub.on_debate_start()
@@ -178,3 +181,4 @@ func get_opponent(contestant : Contestant):
 func add_token_to_suit_track(token : Token, suit : Suit):
 	if suit_track_dictionary.has(suit.name):
 		suit_track_dictionary[suit.name].append(token)
+		token.track_suit = suit
