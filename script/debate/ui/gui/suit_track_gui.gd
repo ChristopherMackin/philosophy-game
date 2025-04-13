@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 class_name SuitTrackGUI
@@ -7,13 +8,19 @@ class_name SuitTrackGUI
 @export var token_slot_packed_scene : PackedScene
 
 @export_group("Track Data")
-@export var suit : Suit
-@export var slot_count : int
+@export var suit : Suit:
+	set(val):
+		suit = val
+		refresh_slots.call_deferred(suit, slot_count)
+@export var slot_count : int:
+	set(val):
+		slot_count = val
+		refresh_slots.call_deferred(suit, slot_count)
 
 var slots : Array[Control]
 var tokens_gui: Array[TokenGUI]
 
-func init(suit: Suit, slot_count: int):
+func refresh_slots(suit: Suit, slot_count: int):
 	self.suit = suit
 	self.slot_count = slot_count
 	
