@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bqwn6fre04ypq" path="res://character/joy/joy.tscn" id="14_d1e2n"]
 [ext_resource type="Script" uid="uid://chrauiq0l35ul" path="res://script/debate/ui/3d/play_stack_3d.gd" id="14_pgvxw"]
 [ext_resource type="Script" uid="uid://2ix8jsfuxyac" path="res://script/ui/debate_contestant_3d.gd" id="15_38s5e"]
-[ext_resource type="PackedScene" uid="uid://c2mat21re3sx3" path="res://debate/board/board_3d.tscn" id="17_u7hpp"]
+[ext_resource type="PackedScene" uid="uid://c2mat21re3sx3" path="res://debate/packed_scene/board/board_3d.tscn" id="17_u7hpp"]
 [ext_resource type="Script" uid="uid://br5kxd06vsn3n" path="res://script/utility/set_layer_mask.gd" id="18_w4hh5"]
 [ext_resource type="Script" uid="uid://cv3tmep44n64x" path="res://script/system/dialogue_handler.gd" id="19_0dlld"]
 [ext_resource type="PackedScene" uid="uid://cajmwu8byfeoi" path="res://character/aaron/aaron.tscn" id="20_wk6p3"]

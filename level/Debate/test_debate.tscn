@@ -47,7 +47,7 @@
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="50_28j04"]
 [ext_resource type="PackedScene" uid="uid://cfr37mhe3tadq" path="res://debate/packed_scene/suit_banner_gui/faith_banner.tscn" id="51_cwibg"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="52_br37m"]
-[ext_resource type="Script" uid="uid://b7h2dcftdphdd" path="res://script/ui/board_gui.gd" id="52_ihgvd"]
+[ext_resource type="Script" uid="uid://b7h2dcftdphdd" path="res://script/ui/viewport_board.gd" id="52_ihgvd"]
 [ext_resource type="PackedScene" uid="uid://vl4omq8dgeem" path="res://debate/packed_scene/suit_track_gui.tscn" id="53_3tqoq"]
 [ext_resource type="PackedScene" uid="uid://b5x4pryb3x8hp" path="res://debate/packed_scene/suit_banner_gui/others_banner.tscn" id="53_hm1uf"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="54_2ad5d"]
