@@ -22,6 +22,6 @@ starting_player = 0
 redraw_on_hand_depleted = false
 retain_excess_energy = false
 suits = Array[ExtResource("2_4blar")]([ExtResource("3_oowsw"), ExtResource("2_p7u10"), ExtResource("5_t3pf5"), ExtResource("4_tit4q")])
-slots = 6
+slots = 12
 line_clear_direction = 1
 game_end_conditions = Array[ExtResource("1_86ws4")]([SubResource("Resource_po6lf"), SubResource("Resource_o0xxy")])

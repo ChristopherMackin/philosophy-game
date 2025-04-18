@@ -28,7 +28,6 @@ class_name ViewportSuitTrack
 		update_color.call_deferred()
 
 var slots : Array[Control]
-var tokens_gui: Array[TokenGUI]
 
 func refresh_slots():
 	for slot in slots:
@@ -54,8 +53,3 @@ func update_color():
 	if icon:
 		icon.texture = suit.icon
 		icon.self_modulate = suit.color
-
-func get_next_open_slot():
-	if tokens_gui.size() >= slots.size(): return
-	
-	return slots[tokens_gui.size()]

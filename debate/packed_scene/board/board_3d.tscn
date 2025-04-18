@@ -5,23 +5,23 @@
 [ext_resource type="PackedScene" uid="uid://du5ime7hk86tp" path="res://debate/packed_scene/board/basic_play_board.tscn" id="3_jn54j"]
 [ext_resource type="Script" uid="uid://bjxvg5oysv1su" path="res://debate/packed_scene/board/sub_viewport_control_size_match.gd" id="3_ldhrf"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ds3b4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ldhrf"]
 viewport_path = NodePath("BoardSprite/SubViewport")
 
-[node name="Board3D" type="Node3D" node_paths=PackedStringArray("suit_tracks")]
+[node name="Board3D" type="Node3D" node_paths=PackedStringArray("view_port_board")]
 transform = Transform3D(1, -3.48786e-16, 3.48786e-16, 3.48786e-16, 1, -3.48788e-16, -3.48786e-16, 3.48788e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 script = ExtResource("1_1q3tq")
-suit_tracks = [null, null, null, null]
+view_port_board = NodePath("BoardSprite/SubViewport/BasicPlayBoard")
 token_3d_packed_scene = ExtResource("2_urmf4")
 
 [node name="BoardSprite" type="Sprite3D" parent="."]
 transform = Transform3D(0.044, -3.06933e-17, -1.34164e-24, 0, -1.9233e-09, 0.044, -3.06933e-17, -0.044, -1.9233e-09, 0, 0, 0)
 alpha_cut = 2
 texture_filter = 0
-texture = SubResource("ViewportTexture_ds3b4")
+texture = SubResource("ViewportTexture_ldhrf")
 
 [node name="SubViewport" type="SubViewport" parent="BoardSprite" node_paths=PackedStringArray("control")]
-size = Vector2i(1166, 824)
+size = Vector2i(2054, 824)
 script = ExtResource("3_ldhrf")
 control = NodePath("BasicPlayBoard")
 
