@@ -32,11 +32,12 @@ func _clear_card_container():
 func open_selector(tokens : Array[Token]):
 	var tokens_3d : Array[Token3D]
 	
-	for suit_track in board.suit_tracks:
+	for key in board.suit_track_tokens_3d:
+		var token_3d_track = board.suit_track_tokens_3d[key]
 		for token in tokens:
-			var index = suit_track.tokens_3d.map(func(x): return x.token).find(token)
+			var index = token_3d_track.map(func(x): return x.token).find(token)
 			if index >= 0:
-				tokens_3d.append(suit_track.tokens_3d[index])
+				tokens_3d.append(token_3d_track[index])
 	
 	for token_3d in tokens_3d:
 		var selector : Control = selector_packed_scene.instantiate()
