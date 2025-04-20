@@ -115,12 +115,13 @@ func active_player_turn():
 			var token = card.pop_token()
 			if token:
 				await play_token(token, card.suit, active_contestant)
+				await clear_lines()
 			
 			await play_card(card, active_contestant)
 		
 		active_contestant.phase_end()
 		
-		clear_lines()
+		await clear_lines()
 	
 	await active_contestant.end_turn()
 	for sub in subscribers: await sub.on_turn_end(active_contestant)
