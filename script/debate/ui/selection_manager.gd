@@ -38,9 +38,9 @@ func on_focus_changed(node : Node):
 	active_focus_group.focus(node)
 
 func _unhandled_input(event):
-	if event.is_action_pressed("action_1"):
+	if Input.is_action_just_pressed("action_1"):
 		active_focus_group.select()
-	if event.is_action_pressed("action_2"):
+	if Input.is_action_just_pressed("action_2"):
 		active_focus_group.select("hold")
 
 func on_selection_requested(request : SelectionRequest):

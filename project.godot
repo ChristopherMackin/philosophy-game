@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Philosophy"
-run/main_scene="res://level/debate/test_debate.tscn"
+run/main_scene="res://level/debate/aaron_db01_debate.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://asset/graphic/debate/icon.svg"
 
 [autoload]
 
 GlobalTimer="*res://script/utility/timer.gd"
+SceneManager="*res://script/system/scene_management/scene_manager.gd"
 
 [display]
 

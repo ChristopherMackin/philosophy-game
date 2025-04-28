@@ -36,3 +36,7 @@ func on_card_drawn(_card : Card, _contestant: Contestant):
 	
 func on_card_hold_updated(_card : Card, _active_contestant : Contestant):
 	pass
+
+func _notification(what):
+	if what == NOTIFICATION_PREDELETE:
+		manager.unsubscribe(self)

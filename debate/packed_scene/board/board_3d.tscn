@@ -23,7 +23,7 @@ texture_filter = 0
 texture = SubResource("ViewportTexture_ldhrf")
 
 [node name="SubViewport" type="SubViewport" parent="BoardSprite" node_paths=PackedStringArray("control")]
-size = Vector2i(2054, 824)
+size = Vector2i(284, 180)
 script = ExtResource("3_ldhrf")
 control = NodePath("BasicPlayBoard")
 

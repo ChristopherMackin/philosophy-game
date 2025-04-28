@@ -49,7 +49,23 @@ func unsubscribe(subscriber):
 	if index != -1:
 		subscribers.remove_at(index)
 
+func clear_data():
+	player = null
+	computer = null
+	
+	active_contestant = null
+	
+	contestants = []
+	
+	card_player = null
+	
+	current_turn = 0
+	lines_cleared = 0
+	suit_track_dictionary = {}
+	play_stack = CardCollection.new()
+
 func init(player_character : Character, computer_character : Character, debate_settings : DebateSettings):
+	clear_data()
 	
 	for subscriber in subscribers:
 		subscriber.manager = self
