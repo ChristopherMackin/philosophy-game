@@ -61,10 +61,11 @@ func on_debate_finished():
 		manager.computer.character.remember("debates_finished", debates_finished + 1)
 
 func on_actions_invoked(_card : Card, _action_type: CardAction.Type, _contestant : Contestant):
-	print("actions_invoked")
+	pass
+	#Isn't being called at all
 
 func on_card_drawn(_card : Card, _contestant: Contestant):
-	print("card_drawn")
+	pass
 
 func on_card_hold_updated(_card : Card, _active_contestant : Contestant):
-	print("card_hold_updated")
+	pass

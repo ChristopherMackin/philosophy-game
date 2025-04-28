@@ -68,7 +68,7 @@ func on_card_drawn(_card : Card, _contestant: Contestant):
 
 func on_debate_finished():
 	print("Debate Finished")
-	SceneManager.load_scene("res://level/test_scene_loader.tscn")
+	SceneManager.load_scene("test_scene_loader")
 
 func query_event(concept : Const.Concept):
 	var query : Dictionary
