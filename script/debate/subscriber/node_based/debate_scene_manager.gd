@@ -42,14 +42,14 @@ func on_turn_end(contestant: Contestant):
 	if contestant.character_is(player): selection_manager.pause_input()
 
 func on_card_played(card: Card, contestant : Contestant):	
-	if contestant.character_is(computer):
-		await GlobalTimer.wait_for_seconds(.5)
-	
 	await update_everything()
 	
 	await query_event(Const.Concept.ON_PLAY)
 
 func on_token_played(token: Token, suit: Suit, contestant : Contestant):	
+	if contestant.character_is(computer):
+		await GlobalTimer.wait_for_seconds(.5)
+	
 	await update_everything()
 
 func on_card_hold_updated(card : Card, active_contestant : Contestant):
@@ -68,7 +68,7 @@ func on_card_drawn(_card : Card, _contestant: Contestant):
 
 func on_debate_finished():
 	print("Debate Finished")
-	SceneManager.load_scene("test_scene_loader")
+	SceneManager.load_scene_async("test_scene_loader")
 
 func query_event(concept : Const.Concept):
 	var query : Dictionary

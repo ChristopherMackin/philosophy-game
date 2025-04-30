@@ -100,4 +100,7 @@ static func deep_copy_resource_array(resource_array : Array):
 
 static func get_resource_name(resource: Resource):
 	var path = resource.get_path()
+	return get_file_name(path)
+
+static func get_file_name(path: String):
 	return path.right(-path.rfind("/") - 1).left(-5)
