@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="Deck" load_steps=21 format=3 uid="uid://dv86ada6flar5"]
+
+[ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://script/system/card/card_deck_config.gd" id="1_dpatv"]
+[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="2_m0bdr"]
+[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/basic_faith.tres" id="3_n7vtf"]
+[ext_resource type="Resource" uid="uid://hn3fmi2k8xsl" path="res://system/card/others/basic_others.tres" id="4_t63th"]
+[ext_resource type="Resource" uid="uid://dgsd4p0ynlqhk" path="res://system/card/self/basic_self.tres" id="5_0p4h1"]
+[ext_resource type="Resource" uid="uid://ylhvgo4gct1r" path="res://system/card/_peace/overthink.tres" id="6_pvg2d"]
+[ext_resource type="Resource" uid="uid://c614582y5sixk" path="res://system/card/_peace/recollect.tres" id="7_p4pl4"]
+[ext_resource type="Resource" uid="uid://d4cywj8g05x5n" path="res://system/card/_peace/recontextualize.tres" id="8_jbe3y"]
+[ext_resource type="Resource" uid="uid://bmipydv28i6px" path="res://system/card/_peace/closed_window.tres" id="9_8r88j"]
+[ext_resource type="Resource" uid="uid://cul52u3nu01i1" path="res://system/card/_peace/forget.tres" id="10_ubp6u"]
+[ext_resource type="Script" uid="uid://dhdtv0v6h0rkq" path="res://script/system/deck/deck.gd" id="11_wv4ln"]
+
+[sub_resource type="Resource" id="Resource_3dpgd"]
+script = ExtResource("1_dpatv")
+base = ExtResource("2_m0bdr")
+count = 4
+
+[sub_resource type="Resource" id="Resource_knmrv"]
+script = ExtResource("1_dpatv")
+base = ExtResource("3_n7vtf")
+count = 4
+
+[sub_resource type="Resource" id="Resource_43cn6"]
+script = ExtResource("1_dpatv")
+base = ExtResource("4_t63th")
+count = 4
+
+[sub_resource type="Resource" id="Resource_pn2ol"]
+script = ExtResource("1_dpatv")
+base = ExtResource("5_0p4h1")
+count = 4
+
+[sub_resource type="Resource" id="Resource_pgtkg"]
+script = ExtResource("1_dpatv")
+base = ExtResource("6_pvg2d")
+count = 1
+
+[sub_resource type="Resource" id="Resource_4oq50"]
+script = ExtResource("1_dpatv")
+base = ExtResource("7_p4pl4")
+count = 1
+
+[sub_resource type="Resource" id="Resource_i63n3"]
+script = ExtResource("1_dpatv")
+base = ExtResource("8_jbe3y")
+count = 1
+
+[sub_resource type="Resource" id="Resource_ot082"]
+script = ExtResource("1_dpatv")
+base = ExtResource("9_8r88j")
+count = 1
+
+[sub_resource type="Resource" id="Resource_m2kny"]
+script = ExtResource("1_dpatv")
+base = ExtResource("10_ubp6u")
+count = 2
+
+[resource]
+script = ExtResource("11_wv4ln")
+composition_card_deck_config_array = Array[ExtResource("1_dpatv")]([SubResource("Resource_3dpgd"), SubResource("Resource_knmrv"), SubResource("Resource_43cn6"), SubResource("Resource_pn2ol"), SubResource("Resource_pgtkg"), SubResource("Resource_4oq50"), SubResource("Resource_i63n3"), SubResource("Resource_ot082"), SubResource("Resource_m2kny")])

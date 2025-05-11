@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://834b58c6f0ru" path="res://character/aaron/aaron_memory.tres" id="1_c8eq6"]
 [ext_resource type="Script" uid="uid://2hwgbl7c4ebq" path="res://script/character/brain/simple_ai_brain.gd" id="2_ne43b"]
 [ext_resource type="Resource" uid="uid://27sna6u0b0wj" path="res://character/aaron/db01/aaron_db01_event_factory.tres" id="3_87ydi"]
-[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/basic_deck.tres" id="4_0cltd"]
+[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/starting_deck.tres" id="4_0cltd"]
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://script/character/character.gd" id="5_1gk3u"]
 [ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://script/character/contestant_status_effect.gd" id="6_tmoqv"]
 [ext_resource type="Resource" uid="uid://bvvao4qmfoyvj" path="res://character/aaron/db01/doubt_token_limit.tres" id="7_0cltd"]

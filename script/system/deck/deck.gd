@@ -32,10 +32,10 @@ func remove_from_deck(card : Card):
 
 func add_to_deck(card : Card):
 	var cards = composition_card_deck_config_array.map(func(x : DeckConfig): return x.base)
-	var index = cards.find(card.data)
+	var index = cards.find(card.base)
 	
 	if index < 0:
-		composition_card_deck_config_array.append(DeckConfig.new(card.data))
+		composition_card_deck_config_array.append(DeckConfig.new(card.base))
 		index = composition_card_deck_config_array.size() - 1
 	
 	composition_card_deck_config_array[index].count += 1

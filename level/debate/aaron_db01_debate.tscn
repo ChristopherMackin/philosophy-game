@@ -1,10 +1,12 @@
-[gd_scene load_steps=81 format=3 uid="uid://dq2nxpktgndnl"]
+[gd_scene load_steps=83 format=3 uid="uid://dq2nxpktgndnl"]
 
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://script/system/save_manager.gd" id="1_veaak"]
 [ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://script/system/save_data.gd" id="3_8u7hi"]
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/main_blackboard.tres" id="4_1kai6"]
+[ext_resource type="Resource" uid="uid://ge1h5tpdyptd" path="res://player/save_data/player_deck_save_data.tres" id="4_jcaq3"]
 [ext_resource type="Script" uid="uid://dhulr5f133qcw" path="res://script/debate/subscriber/node_based/debate_scene_manager.gd" id="5_burep"]
 [ext_resource type="Resource" uid="uid://c7qk4obnbhvr3" path="res://system/event_manager.tres" id="6_d0j7c"]
+[ext_resource type="PackedScene" uid="uid://deqrvxx6rp2vl" path="res://system/screen_transition/screen_wipe.tscn" id="6_gixg8"]
 [ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://debate/main/debate_settings.tres" id="7_bx4xu"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player_data.tres" id="8_5nc1l"]
 [ext_resource type="Resource" uid="uid://cmbx7ikxhaphj" path="res://debate/main/debate_manager.tres" id="9_ev6cj"]
@@ -146,13 +148,14 @@ metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("1_veaak")
 load_data = false
-save_data_list = Array[ExtResource("3_8u7hi")]([SubResource("Resource_q6ssy")])
+save_data_list = Array[ExtResource("3_8u7hi")]([SubResource("Resource_q6ssy"), ExtResource("4_jcaq3")])
 
 [node name="===MANAGER========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="DebateSceneManager" type="Node3D" parent="." node_paths=PackedStringArray("player_3d", "selection_manager", "computer_3d", "board", "hand_ui", "energy_ui", "hold_area_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
 script = ExtResource("5_burep")
+test = ExtResource("6_gixg8")
 event_manager = ExtResource("6_d0j7c")
 debate_settings = ExtResource("7_bx4xu")
 player = ExtResource("8_5nc1l")

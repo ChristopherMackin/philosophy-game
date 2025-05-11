@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SaveData" load_steps=3 format=3 uid="uid://ge1h5tpdyptd"]
+
+[ext_resource type="Resource" uid="uid://b150jnrliiino" path="res://system/test/test_deck.tres" id="1_gne3a"]
+[ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://script/system/save_data.gd" id="2_whngw"]
+
+[resource]
+script = ExtResource("2_whngw")
+path = "player_deck.res"
+resource = ExtResource("1_gne3a")
+metadata/_custom_type_script = "uid://dcyrmp3ja8f55"

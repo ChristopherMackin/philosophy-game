@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://w34gtnhx7xe1"]
+
+[ext_resource type="Script" uid="uid://clijn5851ad84" path="res://level/utility/card_drop_selector.gd" id="1_p8ff4"]
+[ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/card_gui/card_gui.tscn" id="1_sjr0q"]
+[ext_resource type="Resource" uid="uid://1d601ch1o3ng" path="res://system/focus_group/card_drop_selector.tres" id="2_fw8cg"]
+[ext_resource type="Resource" uid="uid://dlde6qg67se7y" path="res://system/global_drop_table.tres" id="3_e4ea4"]
+[ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_gui/tokenless_card_gui.tscn" id="3_ouc3i"]
+[ext_resource type="Resource" uid="uid://b150jnrliiino" path="res://system/test/test_deck.tres" id="4_eorgn"]
+[ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://script/system/save_manager.gd" id="6_wt2yw"]
+[ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://script/system/save_data.gd" id="7_wt2yw"]
+[ext_resource type="Resource" uid="uid://ge1h5tpdyptd" path="res://player/save_data/player_deck_save_data.tres" id="8_eorgn"]
+
+[node name="CardDropSelector" type="Control" node_paths=PackedStringArray("card_parent")]
+z_index = -10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p8ff4")
+default_card_gui_packed_scene = ExtResource("1_sjr0q")
+default_tokenless_card_gui_packed_scene = ExtResource("3_ouc3i")
+card_parent = NodePath("MarginContainer/HBoxContainer")
+focus_group = ExtResource("2_fw8cg")
+card_drop_table = ExtResource("3_e4ea4")
+deck = ExtResource("4_eorgn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="SaveManager" type="Node" parent="."]
+script = ExtResource("6_wt2yw")
+save_data_list = Array[ExtResource("7_wt2yw")]([ExtResource("8_eorgn")])
+metadata/_custom_type_script = "uid://bqa5o66nsm0hq"

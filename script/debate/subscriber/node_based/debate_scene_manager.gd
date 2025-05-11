@@ -1,5 +1,7 @@
 extends NodeBasedDebateSubscriber
 
+@export var test: PackedScene
+
 @export_group("Settings")
 @export var event_manager : EventManager
 @export var debate_settings : DebateSettings
@@ -68,7 +70,7 @@ func on_card_drawn(_card : Card, _contestant: Contestant):
 
 func on_debate_finished():
 	print("Debate Finished")
-	SceneManager.load_scene_async("test_scene_loader")
+	SceneManager.replace_scene_async("card_drop_selector", test)
 
 func query_event(concept : Const.Concept):
 	var query : Dictionary

@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="CardDropTable" load_steps=17 format=3 uid="uid://dlde6qg67se7y"]
+
+[ext_resource type="Script" uid="uid://dhdfh858qe0k7" path="res://script/system/card/card_selection/card_base_drop_rate.gd" id="1_ny2tn"]
+[ext_resource type="Resource" uid="uid://dgsd4p0ynlqhk" path="res://system/card/self/basic_self.tres" id="2_a3kgt"]
+[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="3_irowf"]
+[ext_resource type="Script" uid="uid://b0bpidssyjdun" path="res://script/system/card/card_selection/card_drop_table.gd" id="4_p7pwy"]
+[ext_resource type="Resource" uid="uid://dsxlu61i4pxko" path="res://system/card/_character_deck/aaron_db_01/looks_at_the_heart.tres" id="4_sxdl8"]
+[ext_resource type="Resource" uid="uid://tmstsrhqa3if" path="res://system/card/_character_deck/aaron_db_01/seeing_is_believing.tres" id="5_lxc20"]
+[ext_resource type="Resource" uid="uid://byuc46tg3sms6" path="res://system/card/faith/sanctify.tres" id="6_k2w62"]
+[ext_resource type="Resource" uid="uid://ds4kkc0rgnabl" path="res://system/card/_character_deck/aaron_db_01/hesitation.tres" id="7_juxkh"]
+[ext_resource type="Resource" uid="uid://uehkmujgyirh" path="res://system/card/_character_deck/aaron_db_01/one_step_back.tres" id="8_n4sae"]
+
+[sub_resource type="Resource" id="Resource_xssc0"]
+script = ExtResource("1_ny2tn")
+weight = 1
+card_base = ExtResource("2_a3kgt")
+metadata/_custom_type_script = "uid://dhdfh858qe0k7"
+
+[sub_resource type="Resource" id="Resource_2mkmk"]
+script = ExtResource("1_ny2tn")
+weight = 1
+card_base = ExtResource("3_irowf")
+metadata/_custom_type_script = "uid://dhdfh858qe0k7"
+
+[sub_resource type="Resource" id="Resource_cpff6"]
+script = ExtResource("1_ny2tn")
+weight = 1
+card_base = ExtResource("4_sxdl8")
+metadata/_custom_type_script = "uid://dhdfh858qe0k7"
+
+[sub_resource type="Resource" id="Resource_yk5ta"]
+script = ExtResource("1_ny2tn")
+weight = 1
+card_base = ExtResource("5_lxc20")
+metadata/_custom_type_script = "uid://dhdfh858qe0k7"
+
+[sub_resource type="Resource" id="Resource_bka22"]
+script = ExtResource("1_ny2tn")
+weight = 1
+card_base = ExtResource("6_k2w62")
+metadata/_custom_type_script = "uid://dhdfh858qe0k7"
+
+[sub_resource type="Resource" id="Resource_xmpw1"]
+script = ExtResource("1_ny2tn")
+weight = 1
+card_base = ExtResource("7_juxkh")
+metadata/_custom_type_script = "uid://dhdfh858qe0k7"
+
+[sub_resource type="Resource" id="Resource_8yd64"]
+script = ExtResource("1_ny2tn")
+weight = 1
+card_base = ExtResource("8_n4sae")
+metadata/_custom_type_script = "uid://dhdfh858qe0k7"
+
+[resource]
+script = ExtResource("4_p7pwy")
+cards = Array[ExtResource("1_ny2tn")]([SubResource("Resource_xssc0"), SubResource("Resource_2mkmk"), SubResource("Resource_cpff6"), SubResource("Resource_yk5ta"), SubResource("Resource_bka22"), SubResource("Resource_xmpw1"), SubResource("Resource_8yd64")])
+metadata/_custom_type_script = "uid://b0bpidssyjdun"
