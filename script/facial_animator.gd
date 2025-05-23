@@ -1,105 +1,53 @@
-extends Node3D
+@tool
+extends Node
 
 class_name FacialAnimator
 
-@export var emotion_index : int = 0:
-	set(val):
-		emotion_index = val
-		set_eye_material_uv_offset.call_deferred()
-		set_mouth_material_uv_offset.call_deferred()
-
 @export_group("Eyes")
-enum EyeState {
-	OPEN = 0,
-	CLOSED = 1,
-	BLINKING = 2,
-}
-@export var eye_state : EyeState = EyeState.BLINKING:
-	set(val):
-		eye_state = val
-		set_eye_material_uv_offset.call_deferred()
+@export var eye_col_count: int = 4
+@export var eye_row_count: int = 4
 @export var eyes : MeshInstance3D
-var eye_material : Material
-
-var blink_timer : float = 0
-var blink_offset : float
-
-@export var min_blink_offset : float = .5
-@export var max_blink_offset : float = 2
-
-@export var blink_length : float = .1
+@export var eye_selector_bone_name: String = "eye_selector"
+var eye_material : Material:
+	get:
+		return eyes.mesh.surface_get_material(0)
 
 @export_group("Mouth")
-enum MouthState {
-	CLOSED = 0,
-	OPEN = 1,
-	TALKING = 2
-}
-
-@export var mouth_state : MouthState = MouthState.CLOSED:
-	set(val):
-		mouth_state = val
-		set_mouth_material_uv_offset.call_deferred()
+@export var mouth_col_count: int = 4
+@export var mouth_row_count: int = 4
 @export var mouth : MeshInstance3D
-var mouth_material : Material
+@export var mouth_selector_bone_name: String = "mouth_selector"
+var mouth_material : Material:
+	get():
+		return mouth.mesh.surface_get_material(0)
 
-@export var talk_speed : float = 25
+@export_group("Skeleton")
+@export var skeleton : Skeleton3D
 
-func _ready():
-	eye_material = eyes.mesh.surface_get_material(0)
-	mouth_material = mouth.mesh.surface_get_material(0)
-	blink_offset = get_random_blink_offset()
+func pose_updated():
+	update_eyes()
+	update_mouth()
 
-func _process(delta):
-	if eye_state == EyeState.BLINKING:
-		blink(delta)
-	if mouth_state == MouthState.TALKING:
-		talk(delta)
-
-func set_eye_material_uv_offset():
-	var uv_offset : Vector3
+func update_eyes():
+	var id = skeleton.find_bone(eye_selector_bone_name)
+	var t = skeleton.get_bone_pose(id)
 	
-	if eye_state == EyeState.BLINKING:
-		uv_offset = get_uv_offset(emotion_index, EyeState.OPEN)
-	else:
-		uv_offset = get_uv_offset(emotion_index, eye_state)
-
-	eye_material.uv1_offset = uv_offset
-
-func set_mouth_material_uv_offset():
-	var uv_offset : Vector3
+	var offset = Vector3(
+		float(ceil(clamp(abs(t.origin.x), 0, 1) * eye_col_count) - 1) / eye_col_count,
+		float(ceil(clamp(abs(t.origin.y), 0, 1) * eye_row_count) - 1) / eye_row_count,
+		0
+	)
 	
-	if mouth_state == MouthState.TALKING:
-		uv_offset = get_uv_offset(emotion_index, MouthState.OPEN)
-	else:
-		uv_offset = get_uv_offset(emotion_index, mouth_state)
+	eye_material.uv1_offset = offset
 
-	mouth_material.uv1_offset = uv_offset
-
-func blink(delta):
-	blink_timer += delta
+func update_mouth():
+	var id = skeleton.find_bone(mouth_selector_bone_name)
+	var t = skeleton.get_bone_pose(id)
 	
-	if blink_timer >= blink_offset:
-		eye_material.uv1_offset = get_uv_offset(emotion_index, EyeState.CLOSED)
-		await GlobalTimer.wait_for_seconds(blink_length)
-		if eye_state == EyeState.BLINKING:
-			eye_material.uv1_offset = get_uv_offset(emotion_index, EyeState.OPEN)
-		
-		blink_timer = 0
-		blink_offset = get_random_blink_offset()
-
-func talk(delta):
-	if(sin(Time.get_unix_time_from_system() * talk_speed) > 0):
-		mouth_material.uv1_offset = get_uv_offset(emotion_index, MouthState.OPEN)
-	else:
-		mouth_material.uv1_offset = get_uv_offset(emotion_index, MouthState.CLOSED)
-
-func get_random_blink_offset() -> float :
-	return randf_range(min_blink_offset, max_blink_offset)
-
-#This works only on a 8 emotion tile set with two states for each emotion
-func get_uv_offset(index : int, state) -> Vector3:
-	if index < 0 || index >= 8:
-		return Vector3.ZERO
+	var offset = Vector3(
+		float(ceil(clamp(abs(t.origin.x), 0, 1) * mouth_col_count) - 1) / eye_col_count,
+		float(ceil(clamp(abs(t.origin.y), 0, 1) * mouth_row_count) - 1) / mouth_row_count,
+		0
+	)
 	
-	return Vector3((index % 2) * .5 + state * .25, floorf(index / 2.0) / 4.0, 0)
+	mouth_material.uv1_offset = offset

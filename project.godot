@@ -40,7 +40,7 @@ scene={
 "gltf/embedded_image_handling": 3
 }
 animation_library={
-"animation/remove_immutable_tracks": false
+&"animation/remove_immutable_tracks": false
 }
 
 [input]
