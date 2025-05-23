@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://dq2nxpktgndnl"]
+[gd_scene load_steps=89 format=3 uid="uid://dq2nxpktgndnl"]
 
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://script/system/save_manager.gd" id="1_veaak"]
 [ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://script/system/save_data.gd" id="3_8u7hi"]
@@ -20,9 +20,10 @@
 [ext_resource type="Resource" uid="uid://bo5lyi4q2kuag" path="res://system/focus_group/card_selector_focus_group.tres" id="17_serq5"]
 [ext_resource type="Resource" uid="uid://8fi1d2l5sq45" path="res://system/focus_group/suit_focus_group.tres" id="18_hmk2u"]
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://script/system/animation/animation_player_handler.gd" id="19_a566b"]
-[ext_resource type="Environment" uid="uid://vowbyk10rg4v" path="res://level/debate_scene_environment.tres" id="20_flvdh"]
 [ext_resource type="PackedScene" uid="uid://r4i5a44ihqej" path="res://asset/model/environment/lectern.glb" id="21_4lic0"]
 [ext_resource type="Script" uid="uid://cde2wsdjn62td" path="res://script/ui/board_3d.gd" id="21_cwibg"]
+[ext_resource type="Shader" uid="uid://b26sxmlyd4mw8" path="res://level/debate/aaron_db01_debate.gdshader" id="21_gixg8"]
+[ext_resource type="Texture2D" uid="uid://cevnh551hdpgr" path="res://debate/background/circles_background.png" id="22_4nxar"]
 [ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://debate/packed_scene/token_3d.tscn" id="22_br37m"]
 [ext_resource type="Script" uid="uid://bjxvg5oysv1su" path="res://debate/packed_scene/board/sub_viewport_control_size_match.gd" id="23_hm1uf"]
 [ext_resource type="PackedScene" uid="uid://du5ime7hk86tp" path="res://debate/packed_scene/board/basic_play_board.tscn" id="24_2ad5d"]
@@ -73,6 +74,34 @@ path = "main_blackboard.res"
 resource = ExtResource("4_1kai6")
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8mmwu"]
+
+[sub_resource type="Gradient" id="Gradient_gixg8"]
+offsets = PackedFloat32Array(0, 0.268868, 0.849057, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0534591, 0.0534591, 0.0534591, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4nxar"]
+gradient = SubResource("Gradient_gixg8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4nxar"]
+shader = ExtResource("21_gixg8")
+shader_parameter/sky_texture = ExtResource("22_4nxar")
+shader_parameter/tile_amount = 5.0
+shader_parameter/y_gradient = SubResource("GradientTexture1D_4nxar")
+shader_parameter/modulate = Color(0.647436, 0.304629, 0.80512, 1)
+shader_parameter/distortion = Vector2(100, 100)
+shader_parameter/scroll_velocity = Vector2(0.1, 0.1)
+
+[sub_resource type="Sky" id="Sky_ij3pb"]
+sky_material = SubResource("ShaderMaterial_4nxar")
+
+[sub_resource type="Environment" id="Environment_5l5m3"]
+background_mode = 2
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 0.5
+background_canvas_max_layer = -100
+sky = SubResource("Sky_ij3pb")
+ambient_light_source = 2
+ambient_light_color = Color(0.976471, 0.972549, 0.933333, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8kysj"]
 viewport_path = NodePath("Lectern/Board3D/BoardSprite/SubViewport")
@@ -214,7 +243,7 @@ autoplay = "close_debate_cutscene"
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("20_flvdh")
+environment = SubResource("Environment_5l5m3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)

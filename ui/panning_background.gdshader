@@ -8,5 +8,5 @@ void fragment(){
 
      vec2 move = direction * TIME * speed_scale;
 
-     COLOR = texture(TEXTURE, UV + move) * color;  
+     COLOR = texture(TEXTURE, UV + move) * color;
 }
