@@ -346,14 +346,10 @@ layers = 2
 script = ExtResource("26_gigak")
 layers = Array[bool]([false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
 
-[node name="DialogueHandler" type="Node" parent="Joy" node_paths=PackedStringArray("facial_animator", "default_dialogue_bubble")]
+[node name="DialogueHandler" type="Node" parent="Joy" node_paths=PackedStringArray("character_animation_tree", "default_dialogue_bubble")]
 script = ExtResource("27_x12dh")
-facial_animator = NodePath("../FacialAnimator")
+character_animation_tree = NodePath("../CharacterAnimationTree")
 default_dialogue_bubble = NodePath("../../PlayArea/DialogueArea/Contestants/Player/DialogueBubbles/BasicDialogueBubble")
-
-[node name="AnimationHandler" type="Node" parent="Joy" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("19_a566b")
-animation_player = NodePath("../AnimationPlayer")
 
 [node name="Aaron" parent="." node_paths=PackedStringArray("facial_animator") instance=ExtResource("28_hew00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -0.75)
@@ -421,9 +417,8 @@ layers = 4
 script = ExtResource("26_gigak")
 layers = Array[bool]([false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
 
-[node name="DialogueHandler" type="Node" parent="Aaron" node_paths=PackedStringArray("facial_animator", "default_dialogue_bubble")]
+[node name="DialogueHandler" type="Node" parent="Aaron" node_paths=PackedStringArray("default_dialogue_bubble")]
 script = ExtResource("27_x12dh")
-facial_animator = NodePath("../FacialAnimator")
 default_dialogue_bubble = NodePath("../../PlayArea/DialogueArea/Contestants/Computer/DialogueBubbles/BasicDialogueBubble")
 
 [node name="AnimationHandler" type="Node" parent="Aaron" node_paths=PackedStringArray("animation_player")]
@@ -955,6 +950,8 @@ script = ExtResource("66_sve2w")
 default_card_gui_packed_scene = ExtResource("39_swvjr")
 default_tokenless_card_gui_packed_scene = ExtResource("40_svr5q")
 tokenless_card_gui_suit_packed_scenes = Array[ExtResource("44_3pkyo")]([SubResource("Resource_svr5q")])
+
+[connection signal="pose_updated" from="Joy/root/Skeleton3D" to="Joy/FacialAnimator" method="pose_updated"]
 
 [editable path="Joy"]
 [editable path="Aaron"]

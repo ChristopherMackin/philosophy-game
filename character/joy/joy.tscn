@@ -1,8 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqwn6fre04ypq"]
+[gd_scene load_steps=12 format=3 uid="uid://bqwn6fre04ypq"]
 
 [ext_resource type="PackedScene" uid="uid://c5hmf0nujds77" path="res://asset/model/character/joy/joy.glb" id="1_hm3pk"]
 [ext_resource type="AnimationLibrary" uid="uid://c41saia2twsr4" path="res://character/joy/animation/joy_animation_library.res" id="2_7qs8n"]
+[ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/joy/character_animation_tree.gd" id="3_14txt"]
 [ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://script/facial_animator.gd" id="3_3518r"]
+[ext_resource type="Script" uid="uid://4lmkf6b3mly" path="res://script/system/animation/character_tree_animation_handler.gd" id="5_7qfv6"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qfv6"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_14txt"]
+animation = &"blink"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_5p15f"]
+filter_enabled = true
+filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dmws1"]
+animation = &"talk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_fjyoo"]
+filter_enabled = true
+filters = ["root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_2rcg6"]
+graph_offset = Vector2(-296.386, 38.0509)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_7qfv6")
+nodes/Animation/position = Vector2(-220, 10)
+nodes/blink/node = SubResource("AnimationNodeAnimation_14txt")
+nodes/blink/position = Vector2(-340, 210)
+nodes/blinking/node = SubResource("AnimationNodeBlend2_5p15f")
+nodes/blinking/position = Vector2(70, 130)
+nodes/talk/node = SubResource("AnimationNodeAnimation_dmws1")
+nodes/talk/position = Vector2(-340, 400)
+nodes/talking/node = SubResource("AnimationNodeBlend2_fjyoo")
+nodes/talking/position = Vector2(-160, 230)
+node_connections = [&"blinking", 0, &"Animation", &"blinking", 1, &"talking", &"output", 0, &"blinking", &"talking", 0, &"blink", &"talking", 1, &"talk"]
 
 [node name="Joy" instance=ExtResource("1_hm3pk")]
 
@@ -11,12 +44,23 @@ libraries = {
 &"": ExtResource("2_7qs8n")
 }
 
-[node name="FacialAnimator" type="Node" parent="." index="2" node_paths=PackedStringArray("eyes", "mouth", "skeleton")]
+[node name="CharacterAnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_2rcg6")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blinking/blend_amount = 1.0
+parameters/talking/blend_amount = 0.0
+script = ExtResource("3_14txt")
+
+[node name="FacialAnimator" type="Node" parent="." index="3" node_paths=PackedStringArray("eyes", "mouth", "skeleton")]
 script = ExtResource("3_3518r")
 eyes = NodePath("../root/Skeleton3D/Eyes")
 mouth_row_count = 8
 mouth = NodePath("../root/Skeleton3D/Mouth")
 skeleton = NodePath("../root/Skeleton3D")
 metadata/_custom_type_script = "uid://bj0ldo17kyup3"
+
+[node name="AnimationHandler" type="Node" parent="." index="4" node_paths=PackedStringArray("animation_tree")]
+script = ExtResource("5_7qfv6")
+animation_tree = NodePath("../CharacterAnimationTree")
 
 [connection signal="pose_updated" from="root/Skeleton3D" to="FacialAnimator" method="pose_updated"]

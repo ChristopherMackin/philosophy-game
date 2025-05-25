@@ -50,7 +50,11 @@ func play_animation(animation : String, actor : String, await_animation : bool):
 	
 	animation_handler.start_animation(animation)
 	
-	if await_animation: await animation_handler.on_animation_finished
+	if await_animation:
+		var finished_animation
+		while finished_animation != animation:
+			finished_animation = await animation_handler.on_animation_finished
+			print("finished_animation")
 
 func cancel_animation(actor):
 	var parent
