@@ -18,10 +18,10 @@ func start_dialogue(line : String):
 
 func close_dialogue():
 	default_dialogue_bubble.stop_scrolling()
-	character_animation_tree.is_talking = false
 	default_dialogue_bubble.visible = false
 
 func dialogue_finished():
+	character_animation_tree.is_talking = false
 	on_dialogue_finished.emit()
 
 func cancel_dialogue():

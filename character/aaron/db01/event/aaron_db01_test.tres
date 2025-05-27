@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Event" load_steps=9 format=3 uid="uid://b8omebsn1wpsb"]
+[gd_resource type="Resource" script_class="Event" load_steps=11 format=3 uid="uid://b8omebsn1wpsb"]
 
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://script/system/event/event.gd" id="1_easfd"]
 [ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://script/system/event/task_action/animation_task_action.gd" id="2_3j4t2"]
@@ -10,8 +10,8 @@ script = ExtResource("2_3j4t2")
 
 [sub_resource type="Resource" id="Resource_qhefd"]
 script = ExtResource("3_rlimk")
-outputs = Array[int]([0])
-inputs = ["praise", "aaron", true]
+outputs = Array[int]([2])
+inputs = ["plead", "joy", false]
 action = SubResource("Resource_ml60a")
 
 [sub_resource type="Resource" id="Resource_x7ur8"]
@@ -23,10 +23,22 @@ outputs = Array[int]([])
 inputs = ["Big mood bitches", "aaron", false, 2.0]
 action = SubResource("Resource_x7ur8")
 
+[sub_resource type="Resource" id="Resource_iyxmi"]
+script = ExtResource("3_rlimk")
+outputs = Array[int]([0])
+inputs = ["praise", "aaron", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_1cfb2"]
+script = ExtResource("3_rlimk")
+outputs = Array[int]([1])
+inputs = ["What it do?", "joy", false, 2.0]
+action = SubResource("Resource_x7ur8")
+
 [resource]
 script = ExtResource("1_easfd")
 is_major_event = false
 await_event = false
 frequency = 1
 start_task = SubResource("Resource_qhefd")
-tasks = Array[ExtResource("3_rlimk")]([SubResource("Resource_1jkef"), SubResource("Resource_qhefd")])
+tasks = Array[ExtResource("3_rlimk")]([SubResource("Resource_1jkef"), SubResource("Resource_iyxmi"), SubResource("Resource_1cfb2"), SubResource("Resource_qhefd")])

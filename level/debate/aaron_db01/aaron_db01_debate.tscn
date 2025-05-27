@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://dq2nxpktgndnl"]
+[gd_scene load_steps=88 format=3 uid="uid://dq2nxpktgndnl"]
 
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://script/system/save_manager.gd" id="1_veaak"]
 [ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://script/system/save_data.gd" id="3_8u7hi"]
@@ -22,7 +22,8 @@
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://script/system/animation/animation_player_handler.gd" id="19_a566b"]
 [ext_resource type="PackedScene" uid="uid://r4i5a44ihqej" path="res://asset/model/environment/lectern.glb" id="21_4lic0"]
 [ext_resource type="Script" uid="uid://cde2wsdjn62td" path="res://script/ui/board_3d.gd" id="21_cwibg"]
-[ext_resource type="Shader" uid="uid://b26sxmlyd4mw8" path="res://level/debate/aaron_db01_debate.gdshader" id="21_gixg8"]
+[ext_resource type="Shader" uid="uid://b26sxmlyd4mw8" path="res://level/debate/aaron_db01/aaron_db01_debate.gdshader" id="21_gixg8"]
+[ext_resource type="AnimationLibrary" uid="uid://b8uogqxnm2xve" path="res://level/debate/aaron_db01/aaron_db01.res" id="21_wmo22"]
 [ext_resource type="Texture2D" uid="uid://cevnh551hdpgr" path="res://debate/background/circles_background.png" id="22_4nxar"]
 [ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://debate/packed_scene/token_3d.tscn" id="22_br37m"]
 [ext_resource type="Script" uid="uid://bjxvg5oysv1su" path="res://debate/packed_scene/board/sub_viewport_control_size_match.gd" id="23_hm1uf"]
@@ -73,8 +74,6 @@ script = ExtResource("3_8u7hi")
 path = "main_blackboard.res"
 resource = ExtResource("4_1kai6")
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8mmwu"]
-
 [sub_resource type="Gradient" id="Gradient_gixg8"]
 offsets = PackedFloat32Array(0, 0.268868, 0.849057, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.0534591, 0.0534591, 0.0534591, 1, 1, 1, 1, 1, 0, 0, 0, 1)
@@ -105,12 +104,6 @@ ambient_light_color = Color(0.976471, 0.972549, 0.933333, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8kysj"]
 viewport_path = NodePath("Lectern/Board3D/BoardSprite/SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1mhlm"]
-shader = ExtResource("29_4mxf6")
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/direction = Vector2(1, 0)
-shader_parameter/speed_scale = 0.05
 
 [sub_resource type="Gradient" id="Gradient_2th6e"]
 colors = PackedColorArray(0.67451, 0.466667, 0.203922, 1, 0.996078, 0.694118, 0.266667, 1)
@@ -235,9 +228,18 @@ animation_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SceneAnimator"]
 libraries = {
-&"": SubResource("AnimationLibrary_8mmwu")
+&"": ExtResource("21_wmo22")
 }
 autoplay = "close_debate_cutscene"
+
+[node name="===CUTSCENE========" type="Node3D" parent="."]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="Cameras" type="Node3D" parent="===CUTSCENE========"]
+
+[node name="DebateCamera" type="Camera3D" parent="===CUTSCENE========/Cameras"]
+transform = Transform3D(-4.37114e-08, 4.03025e-16, -1, 0.170072, 0.985432, -7.43408e-09, 0.985432, -0.170072, -4.30746e-08, -1.18445, 1.12532, -0.0350569)
+fov = 60.0
 
 [node name="===WORLD========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -248,10 +250,10 @@ environment = SubResource("Environment_5l5m3")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
 
-[node name="DebateCamera" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0.170072, 0.985432, -7.43408e-09, 0.985432, -0.170072, -4.30746e-08, -1.18445, 1.12532, -0.0350569)
+[node name="GameplayCamera" type="Camera3D" parent="."]
+transform = Transform3D(-0.999999, 0.000167465, 0.00103373, 0.00104721, 0.159692, 0.987166, 2.37238e-07, 0.987167, -0.159692, 0.2059, 1.523, -0.145)
+cull_mask = 1048569
 current = true
-fov = 60.0
 
 [node name="===ENVIRONMENT========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -357,7 +359,21 @@ script = ExtResource("25_mt3bv")
 facial_animator = NodePath("FacialAnimator")
 
 [node name="Skeleton3D" parent="Aaron/root" index="0"]
-bones/31/position = Vector3(0.0815765, -9.74914e-06, 3.59922e-10)
+bones/8/rotation = Quaternion(1.24483e-07, 0.132673, -4.45721e-08, 0.99116)
+bones/16/rotation = Quaternion(-6.39813e-08, 0.0655569, 1.49903e-08, 0.997849)
+bones/19/rotation = Quaternion(-5.51647e-08, 0.023504, 3.10179e-08, 0.999724)
+bones/29/rotation = Quaternion(9.90806e-07, 0.0239037, -5.47604e-07, 0.999714)
+bones/30/position = Vector3(0.672594, 1.09417, 0.00324741)
+bones/30/rotation = Quaternion(1.58715e-23, 1.46323e-06, 0, 1)
+bones/31/position = Vector3(0.0815765, -9.74934e-06, 3.81866e-10)
+bones/31/rotation = Quaternion(-2.25537e-10, -1.37868e-06, -1.37873e-06, 1)
+bones/31/scale = Vector3(1, 1, 1)
+bones/32/position = Vector3(0.672594, -0.128914, 0.00324741)
+bones/32/rotation = Quaternion(-7.69399e-10, 1.58244e-06, -1.21753e-15, 1)
+bones/32/scale = Vector3(1, 1, 1)
+bones/33/position = Vector3(0.0815766, -9.89181e-06, 2.22529e-08)
+bones/33/rotation = Quaternion(1.47535e-09, -1.49789e-06, -1.37867e-06, 1)
+bones/33/scale = Vector3(1, 1, 1)
 
 [node name="Arm_L" parent="Aaron/root/Skeleton3D" index="0"]
 layers = 4
@@ -422,37 +438,23 @@ default_dialogue_bubble = NodePath("../../PlayArea/DialogueArea/Contestants/Comp
 [node name="===UI========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="WorldBackground" type="CanvasLayer" parent="."]
-layer = -100
-visible = false
+[node name="PlayArea" type="CanvasLayer" parent="."]
 
-[node name="Background" type="TextureRect" parent="WorldBackground"]
-material = SubResource("ShaderMaterial_1mhlm")
+[node name="SubViewportContainer" type="SubViewportContainer" parent="PlayArea"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-expand_mode = 3
-stretch_mode = 1
-
-[node name="PlayArea" type="CanvasLayer" parent="."]
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="PlayArea"]
-anchors_preset = -1
-anchor_left = 0.375
-anchor_right = 1.0
-anchor_bottom = 0.759
-offset_left = -6.10352e-05
-offset_bottom = 0.279907
 
 [node name="SubViewport" type="SubViewport" parent="PlayArea/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(1200, 820)
-render_target_update_mode = 4
+size = Vector2i(1920, 1080)
+render_target_update_mode = 0
 
 [node name="Camera3D" type="Camera3D" parent="PlayArea/SubViewportContainer/SubViewport"]
-transform = Transform3D(-1, 8.74228e-08, 0, 1.39607e-08, 0.159692, 0.987167, 8.63009e-08, 0.987167, -0.159692, 0, 1.513, -0.0951654)
+transform = Transform3D(-0.999956, -0.0015048, -0.00930372, -0.00942462, 0.159685, 0.987123, 2.37297e-07, 0.987167, -0.159692, 0.2059, 1.523, -0.145)
 cull_mask = 1048569
 
 [node name="DialogueArea" type="TextureRect" parent="PlayArea"]
@@ -566,7 +568,7 @@ size = Vector2i(520, 260)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="PlayArea/DialogueArea/Contestants/Computer/ComputerViewport/SubViewport"]
-transform = Transform3D(0.766044, -0.00919906, 0.642722, 0, 0.999898, 0.0143112, -0.642788, -0.010963, 0.765966, 0.193404, 1.41996, 0.0408086)
+transform = Transform3D(0.766044, -0.00919906, 0.642722, 0, 0.999898, 0.0143112, -0.642788, -0.010963, 0.765966, 0.238982, 1.41996, -0.0190504)
 cull_mask = 4
 environment = ExtResource("32_25gdx")
 fov = 60.0
@@ -803,14 +805,6 @@ script = ExtResource("54_tlmri")
 horizontal_spacing = 10
 perferred_vertical_spacing = 10
 
-[node name="ScreenFilter" type="TextureRect" parent="PlayArea"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("55_ywg81")
-
 [node name="SuitSelector" type="Panel" parent="PlayArea" node_paths=PackedStringArray("card_container")]
 visible = false
 z_index = 10
@@ -945,8 +939,13 @@ default_card_gui_packed_scene = ExtResource("39_swvjr")
 default_tokenless_card_gui_packed_scene = ExtResource("40_svr5q")
 tokenless_card_gui_suit_packed_scenes = Array[ExtResource("44_3pkyo")]([SubResource("Resource_svr5q")])
 
-[connection signal="pose_updated" from="Joy/root/Skeleton3D" to="Joy/FacialAnimator" method="pose_updated"]
-[connection signal="pose_updated" from="Aaron/root/Skeleton3D" to="Aaron/FacialAnimator" method="pose_updated"]
+[node name="ScreenFilter" type="TextureRect" parent="PlayArea"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("55_ywg81")
 
 [editable path="Joy"]
 [editable path="Aaron"]

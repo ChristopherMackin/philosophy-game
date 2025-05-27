@@ -34,6 +34,7 @@ func _ready():
 
 func on_debate_start():
 	await update_everything()
+	await query_event(Const.Concept.ON_DEBATE_START)
 
 func on_turn_start(_contestant: Contestant):
 	await update_everything()
@@ -56,7 +57,6 @@ func on_token_played(token: Token, suit: Suit, contestant : Contestant):
 
 func on_card_hold_updated(card : Card, active_contestant : Contestant):
 	await update_everything()
-	
 	await query_event(Const.Concept.ON_HOLD)
 
 func on_lines_cleared(count : int):
@@ -70,7 +70,7 @@ func on_card_drawn(_card : Card, _contestant: Contestant):
 
 func on_debate_finished():
 	print("Debate Finished")
-	SceneManager.replace_scene_async("card_drop_selector", test)
+	await query_event(Const.Concept.ON_DEBATE_END)
 
 func query_event(concept : Const.Concept):
 	var query : Dictionary

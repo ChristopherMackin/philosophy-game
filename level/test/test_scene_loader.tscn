@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dt6g1xy3f2go0"]
 
-[ext_resource type="Script" uid="uid://bx48u340jwbwk" path="res://level/test_scene_loader.gd" id="1_vmwkt"]
+[ext_resource type="Script" uid="uid://bx48u340jwbwk" path="res://level/test/test_scene_loader.gd" id="1_vmwkt"]
 
 [node name="TestSceneLoader" type="Control"]
 layout_mode = 3
