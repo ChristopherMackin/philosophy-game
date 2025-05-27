@@ -23,8 +23,7 @@ animation = &"talk"
 filter_enabled = true
 filters = ["root/Skeleton3D:mouth_selector"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_2rcg6"]
-graph_offset = Vector2(-296.386, 38.0509)
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_7qfv6"]
 nodes/Animation/node = SubResource("AnimationNodeAnimation_7qfv6")
 nodes/Animation/position = Vector2(-220, 10)
 nodes/blink/node = SubResource("AnimationNodeAnimation_14txt")
@@ -45,7 +44,7 @@ libraries = {
 }
 
 [node name="CharacterAnimationTree" type="AnimationTree" parent="." index="2"]
-tree_root = SubResource("AnimationNodeBlendTree_2rcg6")
+tree_root = SubResource("AnimationNodeBlendTree_7qfv6")
 anim_player = NodePath("../AnimationPlayer")
 parameters/blinking/blend_amount = 1.0
 parameters/talking/blend_amount = 0.0

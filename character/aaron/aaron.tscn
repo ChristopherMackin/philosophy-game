@@ -1,8 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://cajmwu8byfeoi"]
+[gd_scene load_steps=12 format=3 uid="uid://cajmwu8byfeoi"]
 
 [ext_resource type="PackedScene" uid="uid://doagmnjb5kjij" path="res://asset/model/character/aaron/aaron.glb" id="1_tib51"]
 [ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://script/facial_animator.gd" id="2_0i4e4"]
 [ext_resource type="AnimationLibrary" uid="uid://c7aqovwpelfbc" path="res://character/aaron/animation/aaron_animation_library.res" id="2_wq1tm"]
+[ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/joy/character_animation_tree.gd" id="3_dd2yw"]
+[ext_resource type="Script" uid="uid://4lmkf6b3mly" path="res://script/system/animation/character_tree_animation_handler.gd" id="5_qabnp"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qfv6"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_14txt"]
+animation = &"blink"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_5p15f"]
+filter_enabled = true
+filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dmws1"]
+animation = &"talk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_fjyoo"]
+filter_enabled = true
+filters = ["root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dd2yw"]
+graph_offset = Vector2(-347.118, 49.2799)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_7qfv6")
+nodes/Animation/position = Vector2(-220, 10)
+nodes/blink/node = SubResource("AnimationNodeAnimation_14txt")
+nodes/blink/position = Vector2(-340, 210)
+nodes/blinking/node = SubResource("AnimationNodeBlend2_5p15f")
+nodes/blinking/position = Vector2(70, 130)
+nodes/talk/node = SubResource("AnimationNodeAnimation_dmws1")
+nodes/talk/position = Vector2(-340, 400)
+nodes/talking/node = SubResource("AnimationNodeBlend2_fjyoo")
+nodes/talking/position = Vector2(-160, 230)
+node_connections = [&"blinking", 0, &"Animation", &"blinking", 1, &"talking", &"output", 0, &"blinking", &"talking", 0, &"blink", &"talking", 1, &"talk"]
 
 [node name="Aaron" instance=ExtResource("1_tib51")]
 
@@ -11,13 +44,42 @@ bones/8/rotation = Quaternion(1.24483e-07, 0.132673, -4.45721e-08, 0.99116)
 bones/16/rotation = Quaternion(-6.39813e-08, 0.0655569, 1.49903e-08, 0.997849)
 bones/19/rotation = Quaternion(-5.51647e-08, 0.023504, 3.10179e-08, 0.999724)
 bones/29/rotation = Quaternion(9.90806e-07, 0.0239037, -5.47604e-07, 0.999714)
+bones/30/position = Vector3(0.672594, 1.09417, 0.00324741)
+bones/30/rotation = Quaternion(1.58715e-23, 1.46323e-06, 0, 1)
+bones/30/scale = Vector3(1, 1, 1)
+bones/31/position = Vector3(0.0815765, -9.74905e-06, 3.50488e-10)
+bones/31/rotation = Quaternion(-2.25537e-10, -1.37868e-06, -1.37873e-06, 1)
+bones/31/scale = Vector3(1, 1, 1)
+bones/32/position = Vector3(0.672594, -0.128914, 0.00324741)
+bones/32/rotation = Quaternion(-7.69399e-10, 1.58244e-06, -1.21753e-15, 1)
+bones/32/scale = Vector3(1, 1, 1)
+bones/33/position = Vector3(0.0815766, -9.89181e-06, 2.22529e-08)
+bones/33/rotation = Quaternion(1.47535e-09, -1.49789e-06, -1.37867e-06, 1)
+bones/33/scale = Vector3(1, 1, 1)
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
 &"": ExtResource("2_wq1tm")
 }
 
-[node name="FacialAnimator" type="Node3D" parent="." index="2" node_paths=PackedStringArray("eyes", "mouth")]
+[node name="CharacterAnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_dd2yw")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blinking/blend_amount = 1.0
+parameters/talking/blend_amount = 0
+script = ExtResource("3_dd2yw")
+metadata/_custom_type_script = "uid://2kn4432bu4u8"
+
+[node name="FacialAnimator" type="Node" parent="." index="3" node_paths=PackedStringArray("eyes", "mouth", "skeleton")]
 script = ExtResource("2_0i4e4")
 eyes = NodePath("../root/Skeleton3D/Eyes")
 mouth = NodePath("../root/Skeleton3D/Mouth")
+skeleton = NodePath("../root/Skeleton3D")
+metadata/_custom_type_script = "uid://bj0ldo17kyup3"
+
+[node name="AnimationHandler" type="Node" parent="." index="4" node_paths=PackedStringArray("animation_tree")]
+script = ExtResource("5_qabnp")
+animation_tree = NodePath("../CharacterAnimationTree")
+metadata/_custom_type_script = "uid://4lmkf6b3mly"
+
+[connection signal="pose_updated" from="root/Skeleton3D" to="FacialAnimator" method="pose_updated"]
