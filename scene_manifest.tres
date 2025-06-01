@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_7nxwv")
-_scene_list = Array[String](["res://level/debate/aaron_db01_debate.tscn", "res://level/test_scene_loader.tscn", "res://level/utility/card_drop_selector.tscn"])
+_scene_list = Array[String](["res://level/debate/aaron_db01/aaron_db01_debate.tscn", "res://level/test_scene_loader.tscn", "res://level/utility/card_drop_selector.tscn"])
 metadata/_custom_type_script = "uid://c2dmgbtxgdv5j"

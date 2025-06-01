@@ -70,6 +70,7 @@ func on_card_drawn(_card : Card, _contestant: Contestant):
 
 func on_debate_finished():
 	print("Debate Finished")
+	SceneManager.replace_scene_async("card_drop_selector", test)
 	await query_event(Const.Concept.ON_DEBATE_END)
 
 func query_event(concept : Const.Concept):

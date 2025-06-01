@@ -19,16 +19,18 @@ config/icon="res://asset/graphic/debate/icon.svg"
 
 GlobalTimer="*res://script/utility/timer.gd"
 SceneManager="*res://script/system/scene_management/scene_manager.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/event_tree_plugin/plugin.cfg", "res://addons/expression_editor_plugin/plugin.cfg")
+enabled=PackedStringArray("res://addons/event_tree_plugin/plugin.cfg", "res://addons/expression_editor_plugin/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [filesystem]
 

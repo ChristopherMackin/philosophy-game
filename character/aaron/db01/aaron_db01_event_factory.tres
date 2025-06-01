@@ -4,28 +4,26 @@
 [ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://script/character/debate_event_factory/ordered_event_factory.gd" id="1_rb0rx"]
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://script/character/debate_event_factory/rule/rule.gd" id="3_5togk"]
 [ext_resource type="Resource" uid="uid://b8omebsn1wpsb" path="res://character/aaron/db01/event/aaron_db01_test.tres" id="3_v05lr"]
+[ext_resource type="Resource" uid="uid://d2je50yf5phgl" path="res://character/aaron/db01/event/aaron_db01_on_debate_start_01.tres" id="3_y5i3j"]
 [ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://script/character/debate_event_factory/event_factory_payload.gd" id="4_n3d1h"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://script/character/debate_event_factory/rule/criterion/criterion.gd" id="4_v05lr"]
-[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="5_rq7iq"]
 
-[sub_resource type="Resource" id="Resource_rq7iq"]
-script = ExtResource("4_v05lr")
-expression = "card_history[0].base == card_base"
-variables = Dictionary[String, Variant]({
-"card_base": ExtResource("5_rq7iq")
-})
-metadata/_custom_type_script = "uid://b3gc77q7whheh"
+[sub_resource type="Resource" id="Resource_crboq"]
+script = ExtResource("3_5togk")
+concept = 2
+criteria = Array[ExtResource("4_v05lr")]([])
+metadata/_custom_type_script = "uid://bal31j6jwdxqy"
 
-[sub_resource type="Resource" id="Resource_lputh"]
-script = ExtResource("4_v05lr")
-expression = "active_contestant == \"player\""
-variables = Dictionary[String, Variant]({})
-metadata/_custom_type_script = "uid://b3gc77q7whheh"
+[sub_resource type="Resource" id="Resource_q46qd"]
+script = ExtResource("4_n3d1h")
+event = ExtResource("3_y5i3j")
+rule = SubResource("Resource_crboq")
+metadata/_custom_type_script = "uid://dftjqkpxopsus"
 
 [sub_resource type="Resource" id="Resource_iiaj8"]
 script = ExtResource("3_5togk")
 concept = 0
-criteria = Array[ExtResource("4_v05lr")]([SubResource("Resource_rq7iq"), SubResource("Resource_lputh")])
+criteria = Array[ExtResource("4_v05lr")]([])
 
 [sub_resource type="Resource" id="Resource_th28h"]
 script = ExtResource("4_n3d1h")
@@ -34,5 +32,5 @@ rule = SubResource("Resource_iiaj8")
 
 [resource]
 script = ExtResource("1_rb0rx")
-payload_list = Array[ExtResource("4_n3d1h")]([SubResource("Resource_th28h")])
+payload_list = Array[ExtResource("4_n3d1h")]([SubResource("Resource_q46qd"), SubResource("Resource_th28h")])
 blackboard = ExtResource("1_0ml4n")
