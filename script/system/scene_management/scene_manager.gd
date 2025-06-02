@@ -1,10 +1,9 @@
 extends Node
 
-const SCREEN_WIPE = preload("res://system/screen_transition/screen_wipe.tscn")
 var loaded_scenes: Dictionary[int, Array]
 var canvas: CanvasLayer
 
-const SCENE_MANIFEST = preload("res://scene_manifest.tres")
+const SCENE_MANIFEST = preload("res://scene_management/scene_manifest.tres")
 
 func _ready():
 	var node = get_tree().current_scene

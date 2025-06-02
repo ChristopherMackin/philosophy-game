@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3uy2gmuqkttm"]
+
+[ext_resource type="PackedScene" uid="uid://b43dtgwyd0wma" path="res://asset/model/debate/token.glb" id="1_31jlk"]
+[ext_resource type="Script" uid="uid://btd3bxpdo2sv8" path="res://script/debate/ui/3d/token_3d.gd" id="2_ivrwv"]
+
+[node name="Top3D" node_paths=PackedStringArray("mesh_instance") instance=ExtResource("1_31jlk")]
+script = ExtResource("2_ivrwv")
+mesh_instance = NodePath("Top")

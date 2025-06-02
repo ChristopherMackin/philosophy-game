@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsd5rt1g6ytnr"]
+
+[ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://asset/graphic/cutscene/name_background.png" id="1_3em6q"]
+[ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://style/default_theme.tres" id="2_ynit1"]
+[ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://script/ui/scrolling-text.gd" id="3_kqj7m"]
+
+[node name="CutsceneSubtitles" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 257.0
+offset_top = 725.0
+offset_right = -257.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpeakerBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 128.0
+texture = ExtResource("1_3em6q")
+stretch_mode = 4
+
+[node name="Speaker" type="RichTextLabel" parent="SpeakerBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -36.0
+offset_right = 76.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.996078, 0.694118, 0.266667, 1)
+theme_override_colors/font_outline_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/normal_font_size = 52
+text = "Aaron"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ynit1")
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 160
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollingText" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/normal_font_size = 52
+text = "SEE FAITH IN ACTION!!!"
+horizontal_alignment = 1
+visible_characters = 0
+visible_characters_behavior = 1
+visible_ratio = 0.0
+script = ExtResource("3_kqj7m")
+metadata/_custom_type_script = "uid://vyqjymdwc8ae"

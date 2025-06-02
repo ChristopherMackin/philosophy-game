@@ -43,10 +43,13 @@ enum Direction {
 }
 
 enum Concept{
+	#DEBATE
 	ON_PLAY,
 	ON_HOLD,
 	ON_DEBATE_START,
 	ON_DEBATE_END,
+	#OVERWORLD
+	ON_SCENE_ENTER
 }
 
 const Autocomplete = [

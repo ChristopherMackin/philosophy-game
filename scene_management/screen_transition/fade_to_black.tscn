@@ -1,0 +1,111 @@
+[gd_scene load_steps=6 format=3 uid="uid://twhu5babtfhe"]
+
+[ext_resource type="Script" uid="uid://dksuc42m2vuit" path="res://script/system/scene_management/scene_transition.gd" id="1_rrx2a"]
+
+[sub_resource type="Animation" id="Animation_ycyyk"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.137255, 0.0862745, 0.0588235, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fxd51"]
+resource_name = "fade_in"
+length = 1.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"signal_transition_in_finished"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.137255, 0.0862745, 0.0588235, 1), Color(0.137255, 0.0862745, 0.0588235, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bnohs"]
+resource_name = "fade_out"
+length = 1.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"signal_transition_out_finished"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.137255, 0.0862745, 0.0588235, 0), Color(0.137255, 0.0862745, 0.0588235, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ayjk"]
+_data = {
+&"RESET": SubResource("Animation_ycyyk"),
+&"fade_in": SubResource("Animation_fxd51"),
+&"fade_out": SubResource("Animation_bnohs")
+}
+
+[node name="FadeToBlack" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rrx2a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3ayjk")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.137255, 0.0862745, 0.0588235, 0)
+
+[connection signal="transition_in_started" from="." to="AnimationPlayer" method="play" binds= ["fade_in"]]
+[connection signal="transition_out_started" from="." to="AnimationPlayer" method="play" binds= ["fade_out"]]

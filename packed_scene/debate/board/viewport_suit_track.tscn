@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3dp665dqpd04"]
+
+[ext_resource type="Script" uid="uid://cqjwh2vo503ku" path="res://script/debate/ui/gui/viewport_suit_track.gd" id="1_iwxw8"]
+[ext_resource type="PackedScene" uid="uid://do5swux8f3nq3" path="res://packed_scene/debate/token_gui.tscn" id="2_ec34b"]
+[ext_resource type="PackedScene" uid="uid://bqet8vee0dfje" path="res://packed_scene/debate/token_slot_gui.tscn" id="3_lf52y"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="4_erawg"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/graphic/debate/general/suit/faith_icon.png" id="5_bm8gf"]
+
+[node name="SuitTrackGUI" type="MarginContainer" node_paths=PackedStringArray("slot_parent", "icon")]
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_iwxw8")
+token_gui_packed_scene = ExtResource("2_ec34b")
+token_slot_packed_scene = ExtResource("3_lf52y")
+suit = ExtResource("4_erawg")
+slot_count = 4
+slot_parent = NodePath("HBoxContainer/TokenSlots")
+icon = NodePath("HBoxContainer/Icon")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer"]
+self_modulate = Color(0.996078, 0.694118, 0.266667, 1)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("5_bm8gf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TokenSlots" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10

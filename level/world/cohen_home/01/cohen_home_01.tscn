@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2syide1eild4"]
+
+[ext_resource type="Script" uid="uid://cjhx4rwessy5j" path="res://level/world/cohen_home/01/cohen_home_01_level_manager.gd" id="1_eog4s"]
+[ext_resource type="Resource" uid="uid://blyj6dca3hac2" path="res://level/world/cohen_home/01/cohen_home_01_event_factory.tres" id="2_bvvr2"]
+
+[node name="CohenHome01" type="Node3D"]
+script = ExtResource("1_eog4s")
+event_factory = ExtResource("2_bvvr2")

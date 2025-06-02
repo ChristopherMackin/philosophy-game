@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=3 uid="uid://dp5ktcf5rd31l"]
+
+[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://level/_cutscene/prelude_level_manager.gd" id="1_rjhpm"]
+[ext_resource type="PackedScene" uid="uid://twhu5babtfhe" path="res://scene_management/screen_transition/fade_to_black.tscn" id="2_xo7x7"]
+[ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://style/default_theme.tres" id="3_j2fvr"]
+[ext_resource type="PackedScene" uid="uid://bsd5rt1g6ytnr" path="res://packed_scene/cutscene/cutscene_subtitles.tscn" id="4_ct1y0"]
+
+[sub_resource type="Animation" id="Animation_x84ys"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/IntroText:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Train up a child in the way he should go:"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/IntroText:theme_override_colors/default_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ljv7t"]
+resource_name = "intro_01"
+length = 19.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/IntroText:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 7, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["Train up a child in the way he should go:", "and when he is old,", "he will not depart from it."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/IntroText:theme_override_colors/default_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 3, 6, 7, 9, 11, 12, 14, 17, 18),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(19),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"progress"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x84ys"]
+_data = {
+&"RESET": SubResource("Animation_x84ys"),
+&"intro_01": SubResource("Animation_ljv7t")
+}
+
+[node name="Prelude" type="Node3D"]
+script = ExtResource("1_rjhpm")
+transition = ExtResource("2_xo7x7")
+
+[node name="===CUTSCENE========" type="Node3D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_x84ys")
+}
+autoplay = "intro_01"
+
+[node name="===UI========" type="Node3D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.137255, 0.0862745, 0.0588235, 1)
+
+[node name="IntroText" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_j2fvr")
+theme_override_colors/default_color = Color(1, 1, 1, 0)
+theme_override_font_sizes/normal_font_size = 64
+text = "Train up a child in the way he should go:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CutsceneSubtitles" parent="CanvasLayer" instance=ExtResource("4_ct1y0")]
