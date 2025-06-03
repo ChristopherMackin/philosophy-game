@@ -19,7 +19,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_fxd51"]
 resource_name = "fade_in"
-length = 1.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -49,7 +48,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_bnohs"]
 resource_name = "fade_out"
-length = 1.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true

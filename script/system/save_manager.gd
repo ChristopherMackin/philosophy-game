@@ -1,7 +1,6 @@
 extends Node
 
 class_name SaveManager
-
 static var _loaded_data_list: Array[SaveData]
 
 @export var save_data : bool = true
