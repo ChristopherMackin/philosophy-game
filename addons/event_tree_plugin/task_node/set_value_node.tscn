@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://du3ueixbb1wck"]
 
 [ext_resource type="Script" uid="uid://8qc3j4r3w1d4" path="res://addons/event_tree_plugin/task_node.gd" id="1_8ao4j"]
-[ext_resource type="Script" uid="uid://bjjvg321qh1hk" path="res://script/system/event/task_action/set_value_task_action.gd" id="2_xsgpu"]
+[ext_resource type="Script" uid="uid://bjjvg321qh1hk" path="res://system/script/event/task_action/set_value_task_action.gd" id="2_xsgpu"]
 [ext_resource type="Script" uid="uid://2qtryrr0st1u" path="res://addons/event_tree_plugin/custom_resource_loader.tres.gd" id="3_x6une"]
 
 [sub_resource type="Resource" id="Resource_04j1f"]

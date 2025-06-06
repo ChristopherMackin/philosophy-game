@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqwn6fre04ypq"]
 
-[ext_resource type="PackedScene" uid="uid://c5hmf0nujds77" path="res://asset/model/character/joy/joy.glb" id="1_hm3pk"]
+[ext_resource type="PackedScene" uid="uid://c5hmf0nujds77" path="res://asset/character/joy/joy.glb" id="1_hm3pk"]
 [ext_resource type="AnimationLibrary" uid="uid://c41saia2twsr4" path="res://character/joy/animation/joy_animation_library.res" id="2_7qs8n"]
-[ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://script/facial_animator.gd" id="3_3518r"]
+[ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://character/script/facial_animator.gd" id="3_3518r"]
 
 [node name="Joy" instance=ExtResource("1_hm3pk")]
 

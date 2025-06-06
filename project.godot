@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Philosophy"
-run/main_scene="res://level/debate/aaron_db01/aaron_db01_debate.tscn"
+run/main_scene="res://debate/aaron_db01/lvl_aaron_db01.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://asset/graphic/debate/icon.svg"
+config/icon="res://asset/debate/icon.svg"
 
 [autoload]
 
-GlobalTimer="*res://script/utility/timer.gd"
-SceneManager="*res://script/system/scene_management/scene_manager.gd"
+GlobalTimer="*res://utility/script/timer.gd"
+SceneManager="*res://system/script/scene_management/scene_manager.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [display]
@@ -127,3 +127,7 @@ pause={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"location":0,"echo":false,"script":null)
 ]
 }
+
+[physics]
+
+3d/default_gravity=20.0

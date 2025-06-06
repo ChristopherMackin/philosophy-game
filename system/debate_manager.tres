@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DebateManager" load_steps=4 format=3 uid="uid://cmbx7ikxhaphj"]
 
-[ext_resource type="Script" uid="uid://cd5e5s82rdgur" path="res://script/debate/debate_manager.gd" id="1_4lhob"]
+[ext_resource type="Script" uid="uid://cd5e5s82rdgur" path="res://debate/script/debate_manager.gd" id="1_4lhob"]
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/main_blackboard.tres" id="1_eysye"]
 [ext_resource type="Resource" uid="uid://x7jhf53rxpyl" path="res://system/blackboard_storage_debate_subscriber.tres" id="3_llugn"]
 

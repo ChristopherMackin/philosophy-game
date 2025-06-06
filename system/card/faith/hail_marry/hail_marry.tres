@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="CardBase" load_steps=14 format=3 uid="uid://dao5hnjj82iw5"]
 
-[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_k6sty"]
-[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_rrtuu"]
-[ext_resource type="Script" uid="uid://cirje5ssvlb5e" path="res://script/system/card/card_action/add_card_to_card_collection_card_action.gd" id="3_70gaw"]
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://system/script/card/card_cost_modifier/card_cost_modifier.gd" id="1_k6sty"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_rrtuu"]
+[ext_resource type="Script" uid="uid://cirje5ssvlb5e" path="res://system/script/card/card_action/add_card_to_card_collection_card_action.gd" id="3_70gaw"]
 [ext_resource type="Resource" uid="uid://bhmt67f1vltyw" path="res://system/card/faith/hail_marry/the_11th_hour.tres" id="3_isoy0"]
-[ext_resource type="Script" uid="uid://c3lkfwpiubfe0" path="res://script/system/card/card_action/add_token_to_suit_track_card_action.gd" id="3_rrtuu"]
+[ext_resource type="Script" uid="uid://c3lkfwpiubfe0" path="res://system/script/card/card_action/add_token_to_suit_track_card_action.gd" id="3_rrtuu"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="6_xh80a"]
-[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="7_isoy0"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://system/script/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="7_isoy0"]
 [ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="7_jypbk"]
-[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="8_gmkph"]
-[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/hand_collection_container.gd" id="8_omkir"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="8_gmkph"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://system/script/card/card_action/card_collection_container/hand_collection_container.gd" id="8_omkir"]
 
 [sub_resource type="Resource" id="Resource_omkir"]
 script = ExtResource("3_rrtuu")

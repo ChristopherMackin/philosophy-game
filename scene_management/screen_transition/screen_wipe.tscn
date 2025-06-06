@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://deqrvxx6rp2vl"]
 
-[ext_resource type="Script" uid="uid://dksuc42m2vuit" path="res://script/system/scene_management/scene_transition.gd" id="1_w6w42"]
-[ext_resource type="Texture2D" uid="uid://vm5ta6544ld7" path="res://asset/graphic/general/faith_tile_background.png" id="2_4cul3"]
+[ext_resource type="Script" uid="uid://dksuc42m2vuit" path="res://system/script/scene_management/scene_transition.gd" id="1_w6w42"]
+[ext_resource type="Texture2D" uid="uid://vm5ta6544ld7" path="res://asset/_general/graphic/faith_tile_background.png" id="2_4cul3"]
 
 [sub_resource type="Animation" id="Animation_ycyyk"]
 resource_name = "RESET"

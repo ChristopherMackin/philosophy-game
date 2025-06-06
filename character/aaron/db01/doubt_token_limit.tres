@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="TokensPlayedEffect" load_steps=4 format=3 uid="uid://bvvao4qmfoyvj"]
 
-[ext_resource type="Script" uid="uid://dbi71fiylwg0o" path="res://script/debate/contestant/status_effect/condition_effect/tokens_played_condition_effect.gd" id="1_yndka"]
-[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="2_nn68x"]
+[ext_resource type="Script" uid="uid://dbi71fiylwg0o" path="res://debate/script/contestant/status_effect/condition_effect/tokens_played_condition_effect.gd" id="1_yndka"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://system/script/suit/suit.gd" id="2_nn68x"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="3_ts10j"]
 
 [resource]

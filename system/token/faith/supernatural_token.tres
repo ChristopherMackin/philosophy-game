@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="TokenData" load_steps=3 format=3 uid="uid://1dnk5byhce1j"]
 
-[ext_resource type="Texture2D" uid="uid://cy3qudysx2qv" path="res://asset/graphic/debate/general/token/supernatural_token.png" id="1_uvesv"]
-[ext_resource type="Script" uid="uid://cip7nwc18tb27" path="res://script/system/token/token_data.gd" id="2_wgjgh"]
+[ext_resource type="Texture2D" uid="uid://cy3qudysx2qv" path="res://asset/debate/_general/graphic/token/supernatural_token.png" id="1_uvesv"]
+[ext_resource type="Script" uid="uid://cip7nwc18tb27" path="res://system/script/token/token_data.gd" id="2_wgjgh"]
 
 [resource]
 script = ExtResource("2_wgjgh")

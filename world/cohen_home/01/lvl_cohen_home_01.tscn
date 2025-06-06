@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2syide1eild4"]
+
+[ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="1_j2p0a"]
+
+[node name="CohenHome01" type="Node3D"]
+
+[node name="SceneAnimator" type="Node3D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SceneAnimator"]
+
+[node name="AnimationPlayerHandler" type="Node" parent="SceneAnimator" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_j2p0a")
+animation_player = NodePath("../AnimationPlayer")
+metadata/_custom_type_script = "uid://doej6p2kh7fjv"

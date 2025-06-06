@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="CardBase" load_steps=14 format=3 uid="uid://ylhvgo4gct1r"]
 
-[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_256gh"]
-[ext_resource type="Script" uid="uid://cafx678ucokyp" path="res://script/system/card/card_cost_modifier/additive_card_cost_modifier.gd" id="1_erk5n"]
-[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_syt8x"]
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://system/script/card/card_cost_modifier/card_cost_modifier.gd" id="1_256gh"]
+[ext_resource type="Script" uid="uid://cafx678ucokyp" path="res://system/script/card/card_cost_modifier/additive_card_cost_modifier.gd" id="1_erk5n"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="1_syt8x"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="2_7kola"]
-[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_88kws"]
-[ext_resource type="Script" uid="uid://cli7rttnpf5db" path="res://script/system/card/card_action/add_cost_modifier_to_card_collection_card_action.gd" id="2_ocvke"]
-[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://script/system/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_m10b6"]
-[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://script/system/card/card_action/card_collection_container/hand_collection_container.gd" id="3_w73fe"]
-[ext_resource type="Script" uid="uid://16samtkb1lb4" path="res://script/system/card/card_action/card_collection_container/container_filter/selection_collection_filter.gd" id="4_rr5hx"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_88kws"]
+[ext_resource type="Script" uid="uid://cli7rttnpf5db" path="res://system/script/card/card_action/add_cost_modifier_to_card_collection_card_action.gd" id="2_ocvke"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://system/script/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_m10b6"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://system/script/card/card_action/card_collection_container/hand_collection_container.gd" id="3_w73fe"]
+[ext_resource type="Script" uid="uid://16samtkb1lb4" path="res://system/script/card/card_action/card_collection_container/container_filter/selection_collection_filter.gd" id="4_rr5hx"]
 
 [sub_resource type="Resource" id="Resource_clr8q"]
 script = ExtResource("4_rr5hx")

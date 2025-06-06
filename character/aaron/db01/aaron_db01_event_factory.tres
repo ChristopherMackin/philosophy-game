@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=12 format=3 uid="uid://27sna6u0b0wj"]
 
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/main_blackboard.tres" id="1_0ml4n"]
-[ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://script/character/debate_event_factory/ordered_event_factory.gd" id="1_rb0rx"]
-[ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://script/character/debate_event_factory/rule/rule.gd" id="3_5togk"]
+[ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="1_rb0rx"]
+[ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="3_5togk"]
 [ext_resource type="Resource" uid="uid://b8omebsn1wpsb" path="res://character/aaron/db01/event/aaron_db01_test.tres" id="3_v05lr"]
 [ext_resource type="Resource" uid="uid://d2je50yf5phgl" path="res://character/aaron/db01/event/aaron_db01_on_debate_start_01.tres" id="3_y5i3j"]
-[ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://script/character/debate_event_factory/event_factory_payload.gd" id="4_n3d1h"]
-[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://script/character/debate_event_factory/rule/criterion/criterion.gd" id="4_v05lr"]
+[ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="4_n3d1h"]
+[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="4_v05lr"]
 
 [sub_resource type="Resource" id="Resource_crboq"]
 script = ExtResource("3_5togk")

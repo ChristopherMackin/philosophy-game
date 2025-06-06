@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://du5ime7hk86tp"]
+
+[ext_resource type="Script" uid="uid://b7h2dcftdphdd" path="res://debate/script/ui/viewport_board.gd" id="1_35eep"]
+[ext_resource type="Texture2D" uid="uid://chq6s0x8t7rqn" path="res://asset/debate/_general/graphic/board/placeholder_nine_rect.png" id="1_g74qh"]
+[ext_resource type="Texture2D" uid="uid://coqbma8qhqfm2" path="res://asset/debate/_general/graphic/board/play_stack_area.png" id="2_ftxwm"]
+[ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://system/debate_settings.tres" id="2_l7a4r"]
+[ext_resource type="PackedScene" uid="uid://c3dp665dqpd04" path="res://debate/packed_scene/board/viewport_suit_track.tscn" id="5_rwyct"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_da2hp"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[node name="BasicPlayBoard" type="VBoxContainer" node_paths=PackedStringArray("suit_track_parent")]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+script = ExtResource("1_35eep")
+suit_track_parent = NodePath("PlayArea/MarginContainer/SuitTracks")
+debate_settings = ExtResource("2_l7a4r")
+suit_track_packed_scene = ExtResource("5_rwyct")
+
+[node name="Header" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Background" type="NinePatchRect" parent="Header"]
+layout_mode = 2
+texture = ExtResource("1_g74qh")
+
+[node name="PlayStack" type="TextureRect" parent="Header"]
+layout_mode = 2
+texture = ExtResource("2_ftxwm")
+stretch_mode = 5
+
+[node name="PlayArea" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_da2hp")
+
+[node name="Background" type="NinePatchRect" parent="PlayArea"]
+self_modulate = Color(0.278431, 0.278431, 0.278431, 1)
+layout_mode = 2
+texture = ExtResource("1_g74qh")
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayArea"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="SuitTracks" type="VBoxContainer" parent="PlayArea/MarginContainer"]
+layout_mode = 2

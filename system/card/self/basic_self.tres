@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://dgsd4p0ynlqhk"]
 
-[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_a55mm"]
-[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="1_d6ivo"]
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://system/script/card/card_cost_modifier/card_cost_modifier.gd" id="1_a55mm"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="1_d6ivo"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="2_5u3xt"]
-[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_my4gt"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_my4gt"]
 [ext_resource type="Resource" uid="uid://cyaf6uq2v4gob" path="res://system/token/self/basic_self_token.tres" id="4_7yeya"]
 
 [resource]

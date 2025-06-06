@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxvik3r1ijg1x"]
 
-[ext_resource type="PackedScene" uid="uid://batax4bowvqs8" path="res://asset/model/character/erin/erin.glb" id="1_qvx03"]
-[ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://script/facial_animator.gd" id="2_fajhg"]
+[ext_resource type="PackedScene" uid="uid://batax4bowvqs8" path="res://asset/character/erin/erin.glb" id="1_qvx03"]
+[ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://character/script/facial_animator.gd" id="2_fajhg"]
 
 [node name="Erin" instance=ExtResource("1_qvx03")]
 

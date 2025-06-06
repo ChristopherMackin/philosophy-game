@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Suit" load_steps=3 format=3 uid="uid://dxpopfdaf5ag8"]
 
-[ext_resource type="Texture2D" uid="uid://g33wcfoh2uoi" path="res://asset/graphic/debate/general/suit/peace_icon.png" id="1_pmutl"]
-[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="1_rig8v"]
+[ext_resource type="Texture2D" uid="uid://g33wcfoh2uoi" path="res://asset/debate/_general/graphic/suit/peace_icon.png" id="1_pmutl"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://system/script/suit/suit.gd" id="1_rig8v"]
 
 [resource]
 script = ExtResource("1_rig8v")

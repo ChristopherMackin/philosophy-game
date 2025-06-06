@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8grwpsb8a8t5"]
 
 [ext_resource type="Script" uid="uid://8qc3j4r3w1d4" path="res://addons/event_tree_plugin/task_node.gd" id="1_s7ya0"]
-[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://script/system/event/task_action/animation_task_action.gd" id="2_guf6r"]
+[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="2_guf6r"]
 
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_guf6r")

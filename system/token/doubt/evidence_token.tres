@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="TokenData" load_steps=3 format=3 uid="uid://vebafhvqqdvk"]
 
-[ext_resource type="Texture2D" uid="uid://cvttgkimmjgjh" path="res://asset/graphic/debate/general/token/evidence_token.png" id="1_nxeqw"]
-[ext_resource type="Script" uid="uid://cip7nwc18tb27" path="res://script/system/token/token_data.gd" id="1_tmuef"]
+[ext_resource type="Texture2D" uid="uid://cvttgkimmjgjh" path="res://asset/debate/_general/graphic/token/evidence_token.png" id="1_nxeqw"]
+[ext_resource type="Script" uid="uid://cip7nwc18tb27" path="res://system/script/token/token_data.gd" id="1_tmuef"]
 
 [resource]
 script = ExtResource("1_tmuef")

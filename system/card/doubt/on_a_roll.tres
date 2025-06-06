@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CardBase" load_steps=8 format=3 uid="uid://cc01q6jjqayh6"]
 
-[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_365d0"]
-[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_jfrpq"]
-[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="3_7yv6i"]
-[ext_resource type="Script" uid="uid://cbogtpodmwi6f" path="res://script/system/card/card_action/modify_energy_per_tag_card_action.gd" id="3_fpih5"]
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://system/script/card/card_cost_modifier/card_cost_modifier.gd" id="1_365d0"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_jfrpq"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="3_7yv6i"]
+[ext_resource type="Script" uid="uid://cbogtpodmwi6f" path="res://system/script/card/card_action/modify_energy_per_tag_card_action.gd" id="3_fpih5"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="4_7yv6i"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="5_fpih5"]
 

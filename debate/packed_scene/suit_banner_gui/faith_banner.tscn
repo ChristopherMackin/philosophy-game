@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfr37mhe3tadq"]
+
+[ext_resource type="Script" uid="uid://0f7kri64cayx" path="res://debate/script/ui/gui/banner_gui.gd" id="1_ha4v2"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/debate/_general/graphic/suit/faith_icon.png" id="1_m33ff"]
+[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://general/script/exposed_control_methods.gd" id="2_36m63"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="2_v2vwh"]
+
+[node name="FaithBanner" type="ColorRect"]
+modulate = Color(0.489622, 0.489622, 0.489622, 1)
+size_flags_horizontal = 3
+focus_mode = 2
+color = Color(0.996078, 0.694118, 0.266667, 1)
+script = ExtResource("1_ha4v2")
+suit = ExtResource("2_v2vwh")
+metadata/focus_property = "suit"
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_m33ff")
+stretch_mode = 5
+
+[node name="ExposedControlMethods" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("2_36m63")
+root = NodePath("..")
+
+[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_modulate" binds= [Color(1, 1, 1, 1)]]
+[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_modulate" binds= [Color(0.490196, 0.490196, 0.490196, 1)]]

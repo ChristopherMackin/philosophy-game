@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="CardBase" load_steps=9 format=3 uid="uid://7dxlwt46oaq5"]
 
-[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://script/system/card/card_cost_modifier/card_cost_modifier.gd" id="1_vl55p"]
-[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://script/system/card/card_action/card_action.gd" id="2_tchf5"]
-[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://script/system/suit/suit.gd" id="3_h471i"]
-[ext_resource type="Script" uid="uid://bpvma4twpb02c" path="res://script/system/card/card_action/remove_selected_token_from_board_card_action.gd" id="3_vl55p"]
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://system/script/card/card_cost_modifier/card_cost_modifier.gd" id="1_vl55p"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_tchf5"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://system/script/suit/suit.gd" id="3_h471i"]
+[ext_resource type="Script" uid="uid://bpvma4twpb02c" path="res://system/script/card/card_action/remove_selected_token_from_board_card_action.gd" id="3_vl55p"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="4_pqxh1"]
-[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://script/system/card/card_base.gd" id="6_fpba1"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="6_fpba1"]
 [ext_resource type="Resource" uid="uid://vebafhvqqdvk" path="res://system/token/doubt/evidence_token.tres" id="7_hiw01"]
 
 [sub_resource type="Resource" id="Resource_tchf5"]
