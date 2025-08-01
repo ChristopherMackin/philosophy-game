@@ -17,9 +17,9 @@ config/icon="res://asset/debate/icon.svg"
 
 [autoload]
 
-GlobalTimer="*res://utility/script/timer.gd"
-SceneManager="*res://system/script/scene_management/scene_manager.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+GlobalTimer="*res://utility/script/timer.gd"
+SceneManager="*res://scene_management/scene_manager.tscn"
 
 [display]
 

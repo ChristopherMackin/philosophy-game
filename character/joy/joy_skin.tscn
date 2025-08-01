@@ -1,17 +1,82 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqwn6fre04ypq"]
+[gd_scene load_steps=15 format=3 uid="uid://bqwn6fre04ypq"]
 
 [ext_resource type="PackedScene" uid="uid://c5hmf0nujds77" path="res://asset/character/joy/joy.glb" id="1_hm3pk"]
 [ext_resource type="AnimationLibrary" uid="uid://c41saia2twsr4" path="res://character/joy/animation/joy_animation_library.res" id="2_7qs8n"]
+[ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/joy/character_animation_tree.gd" id="2_8dv24"]
 [ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://character/script/facial_animator.gd" id="3_3518r"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qfv6"]
+animation = &"idle_bounce"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_14txt"]
+animation = &"blink"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_5p15f"]
+filter_enabled = true
+filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_s6d67"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dmws1"]
+animation = &"talk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_fjyoo"]
+filter_enabled = true
+filters = ["root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bxpyq"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4f1rm"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_ai5ca"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_bxpyq")
+blend_point_0/pos = 0.05
+blend_point_1/node = SubResource("AnimationNodeAnimation_4f1rm")
+blend_point_1/pos = 0.35
+min_space = 0.0
+snap = 0.05
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dlmfx"]
+graph_offset = Vector2(-399.309, -132.092)
+nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
+nodes/action/position = Vector2(-430, 30)
+nodes/blink/node = SubResource("AnimationNodeAnimation_14txt")
+nodes/blink/position = Vector2(-340, 210)
+nodes/blinking/node = SubResource("AnimationNodeBlend2_5p15f")
+nodes/blinking/position = Vector2(150, 110)
+nodes/output/position = Vector2(310, 160)
+nodes/take_action/node = SubResource("AnimationNodeOneShot_s6d67")
+nodes/take_action/position = Vector2(-160, -80)
+nodes/talk/node = SubResource("AnimationNodeAnimation_dmws1")
+nodes/talk/position = Vector2(-340, 400)
+nodes/talking/node = SubResource("AnimationNodeBlend2_fjyoo")
+nodes/talking/position = Vector2(-160, 230)
+nodes/walking/node = SubResource("AnimationNodeBlendSpace1D_ai5ca")
+nodes/walking/position = Vector2(-430, -180)
+node_connections = [&"blinking", 0, &"take_action", &"blinking", 1, &"talking", &"output", 0, &"blinking", &"take_action", 0, &"walking", &"take_action", 1, &"action", &"talking", 0, &"blink", &"talking", 1, &"talk"]
 
 [node name="Joy" instance=ExtResource("1_hm3pk")]
 
-[node name="AnimationPlayer" parent="." index="1"]
+[node name="CharacterAnimationTree" type="AnimationTree" parent="." index="1"]
+tree_root = SubResource("AnimationNodeBlendTree_dlmfx")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blinking/blend_amount = 1.0
+parameters/take_action/active = false
+parameters/take_action/internal_active = false
+parameters/take_action/request = 0
+parameters/talking/blend_amount = 0
+parameters/walking/blend_position = 0.0
+script = ExtResource("2_8dv24")
+metadata/_custom_type_script = "uid://2kn4432bu4u8"
+
+[node name="AnimationPlayer" parent="." index="2"]
 libraries = {
 &"": ExtResource("2_7qs8n")
 }
 
-[node name="FacialAnimator" type="Node" parent="." index="2" node_paths=PackedStringArray("eyes", "mouth", "skeleton")]
+[node name="FacialAnimator" type="Node" parent="." index="3" node_paths=PackedStringArray("eyes", "mouth", "skeleton")]
 script = ExtResource("3_3518r")
 eyes = NodePath("../root/Skeleton3D/Eyes")
 mouth_row_count = 8

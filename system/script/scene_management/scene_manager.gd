@@ -3,11 +3,11 @@ extends Node
 var loaded_scenes: Dictionary[int, Array]
 var canvas: CanvasLayer
 
-const SCENE_MANIFEST = preload("res://scene_management/scene_manifest.tres")
+@export var scene_manifest : SceneManifest
 
 func _ready():
 	var node = get_tree().current_scene
-	var scene_index = SCENE_MANIFEST.scene_list.find_custom(func(x): return Util.get_file_name(x) == node.name)
+	var scene_index = scene_manifest.scene_list.find_custom(func(x): return Util.get_file_name(x) == node.name)
 	loaded_scenes[scene_index] = [node]
 	
 	canvas = CanvasLayer.new()
@@ -22,13 +22,13 @@ func _ready():
 		node.reparent.call_deferred(self)
 
 func replace_scene_async(scene_name: String, transition: PackedScene = null) -> bool:
-	var scene_index = SCENE_MANIFEST.scene_list.find_custom(func(x): return Util.get_file_name(x) == scene_name)
+	var scene_index = scene_manifest.scene_list.find_custom(func(x): return Util.get_file_name(x) == scene_name)
 	if scene_index == -1: return false
 	
 	return await replace_scene_by_index_async(scene_index, transition)
 
 func replace_scene_by_index_async(scene_index: int, transition: PackedScene = null):
-	if scene_index <0 || scene_index >= SCENE_MANIFEST.scene_list.size(): return false
+	if scene_index <0 || scene_index >= scene_manifest.scene_list.size(): return false
 	
 	var free_functions: Array[Callable] = []
 	for key in loaded_scenes:
@@ -69,7 +69,7 @@ func replace_scene_by_index_async(scene_index: int, transition: PackedScene = nu
 	return true
 
 func instantiate_scene_by_index(scene_index: int):
-	var scene: PackedScene = load(SCENE_MANIFEST.scene_list[scene_index])
+	var scene: PackedScene = load(scene_manifest.scene_list[scene_index])
 	
 	var instance = scene.instantiate()
 	

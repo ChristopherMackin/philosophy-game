@@ -175,6 +175,8 @@ enum FollowLockAxis {
 			FollowMode.PATH:
 				if is_instance_valid(follow_path):
 					_should_follow_checker()
+				else:
+					_should_follow = false
 			FollowMode.GROUP:
 				_follow_targets_size_check()
 			_:
@@ -339,7 +341,8 @@ enum FollowLockAxis {
 ## The damping amount can be specified in the individual axis.[br][br]
 ## [b]Lower value[/b] = faster / sharper camera movement.[br]
 ## [b]Higher value[/b] = slower / heavier camera movement.
-@export var follow_damping_value: Vector3 = Vector3(0.1, 0.1, 0.1):
+@export_custom(PROPERTY_HINT_LINK, "")
+var follow_damping_value: Vector3 = Vector3(0.1, 0.1, 0.1):
 	set = set_follow_damping_value,
 	get = get_follow_damping_value
 
@@ -431,6 +434,18 @@ var _follow_axis_lock_value: Vector3 = Vector3.ZERO
 ## Defines the position of the [member follow_target] within the viewport.[br]
 ## This is only used for when [member follow_mode] is set to [param Framed].
 @export_subgroup("Spring Arm")
+
+## Applies a rotational offset to the Third Person [member follow_mode] in the [code]X[/code] axis.
+@export_range(-360, 360, 0.1,"or_greater", "or_less", "radians_as_degrees")
+var vertical_rotation_offset: float = 0:
+	set = set_vertical_rotation_offset,
+	get = get_vertical_rotation_offset
+
+## Applies a rotational offset to the Third Person [member follow_mode] in the [code]Y[/code] axis.
+@export_range(-360, 360, 0.1, "or_greater", "or_less", "radians_as_degrees")
+var horizontal_rotation_offset: float = 0:
+	set = set_horizontal_rotation_offset,
+	get = get_horizontal_rotation_offset
 
 ## Defines the [member SpringArm3D.spring_length].
 @export var spring_length: float = 1:
@@ -690,6 +705,8 @@ func _validate_property(property: Dictionary) -> void:
 	######################
 	if not follow_mode == FollowMode.THIRD_PERSON:
 		match property.name:
+			"vertical_rotation_offset", \
+			"horizontal_rotation_offset", \
 			"spring_length", \
 			"collision_mask", \
 			"shape", \
@@ -741,14 +758,21 @@ func _enter_tree() -> void:
 	if not visibility_changed.is_connected(_check_visibility):
 		visibility_changed.connect(_check_visibility)
 
-	_should_follow_checker()
+	match follow_mode:
+		FollowMode.NONE:
+			_is_parents_physics()
+		FollowMode.PATH:
+			if is_instance_valid(follow_path):
+				_should_follow_checker()
+			else:
+				_should_follow = false
+		FollowMode.GROUP:
+			_follow_targets_size_check()
+			_should_follow_checker()
+		_:
+			_should_follow_checker()
+
 	_should_look_at_checker()
-
-	if follow_mode == FollowMode.GROUP:
-		_follow_targets_size_check()
-	elif follow_mode == FollowMode.NONE:
-		_is_parents_physics()
-
 	if look_at_mode == LookAtMode.GROUP:
 		_look_at_targets_size_check()
 
@@ -781,22 +805,25 @@ func _ready():
 				if not is_instance_valid(_follow_spring_arm):
 					_follow_spring_arm = SpringArm3D.new()
 					_follow_spring_arm.top_level = true
-					_follow_spring_arm.rotation = global_rotation
 					_follow_spring_arm.spring_length = spring_length
 					_follow_spring_arm.collision_mask = collision_mask
 					_follow_spring_arm.shape = shape
 					_follow_spring_arm.margin = margin
+					# Stores the rotation value as the rotation gets skewed after
+					# the SpringArm3D is instantiated for some reason...
+					var initial_rotation: Vector3 = global_rotation
 					if _should_follow: _follow_spring_arm.add_excluded_object(follow_target)
 					get_parent().add_child.call_deferred(_follow_spring_arm)
-					reparent.call_deferred(_follow_spring_arm)
 
 					# Waits for the SpringArm3D to be ready and then apply rotation
 					# Resolves an issue most prominent in Godot 4.4
 					await _follow_spring_arm.ready
+					reparent.call_deferred(_follow_spring_arm)
 					_camera_target = _follow_spring_arm
 					_follow_spring_arm.global_position = _get_target_position_offset() if is_instance_valid(follow_target) else global_position
-					_follow_spring_arm.global_rotation = global_rotation
+					_follow_spring_arm.global_rotation = initial_rotation
 					_has_follow_spring_arm = true
+					top_level = false
 		FollowMode.FRAMED:
 			if not Engine.is_editor_hint():
 				if is_instance_valid(follow_target):
@@ -808,7 +835,7 @@ func _ready():
 			if is_instance_valid(follow_target):
 				_transform_output.origin = _get_target_position_offset()
 			else:
-				_transform_output.origin = global_transform.origin
+				_transform_output.origin = global_position
 
 	if not Engine.is_editor_hint():
 		_preview_noise = true
@@ -843,11 +870,11 @@ func process_logic(delta: float) -> void:
 	if _should_follow:
 		_follow(delta)
 	else:
-		_transform_output.origin = global_transform.origin
+		_transform_output.origin = global_position
 
 	if _should_look_at:
 		_look_at(delta)
-	else:
+	elif not _is_third_person_follow:
 		_transform_output.basis = global_basis
 
 	if _follow_axis_is_locked:
@@ -905,14 +932,14 @@ func _set_follow_position() -> void:
 				_follow_target_position = \
 					bounds.get_center() + \
 					follow_offset + \
-					global_transform.basis.z * \
-					Vector3(distance, distance, distance)
+					global_basis.z * \
+					distance
 			else:
 				_follow_target_position = \
 					follow_targets[_follow_targets_single_target_index].global_position + \
 					follow_offset + \
-					global_transform.basis.z * \
-					Vector3(auto_follow_distance_min, auto_follow_distance_min, auto_follow_distance_min)
+					global_basis.z * \
+					auto_follow_distance_min
 
 		FollowMode.PATH:
 			var path_position: Vector3 = follow_path.global_position
@@ -970,11 +997,11 @@ func _set_follow_position() -> void:
 				var unprojected_position: Vector2 = _get_raw_unprojected_position()
 				var viewport_width: float = get_viewport().size.x
 				var viewport_height: float = get_viewport().size.y
-				var camera_aspect: Camera3D.KeepAspect = get_viewport().get_camera_3d().keep_aspect
+				var camera_aspect: int = get_viewport().get_camera_3d().keep_aspect
 				var visible_rect_size: Vector2 = get_viewport().get_visible_rect().size
 
 				unprojected_position = unprojected_position - visible_rect_size / 2
-				if camera_aspect == Camera3D.KeepAspect.KEEP_HEIGHT:
+				if camera_aspect == Camera3D.KEEP_HEIGHT:
 					# Landscape View
 					var aspect_ratio_scale: float = viewport_width / viewport_height
 					unprojected_position.x = (unprojected_position.x / aspect_ratio_scale + 1) / 2
@@ -992,8 +1019,7 @@ func _set_follow_position() -> void:
 				if not _has_follow_spring_arm: return
 				_follow_target_position = _get_target_position_offset()
 			else:
-				_follow_target_position = _get_target_position_offset_distance()
-#				_follow_target_position = _get_target_position_offset_distance_direction()
+				_follow_target_position = _get_target_position_offset_distance_direction()
 
 
 func _set_look_at_position() -> void:
@@ -1020,11 +1046,15 @@ func _get_target_position_offset() -> Vector3:
 
 func _get_target_position_offset_distance() -> Vector3:
 	return _get_target_position_offset() + \
-	transform.basis.z * Vector3(follow_distance, follow_distance, follow_distance)
+	transform.basis.z * follow_distance
 
-#func _get_target_position_offset_distance_direction() -> Vector3:
-#	return (_get_target_position_offset() + \
-#	follow_target.global_basis.z * Vector3(follow_distance, follow_distance, follow_distance)) * Quaternion.from_euler(rotational_offset)
+# Used in the editor for setting initial Third Person position and angle
+func _get_target_position_offset_distance_direction() -> Vector3:
+	return _get_target_position_offset() + \
+	follow_target.global_basis.z * \
+	follow_distance * \
+	Quaternion(follow_target.global_basis.x, vertical_rotation_offset) * \
+	Quaternion(follow_target.global_basis.y, horizontal_rotation_offset)
 
 
 func _set_follow_velocity(index: int, value: float) -> void:
@@ -1056,11 +1086,15 @@ func _interpolate_position(delta: float) -> void:
 					delta
 				)
 			_transform_output.origin = global_position
-			_transform_output.basis = global_basis
 	else:
 		_camera_target.global_position = _follow_target_position
 		_transform_output.origin = global_position
 
+	if _is_third_person_follow:
+		var target_quat: Quaternion = _look_at_target_quat(_get_target_position_offset(), follow_target.global_basis.y)
+		var target_basis: Basis = Basis(target_quat)
+		_transform_output.basis = target_basis
+		global_basis = target_basis
 
 
 func _look_at_target_quat(target_position: Vector3, up_direction: Vector3 = Vector3.UP) -> Quaternion:
@@ -1085,7 +1119,7 @@ func _look_at_target_quat(target_position: Vector3, up_direction: Vector3 = Vect
 
 func _interpolate_rotation(delta: float) -> void:
 	if _has_up_target:
-		_up = up_target.get_global_transform().basis.y
+		_up = up_target.global_basis.y
 
 	var target_quat: Quaternion = _look_at_target_quat(_look_at_target_position, _up)
 
@@ -1106,9 +1140,7 @@ func _interpolate_rotation(delta: float) -> void:
 		var sin_theta: float = sin(theta)
 		var sin_theta_total: float = sin(acos(dot))
 
-		# Stop interpolating once sin_theta_total reaches a very low value or 0
-		if sin_theta_total < 0.00001:
-			return
+		if is_zero_approx(sin_theta_total): return
 
 		var ratio_a: float = cos(theta) - dot * sin_theta / sin_theta_total
 		var ratio_b: float = sin_theta / sin_theta_total
@@ -1409,7 +1441,8 @@ func get_tween_skip() -> bool:
 
 ## Assigns new [member priority] value.
 func set_priority(value: int) -> void:
-	priority = abs(value) # TODO - Make any minus values be 0
+	priority = maxi(0, value)
+	if not is_node_ready(): return
 	if not Engine.has_singleton(_constants.PCAM_MANAGER_NODE_NAME): return
 	Engine.get_singleton(_constants.PCAM_MANAGER_NODE_NAME).pcam_priority_changed.emit(self)
 ## Gets current [param Priority] value.
@@ -1737,6 +1770,23 @@ func get_third_person_quaternion() -> Quaternion:
 		printerr("Follow Mode is not set to Third Person")
 		return Quaternion.IDENTITY
 	return _follow_spring_arm.quaternion
+
+
+## Assigns a new [member set_vertical_rotation_offset] value.
+func set_vertical_rotation_offset(value: float) -> void:
+	vertical_rotation_offset = value
+
+## Gets the [member vertical_rotation] value.
+func get_vertical_rotation_offset() -> float:
+	return vertical_rotation_offset
+
+
+func set_horizontal_rotation_offset(value: float) -> void:
+	horizontal_rotation_offset = value
+
+## Gets the [member horizontal_rotation] value.
+func get_horizontal_rotation_offset() -> float:
+	return horizontal_rotation_offset
 
 
 ## Assigns a new ThirdPerson [member SpringArm3D.length] value.
