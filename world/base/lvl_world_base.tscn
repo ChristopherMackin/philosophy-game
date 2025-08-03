@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjv4hqyvjwdsh"]
+
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_qlsal"]
+[ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save_manager.gd" id="1_xgvwx"]
+
+[node name="WorldLevel" type="Node3D"]
+
+[node name="MainCamera" type="Camera3D" parent="."]
+current = true
+
+[node name="PhantomCameraHost" type="Node" parent="MainCamera"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_qlsal")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="SaveManager" type="Node" parent="."]
+script = ExtResource("1_xgvwx")
+metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]

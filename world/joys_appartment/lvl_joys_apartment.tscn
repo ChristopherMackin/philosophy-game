@@ -1,23 +1,32 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5gau1l2hecnr"]
+[gd_scene load_steps=12 format=3 uid="uid://clf55p74f0340"]
 
+[ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_7ep36"]
 [ext_resource type="PackedScene" uid="uid://cj5cemq8g42b2" path="res://asset/world/joys_apartment/joys_apartment.glb" id="1_wwls2"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_qw0pd"]
+[ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="2_rnieb"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_khgda"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_yiwpo"]
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="5_khgda"]
-[ext_resource type="PackedScene" uid="uid://4fyxges65twa" path="res://character/character_body_3d.tscn" id="5_ocpry"]
-[ext_resource type="PackedScene" uid="uid://bqwn6fre04ypq" path="res://character/joy/joy_skin.tscn" id="6_gqt60"]
+[ext_resource type="PackedScene" uid="uid://ventjq18ri0o" path="res://character/character_body_joy.tscn" id="7_khgda"]
 
-[sub_resource type="Resource" id="Resource_v7rfl"]
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rnieb"]
+
+[sub_resource type="Curve3D" id="Curve3D_gqt60"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -3.17811, 0.0089528, -0.0049386, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_yiwpo"]
 script = ExtResource("4_yiwpo")
 duration = 1.0
 transition = 0
 ease = 2
 
-[sub_resource type="Resource" id="Resource_yiwpo"]
+[sub_resource type="Resource" id="Resource_ocpry"]
 script = ExtResource("5_khgda")
 keep_aspect = 1
-cull_mask = 1047553
+cull_mask = 1048575
 h_offset = 0.0
 v_offset = 0.0
 projection = 0
@@ -28,42 +37,38 @@ near = 0.05
 far = 4000.0
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
-[node name="JoysApartment" type="Node3D"]
+[node name="JoysApartment" instance=ExtResource("1_7ep36")]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-unique_name_in_owner = true
-cull_mask = 1047553
-current = true
-far = 100.0
+[node name="MainCamera" parent="." index="0"]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, -0.00174432, 2.45827, 5.57881)
+fov = 45.0
 
-[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("2_qw0pd")
-host_layers = 0
-metadata/_custom_type_script = "uid://bd046eokvcnu2"
+[node name="WorldEnvironment" parent="." index="2"]
+environment = ExtResource("2_rnieb")
 
-[node name="joys_apartment" parent="." instance=ExtResource("1_wwls2")]
+[node name="joys_apartment" parent="." index="3" instance=ExtResource("1_wwls2")]
 
-[node name="CharacterBody3D" parent="." node_paths=PackedStringArray("camera", "skin", "character_animator") instance=ExtResource("5_ocpry")]
-camera = NodePath("../Camera3D")
-skin = NodePath("Joy")
-character_animator = NodePath("Joy/CharacterAnimationTree")
+[node name="StaticBody3D" type="StaticBody3D" parent="joys_apartment" index="7"]
 
-[node name="Joy" parent="CharacterBody3D" instance=ExtResource("6_gqt60")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="joys_apartment/StaticBody3D" index="0"]
+shape = SubResource("WorldBoundaryShape3D_rnieb")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Path3D" type="Path3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, 0, 2.45827, 5.57881)
+curve = SubResource("Curve3D_gqt60")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.963738, 0.266852, 0, -0.266852, 0.963738, 0, 1.66886, 3.78539)
-
-[node name="PhantomCamera3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.963738, 0.266852, 0, -0.266852, 0.963738, 0, 1.66886, 3.78539)
+[node name="PhantomCamera3D" type="Node3D" parent="." index="5" node_paths=PackedStringArray("follow_target", "follow_path")]
+transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, -0.00174432, 2.45827, 5.57881)
+top_level = true
 script = ExtResource("3_khgda")
-tween_resource = SubResource("Resource_v7rfl")
-tween_on_load = false
-camera_3d_resource = SubResource("Resource_yiwpo")
+follow_mode = 4
+follow_target = NodePath("../CharacterBody3D")
+follow_path = NodePath("../Path3D")
+tween_resource = SubResource("Resource_yiwpo")
+camera_3d_resource = SubResource("Resource_ocpry")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[editable path="CharacterBody3D/Joy"]
+[node name="CharacterBody3D" parent="." index="6" node_paths=PackedStringArray("camera") instance=ExtResource("7_khgda")]
+camera = NodePath("../MainCamera")
+move_speed = 2.0

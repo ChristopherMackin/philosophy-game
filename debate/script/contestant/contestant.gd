@@ -29,7 +29,7 @@ var current_energy : int:
 	set(val):
 		current_energy = val if val >= 0 else 0
 var debate_event_factory : EventFactory:
-	get: return character.debate_event_factory
+	get: return character.debate_event_factory if character.debate_event_factory else EventFactory.new()
 var blackboard : Blackboard:
 	get: return character.blackboard
 

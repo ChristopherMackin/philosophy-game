@@ -1,3 +1,4 @@
+@tool
 extends AnimationTree
 
 class_name CharacterAnimationTree
@@ -10,24 +11,33 @@ signal on_character_animation_looped(name: String)
 		return is_talking
 	set(val):
 		is_talking = val
-		var blend_amount = 1 if is_talking else 0
-		set("parameters/talking/blend_amount", blend_amount)
+		var state = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE if val else AnimationNodeOneShot.ONE_SHOT_REQUEST_ABORT
+		set("parameters/talk_trigger/request", state)
 
 @export var is_blinking: bool = true:
 	get():
 		return is_blinking
 	set(val):
 		is_blinking = val
-		var blend_amount = 1 if is_blinking else 0
-		set("parameters/blinking/blend_amount", blend_amount)
+		var state = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE if val else AnimationNodeOneShot.ONE_SHOT_REQUEST_ABORT
+		set("parameters/blink_trigger/request", state)
+
+@export_group("idle_variation")
+@export var idle_variation_count: int = 0
+@export var idle_variation_min: float = 1.5
+@export var idle_variation_max: float = 4.2
 
 var action_node: AnimationNodeAnimation
-var one_shot: AnimationNodeOneShot
+var idle_variant_node: AnimationNodeAnimation
 var previous_normalized_position = -1
 var previous_delta = -1
 
 func _ready():
 	action_node = tree_root.get_node("action")
+	idle_variant_node = tree_root.get_node("idle_variant")
+	
+	await GlobalTimer.wait_for_seconds(randf_range(idle_variation_min, idle_variation_max))
+	play_idle_variant()
 
 func _process(delta):
 	var current_position = get("parameters/action/current_position")
@@ -53,3 +63,12 @@ func play_animation(name: String):
 	previous_normalized_position = -1
 	previous_delta = -1
 	set("parameters/take_action/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+
+func play_idle_variant():
+	if idle_variation_count <= 0: return
+	
+	var variant_index = randi_range(1, idle_variation_count)
+	idle_variant_node.animation = "idle_variant_0" + str(variant_index)
+	set("parameters/idling/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	await GlobalTimer.wait_for_seconds(randf_range(idle_variation_min, idle_variation_max))
+	play_idle_variant()
