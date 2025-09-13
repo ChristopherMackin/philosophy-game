@@ -31,21 +31,19 @@ transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, 
 fov = 45.0
 far = 100.0
 
-[node name="WorldEnvironment" parent="." index="2"]
+[node name="WorldEnvironment" parent="." index="6"]
 environment = ExtResource("2_rnieb")
 
-[node name="joys_apartment" parent="." index="3" instance=ExtResource("1_wwls2")]
+[node name="joys_apartment" parent="Model" index="0" instance=ExtResource("1_wwls2")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="joys_apartment" index="7"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="joys_apartment/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" index="0"]
 shape = SubResource("WorldBoundaryShape3D_rnieb")
 
-[node name="Path3D" type="Path3D" parent="." index="4"]
+[node name="Path3D" type="Path3D" parent="." index="11"]
 transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, 0, 2.45827, 5.57881)
 curve = SubResource("Curve3D_gqt60")
 
-[node name="PhantomCamera3D" type="Node3D" parent="." index="5" node_paths=PackedStringArray("follow_target", "follow_path")]
+[node name="PhantomCamera3D" type="Node3D" parent="." index="12" node_paths=PackedStringArray("follow_target", "follow_path")]
 transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, -0.00174429, 2.45828, 5.57881)
 top_level = true
 script = ExtResource("3_khgda")
@@ -56,6 +54,6 @@ tween_resource = SubResource("Resource_yiwpo")
 camera_3d_resource = ExtResource("6_khgda")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="CharacterBody3D" parent="." index="6" node_paths=PackedStringArray("camera") instance=ExtResource("7_khgda")]
+[node name="CharacterBody3D" parent="." index="13" node_paths=PackedStringArray("camera") instance=ExtResource("7_khgda")]
 camera = NodePath("../MainCamera")
 move_speed = 2.0
