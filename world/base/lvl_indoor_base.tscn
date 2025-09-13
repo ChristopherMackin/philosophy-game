@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5ihvtsqh7eju"]
+[gd_scene load_steps=3 format=3 uid="uid://cbkwbm2gxsxs4"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_ddbgj"]
 [ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="2_pp6ma"]

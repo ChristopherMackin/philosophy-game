@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="CardBase" load_steps=20 format=3 uid="uid://dsxlu61i4pxko"]
+
+[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://system/script/card/card_cost_modifier/card_cost_modifier.gd" id="1_ey4l3"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_6duoa"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://system/script/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_fhbu1"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="3_i50qb"]
+[ext_resource type="Script" uid="uid://bwc82j6d8fvd4" path="res://system/script/card/card_action/card_collection_container/container_filter/slice_collection_filter.gd" id="4_pmox8"]
+[ext_resource type="Script" uid="uid://c2f31cka87uk4" path="res://system/script/card/card_action/card_collection_container/draw_pile_collection_container.gd" id="5_mcpa3"]
+[ext_resource type="Script" uid="uid://cgmtcfsq1rn5n" path="res://system/script/card/card_action/view_card_collection_card_action.gd" id="6_eav76"]
+[ext_resource type="Script" uid="uid://bbr50dvcf2gmc" path="res://system/script/card/card_action/card_collection_container/container_filter/suit_collection_filter.gd" id="7_oxxku"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://system/script/suit/suit.gd" id="8_pvaem"]
+[ext_resource type="Script" uid="uid://c2ou5f8h5d2ds" path="res://system/script/card/card_action/modify_energy_per_card_card_action.gd" id="10_c3qjd"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="12_e2b5o"]
+[ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="13_k0aei"]
+
+[sub_resource type="Resource" id="Resource_1jcun"]
+script = ExtResource("4_pmox8")
+slice_direction = 0
+amount = 3
+metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
+
+[sub_resource type="Resource" id="Resource_y25wa"]
+script = ExtResource("5_mcpa3")
+which_contestant = 0
+insertion_point = 0
+collection_filters = Array[ExtResource("3_fhbu1")]([SubResource("Resource_1jcun")])
+metadata/_custom_type_script = "uid://c2f31cka87uk4"
+
+[sub_resource type="Resource" id="Resource_c22wt"]
+script = ExtResource("6_eav76")
+collection_container = SubResource("Resource_y25wa")
+metadata/_custom_type_script = "uid://cgmtcfsq1rn5n"
+
+[sub_resource type="Resource" id="Resource_54q8g"]
+script = ExtResource("4_pmox8")
+slice_direction = 0
+amount = 3
+metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
+
+[sub_resource type="Resource" id="Resource_ggla8"]
+script = ExtResource("7_oxxku")
+suits = Array[ExtResource("8_pvaem")]([ExtResource("12_e2b5o")])
+filter_mode = 0
+metadata/_custom_type_script = "uid://bbr50dvcf2gmc"
+
+[sub_resource type="Resource" id="Resource_m0uq3"]
+script = ExtResource("5_mcpa3")
+which_contestant = 0
+insertion_point = 0
+collection_filters = Array[ExtResource("3_fhbu1")]([SubResource("Resource_54q8g"), SubResource("Resource_ggla8")])
+metadata/_custom_type_script = "uid://c2f31cka87uk4"
+
+[sub_resource type="Resource" id="Resource_odpi6"]
+script = ExtResource("10_c3qjd")
+which_contestant = 0
+collection = SubResource("Resource_m0uq3")
+energy_per_card = 1.0
+metadata/_custom_type_script = "uid://c2ou5f8h5d2ds"
+
+[resource]
+script = ExtResource("3_i50qb")
+suit = ExtResource("12_e2b5o")
+title = "Looks at the Heart"
+base_cost = 1
+description = "Scry 3
++1 energy for each faith"
+token_data = ExtResource("13_k0aei")
+on_play_card_actions = Array[ExtResource("2_6duoa")]([SubResource("Resource_c22wt"), SubResource("Resource_odpi6")])
+on_discard_card_actions = Array[ExtResource("2_6duoa")]([])
+on_banish_card_actions = Array[ExtResource("2_6duoa")]([])
+on_turn_start_card_actions = Array[ExtResource("2_6duoa")]([])
+on_turn_end_card_actions = Array[ExtResource("2_6duoa")]([])
+on_hold_start_card_actions = Array[ExtResource("2_6duoa")]([])
+on_hold_stay_card_actions = Array[ExtResource("2_6duoa")]([])
+on_hold_end_card_actions = Array[ExtResource("2_6duoa")]([])
+cost_modifiers = Array[ExtResource("1_ey4l3")]([])
+metadata/_custom_type_script = "uid://dy4e7i5501yv5"

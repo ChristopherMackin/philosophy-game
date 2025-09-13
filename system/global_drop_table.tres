@@ -4,11 +4,11 @@
 [ext_resource type="Resource" uid="uid://dgsd4p0ynlqhk" path="res://system/card/self/basic_self.tres" id="2_a3kgt"]
 [ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="3_irowf"]
 [ext_resource type="Script" uid="uid://b0bpidssyjdun" path="res://system/script/card/card_selection/card_drop_table.gd" id="4_p7pwy"]
-[ext_resource type="Resource" uid="uid://dsxlu61i4pxko" path="res://system/card/_character_deck/aaron_db01/looks_at_the_heart.tres" id="4_sxdl8"]
-[ext_resource type="Resource" uid="uid://tmstsrhqa3if" path="res://system/card/_character_deck/aaron_db01/seeing_is_believing.tres" id="5_lxc20"]
+[ext_resource type="Resource" uid="uid://dsxlu61i4pxko" path="res://system/card/_character_deck/simon_db01/looks_at_the_heart.tres" id="4_sxdl8"]
+[ext_resource type="Resource" uid="uid://tmstsrhqa3if" path="res://system/card/_character_deck/simon_db01/seeing_is_believing.tres" id="5_lxc20"]
 [ext_resource type="Resource" uid="uid://byuc46tg3sms6" path="res://system/card/faith/sanctify.tres" id="6_k2w62"]
-[ext_resource type="Resource" uid="uid://ds4kkc0rgnabl" path="res://system/card/_character_deck/aaron_db01/hesitation.tres" id="7_juxkh"]
-[ext_resource type="Resource" uid="uid://uehkmujgyirh" path="res://system/card/_character_deck/aaron_db01/one_step_back.tres" id="8_n4sae"]
+[ext_resource type="Resource" uid="uid://ds4kkc0rgnabl" path="res://system/card/_character_deck/simon_db01/hesitation.tres" id="7_juxkh"]
+[ext_resource type="Resource" uid="uid://uehkmujgyirh" path="res://system/card/_character_deck/simon_db01/one_step_back.tres" id="8_n4sae"]
 
 [sub_resource type="Resource" id="Resource_xssc0"]
 script = ExtResource("1_ny2tn")
