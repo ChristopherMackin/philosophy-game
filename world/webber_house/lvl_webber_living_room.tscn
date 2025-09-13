@@ -16,7 +16,8 @@ ease = 2
 [node name="WorldLevel" instance=ExtResource("1_x4wxr")]
 
 [node name="MainCamera" parent="." index="0"]
-cull_mask = 1047553
+transform = Transform3D(1, 0, 0, 0, 0.948163, 0.317785, 0, -0.317785, 0.948163, 0, 2.56022, 6.26556)
+fov = 45.0
 far = 100.0
 
 [node name="WorldEnvironment" parent="." index="2"]
