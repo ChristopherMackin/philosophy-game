@@ -1,12 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://clf55p74f0340"]
+[gd_scene load_steps=14 format=3 uid="uid://clf55p74f0340"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_7ep36"]
 [ext_resource type="PackedScene" uid="uid://cj5cemq8g42b2" path="res://asset/world/joys_apartment/joys_apartment.glb" id="1_wwls2"]
 [ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="2_rnieb"]
+[ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://system/script/scene_management/scene_transition_trigger.gd" id="2_yiwpo"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_khgda"]
+[ext_resource type="PackedScene" uid="uid://deqrvxx6rp2vl" path="res://scene_management/screen_transition/screen_wipe.tscn" id="3_ocpry"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_yiwpo"]
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="6_khgda"]
 [ext_resource type="PackedScene" uid="uid://ventjq18ri0o" path="res://character/character_body_joy.tscn" id="7_khgda"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_khgda"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rnieb"]
 
@@ -31,7 +35,18 @@ transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, 
 fov = 45.0
 far = 100.0
 
-[node name="WorldEnvironment" parent="." index="6"]
+[node name="ToWebberLivingRoom" type="Area3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81762, 0.389267, 1.84575)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_yiwpo")
+scene_name = "lvl_webber_living_room"
+transition = ExtResource("3_ocpry")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ToWebberLivingRoom" index="0"]
+shape = SubResource("BoxShape3D_khgda")
+
+[node name="WorldEnvironment" parent="." index="8"]
 environment = ExtResource("2_rnieb")
 
 [node name="joys_apartment" parent="Model" index="0" instance=ExtResource("1_wwls2")]
@@ -39,11 +54,11 @@ environment = ExtResource("2_rnieb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" index="0"]
 shape = SubResource("WorldBoundaryShape3D_rnieb")
 
-[node name="Path3D" type="Path3D" parent="." index="11"]
+[node name="Path3D" type="Path3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, 0, 2.45827, 5.57881)
 curve = SubResource("Curve3D_gqt60")
 
-[node name="PhantomCamera3D" type="Node3D" parent="." index="12" node_paths=PackedStringArray("follow_target", "follow_path")]
+[node name="PhantomCamera3D" type="Node3D" parent="." index="15" node_paths=PackedStringArray("follow_target", "follow_path")]
 transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, -0.00174429, 2.45828, 5.57881)
 top_level = true
 script = ExtResource("3_khgda")
@@ -51,9 +66,12 @@ follow_mode = 4
 follow_target = NodePath("../CharacterBody3D")
 follow_path = NodePath("../Path3D")
 tween_resource = SubResource("Resource_yiwpo")
+tween_on_load = false
 camera_3d_resource = ExtResource("6_khgda")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="CharacterBody3D" parent="." index="13" node_paths=PackedStringArray("camera") instance=ExtResource("7_khgda")]
+[node name="CharacterBody3D" parent="." index="16" node_paths=PackedStringArray("camera") instance=ExtResource("7_khgda")]
+collision_layer = 3
+collision_mask = 3
 camera = NodePath("../MainCamera")
 move_speed = 2.0

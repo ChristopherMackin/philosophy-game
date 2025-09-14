@@ -11,6 +11,7 @@ acceleration = 20.0
 [node name="Joy" parent="." index="1" instance=ExtResource("2_1lhfq")]
 
 [node name="CharacterAnimationTree" parent="Joy" index="1"]
-parameters/walking/blend_position = 0
+parameters/idling/active = true
+parameters/idling/internal_active = true
 
 [editable path="Joy"]

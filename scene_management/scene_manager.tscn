@@ -1,8 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm86i7ogvoc1e"]
+[gd_scene load_steps=2 format=3 uid="uid://bm86i7ogvoc1e"]
 
 [ext_resource type="Script" uid="uid://cmlirixgjhbvo" path="res://system/script/scene_management/scene_manager.gd" id="1_cdsrf"]
-[ext_resource type="Resource" uid="uid://dnj8oldmob6qs" path="res://scene_management/scene_manifest.tres" id="2_tuy0b"]
 
 [node name="SceneManager" type="Node"]
 script = ExtResource("1_cdsrf")
-scene_manifest = ExtResource("2_tuy0b")
+_scene_list = Array[String](["res://world/joys_appartment/lvl_joys_apartment.tscn", "res://world/webber_house/lvl_webber_living_room.tscn"])

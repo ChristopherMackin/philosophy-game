@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6yd0idunoow2"]
+[gd_scene load_steps=10 format=3 uid="uid://6yd0idunoow2"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_x4wxr"]
 [ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="2_g5ffa"]
@@ -8,29 +8,36 @@
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="6_x4wxr"]
 [ext_resource type="PackedScene" uid="uid://ventjq18ri0o" path="res://character/character_body_joy.tscn" id="7_g5ffa"]
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_g5ffa"]
+
 [sub_resource type="Resource" id="Resource_32nkc"]
 script = ExtResource("5_crmiv")
 duration = 1.0
 transition = 0
 ease = 2
 
-[node name="WorldLevel" instance=ExtResource("1_x4wxr")]
+[node name="WebberLivingRoom" instance=ExtResource("1_x4wxr")]
 
 [node name="MainCamera" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.948163, 0.317785, 0, -0.317785, 0.948163, 0, 2.56022, 6.26556)
 fov = 45.0
 far = 100.0
 
-[node name="WorldEnvironment" parent="." index="2"]
+[node name="WorldEnvironment" parent="." index="7"]
 environment = ExtResource("2_g5ffa")
 
-[node name="webber_living_room" parent="." index="3" instance=ExtResource("3_4bav4")]
+[node name="webber_living_room" parent="Model" index="0" instance=ExtResource("3_4bav4")]
 
-[node name="PhantomCamera3D" type="Node3D" parent="." index="4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" index="0"]
+shape = SubResource("WorldBoundaryShape3D_g5ffa")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." index="12"]
 transform = Transform3D(1, 0, 0, 0, 0.948163, 0.317785, 0, -0.317785, 0.948163, 0, 2.56022, 6.26556)
 script = ExtResource("4_iso3m")
 tween_resource = SubResource("Resource_32nkc")
+tween_on_load = false
 camera_3d_resource = ExtResource("6_x4wxr")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="CharacterBody3D" parent="." index="5" instance=ExtResource("7_g5ffa")]
+[node name="CharacterBody3D" parent="." index="13" node_paths=PackedStringArray("camera") instance=ExtResource("7_g5ffa")]
+camera = NodePath("../MainCamera")

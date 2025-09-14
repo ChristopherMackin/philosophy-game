@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="SceneManifest" load_steps=2 format=3 uid="uid://dnj8oldmob6qs"]
-
-[ext_resource type="Script" uid="uid://c2dmgbtxgdv5j" path="res://general/script/scene_manifest.gd" id="1_dn3jd"]
-
-[resource]
-script = ExtResource("1_dn3jd")
-_scene_list = Array[String](["res://debate/aaron_db01/lvl_aaron_db01.tscn"])
-metadata/_custom_type_script = "uid://c2dmgbtxgdv5j"
