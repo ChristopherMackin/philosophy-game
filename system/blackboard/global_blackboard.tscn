@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1g2ds752pr5"]
+
+[ext_resource type="Script" uid="uid://ffvxg0cc0xna" path="res://system/script/blackboard/global_blackboard.gd" id="1_vy501"]
+[ext_resource type="Resource" uid="uid://bxosm1rdhevfb" path="res://_save/main_blackboard.res" id="2_86aem"]
+[ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/main_blackboard.tres" id="2_vy501"]
+[ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save_manager.gd" id="3_dgyem"]
+[ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://system/script/save_data.gd" id="4_gu701"]
+
+[sub_resource type="Resource" id="Resource_j0tf4"]
+script = ExtResource("4_gu701")
+path = "_save/main_blackboard.res"
+resource = ExtResource("2_86aem")
+metadata/_custom_type_script = "uid://dcyrmp3ja8f55"
+
+[node name="GlobalBlackboard" type="Node"]
+script = ExtResource("1_vy501")
+blackboard = ExtResource("2_vy501")
+
+[node name="SaveManager" type="Node" parent="."]
+script = ExtResource("3_dgyem")
+save_data_list = Array[ExtResource("4_gu701")]([SubResource("Resource_j0tf4")])
+metadata/_custom_type_script = "uid://bqa5o66nsm0hq"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Blackboard" load_steps=2 format=3 uid="uid://c0jua2cphnqw6"]
+
+[ext_resource type="Script" uid="uid://c1eaebx4srk2s" path="res://system/script/blackboard/blackboard.gd" id="1_421wn"]
+
+[resource]
+script = ExtResource("1_421wn")
+_entries = {}
+_expiration_tokens = {}

@@ -20,6 +20,7 @@ config/icon="res://asset/debate/icon.svg"
 GlobalTimer="*res://utility/script/timer.gd"
 SceneManager="*res://scene_management/scene_manager.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+GlobalBlackboard="*res://system/blackboard/global_blackboard.tscn"
 
 [display]
 

@@ -12,8 +12,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_khgda"]
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rnieb"]
-
 [sub_resource type="Curve3D" id="Curve3D_gqt60"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, -3.17811, 0.0089528, -0.0049386, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -27,6 +25,8 @@ duration = 1.0
 transition = 0
 ease = 2
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rnieb"]
+
 [node name="JoysApartment" instance=ExtResource("1_7ep36")]
 
 [node name="MainCamera" parent="." index="0"]
@@ -34,6 +34,10 @@ physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, -0.00174429, 2.45828, 5.57881)
 fov = 45.0
 far = 100.0
+
+[node name="SceneLoadManager" parent="." index="2" node_paths=PackedStringArray("spawn_locations", "joy")]
+spawn_locations = [NodePath("../SpawnLocations/00")]
+joy = NodePath("../CharacterBody3D")
 
 [node name="ToWebberLivingRoom" type="Area3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81762, 0.389267, 1.84575)
@@ -46,19 +50,19 @@ transition = ExtResource("3_ocpry")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ToWebberLivingRoom" index="0"]
 shape = SubResource("BoxShape3D_khgda")
 
-[node name="WorldEnvironment" parent="." index="8"]
+[node name="00" type="Marker3D" parent="SpawnLocations" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.923622, 0, 1.15945)
+
+[node name="WorldEnvironment" parent="." index="10"]
 environment = ExtResource("2_rnieb")
 
 [node name="joys_apartment" parent="Model" index="0" instance=ExtResource("1_wwls2")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" index="0"]
-shape = SubResource("WorldBoundaryShape3D_rnieb")
-
-[node name="Path3D" type="Path3D" parent="." index="14"]
+[node name="Path3D" type="Path3D" parent="." index="13"]
 transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, 0, 2.45827, 5.57881)
 curve = SubResource("Curve3D_gqt60")
 
-[node name="PhantomCamera3D" type="Node3D" parent="." index="15" node_paths=PackedStringArray("follow_target", "follow_path")]
+[node name="PhantomCamera3D" type="Node3D" parent="." index="14" node_paths=PackedStringArray("follow_target", "follow_path")]
 transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, -0.00174429, 2.45828, 5.57881)
 top_level = true
 script = ExtResource("3_khgda")
@@ -70,8 +74,10 @@ tween_on_load = false
 camera_3d_resource = ExtResource("6_khgda")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="CharacterBody3D" parent="." index="16" node_paths=PackedStringArray("camera") instance=ExtResource("7_khgda")]
+[node name="CharacterBody3D" parent="." index="15" node_paths=PackedStringArray("camera") instance=ExtResource("7_khgda")]
 collision_layer = 3
 collision_mask = 3
 camera = NodePath("../MainCamera")
-move_speed = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" index="0"]
+shape = SubResource("WorldBoundaryShape3D_rnieb")

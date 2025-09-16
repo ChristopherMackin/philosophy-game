@@ -9,7 +9,9 @@ enum ExpirationToken {
 	ON_DEBATE_START,
 	ON_TURN_END,
 	ON_TURN_START,
-	ON_ACTION_END
+	ON_ACTION_END,
+	ON_SCENE_ENTER,
+	ON_SCENE_EXIT,
 }
 
 @export var _entries : Dictionary
