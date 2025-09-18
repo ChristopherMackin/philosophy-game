@@ -5,7 +5,7 @@ class_name EventManager
 var subscribers : Array[EventSubscriber]
 var current_task : Task
 
-@export var blackboard : Blackboard
+@export var blackboard: Blackboard
 
 func subscribe(subscriber : EventSubscriber):
 	subscribers.append(subscriber)

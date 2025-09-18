@@ -5,6 +5,7 @@ extends NodeBasedDebateSubscriber
 @export_group("Settings")
 @export var event_manager : EventManager
 @export var debate_settings : DebateSettings
+@export var _blackboard: Blackboard
 
 @export_group ("Player")
 @export var player : Character

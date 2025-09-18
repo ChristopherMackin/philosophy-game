@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Character" load_steps=6 format=3 uid="uid://d21frda3buspp"]
 
-[ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/main_blackboard.tres" id="1_6gxgx"]
+[ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="1_6gxgx"]
 [ext_resource type="Script" uid="uid://2hwgbl7c4ebq" path="res://character/script/brain/simple_ai_brain.gd" id="1_dtmr8"]
 [ext_resource type="Resource" uid="uid://3dnw0mevj0a1" path="res://character/erin/erin_event_factory.tres" id="2_y5jle"]
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="5_0k8v5"]

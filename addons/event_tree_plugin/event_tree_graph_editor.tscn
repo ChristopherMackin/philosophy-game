@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cigpy34phehbr"]
+[gd_scene load_steps=13 format=3 uid="uid://cigpy34phehbr"]
 
 [ext_resource type="Script" uid="uid://cgrbakyn86j8w" path="res://addons/event_tree_plugin/event_tree_graph_editor.gd" id="1_5451c"]
 [ext_resource type="Script" uid="uid://cmxpujb4d3phc" path="res://addons/event_tree_plugin/event_type_list.gd" id="1_mpg4u"]
@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dhjaa2rvtsb4w" path="res://addons/event_tree_plugin/task_node/console_log_node.tscn" id="5_rlkc1"]
 [ext_resource type="PackedScene" uid="uid://cr37f2ebcj6kc" path="res://addons/event_tree_plugin/task_node/dialogue_node.tscn" id="8_dwr4h"]
 [ext_resource type="PackedScene" uid="uid://djq6hwf312whs" path="res://addons/event_tree_plugin/task_node/wait_node.tscn" id="9_vr2na"]
+[ext_resource type="PackedScene" uid="uid://sv8os1jyt8o2" path="res://addons/event_tree_plugin/task_node/set_global_value_node.tscn" id="10_s0ywo"]
 [ext_resource type="PackedScene" uid="uid://b8grwpsb8a8t5" path="res://addons/event_tree_plugin/task_node/animation_node.tscn" id="11_1e0xf"]
-[ext_resource type="PackedScene" uid="uid://du3ueixbb1wck" path="res://addons/event_tree_plugin/task_node/set_value_node.tscn" id="11_y5fjh"]
+[ext_resource type="PackedScene" uid="uid://du3ueixbb1wck" path="res://addons/event_tree_plugin/task_node/set_local_value_node.tscn" id="11_y5fjh"]
 
 [node name="Event Tree Graph Editor" type="Control"]
 custom_minimum_size = Vector2(500, 0)
@@ -126,7 +127,10 @@ layout_mode = 0
 [node name="Animate" parent="TaskNodeTypeParent" instance=ExtResource("11_1e0xf")]
 layout_mode = 0
 
-[node name="SetValue" parent="TaskNodeTypeParent" instance=ExtResource("11_y5fjh")]
+[node name="SetGlobalValue" parent="TaskNodeTypeParent" instance=ExtResource("10_s0ywo")]
+layout_mode = 0
+
+[node name="SetLocalValue" parent="TaskNodeTypeParent" instance=ExtResource("11_y5fjh")]
 layout_mode = 0
 
 [node name="OpenDialogue" type="FileDialog" parent="."]

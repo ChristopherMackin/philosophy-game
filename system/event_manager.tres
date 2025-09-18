@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="EventManager" load_steps=3 format=3 uid="uid://c7qk4obnbhvr3"]
-
-[ext_resource type="Script" uid="uid://dtbnhujk3f31y" path="res://system/script/event/event_manager.gd" id="1_twg3w"]
-[ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/main_blackboard.tres" id="1_vvvup"]
-
-[resource]
-script = ExtResource("1_twg3w")
-blackboard = ExtResource("1_vvvup")

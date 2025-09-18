@@ -1,14 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://clf55p74f0340"]
+[gd_scene load_steps=18 format=3 uid="uid://clf55p74f0340"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_7ep36"]
 [ext_resource type="PackedScene" uid="uid://cj5cemq8g42b2" path="res://asset/world/joys_apartment/joys_apartment.glb" id="1_wwls2"]
+[ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="2_gqt60"]
 [ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="2_rnieb"]
 [ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://system/script/scene_management/scene_transition_trigger.gd" id="2_yiwpo"]
+[ext_resource type="Resource" uid="uid://bd7qx0u8c3yjv" path="res://world/joys_appartment/bb_joys_aparment.tres" id="3_cn2qb"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_khgda"]
 [ext_resource type="PackedScene" uid="uid://deqrvxx6rp2vl" path="res://scene_management/screen_transition/screen_wipe.tscn" id="3_ocpry"]
+[ext_resource type="Script" uid="uid://dtbnhujk3f31y" path="res://system/script/event/event_manager.gd" id="4_prmnt"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_yiwpo"]
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="6_khgda"]
 [ext_resource type="PackedScene" uid="uid://ventjq18ri0o" path="res://character/character_body_joy.tscn" id="7_khgda"]
+
+[sub_resource type="Resource" id="Resource_co5nk"]
+script = ExtResource("4_prmnt")
+blackboard = ExtResource("3_cn2qb")
+metadata/_custom_type_script = "uid://dtbnhujk3f31y"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_khgda"]
 
@@ -35,7 +43,12 @@ transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, 
 fov = 45.0
 far = 100.0
 
-[node name="SceneLoadManager" parent="." index="2" node_paths=PackedStringArray("spawn_locations", "joy")]
+[node name="EventManager" parent="." index="2" node_paths=PackedStringArray("actors")]
+script = ExtResource("2_gqt60")
+actors = []
+manager = SubResource("Resource_co5nk")
+
+[node name="SceneLoadManager" parent="." index="3" node_paths=PackedStringArray("spawn_locations", "joy")]
 spawn_locations = [NodePath("../SpawnLocations/00")]
 joy = NodePath("../CharacterBody3D")
 
@@ -53,10 +66,8 @@ shape = SubResource("BoxShape3D_khgda")
 [node name="00" type="Marker3D" parent="SpawnLocations" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.923622, 0, 1.15945)
 
-[node name="WorldEnvironment" parent="." index="10"]
+[node name="WorldEnvironment" parent="." index="11"]
 environment = ExtResource("2_rnieb")
-
-[node name="joys_apartment" parent="Model" index="0" instance=ExtResource("1_wwls2")]
 
 [node name="Path3D" type="Path3D" parent="." index="13"]
 transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, 0, 2.45827, 5.57881)
@@ -78,6 +89,8 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 collision_layer = 3
 collision_mask = 3
 camera = NodePath("../MainCamera")
+
+[node name="joys_apartment" parent="Model" index="0" instance=ExtResource("1_wwls2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" index="0"]
 shape = SubResource("WorldBoundaryShape3D_rnieb")
