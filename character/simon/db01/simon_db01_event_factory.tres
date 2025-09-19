@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=9 format=3 uid="uid://27sna6u0b0wj"]
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=8 format=3 uid="uid://27sna6u0b0wj"]
 
-[ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="1_0ml4n"]
 [ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="1_rb0rx"]
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="3_5togk"]
 [ext_resource type="Resource" uid="uid://b8omebsn1wpsb" path="res://character/simon/db01/event/simon_db01_test.tres" id="3_6rfff"]
@@ -20,4 +19,3 @@ rule = SubResource("Resource_iiaj8")
 [resource]
 script = ExtResource("1_rb0rx")
 payload_list = Array[ExtResource("4_n3d1h")]([SubResource("Resource_th28h")])
-blackboard = ExtResource("1_0ml4n")

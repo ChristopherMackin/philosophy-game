@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="EventManager" load_steps=3 format=3 uid="uid://cv41lqia6adre"]
-
-[ext_resource type="Resource" uid="uid://d1yevyo6mrvth" path="res://debate/simon_db01/bb_simon_db01.tres" id="1_aa15k"]
-[ext_resource type="Script" uid="uid://dtbnhujk3f31y" path="res://system/script/event/event_manager.gd" id="1_kd7ds"]
-
-[resource]
-script = ExtResource("1_kd7ds")
-blackboard = ExtResource("1_aa15k")
-metadata/_custom_type_script = "uid://dtbnhujk3f31y"

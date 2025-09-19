@@ -8,7 +8,10 @@ class_name Task
 @export var inputs : Array = []
 @export var action : TaskAction
 
-func invoke(manager : EventManager):
+var blackboard: Blackboard
+
+func invoke(blackboard: Blackboard, manager : EventManager):
+	self.blackboard = blackboard
 	action.invoke.call_deferred(self, manager)
 	return await action.on_action_complete
 

@@ -6,7 +6,7 @@ class_name OrderedEventFactory
 
 func get_event(query: Dictionary) -> Event:
 	for p in payload_list:
-		if !blackboard.has(p.event.resource_path.get_file()) && p.rule.check(query):
+		if !query.has(p.event.resource_path.get_file()) && p.rule.check(query):
 			return p.event
 	
 	return null

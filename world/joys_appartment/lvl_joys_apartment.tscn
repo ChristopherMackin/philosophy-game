@@ -1,24 +1,22 @@
-[gd_scene load_steps=18 format=3 uid="uid://clf55p74f0340"]
+[gd_scene load_steps=19 format=3 uid="uid://clf55p74f0340"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_7ep36"]
 [ext_resource type="PackedScene" uid="uid://cj5cemq8g42b2" path="res://asset/world/joys_apartment/joys_apartment.glb" id="1_wwls2"]
-[ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="2_gqt60"]
 [ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="2_rnieb"]
 [ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://system/script/scene_management/scene_transition_trigger.gd" id="2_yiwpo"]
-[ext_resource type="Resource" uid="uid://bd7qx0u8c3yjv" path="res://world/joys_appartment/bb_joys_aparment.tres" id="3_cn2qb"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_khgda"]
 [ext_resource type="PackedScene" uid="uid://deqrvxx6rp2vl" path="res://scene_management/screen_transition/screen_wipe.tscn" id="3_ocpry"]
-[ext_resource type="Script" uid="uid://dtbnhujk3f31y" path="res://system/script/event/event_manager.gd" id="4_prmnt"]
+[ext_resource type="Script" uid="uid://bexeevctdvv0t" path="res://system/script/event/event_trigger.gd" id="4_gqt60"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_yiwpo"]
+[ext_resource type="Resource" uid="uid://bd7qx0u8c3yjv" path="res://world/joys_appartment/bb_joys_aparment.tres" id="5_cn2qb"]
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="6_khgda"]
+[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="6_prmnt"]
 [ext_resource type="PackedScene" uid="uid://ventjq18ri0o" path="res://character/character_body_joy.tscn" id="7_khgda"]
-
-[sub_resource type="Resource" id="Resource_co5nk"]
-script = ExtResource("4_prmnt")
-blackboard = ExtResource("3_cn2qb")
-metadata/_custom_type_script = "uid://dtbnhujk3f31y"
+[ext_resource type="Resource" uid="uid://cosams0ydhgkf" path="res://world/joys_appartment/ef_joys_apartment.tres" id="7_prmnt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_khgda"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_co5nk"]
 
 [sub_resource type="Curve3D" id="Curve3D_gqt60"]
 _data = {
@@ -38,22 +36,18 @@ ease = 2
 [node name="JoysApartment" instance=ExtResource("1_7ep36")]
 
 [node name="MainCamera" parent="." index="0"]
-physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, -0.00174429, 2.45828, 5.57881)
-fov = 45.0
+cull_mask = 1047553
 far = 100.0
 
-[node name="EventManager" parent="." index="2" node_paths=PackedStringArray("actors")]
-script = ExtResource("2_gqt60")
-actors = []
-manager = SubResource("Resource_co5nk")
+[node name="EventManager" parent="." index="2"]
+manager = ExtResource("6_prmnt")
 
 [node name="SceneLoadManager" parent="." index="3" node_paths=PackedStringArray("spawn_locations", "joy")]
 spawn_locations = [NodePath("../SpawnLocations/00")]
 joy = NodePath("../CharacterBody3D")
 
 [node name="ToWebberLivingRoom" type="Area3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81762, 0.389267, 1.84575)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.818, 0, 1.846)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("2_yiwpo")
@@ -61,19 +55,31 @@ scene_name = "lvl_webber_living_room"
 transition = ExtResource("3_ocpry")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ToWebberLivingRoom" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_khgda")
 
 [node name="00" type="Marker3D" parent="SpawnLocations" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.923622, 0, 1.15945)
 
-[node name="WorldEnvironment" parent="." index="11"]
+[node name="EventTrigger01" type="Area3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3075, 0, 1.10643)
+script = ExtResource("4_gqt60")
+blackboard = ExtResource("5_cn2qb")
+event_manager = ExtResource("6_prmnt")
+event_factory = ExtResource("7_prmnt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EventTrigger01" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_co5nk")
+
+[node name="WorldEnvironment" parent="." index="13"]
 environment = ExtResource("2_rnieb")
 
-[node name="Path3D" type="Path3D" parent="." index="13"]
+[node name="Path3D" type="Path3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, 0, 2.45827, 5.57881)
 curve = SubResource("Curve3D_gqt60")
 
-[node name="PhantomCamera3D" type="Node3D" parent="." index="14" node_paths=PackedStringArray("follow_target", "follow_path")]
+[node name="PhantomCamera3D" type="Node3D" parent="." index="15" node_paths=PackedStringArray("follow_target", "follow_path")]
 transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, -0.00174429, 2.45828, 5.57881)
 top_level = true
 script = ExtResource("3_khgda")
@@ -85,7 +91,7 @@ tween_on_load = false
 camera_3d_resource = ExtResource("6_khgda")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="CharacterBody3D" parent="." index="15" node_paths=PackedStringArray("camera") instance=ExtResource("7_khgda")]
+[node name="CharacterBody3D" parent="." index="16" node_paths=PackedStringArray("camera") instance=ExtResource("7_khgda")]
 collision_layer = 3
 collision_mask = 3
 camera = NodePath("../MainCamera")
@@ -94,3 +100,5 @@ camera = NodePath("../MainCamera")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" index="0"]
 shape = SubResource("WorldBoundaryShape3D_rnieb")
+
+[connection signal="body_entered" from="EventTrigger01" to="EventTrigger01" method="query_event"]

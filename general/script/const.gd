@@ -49,7 +49,8 @@ enum Concept{
 	ON_DEBATE_START,
 	ON_DEBATE_END,
 	#OVERWORLD
-	ON_SCENE_ENTER
+	ON_SCENE_ENTER,
+	ON_EVENT_TRIGGER_INVOKED
 }
 
 const Autocomplete = [

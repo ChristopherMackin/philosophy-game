@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjv4hqyvjwdsh"]
+[gd_scene load_steps=6 format=3 uid="uid://bjv4hqyvjwdsh"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_qlsal"]
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save_manager.gd" id="1_xgvwx"]
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="2_be1jf"]
-[ext_resource type="Script" uid="uid://dtbnhujk3f31y" path="res://system/script/event/event_manager.gd" id="2_j11vw"]
+[ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="2_t3rax"]
+[ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="5_t3rax"]
 
 [node name="WorldLevel" type="Node3D"]
 
@@ -19,8 +20,9 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="===MANAGER========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="EventManager" type="Node" parent="."]
-script = ExtResource("2_j11vw")
+[node name="EventManager" type="Node" parent="." node_paths=PackedStringArray("scene_animator_handler")]
+script = ExtResource("2_t3rax")
+scene_animator_handler = NodePath("../SceneAnimator/AnimationHandler")
 
 [node name="SceneLoadManager" type="Node" parent="."]
 script = ExtResource("2_be1jf")
@@ -35,6 +37,14 @@ metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
 
 [node name="===CUTSCENE========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="SceneAnimator" type="Node" parent="."]
+
+[node name="AnimationHandler" type="Node" parent="SceneAnimator" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("5_t3rax")
+animation_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SceneAnimator"]
 
 [node name="===AUDIO========" type="Node3D" parent="."]
 

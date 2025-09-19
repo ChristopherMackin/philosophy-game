@@ -2,7 +2,7 @@ extends EventSubscriber
 
 class_name SceneEventManager
 
-@export var scene_animator: Node
+@export var scene_animator_handler: AnimationHandler
 @export var actors: Array[Node]
 
 func display_dialogue(line : String, actor : String, await_input : bool, seconds_before_close : float):
@@ -34,6 +34,7 @@ func cancel_dialogue(actor):
 
 func play_animation(animation : String, actor : String, await_animation : bool):
 	var parent
+	var animation_handler: AnimationHandler
 	
 	if actor != "":
 		var index = get_actor_index(actor)
@@ -42,12 +43,12 @@ func play_animation(animation : String, actor : String, await_animation : bool):
 			return
 			
 		parent = actors[index]
+		animation_handler = parent.get_node_or_null(NodePath("AnimationHandler"))
+
 	
 	else:
-		parent = scene_animator
-	
-	var animation_handler : AnimationHandler = parent.get_node_or_null(NodePath("AnimationHandler"))
-	
+		animation_handler = scene_animator_handler
+		
 	animation_handler.start_animation(animation)
 	
 	if await_animation:
@@ -58,6 +59,7 @@ func play_animation(animation : String, actor : String, await_animation : bool):
 
 func cancel_animation(actor):
 	var parent
+	var animation_handler: AnimationHandler
 	
 	if actor != "":
 		var index = get_actor_index(actor)
@@ -66,11 +68,11 @@ func cancel_animation(actor):
 			return
 			
 		parent = actors[index]
+		animation_handler = parent.get_node_or_null(NodePath("AnimationHandler"))
+
 	
 	else:
-		parent = scene_animator
-	
-	var animation_handler : AnimationHandler = parent.get_node_or_null(NodePath("AnimationHandler"))
+		animation_handler = scene_animator_handler
 	
 	animation_handler.cancel_animation()
 

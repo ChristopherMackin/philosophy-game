@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="EventManager" load_steps=2 format=3 uid="uid://bu7tksp5p5nqv"]
+
+[ext_resource type="Script" uid="uid://dtbnhujk3f31y" path="res://system/script/event/event_manager.gd" id="1_2twh4"]
+
+[resource]
+script = ExtResource("1_2twh4")
+metadata/_custom_type_script = "uid://dtbnhujk3f31y"

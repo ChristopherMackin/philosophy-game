@@ -3,7 +3,7 @@ extends Resource
 class_name DebateManager
 
 var debate_settings : DebateSettings
-@export var blackboard : Blackboard
+var blackboard : Blackboard
 
 var player : Contestant:
 	set(val):
@@ -64,7 +64,8 @@ func clear_data():
 	suit_track_dictionary = {}
 	play_stack = CardCollection.new()
 
-func init(player_character : Character, computer_character : Character, debate_settings : DebateSettings):
+func init(blackboard: Blackboard, player_character : Character, computer_character : Character, debate_settings : DebateSettings):
+	self.blackboard = blackboard
 	clear_data()
 	
 	for subscriber in subscribers:

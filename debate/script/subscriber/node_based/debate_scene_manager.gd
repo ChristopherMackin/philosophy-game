@@ -31,7 +31,7 @@ var is_animation_locked := false
 
 func _ready():
 	super._ready()
-	manager.init(player, computer, debate_settings)
+	manager.init(_blackboard, player, computer, debate_settings)
 
 func on_debate_start():
 	await update_everything()
@@ -77,6 +77,7 @@ func on_debate_finished():
 func query_event(concept : Const.Concept):
 	var query : Dictionary
 	query["concept"] = concept
+	query.merge(GlobalBlackboard.blackboard.get_query())
 	query.merge(manager.blackboard.get_query())
 	
 	var event = manager.computer.debate_event_factory.get_event(query)
@@ -84,9 +85,9 @@ func query_event(concept : Const.Concept):
 	if !event: return
 	
 	if event.await_event:
-		await event_manager.start_event(event)
+		await event_manager.start_event(_blackboard, event)
 	else:
-		event_manager.start_event(event)
+		event_manager.start_event(_blackboard, event)
 
 func update_everything():
 	await update_board()

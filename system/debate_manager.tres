@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DebateManager" load_steps=2 format=3 uid="uid://bxdnjlvt3iyth"]
+
+[ext_resource type="Script" uid="uid://cd5e5s82rdgur" path="res://debate/script/debate_manager.gd" id="1_f1qo7"]
+
+[resource]
+script = ExtResource("1_f1qo7")
+subscribers = []
+metadata/_custom_type_script = "uid://cd5e5s82rdgur"

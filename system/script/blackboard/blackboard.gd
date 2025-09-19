@@ -14,8 +14,8 @@ enum ExpirationToken {
 	ON_SCENE_EXIT,
 }
 
-@export var _entries : Dictionary
-@export var _expiration_tokens : Dictionary
+@export var _entries : Dictionary[String, Variant]
+@export var _expiration_tokens : Dictionary[String, ExpirationToken]
 
 func has(key: String):
 	return _entries.has(key)
