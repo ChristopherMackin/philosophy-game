@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://clf55p74f0340"]
+[gd_scene load_steps=42 format=3 uid="uid://clf55p74f0340"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_7ep36"]
 [ext_resource type="PackedScene" uid="uid://cj5cemq8g42b2" path="res://asset/world/joys_apartment/joys_apartment.glb" id="1_wwls2"]
@@ -11,8 +11,14 @@
 [ext_resource type="Resource" uid="uid://bd7qx0u8c3yjv" path="res://world/joys_appartment/bb_joys_aparment.tres" id="5_cn2qb"]
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="6_khgda"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="6_prmnt"]
-[ext_resource type="PackedScene" uid="uid://ventjq18ri0o" path="res://character/character_body_joy.tscn" id="7_khgda"]
+[ext_resource type="PackedScene" uid="uid://ventjq18ri0o" path="res://character/cb_joy.tscn" id="7_khgda"]
 [ext_resource type="Resource" uid="uid://cosams0ydhgkf" path="res://world/joys_appartment/ef_joys_apartment.tres" id="7_prmnt"]
+[ext_resource type="Animation" uid="uid://my16xyybyy8l" path="res://character/joy/animation/RESET.res" id="12_ih1j2"]
+[ext_resource type="Animation" uid="uid://crmi4qmpml6wh" path="res://character/joy/animation/blink.res" id="13_b3me4"]
+[ext_resource type="Animation" uid="uid://r5k1m8q47t7n" path="res://character/joy/animation/idle.res" id="14_2srbu"]
+[ext_resource type="Animation" uid="uid://dkpr32t1ba2s" path="res://character/joy/animation/idle_variant_01.res" id="15_m0qcy"]
+[ext_resource type="Animation" uid="uid://1o2pl8o5qvdd" path="res://character/joy/animation/talk.res" id="16_oym8r"]
+[ext_resource type="Animation" uid="uid://cn4vi21lprmuk" path="res://character/joy/animation/walk.res" id="17_d8nki"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_khgda"]
 
@@ -31,22 +37,114 @@ duration = 1.0
 transition = 0
 ease = 2
 
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r60b2"]
+resource_local_to_scene = true
+_data = {
+&"RESET": ExtResource("12_ih1j2"),
+&"blink": ExtResource("13_b3me4"),
+&"idle": ExtResource("14_2srbu"),
+&"idle_variant_01": ExtResource("15_m0qcy"),
+&"talk": ExtResource("16_oym8r"),
+&"walk": ExtResource("17_d8nki")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qfv6"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_8dv24"]
+filter_enabled = true
+filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4f1rm"]
+animation = &"blink"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dlmfx"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ja5cw"]
+autorestart = true
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_sijwa"]
+filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dv24"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bxpyq"]
+animation = &"idle_variant_01"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_4f1rm"]
+fadein_time = 0.3
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_s6d67"]
+fadein_time = 0.3
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k26ml"]
+animation = &"talk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lydv1"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_uceat"]
+autorestart = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_axsce"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_k26ml"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_pvinm"]
+resource_local_to_scene = true
+graph_offset = Vector2(-589.275, -130.327)
+nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
+nodes/action/position = Vector2(-600, -130)
+nodes/animation/node = SubResource("AnimationNodeAdd2_8dv24")
+nodes/animation/position = Vector2(80, 60)
+nodes/blink/node = SubResource("AnimationNodeAnimation_4f1rm")
+nodes/blink/position = Vector2(-890, 470)
+nodes/blink_reset/node = SubResource("AnimationNodeAnimation_dlmfx")
+nodes/blink_reset/position = Vector2(-890, 300)
+nodes/blink_trigger/node = SubResource("AnimationNodeOneShot_ja5cw")
+nodes/blink_trigger/position = Vector2(-480, 260)
+nodes/facial_animation/node = SubResource("AnimationNodeAdd2_sijwa")
+nodes/facial_animation/position = Vector2(-210, 220)
+nodes/idle/node = SubResource("AnimationNodeAnimation_8dv24")
+nodes/idle/position = Vector2(-750, -500)
+nodes/idle_variant/node = SubResource("AnimationNodeAnimation_bxpyq")
+nodes/idle_variant/position = Vector2(-750, -320)
+nodes/idling/node = SubResource("AnimationNodeOneShot_4f1rm")
+nodes/idling/position = Vector2(-530, -440)
+nodes/output/position = Vector2(310, 160)
+nodes/take_action/node = SubResource("AnimationNodeOneShot_s6d67")
+nodes/take_action/position = Vector2(-320, -280)
+nodes/talk/node = SubResource("AnimationNodeAnimation_k26ml")
+nodes/talk/position = Vector2(-890, 820)
+nodes/talk_reset/node = SubResource("AnimationNodeAnimation_lydv1")
+nodes/talk_reset/position = Vector2(-890, 650)
+nodes/talk_trigger/node = SubResource("AnimationNodeOneShot_uceat")
+nodes/talk_trigger/position = Vector2(-480, 600)
+nodes/walk/node = SubResource("AnimationNodeAnimation_axsce")
+nodes/walk/position = Vector2(-320, 30)
+nodes/walking/node = SubResource("AnimationNodeBlend2_k26ml")
+nodes/walking/position = Vector2(-130, -110)
+node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"output", 0, &"animation", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rnieb"]
 
 [node name="JoysApartment" instance=ExtResource("1_7ep36")]
 
 [node name="MainCamera" parent="." index="0"]
-physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, -0.00174429, 2.45828, 5.57881)
-fov = 45.0
+cull_mask = 1047553
 far = 100.0
 
-[node name="EventManager" parent="." index="2"]
+[node name="EventManager" parent="." index="3"]
 manager = ExtResource("6_prmnt")
 
-[node name="SceneLoadManager" parent="." index="3" node_paths=PackedStringArray("spawn_locations", "joy")]
+[node name="SceneLoadManager" parent="." index="4" node_paths=PackedStringArray("spawn_locations", "joy")]
 spawn_locations = [NodePath("../SpawnLocations/00")]
-joy = NodePath("../CharacterBody3D")
+joy = NodePath("../CBJoy")
 
 [node name="ToWebberLivingRoom" type="Area3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.818, 0, 1.846)
@@ -60,9 +158,6 @@ transition = ExtResource("3_ocpry")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_khgda")
 
-[node name="00" type="Marker3D" parent="SpawnLocations" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.923622, 0, 1.15945)
-
 [node name="EventTrigger01" type="Area3D" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3075, 0, 1.10643)
 script = ExtResource("4_gqt60")
@@ -74,8 +169,8 @@ event_factory = ExtResource("7_prmnt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_co5nk")
 
-[node name="WorldEnvironment" parent="." index="13"]
-environment = ExtResource("2_rnieb")
+[node name="00" type="Marker3D" parent="SpawnLocations" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.923622, 0, 1.15945)
 
 [node name="Path3D" type="Path3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, 0, 2.45827, 5.57881)
@@ -86,17 +181,30 @@ transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, 
 top_level = true
 script = ExtResource("3_khgda")
 follow_mode = 4
-follow_target = NodePath("../CharacterBody3D")
+follow_target = NodePath("../CBJoy")
 follow_path = NodePath("../Path3D")
 tween_resource = SubResource("Resource_yiwpo")
 tween_on_load = false
 camera_3d_resource = ExtResource("6_khgda")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="CharacterBody3D" parent="." index="16" node_paths=PackedStringArray("camera") instance=ExtResource("7_khgda")]
+[node name="CBJoy" parent="." index="16" node_paths=PackedStringArray("camera") instance=ExtResource("7_khgda")]
 collision_layer = 3
 collision_mask = 3
 camera = NodePath("../MainCamera")
+acceleration = 20.0
+rotation_speed = 12.0
+
+[node name="AnimationPlayer" parent="CBJoy/ACJoy/JoySkin" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_r60b2")
+}
+
+[node name="CharacterAnimationTree" parent="CBJoy/ACJoy" index="4"]
+tree_root = SubResource("AnimationNodeBlendTree_pvinm")
+
+[node name="WorldEnvironment" parent="." index="17"]
+environment = ExtResource("2_rnieb")
 
 [node name="joys_apartment" parent="Model" index="0" instance=ExtResource("1_wwls2")]
 
@@ -104,3 +212,7 @@ camera = NodePath("../MainCamera")
 shape = SubResource("WorldBoundaryShape3D_rnieb")
 
 [connection signal="body_entered" from="EventTrigger01" to="EventTrigger01" method="query_event"]
+
+[editable path="CBJoy"]
+[editable path="CBJoy/ACJoy"]
+[editable path="CBJoy/ACJoy/JoySkin"]

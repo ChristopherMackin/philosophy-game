@@ -27,8 +27,25 @@ ease = 2
 
 [node name="Node3D" type="Node3D"]
 
+[node name="MANAGER===" type="Node3D" parent="."]
+
+[node name="SceneEventManager" type="Node" parent="." node_paths=PackedStringArray("scene_animator_handler")]
+script = ExtResource("11_70vse")
+scene_animator_handler = NodePath("../SceneAnimator/AnimationHandler")
+metadata/_custom_type_script = "uid://crmfqkx4p7ujf"
+
+[node name="SceneAnimator" type="Node" parent="."]
+
+[node name="AnimationHandler" type="Node" parent="SceneAnimator" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("12_wetqe")
+animation_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SceneAnimator"]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_ed3ke")
+
+[node name="OTHER STUFF===" type="Node3D" parent="."]
 
 [node name="MainCamera" type="Camera3D" parent="."]
 transform = Transform3D(0.442195, -0.49091, 0.750647, 1.04931e-08, 0.836917, 0.54733, -0.896919, -0.242026, 0.37008, 1.94776, 2.33592, 0.903239)
@@ -175,9 +192,6 @@ layers = 524289
 [node name="Mouth" parent="Joy/root/Skeleton3D" index="8"]
 layers = 524289
 
-[node name="CharacterAnimationTree" parent="Joy" index="2"]
-parameters/idling/request = 0
-
 [node name="PhantomCamera3D" parent="Joy" index="5"]
 tween_resource = SubResource("Resource_6bt48")
 
@@ -191,18 +205,5 @@ tween_resource = SubResource("Resource_70vse")
 tween_on_load = false
 camera_3d_resource = ExtResource("10_6bt48")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="SceneEventManager" type="Node" parent="." node_paths=PackedStringArray("scene_animator_handler")]
-script = ExtResource("11_70vse")
-scene_animator_handler = NodePath("../SceneAnimator/AnimationHandler")
-metadata/_custom_type_script = "uid://crmfqkx4p7ujf"
-
-[node name="SceneAnimator" type="Node" parent="."]
-
-[node name="AnimationHandler" type="Node" parent="SceneAnimator" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("12_wetqe")
-animation_player = NodePath("../AnimationPlayer")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SceneAnimator"]
 
 [editable path="Joy"]

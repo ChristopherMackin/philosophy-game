@@ -1,55 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://cajmwu8byfeoi"]
+[gd_scene load_steps=3 format=3 uid="uid://cvudykbbs45t7"]
 
 [ext_resource type="PackedScene" uid="uid://doagmnjb5kjij" path="res://asset/character/simon/simon.glb" id="1_tib51"]
-[ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://character/script/facial_animator.gd" id="2_0i4e4"]
 [ext_resource type="AnimationLibrary" uid="uid://c7aqovwpelfbc" path="res://character/simon/animation/simon_animation_library.res" id="2_wq1tm"]
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_7k5b5"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_tyl3e"]
-[ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="6_2cvcb"]
 
-[sub_resource type="Resource" id="Resource_bfpyp"]
-script = ExtResource("5_tyl3e")
-duration = 1.0
-transition = 0
-ease = 2
-
-[node name="Simon" instance=ExtResource("1_tib51")]
+[node name="SimonSkin" instance=ExtResource("1_tib51")]
 
 [node name="Skeleton3D" parent="root" index="0"]
 bones/8/rotation = Quaternion(1.24483e-07, 0.132673, -4.45721e-08, 0.99116)
 bones/16/rotation = Quaternion(-6.39813e-08, 0.0655569, 1.49903e-08, 0.997849)
 bones/19/rotation = Quaternion(-5.51647e-08, 0.023504, 3.10179e-08, 0.999724)
 bones/29/rotation = Quaternion(9.90806e-07, 0.0239037, -5.47604e-07, 0.999714)
-bones/30/position = Vector3(0.672594, 1.09417, 0.00324741)
-bones/30/rotation = Quaternion(1.58715e-23, 1.46323e-06, 0, 1)
-bones/30/scale = Vector3(1, 1, 1)
-bones/31/position = Vector3(0.0815765, -9.74916e-06, 3.62765e-10)
-bones/31/rotation = Quaternion(-2.25537e-10, -1.37868e-06, -1.37873e-06, 1)
-bones/31/scale = Vector3(1, 1, 1)
-bones/32/position = Vector3(0.672594, -0.128914, 0.00324741)
-bones/32/rotation = Quaternion(-7.69399e-10, 1.58244e-06, -1.21753e-15, 1)
-bones/32/scale = Vector3(1, 1, 1)
-bones/33/position = Vector3(0.0815766, -9.89181e-06, 2.22529e-08)
-bones/33/rotation = Quaternion(1.47535e-09, -1.49789e-06, -1.37867e-06, 1)
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
 &"": ExtResource("2_wq1tm")
 }
-
-[node name="FacialAnimator" type="Node" parent="." index="2" node_paths=PackedStringArray("eyes", "mouth", "skeleton")]
-script = ExtResource("2_0i4e4")
-eyes = NodePath("../root/Skeleton3D/Eyes")
-mouth = NodePath("../root/Skeleton3D/Mouth")
-skeleton = NodePath("../root/Skeleton3D")
-metadata/_custom_type_script = "uid://bj0ldo17kyup3"
-
-[node name="PhantomCamera3D" type="Node3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 1.29199, 1.16291)
-script = ExtResource("4_7k5b5")
-tween_resource = SubResource("Resource_bfpyp")
-host_layers = 524288
-camera_3d_resource = ExtResource("6_2cvcb")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[connection signal="pose_updated" from="root/Skeleton3D" to="FacialAnimator" method="pose_updated"]

@@ -4,7 +4,7 @@ class_name CharacterBody
 
 @export_group("Dependency")
 @export var camera: Camera3D
-@export var skin : Node3D
+@export var animated_character : Node3D
 @export var character_animator: CharacterAnimationTree
 
 @export_group("Movement")
@@ -44,7 +44,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if direction.length() > 0.2:
-		skin.global_rotation.y = Vector3.BACK.signed_angle_to(velocity, Vector3.UP)
+		animated_character.global_rotation.y = Vector3.BACK.signed_angle_to(velocity, Vector3.UP)
 	
 	for col_idx in get_slide_collision_count():
 		var col := get_slide_collision(col_idx)
@@ -53,4 +53,4 @@ func _physics_process(delta):
 			col.get_collider().apply_impulse(-col.get_normal() * 0.01, col.get_position())
 	
 	var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)
-	character_animator.set("parameters/walking/blend_position", clamp(horizontal_velocity.length(), 0, 1))
+	character_animator.set("parameters/walking/blend_amount", clamp(horizontal_velocity.length(), 0, 1))

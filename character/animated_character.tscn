@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://ncpnghqpw8tc"]
+
+[ext_resource type="Script" uid="uid://br5kxd06vsn3n" path="res://utility/script/set_layer_mask.gd" id="1_hj805"]
+[ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://character/script/facial_animator.gd" id="2_11vbc"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_qgua1"]
+[ext_resource type="Script" uid="uid://4lmkf6b3mly" path="res://system/script/animation/character_tree_animation_handler.gd" id="3_rwuo2"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_qrm8g"]
+[ext_resource type="Resource" uid="uid://v2wiqt0q1qwn" path="res://character/portrait_camera_resource.tres" id="5_bw75v"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://deg11edoj1x7r" path="res://character/character_animation_tree.tres" id="6_dkloa"]
+[ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/joy/character_animation_tree.gd" id="6_qdsxm"]
+
+[sub_resource type="Resource" id="Resource_jy7l1"]
+script = ExtResource("4_qrm8g")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="AnimatedCharacter" type="Node3D"]
+
+[node name="LayerMask" type="Node" parent="."]
+script = ExtResource("1_hj805")
+layers = Array[bool]([true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
+metadata/_custom_type_script = "uid://br5kxd06vsn3n"
+
+[node name="FacialAnimator" type="Node" parent="."]
+script = ExtResource("2_11vbc")
+mouth_row_count = 8
+metadata/_custom_type_script = "uid://bj0ldo17kyup3"
+
+[node name="AnimationHandler" type="Node" parent="." node_paths=PackedStringArray("animation_tree")]
+script = ExtResource("3_rwuo2")
+animation_tree = NodePath("../CharacterAnimationTree")
+metadata/_custom_type_script = "uid://4lmkf6b3mly"
+
+[node name="CharacterAnimationTree" type="AnimationTree" parent="."]
+tree_root = ExtResource("6_dkloa")
+parameters/animation/add_amount = 1.0
+parameters/blink_trigger/active = false
+parameters/blink_trigger/internal_active = false
+parameters/blink_trigger/request = 0
+parameters/facial_animation/add_amount = 1.0
+parameters/idling/active = false
+parameters/idling/internal_active = false
+parameters/idling/request = 1
+parameters/take_action/active = false
+parameters/take_action/internal_active = false
+parameters/take_action/request = 0
+parameters/talk_trigger/active = false
+parameters/talk_trigger/internal_active = false
+parameters/talk_trigger/request = 0
+parameters/walking/blend_amount = 0.0
+script = ExtResource("6_qdsxm")
+idle_variation_count = 1
+idle_variation_min = 20.0
+idle_variation_max = 31.0
+metadata/_custom_type_script = "uid://2kn4432bu4u8"
+
+[node name="PhantomCamera3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 1.29199, 1.16291)
+script = ExtResource("3_qgua1")
+tween_resource = SubResource("Resource_jy7l1")
+tween_on_load = false
+host_layers = 524288
+camera_3d_resource = ExtResource("5_bw75v")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"

@@ -12,13 +12,10 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 	
 	var parent = actors[index]
 	
-	var dialogue_handler : DialogueHandler\
-	 = parent.get_node_or_null(NodePath("DialogueHandler"))
 	
-	dialogue_handler.start_dialogue.call_deferred(line)
-	await dialogue_handler.on_dialogue_finished
+	#await dialogue_handler.on_dialogue_finished
 	await GlobalTimer.wait_for_seconds(seconds_before_close)
-	dialogue_handler.close_dialogue()
+	#dialogue_handler.close_dialogue()
 
 func cancel_dialogue(actor):
 	var index = get_actor_index(actor)
