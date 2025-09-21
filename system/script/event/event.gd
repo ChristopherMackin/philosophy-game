@@ -8,8 +8,8 @@ enum Frequency {
 	INFINITE
 }
 
-@export var is_major_event = false
-@export var await_event = false
+@export var is_major_event := false
+@export var await_event := false
 @export var frequency : Frequency
 
 @export var start_task : Task = null

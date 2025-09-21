@@ -1,4 +1,5 @@
 extends RichTextLabel
+
 class_name ScrollingText
 
 signal on_scroll_completed

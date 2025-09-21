@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Camera3DResource" load_steps=2 format=3 uid="uid://v2wiqt0q1qwn"]
+
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="1_j8tbp"]
+
+[resource]
+script = ExtResource("1_j8tbp")
+keep_aspect = 1
+cull_mask = 524288
+h_offset = 0.0
+v_offset = 0.0
+projection = 0
+fov = 45.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 10.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
