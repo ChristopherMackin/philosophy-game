@@ -1,0 +1,195 @@
+[gd_scene load_steps=21 format=3 uid="uid://dfq3pcw8gjvv6"]
+
+[ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="1_piwyu"]
+[ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="1_qlmbj"]
+[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="2_54kiu"]
+[ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="2_telqy"]
+[ext_resource type="Resource" uid="uid://bd7qx0u8c3yjv" path="res://world/joys_appartment/bb_joys_aparment.tres" id="3_4xacb"]
+[ext_resource type="Environment" uid="uid://vowbyk10rg4v" path="res://debate/debate_scene_environment.tres" id="3_54kiu"]
+[ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="4_o11hx"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_piwyu"]
+[ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://asset/cutscene/name_background.png" id="5_niijv"]
+[ext_resource type="Script" uid="uid://4bchriocygww" path="res://general/script/dialogue/dialogue_area.gd" id="6_54kiu"]
+[ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://general/style/default_theme.tres" id="6_jfkso"]
+[ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://general/script/ui/scrolling-text.gd" id="7_rpfbb"]
+[ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="8_engy8"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="16_t3uv0"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="17_2mvx4"]
+[ext_resource type="PackedScene" uid="uid://bm000oc0qmi7l" path="res://character/joy/ac_joy.tscn" id="17_54kiu"]
+[ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="18_gwq5l"]
+[ext_resource type="PackedScene" uid="uid://crjk3jxv3f3il" path="res://character/simon/ac_simon.tscn" id="18_piwyu"]
+
+[sub_resource type="Resource" id="Resource_gwq5l"]
+script = ExtResource("8_engy8")
+payload_list = Array[ExtResource("4_o11hx")]([])
+metadata/_custom_type_script = "uid://dghxtp7la36tj"
+
+[sub_resource type="Resource" id="Resource_70vse"]
+script = ExtResource("17_2mvx4")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MANAGER===" type="Node3D" parent="."]
+
+[node name="SceneLoadManager" type="Node" parent="."]
+script = ExtResource("1_piwyu")
+event_manager = ExtResource("2_54kiu")
+blackboard = ExtResource("3_4xacb")
+event_factory = SubResource("Resource_gwq5l")
+metadata/_custom_type_script = "uid://xhjdfq3aubk1"
+
+[node name="SceneEventManager" type="Node" parent="." node_paths=PackedStringArray("scene_animator_handler", "animated_characters", "default_dialogue_area")]
+script = ExtResource("1_qlmbj")
+scene_animator_handler = NodePath("../SceneAnimator/AnimationHandler")
+animated_characters = [NodePath("../Joy"), NodePath("../Simon")]
+default_dialogue_area = NodePath("../CanvasLayer/WorldDialogueBox")
+manager = ExtResource("2_54kiu")
+metadata/_custom_type_script = "uid://crmfqkx4p7ujf"
+
+[node name="SceneAnimator" type="Node" parent="."]
+
+[node name="AnimationHandler" type="Node" parent="SceneAnimator" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("2_telqy")
+animation_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SceneAnimator"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_54kiu")
+
+[node name="OTHER STUFF===" type="Node3D" parent="."]
+
+[node name="MainCamera" type="Camera3D" parent="."]
+cull_mask = 1047553
+far = 100.0
+
+[node name="MainCamera" type="Node" parent="MainCamera"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("4_piwyu")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="WorldDialogueBox" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("scrolling_text", "speaker_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 257.0
+offset_top = 725.0
+offset_right = -257.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_54kiu")
+scrolling_text = NodePath("MarginContainer/ScrollingText")
+speaker_label = NodePath("SpeakerBackground/Speaker")
+normal_characters_per_second = 20
+quick_characters_per_second = 40
+
+[node name="SpeakerBackground" type="TextureRect" parent="CanvasLayer/WorldDialogueBox"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 128.0
+texture = ExtResource("5_niijv")
+stretch_mode = 4
+
+[node name="Speaker" type="RichTextLabel" parent="CanvasLayer/WorldDialogueBox/SpeakerBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -36.0
+offset_right = 76.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.996078, 0.694118, 0.266667, 1)
+theme_override_colors/font_outline_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/normal_font_size = 52
+text = "Aaron"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/WorldDialogueBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_jfkso")
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 160
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollingText" type="RichTextLabel" parent="CanvasLayer/WorldDialogueBox/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/normal_font_size = 52
+text = "SEE FAITH IN ACTION"
+horizontal_alignment = 1
+visible_characters = 0
+visible_characters_behavior = 1
+visible_ratio = 0.0
+script = ExtResource("7_rpfbb")
+metadata/_custom_type_script = "uid://vyqjymdwc8ae"
+
+[node name="Portrait" type="SubViewportContainer" parent="CanvasLayer/WorldDialogueBox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -255.0
+offset_top = -512.0
+offset_right = 257.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/WorldDialogueBox/Portrait"]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="PortraitCamera" type="Camera3D" parent="CanvasLayer/WorldDialogueBox/Portrait/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 1.29199, 0.54915)
+cull_mask = 524288
+fov = 45.0
+far = 10.0
+
+[node name="PortraitCamera" type="Node" parent="CanvasLayer/WorldDialogueBox/Portrait/SubViewport/PortraitCamera"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("4_piwyu")
+host_layers = 524288
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="ACTORS===" type="Node3D" parent="."]
+
+[node name="Joy" parent="." instance=ExtResource("17_54kiu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.61376)
+
+[node name="Simon" parent="." instance=ExtResource("18_piwyu")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.438565)
+
+[node name="FollowCamera" type="Node3D" parent="."]
+transform = Transform3D(0.442195, -0.49091, 0.750647, 1.04931e-08, 0.836917, 0.54733, -0.896919, -0.242026, 0.37008, 1.94776, 2.33592, 0.903239)
+script = ExtResource("16_t3uv0")
+tween_resource = SubResource("Resource_70vse")
+tween_on_load = false
+camera_3d_resource = ExtResource("18_gwq5l")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"

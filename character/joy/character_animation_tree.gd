@@ -36,8 +36,8 @@ func _ready():
 	action_node = tree_root.get_node("action")
 	idle_variant_node = tree_root.get_node("idle_variant")
 	
-	await GlobalTimer.wait_for_seconds(randf_range(idle_variation_min, idle_variation_max))
-	play_idle_variant()
+	#await GlobalTimer.wait_for_seconds(randf_range(idle_variation_min, idle_variation_max))
+	#play_idle_variant()
 
 func _process(delta):
 	var current_position = get("parameters/action/current_position")

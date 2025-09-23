@@ -136,7 +136,9 @@ node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_anima
 [node name="JoysApartment" instance=ExtResource("1_7ep36")]
 
 [node name="MainCamera" parent="." index="0"]
-cull_mask = 1047553
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.970838, 0.239737, 0, -0.239737, 0.970838, -0.00174429, 2.45828, 5.57881)
+fov = 45.0
 far = 100.0
 
 [node name="EventManager" parent="." index="3"]
@@ -194,6 +196,9 @@ collision_mask = 3
 camera = NodePath("../MainCamera")
 acceleration = 20.0
 rotation_speed = 12.0
+
+[node name="ACJoy" parent="CBJoy" index="1"]
+script = null
 
 [node name="AnimationPlayer" parent="CBJoy/ACJoy/JoySkin" index="1"]
 libraries = {

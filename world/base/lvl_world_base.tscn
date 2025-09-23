@@ -1,11 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjv4hqyvjwdsh"]
+[gd_scene load_steps=12 format=3 uid="uid://bjv4hqyvjwdsh"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_qlsal"]
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save_manager.gd" id="1_xgvwx"]
 [ext_resource type="Script" uid="uid://bojj5s0o4f2s3" path="res://world/base/world_input_manager.gd" id="2_8d011"]
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="2_be1jf"]
 [ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="2_t3rax"]
+[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="4_f2xca"]
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="5_t3rax"]
+[ext_resource type="Script" uid="uid://4bchriocygww" path="res://general/script/dialogue/dialogue_area.gd" id="8_ilpj6"]
+[ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://asset/cutscene/name_background.png" id="9_ot6eh"]
+[ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://general/style/default_theme.tres" id="10_85jcy"]
+[ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://general/script/ui/scrolling-text.gd" id="11_eto5s"]
 
 [node name="WorldLevel" type="Node3D"]
 
@@ -24,9 +29,11 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 [node name="InputManager" type="Node" parent="."]
 script = ExtResource("2_8d011")
 
-[node name="EventManager" type="Node" parent="." node_paths=PackedStringArray("scene_animator_handler")]
+[node name="SceneEventManager" type="Node" parent="." node_paths=PackedStringArray("scene_animator_handler", "default_dialogue_area")]
 script = ExtResource("2_t3rax")
 scene_animator_handler = NodePath("../SceneAnimator/AnimationHandler")
+default_dialogue_area = NodePath("../CanvasLayer/WorldDialogueBox")
+manager = ExtResource("4_f2xca")
 
 [node name="SceneLoadManager" type="Node" parent="."]
 script = ExtResource("2_be1jf")
@@ -69,3 +76,109 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 
 [node name="===UI========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="WorldDialogueBox" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("scrolling_text", "speaker_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 257.0
+offset_top = 725.0
+offset_right = -257.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_ilpj6")
+scrolling_text = NodePath("MarginContainer/ScrollingText")
+speaker_label = NodePath("SpeakerBackground/Speaker")
+normal_characters_per_second = 20
+quick_characters_per_second = 40
+
+[node name="SpeakerBackground" type="TextureRect" parent="CanvasLayer/WorldDialogueBox"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 128.0
+texture = ExtResource("9_ot6eh")
+stretch_mode = 4
+
+[node name="Speaker" type="RichTextLabel" parent="CanvasLayer/WorldDialogueBox/SpeakerBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -36.0
+offset_right = 76.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.996078, 0.694118, 0.266667, 1)
+theme_override_colors/font_outline_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/normal_font_size = 52
+text = "Aaron"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/WorldDialogueBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_85jcy")
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 160
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollingText" type="RichTextLabel" parent="CanvasLayer/WorldDialogueBox/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/normal_font_size = 52
+text = "SEE FAITH IN ACTION"
+horizontal_alignment = 1
+visible_characters = 0
+visible_characters_behavior = 1
+visible_ratio = 0.0
+script = ExtResource("11_eto5s")
+metadata/_custom_type_script = "uid://vyqjymdwc8ae"
+
+[node name="Portrait" type="SubViewportContainer" parent="CanvasLayer/WorldDialogueBox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -255.0
+offset_top = -512.0
+offset_right = 257.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/WorldDialogueBox/Portrait"]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="PortraitCamera" type="Camera3D" parent="CanvasLayer/WorldDialogueBox/Portrait/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 1.29199, 0.54915)
+cull_mask = 524288
+fov = 45.0
+far = 10.0
+
+[node name="PortraitCamera" type="Node" parent="CanvasLayer/WorldDialogueBox/Portrait/SubViewport/PortraitCamera"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_qlsal")
+host_layers = 524288
+metadata/_custom_type_script = "uid://bd046eokvcnu2"

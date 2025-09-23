@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bm000oc0qmi7l"]
+[gd_scene load_steps=27 format=3 uid="uid://bm000oc0qmi7l"]
 
 [ext_resource type="PackedScene" uid="uid://ncpnghqpw8tc" path="res://character/animated_character.tscn" id="1_inqpl"]
 [ext_resource type="PackedScene" uid="uid://dxb04jcrfgpu5" path="res://character/joy/joy_skin.tscn" id="2_c1sh8"]
@@ -8,12 +8,14 @@
 [ext_resource type="Animation" uid="uid://1o2pl8o5qvdd" path="res://character/joy/animation/talk.res" id="6_jtfpy"]
 [ext_resource type="Animation" uid="uid://dkpr32t1ba2s" path="res://character/joy/animation/idle_variant_01.res" id="7_0tg1c"]
 [ext_resource type="Animation" uid="uid://my16xyybyy8l" path="res://character/joy/animation/RESET.res" id="8_vr6ta"]
+[ext_resource type="Animation" uid="uid://d05iq6pm4gbd5" path="res://character/joy/animation/breakdown.res" id="9_ocpat"]
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_h8sca"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u48s7"]
 resource_local_to_scene = true
 _data = {
 &"RESET": ExtResource("8_vr6ta"),
 &"blink": ExtResource("5_u48s7"),
+&"breakdown": ExtResource("9_ocpat"),
 &"idle": ExtResource("3_u70dl"),
 &"idle_variant_01": ExtResource("7_0tg1c"),
 &"talk": ExtResource("6_jtfpy"),
@@ -69,7 +71,7 @@ animation = &"walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_u70dl"]
 resource_local_to_scene = true
-graph_offset = Vector2(-589.275, -130.327)
+graph_offset = Vector2(-669.947, -189.004)
 nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
 nodes/action/position = Vector2(-600, -130)
 nodes/animation/node = SubResource("AnimationNodeAdd2_8dv24")
@@ -109,7 +111,7 @@ node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_anima
 
 [node name="AnimationPlayer" parent="JoySkin" index="1"]
 libraries = {
-&"": SubResource("AnimationLibrary_h8sca")
+&"": SubResource("AnimationLibrary_u48s7")
 }
 
 [node name="FacialAnimator" parent="." index="2" node_paths=PackedStringArray("eyes", "mouth", "skeleton")]

@@ -9,12 +9,10 @@ extends NodeBasedDebateSubscriber
 
 @export_group ("Player")
 @export var player : Character
-@export var player_3d : DebateContestant3D
 @export var selection_manager : SelectionManager
 
 @export_group ("Computer")
 @export var computer : Character
-@export var computer_3d : DebateContestant3D
 
 @export_group("Player UI")
 @export var board : Board

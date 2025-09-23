@@ -1,23 +1,51 @@
-[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://dkj38626s4dbh"]
+[gd_resource type="Resource" script_class="Event" load_steps=12 format=3 uid="uid://dkj38626s4dbh"]
 
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_8jp14"]
-[ext_resource type="Script" uid="uid://cnwb80jbsgd2s" path="res://system/script/event/task_action/console_task_action.gd" id="2_lxb3m"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_8jp14"]
+[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="2_lxb3m"]
 [ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="3_kl0vm"]
 
-[sub_resource type="Resource" id="Resource_kfrek"]
+[sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_lxb3m")
 
-[sub_resource type="Resource" id="Resource_8jp14"]
+[sub_resource type="Resource" id="Resource_lxb3m"]
+script = ExtResource("3_kl0vm")
+outputs = Array[int]([1])
+inputs = ["walk", "joy", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_8jp14")
+
+[sub_resource type="Resource" id="Resource_kl0vm"]
+script = ExtResource("3_kl0vm")
+outputs = Array[int]([2])
+inputs = ["Pisshead", "pisshead", false, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_7hqmw"]
+script = ExtResource("3_kl0vm")
+outputs = Array[int]([3])
+inputs = ["Sure, I guess so", "simon", false, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_h2vsh"]
+script = ExtResource("3_kl0vm")
+outputs = Array[int]([4])
+inputs = ["breakdown", "joy", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_ms0x6"]
 script = ExtResource("3_kl0vm")
 outputs = Array[int]([])
-inputs = ["EVENT TRIGGERS WORK!!!"]
-action = SubResource("Resource_kfrek")
+inputs = ["WHYYYYYY????", "joy", false, 2.0]
+action = SubResource("Resource_x7ur8")
 
 [resource]
 script = ExtResource("1_8jp14")
 is_major_event = false
 await_event = false
 frequency = 2
-start_task = SubResource("Resource_8jp14")
-tasks = Array[ExtResource("3_kl0vm")]([SubResource("Resource_8jp14")])
+start_task = SubResource("Resource_lxb3m")
+tasks = Array[ExtResource("3_kl0vm")]([SubResource("Resource_lxb3m"), SubResource("Resource_kl0vm"), SubResource("Resource_7hqmw"), SubResource("Resource_h2vsh"), SubResource("Resource_ms0x6")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

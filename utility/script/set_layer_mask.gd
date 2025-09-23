@@ -24,3 +24,8 @@ func update_layers(layers):
 		if child.has_method("set_layer_mask_value"):
 			for i in 20:
 				child.set_layer_mask_value(i + 1, layers[i])
+
+func set_layer(index, val):
+	if index > layers.size() or index <= 0: return
+	layers[index - 1] = val
+	update_layers(layers)
