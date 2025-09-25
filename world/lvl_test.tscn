@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dfq3pcw8gjvv6"]
+[gd_scene load_steps=26 format=3 uid="uid://dfq3pcw8gjvv6"]
 
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="1_piwyu"]
 [ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="1_qlmbj"]
@@ -8,20 +8,35 @@
 [ext_resource type="Environment" uid="uid://vowbyk10rg4v" path="res://debate/debate_scene_environment.tres" id="3_54kiu"]
 [ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="4_o11hx"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_piwyu"]
+[ext_resource type="Resource" uid="uid://dkj38626s4dbh" path="res://world/joys_appartment/event/test_event01.tres" id="5_d4llj"]
 [ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://asset/cutscene/name_background.png" id="5_niijv"]
 [ext_resource type="Script" uid="uid://4bchriocygww" path="res://general/script/dialogue/dialogue_area.gd" id="6_54kiu"]
 [ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://general/style/default_theme.tres" id="6_jfkso"]
+[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="6_n12nk"]
 [ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://general/script/ui/scrolling-text.gd" id="7_rpfbb"]
+[ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="7_y4s2m"]
 [ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="8_engy8"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="16_t3uv0"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="17_2mvx4"]
-[ext_resource type="PackedScene" uid="uid://bm000oc0qmi7l" path="res://character/joy/ac_joy.tscn" id="17_54kiu"]
+[ext_resource type="PackedScene" uid="uid://bm000oc0qmi7l" path="res://character/joy/joy_actor.tscn" id="17_54kiu"]
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="18_gwq5l"]
-[ext_resource type="PackedScene" uid="uid://crjk3jxv3f3il" path="res://character/simon/ac_simon.tscn" id="18_piwyu"]
+[ext_resource type="PackedScene" uid="uid://crjk3jxv3f3il" path="res://character/simon/simon_actor.tscn" id="18_piwyu"]
+
+[sub_resource type="Resource" id="Resource_piwyu"]
+script = ExtResource("7_y4s2m")
+concept = 4
+criteria = Array[ExtResource("6_n12nk")]([])
+metadata/_custom_type_script = "uid://bal31j6jwdxqy"
+
+[sub_resource type="Resource" id="Resource_niijv"]
+script = ExtResource("4_o11hx")
+event = ExtResource("5_d4llj")
+rule = SubResource("Resource_piwyu")
+metadata/_custom_type_script = "uid://dftjqkpxopsus"
 
 [sub_resource type="Resource" id="Resource_gwq5l"]
 script = ExtResource("8_engy8")
-payload_list = Array[ExtResource("4_o11hx")]([])
+payload_list = Array[ExtResource("4_o11hx")]([SubResource("Resource_niijv")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"
 
 [sub_resource type="Resource" id="Resource_70vse"]
@@ -41,10 +56,10 @@ blackboard = ExtResource("3_4xacb")
 event_factory = SubResource("Resource_gwq5l")
 metadata/_custom_type_script = "uid://xhjdfq3aubk1"
 
-[node name="SceneEventManager" type="Node" parent="." node_paths=PackedStringArray("scene_animator_handler", "animated_characters", "default_dialogue_area")]
+[node name="SceneEventManager" type="Node" parent="." node_paths=PackedStringArray("scene_animator_handler", "actors", "default_dialogue_area")]
 script = ExtResource("1_qlmbj")
 scene_animator_handler = NodePath("../SceneAnimator/AnimationHandler")
-animated_characters = [NodePath("../Joy"), NodePath("../Simon")]
+actors = [NodePath("../Joy"), NodePath("../Simon")]
 default_dialogue_area = NodePath("../CanvasLayer/WorldDialogueBox")
 manager = ExtResource("2_54kiu")
 metadata/_custom_type_script = "uid://crmfqkx4p7ujf"
@@ -63,7 +78,8 @@ environment = ExtResource("3_54kiu")
 [node name="OTHER STUFF===" type="Node3D" parent="."]
 
 [node name="MainCamera" type="Camera3D" parent="."]
-cull_mask = 1047553
+transform = Transform3D(0.442195, -0.49091, 0.750647, 1.04931e-08, 0.836917, 0.54733, -0.896919, -0.242026, 0.37008, 1.94776, 2.33592, 0.903239)
+fov = 45.0
 far = 100.0
 
 [node name="MainCamera" type="Node" parent="MainCamera"]
@@ -182,9 +198,11 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Joy" parent="." instance=ExtResource("17_54kiu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.61376)
+dialogue_display_name = "Joy"
 
 [node name="Simon" parent="." instance=ExtResource("18_piwyu")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.438565)
+dialogue_display_name = "Simon"
 
 [node name="FollowCamera" type="Node3D" parent="."]
 transform = Transform3D(0.442195, -0.49091, 0.750647, 1.04931e-08, 0.836917, 0.54733, -0.896919, -0.242026, 0.37008, 1.94776, 2.33592, 0.903239)
