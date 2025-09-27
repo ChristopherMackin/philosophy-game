@@ -15,7 +15,6 @@ class_name CharacterBody
 var last_movement_direction:= Vector3.BACK
 
 func _physics_process(delta):
-	
 	var direction: Vector3
 	
 	# Add the gravity.

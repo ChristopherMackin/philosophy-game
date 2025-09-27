@@ -28,16 +28,9 @@ func focus_actor(val: bool):
 		_layer_mask.set_layer(20, false)
 		_dialgoue_camera.priority = 0
 
-func focus_look_at_shape(area_rid, area: Area3D, area_shape_index, local_shape_index):
-	var shape_owner = area.shape_find_owner(area_shape_index)
-	var shape_node = area.shape_owner_get_owner(shape_owner)
+func focus_look_at_body(body: Node3D):
+	_look_at_modifier.target_node = body.get_path()
 
-	_look_at_modifier.target_node = shape_node.get_path()
-
-
-func unfocus_look_at_shape(area_rid, area, area_shape_index, local_shape_index):
-	var shape_owner = area.shape_find_owner(area_shape_index)
-	var shape_node = area.shape_owner_get_owner(shape_owner)
-	
-	if _look_at_modifier.target_node == shape_node.get_path():
+func unfocus_look_at_body(body: Node3D):
+	if _look_at_modifier.target_node == body.get_path():
 		_look_at_modifier.target_node = NodePath()
