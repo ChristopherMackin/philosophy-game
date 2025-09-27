@@ -201,7 +201,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.61376)
 dialogue_display_name = "Joy"
 
 [node name="Simon" parent="." instance=ExtResource("18_piwyu")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.438565)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.54801, 0, 0.438565)
 dialogue_display_name = "Simon"
 
 [node name="FollowCamera" type="Node3D" parent="."]

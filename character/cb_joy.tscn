@@ -127,6 +127,8 @@ tree_root = SubResource("AnimationNodeBlendTree_m3j3c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.624512)
 
 [connection signal="pose_updated" from="JoyActor/JoySkin/root/Skeleton3D" to="JoyActor/FacialAnimator" method="pose_updated"]
+[connection signal="body_entered_without_exception" from="JoyActor/PersonalBubble" to="JoyActor" method="focus_look_at_body"]
+[connection signal="body_exited_without_exception" from="JoyActor/PersonalBubble" to="JoyActor" method="unfocus_look_at_body"]
 
 [editable path="JoyActor"]
 [editable path="JoyActor/JoySkin"]

@@ -53,11 +53,12 @@ transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, 0, 0, 0
 camera = NodePath("../MainCamera")
 
 [node name="Tree" type="StaticBody3D" parent="." index="19"]
-transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, 2.70881, 2.69556, 0.60085)
+transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, 2.709, 0, 0.601)
 collision_layer = 32768
 collision_mask = 0
 
 [node name="LookAtStar" type="CollisionShape3D" parent="Tree" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.92685, 0)
 shape = SubResource("SphereShape3D_g5ffa")
 
 [node name="PortraitCamera" parent="CanvasLayer/WorldDialogueBox/Portrait/SubViewport" index="0"]
