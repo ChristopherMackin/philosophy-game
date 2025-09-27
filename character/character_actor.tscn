@@ -1,44 +1,47 @@
-[gd_scene load_steps=11 format=3 uid="uid://ncpnghqpw8tc"]
+[gd_scene load_steps=12 format=3 uid="uid://ncpnghqpw8tc"]
 
-[ext_resource type="Script" uid="uid://br5kxd06vsn3n" path="res://utility/script/set_layer_mask.gd" id="1_hj805"]
-[ext_resource type="Script" uid="uid://bowloeu5gqc4j" path="res://system/script/event/animated_actor.gd" id="1_ukhrh"]
-[ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://character/script/facial_animator.gd" id="2_11vbc"]
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_qgua1"]
-[ext_resource type="Script" uid="uid://4lmkf6b3mly" path="res://system/script/animation/character_tree_animation_handler.gd" id="3_rwuo2"]
-[ext_resource type="Resource" uid="uid://v2wiqt0q1qwn" path="res://character/portrait_camera_resource.tres" id="5_bw75v"]
-[ext_resource type="AnimationNodeBlendTree" uid="uid://deg11edoj1x7r" path="res://character/character_animation_tree.tres" id="6_dkloa"]
-[ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/joy/character_animation_tree.gd" id="6_qdsxm"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_ukhrh"]
+[ext_resource type="Script" uid="uid://bowloeu5gqc4j" path="res://system/script/event/character_actor.gd" id="1_lrl4d"]
+[ext_resource type="Script" uid="uid://br5kxd06vsn3n" path="res://utility/script/set_layer_mask.gd" id="2_v5ghv"]
+[ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://character/script/facial_animator.gd" id="3_mv020"]
+[ext_resource type="Script" uid="uid://4lmkf6b3mly" path="res://system/script/animation/character_tree_animation_handler.gd" id="4_t36e5"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://deg11edoj1x7r" path="res://character/character_animation_tree.tres" id="5_l0lrf"]
+[ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/joy/character_animation_tree.gd" id="6_g0jyn"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="7_5d15r"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_m4kvb"]
+[ext_resource type="Resource" uid="uid://v2wiqt0q1qwn" path="res://character/portrait_camera_resource.tres" id="9_t8a6v"]
 
 [sub_resource type="Resource" id="Resource_ukhrh"]
-script = ExtResource("8_ukhrh")
+script = ExtResource("8_m4kvb")
 duration = 0.0
 transition = 0
 ease = 2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_lrl4d"]
+size = Vector3(2, 2, 1.75)
+
 [node name="AnimatedActor" type="Node3D" node_paths=PackedStringArray("_layer_mask", "_dialgoue_camera", "character_animation_tree")]
-script = ExtResource("1_ukhrh")
+script = ExtResource("1_lrl4d")
 _layer_mask = NodePath("LayerMask")
 _dialgoue_camera = NodePath("DialogueCamera")
 character_animation_tree = NodePath("CharacterAnimationTree")
 
 [node name="LayerMask" type="Node" parent="."]
-script = ExtResource("1_hj805")
+script = ExtResource("2_v5ghv")
 layers = Array[bool]([true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
 metadata/_custom_type_script = "uid://br5kxd06vsn3n"
 
 [node name="FacialAnimator" type="Node" parent="."]
-script = ExtResource("2_11vbc")
+script = ExtResource("3_mv020")
 mouth_row_count = 8
 metadata/_custom_type_script = "uid://bj0ldo17kyup3"
 
 [node name="AnimationHandler" type="Node" parent="." node_paths=PackedStringArray("animation_tree")]
-script = ExtResource("3_rwuo2")
+script = ExtResource("4_t36e5")
 animation_tree = NodePath("../CharacterAnimationTree")
 metadata/_custom_type_script = "uid://4lmkf6b3mly"
 
 [node name="CharacterAnimationTree" type="AnimationTree" parent="."]
-tree_root = ExtResource("6_dkloa")
+tree_root = ExtResource("5_l0lrf")
 parameters/animation/add_amount = 1.0
 parameters/blink_trigger/active = false
 parameters/blink_trigger/internal_active = false
@@ -54,7 +57,7 @@ parameters/talk_trigger/active = false
 parameters/talk_trigger/internal_active = false
 parameters/talk_trigger/request = 0
 parameters/walking/blend_amount = 0.0
-script = ExtResource("6_qdsxm")
+script = ExtResource("6_g0jyn")
 idle_variation_count = 1
 idle_variation_min = 20.0
 idle_variation_max = 31.0
@@ -62,9 +65,18 @@ metadata/_custom_type_script = "uid://2kn4432bu4u8"
 
 [node name="DialogueCamera" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 1.29199, 1.16291)
-script = ExtResource("3_qgua1")
+script = ExtResource("7_5d15r")
 tween_resource = SubResource("Resource_ukhrh")
 tween_on_load = false
 host_layers = 524288
-camera_3d_resource = ExtResource("5_bw75v")
+camera_3d_resource = ExtResource("9_t8a6v")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="PersonalBubble" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 32768
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PersonalBubble"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.624512)
+shape = SubResource("BoxShape3D_lrl4d")

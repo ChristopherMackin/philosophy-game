@@ -4,7 +4,7 @@ class_name CharacterBody
 
 @export_group("Dependency")
 @export var camera: Camera3D
-@export var animated_actor : Node3D
+@export var character_actor : CharacterActor
 @export var character_animator: CharacterAnimationTree
 
 @export_group("Movement")
@@ -44,7 +44,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if direction.length() > 0.2:
-		animated_actor.global_rotation.y = Vector3.BACK.signed_angle_to(velocity, Vector3.UP)
+		character_actor.global_rotation.y = Vector3.BACK.signed_angle_to(velocity, Vector3.UP)
 	
 	for col_idx in get_slide_collision_count():
 		var col := get_slide_collision(col_idx)

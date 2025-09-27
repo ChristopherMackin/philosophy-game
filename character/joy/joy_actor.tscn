@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://bm000oc0qmi7l"]
 
-[ext_resource type="PackedScene" uid="uid://ncpnghqpw8tc" path="res://character/animated_actor.tscn" id="1_ti8so"]
+[ext_resource type="PackedScene" uid="uid://ncpnghqpw8tc" path="res://character/character_actor.tscn" id="1_ti8so"]
 [ext_resource type="PackedScene" uid="uid://dxb04jcrfgpu5" path="res://character/joy/joy_skin.tscn" id="2_yj5q6"]
 [ext_resource type="Animation" uid="uid://my16xyybyy8l" path="res://character/joy/animation/RESET.res" id="3_0i8gs"]
 [ext_resource type="Animation" uid="uid://crmi4qmpml6wh" path="res://character/joy/animation/blink.res" id="4_y3uhv"]
@@ -71,7 +71,7 @@ animation = &"walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_u70dl"]
 resource_local_to_scene = true
-graph_offset = Vector2(-669.947, -189.004)
+graph_offset = Vector2(-288, 198.72)
 nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
 nodes/action/position = Vector2(-600, -130)
 nodes/animation/node = SubResource("AnimationNodeAdd2_8dv24")
@@ -105,9 +105,21 @@ nodes/walking/node = SubResource("AnimationNodeBlend2_k26ml")
 nodes/walking/position = Vector2(-130, -110)
 node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"output", 0, &"animation", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
 
-[node name="JoyActor" instance=ExtResource("1_ti8so")]
+[node name="JoyActor" node_paths=PackedStringArray("_look_at_modifier") instance=ExtResource("1_ti8so")]
+_look_at_modifier = NodePath("JoySkin/root/Skeleton3D/LookAtModifier3D")
 
 [node name="JoySkin" parent="." index="0" instance=ExtResource("2_yj5q6")]
+
+[node name="LookAtModifier3D" type="LookAtModifier3D" parent="JoySkin/root/Skeleton3D" index="9"]
+bone_name = "head.x"
+bone = 4
+duration = 0.3
+use_angle_limitation = true
+symmetry_limitation = true
+primary_limit_angle = 1.91986
+primary_damp_threshold = 1.0
+secondary_limit_angle = 1.0472
+secondary_damp_threshold = 1.0
 
 [node name="AnimationPlayer" parent="JoySkin" index="1"]
 libraries = {

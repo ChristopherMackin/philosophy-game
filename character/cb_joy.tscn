@@ -103,23 +103,29 @@ nodes/walking/node = SubResource("AnimationNodeBlend2_k26ml")
 nodes/walking/position = Vector2(-130, -110)
 node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"output", 0, &"animation", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
 
-[node name="CBJoy" node_paths=PackedStringArray("animated_character", "character_animator") instance=ExtResource("1_84l7g")]
-animated_character = NodePath("ACJoy")
-character_animator = NodePath("ACJoy/CharacterAnimationTree")
+[node name="CBJoy" node_paths=PackedStringArray("character_actor", "character_animator") instance=ExtResource("1_84l7g")]
+character_actor = NodePath("JoyActor")
+character_animator = NodePath("JoyActor/CharacterAnimationTree")
 move_speed = 2.5
-acceleration = null
-rotation_speed = null
+acceleration = 20.0
 
-[node name="ACJoy" parent="." index="1" instance=ExtResource("2_4nrgf")]
+[node name="JoyActor" parent="." index="1" instance=ExtResource("2_4nrgf")]
 
-[node name="AnimationPlayer" parent="ACJoy/JoySkin" index="1"]
+[node name="LookAtModifier3D" parent="JoyActor/JoySkin/root/Skeleton3D" index="9"]
+duration = 0.2
+ease_type = 2
+
+[node name="AnimationPlayer" parent="JoyActor/JoySkin" index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_3c31t")
 }
 
-[node name="CharacterAnimationTree" parent="ACJoy" index="4"]
+[node name="CharacterAnimationTree" parent="JoyActor" index="4"]
 tree_root = SubResource("AnimationNodeBlendTree_m3j3c")
-parameters/idling/request = 1
 
-[editable path="ACJoy"]
-[editable path="ACJoy/JoySkin"]
+[connection signal="pose_updated" from="JoyActor/JoySkin/root/Skeleton3D" to="JoyActor/FacialAnimator" method="pose_updated"]
+[connection signal="area_shape_entered" from="JoyActor/PersonalBubble" to="JoyActor" method="focus_look_at_shape"]
+[connection signal="area_shape_exited" from="JoyActor/PersonalBubble" to="JoyActor" method="unfocus_look_at_shape"]
+
+[editable path="JoyActor"]
+[editable path="JoyActor/JoySkin"]
