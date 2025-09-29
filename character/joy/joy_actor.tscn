@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bm000oc0qmi7l"]
+[gd_scene load_steps=30 format=3 uid="uid://bm000oc0qmi7l"]
 
 [ext_resource type="PackedScene" uid="uid://ncpnghqpw8tc" path="res://character/character_actor.tscn" id="1_ti8so"]
 [ext_resource type="PackedScene" uid="uid://dxb04jcrfgpu5" path="res://character/joy/joy_skin.tscn" id="2_yj5q6"]
@@ -9,6 +9,7 @@
 [ext_resource type="Animation" uid="uid://dkpr32t1ba2s" path="res://character/joy/animation/idle_variant_01.res" id="7_w06r4"]
 [ext_resource type="Animation" uid="uid://1o2pl8o5qvdd" path="res://character/joy/animation/talk.res" id="8_rvi5f"]
 [ext_resource type="Animation" uid="uid://cn4vi21lprmuk" path="res://character/joy/animation/walk.res" id="9_3hl85"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_yj5q6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ti8so"]
 radius = 0.2
@@ -108,8 +109,15 @@ nodes/walking/node = SubResource("AnimationNodeBlend2_k26ml")
 nodes/walking/position = Vector2(-130, -110)
 node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"output", 0, &"animation", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
 
+[sub_resource type="Resource" id="Resource_0i8gs"]
+script = ExtResource("10_yj5q6")
+duration = 1.0
+transition = 0
+ease = 2
+
 [node name="JoyActor" node_paths=PackedStringArray("_look_at_modifier") instance=ExtResource("1_ti8so")]
 _look_at_modifier = NodePath("JoySkin/root/Skeleton3D/LookAtModifier3D")
+actor_name = "Joy"
 
 [node name="JoySkin" parent="." index="0" instance=ExtResource("2_yj5q6")]
 
@@ -154,8 +162,11 @@ anim_player = NodePath("../JoySkin/AnimationPlayer")
 parameters/blink_trigger/active = true
 parameters/blink_trigger/internal_active = true
 
+[node name="DialogueCamera" parent="." index="5"]
+tween_resource = SubResource("Resource_0i8gs")
+
 [node name="PersonalBubble" parent="." index="6" node_paths=PackedStringArray("exceptions")]
-exceptions = [null]
+exceptions = [NodePath("../JoySkin/root/Skeleton3D/BoneAttachment3D/StaticBody3D")]
 
 [connection signal="pose_updated" from="JoySkin/root/Skeleton3D" to="FacialAnimator" method="pose_updated"]
 

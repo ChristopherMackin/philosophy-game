@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_qlsal"]
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save_manager.gd" id="1_xgvwx"]
-[ext_resource type="Script" uid="uid://bojj5s0o4f2s3" path="res://world/base/world_input_manager.gd" id="2_8d011"]
+[ext_resource type="Script" uid="uid://bojj5s0o4f2s3" path="res://system/script/input/world_input_manager.gd" id="2_8d011"]
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="2_be1jf"]
 [ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="2_t3rax"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="4_f2xca"]
@@ -95,6 +95,38 @@ speaker_label = NodePath("SpeakerBackground/Speaker")
 normal_characters_per_second = 20
 quick_characters_per_second = 40
 
+[node name="Portrait" type="SubViewportContainer" parent="CanvasLayer/WorldDialogueBox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -255.0
+offset_top = -512.0
+offset_right = 257.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/WorldDialogueBox/Portrait"]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="PortraitCamera" type="Camera3D" parent="CanvasLayer/WorldDialogueBox/Portrait/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 1.29199, 0.54915)
+cull_mask = 524288
+fov = 45.0
+far = 10.0
+
+[node name="PortraitCamera" type="Node" parent="CanvasLayer/WorldDialogueBox/Portrait/SubViewport/PortraitCamera"]
+process_priority = 300
+process_physics_priority = 300
+auto_translate_mode = 2
+script = ExtResource("1_qlsal")
+host_layers = 524288
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
 [node name="SpeakerBackground" type="TextureRect" parent="CanvasLayer/WorldDialogueBox"]
 layout_mode = 0
 offset_right = 256.0
@@ -151,34 +183,3 @@ visible_characters_behavior = 1
 visible_ratio = 0.0
 script = ExtResource("11_eto5s")
 metadata/_custom_type_script = "uid://vyqjymdwc8ae"
-
-[node name="Portrait" type="SubViewportContainer" parent="CanvasLayer/WorldDialogueBox"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -255.0
-offset_top = -512.0
-offset_right = 257.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/WorldDialogueBox/Portrait"]
-transparent_bg = true
-handle_input_locally = false
-render_target_update_mode = 4
-
-[node name="PortraitCamera" type="Camera3D" parent="CanvasLayer/WorldDialogueBox/Portrait/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 1.29199, 0.54915)
-cull_mask = 524288
-fov = 45.0
-far = 10.0
-
-[node name="PortraitCamera" type="Node" parent="CanvasLayer/WorldDialogueBox/Portrait/SubViewport/PortraitCamera"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("1_qlsal")
-host_layers = 524288
-metadata/_custom_type_script = "uid://bd046eokvcnu2"

@@ -4,7 +4,9 @@ class_name CharacterBody
 
 @export_group("Dependency")
 @export var camera: Camera3D
+@export var input_handler: InputHandler
 @export var character_actor : CharacterActor
+@export var interaction_area: InteractionArea
 @export var character_animator: CharacterAnimationTree
 
 @export_group("Movement")
@@ -14,17 +16,27 @@ class_name CharacterBody
 
 var last_movement_direction:= Vector3.BACK
 
+func _ready():
+	input_handler.on_handle_input.connect(handle_input)
+
 func _physics_process(delta):
-	var direction: Vector3
-	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	
+	move_and_slide()
 
+func handle_input(delta, input):
+	handle_movement(delta, input)
+	handle_interaction(delta, input)
+
+func handle_movement(delta, input):
+	var direction: Vector3
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	else:
-		var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	
+	if is_on_floor():
+		var input_dir = input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		
 		var camera_basis := camera.global_basis
 		camera_basis.y = Vector3.ZERO
@@ -53,3 +65,8 @@ func _physics_process(delta):
 	
 	var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)
 	character_animator.set("parameters/walking/blend_amount", clamp(horizontal_velocity.length(), 0, 1))
+
+func handle_interaction(delta, input):
+	if input.is_action_just_pressed("action_1"):
+		if interaction_area.focused_interactable:
+			interaction_area.focused_interactable.invoke()

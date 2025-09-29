@@ -25,7 +25,7 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 	
 	current_actor.focus_actor(true)
 	dialogue_area.visible = true
-	dialogue_area.set_text(line, current_actor.dialogue_display_name)
+	dialogue_area.set_text(line, current_actor.actor_name)
 	current_actor.is_talking = true
 	
 	await dialogue_area.on_dialogue_finished
@@ -88,4 +88,4 @@ func cancel_animation(actor):
 	animation_handler.cancel_animation()
 
 func get_actor_index(actor_name : String) -> int:
-	return actors.map(func(x): return x.name.to_snake_case()).find(actor_name.to_snake_case())
+	return actors.map(func(x): return x.actor_name.to_snake_case()).find(actor_name.to_snake_case())

@@ -11,14 +11,14 @@
 [ext_resource type="Resource" uid="uid://v2wiqt0q1qwn" path="res://character/portrait_camera_resource.tres" id="9_t8a6v"]
 [ext_resource type="Script" uid="uid://c8jtfyfmyewm1" path="res://character/joy/area_with_exceptions.gd" id="10_v5ghv"]
 
-[sub_resource type="Resource" id="Resource_ukhrh"]
+[sub_resource type="Resource" id="Resource_v5ghv"]
 script = ExtResource("8_m4kvb")
 duration = 0.0
 transition = 0
-ease = 2
+ease = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lrl4d"]
-size = Vector3(2, 2, 1.75)
+size = Vector3(2, 3, 1.75)
 
 [node name="AnimatedActor" type="Node3D" node_paths=PackedStringArray("_layer_mask", "_dialgoue_camera", "character_animation_tree")]
 script = ExtResource("1_lrl4d")
@@ -67,8 +67,9 @@ metadata/_custom_type_script = "uid://2kn4432bu4u8"
 [node name="DialogueCamera" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 1.29199, 1.16291)
 script = ExtResource("7_5d15r")
-tween_resource = SubResource("Resource_ukhrh")
+tween_resource = SubResource("Resource_v5ghv")
 tween_on_load = false
+inactive_update_mode = 1
 host_layers = 524288
 camera_3d_resource = ExtResource("9_t8a6v")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
@@ -76,10 +77,11 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="PersonalBubble" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 32768
+monitorable = false
 script = ExtResource("10_v5ghv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PersonalBubble"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.624512)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.625)
 shape = SubResource("BoxShape3D_lrl4d")
 
 [connection signal="area_entered" from="PersonalBubble" to="PersonalBubble" method="_on_area_entered"]
