@@ -1,8 +1,9 @@
-[gd_scene load_steps=46 format=3 uid="uid://6yd0idunoow2"]
+[gd_scene load_steps=47 format=3 uid="uid://6yd0idunoow2"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_x4wxr"]
 [ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="2_g5ffa"]
 [ext_resource type="PackedScene" uid="uid://viosiv4ckmqb" path="res://asset/world/webber_house/webber_living_room.glb" id="3_4bav4"]
+[ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/dialogue_action.tres" id="3_335d0"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_iso3m"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_crmiv"]
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="6_x4wxr"]
@@ -147,15 +148,16 @@ metadata/_custom_type_script = "uid://dghxtp7la36tj"
 [node name="WebberLivingRoom" instance=ExtResource("1_x4wxr")]
 
 [node name="MainCamera" parent="." index="0"]
-transform = Transform3D(1, -1.21652e-31, 0, 1.17415e-31, 0.965167, 0.261633, -3.18282e-32, -0.261633, 0.965167, 0, 2.05765, 5.9767)
-fov = 45.0
+cull_mask = 1047553
 far = 100.0
 
 [node name="InputManager" parent="." index="2"]
 active_handler = ExtResource("8_4bav4")
 
-[node name="SceneEventManager" parent="." index="3" node_paths=PackedStringArray("actors")]
+[node name="SceneEventManager" parent="." index="3" node_paths=PackedStringArray("actors", "input_manager")]
 actors = [NodePath("../CBJoy/JoyActor")]
+input_manager = NodePath("../InputManager")
+dialogue_input_handler = ExtResource("3_335d0")
 
 [node name="SceneLoadManager" parent="." index="4" node_paths=PackedStringArray("spawn_locations", "joy")]
 spawn_locations = [NodePath("../SpawnLocations/00")]
@@ -184,6 +186,9 @@ shape = SubResource("WorldBoundaryShape3D_g5ffa")
 transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, 0, 1.83705, 0)
 camera = NodePath("../MainCamera")
 
+[node name="BoneAttachment3D" parent="CBJoy/JoyActor/JoySkin/root/Skeleton3D" index="10"]
+transform = Transform3D(-4.79631e-08, -1, 2.02959e-07, -0.00192658, 1.78552e-07, 0.999998, -0.999998, -3.81842e-08, -0.00192656, -0.0373661, 1.20267, -0.0588534)
+
 [node name="AnimationPlayer" parent="CBJoy/JoyActor/JoySkin" index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_aovnx")
@@ -196,7 +201,7 @@ tree_root = SubResource("AnimationNodeBlendTree_w0fhx")
 inactive_update_mode = 0
 
 [node name="InteractionArea" parent="CBJoy" index="2"]
-monitorable = true
+priority = 0
 
 [node name="Tree" type="StaticBody3D" parent="." index="19"]
 transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, 2.709, 0, 0.601)

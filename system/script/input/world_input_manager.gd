@@ -1,5 +1,7 @@
 extends Node
 
+class_name InputManager
+
 @export var active_handler: InputHandler
 
 func _process(delta):

@@ -67,7 +67,7 @@ action = SubResource("Resource_ml60a")
 
 [resource]
 script = ExtResource("1_e74sq")
-is_major_event = false
+can_interupt = false
 await_event = false
 frequency = 1
 start_task = SubResource("Resource_x7h4g")

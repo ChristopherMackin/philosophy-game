@@ -10,13 +10,13 @@ script = ExtResource("2_8jp14")
 [sub_resource type="Resource" id="Resource_8jp14"]
 script = ExtResource("3_kl0vm")
 outputs = Array[int]([])
-inputs = ["This tree looks dumb as hell... I hope someone takes it down soon so I don't have to look at it anymore!", "joy", false, 2.0]
+inputs = ["This tree looks dumb as hell... I hope someone takes it down soon so I don't have to look at it anymore!", "joy", true, 2.0]
 action = SubResource("Resource_x7ur8")
 
 [resource]
 script = ExtResource("1_8jp14")
-is_major_event = false
-await_event = false
+can_interupt = false
+await_event = true
 frequency = 2
 start_task = SubResource("Resource_8jp14")
 tasks = Array[ExtResource("3_kl0vm")]([SubResource("Resource_8jp14")])

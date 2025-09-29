@@ -16,13 +16,32 @@ class_name CharacterBody
 
 var last_movement_direction:= Vector3.BACK
 
+var has_moved: bool = false
+
 func _ready():
 	input_handler.on_handle_input.connect(handle_input)
+
+func _process(delta):
+	if velocity.length() > 0.2:
+		character_actor.global_rotation.y = Vector3.BACK.signed_angle_to(velocity, Vector3.UP)
+	
+	for col_idx in get_slide_collision_count():
+		var col := get_slide_collision(col_idx)
+		if col.get_collider() is RigidBody3D:
+			col.get_collider().apply_central_impulse(-col.get_normal() * 0.3)
+			col.get_collider().apply_impulse(-col.get_normal() * 0.01, col.get_position())
+	
+	var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)
+	character_animator.set("parameters/walking/blend_amount", clamp(horizontal_velocity.length(), 0, 1))
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	
+	if !has_moved:
+		velocity = velocity.move_toward(Vector3.ZERO, acceleration * delta)
+	else: has_moved = false
 	
 	move_and_slide()
 
@@ -51,20 +70,10 @@ func handle_movement(delta, input):
 			target_direction = target_direction.normalized()
 		
 		velocity = velocity.move_toward(target_direction * move_speed, acceleration * delta)
-
+	
 	move_and_slide()
 	
-	if direction.length() > 0.2:
-		character_actor.global_rotation.y = Vector3.BACK.signed_angle_to(velocity, Vector3.UP)
-	
-	for col_idx in get_slide_collision_count():
-		var col := get_slide_collision(col_idx)
-		if col.get_collider() is RigidBody3D:
-			col.get_collider().apply_central_impulse(-col.get_normal() * 0.3)
-			col.get_collider().apply_impulse(-col.get_normal() * 0.01, col.get_position())
-	
-	var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)
-	character_animator.set("parameters/walking/blend_amount", clamp(horizontal_velocity.length(), 0, 1))
+	has_moved = true
 
 func handle_interaction(delta, input):
 	if input.is_action_just_pressed("action_1"):

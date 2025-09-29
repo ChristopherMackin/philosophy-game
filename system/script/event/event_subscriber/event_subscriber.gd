@@ -7,6 +7,12 @@ class_name EventSubscriber
 func _ready():
 	manager.subscribe(self)
 
+func _start_event(event: Event):
+	pass
+
+func _end_event(event: Event):
+	pass
+
 func display_dialogue(_line : String, _actor : String, _await_input : bool, _seconds_before_close : float):
 	pass
 
