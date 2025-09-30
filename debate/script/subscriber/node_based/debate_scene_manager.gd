@@ -3,6 +3,7 @@ extends NodeBasedDebateSubscriber
 class_name DebateSceneManager
 
 @export_group("Settings")
+@export var blackboard: Blackboard
 @export var event_manager : EventManager
 @export var debate_settings : DebateSettings
 
@@ -28,7 +29,7 @@ var is_animation_locked := false
 
 func _ready():
 	super._ready()
-	manager.init(player, computer, debate_settings)
+	manager.init(blackboard, player, computer, debate_settings)
 
 func on_debate_start():
 	await update_everything()
@@ -74,7 +75,7 @@ func query_event(concept : Const.Concept):
 	var query : Dictionary
 	query["concept"] = concept
 	query.merge(GlobalBlackboard.blackboard.get_query())
-	query.merge(manager.blackboard.get_query())
+	query.merge(event_manager.blackboard.get_query())
 	
 	var event = manager.computer.debate_event_factory.get_event(query)
 	

@@ -1,5 +1,7 @@
 extends StaticBody3D
 
+class_name StaticBodyWithExceptions
+
 @export var exceptions: Array[CollisionObject3D]
 
 # Called when the node enters the scene tree for the first time.

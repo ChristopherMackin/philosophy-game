@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="Event" load_steps=16 format=3 uid="uid://b8omebsn1wpsb"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_e74sq"]
+[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="2_no82j"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="3_cwked"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="4_ooaik"]
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("2_no82j")
+
+[sub_resource type="Resource" id="Resource_x7h4g"]
+script = ExtResource("3_cwked")
+outputs = Array[int]([6])
+inputs = ["recollect", "simon", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_vl3fu"]
+script = ExtResource("3_cwked")
+outputs = Array[int]([4])
+inputs = ["accuse", "simon", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_c7pa3"]
+script = ExtResource("3_cwked")
+outputs = Array[int]([2])
+inputs = ["recollect", "simon", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("4_ooaik")
+
+[sub_resource type="Resource" id="Resource_3ntnx"]
+script = ExtResource("3_cwked")
+outputs = Array[int]([])
+inputs = ["I warned you that this would happen", "simon", false, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_46xoa"]
+script = ExtResource("3_cwked")
+outputs = Array[int]([0])
+inputs = ["I wasn't", "joy", false, 0.2]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_thlff"]
+script = ExtResource("3_cwked")
+outputs = Array[int]([1])
+inputs = ["YOU WERE AND YOU HAVE BEEN!!", "simon", false, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_ca7yk"]
+script = ExtResource("3_cwked")
+outputs = Array[int]([7])
+inputs = ["Let us hear this doubt so compelling that you doubt God", "simon", false, 1.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_nomav"]
+script = ExtResource("3_cwked")
+outputs = Array[int]([8])
+inputs = ["That you would doubt your father!", "simon", false, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_x45pp"]
+script = ExtResource("3_cwked")
+outputs = Array[int]([3])
+inputs = ["idle_variant_01", "joy", false]
+action = SubResource("Resource_ml60a")
+
+[resource]
+script = ExtResource("1_e74sq")
+can_interupt = false
+await_event = true
+frequency = 1
+start_task = SubResource("Resource_x7h4g")
+tasks = Array[ExtResource("3_cwked")]([SubResource("Resource_vl3fu"), SubResource("Resource_c7pa3"), SubResource("Resource_3ntnx"), SubResource("Resource_46xoa"), SubResource("Resource_thlff"), SubResource("Resource_x7h4g"), SubResource("Resource_ca7yk"), SubResource("Resource_nomav"), SubResource("Resource_x45pp")])

@@ -1,11 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://crjk3jxv3f3il"]
+[gd_scene load_steps=28 format=3 uid="uid://crjk3jxv3f3il"]
 
 [ext_resource type="PackedScene" uid="uid://ncpnghqpw8tc" path="res://character/character_actor.tscn" id="1_o0nhl"]
 [ext_resource type="PackedScene" uid="uid://cvudykbbs45t7" path="res://character/simon/simon_skin.tscn" id="2_rvxgb"]
 [ext_resource type="Animation" uid="uid://dxqckym8ojekg" path="res://character/simon/animation/accuse.res" id="3_36rsm"]
-[ext_resource type="Script" uid="uid://do0okuqkpysjw" path="res://character/joy/static_body_exceptions.gd" id="3_rvxgb"]
 [ext_resource type="Animation" uid="uid://ba4ww4txu7pbw" path="res://character/simon/animation/blink.res" id="4_b00rc"]
-[ext_resource type="Animation" uid="uid://01wd3jss8itq" path="res://character/simon/animation/db01_intro.res" id="5_12pyi"]
+[ext_resource type="Animation" uid="uid://01wd3jss8itq" path="res://character/simon/animation/debate_simon_intro.res" id="5_12pyi"]
 [ext_resource type="Animation" uid="uid://bhvm1qc04ilee" path="res://character/simon/animation/praise.res" id="6_p0w8b"]
 [ext_resource type="Animation" uid="uid://b8gfenh0v54bm" path="res://character/simon/animation/recollect.res" id="7_lkvbb"]
 [ext_resource type="Animation" uid="uid://u2e3govw73cd" path="res://character/simon/animation/talk.res" id="8_3rjep"]
@@ -858,7 +857,7 @@ bones/29/scale = Vector3(0.999999, 0.999998, 0.999997)
 bones/30/position = Vector3(0.672594, 1.09417, 0.00324741)
 bones/30/rotation = Quaternion(1.58715e-23, 1.46323e-06, 0, 1)
 bones/30/scale = Vector3(1, 1, 1)
-bones/31/position = Vector3(0.383212, -0.0961061, -4.3249e-08)
+bones/31/position = Vector3(0.0815765, -9.74942e-06, 3.90223e-10)
 bones/31/rotation = Quaternion(-2.25537e-10, -1.37868e-06, -1.37873e-06, 1)
 bones/31/scale = Vector3(1, 1, 1)
 bones/32/position = Vector3(0.672594, -0.128914, 0.00324741)
@@ -866,7 +865,6 @@ bones/32/rotation = Quaternion(-7.69399e-10, 1.58244e-06, -1.21753e-15, 1)
 bones/32/scale = Vector3(1, 1, 1)
 bones/33/position = Vector3(0.0815766, -9.89181e-06, 2.22529e-08)
 bones/33/rotation = Quaternion(1.47535e-09, -1.49789e-06, -1.37867e-06, 1)
-bones/33/scale = Vector3(1, 1, 1)
 
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="SimonSkin/root/Skeleton3D" index="17"]
 bone_name = "head.x"
@@ -884,11 +882,9 @@ transform = Transform3D(1, 5.58794e-09, -6.80415e-05, -3.06917e-06, 0.998985, -0
 bone_name = "head.x"
 bone_idx = 5
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SimonSkin/root/Skeleton3D/BoneAttachment3D" index="0" node_paths=PackedStringArray("exceptions")]
+[node name="StaticBody3D" type="StaticBody3D" parent="SimonSkin/root/Skeleton3D/BoneAttachment3D" index="0"]
 collision_layer = 32768
 collision_mask = 0
-script = ExtResource("3_rvxgb")
-exceptions = [null]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SimonSkin/root/Skeleton3D/BoneAttachment3D/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52944e-05, 0.176017, 0.224795)

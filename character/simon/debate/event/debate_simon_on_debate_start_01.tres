@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://d2je50yf5phgl"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_gp1ox"]
+[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="2_43e5k"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_87rfo"]
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("2_43e5k")
+
+[sub_resource type="Resource" id="Resource_p4gww"]
+script = ExtResource("2_87rfo")
+outputs = Array[int]([])
+inputs = ["on_debate_start_01", "", true]
+action = SubResource("Resource_ml60a")
+
+[resource]
+script = ExtResource("1_gp1ox")
+is_major_event = false
+await_event = true
+frequency = 0
+start_task = SubResource("Resource_p4gww")
+tasks = Array[ExtResource("2_87rfo")]([SubResource("Resource_p4gww")])

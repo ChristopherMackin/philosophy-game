@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="Philosophy"
-run/main_scene="res://debate/simon_db01/lvl_simon_db01.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
 config/icon="res://asset/debate/icon.svg"

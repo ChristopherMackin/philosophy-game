@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=8 format=3 uid="uid://27sna6u0b0wj"]
+
+[ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="1_rb0rx"]
+[ext_resource type="Resource" uid="uid://b8omebsn1wpsb" path="res://character/simon/debate/event/debate_simon_test.tres" id="2_044jj"]
+[ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="3_5togk"]
+[ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="4_n3d1h"]
+[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="4_v05lr"]
+
+[sub_resource type="Resource" id="Resource_iiaj8"]
+script = ExtResource("3_5togk")
+concept = 0
+criteria = Array[ExtResource("4_v05lr")]([])
+
+[sub_resource type="Resource" id="Resource_th28h"]
+script = ExtResource("4_n3d1h")
+event = ExtResource("2_044jj")
+rule = SubResource("Resource_iiaj8")
+
+[resource]
+script = ExtResource("1_rb0rx")
+payload_list = Array[ExtResource("4_n3d1h")]([SubResource("Resource_th28h")])

@@ -62,7 +62,7 @@
 [ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/token_selector_gui.tscn" id="46_bwtx7"]
 [ext_resource type="Resource" uid="uid://gxn0k63lex4l" path="res://system/focus_group/play_area_focus_group.tres" id="47_rq3j7"]
 [ext_resource type="Script" uid="uid://duts3e4cshe3t" path="res://debate/script/ui/gui/hold_area_gui.gd" id="48_nbs2d"]
-[ext_resource type="Texture2D" uid="uid://cl8h4qdvv68ex" path="res://asset/debate/simon/db01/graphic/simon_db01_screen_filter.png" id="49_jf326"]
+[ext_resource type="Texture2D" uid="uid://cl8h4qdvv68ex" path="res://asset/debate/simon/debate/graphic/debate_simon_screen_filter.png" id="49_jf326"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4oyvg"]
 viewport_path = NodePath("Board3D/BoardSprite/SubViewport")
