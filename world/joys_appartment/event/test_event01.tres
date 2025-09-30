@@ -1,23 +1,39 @@
-[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://dkj38626s4dbh"]
+[gd_resource type="Resource" script_class="Event" load_steps=10 format=3 uid="uid://dkj38626s4dbh"]
 
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_8jp14"]
 [ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_8jp14"]
 [ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="3_kl0vm"]
+[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="4_lxb3m"]
 
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("2_8jp14")
 
-[sub_resource type="Resource" id="Resource_8jp14"]
+[sub_resource type="Resource" id="Resource_lxb3m"]
+script = ExtResource("3_kl0vm")
+outputs = Array[int]([1])
+inputs = ["This tree looks dumb as hell... I hope someone takes it down soon so I don't have to look at it anymore!", "joy", true, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("4_lxb3m")
+
+[sub_resource type="Resource" id="Resource_kl0vm"]
+script = ExtResource("3_kl0vm")
+outputs = Array[int]([2])
+inputs = ["breakdown", "joy", false]
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_7hqmw"]
 script = ExtResource("3_kl0vm")
 outputs = Array[int]([])
-inputs = ["This tree looks dumb as hell... I hope someone takes it down soon so I don't have to look at it anymore!", "joy", true, 2.0]
+inputs = ["Isn't that neat and stuff??", "joy", false, 2.0]
 action = SubResource("Resource_x7ur8")
 
 [resource]
 script = ExtResource("1_8jp14")
 can_interupt = false
 await_event = true
-frequency = 2
-start_task = SubResource("Resource_8jp14")
-tasks = Array[ExtResource("3_kl0vm")]([SubResource("Resource_8jp14")])
+frequency = 0
+start_task = SubResource("Resource_lxb3m")
+tasks = Array[ExtResource("3_kl0vm")]([SubResource("Resource_lxb3m"), SubResource("Resource_kl0vm"), SubResource("Resource_7hqmw")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

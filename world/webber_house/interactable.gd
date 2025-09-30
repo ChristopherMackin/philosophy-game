@@ -2,7 +2,6 @@ extends StaticBody3D
 
 class_name Interactable
 
-@export var blackboard: Blackboard
 @export var event_factory: EventFactory
 @export var event_manager: EventManager
 
@@ -10,13 +9,13 @@ func invoke():
 	var query : Dictionary
 	query["concept"] = Const.Concept.ON_EVENT_TRIGGER_INVOKED
 	query.merge(GlobalBlackboard.blackboard.get_query())
-	query.merge(blackboard.get_query())
+	query.merge(event_manager.blackboard.get_query())
 	
 	var event = event_factory.get_event(query)
 	
 	if !event: return
 	
 	if event.await_event:
-		await event_manager.start_event(blackboard, event)
+		await event_manager.start_event(event)
 	else:
-		event_manager.start_event(blackboard, event)
+		event_manager.start_event(event)

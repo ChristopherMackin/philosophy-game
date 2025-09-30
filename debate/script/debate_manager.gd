@@ -3,7 +3,6 @@ extends Resource
 class_name DebateManager
 
 var debate_settings : DebateSettings
-var blackboard : Blackboard
 
 var player : Contestant:
 	set(val):
@@ -64,8 +63,7 @@ func clear_data():
 	suit_track_dictionary = {}
 	play_stack = CardCollection.new()
 
-func init(blackboard: Blackboard, player_character : Character, computer_character : Character, debate_settings : DebateSettings):
-	self.blackboard = blackboard
+func init(player_character : Character, computer_character : Character, debate_settings : DebateSettings):
 	clear_data()
 	
 	for subscriber in subscribers:
@@ -95,8 +93,6 @@ func init(blackboard: Blackboard, player_character : Character, computer_charact
 		await contestant.ready_up()
 	
 	for sub in subscribers: await sub.on_debate_start()
-	
-	blackboard.expire(Blackboard.ExpirationToken.ON_DEBATE_START)
 	
 	game_loop()
 

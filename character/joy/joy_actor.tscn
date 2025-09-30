@@ -14,7 +14,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_ti8so"]
 radius = 0.2
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_u48s7"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yj5q6"]
 resource_local_to_scene = true
 _data = {
 &"RESET": ExtResource("3_0i8gs"),
@@ -147,7 +147,7 @@ shape = SubResource("SphereShape3D_ti8so")
 
 [node name="AnimationPlayer" parent="JoySkin" index="1"]
 libraries = {
-&"": SubResource("AnimationLibrary_u48s7")
+&"": SubResource("AnimationLibrary_yj5q6")
 }
 
 [node name="FacialAnimator" parent="." index="2" node_paths=PackedStringArray("eyes", "mouth", "skeleton")]

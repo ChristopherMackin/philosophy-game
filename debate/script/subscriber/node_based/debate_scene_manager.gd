@@ -1,11 +1,10 @@
 extends NodeBasedDebateSubscriber
 
-@export var test: PackedScene
+class_name DebateSceneManager
 
 @export_group("Settings")
 @export var event_manager : EventManager
 @export var debate_settings : DebateSettings
-@export var _blackboard: Blackboard
 
 @export_group ("Player")
 @export var player : Character
@@ -29,7 +28,7 @@ var is_animation_locked := false
 
 func _ready():
 	super._ready()
-	manager.init(_blackboard, player, computer, debate_settings)
+	manager.init(player, computer, debate_settings)
 
 func on_debate_start():
 	await update_everything()
@@ -69,7 +68,6 @@ func on_card_drawn(_card : Card, _contestant: Contestant):
 
 func on_debate_finished():
 	print("Debate Finished")
-	SceneManager.replace_scene_async("card_drop_selector", test)
 	await query_event(Const.Concept.ON_DEBATE_END)
 
 func query_event(concept : Const.Concept):
@@ -83,9 +81,9 @@ func query_event(concept : Const.Concept):
 	if !event: return
 	
 	if event.await_event:
-		await event_manager.start_event(_blackboard, event)
+		await event_manager.start_event(event)
 	else:
-		event_manager.start_event(_blackboard, event)
+		event_manager.start_event(event)
 
 func update_everything():
 	await update_board()

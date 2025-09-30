@@ -26,6 +26,10 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="===MANAGER========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
+[node name="SceneLoadManager" type="Node" parent="."]
+script = ExtResource("2_be1jf")
+event_manager = ExtResource("4_f2xca")
+
 [node name="InputManager" type="Node" parent="."]
 script = ExtResource("2_8d011")
 
@@ -34,9 +38,6 @@ script = ExtResource("2_t3rax")
 scene_animator_handler = NodePath("../SceneAnimator/AnimationHandler")
 default_dialogue_area = NodePath("../CanvasLayer/WorldDialogueBox")
 manager = ExtResource("4_f2xca")
-
-[node name="SceneLoadManager" type="Node" parent="."]
-script = ExtResource("2_be1jf")
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("1_xgvwx")
@@ -94,6 +95,7 @@ scrolling_text = NodePath("MarginContainer/ScrollingText")
 speaker_label = NodePath("SpeakerBackground/Speaker")
 normal_characters_per_second = 20
 quick_characters_per_second = 40
+metadata/_edit_use_anchors_ = true
 
 [node name="Portrait" type="SubViewportContainer" parent="CanvasLayer/WorldDialogueBox"]
 layout_mode = 1
@@ -107,6 +109,7 @@ offset_top = -512.0
 offset_right = 257.0
 grow_horizontal = 0
 grow_vertical = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/WorldDialogueBox/Portrait"]
 transparent_bg = true
@@ -133,6 +136,7 @@ offset_right = 256.0
 offset_bottom = 128.0
 texture = ExtResource("9_ot6eh")
 stretch_mode = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="Speaker" type="RichTextLabel" parent="CanvasLayer/WorldDialogueBox/SpeakerBackground"]
 layout_mode = 1
@@ -169,6 +173,7 @@ theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 160
 theme_override_constants/margin_right = 80
 theme_override_constants/margin_bottom = 10
+metadata/_edit_use_anchors_ = true
 
 [node name="ScrollingText" type="RichTextLabel" parent="CanvasLayer/WorldDialogueBox/MarginContainer"]
 layout_mode = 2

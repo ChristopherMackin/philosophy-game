@@ -2,6 +2,8 @@ extends Resource
 
 class_name EventManager
 
+@export var blackboard: Blackboard
+
 var subscribers : Array[EventSubscriber]
 var current_task : Task
 var current_event : Event
@@ -14,8 +16,8 @@ func unsubscribe(subscriber : EventSubscriber):
 	if index != -1:
 		subscribers.remove_at(index)
 
-func start_event(blackboard: Blackboard, event : Event):
-	if !event || (current_task && !event.is_major_event): return
+func start_event(event : Event):
+	if !event || (current_task && !event.can_interupt): return
 	
 	if current_task:
 		current_task.cancel(self)
