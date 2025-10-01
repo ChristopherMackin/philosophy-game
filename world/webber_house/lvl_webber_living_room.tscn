@@ -945,12 +945,6 @@ shape = SubResource("WorldBoundaryShape3D_g5ffa")
 transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, 0, 1.83705, 0)
 camera = NodePath("../MainCamera")
 
-[node name="Area3D" parent="CBJoy/JoyActor/JoySkin/root/Skeleton3D/BoneAttachment3D" index="0"]
-transform = Transform3D(1, -3.55271e-15, 0, 3.55271e-15, 1, -4.53804e-15, 0, -4.6213e-15, 1, 0, 0, 0)
-
-[node name="CollisionShape3D" parent="CBJoy/JoyActor/JoySkin/root/Skeleton3D/BoneAttachment3D/Area3D" index="0"]
-transform = Transform3D(1, -7.10543e-15, 0, 7.10543e-15, 1, -4.54498e-15, 0, -4.63518e-15, 1, -0.236493, 6.33299e-08, 0.259004)
-
 [node name="AnimationPlayer" parent="CBJoy/JoyActor/JoySkin" index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_mp0yi")
@@ -962,14 +956,11 @@ tree_root = SubResource("AnimationNodeBlendTree_w0fhx")
 [node name="DialogueCamera" parent="CBJoy/JoyActor" index="5"]
 inactive_update_mode = 0
 
-[node name="InteractionArea" parent="CBJoy" index="2"]
-priority = 0
-
 [node name="SimonActor" parent="." index="19" instance=ExtResource("18_mp0yi")]
 transform = Transform3D(0.109526, 0, 0.993984, 0, 1, 0, -0.993984, 0, 0.109526, -2.2985, 0, 2.26061)
 
 [node name="Skeleton3D" parent="SimonActor/SimonSkin/root" index="0"]
-bones/31/position = Vector3(0.0815765, -9.74925e-06, 3.72047e-10)
+bones/31/position = Vector3(0.434855, -0.112559, -5.07192e-08)
 
 [node name="Area3D" parent="SimonActor/SimonSkin/root/Skeleton3D/BoneAttachment3D" index="0"]
 collision_layer = 49152
