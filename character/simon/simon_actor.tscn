@@ -858,7 +858,7 @@ bones/29/scale = Vector3(0.999999, 0.999998, 0.999997)
 bones/30/position = Vector3(0.672594, 1.09417, 0.00324741)
 bones/30/rotation = Quaternion(1.58715e-23, 1.46323e-06, 0, 1)
 bones/30/scale = Vector3(1, 1, 1)
-bones/31/position = Vector3(0.434855, -0.112559, -5.07233e-08)
+bones/31/position = Vector3(0.0815765, -9.74948e-06, 3.96661e-10)
 bones/31/rotation = Quaternion(-2.25537e-10, -1.37868e-06, -1.37873e-06, 1)
 bones/31/scale = Vector3(1, 1, 1)
 bones/32/position = Vector3(0.672594, -0.128914, 0.00324741)
@@ -889,7 +889,7 @@ collision_layer = 32768
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SimonSkin/root/Skeleton3D/BoneAttachment3D/Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52944e-05, 0.176017, 0.224795)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54545e-05, 0.0239789, 0.227136)
 shape = SubResource("SphereShape3D_rvxgb")
 
 [node name="AnimationPlayer" parent="SimonSkin" index="1"]
