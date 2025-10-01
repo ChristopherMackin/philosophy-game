@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends CollisionObject3D
 
 class_name Interactable
 

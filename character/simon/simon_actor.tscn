@@ -679,90 +679,91 @@ _data = {
 &"talk": ExtResource("8_3rjep")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qfv6"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aun3t"]
 animation = &"walk"
 
-[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_8dv24"]
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_brwwd"]
 filter_enabled = true
 filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4f1rm"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bwb78"]
 animation = &"blink"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dlmfx"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k6udl"]
 animation = &"RESET"
 
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ja5cw"]
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_whidi"]
 autorestart = true
 
-[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_sijwa"]
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_xy7qc"]
 filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dv24"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tjog7"]
 animation = &"RESET"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bxpyq"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xmkqj"]
 animation = &"idle_variant_01"
 
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_4f1rm"]
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_lsfid"]
 fadein_time = 0.3
 fadeout_time = 0.3
 
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_s6d67"]
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_xrnva"]
 fadein_time = 0.3
 fadeout_time = 0.3
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k26ml"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8ymp2"]
 animation = &"talk"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lydv1"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1er7f"]
 animation = &"RESET"
 
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_uceat"]
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_1juju"]
 autorestart = true
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_axsce"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pllce"]
 animation = &"RESET"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_k26ml"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_dk11m"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_3q8kp"]
 resource_local_to_scene = true
-nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
+nodes/action/node = SubResource("AnimationNodeAnimation_aun3t")
 nodes/action/position = Vector2(-600, -130)
-nodes/animation/node = SubResource("AnimationNodeAdd2_8dv24")
+nodes/animation/node = SubResource("AnimationNodeAdd2_brwwd")
 nodes/animation/position = Vector2(80, 60)
-nodes/blink/node = SubResource("AnimationNodeAnimation_4f1rm")
+nodes/blink/node = SubResource("AnimationNodeAnimation_bwb78")
 nodes/blink/position = Vector2(-890, 470)
-nodes/blink_reset/node = SubResource("AnimationNodeAnimation_dlmfx")
+nodes/blink_reset/node = SubResource("AnimationNodeAnimation_k6udl")
 nodes/blink_reset/position = Vector2(-890, 300)
-nodes/blink_trigger/node = SubResource("AnimationNodeOneShot_ja5cw")
+nodes/blink_trigger/node = SubResource("AnimationNodeOneShot_whidi")
 nodes/blink_trigger/position = Vector2(-480, 260)
-nodes/facial_animation/node = SubResource("AnimationNodeAdd2_sijwa")
+nodes/facial_animation/node = SubResource("AnimationNodeAdd2_xy7qc")
 nodes/facial_animation/position = Vector2(-210, 220)
-nodes/idle/node = SubResource("AnimationNodeAnimation_8dv24")
+nodes/idle/node = SubResource("AnimationNodeAnimation_tjog7")
 nodes/idle/position = Vector2(-750, -500)
-nodes/idle_variant/node = SubResource("AnimationNodeAnimation_bxpyq")
+nodes/idle_variant/node = SubResource("AnimationNodeAnimation_xmkqj")
 nodes/idle_variant/position = Vector2(-750, -320)
-nodes/idling/node = SubResource("AnimationNodeOneShot_4f1rm")
+nodes/idling/node = SubResource("AnimationNodeOneShot_lsfid")
 nodes/idling/position = Vector2(-530, -440)
 nodes/output/position = Vector2(310, 160)
-nodes/take_action/node = SubResource("AnimationNodeOneShot_s6d67")
+nodes/take_action/node = SubResource("AnimationNodeOneShot_xrnva")
 nodes/take_action/position = Vector2(-320, -280)
-nodes/talk/node = SubResource("AnimationNodeAnimation_k26ml")
+nodes/talk/node = SubResource("AnimationNodeAnimation_8ymp2")
 nodes/talk/position = Vector2(-890, 820)
-nodes/talk_reset/node = SubResource("AnimationNodeAnimation_lydv1")
+nodes/talk_reset/node = SubResource("AnimationNodeAnimation_1er7f")
 nodes/talk_reset/position = Vector2(-890, 650)
-nodes/talk_trigger/node = SubResource("AnimationNodeOneShot_uceat")
+nodes/talk_trigger/node = SubResource("AnimationNodeOneShot_1juju")
 nodes/talk_trigger/position = Vector2(-480, 600)
-nodes/walk/node = SubResource("AnimationNodeAnimation_axsce")
+nodes/walk/node = SubResource("AnimationNodeAnimation_pllce")
 nodes/walk/position = Vector2(-320, 30)
-nodes/walking/node = SubResource("AnimationNodeBlend2_k26ml")
+nodes/walking/node = SubResource("AnimationNodeBlend2_dk11m")
 nodes/walking/position = Vector2(-130, -110)
 node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"output", 0, &"animation", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
 
 [node name="SimonActor" node_paths=PackedStringArray("_look_at_modifier") instance=ExtResource("1_o0nhl")]
 _look_at_modifier = NodePath("SimonSkin/root/Skeleton3D/LookAtModifier3D")
+actor_name = "Simon"
 
 [node name="SimonSkin" parent="." index="0" instance=ExtResource("2_rvxgb")]
 
@@ -857,7 +858,7 @@ bones/29/scale = Vector3(0.999999, 0.999998, 0.999997)
 bones/30/position = Vector3(0.672594, 1.09417, 0.00324741)
 bones/30/rotation = Quaternion(1.58715e-23, 1.46323e-06, 0, 1)
 bones/30/scale = Vector3(1, 1, 1)
-bones/31/position = Vector3(0.0815765, -9.74942e-06, 3.90223e-10)
+bones/31/position = Vector3(0.434855, -0.112559, -5.0699e-08)
 bones/31/rotation = Quaternion(-2.25537e-10, -1.37868e-06, -1.37873e-06, 1)
 bones/31/scale = Vector3(1, 1, 1)
 bones/32/position = Vector3(0.672594, -0.128914, 0.00324741)
@@ -865,6 +866,7 @@ bones/32/rotation = Quaternion(-7.69399e-10, 1.58244e-06, -1.21753e-15, 1)
 bones/32/scale = Vector3(1, 1, 1)
 bones/33/position = Vector3(0.0815766, -9.89181e-06, 2.22529e-08)
 bones/33/rotation = Quaternion(1.47535e-09, -1.49789e-06, -1.37867e-06, 1)
+bones/33/scale = Vector3(1, 1, 1)
 
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="SimonSkin/root/Skeleton3D" index="17"]
 bone_name = "head.x"
@@ -882,11 +884,11 @@ transform = Transform3D(1, 5.58794e-09, -6.80415e-05, -3.06917e-06, 0.998985, -0
 bone_name = "head.x"
 bone_idx = 5
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SimonSkin/root/Skeleton3D/BoneAttachment3D" index="0"]
+[node name="Area3D" type="Area3D" parent="SimonSkin/root/Skeleton3D/BoneAttachment3D" index="0"]
 collision_layer = 32768
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SimonSkin/root/Skeleton3D/BoneAttachment3D/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SimonSkin/root/Skeleton3D/BoneAttachment3D/Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52944e-05, 0.176017, 0.224795)
 shape = SubResource("SphereShape3D_rvxgb")
 
@@ -909,7 +911,7 @@ parameters/blink_trigger/active = true
 parameters/blink_trigger/internal_active = true
 
 [node name="PersonalBubble" parent="." index="6" node_paths=PackedStringArray("exceptions")]
-exceptions = [NodePath("../SimonSkin/root/Skeleton3D/BoneAttachment3D/StaticBody3D")]
+exceptions = [NodePath("../SimonSkin/root/Skeleton3D/BoneAttachment3D/Area3D")]
 
 [connection signal="pose_updated" from="SimonSkin/root/Skeleton3D" to="FacialAnimator" method="pose_updated"]
 

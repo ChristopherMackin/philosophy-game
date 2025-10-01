@@ -5,14 +5,14 @@ class_name InteractionArea
 var focused_interactable: Interactable
 
 func _ready():
-	body_entered.connect(focus_interactable)
-	body_exited.connect(unfocus_interactable)
+	area_entered.connect(focus_interactable)
+	area_exited.connect(unfocus_interactable)
 
-func focus_interactable(body: Node):
-	if not body is Interactable: return
-	focused_interactable = body
+func focus_interactable(area):
+	if not area is Interactable: return
+	focused_interactable = area
 
-func unfocus_interactable(body: Node):
-	if not body is Interactable: return
-	if focused_interactable != body: return
+func unfocus_interactable(area):
+	if not area is Interactable: return
+	if focused_interactable != area: return
 	focused_interactable = null

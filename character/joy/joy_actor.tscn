@@ -111,7 +111,7 @@ node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_anima
 
 [sub_resource type="Resource" id="Resource_0i8gs"]
 script = ExtResource("10_yj5q6")
-duration = 1.0
+duration = 0.0
 transition = 0
 ease = 2
 
@@ -137,12 +137,13 @@ transform = Transform3D(-4.79631e-08, -1, 2.02959e-07, -0.00192658, 1.78552e-07,
 bone_name = "head.x"
 bone_idx = 5
 
-[node name="StaticBody3D" type="StaticBody3D" parent="JoySkin/root/Skeleton3D/BoneAttachment3D" index="0"]
+[node name="Area3D" type="Area3D" parent="JoySkin/root/Skeleton3D/BoneAttachment3D" index="0"]
+transform = Transform3D(1, -3.55271e-15, 0, 3.55271e-15, 1, -4.53804e-15, 0, -4.6213e-15, 1, 0, 0, 0)
 collision_layer = 32768
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JoySkin/root/Skeleton3D/BoneAttachment3D/StaticBody3D" index="0"]
-transform = Transform3D(1, -7.10543e-15, 0, 7.10543e-15, 1, -4.53804e-15, 0, -4.62824e-15, 1, -0.236493, 6.33299e-08, 0.259004)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="JoySkin/root/Skeleton3D/BoneAttachment3D/Area3D" index="0"]
+transform = Transform3D(1, -7.10543e-15, 0, 7.10543e-15, 1, -4.54498e-15, 0, -4.63518e-15, 1, -0.236493, 6.33299e-08, 0.259004)
 shape = SubResource("SphereShape3D_ti8so")
 
 [node name="AnimationPlayer" parent="JoySkin" index="1"]
@@ -166,7 +167,7 @@ parameters/blink_trigger/internal_active = true
 tween_resource = SubResource("Resource_0i8gs")
 
 [node name="PersonalBubble" parent="." index="6" node_paths=PackedStringArray("exceptions")]
-exceptions = [NodePath("../JoySkin/root/Skeleton3D/BoneAttachment3D/StaticBody3D")]
+exceptions = [NodePath("../JoySkin/root/Skeleton3D/BoneAttachment3D/Area3D")]
 
 [connection signal="pose_updated" from="JoySkin/root/Skeleton3D" to="FacialAnimator" method="pose_updated"]
 
