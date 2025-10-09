@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cde2wsdjn62td" path="res://debate/script/ui/board_3d.gd" id="1_1q3tq"]
 [ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://debate/packed_scene/token_3d.tscn" id="2_urmf4"]
-[ext_resource type="PackedScene" uid="uid://du5ime7hk86tp" path="res://debate/packed_scene/board/basic_play_board.tscn" id="3_jn54j"]
+[ext_resource type="PackedScene" uid="uid://du5ime7hk86tp" path="res://debate/packed_scene/board/board_gui.tscn" id="3_jn54j"]
 [ext_resource type="Script" uid="uid://bjxvg5oysv1su" path="res://debate/packed_scene/board/sub_viewport_control_size_match.gd" id="3_ldhrf"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ldhrf"]

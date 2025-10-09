@@ -2,7 +2,7 @@ extends Resource
 
 class_name EventManager
 
-@export var blackboard: Blackboard
+var blackboard: Blackboard
 
 var subscribers : Array[EventSubscriber]
 var current_task : Task

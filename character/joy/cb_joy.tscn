@@ -1,26 +1,26 @@
 [gd_scene load_steps=29 format=3 uid="uid://ventjq18ri0o"]
 
-[ext_resource type="PackedScene" uid="uid://4fyxges65twa" path="res://character/character_body_3d.tscn" id="1_84l7g"]
-[ext_resource type="PackedScene" uid="uid://bm000oc0qmi7l" path="res://character/joy/joy_actor.tscn" id="2_4nrgf"]
-[ext_resource type="Animation" uid="uid://my16xyybyy8l" path="res://character/joy/animation/RESET.res" id="3_t7k6b"]
-[ext_resource type="Animation" uid="uid://crmi4qmpml6wh" path="res://character/joy/animation/blink.res" id="4_pocp8"]
-[ext_resource type="Animation" uid="uid://r5k1m8q47t7n" path="res://character/joy/animation/idle.res" id="5_oltcv"]
-[ext_resource type="Animation" uid="uid://d05iq6pm4gbd5" path="res://character/joy/animation/breakdown.res" id="5_yqlmj"]
-[ext_resource type="Animation" uid="uid://dkpr32t1ba2s" path="res://character/joy/animation/idle_variant_01.res" id="6_vqjl8"]
-[ext_resource type="Animation" uid="uid://1o2pl8o5qvdd" path="res://character/joy/animation/talk.res" id="7_mmlwn"]
-[ext_resource type="Animation" uid="uid://cn4vi21lprmuk" path="res://character/joy/animation/walk.res" id="8_6xyy2"]
-[ext_resource type="Script" uid="uid://btmrfolkq1aj5" path="res://character/interaction_area.gd" id="10_rkxom"]
+[ext_resource type="PackedScene" uid="uid://4fyxges65twa" path="res://character/character_body_3d.tscn" id="1_g0bs1"]
+[ext_resource type="PackedScene" uid="uid://bm000oc0qmi7l" path="res://character/joy/joy_actor.tscn" id="2_5vtoc"]
+[ext_resource type="Animation" uid="uid://my16xyybyy8l" path="res://character/joy/animation/RESET.res" id="3_f2cj7"]
+[ext_resource type="Animation" uid="uid://crmi4qmpml6wh" path="res://character/joy/animation/blink.res" id="4_vhsl6"]
+[ext_resource type="Animation" uid="uid://d05iq6pm4gbd5" path="res://character/joy/animation/breakdown.res" id="5_bmnus"]
+[ext_resource type="Animation" uid="uid://r5k1m8q47t7n" path="res://character/joy/animation/idle.res" id="6_qf48y"]
+[ext_resource type="Animation" uid="uid://dkpr32t1ba2s" path="res://character/joy/animation/idle_variant_01.res" id="7_jsjn7"]
+[ext_resource type="Animation" uid="uid://1o2pl8o5qvdd" path="res://character/joy/animation/talk.res" id="8_juq5b"]
+[ext_resource type="Animation" uid="uid://cn4vi21lprmuk" path="res://character/joy/animation/walk.res" id="9_errhc"]
+[ext_resource type="Script" uid="uid://btmrfolkq1aj5" path="res://character/interaction_area.gd" id="10_ktstx"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rkxom"]
 resource_local_to_scene = true
 _data = {
-&"RESET": ExtResource("3_t7k6b"),
-&"blink": ExtResource("4_pocp8"),
-&"breakdown": ExtResource("5_yqlmj"),
-&"idle": ExtResource("5_oltcv"),
-&"idle_variant_01": ExtResource("6_vqjl8"),
-&"talk": ExtResource("7_mmlwn"),
-&"walk": ExtResource("8_6xyy2")
+&"RESET": ExtResource("3_f2cj7"),
+&"blink": ExtResource("4_vhsl6"),
+&"breakdown": ExtResource("5_bmnus"),
+&"idle": ExtResource("6_qf48y"),
+&"idle_variant_01": ExtResource("7_jsjn7"),
+&"talk": ExtResource("8_juq5b"),
+&"walk": ExtResource("9_errhc")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qfv6"]
@@ -109,13 +109,13 @@ node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_anima
 [sub_resource type="BoxShape3D" id="BoxShape3D_lrl4d"]
 size = Vector3(2, 3, 1.75)
 
-[node name="CBJoy" node_paths=PackedStringArray("character_actor", "interaction_area", "character_animator") instance=ExtResource("1_84l7g")]
+[node name="CBJoy" node_paths=PackedStringArray("character_actor", "interaction_area", "character_animator") instance=ExtResource("1_g0bs1")]
 character_actor = NodePath("JoyActor")
 interaction_area = NodePath("JoyActor/InteractionArea")
 character_animator = NodePath("JoyActor/CharacterAnimationTree")
 acceleration = 20.0
 
-[node name="JoyActor" parent="." index="0" instance=ExtResource("2_4nrgf")]
+[node name="JoyActor" parent="." index="0" instance=ExtResource("2_5vtoc")]
 
 [node name="LookAtModifier3D" parent="JoyActor/JoySkin/root/Skeleton3D" index="9"]
 duration = 0.2
@@ -135,13 +135,12 @@ monitorable = true
 [node name="InteractionArea" type="Area3D" parent="JoyActor" index="7"]
 collision_layer = 0
 collision_mask = 16384
-script = ExtResource("10_rkxom")
+script = ExtResource("10_ktstx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="JoyActor/InteractionArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.625)
 shape = SubResource("BoxShape3D_lrl4d")
 
-[connection signal="pose_updated" from="JoyActor/JoySkin/root/Skeleton3D" to="JoyActor/FacialAnimator" method="pose_updated"]
 [connection signal="body_entered_without_exception" from="JoyActor/PersonalBubble" to="JoyActor" method="focus_look_at_body"]
 [connection signal="body_exited_without_exception" from="JoyActor/PersonalBubble" to="JoyActor" method="unfocus_look_at_body"]
 

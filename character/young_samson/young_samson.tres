@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://c0ky3rdu750c6"]
+
+[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="1_j3evr"]
+[ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="1_wx247"]
+[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/starting_deck.tres" id="2_0pwbs"]
+[ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="2_4nqno"]
+
+[resource]
+script = ExtResource("1_wx247")
+name = "Samson"
+brain = ExtResource("1_j3evr")
+deck = ExtResource("2_0pwbs")
+starting_effects = Array[ExtResource("2_4nqno")]([])
+energy_level = 3
+draw_limit = 5
+hand_limit = 8
+metadata/_custom_type_script = "uid://b0gx18dmx3sv3"

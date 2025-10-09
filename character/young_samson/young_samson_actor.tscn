@@ -1,0 +1,99 @@
+[gd_scene load_steps=19 format=3 uid="uid://dcc5jdxai5dtq"]
+
+[ext_resource type="PackedScene" uid="uid://ncpnghqpw8tc" path="res://character/character_actor.tscn" id="1_2imrk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bt4xu"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qfv6"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_8dv24"]
+filter_enabled = true
+filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4f1rm"]
+animation = &"blink"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dlmfx"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ja5cw"]
+autorestart = true
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_sijwa"]
+filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dv24"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bxpyq"]
+animation = &"idle_variant_01"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_4f1rm"]
+fadein_time = 0.3
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_s6d67"]
+fadein_time = 0.3
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k26ml"]
+animation = &"talk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lydv1"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_uceat"]
+autorestart = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_axsce"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_k26ml"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uoaxl"]
+resource_local_to_scene = true
+graph_offset = Vector2(-626.396, -182.127)
+nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
+nodes/action/position = Vector2(-600, -130)
+nodes/animation/node = SubResource("AnimationNodeAdd2_8dv24")
+nodes/animation/position = Vector2(80, 60)
+nodes/blink/node = SubResource("AnimationNodeAnimation_4f1rm")
+nodes/blink/position = Vector2(-890, 470)
+nodes/blink_reset/node = SubResource("AnimationNodeAnimation_dlmfx")
+nodes/blink_reset/position = Vector2(-890, 300)
+nodes/blink_trigger/node = SubResource("AnimationNodeOneShot_ja5cw")
+nodes/blink_trigger/position = Vector2(-480, 260)
+nodes/facial_animation/node = SubResource("AnimationNodeAdd2_sijwa")
+nodes/facial_animation/position = Vector2(-210, 220)
+nodes/idle/node = SubResource("AnimationNodeAnimation_8dv24")
+nodes/idle/position = Vector2(-750, -500)
+nodes/idle_variant/node = SubResource("AnimationNodeAnimation_bxpyq")
+nodes/idle_variant/position = Vector2(-750, -320)
+nodes/idling/node = SubResource("AnimationNodeOneShot_4f1rm")
+nodes/idling/position = Vector2(-530, -440)
+nodes/output/position = Vector2(310, 160)
+nodes/take_action/node = SubResource("AnimationNodeOneShot_s6d67")
+nodes/take_action/position = Vector2(-320, -280)
+nodes/talk/node = SubResource("AnimationNodeAnimation_k26ml")
+nodes/talk/position = Vector2(-890, 820)
+nodes/talk_reset/node = SubResource("AnimationNodeAnimation_lydv1")
+nodes/talk_reset/position = Vector2(-890, 650)
+nodes/talk_trigger/node = SubResource("AnimationNodeOneShot_uceat")
+nodes/talk_trigger/position = Vector2(-480, 600)
+nodes/walk/node = SubResource("AnimationNodeAnimation_axsce")
+nodes/walk/position = Vector2(-320, 30)
+nodes/walking/node = SubResource("AnimationNodeBlend2_k26ml")
+nodes/walking/position = Vector2(-130, -110)
+node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"output", 0, &"animation", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
+
+[node name="YoungSamsonActor" instance=ExtResource("1_2imrk")]
+actor_name = "young_samson"
+display_name = "Samson"
+
+[node name="YoungSamsonSkin" type="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.5, 0)
+mesh = SubResource("CapsuleMesh_bt4xu")
+
+[node name="CharacterAnimationTree" parent="." index="4"]
+tree_root = SubResource("AnimationNodeBlendTree_uoaxl")

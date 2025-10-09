@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Character" load_steps=11 format=3 uid="uid://b20s3xcb4bqtx"]
+
+[ext_resource type="Resource" uid="uid://834b58c6f0ru" path="res://character/simon/simon_memory.tres" id="1_grb6l"]
+[ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="1_pnv7u"]
+[ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="2_1s8d1"]
+[ext_resource type="Script" uid="uid://2hwgbl7c4ebq" path="res://character/script/brain/simple_ai_brain.gd" id="2_glfs3"]
+[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/basic_faith.tres" id="4_grb6l"]
+[ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://system/script/card/card_deck_config.gd" id="4_t2gwq"]
+[ext_resource type="Script" uid="uid://dlqqr4qxqi2ht" path="res://system/script/deck/infinite_deck.gd" id="5_glfs3"]
+
+[sub_resource type="Resource" id="Resource_jyde3"]
+script = ExtResource("2_glfs3")
+metadata/_custom_type_script = "uid://2hwgbl7c4ebq"
+
+[sub_resource type="Resource" id="Resource_tajt0"]
+script = ExtResource("4_t2gwq")
+base = ExtResource("4_grb6l")
+count = 1
+metadata/_custom_type_script = "uid://bcrhpdjlreow5"
+
+[sub_resource type="Resource" id="Resource_t2gwq"]
+script = ExtResource("5_glfs3")
+composition_card_deck_config_array = Array[ExtResource("4_t2gwq")]([SubResource("Resource_tajt0")])
+metadata/_custom_type_script = "uid://dlqqr4qxqi2ht"
+
+[resource]
+script = ExtResource("1_pnv7u")
+name = "Simon"
+brain = SubResource("Resource_jyde3")
+deck = SubResource("Resource_t2gwq")
+starting_effects = Array[ExtResource("2_1s8d1")]([])
+energy_level = 3
+draw_limit = 5
+hand_limit = 8
+blackboard = ExtResource("1_grb6l")
+metadata/_custom_type_script = "uid://b0gx18dmx3sv3"

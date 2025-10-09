@@ -16,7 +16,6 @@ class_name Character
 
 @export_group("Event Settings")
 @export var blackboard: Blackboard
-@export var debate_event_factory: EventFactory
 
 func remember(key : String, value, expiration_token : Blackboard.ExpirationToken = Blackboard.ExpirationToken.NEVER):
 	var char_key = "%s_%s" % [name.to_snake_case(), key]

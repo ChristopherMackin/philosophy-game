@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://b5qju7etv13c2"]
+[gd_resource type="Resource" script_class="Character" load_steps=9 format=3 uid="uid://b5qju7etv13c2"]
 
 [ext_resource type="Resource" uid="uid://834b58c6f0ru" path="res://character/simon/simon_memory.tres" id="1_c8eq6"]
 [ext_resource type="Script" uid="uid://2hwgbl7c4ebq" path="res://character/script/brain/simple_ai_brain.gd" id="2_ne43b"]
-[ext_resource type="Resource" uid="uid://27sna6u0b0wj" path="res://character/simon/debate/debate_simon_event_factory.tres" id="3_87ydi"]
 [ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/starting_deck.tres" id="4_0cltd"]
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="5_1gk3u"]
 [ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="6_tmoqv"]
@@ -27,4 +26,3 @@ energy_level = 3
 draw_limit = 5
 hand_limit = 8
 blackboard = ExtResource("1_c8eq6")
-debate_event_factory = ExtResource("3_87ydi")

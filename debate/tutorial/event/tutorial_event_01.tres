@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://ygtqujy6qdkv"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_22ldw"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_2udwm"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_lval0"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_lval0")
+
+[sub_resource type="Resource" id="Resource_2udwm"]
+script = ExtResource("2_2udwm")
+outputs = Array[int]([])
+inputs = ["This is a test", "Simon", false, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_22ldw")
+can_interupt = false
+await_event = false
+frequency = 1
+start_task = SubResource("Resource_2udwm")
+tasks = Array[ExtResource("2_2udwm")]([SubResource("Resource_2udwm")])

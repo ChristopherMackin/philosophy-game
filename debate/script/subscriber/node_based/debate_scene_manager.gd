@@ -4,6 +4,11 @@ class_name DebateSceneManager
 
 @export_group("Settings")
 @export var blackboard: Blackboard
+@export var event_factory: EventFactory:
+	get:
+		if !event_factory:
+			event_factory = EventFactory.new()
+		return event_factory
 @export var event_manager : EventManager
 @export var debate_settings : DebateSettings
 
@@ -77,7 +82,7 @@ func query_event(concept : Const.Concept):
 	query.merge(GlobalBlackboard.blackboard.get_query())
 	query.merge(event_manager.blackboard.get_query())
 	
-	var event = manager.computer.debate_event_factory.get_event(query)
+	var event = event_factory.get_event(query)
 	
 	if !event: return
 	

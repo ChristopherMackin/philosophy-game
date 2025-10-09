@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=8 format=3 uid="uid://2p5t31gftu36"]
+
+[ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="1_hjw77"]
+[ext_resource type="Resource" uid="uid://ygtqujy6qdkv" path="res://debate/tutorial/event/tutorial_event_01.tres" id="2_mldeo"]
+[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="3_kigwk"]
+[ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="4_22ccj"]
+[ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="5_5lci1"]
+
+[sub_resource type="Resource" id="Resource_hwf8q"]
+script = ExtResource("4_22ccj")
+concept = 0
+criteria = Array[ExtResource("3_kigwk")]([])
+metadata/_custom_type_script = "uid://bal31j6jwdxqy"
+
+[sub_resource type="Resource" id="Resource_s7253"]
+script = ExtResource("1_hjw77")
+event = ExtResource("2_mldeo")
+rule = SubResource("Resource_hwf8q")
+metadata/_custom_type_script = "uid://dftjqkpxopsus"
+
+[resource]
+script = ExtResource("5_5lci1")
+payload_list = Array[ExtResource("1_hjw77")]([SubResource("Resource_s7253")])
+metadata/_custom_type_script = "uid://dghxtp7la36tj"
