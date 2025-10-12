@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=3 format=3 uid="uid://bxr41ykmete5i"]
+
+[ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="1_7rw1e"]
+[ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="2_6vodb"]
+
+[resource]
+script = ExtResource("2_6vodb")
+payload_list = Array[ExtResource("1_7rw1e")]([])
+metadata/_custom_type_script = "uid://dghxtp7la36tj"

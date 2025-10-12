@@ -81,7 +81,7 @@ func cancel_dialogue(actor):
 	dialogue_area.visible = false
 	current_actor.focus_actor(false)
 
-func play_animation(animation : String, actor : String, await_animation : bool):
+func play_animation(animation : String, actor : String, overwrite_animation: bool, await_animation : bool):
 	var parent
 	var animation_handler: AnimationHandler
 	

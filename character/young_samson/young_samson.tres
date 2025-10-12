@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="1_j3evr"]
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="1_wx247"]
-[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/starting_deck.tres" id="2_0pwbs"]
+[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/dk_default.tres" id="2_0pwbs"]
 [ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="2_4nqno"]
 
 [resource]

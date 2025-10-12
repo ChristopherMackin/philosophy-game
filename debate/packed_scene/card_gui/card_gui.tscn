@@ -215,3 +215,10 @@ texture = ExtResource("11_pex2d")
 [node name="ExposedControlMethods" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("12_oyfk6")
 root = NodePath("..")
+
+[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_z_index" flags=3 binds= [1]]
+[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_global_rotation" flags=3 binds= [0.0]]
+[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_position" flags=3 binds= [Vector2(0, -100)]]
+[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_rotation" flags=3 binds= [0.0]]
+[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_z_index" flags=3 binds= [0]]
+[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_position" flags=3 binds= [Vector2(0, 0)]]

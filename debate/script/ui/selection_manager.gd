@@ -2,6 +2,9 @@ extends Node
 
 class_name SelectionManager
 
+@export_group("Input")
+@export var input_handler: InputHandler
+
 @export_group("Player")
 @export var player_brain : PlayerBrain
 
@@ -29,6 +32,7 @@ func _ready():
 	idle_focus_group.focused_node = ui_clear_focus_node
 	player_brain.on_selection_requested.connect(on_selection_requested)
 	get_viewport().gui_focus_changed.connect(on_focus_changed)
+	input_handler.on_handle_input.connect(_handle_input)
 
 func on_focus_changed(node : Node):
 	if node is Control:
@@ -37,10 +41,10 @@ func on_focus_changed(node : Node):
 	
 	active_focus_group.focus(node)
 
-func _unhandled_input(event):
-	if Input.is_action_just_pressed("action_1"):
+func _handle_input(delta, input):
+	if input.is_action_just_pressed("action_1"):
 		active_focus_group.select()
-	if Input.is_action_just_pressed("action_2"):
+	if input.is_action_just_pressed("action_2"):
 		active_focus_group.select("hold")
 
 func on_selection_requested(request : SelectionRequest):

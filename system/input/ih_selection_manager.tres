@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="InputHandler" load_steps=2 format=3 uid="uid://coqtgijiyc02d"]
+
+[ext_resource type="Script" uid="uid://doyw5tgh2421n" path="res://system/script/input/input_handler.gd" id="1_jo2vl"]
+
+[resource]
+script = ExtResource("1_jo2vl")
+metadata/_custom_type_script = "uid://doyw5tgh2421n"

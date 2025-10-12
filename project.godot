@@ -132,6 +132,8 @@ pause={
 [layer_names]
 
 3d_render/layer_20="DialogueCamera"
+3d_physics/layer_1="General"
+3d_physics/layer_2="Character Body"
 3d_physics/layer_15="Interaction"
 3d_physics/layer_16="LookAtShape"
 

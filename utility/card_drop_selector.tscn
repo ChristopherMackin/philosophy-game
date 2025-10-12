@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://1d601ch1o3ng" path="res://system/focus_group/card_drop_selector.tres" id="2_fw8cg"]
 [ext_resource type="Resource" uid="uid://dlde6qg67se7y" path="res://system/global_drop_table.tres" id="3_e4ea4"]
 [ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_gui/tokenless_card_gui.tscn" id="3_ouc3i"]
-[ext_resource type="Resource" uid="uid://b150jnrliiino" path="res://system/test/test_deck.tres" id="4_eorgn"]
+[ext_resource type="Resource" uid="uid://b150jnrliiino" path="res://system/test/dk_test.tres" id="4_eorgn"]
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save_manager.gd" id="6_wt2yw"]
 [ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://system/script/save_data.gd" id="7_wt2yw"]
 [ext_resource type="Resource" uid="uid://ge1h5tpdyptd" path="res://player/save_data/player_deck_save_data.tres" id="8_eorgn"]

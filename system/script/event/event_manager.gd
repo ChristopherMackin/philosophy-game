@@ -50,8 +50,8 @@ func display_dialogue(text : String, actor : String, await_input : bool, seconds
 func cancel_dialogue(actor : String):
 	for sub : EventSubscriber in subscribers: await sub.cancel_dialogue(actor)
 
-func play_animation(animation : String, actor : String, await_animation : bool):
-	for sub : EventSubscriber in subscribers: await sub.play_animation(animation, actor, await_animation)
+func play_animation(animation : String, actor : String, overwrite_animation: bool, await_animation : bool):
+	for sub : EventSubscriber in subscribers: await sub.play_animation(animation, actor, overwrite_animation, await_animation)
 
 func cancel_animation(actor : String):
 	for sub : EventSubscriber in subscribers: await sub.cancel_animation(actor)

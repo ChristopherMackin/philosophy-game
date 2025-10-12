@@ -70,7 +70,17 @@ func update_hand(hand : CardCollection):
 	lock.release_lock()
 
 func set_up_focus_connections():
-	Util.set_up_focus_connections(cards_gui as Array[Control])
+	var i: int = 0
+	for card_gui in cards_gui:
+		if i > 0:
+			var previous_path = cards_gui[i-1].get_path()
+			card_gui.focus_previous = previous_path
+			card_gui.focus_neighbor_left = previous_path
+		if i < cards_gui.size() - 1:
+			var next_path = cards_gui[i+1].get_path()
+			card_gui.focus_next = next_path
+			card_gui.focus_neighbor_right = next_path
+		i += 1
 	
 	if focus_group.focused_node == null && cards_gui.size() > 0:
 		focus_group.focus(cards_gui[0])

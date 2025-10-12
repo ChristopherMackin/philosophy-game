@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=8 format=3 uid="uid://cosams0ydhgkf"]
 
 [ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="1_jiuee"]
-[ext_resource type="Resource" uid="uid://dkj38626s4dbh" path="res://world/joys_appartment/event/test_event01.tres" id="2_5wajb"]
+[ext_resource type="Resource" uid="uid://dkj38626s4dbh" path="res://world/test/joys_appartment/event/test_event01.tres" id="2_5wajb"]
 [ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="2_75doo"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="2_g0ydd"]
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="3_5wajb"]

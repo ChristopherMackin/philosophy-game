@@ -19,7 +19,7 @@ func display_dialogue(_line : String, _actor : String, _await_input : bool, _sec
 func cancel_dialogue(_actor : String):
 	pass
 
-func play_animation(_animation : String, _actor : String, _await_animation: bool):
+func play_animation(_animation : String, _actor : String, overwrite_animation: bool, _await_animation: bool):
 	pass
 
 func cancel_animation(_actor : String):

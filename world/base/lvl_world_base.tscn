@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjv4hqyvjwdsh"]
+[gd_scene load_steps=14 format=3 uid="uid://bjv4hqyvjwdsh"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_qlsal"]
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save_manager.gd" id="1_xgvwx"]
@@ -6,13 +6,17 @@
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="2_be1jf"]
 [ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="2_t3rax"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="4_f2xca"]
+[ext_resource type="Resource" uid="uid://4avsth0e8b0u" path="res://system/input/ih_player_movement.tres" id="5_ot6eh"]
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="5_t3rax"]
+[ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="6_ilpj6"]
 [ext_resource type="Script" uid="uid://4bchriocygww" path="res://general/script/dialogue/dialogue_area.gd" id="8_ilpj6"]
 [ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://asset/cutscene/name_background.png" id="9_ot6eh"]
 [ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://general/style/default_theme.tres" id="10_85jcy"]
 [ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://general/script/ui/scrolling-text.gd" id="11_eto5s"]
 
 [node name="WorldLevel" type="Node3D"]
+
+[node name="===CAMERA========" type="Node3D" parent="."]
 
 [node name="MainCamera" type="Camera3D" parent="."]
 current = true
@@ -32,11 +36,14 @@ event_manager = ExtResource("4_f2xca")
 
 [node name="InputManager" type="Node" parent="."]
 script = ExtResource("2_8d011")
+active_handler = ExtResource("5_ot6eh")
 
-[node name="SceneEventManager" type="Node" parent="." node_paths=PackedStringArray("scene_animator_handler", "default_dialogue_area")]
+[node name="SceneEventManager" type="Node" parent="." node_paths=PackedStringArray("scene_animator_handler", "default_dialogue_area", "input_manager")]
 script = ExtResource("2_t3rax")
 scene_animator_handler = NodePath("../SceneAnimator/AnimationHandler")
 default_dialogue_area = NodePath("../CanvasLayer/WorldDialogueBox")
+input_manager = NodePath("../InputManager")
+dialogue_input_handler = ExtResource("6_ilpj6")
 manager = ExtResource("4_f2xca")
 
 [node name="SaveManager" type="Node" parent="."]

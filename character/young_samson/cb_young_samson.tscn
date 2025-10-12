@@ -91,14 +91,18 @@ node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_anima
 size = Vector3(2, 3, 1.75)
 
 [node name="CBYoungSamson" node_paths=PackedStringArray("character_actor", "interaction_area", "character_animator") instance=ExtResource("1_xxfsn")]
+collision_layer = 3
 character_actor = NodePath("YoungSamsonActor")
 interaction_area = NodePath("YoungSamsonActor/InteractionArea")
 character_animator = NodePath("YoungSamsonActor/CharacterAnimationTree")
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.703077, 0)
 
 [node name="YoungSamsonActor" parent="." index="1" instance=ExtResource("2_2lpp4")]
+
+[node name="YoungSamsonSkin" parent="YoungSamsonActor" index="0"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.699458, 0)
 
 [node name="CharacterAnimationTree" parent="YoungSamsonActor" index="4"]
 tree_root = SubResource("AnimationNodeBlendTree_p8cho")
