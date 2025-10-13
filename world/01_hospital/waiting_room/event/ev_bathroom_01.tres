@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://j38ww74aqjqe"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_1ncq4"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_4mu7s"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_qtkbf"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_4mu7s")
+
+[sub_resource type="Resource" id="Resource_4mu7s"]
+script = ExtResource("2_qtkbf")
+outputs = Array[int]([])
+inputs = ["I'm afraid", "young_samson", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_1ncq4")
+can_interupt = false
+await_event = true
+frequency = 2
+start_task = SubResource("Resource_4mu7s")
+tasks = Array[ExtResource("2_qtkbf")]([SubResource("Resource_4mu7s")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

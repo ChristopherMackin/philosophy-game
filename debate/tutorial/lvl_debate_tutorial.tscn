@@ -1027,10 +1027,11 @@ computer_hand_ui = NodePath("../PlayArea/Computer/ComputerStats/Hand/Count")
 manager = ExtResource("11_bsb2g")
 metadata/_custom_type_script = "uid://dhulr5f133qcw"
 
-[node name="SceneEventManager" type="Node" parent="." node_paths=PackedStringArray("scene_animator_handler", "actors", "input_manager")]
+[node name="SceneEventManager" type="Node" parent="." node_paths=PackedStringArray("scene_animator_handler", "actors", "default_dialogue_area", "input_manager")]
 script = ExtResource("12_vqxp2")
 scene_animator_handler = NodePath("../SceneAnimator/AnimationHandler")
 actors = [NodePath("../YoungSamsonActor"), NodePath("../SimonActor")]
+default_dialogue_area = NodePath("../PlayArea/Player/BasicDialogueBubble")
 input_manager = NodePath("../InputManager")
 dialogue_input_handler = ExtResource("13_cv53w")
 manager = ExtResource("3_pnbyu")
@@ -1179,7 +1180,7 @@ bones/28/rotation = Quaternion(0.00705786, 0.913792, 0.40612, 0.000277099)
 bones/29/rotation = Quaternion(9.90806e-07, 0.0239037, -5.47604e-07, 0.999714)
 bones/30/position = Vector3(0.672594, 1.09417, 0.00324741)
 bones/30/rotation = Quaternion(1.58715e-23, 1.46323e-06, 0, 1)
-bones/31/position = Vector3(0.0815765, -9.74932e-06, 3.79121e-10)
+bones/31/position = Vector3(0.0815765, -9.74934e-06, 3.81866e-10)
 bones/31/rotation = Quaternion(-2.25537e-10, -1.37868e-06, -1.37873e-06, 1)
 bones/31/scale = Vector3(1, 1, 1)
 bones/32/position = Vector3(0.672594, -0.128914, 0.00324741)

@@ -4,4 +4,4 @@
 
 [node name="SceneManager" type="Node"]
 script = ExtResource("1_cdsrf")
-_scene_list = Array[String](["res://world/joys_appartment/lvl_joys_apartment.tscn", "res://world/webber_house/lvl_webber_living_room.tscn"])
+_scene_list = Array[String](["res://cutscene/cut_prelude.tscn", "res://world/01_hospital/waiting_room/lvl_hospital_waiting_room.tscn"])

@@ -2,6 +2,9 @@ extends Node
 
 class_name SceneLoadManager
 
+signal on_scene_load
+signal _event_finished
+
 @export var event_manager: EventManager
 @export var blackboard: Blackboard
 @export var event_factory: EventFactory
@@ -12,6 +15,9 @@ func _ready():
 	
 	if event_factory:
 		query_event.call_deferred()
+		await _event_finished
+	
+	on_scene_load.emit()
 
 func query_event():
 	var query : Dictionary
@@ -27,3 +33,5 @@ func query_event():
 		await event_manager.start_event(event)
 	else:
 		event_manager.start_event(event)
+	
+	_event_finished.emit()

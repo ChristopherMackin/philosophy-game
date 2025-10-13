@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://m2fsq1a2vk6"]
+[gd_scene load_steps=66 format=3 uid="uid://m2fsq1a2vk6"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_3r1kw"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_qxgj8"]
@@ -13,12 +13,17 @@
 [ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="8_lj4x8"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="9_b0ff8"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="9_tusbe"]
-[ext_resource type="PackedScene" uid="uid://68cejhmeamon" path="res://asset/world/hospital/hospital_waiting_room.glb" id="10_78jc1"]
+[ext_resource type="PackedScene" uid="uid://68cejhmeamon" path="res://asset/world/01_hospital/hospital_waiting_room.glb" id="10_78jc1"]
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="10_fhm6w"]
 [ext_resource type="PackedScene" uid="uid://cb38p6q7g6lab" path="res://character/young_samson/cb_young_samson.tscn" id="11_ik6mw"]
 [ext_resource type="Resource" uid="uid://qk3tq41ywmr6" path="res://world/01_hospital/waiting_room/event/ev_vending_machine_01.tres" id="15_ypuf2"]
 [ext_resource type="Script" uid="uid://bexeevctdvv0t" path="res://system/script/event/event_trigger.gd" id="16_lj4x8"]
 [ext_resource type="Resource" uid="uid://curl4y87vmqru" path="res://world/01_hospital/waiting_room/event/ev_simon_01.tres" id="17_b0ff8"]
+[ext_resource type="Resource" uid="uid://j38ww74aqjqe" path="res://world/01_hospital/waiting_room/event/ev_bathroom_01.tres" id="18_78jc1"]
+[ext_resource type="Texture2D" uid="uid://bwiu7cr8dhn1e" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/intro_01.jpg" id="19_uc58m"]
+[ext_resource type="Texture2D" uid="uid://bwpd6jlrcbqek" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/intro_02.jpg" id="20_6qhs7"]
+[ext_resource type="Texture2D" uid="uid://bfayrg83bjjs7" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/intro_03.jpg" id="21_004ox"]
+[ext_resource type="Texture2D" uid="uid://dy5t10dsws8ng" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/intro_04.jpg" id="22_1mgba"]
 
 [sub_resource type="Resource" id="Resource_e1cpf"]
 script = ExtResource("3_njvbj")
@@ -98,6 +103,89 @@ metadata/_custom_type_script = "uid://dftjqkpxopsus"
 script = ExtResource("8_lj4x8")
 payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_uc58m")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"
+
+[sub_resource type="Resource" id="Resource_6qhs7"]
+script = ExtResource("10_fhm6w")
+concept = 5
+criteria = Array[ExtResource("9_tusbe")]([])
+metadata/_custom_type_script = "uid://bal31j6jwdxqy"
+
+[sub_resource type="Resource" id="Resource_004ox"]
+script = ExtResource("7_ypuf2")
+event = ExtResource("18_78jc1")
+rule = SubResource("Resource_6qhs7")
+metadata/_custom_type_script = "uid://dftjqkpxopsus"
+
+[sub_resource type="Resource" id="Resource_1mgba"]
+script = ExtResource("8_lj4x8")
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_004ox")])
+metadata/_custom_type_script = "uid://dghxtp7la36tj"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vhnqu"]
+size = Vector3(1, 2.39014, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_ot6eh"]
+
+[sub_resource type="Animation" id="Animation_ik6mw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../===STORYBOARD========/Image:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../===STORYBOARD========/Image:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ImageTexture_ot6eh")]
+}
+
+[sub_resource type="Animation" id="Animation_78jc1"]
+resource_name = "intro"
+length = 14.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../===STORYBOARD========/Image:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.06667, 6.26667, 10.0333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("19_uc58m"), ExtResource("20_6qhs7"), ExtResource("21_004ox"), ExtResource("22_1mgba")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../===STORYBOARD========/Image:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ik6mw"]
+_data = {
+&"RESET": SubResource("Animation_ik6mw"),
+&"intro": SubResource("Animation_78jc1")
+}
 
 [sub_resource type="Environment" id="Environment_qtj8i"]
 background_mode = 1
@@ -202,12 +290,12 @@ node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_anima
 
 [node name="MainCamera" parent="===CAMERA========" index="0"]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -9.50085, 3.11036, 4.90515)
+transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -8.70819, 3.11042, 4.90518)
 fov = 45.0
 far = 100.0
 
 [node name="MainAngle" type="Node3D" parent="===CAMERA========" index="1" node_paths=PackedStringArray("follow_target", "follow_path")]
-transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -9.50085, 3.11036, 4.90515)
+transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -8.70819, 3.11042, 4.90518)
 top_level = true
 script = ExtResource("2_qxgj8")
 priority = 1
@@ -271,13 +359,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7899, 1.11191, -4.14017)
 shape = SubResource("BoxShape3D_ypuf2")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
-[node name="Timer" type="Timer" parent="===EVENT========" index="2"]
-wait_time = 5.0
+[node name="SimonTimer" type="Timer" parent="===EVENT========" index="2"]
+wait_time = 60.0
 one_shot = true
-autostart = true
 script = ExtResource("16_lj4x8")
 event_manager = ExtResource("9_b0ff8")
 event_factory = SubResource("Resource_x4ed0")
+
+[node name="Bathroom" type="Area3D" parent="===EVENT========" index="3"]
+collision_layer = 16384
+collision_mask = 0
+script = ExtResource("6_fhm6w")
+event_factory = SubResource("Resource_1mgba")
+event_manager = ExtResource("9_b0ff8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="===EVENT========/Bathroom" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2465, 0.896329, 0.593194)
+shape = SubResource("BoxShape3D_vhnqu")
+
+[node name="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_ik6mw")
+}
 
 [node name="WorldEnvironment" parent="===WORLD========" index="0"]
 environment = SubResource("Environment_qtj8i")
@@ -290,17 +393,23 @@ transform = Transform3D(1, 1.21652e-31, 0, 1.21652e-31, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_e1cpf")
 
 [node name="CBYoungSamson" parent="===ACTOR========" index="0" node_paths=PackedStringArray("camera") instance=ExtResource("11_ik6mw")]
-transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, -11.0154, -2.07756e-12, 0.70093)
+transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, -8.70776, -2.07854e-12, 0.198626)
 camera = NodePath("../../===CAMERA========/MainCamera")
+move_speed = 1.0
+acceleration = 5.0
 
 [node name="CharacterAnimationTree" parent="===ACTOR========/CBYoungSamson/YoungSamsonActor" index="4"]
 tree_root = SubResource("AnimationNodeBlendTree_fhm6w")
 
 [node name="PortraitCamera" parent="===UI========/WorldDialogueBox/Portrait/SubViewport" index="0"]
 physics_interpolation_mode = 1
-transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, -11.0032, 1.29199, 1.86384)
+transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, -8.69555, 1.29199, 1.36154)
 
-[connection signal="timeout" from="===EVENT========/Timer" to="===EVENT========/Timer" method="query_event"]
+[node name="Image" parent="===STORYBOARD========" index="0"]
+texture = SubResource("ImageTexture_ot6eh")
+
+[connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===EVENT========/SimonTimer" method="start"]
+[connection signal="timeout" from="===EVENT========/SimonTimer" to="===EVENT========/SimonTimer" method="query_event"]
 
 [editable path="===ACTOR========/CBYoungSamson"]
 [editable path="===ACTOR========/CBYoungSamson/YoungSamsonActor"]

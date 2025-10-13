@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjv4hqyvjwdsh"]
+[gd_scene load_steps=15 format=3 uid="uid://bjv4hqyvjwdsh"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_qlsal"]
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save_manager.gd" id="1_xgvwx"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://asset/cutscene/name_background.png" id="9_ot6eh"]
 [ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://general/style/default_theme.tres" id="10_85jcy"]
 [ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://general/script/ui/scrolling-text.gd" id="11_eto5s"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ot6eh"]
 
 [node name="WorldLevel" type="Node3D"]
 
@@ -197,3 +199,14 @@ visible_characters_behavior = 1
 visible_ratio = 0.0
 script = ExtResource("11_eto5s")
 metadata/_custom_type_script = "uid://vyqjymdwc8ae"
+
+[node name="===STORYBOARD========" type="CanvasLayer" parent="."]
+
+[node name="Image" type="TextureRect" parent="===STORYBOARD========"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ImageTexture_ot6eh")

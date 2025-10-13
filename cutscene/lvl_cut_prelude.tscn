@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dp5ktcf5rd31l"]
+[gd_scene load_steps=7 format=3 uid="uid://dp5ktcf5rd31l"]
 
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://cutscene/prelude_scene_manager.gd" id="1_vumy4"]
-[ext_resource type="PackedScene" uid="uid://twhu5babtfhe" path="res://scene_management/screen_transition/fade_to_black.tscn" id="2_sbktw"]
 [ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://general/style/default_theme.tres" id="3_s4d3p"]
 [ext_resource type="PackedScene" uid="uid://bsd5rt1g6ytnr" path="res://cutscene/packed_scene/cutscene_subtitles.tscn" id="4_y7hlm"]
 
@@ -82,7 +81,7 @@ _data = {
 
 [node name="Prelude" type="Node3D"]
 script = ExtResource("1_vumy4")
-transition = ExtResource("2_sbktw")
+scene_name = "lvl_hospital_waiting_room"
 
 [node name="===CUTSCENE========" type="Node3D" parent="."]
 
