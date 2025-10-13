@@ -18,10 +18,10 @@
 
 [node name="===CAMERA========" type="Node3D" parent="."]
 
-[node name="MainCamera" type="Camera3D" parent="."]
+[node name="MainCamera" type="Camera3D" parent="===CAMERA========"]
 current = true
 
-[node name="PhantomCameraHost" type="Node" parent="MainCamera"]
+[node name="PhantomCameraHost" type="Node" parent="===CAMERA========/MainCamera"]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("1_qlsal")
@@ -30,64 +30,65 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="===MANAGER========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="SceneLoadManager" type="Node" parent="."]
+[node name="SceneLoadManager" type="Node" parent="===MANAGER========"]
 script = ExtResource("2_be1jf")
 event_manager = ExtResource("4_f2xca")
 
-[node name="InputManager" type="Node" parent="."]
+[node name="InputManager" type="Node" parent="===MANAGER========"]
 script = ExtResource("2_8d011")
 active_handler = ExtResource("5_ot6eh")
 
-[node name="SceneEventManager" type="Node" parent="." node_paths=PackedStringArray("scene_animator_handler", "default_dialogue_area", "input_manager")]
+[node name="SceneEventManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("scene_animator_handler", "default_dialogue_area", "input_manager")]
 script = ExtResource("2_t3rax")
-scene_animator_handler = NodePath("../SceneAnimator/AnimationHandler")
-default_dialogue_area = NodePath("../CanvasLayer/WorldDialogueBox")
+scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
+default_dialogue_area = NodePath("../../===UI========/WorldDialogueBox")
 input_manager = NodePath("../InputManager")
 dialogue_input_handler = ExtResource("6_ilpj6")
 manager = ExtResource("4_f2xca")
 
-[node name="SaveManager" type="Node" parent="."]
+[node name="SaveManager" type="Node" parent="===MANAGER========"]
 script = ExtResource("1_xgvwx")
 metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
 
+[node name="===EVENT========" type="Node3D" parent="."]
+
 [node name="===GAMEPLAY========" type="Node3D" parent="."]
 
-[node name="SpawnLocations" type="Node3D" parent="."]
+[node name="SpawnLocations" type="Node3D" parent="===GAMEPLAY========"]
 
 [node name="===CUTSCENE========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="SceneAnimator" type="Node" parent="."]
+[node name="SceneAnimator" type="Node" parent="===CUTSCENE========"]
 
-[node name="AnimationHandler" type="Node" parent="SceneAnimator" node_paths=PackedStringArray("animation_player")]
+[node name="AnimationHandler" type="Node" parent="===CUTSCENE========/SceneAnimator" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("5_t3rax")
 animation_player = NodePath("../AnimationPlayer")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SceneAnimator"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator"]
 
 [node name="===AUDIO========" type="Node3D" parent="."]
 
 [node name="===WORLD========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="===WORLD========"]
 
 [node name="===ENVIRONMENT========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="Model" type="Node3D" parent="."]
+[node name="Model" type="Node3D" parent="===ENVIRONMENT========"]
+transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, -2.08165e-12, -2.08165e-12, -2.08165e-12)
 
-[node name="Collision" type="StaticBody3D" parent="."]
+[node name="Collision" type="StaticBody3D" parent="===ENVIRONMENT========"]
+transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, -2.08165e-12, -2.08165e-12, -2.08165e-12)
 
 [node name="===ACTOR========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="===UI========" type="Node3D" parent="."]
-transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+[node name="===UI========" type="CanvasLayer" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="WorldDialogueBox" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("scrolling_text", "speaker_label")]
+[node name="WorldDialogueBox" type="Control" parent="===UI========" node_paths=PackedStringArray("scrolling_text", "speaker_label", "speaker_control")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,11 +101,12 @@ grow_vertical = 2
 script = ExtResource("8_ilpj6")
 scrolling_text = NodePath("MarginContainer/ScrollingText")
 speaker_label = NodePath("SpeakerBackground/Speaker")
+speaker_control = NodePath("SpeakerBackground")
 normal_characters_per_second = 20
 quick_characters_per_second = 40
 metadata/_edit_use_anchors_ = true
 
-[node name="Portrait" type="SubViewportContainer" parent="CanvasLayer/WorldDialogueBox"]
+[node name="Portrait" type="SubViewportContainer" parent="===UI========/WorldDialogueBox"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -118,18 +120,18 @@ grow_horizontal = 0
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/WorldDialogueBox/Portrait"]
+[node name="SubViewport" type="SubViewport" parent="===UI========/WorldDialogueBox/Portrait"]
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 4
 
-[node name="PortraitCamera" type="Camera3D" parent="CanvasLayer/WorldDialogueBox/Portrait/SubViewport"]
+[node name="PortraitCamera" type="Camera3D" parent="===UI========/WorldDialogueBox/Portrait/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 1.29199, 0.54915)
 cull_mask = 524288
 fov = 45.0
 far = 10.0
 
-[node name="PortraitCamera" type="Node" parent="CanvasLayer/WorldDialogueBox/Portrait/SubViewport/PortraitCamera"]
+[node name="PortraitCamera" type="Node" parent="===UI========/WorldDialogueBox/Portrait/SubViewport/PortraitCamera"]
 process_priority = 300
 process_physics_priority = 300
 auto_translate_mode = 2
@@ -137,7 +139,7 @@ script = ExtResource("1_qlsal")
 host_layers = 524288
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="SpeakerBackground" type="TextureRect" parent="CanvasLayer/WorldDialogueBox"]
+[node name="SpeakerBackground" type="TextureRect" parent="===UI========/WorldDialogueBox"]
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 128.0
@@ -145,7 +147,7 @@ texture = ExtResource("9_ot6eh")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="Speaker" type="RichTextLabel" parent="CanvasLayer/WorldDialogueBox/SpeakerBackground"]
+[node name="Speaker" type="RichTextLabel" parent="===UI========/WorldDialogueBox/SpeakerBackground"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -168,7 +170,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/WorldDialogueBox"]
+[node name="MarginContainer" type="MarginContainer" parent="===UI========/WorldDialogueBox"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -182,7 +184,7 @@ theme_override_constants/margin_right = 80
 theme_override_constants/margin_bottom = 10
 metadata/_edit_use_anchors_ = true
 
-[node name="ScrollingText" type="RichTextLabel" parent="CanvasLayer/WorldDialogueBox/MarginContainer"]
+[node name="ScrollingText" type="RichTextLabel" parent="===UI========/WorldDialogueBox/MarginContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.137255, 0.0862745, 0.0588235, 1)

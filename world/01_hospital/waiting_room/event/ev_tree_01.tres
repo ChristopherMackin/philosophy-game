@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Event" load_steps=7 format=3 uid="uid://xapilrhg3oc6"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_l7d3q"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_thwbs"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_y0gof"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_y0gof")
+
+[sub_resource type="Resource" id="Resource_y0gof"]
+script = ExtResource("2_thwbs")
+outputs = Array[int]([1])
+inputs = ["The tree sparkles brightly, just like the one at home", "", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_8kuim"]
+script = ExtResource("2_thwbs")
+outputs = Array[int]([])
+inputs = ["I wonder what gifts will be waiting for me when I get home!", "young_samson", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_l7d3q")
+can_interupt = false
+await_event = true
+frequency = 2
+start_task = SubResource("Resource_y0gof")
+tasks = Array[ExtResource("2_thwbs")]([SubResource("Resource_y0gof"), SubResource("Resource_8kuim")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

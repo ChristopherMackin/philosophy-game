@@ -45,18 +45,28 @@ func _end_event(event: Event):
 	input_manager.active_handler = replaced_input_handler
 
 func display_dialogue(line : String, actor : String, await_input : bool, seconds_before_close : float):
-	var index = get_actor_index(actor)
-	if index < 0:
-		push_error("MISSING LINE \nACTOR: \"%s\"\n LINE: %s" % [actor, line])
-		return
+	var current_actor: Actor = null
 	
-	var current_actor = actors[index]
-	var dialogue_area: DialogueArea = default_dialogue_area if current_actor.dialogue_area_override == null else current_actor.dialogue_area_override
+	if actor != "":
+		var index = get_actor_index(actor)
+		if index < 0:
+			push_error("MISSING LINE \nACTOR: \"%s\"\n LINE: %s" % [actor, line])
+			return
+		current_actor = actors[index]
 	
-	current_actor.focus_actor(true)
+	var dialogue_area: DialogueArea = default_dialogue_area
+	
 	dialogue_area.visible = true
-	dialogue_area.set_text(line, current_actor.actor_name)
-	current_actor.is_talking = true
+	
+	if current_actor:
+		if current_actor.dialogue_area_override:
+			dialogue_area = current_actor.dialogue_area_override
+		current_actor.focus_actor(true)
+		current_actor.is_talking = true
+		dialogue_area.set_text(line, current_actor.display_name)
+	
+	else:
+		dialogue_area.set_text(line)
 	
 	await Util.await_any([
 		func(): await dialogue_area.on_dialogue_finished,
@@ -65,21 +75,29 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 	
 	dialogue_area.skip_to_the_end()
 	
-	current_actor.is_talking = false
+	if current_actor:
+		current_actor.is_talking = false
 	
 	if await_event && await_input: await continue_dialogue
 	else : await GlobalTimer.wait_for_seconds(seconds_before_close)
 	
 	dialogue_area.visible = false
-	current_actor.focus_actor(false)
+	
+	if current_actor:
+		current_actor.focus_actor(false)
 
 func cancel_dialogue(actor):
-	var index = get_actor_index(actor)
-	var current_actor = actors[index]
-	var dialogue_area = default_dialogue_area if current_actor.dialogue_area_override == null else current_actor.dialogue_area_override
+	var dialogue_area = default_dialogue_area
+	
+	if actor != "":
+		var index = get_actor_index(actor)
+		var current_actor = actors[index]
+		if current_actor.dialogue_area_override:
+			dialogue_area = current_actor.dialogue_area_override
 
-	dialogue_area.visible = false
-	current_actor.focus_actor(false)
+		current_actor.focus_actor(false)
+	
+		dialogue_area.visible = false
 
 func play_animation(animation : String, actor : String, overwrite_animation: bool, await_animation : bool):
 	var parent

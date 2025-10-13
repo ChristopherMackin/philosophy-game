@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Event" load_steps=7 format=3 uid="uid://qk3tq41ywmr6"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_i1esx"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_vnopf"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="3_aolbi"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_vnopf")
+
+[sub_resource type="Resource" id="Resource_i1esx"]
+script = ExtResource("3_aolbi")
+outputs = Array[int]([1])
+inputs = ["I don't have any money...", "young_samson", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_vnopf"]
+script = ExtResource("3_aolbi")
+outputs = Array[int]([])
+inputs = ["Too bad I don't get my letter from grandpa til tomorrow", "young_samson", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_i1esx")
+can_interupt = false
+await_event = true
+frequency = 2
+start_task = SubResource("Resource_i1esx")
+tasks = Array[ExtResource("3_aolbi")]([SubResource("Resource_i1esx"), SubResource("Resource_vnopf")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

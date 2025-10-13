@@ -1,17 +1,27 @@
-[gd_scene load_steps=16 format=3 uid="uid://m2fsq1a2vk6"]
+[gd_scene load_steps=53 format=3 uid="uid://m2fsq1a2vk6"]
 
-[ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_xklx8"]
-[ext_resource type="Resource" uid="uid://y0i5h5u7acd" path="res://world/01_hospital/bb_hospital.tres" id="2_5b2yd"]
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_58pko"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_0yj8j"]
-[ext_resource type="Resource" uid="uid://bxr41ykmete5i" path="res://world/01_hospital/ef_hospital.tres" id="3_6i3we"]
-[ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_0yj8j"]
-[ext_resource type="PackedScene" uid="uid://68cejhmeamon" path="res://asset/world/hospital/hospital_waiting_room.glb" id="4_5b2yd"]
-[ext_resource type="Script" uid="uid://b12m3u8lqijug" path="res://world/01_hospital/camera_angle_trigger.gd" id="5_e1cpf"]
-[ext_resource type="PackedScene" uid="uid://cb38p6q7g6lab" path="res://character/young_samson/cb_young_samson.tscn" id="6_4f017"]
+[ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_3r1kw"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_qxgj8"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_njvbj"]
+[ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_cvh6f"]
+[ext_resource type="Script" uid="uid://b12m3u8lqijug" path="res://world/01_hospital/camera_angle_trigger.gd" id="5_tusbe"]
+[ext_resource type="Script" uid="uid://dd6d8mjib2ks" path="res://system/script/event/interactable.gd" id="6_fhm6w"]
+[ext_resource type="Resource" uid="uid://y0i5h5u7acd" path="res://world/01_hospital/bb_hospital.tres" id="6_ypuf2"]
+[ext_resource type="Resource" uid="uid://bxr41ykmete5i" path="res://world/01_hospital/ef_hospital.tres" id="7_lj4x8"]
+[ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="7_ypuf2"]
+[ext_resource type="Resource" uid="uid://xapilrhg3oc6" path="res://world/01_hospital/waiting_room/event/ev_tree_01.tres" id="8_cvh6f"]
+[ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="8_lj4x8"]
+[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="9_b0ff8"]
+[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="9_tusbe"]
+[ext_resource type="PackedScene" uid="uid://68cejhmeamon" path="res://asset/world/hospital/hospital_waiting_room.glb" id="10_78jc1"]
+[ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="10_fhm6w"]
+[ext_resource type="PackedScene" uid="uid://cb38p6q7g6lab" path="res://character/young_samson/cb_young_samson.tscn" id="11_ik6mw"]
+[ext_resource type="Resource" uid="uid://qk3tq41ywmr6" path="res://world/01_hospital/waiting_room/event/ev_vending_machine_01.tres" id="15_ypuf2"]
+[ext_resource type="Script" uid="uid://bexeevctdvv0t" path="res://system/script/event/event_trigger.gd" id="16_lj4x8"]
+[ext_resource type="Resource" uid="uid://curl4y87vmqru" path="res://world/01_hospital/waiting_room/event/ev_simon_01.tres" id="17_b0ff8"]
 
 [sub_resource type="Resource" id="Resource_e1cpf"]
-script = ExtResource("3_0yj8j")
+script = ExtResource("3_njvbj")
 duration = 0.5
 transition = 0
 ease = 2
@@ -24,7 +34,7 @@ _data = {
 point_count = 2
 
 [sub_resource type="Resource" id="Resource_0yj8j"]
-script = ExtResource("3_0yj8j")
+script = ExtResource("3_njvbj")
 duration = 0.5
 transition = 0
 ease = 2
@@ -32,7 +42,64 @@ ease = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_e1cpf"]
 size = Vector3(5.37573, 6.35559, 3.09017)
 
-[sub_resource type="Environment" id="Environment_0yj8j"]
+[sub_resource type="Resource" id="Resource_ypuf2"]
+script = ExtResource("10_fhm6w")
+concept = 5
+criteria = Array[ExtResource("9_tusbe")]([])
+metadata/_custom_type_script = "uid://bal31j6jwdxqy"
+
+[sub_resource type="Resource" id="Resource_lj4x8"]
+script = ExtResource("7_ypuf2")
+event = ExtResource("8_cvh6f")
+rule = SubResource("Resource_ypuf2")
+metadata/_custom_type_script = "uid://dftjqkpxopsus"
+
+[sub_resource type="Resource" id="Resource_mmuw0"]
+script = ExtResource("8_lj4x8")
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_lj4x8")])
+metadata/_custom_type_script = "uid://dghxtp7la36tj"
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qtj8i"]
+height = 2.7627
+
+[sub_resource type="Resource" id="Resource_b0ff8"]
+script = ExtResource("10_fhm6w")
+concept = 5
+criteria = Array[ExtResource("9_tusbe")]([])
+metadata/_custom_type_script = "uid://bal31j6jwdxqy"
+
+[sub_resource type="Resource" id="Resource_78jc1"]
+script = ExtResource("7_ypuf2")
+event = ExtResource("15_ypuf2")
+rule = SubResource("Resource_b0ff8")
+metadata/_custom_type_script = "uid://dftjqkpxopsus"
+
+[sub_resource type="Resource" id="Resource_ik6mw"]
+script = ExtResource("8_lj4x8")
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_78jc1")])
+metadata/_custom_type_script = "uid://dghxtp7la36tj"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ypuf2"]
+size = Vector3(2.27, 2.24, 1)
+
+[sub_resource type="Resource" id="Resource_bflrm"]
+script = ExtResource("10_fhm6w")
+concept = 5
+criteria = Array[ExtResource("9_tusbe")]([])
+metadata/_custom_type_script = "uid://bal31j6jwdxqy"
+
+[sub_resource type="Resource" id="Resource_uc58m"]
+script = ExtResource("7_ypuf2")
+event = ExtResource("17_b0ff8")
+rule = SubResource("Resource_bflrm")
+metadata/_custom_type_script = "uid://dftjqkpxopsus"
+
+[sub_resource type="Resource" id="Resource_x4ed0"]
+script = ExtResource("8_lj4x8")
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_uc58m")])
+metadata/_custom_type_script = "uid://dghxtp7la36tj"
+
+[sub_resource type="Environment" id="Environment_qtj8i"]
 background_mode = 1
 background_color = Color(0.247059, 0.156863, 0.113725, 1)
 ambient_light_source = 2
@@ -48,67 +115,192 @@ ssil_enabled = true
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_e1cpf"]
 data = PackedVector3Array(-2.9818, 0.18, -4.9426, 3.0465, 5.7109, -4.9426, 3.0465, 0.18, -4.9426, -2.9818, 0.18, -4.9426, -2.9818, 5.7109, -4.9426, 3.0465, 5.7109, -4.9426, -13.2073, 0.18, -4.9426, -2.9818, 5.7109, -4.9426, -2.9818, 0.18, -4.9426, -13.2073, 0.18, -4.9426, -13.2073, 5.7109, -4.9426, -2.9818, 5.7109, -4.9426, 5.0418, 0.18, 1.7314, 3.0465, 5.7109, 1.7314, 3.0465, 0.18, 1.7314, 5.0418, 0.18, 1.7314, 5.0418, 5.7109, 1.7314, 3.0465, 5.7109, 1.7314, 6, 0.18, 1.7314, 5.0418, 5.7109, 1.7314, 5.0418, 0.18, 1.7314, 6, 0.18, 1.7314, 6, 5.7109, 1.7314, 5.0418, 5.7109, 1.7314, 3.0465, 0, -2.1712, 5.0418, 0, 1.5515, 2.8695, 0, 1.5515, -2.8048, 0, 1.5671, 3.0465, 0, -2.1712, 2.8695, 0, 1.5515, -2.8048, 0, 1.5671, -2.9818, 0, -2.1712, 3.0465, 0, -2.1712, 3.0465, 0, -2.1712, 5.0418, 0, -0.0364, 5.0418, 0, 1.5515, 5.0418, 0, -0.0364, 5.82, 0, 1.5515, 5.0418, 0, 1.5515, 5.0418, 0, -0.0364, 5.82, 0, -0.0364, 5.82, 0, 1.5515, 3.0465, 0, -3.5399, 5.0418, 0, -0.0364, 3.0465, 0, -2.1712, -2.9818, 0, -2.1712, 3.0465, 0, -3.5399, 3.0465, 0, -2.1712, 5.0418, 0, -0.8573, 5.82, 0, -0.0364, 5.0418, 0, -0.0364, 3.0465, 0, -3.5399, 5.0418, 0, -0.8573, 5.0418, 0, -0.0364, 5.0418, 0, -0.8573, 5.82, 0, -0.8573, 5.82, 0, -0.0364, 5.0418, 0, -1.2422, 5.82, 0, -0.8573, 5.0418, 0, -0.8573, 5.0418, 0, -1.2422, 5.82, 0, -1.2428, 5.82, 0, -0.8573, 3.0465, 0, -4.7485, 5.0418, 0, -1.2422, 5.0418, 0, -0.8573, 3.0465, 0, -4.7485, 5.0418, 0, -0.8573, 3.0465, 0, -3.5399, -2.9818, 0, -3.5399, 3.0465, 0, -4.7485, 3.0465, 0, -3.5399, -2.9818, 0, -2.1712, -2.9818, 0, -3.5399, 3.0465, 0, -3.5399, -2.9818, 0, -3.5399, -2.9818, 0, -4.75, 3.0465, 0, -4.7485, -13.0273, 0, -2.1712, -2.9818, 0, -3.5399, -2.9818, 0, -2.1712, -13.0273, 0, -2.1712, -13.0273, 0, -3.5399, -2.9818, 0, -3.5399, -13.0273, 0, 1.5517, -2.9818, 0, -2.1712, -2.8048, 0, 1.5671, -13.0273, 0, 1.5517, -13.0273, 0, -2.1712, -2.9818, 0, -2.1712, -13.0273, 0, -3.5399, -2.9818, 0, -4.75, -2.9818, 0, -3.5399, -13.0273, 0, -3.5399, -13.0273, 0, -4.7505, -2.9818, 0, -4.75, 6, 0.18, -0.8573, 6, 5.7109, -0.0364, 6, 0.18, -0.0364, 6, 0.18, -0.8573, 6, 5.7109, -0.8573, 6, 5.7109, -0.0364, 6, 0.18, -1.438, 6, 5.7109, -0.8573, 6, 0.18, -0.8573, 6, 0.18, -1.438, 6, 5.7109, -1.438, 6, 5.7109, -0.8573, 6, 0.18, -0.0364, 6, 5.7109, -0.0364, 6, 5.7109, 1.7314, 6, 0.18, -0.0364, 6, 5.7109, 1.7314, 6, 0.18, 1.7314, -2.1084, 0.18, 3.8552, -2.7548, 5.7109, 2.8879, -2.7548, 0.18, 2.8879, -2.1084, 0.18, 3.8552, -2.1084, 5.7109, 3.8552, -2.7548, 5.7109, 2.8879, 3.0465, 0.18, -4.9426, 5.0418, 5.7109, -1.438, 5.0418, 0.18, -1.438, 3.0465, 0.18, -4.9426, 3.0465, 5.7109, -4.9426, 5.0418, 5.7109, -1.438, 5.0418, 0.18, -1.438, 6, 5.7109, -1.438, 6, 0.18, -1.438, 5.0418, 0.18, -1.438, 5.0418, 5.7109, -1.438, 6, 5.7109, -1.438, -13.2073, 0.18, -1.9913, -14.0375, 5.7109, -1.9913, -14.0375, 0.18, -1.9913, -13.2073, 0.18, -1.9913, -13.2073, 5.7109, -1.9913, -14.0375, 5.7109, -1.9913, -2.9818, 0.18, 1.7468, -13.2073, 5.7109, 1.7314, -13.2073, 0.18, 1.7314, -2.9818, 0.18, 1.7468, -2.9818, 5.7109, 1.7468, -13.2073, 5.7109, 1.7314, -13.2073, 0.18, -3.7199, -13.2073, 5.7109, -4.9426, -13.2073, 0.18, -4.9426, -13.2073, 0.18, -3.7199, -13.2073, 5.7109, -3.7199, -13.2073, 5.7109, -4.9426, -1.1411, 0.18, 4.5997, -2.1084, 5.7109, 3.8552, -2.1084, 0.18, 3.8552, -1.1411, 0.18, 4.5997, -1.1411, 5.7109, 4.5997, -2.1084, 5.7109, 3.8552, 1.2058, 0.18, 4.5997, -1.1411, 5.7109, 4.5997, -1.1411, 0.18, 4.5997, 1.2058, 0.18, 4.5997, 1.2058, 5.7109, 4.5997, -1.1411, 5.7109, 4.5997, -1.154, 0, 4.4197, 1.9557, 0, 3.8406, 1.2156, 0, 4.4197, -1.154, 0, 4.4197, -1.8915, 0, 3.8544, 1.9557, 0, 3.8406, -1.8915, 0, 3.8544, 2.6055, 0, 2.8731, 1.9557, 0, 3.8406, -1.8915, 0, 3.8544, -2.541, 0, 2.8873, 2.6055, 0, 2.8731, -2.541, 0, 2.8873, 2.8695, 0, 1.5515, 2.6055, 0, 2.8731, -2.541, 0, 2.8873, -2.8048, 0, 1.5671, 2.8695, 0, 1.5515, -14.0375, 0.18, -3.7199, -13.2073, 5.7109, -3.7199, -13.2073, 0.18, -3.7199, -14.0375, 0.18, -3.7199, -14.0375, 5.7109, -3.7199, -13.2073, 5.7109, -3.7199, 2.1732, 0.18, 3.8399, 1.2058, 5.7109, 4.5997, 1.2058, 0.18, 4.5997, 2.1732, 0.18, 3.8399, 2.1732, 5.7109, 3.8399, 1.2058, 5.7109, 4.5997, 2.8195, 0.18, 2.8725, 2.1732, 5.7109, 3.8399, 2.1732, 0.18, 3.8399, 2.8195, 0.18, 2.8725, 2.8195, 5.7109, 2.8725, 2.1732, 5.7109, 3.8399, 3.0465, 0.18, 1.7314, 2.8195, 5.7109, 2.8725, 2.8195, 0.18, 2.8725, 3.0465, 0.18, 1.7314, 3.0465, 5.7109, 1.7314, 2.8195, 5.7109, 2.8725, -2.7548, 0.18, 2.8879, -2.9818, 5.7109, 1.7468, -2.9818, 0.18, 1.7468, -2.7548, 0.18, 2.8879, -2.7548, 5.7109, 2.8879, -2.9818, 5.7109, 1.7468, -14.0375, 0.18, -1.9913, -14.0375, 5.7109, -3.7199, -14.0375, 0.18, -3.7199, -14.0375, 0.18, -1.9913, -14.0375, 5.7109, -1.9913, -14.0375, 5.7109, -3.7199, -13.0273, 0, -2.1712, -13.8576, 0, -3.5399, -13.0273, 0, -3.5399, -13.0273, 0, -2.1712, -13.8576, 0, -2.1712, -13.8576, 0, -3.5399, -13.2073, 0.18, -1.9913, -13.0273, 0.18, 1.5517, -13.2073, 0.18, 1.7314, -13.2073, 0.18, 1.7314, -13.0273, 0.18, 1.5517, -2.8048, 0.18, 1.5671, -13.2073, 0.18, -1.9913, -13.0273, 0.18, -2.1712, -13.0273, 0.18, 1.5517, -13.2073, 0.18, 1.7314, -2.8048, 0.18, 1.5671, -2.9818, 0.18, 1.7468, -14.0375, 0.18, -1.9913, -13.0273, 0.18, -2.1712, -13.2073, 0.18, -1.9913, -2.541, 0.18, 2.8873, -2.9818, 0.18, 1.7468, -2.8048, 0.18, 1.5671, -14.0375, 0.18, -1.9913, -13.8576, 0.18, -2.1712, -13.0273, 0.18, -2.1712, -2.541, 0.18, 2.8873, -2.7548, 0.18, 2.8879, -2.9818, 0.18, 1.7468, -14.0375, 0.18, -3.7199, -13.8576, 0.18, -2.1712, -14.0375, 0.18, -1.9913, -1.8915, 0.18, 3.8544, -2.7548, 0.18, 2.8879, -2.541, 0.18, 2.8873, -14.0375, 0.18, -3.7199, -13.8576, 0.18, -3.5399, -13.8576, 0.18, -2.1712, -1.8915, 0.18, 3.8544, -2.1084, 0.18, 3.8552, -2.7548, 0.18, 2.8879, -13.2073, 0.18, -3.7199, -13.8576, 0.18, -3.5399, -14.0375, 0.18, -3.7199, -1.154, 0.18, 4.4197, -2.1084, 0.18, 3.8552, -1.8915, 0.18, 3.8544, -13.2073, 0.18, -3.7199, -13.0273, 0.18, -3.5399, -13.8576, 0.18, -3.5399, -1.154, 0.18, 4.4197, -1.1411, 0.18, 4.5997, -2.1084, 0.18, 3.8552, -13.2073, 0.18, -4.9426, -13.0273, 0.18, -3.5399, -13.2073, 0.18, -3.7199, -1.1411, 0.18, 4.5997, -1.154, 0.18, 4.4197, 1.2156, 0.18, 4.4197, -13.2073, 0.18, -4.9426, -13.0273, 0.18, -4.7505, -13.0273, 0.18, -3.5399, -1.1411, 0.18, 4.5997, 1.2156, 0.18, 4.4197, 1.2058, 0.18, 4.5997, -2.9818, 0.18, -4.9426, -13.0273, 0.18, -4.7505, -13.2073, 0.18, -4.9426, 1.9557, 0.18, 3.8406, 1.2058, 0.18, 4.5997, 1.2156, 0.18, 4.4197, -2.9818, 0.18, -4.9426, -2.9818, 0.18, -4.75, -13.0273, 0.18, -4.7505, 1.9557, 0.18, 3.8406, 2.1732, 0.18, 3.8399, 1.2058, 0.18, 4.5997, 3.0465, 0.18, -4.9426, -2.9818, 0.18, -4.75, -2.9818, 0.18, -4.9426, 2.6055, 0.18, 2.8731, 2.1732, 0.18, 3.8399, 1.9557, 0.18, 3.8406, 3.0465, 0.18, -4.9426, 3.0465, 0.18, -4.7485, -2.9818, 0.18, -4.75, 2.6055, 0.18, 2.8731, 2.8195, 0.18, 2.8725, 2.1732, 0.18, 3.8399, 5.0418, 0.18, -1.438, 3.0465, 0.18, -4.7485, 3.0465, 0.18, -4.9426, 2.8695, 0.18, 1.5515, 2.8195, 0.18, 2.8725, 2.6055, 0.18, 2.8731, 5.0418, 0.18, -1.438, 5.0418, 0.18, -1.2422, 3.0465, 0.18, -4.7485, 2.8695, 0.18, 1.5515, 3.0465, 0.18, 1.7314, 2.8195, 0.18, 2.8725, 6, 0.18, -1.438, 5.0418, 0.18, -1.2422, 5.0418, 0.18, -1.438, 3.0465, 0.18, 1.7314, 2.8695, 0.18, 1.5515, 5.0418, 0.18, 1.5515, 6, 0.18, -1.438, 5.82, 0.18, -1.2428, 5.0418, 0.18, -1.2422, 3.0465, 0.18, 1.7314, 5.0418, 0.18, 1.5515, 5.0418, 0.18, 1.7314, 6, 0.18, -0.8573, 5.82, 0.18, -1.2428, 6, 0.18, -1.438, 5.0418, 0.18, 1.7314, 5.0418, 0.18, 1.5515, 5.82, 0.18, 1.5515, 6, 0.18, -0.8573, 5.82, 0.18, -0.8573, 5.82, 0.18, -1.2428, 6, 0.18, -0.0364, 5.82, 0.18, -0.8573, 6, 0.18, -0.8573, 6, 0.18, -0.0364, 5.82, 0.18, -0.0364, 5.82, 0.18, -0.8573, 5.0418, 0.18, 1.7314, 5.82, 0.18, 1.5515, 6, 0.18, 1.7314, 6, 0.18, 1.7314, 5.82, 0.18, 1.5515, 5.82, 0.18, -0.0364, 6, 0.18, 1.7314, 5.82, 0.18, -0.0364, 6, 0.18, -0.0364, -13.0273, 0.18, -2.1712, -13.0273, 0, 1.5517, -13.0273, 0.18, 1.5517, -13.0273, 0.18, -2.1712, -13.0273, 0, -2.1712, -13.0273, 0, 1.5517, -2.9818, 0.18, -4.75, -13.0273, 0, -4.7505, -13.0273, 0.18, -4.7505, -2.9818, 0.18, -4.75, -2.9818, 0, -4.75, -13.0273, 0, -4.7505, 5.0418, 0.18, -1.2422, 3.0465, 0, -4.7485, 3.0465, 0.18, -4.7485, 5.0418, 0.18, -1.2422, 5.0418, 0, -1.2422, 3.0465, 0, -4.7485, 5.82, 0.18, -0.8573, 5.82, 0, -1.2428, 5.82, 0.18, -1.2428, 5.82, 0.18, -0.8573, 5.82, 0, -0.8573, 5.82, 0, -1.2428, 5.82, 0.18, -0.0364, 5.82, 0, -0.8573, 5.82, 0.18, -0.8573, 5.82, 0.18, -0.0364, 5.82, 0, -0.0364, 5.82, 0, -0.8573, 5.82, 0.18, 1.5515, 5.82, 0, -0.0364, 5.82, 0.18, -0.0364, 5.82, 0.18, 1.5515, 5.82, 0, 1.5515, 5.82, 0, -0.0364, 5.0418, 0.18, 1.5515, 5.82, 0, 1.5515, 5.82, 0.18, 1.5515, 5.0418, 0.18, 1.5515, 5.0418, 0, 1.5515, 5.82, 0, 1.5515, 2.8695, 0.18, 1.5515, 5.0418, 0, 1.5515, 5.0418, 0.18, 1.5515, 2.8695, 0.18, 1.5515, 2.8695, 0, 1.5515, 5.0418, 0, 1.5515, 5.82, 0.18, -1.2428, 5.0418, 0, -1.2422, 5.0418, 0.18, -1.2422, 5.82, 0.18, -1.2428, 5.82, 0, -1.2428, 5.0418, 0, -1.2422, -13.0273, 0.18, -4.7505, -13.0273, 0, -3.5399, -13.0273, 0.18, -3.5399, -13.0273, 0.18, -4.7505, -13.0273, 0, -4.7505, -13.0273, 0, -3.5399, -2.541, 0, 2.8873, -2.8048, 0.18, 1.5671, -2.8048, 0, 1.5671, -2.541, 0, 2.8873, -2.541, 0.18, 2.8873, -2.8048, 0.18, 1.5671, -1.8915, 0, 3.8544, -2.541, 0.18, 2.8873, -2.541, 0, 2.8873, -1.8915, 0, 3.8544, -1.8915, 0.18, 3.8544, -2.541, 0.18, 2.8873, -1.154, 0, 4.4197, -1.8915, 0.18, 3.8544, -1.8915, 0, 3.8544, -1.154, 0, 4.4197, -1.154, 0.18, 4.4197, -1.8915, 0.18, 3.8544, -1.154, 0.18, 4.4197, 1.2156, 0, 4.4197, 1.2156, 0.18, 4.4197, -1.154, 0.18, 4.4197, -1.154, 0, 4.4197, 1.2156, 0, 4.4197, 1.9557, 0, 3.8406, 1.2156, 0.18, 4.4197, 1.2156, 0, 4.4197, 1.9557, 0, 3.8406, 1.9557, 0.18, 3.8406, 1.2156, 0.18, 4.4197, 2.6055, 0, 2.8731, 1.9557, 0.18, 3.8406, 1.9557, 0, 3.8406, 2.6055, 0, 2.8731, 2.6055, 0.18, 2.8731, 1.9557, 0.18, 3.8406, 2.8695, 0, 1.5515, 2.6055, 0.18, 2.8731, 2.6055, 0, 2.8731, 2.8695, 0, 1.5515, 2.8695, 0.18, 1.5515, 2.6055, 0.18, 2.8731, 3.0465, 0.18, -4.7485, -2.9818, 0, -4.75, -2.9818, 0.18, -4.75, 3.0465, 0.18, -4.7485, 3.0465, 0, -4.7485, -2.9818, 0, -4.75, -13.0273, 0.18, 1.5517, -2.8048, 0, 1.5671, -2.8048, 0.18, 1.5671, -13.0273, 0.18, 1.5517, -13.0273, 0, 1.5517, -2.8048, 0, 1.5671, -13.8576, 0.18, -3.5399, -13.8576, 0, -2.1712, -13.8576, 0.18, -2.1712, -13.8576, 0.18, -3.5399, -13.8576, 0, -3.5399, -13.8576, 0, -2.1712, -13.0273, 0.18, -3.5399, -13.8576, 0, -3.5399, -13.8576, 0.18, -3.5399, -13.0273, 0.18, -3.5399, -13.0273, 0, -3.5399, -13.8576, 0, -3.5399, -13.8576, 0.18, -2.1712, -13.0273, 0, -2.1712, -13.0273, 0.18, -2.1712, -13.8576, 0.18, -2.1712, -13.8576, 0, -2.1712, -13.0273, 0, -2.1712, -13.2073, 0.18, 1.7314, -13.2073, 5.7109, -1.9913, -13.2073, 0.18, -1.9913, -13.2073, 0.18, 1.7314, -13.2073, 5.7109, 1.7314, -13.2073, 5.7109, -1.9913)
 
-[node name="LvlHospitalWaitingRoom" instance=ExtResource("1_xklx8")]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qfv6"]
+animation = &"walk"
 
-[node name="MainCamera" parent="." index="1"]
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_8dv24"]
+filter_enabled = true
+filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4f1rm"]
+animation = &"blink"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dlmfx"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ja5cw"]
+autorestart = true
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_sijwa"]
+filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dv24"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bxpyq"]
+animation = &"idle_variant_01"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_4f1rm"]
+fadein_time = 0.3
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_s6d67"]
+fadein_time = 0.3
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k26ml"]
+animation = &"talk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lydv1"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_uceat"]
+autorestart = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_axsce"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_k26ml"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_fhm6w"]
+resource_local_to_scene = true
+graph_offset = Vector2(-626.396, -182.127)
+nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
+nodes/action/position = Vector2(-600, -130)
+nodes/animation/node = SubResource("AnimationNodeAdd2_8dv24")
+nodes/animation/position = Vector2(80, 60)
+nodes/blink/node = SubResource("AnimationNodeAnimation_4f1rm")
+nodes/blink/position = Vector2(-890, 470)
+nodes/blink_reset/node = SubResource("AnimationNodeAnimation_dlmfx")
+nodes/blink_reset/position = Vector2(-890, 300)
+nodes/blink_trigger/node = SubResource("AnimationNodeOneShot_ja5cw")
+nodes/blink_trigger/position = Vector2(-480, 260)
+nodes/facial_animation/node = SubResource("AnimationNodeAdd2_sijwa")
+nodes/facial_animation/position = Vector2(-210, 220)
+nodes/idle/node = SubResource("AnimationNodeAnimation_8dv24")
+nodes/idle/position = Vector2(-750, -500)
+nodes/idle_variant/node = SubResource("AnimationNodeAnimation_bxpyq")
+nodes/idle_variant/position = Vector2(-750, -320)
+nodes/idling/node = SubResource("AnimationNodeOneShot_4f1rm")
+nodes/idling/position = Vector2(-530, -440)
+nodes/output/position = Vector2(310, 160)
+nodes/take_action/node = SubResource("AnimationNodeOneShot_s6d67")
+nodes/take_action/position = Vector2(-320, -280)
+nodes/talk/node = SubResource("AnimationNodeAnimation_k26ml")
+nodes/talk/position = Vector2(-890, 820)
+nodes/talk_reset/node = SubResource("AnimationNodeAnimation_lydv1")
+nodes/talk_reset/position = Vector2(-890, 650)
+nodes/talk_trigger/node = SubResource("AnimationNodeOneShot_uceat")
+nodes/talk_trigger/position = Vector2(-480, 600)
+nodes/walk/node = SubResource("AnimationNodeAnimation_axsce")
+nodes/walk/position = Vector2(-320, 30)
+nodes/walking/node = SubResource("AnimationNodeBlend2_k26ml")
+nodes/walking/position = Vector2(-130, -110)
+node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"output", 0, &"animation", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
+
+[node name="LvlHospitalWaitingRoom" instance=ExtResource("1_3r1kw")]
+
+[node name="MainCamera" parent="===CAMERA========" index="0"]
 physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -9.50085, 3.11036, 4.90515)
 fov = 45.0
 far = 100.0
 
-[node name="MainAngle" type="Node3D" parent="." index="2" node_paths=PackedStringArray("follow_target", "follow_path")]
+[node name="MainAngle" type="Node3D" parent="===CAMERA========" index="1" node_paths=PackedStringArray("follow_target", "follow_path")]
 transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -9.50085, 3.11036, 4.90515)
 top_level = true
-script = ExtResource("2_58pko")
+script = ExtResource("2_qxgj8")
 priority = 1
 follow_mode = 4
-follow_target = NodePath("../CBYoungSamson")
+follow_target = NodePath("../../===ACTOR========/CBYoungSamson")
 follow_path = NodePath("../MainAnglePath")
 tween_resource = SubResource("Resource_e1cpf")
 tween_on_load = false
-camera_3d_resource = ExtResource("4_0yj8j")
+camera_3d_resource = ExtResource("4_cvh6f")
 follow_damping = true
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="MainAnglePath" type="Path3D" parent="." index="3"]
+[node name="MainAnglePath" type="Path3D" parent="===CAMERA========" index="2"]
 transform = Transform3D(1, 0, 0, 0, 0.846918, 0.531724, 0, -0.531724, 0.846918, -9.50085, 3.01625, 4.84606)
 curve = SubResource("Curve3D_e1cpf")
 
-[node name="ElevatorAngle" type="Node3D" parent="." index="4"]
+[node name="ElevatorAngle" type="Node3D" parent="===CAMERA========" index="3"]
 transform = Transform3D(1, 0, 0, 0, 0.812623, 0.58279, 0, -0.58279, 0.812623, 5.57899e-05, 3.86356, 6.88134)
-script = ExtResource("2_58pko")
+script = ExtResource("2_qxgj8")
 tween_resource = SubResource("Resource_0yj8j")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="ElevatorAngleTrigger" type="Area3D" parent="." index="5" node_paths=PackedStringArray("angle")]
+[node name="ElevatorAngleTrigger" type="Area3D" parent="===CAMERA========" index="4" node_paths=PackedStringArray("angle")]
 transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("5_e1cpf")
+script = ExtResource("5_tusbe")
 angle = NodePath("../ElevatorAngle")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorAngleTrigger" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="===CAMERA========/ElevatorAngleTrigger" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0938721, 2.6778, 3.22619)
 shape = SubResource("BoxShape3D_e1cpf")
 
-[node name="SceneLoadManager" parent="." index="7"]
-blackboard = ExtResource("2_5b2yd")
-event_factory = ExtResource("3_6i3we")
+[node name="SceneLoadManager" parent="===MANAGER========" index="0"]
+blackboard = ExtResource("6_ypuf2")
+event_factory = ExtResource("7_lj4x8")
 
-[node name="CBYoungSamson" parent="." index="12" node_paths=PackedStringArray("camera") instance=ExtResource("6_4f017")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0154, 0, 0.70093)
-camera = NodePath("../MainCamera")
+[node name="SceneEventManager" parent="===MANAGER========" index="2" node_paths=PackedStringArray("actors")]
+actors = [NodePath("../../===ACTOR========/CBYoungSamson/YoungSamsonActor")]
 
-[node name="WorldEnvironment" parent="." index="18"]
-environment = SubResource("Environment_0yj8j")
+[node name="Tree" type="Area3D" parent="===EVENT========" index="0"]
+collision_layer = 16384
+collision_mask = 0
+script = ExtResource("6_fhm6w")
+event_factory = SubResource("Resource_mmuw0")
+event_manager = ExtResource("9_b0ff8")
 
-[node name="hospital_waiting_room" parent="Model" index="0" instance=ExtResource("4_5b2yd")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="===EVENT========/Tree" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77932, 1.3782, -2.68382)
+shape = SubResource("CylinderShape3D_qtj8i")
 
-[node name="ArchitectureCollision" type="CollisionShape3D" parent="Collision" index="0"]
+[node name="VendingMachine" type="Area3D" parent="===EVENT========" index="1"]
+collision_layer = 16384
+collision_mask = 0
+script = ExtResource("6_fhm6w")
+event_factory = SubResource("Resource_ik6mw")
+event_manager = ExtResource("9_b0ff8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="===EVENT========/VendingMachine" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7899, 1.11191, -4.14017)
+shape = SubResource("BoxShape3D_ypuf2")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="Timer" type="Timer" parent="===EVENT========" index="2"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+script = ExtResource("16_lj4x8")
+event_manager = ExtResource("9_b0ff8")
+event_factory = SubResource("Resource_x4ed0")
+
+[node name="WorldEnvironment" parent="===WORLD========" index="0"]
+environment = SubResource("Environment_qtj8i")
+
+[node name="hospital_waiting_room" parent="===ENVIRONMENT========/Model" index="0" instance=ExtResource("10_78jc1")]
+transform = Transform3D(1, 1.21652e-31, 0, 1.21652e-31, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="ArchitectureCollision" type="CollisionShape3D" parent="===ENVIRONMENT========/Collision" index="0"]
+transform = Transform3D(1, 1.21652e-31, 0, 1.21652e-31, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_e1cpf")
 
-[node name="PortraitCamera" parent="CanvasLayer/WorldDialogueBox/Portrait/SubViewport" index="0"]
-physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0032, 1.29199, 1.86384)
+[node name="CBYoungSamson" parent="===ACTOR========" index="0" node_paths=PackedStringArray("camera") instance=ExtResource("11_ik6mw")]
+transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, -11.0154, -2.07756e-12, 0.70093)
+camera = NodePath("../../===CAMERA========/MainCamera")
 
-[editable path="Model/hospital_waiting_room"]
+[node name="CharacterAnimationTree" parent="===ACTOR========/CBYoungSamson/YoungSamsonActor" index="4"]
+tree_root = SubResource("AnimationNodeBlendTree_fhm6w")
+
+[node name="PortraitCamera" parent="===UI========/WorldDialogueBox/Portrait/SubViewport" index="0"]
+physics_interpolation_mode = 1
+transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, -11.0032, 1.29199, 1.86384)
+
+[connection signal="timeout" from="===EVENT========/Timer" to="===EVENT========/Timer" method="query_event"]
+
+[editable path="===ACTOR========/CBYoungSamson"]
+[editable path="===ACTOR========/CBYoungSamson/YoungSamsonActor"]

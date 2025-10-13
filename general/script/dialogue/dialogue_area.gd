@@ -6,6 +6,7 @@ signal on_dialogue_finished
 
 @export var scrolling_text: ScrollingText
 @export var speaker_label: RichTextLabel
+@export var speaker_control: Control
 
 @export var normal_characters_per_second : int
 @export var quick_characters_per_second : int
@@ -16,7 +17,12 @@ func _ready():
 	scrolling_text.on_scroll_completed.connect(func(): on_dialogue_finished.emit())
 
 func set_text(text: String, speaker_name: String = ""):
-	if speaker_label: speaker_label.text = speaker_name
+	if speaker_label && speaker_name != "": 
+		speaker_control.visible = true
+		speaker_label.text = speaker_name
+	else:
+		speaker_control.visible = false
+	
 	scrolling_text.set_scrolling_text(text)
 
 func stop_scrolling():
