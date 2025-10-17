@@ -79,7 +79,7 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 		current_actor.is_talking = false
 	
 	if await_event && await_input: await continue_dialogue
-	else : await GlobalTimer.wait_for_seconds(seconds_before_close)
+	else: await GlobalTimer.wait_for_seconds(seconds_before_close)
 	
 	dialogue_area.visible = false
 	

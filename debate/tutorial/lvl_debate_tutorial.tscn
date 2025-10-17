@@ -1178,17 +1178,7 @@ bones/27/position = Vector3(1.30807e-08, 0.316624, -1.68142e-08)
 bones/27/rotation = Quaternion(0.314142, -0.573427, 0.289544, 0.699042)
 bones/28/rotation = Quaternion(0.00705786, 0.913792, 0.40612, 0.000277099)
 bones/29/rotation = Quaternion(9.90806e-07, 0.0239037, -5.47604e-07, 0.999714)
-bones/30/position = Vector3(0.672594, 1.09417, 0.00324741)
-bones/30/rotation = Quaternion(1.58715e-23, 1.46323e-06, 0, 1)
-bones/31/position = Vector3(0.0815765, -9.74934e-06, 3.81866e-10)
-bones/31/rotation = Quaternion(-2.25537e-10, -1.37868e-06, -1.37873e-06, 1)
-bones/31/scale = Vector3(1, 1, 1)
-bones/32/position = Vector3(0.672594, -0.128914, 0.00324741)
-bones/32/rotation = Quaternion(-7.69399e-10, 1.58244e-06, -1.21753e-15, 1)
-bones/32/scale = Vector3(1, 1, 1)
-bones/33/position = Vector3(0.0815766, -9.89181e-06, 2.22529e-08)
-bones/33/rotation = Quaternion(1.47535e-09, -1.49789e-06, -1.37867e-06, 1)
-bones/33/scale = Vector3(1, 1, 1)
+bones/31/position = Vector3(0.0815765, -9.74962e-06, 4.11621e-10)
 
 [node name="Arm_L" parent="SimonActor/SimonSkin/root/Skeleton3D" index="0"]
 layers = 5
@@ -1240,9 +1230,6 @@ layers = 5
 
 [node name="Torso" parent="SimonActor/SimonSkin/root/Skeleton3D" index="16"]
 layers = 5
-
-[node name="BoneAttachment3D" parent="SimonActor/SimonSkin/root/Skeleton3D" index="18"]
-transform = Transform3D(1, 5.58794e-09, -6.80415e-05, -3.06917e-06, 0.998985, -0.0450336, 6.79726e-05, 0.0450335, 0.998985, 1.39983e-09, 1.37562, -0.00796936)
 
 [node name="AnimationPlayer" parent="SimonActor/SimonSkin" index="1"]
 libraries = {

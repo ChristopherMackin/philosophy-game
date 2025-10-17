@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp5ktcf5rd31l"]
+[gd_scene load_steps=10 format=3 uid="uid://dp5ktcf5rd31l"]
 
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://cutscene/prelude_scene_manager.gd" id="1_vumy4"]
+[ext_resource type="AudioStream" uid="uid://brspvy678a3sh" path="res://asset/sfx/static.mp3" id="2_g4mq0"]
+[ext_resource type="Shader" uid="uid://capxcs54yhxwx" path="res://general/style/tv_static.gdshader" id="2_vpb4t"]
 [ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://general/style/default_theme.tres" id="3_s4d3p"]
 [ext_resource type="PackedScene" uid="uid://bsd5rt1g6ytnr" path="res://cutscene/packed_scene/cutscene_subtitles.tscn" id="4_y7hlm"]
 
@@ -9,7 +11,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/IntroText:text")
+tracks/0/path = NodePath("===UI========/IntroText:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -21,7 +23,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/IntroText:theme_override_colors/default_color")
+tracks/1/path = NodePath("===UI========/IntroText:theme_override_colors/default_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -30,14 +32,38 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sound/Static:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("===UI========/Background:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.137255, 0.0862745, 0.0588235, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ljv7t"]
 resource_name = "intro_01"
-length = 19.0
+length = 22.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/IntroText:text")
+tracks/0/path = NodePath("===UI========/IntroText:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -49,11 +75,11 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/IntroText:theme_override_colors/default_color")
+tracks/1/path = NodePath("===UI========/IntroText:theme_override_colors/default_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1, 3, 6, 7, 9, 11, 12, 14, 17, 18),
+"times": PackedFloat32Array(1, 3, 6, 7, 9, 11, 12, 14, 19.5333, 20.5333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -65,12 +91,51 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(19),
+"times": PackedFloat32Array(22),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"progress"
 }]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sound/Static")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_g4mq0")
+}],
+"times": PackedFloat32Array(15.3667)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sound/Static:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(15.4333, 16, 21.3333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-80.0, -40.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("===UI========/Background:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(16.6667, 21.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.137255, 0.0862745, 0.0588235, 1), Color(0.137255, 0.0862745, 0.0588235, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x84ys"]
@@ -79,23 +144,46 @@ _data = {
 &"intro_01": SubResource("Animation_ljv7t")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4mq0"]
+shader = ExtResource("2_vpb4t")
+shader_parameter/amount = 40.0
+
 [node name="Prelude" type="Node3D"]
 script = ExtResource("1_vumy4")
 scene_name = "lvl_hospital_waiting_room"
 
 [node name="===CUTSCENE========" type="Node3D" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="===CUTSCENE========"]
+root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_x84ys")
 }
 autoplay = "intro_01"
 
-[node name="===UI========" type="Node3D" parent="."]
+[node name="Sound" type="Node3D" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Static" type="AudioStreamPlayer" parent="Sound"]
 
-[node name="Background" type="ColorRect" parent="CanvasLayer"]
+[node name="===UI========" type="CanvasLayer" parent="."]
+
+[node name="TVStatic" type="ColorRect" parent="===UI========"]
+material = SubResource("ShaderMaterial_g4mq0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="===UI========"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.380392, 0.133333, 0.486275, 0.811765)
+
+[node name="Background" type="ColorRect" parent="===UI========"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -103,7 +191,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.137255, 0.0862745, 0.0588235, 1)
 
-[node name="IntroText" type="RichTextLabel" parent="CanvasLayer"]
+[node name="IntroText" type="RichTextLabel" parent="===UI========"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -116,4 +204,4 @@ text = "Train up a child in the way he should go:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CutsceneSubtitles" parent="CanvasLayer" instance=ExtResource("4_y7hlm")]
+[node name="CutsceneSubtitles" parent="===UI========" instance=ExtResource("4_y7hlm")]

@@ -7,10 +7,10 @@
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_v3ruw")
 
-[sub_resource type="Resource" id="Resource_1kxpd"]
+[sub_resource type="Resource" id="Resource_v3ruw"]
 script = ExtResource("2_lbjl6")
 outputs = Array[int]([])
-inputs = ["intro", "", true, true]
+inputs = ["cut_wake", "", true, true]
 action = SubResource("Resource_ml60a")
 
 [resource]
@@ -18,6 +18,6 @@ script = ExtResource("1_74an8")
 can_interupt = true
 await_event = true
 frequency = 0
-start_task = SubResource("Resource_1kxpd")
-tasks = Array[ExtResource("2_lbjl6")]([SubResource("Resource_1kxpd")])
+start_task = SubResource("Resource_v3ruw")
+tasks = Array[ExtResource("2_lbjl6")]([SubResource("Resource_v3ruw")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://w5lrdjtyrsq6"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_8j2aj"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_3ctmo"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_hp7fy"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_3ctmo")
+
+[sub_resource type="Resource" id="Resource_hp7fy"]
+script = ExtResource("2_hp7fy")
+outputs = Array[int]([])
+inputs = ["[shake rate=20.0 level=5 connected=1]It's 12 again. Guess at least it's almost Christmas![/shake]", "young_samson", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_8j2aj")
+can_interupt = false
+await_event = true
+frequency = 2
+start_task = SubResource("Resource_hp7fy")
+tasks = Array[ExtResource("2_hp7fy")]([SubResource("Resource_hp7fy")])

@@ -12,3 +12,19 @@ https://forum.godotengine.org/u/noonicknames/summary for graph help
 https://pastebin.com/Dv29tyAa
 https://pixabay.com/sound-effects/creepy-church-bell-33827/
 Amal Kumar
+
+FX:
+https://www.youtube.com/watch?v=x_s0LmQgjfU
+	"tv_static.shader"
+
+MUSIC/SFX:
+Fm Radio Static Brown Noise by IcedPhoenix49 -- https://freesound.org/s/732437/ -- License: Attribution 4.0
+	"static"
+chair4.wav by lezaarth -- https://freesound.org/s/232241/ -- License: Creative Commons 0
+	"chair_scoot"
+gasp.wav by fotoshop -- https://freesound.org/s/41031/ -- License: Creative Commons 0
+	"kid_gasp"
+Respiración agitada (heavy breathing).wav by Amekiano -- https://freesound.org/s/516696/ -- License: Creative Commons 0
+	"heavy_breathing"
+Door opening, modern apartment, springy #04 by JapanYoshiTheGamer -- https://freesound.org/s/648833/ -- License: Creative Commons 0
+	"door_open"

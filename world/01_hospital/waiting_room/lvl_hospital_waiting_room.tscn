@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://m2fsq1a2vk6"]
+[gd_scene load_steps=106 format=3 uid="uid://m2fsq1a2vk6"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_3r1kw"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_qxgj8"]
@@ -16,18 +16,44 @@
 [ext_resource type="PackedScene" uid="uid://68cejhmeamon" path="res://asset/world/01_hospital/hospital_waiting_room.glb" id="10_78jc1"]
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="10_fhm6w"]
 [ext_resource type="PackedScene" uid="uid://cb38p6q7g6lab" path="res://character/young_samson/cb_young_samson.tscn" id="11_ik6mw"]
+[ext_resource type="Resource" uid="uid://w5lrdjtyrsq6" path="res://world/01_hospital/waiting_room/event/ev_clock_01.tres" id="15_1mgba"]
 [ext_resource type="Resource" uid="uid://qk3tq41ywmr6" path="res://world/01_hospital/waiting_room/event/ev_vending_machine_01.tres" id="15_ypuf2"]
 [ext_resource type="Script" uid="uid://bexeevctdvv0t" path="res://system/script/event/event_trigger.gd" id="16_lj4x8"]
-[ext_resource type="Resource" uid="uid://curl4y87vmqru" path="res://world/01_hospital/waiting_room/event/ev_simon_01.tres" id="17_b0ff8"]
+[ext_resource type="Resource" uid="uid://curl4y87vmqru" path="res://world/01_hospital/waiting_room/event/ev_cut_get_caps_01.tres" id="17_b0ff8"]
 [ext_resource type="Resource" uid="uid://j38ww74aqjqe" path="res://world/01_hospital/waiting_room/event/ev_bathroom_01.tres" id="18_78jc1"]
-[ext_resource type="Texture2D" uid="uid://bwiu7cr8dhn1e" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/intro_01.jpg" id="19_uc58m"]
-[ext_resource type="Texture2D" uid="uid://bwpd6jlrcbqek" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/intro_02.jpg" id="20_6qhs7"]
-[ext_resource type="Texture2D" uid="uid://bfayrg83bjjs7" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/intro_03.jpg" id="21_004ox"]
-[ext_resource type="Texture2D" uid="uid://dy5t10dsws8ng" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/intro_04.jpg" id="22_1mgba"]
+[ext_resource type="AudioStream" uid="uid://2rtsikaw8w71" path="res://asset/sfx/door_open.mp3" id="20_l4stn"]
+[ext_resource type="Texture2D" uid="uid://vh3grcfun8kx" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_01.png" id="21_g3al7"]
+[ext_resource type="Texture2D" uid="uid://dwsu2vy8vpmn4" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_01.png" id="21_lo3dk"]
+[ext_resource type="Texture2D" uid="uid://cbsp5jqblch5u" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_02.png" id="22_bcqfs"]
+[ext_resource type="Texture2D" uid="uid://cxla5t800c0no" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_02.png" id="22_kiegc"]
+[ext_resource type="AudioStream" uid="uid://3gwf2ris55m" path="res://asset/sfx/heavy_breathing.mp3" id="23_1mgba"]
+[ext_resource type="Texture2D" uid="uid://ce8c40jrpc4l8" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_03.png" id="23_62hqk"]
+[ext_resource type="Texture2D" uid="uid://cm1vl3r4i4eo0" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_03.png" id="23_s48k1"]
+[ext_resource type="Texture2D" uid="uid://bo0r6dhacggcl" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_05.png" id="24_62hqk"]
+[ext_resource type="Texture2D" uid="uid://c4muxwgk4ht5x" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_04.png" id="24_bfexw"]
+[ext_resource type="AudioStream" uid="uid://b5bhj4w3bcmnm" path="res://asset/sfx/kid_gasp.mp3" id="24_vhnqu"]
+[ext_resource type="Texture2D" uid="uid://bqskk328ohyde" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_04.png" id="24_wc72f"]
+[ext_resource type="Texture2D" uid="uid://db8coljvjnas0" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_05.png" id="25_g3al7"]
+[ext_resource type="AudioStream" uid="uid://cic7g30wrxidp" path="res://asset/sfx/chair_scoot.mp3" id="25_l4stn"]
+[ext_resource type="Texture2D" uid="uid://cpwuicsd7pcvx" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_06.png" id="25_wc72f"]
+[ext_resource type="Texture2D" uid="uid://bmjm4dmsa2sy8" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_07.png" id="26_5qm56"]
+[ext_resource type="Texture2D" uid="uid://csbmotpfbwgi1" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_06.png" id="26_bcqfs"]
+[ext_resource type="Texture2D" uid="uid://cbsi087bkbnfg" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_08.png" id="27_csewg"]
+[ext_resource type="Texture2D" uid="uid://b0d81nxuga1dp" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_09.png" id="28_1082y"]
+[ext_resource type="Texture2D" uid="uid://4b5ftgasyos8" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_10.png" id="29_cu8m1"]
+[ext_resource type="Texture2D" uid="uid://q12nyqiep763" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_11.png" id="30_1082y"]
+[ext_resource type="Texture2D" uid="uid://dsrroevjdxxx3" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_12.png" id="31_cu8m1"]
+[ext_resource type="Texture2D" uid="uid://hjkksv4yvvm4" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_13.png" id="32_g5nk4"]
+[ext_resource type="Texture2D" uid="uid://cuj61evtkrc45" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_14.png" id="33_b868m"]
+[ext_resource type="Texture2D" uid="uid://b0bour0pnxeeq" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_15.png" id="34_bgbj5"]
+[ext_resource type="Texture2D" uid="uid://vu7grwfsj3xa" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_16.png" id="35_jhfha"]
+[ext_resource type="Texture2D" uid="uid://lvkaeo34qcpi" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_17.png" id="36_jhfha"]
+[ext_resource type="Texture2D" uid="uid://cy6dtr467rnpn" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_18.png" id="37_a7mn4"]
+[ext_resource type="Texture2D" uid="uid://t3uwue5cjkd1" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_19.png" id="38_4d1ew"]
 
 [sub_resource type="Resource" id="Resource_e1cpf"]
 script = ExtResource("3_njvbj")
-duration = 0.5
+duration = 2.5
 transition = 0
 ease = 2
 
@@ -67,6 +93,26 @@ metadata/_custom_type_script = "uid://dghxtp7la36tj"
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qtj8i"]
 height = 2.7627
 
+[sub_resource type="Resource" id="Resource_l4stn"]
+script = ExtResource("10_fhm6w")
+concept = 5
+criteria = Array[ExtResource("9_tusbe")]([])
+metadata/_custom_type_script = "uid://bal31j6jwdxqy"
+
+[sub_resource type="Resource" id="Resource_lhgxm"]
+script = ExtResource("7_ypuf2")
+event = ExtResource("15_ypuf2")
+rule = SubResource("Resource_l4stn")
+metadata/_custom_type_script = "uid://dftjqkpxopsus"
+
+[sub_resource type="Resource" id="Resource_lo3dk"]
+script = ExtResource("8_lj4x8")
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_lhgxm")])
+metadata/_custom_type_script = "uid://dghxtp7la36tj"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1mgba"]
+size = Vector3(2.36935, 2.0853, 0.846832)
+
 [sub_resource type="Resource" id="Resource_b0ff8"]
 script = ExtResource("10_fhm6w")
 concept = 5
@@ -75,17 +121,17 @@ metadata/_custom_type_script = "uid://bal31j6jwdxqy"
 
 [sub_resource type="Resource" id="Resource_78jc1"]
 script = ExtResource("7_ypuf2")
-event = ExtResource("15_ypuf2")
+event = ExtResource("15_1mgba")
 rule = SubResource("Resource_b0ff8")
 metadata/_custom_type_script = "uid://dftjqkpxopsus"
 
-[sub_resource type="Resource" id="Resource_ik6mw"]
+[sub_resource type="Resource" id="Resource_vhnqu"]
 script = ExtResource("8_lj4x8")
 payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_78jc1")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ypuf2"]
-size = Vector3(2.27, 2.24, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_l4stn"]
+size = Vector3(0.715693, 2.55649, 0.275513)
 
 [sub_resource type="Resource" id="Resource_bflrm"]
 script = ExtResource("10_fhm6w")
@@ -152,10 +198,377 @@ tracks/1/keys = {
 "update": 1,
 "values": [SubResource("ImageTexture_ot6eh")]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CutGetGaps/Shot01:priority")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CutGetGaps/Shot02:priority")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CutGetGaps/Shot03:priority")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../===UI========/WorldDialogueBox:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../===UI========/WorldDialogueBox/SpeakerBackground/Speaker:text")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Aaron"]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../===UI========/WorldDialogueBox/MarginContainer/ScrollingText:visible_ratio")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../===UI========/WorldDialogueBox/MarginContainer/ScrollingText:text")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SEE FAITH IN ACTION"]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../CutWake/Shot01:priority")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../CutWake/Shot02:priority")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../../===ACTOR========/CBYoungSamson:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../CutGetGaps/Shot04:priority")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../CutGetGaps/Shot05:priority")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../CutGetGaps/Shot06:priority")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../CutGetGaps/Shot07:priority")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../CutGetGaps/Shot08:priority")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_vhnqu"]
+resource_name = "cut_get_caps"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CutGetGaps/Shot01:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.533333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CutGetGaps/Shot02:priority")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.13333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CutGetGaps/Shot03:priority")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.3, 21.3, 23.3333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 3, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CutGetGaps/Shot04:priority")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CutGetGaps/Shot05:priority")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(12.1667, 16.5667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 3]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../CutGetGaps/Shot06:priority")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(18.7667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../CutGetGaps/Shot07:priority")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(18.8667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../CutGetGaps/Shot08:priority")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(22.5667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../===AUDIO========/DoorOpening")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("20_l4stn")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/8/use_blend = true
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../../===UI========/WorldDialogueBox:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 4.5, 6.23333, 7.2, 10.2, 10.6667, 14.5, 15.8667, 18.0667, 21.1667, 22.6, 25.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../../===UI========/WorldDialogueBox/SpeakerBackground/Speaker:text")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(4.5, 10.3, 21.1333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["Samson", "Simon", "Samson"]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../../===UI========/WorldDialogueBox/MarginContainer/ScrollingText:text")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(4.63333, 7.5, 10.8, 15.8667, 21.1667, 25.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["DAD!!!", "Is she here yet dad?", "Patience, child. She will be here when God is ready", "For now, I must give you a gift.", "But I didn't ask for", "Thank you for the gift."]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../../===UI========/WorldDialogueBox/MarginContainer/ScrollingText:visible_ratio")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(4.63333, 5.26667, 6.23333, 6.73333, 7.5, 8.33333, 10.2, 10.4667, 10.8, 13.5, 14.7, 14.9667, 15.8667, 16.9667, 20.0333, 21.1667, 22.3333, 23, 25.3, 27.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../../===STORYBOARD========/Image:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.5333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../../===STORYBOARD========/Image:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.533333, 2.1, 4.3, 5.03333, 6.6, 7.4, 10.9333, 14.5, 15.5, 16.1, 16.5667, 17.3667, 18.7667, 18.9, 19.0333, 21.3, 21.7, 22.5667, 23.3333, 25.3333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("21_g3al7"), ExtResource("22_bcqfs"), ExtResource("23_62hqk"), ExtResource("24_wc72f"), ExtResource("24_62hqk"), ExtResource("25_wc72f"), ExtResource("26_5qm56"), ExtResource("27_csewg"), ExtResource("28_1082y"), ExtResource("29_cu8m1"), ExtResource("30_1082y"), ExtResource("31_cu8m1"), null, ExtResource("32_g5nk4"), ExtResource("33_b868m"), ExtResource("34_bgbj5"), ExtResource("35_jhfha"), ExtResource("36_jhfha"), ExtResource("37_a7mn4"), ExtResource("38_4d1ew")]
+}
 
 [sub_resource type="Animation" id="Animation_78jc1"]
 resource_name = "intro"
-length = 14.0
+length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -163,10 +576,10 @@ tracks/0/path = NodePath("../../===STORYBOARD========/Image:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4.06667, 6.26667, 10.0333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.133333, 2, 4.46667, 7.73333, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("19_uc58m"), ExtResource("20_6qhs7"), ExtResource("21_004ox"), ExtResource("22_1mgba")]
+"values": [ExtResource("21_lo3dk"), ExtResource("22_kiegc"), ExtResource("23_s48k1"), ExtResource("24_bfexw"), ExtResource("25_g3al7"), ExtResource("26_bcqfs")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -175,17 +588,161 @@ tracks/1/path = NodePath("../../===STORYBOARD========/Image:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 14),
+"times": PackedFloat32Array(0, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../===AUDIO========/HeavyBreathing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 1.1029,
+"start_offset": 0.3971,
+"stream": ExtResource("23_1mgba")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.9118,
+"stream": ExtResource("23_1mgba")
+}],
+"times": PackedFloat32Array(0.1, 2.56667)
+}
+tracks/2/use_blend = true
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../===AUDIO========/Gasp")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("24_vhnqu")
+}],
+"times": PackedFloat32Array(0.0333333)
+}
+tracks/3/use_blend = true
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../===AUDIO========/ChairScoot")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.6,
+"stream": ExtResource("25_l4stn")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.6,
+"stream": ExtResource("25_l4stn")
+}],
+"times": PackedFloat32Array(0, 7.93333)
+}
+tracks/4/use_blend = true
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../CutWake/Shot01:priority")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 6.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../CutWake/Shot02:priority")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.0333333, 6.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../===ACTOR========/CBYoungSamson:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ik6mw"]
 _data = {
 &"RESET": SubResource("Animation_ik6mw"),
-&"intro": SubResource("Animation_78jc1")
+&"cut_get_caps": SubResource("Animation_vhnqu"),
+&"cut_wake": SubResource("Animation_78jc1")
 }
+
+[sub_resource type="Resource" id="Resource_g3al7"]
+script = ExtResource("3_njvbj")
+duration = 0.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_bcqfs"]
+script = ExtResource("3_njvbj")
+duration = 6.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_kiegc"]
+script = ExtResource("3_njvbj")
+duration = 0.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_s48k1"]
+script = ExtResource("3_njvbj")
+duration = 2.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_bfexw"]
+script = ExtResource("3_njvbj")
+duration = 0.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_8rtte"]
+script = ExtResource("3_njvbj")
+duration = 0.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_1082y"]
+script = ExtResource("3_njvbj")
+duration = 0.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_cu8m1"]
+script = ExtResource("3_njvbj")
+duration = 3.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_uxids"]
+script = ExtResource("3_njvbj")
+duration = 0.0
+transition = 0
+ease = 2
 
 [sub_resource type="Environment" id="Environment_qtj8i"]
 background_mode = 1
@@ -289,8 +846,7 @@ node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_anima
 [node name="LvlHospitalWaitingRoom" instance=ExtResource("1_3r1kw")]
 
 [node name="MainCamera" parent="===CAMERA========" index="0"]
-physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -8.70819, 3.11042, 4.90518)
+transform = Transform3D(-4.26082e-08, -0.22325, -0.974761, -9.75857e-09, 0.974761, -0.22325, 1, -2.43012e-16, -4.37114e-08, 3.87339, 1.07453, 0.163754)
 fov = 45.0
 far = 100.0
 
@@ -351,22 +907,34 @@ shape = SubResource("CylinderShape3D_qtj8i")
 collision_layer = 16384
 collision_mask = 0
 script = ExtResource("6_fhm6w")
-event_factory = SubResource("Resource_ik6mw")
+event_factory = SubResource("Resource_lo3dk")
 event_manager = ExtResource("9_b0ff8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="===EVENT========/VendingMachine" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7899, 1.11191, -4.14017)
-shape = SubResource("BoxShape3D_ypuf2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7371, 0.89734, -4.12838)
+shape = SubResource("BoxShape3D_1mgba")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
-[node name="SimonTimer" type="Timer" parent="===EVENT========" index="2"]
+[node name="Clock" type="Area3D" parent="===EVENT========" index="2"]
+collision_layer = 16384
+collision_mask = 0
+script = ExtResource("6_fhm6w")
+event_factory = SubResource("Resource_vhnqu")
+event_manager = ExtResource("9_b0ff8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="===EVENT========/Clock" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5195, 1.19434, -4.8135)
+shape = SubResource("BoxShape3D_l4stn")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="SimonTimer" type="Timer" parent="===EVENT========" index="3"]
 wait_time = 60.0
 one_shot = true
 script = ExtResource("16_lj4x8")
 event_manager = ExtResource("9_b0ff8")
 event_factory = SubResource("Resource_x4ed0")
 
-[node name="Bathroom" type="Area3D" parent="===EVENT========" index="3"]
+[node name="Bathroom" type="Area3D" parent="===EVENT========" index="4"]
 collision_layer = 16384
 collision_mask = 0
 script = ExtResource("6_fhm6w")
@@ -381,6 +949,92 @@ shape = SubResource("BoxShape3D_vhnqu")
 libraries = {
 &"": SubResource("AnimationLibrary_ik6mw")
 }
+
+[node name="CutWake" type="Node3D" parent="===CUTSCENE========" index="1"]
+transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Shot01" type="Node3D" parent="===CUTSCENE========/CutWake" index="0"]
+transform = Transform3D(1, 7.65033e-17, 9.89213e-17, -9.89213e-17, 0.967863, 0.251478, -7.65033e-17, -0.251478, 0.967863, -8.2974, 1.35493, 1.42382)
+script = ExtResource("2_qxgj8")
+tween_resource = SubResource("Resource_g3al7")
+camera_3d_resource = ExtResource("4_cvh6f")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Shot02" type="Node3D" parent="===CUTSCENE========/CutWake" index="1"]
+transform = Transform3D(1, 7.65033e-17, 9.89213e-17, -9.89213e-17, 0.967863, 0.251478, -7.65033e-17, -0.251478, 0.967863, -8.2974, 1.51139, 1.78268)
+script = ExtResource("2_qxgj8")
+tween_resource = SubResource("Resource_bcqfs")
+camera_3d_resource = ExtResource("4_cvh6f")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="CutGetGaps" type="Node3D" parent="===CUTSCENE========" index="2"]
+
+[node name="Shot01" type="Node3D" parent="===CUTSCENE========/CutGetGaps" index="0"]
+transform = Transform3D(-3.93109e-08, 0.437273, -0.899329, 1.91138e-08, 0.899329, 0.437273, 1, 1.87628e-16, -4.37114e-08, 4.01364, 0.77378, 0.163754)
+script = ExtResource("2_qxgj8")
+tween_resource = SubResource("Resource_kiegc")
+camera_3d_resource = ExtResource("4_cvh6f")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Shot02" type="Node3D" parent="===CUTSCENE========/CutGetGaps" index="1"]
+transform = Transform3D(-4.26082e-08, -0.22325, -0.974761, -9.75857e-09, 0.974761, -0.22325, 1, -6.60863e-16, -4.37114e-08, 3.87339, 1.07453, 0.163754)
+script = ExtResource("2_qxgj8")
+tween_resource = SubResource("Resource_s48k1")
+camera_3d_resource = ExtResource("4_cvh6f")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Shot03" type="Node3D" parent="===CUTSCENE========/CutGetGaps" index="2"]
+transform = Transform3D(1, 6.68903e-17, 8.32364e-17, -8.32364e-17, 0.976567, 0.215213, -6.68903e-17, -0.215213, 0.976567, 4.20945, 1.61184, 3.60619)
+script = ExtResource("2_qxgj8")
+tween_resource = SubResource("Resource_bfexw")
+camera_3d_resource = ExtResource("4_cvh6f")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Shot04" type="Node3D" parent="===CUTSCENE========/CutGetGaps" index="3"]
+transform = Transform3D(-4.37114e-08, -0.131737, -0.991285, 0, 0.991285, -0.131737, 1, -5.75842e-09, -4.33304e-08, 1.16133, 0.481326, 5.07631e-08)
+script = ExtResource("2_qxgj8")
+tween_resource = SubResource("Resource_8rtte")
+camera_3d_resource = ExtResource("4_cvh6f")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Shot05" type="Node3D" parent="===CUTSCENE========/CutGetGaps" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.68315, 1.44713, 2.32211)
+script = ExtResource("2_qxgj8")
+tween_resource = SubResource("Resource_bfexw")
+camera_3d_resource = ExtResource("4_cvh6f")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Shot06" type="Node3D" parent="===CUTSCENE========/CutGetGaps" index="5"]
+transform = Transform3D(1, 0, -1.12238e-23, -1.21652e-31, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.63015, 1.57679, -0.0368146)
+script = ExtResource("2_qxgj8")
+tween_resource = SubResource("Resource_1082y")
+camera_3d_resource = ExtResource("4_cvh6f")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Shot07" type="Node3D" parent="===CUTSCENE========/CutGetGaps" index="6"]
+transform = Transform3D(1, 0, -1.12238e-23, -1.21652e-31, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.63015, 1.29153, -0.0368145)
+script = ExtResource("2_qxgj8")
+tween_resource = SubResource("Resource_cu8m1")
+camera_3d_resource = ExtResource("4_cvh6f")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Shot08" type="Node3D" parent="===CUTSCENE========/CutGetGaps" index="7"]
+transform = Transform3D(-4.26082e-08, -0.22325, -0.974761, -9.75857e-09, 0.974761, -0.22325, 1, -6.60863e-16, -4.37114e-08, 3.87339, 1.07453, 0.163754)
+script = ExtResource("2_qxgj8")
+priority = 3
+tween_resource = SubResource("Resource_uxids")
+camera_3d_resource = ExtResource("4_cvh6f")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="HeavyBreathing" type="AudioStreamPlayer" parent="===AUDIO========" index="0"]
+volume_db = -5.0
+
+[node name="Gasp" type="AudioStreamPlayer" parent="===AUDIO========" index="1"]
+
+[node name="ChairScoot" type="AudioStreamPlayer" parent="===AUDIO========" index="2"]
+volume_db = 1.0
+
+[node name="DoorOpening" type="AudioStreamPlayer3D" parent="===AUDIO========" index="3"]
 
 [node name="WorldEnvironment" parent="===WORLD========" index="0"]
 environment = SubResource("Environment_qtj8i")
@@ -401,11 +1055,23 @@ acceleration = 5.0
 [node name="CharacterAnimationTree" parent="===ACTOR========/CBYoungSamson/YoungSamsonActor" index="4"]
 tree_root = SubResource("AnimationNodeBlendTree_fhm6w")
 
+[node name="WorldDialogueBox" parent="===UI========" index="0"]
+visible = false
+
+[node name="SubViewport" parent="===UI========/WorldDialogueBox/Portrait" index="0"]
+render_target_update_mode = 0
+
 [node name="PortraitCamera" parent="===UI========/WorldDialogueBox/Portrait/SubViewport" index="0"]
 physics_interpolation_mode = 1
 transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, -8.69555, 1.29199, 1.36154)
 
-[node name="Image" parent="===STORYBOARD========" index="0"]
+[node name="ScrollingText" parent="===UI========/WorldDialogueBox/MarginContainer" index="0"]
+bbcode_enabled = true
+
+[node name="Camera3D" parent="===STORYBOARD========/CameraView/SubViewport" index="0"]
+transform = Transform3D(-4.26082e-08, -0.22325, -0.974761, -9.75857e-09, 0.974761, -0.22325, 1, -2.43012e-16, -4.37114e-08, 3.87339, 1.07453, 0.163754)
+
+[node name="Image" parent="===STORYBOARD========" index="2"]
 texture = SubResource("ImageTexture_ot6eh")
 
 [connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===EVENT========/SimonTimer" method="start"]
