@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://m2fsq1a2vk6"]
+[gd_scene load_steps=112 format=3 uid="uid://m2fsq1a2vk6"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_3r1kw"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_qxgj8"]
@@ -216,7 +216,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../CutGetCaps/Shot02:priority")
+tracks/3/path = NodePath("../CutGetCaps/Shot03:priority")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -228,67 +228,67 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../CutGetCaps/Shot03:priority")
+tracks/4/path = NodePath("../../===UI========/WorldDialogueBox:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [false]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../../===UI========/WorldDialogueBox:visible")
+tracks/5/path = NodePath("../../===UI========/WorldDialogueBox/SpeakerBackground/Speaker:text")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": ["Aaron"]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../../===UI========/WorldDialogueBox/SpeakerBackground/Speaker:text")
+tracks/6/path = NodePath("../../===UI========/WorldDialogueBox/MarginContainer/ScrollingText:visible_ratio")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Aaron"]
+"update": 0,
+"values": [0.0]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../../===UI========/WorldDialogueBox/MarginContainer/ScrollingText:visible_ratio")
+tracks/7/path = NodePath("../../===UI========/WorldDialogueBox/MarginContainer/ScrollingText:text")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": ["SEE FAITH IN ACTION"]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../../===UI========/WorldDialogueBox/MarginContainer/ScrollingText:text")
+tracks/8/path = NodePath("../CutWake/Shot01:priority")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["SEE FAITH IN ACTION"]
+"values": [0]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../CutWake/Shot01:priority")
+tracks/9/path = NodePath("../CutWake/Shot02:priority")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -300,31 +300,31 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../CutWake/Shot02:priority")
+tracks/10/path = NodePath("../../===ACTOR========/CBYoungSamson:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [true]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../../===ACTOR========/CBYoungSamson:visible")
+tracks/11/path = NodePath("../CutGetCaps/Shot04:priority")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [0]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../CutGetCaps/Shot04:priority")
+tracks/12/path = NodePath("../CutGetCaps/Shot05:priority")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -336,7 +336,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../CutGetCaps/Shot05:priority")
+tracks/13/path = NodePath("../CutGetCaps/Shot06:priority")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -348,7 +348,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../CutGetCaps/Shot06:priority")
+tracks/14/path = NodePath("../CutGetCaps/Shot07:priority")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -360,7 +360,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("../CutGetCaps/Shot07:priority")
+tracks/15/path = NodePath("../CutGetCaps/Shot08:priority")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -372,14 +372,26 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("../CutGetCaps/Shot08:priority")
+tracks/16/path = NodePath("../CutGetCaps/Shot01:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"update": 0,
+"values": [Vector3(4.01364, 0.77378, 0.163754)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../CutGetCaps/Shot01:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.401426, -1.5708, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_vhnqu"]
@@ -392,83 +404,78 @@ tracks/0/path = NodePath("../CutGetCaps/Shot01:priority")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.680564),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5333, 4.8333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0, 3]
+"values": [0, 3, 0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../CutGetCaps/Shot02:priority")
+tracks/1/path = NodePath("../CutGetCaps/Shot03:priority")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.13333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 4.83333, 7.6667, 23.0535, 26.5333, 28.4282),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0, 3]
+"values": [0, 3, 0, 3, 0, 3]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../CutGetCaps/Shot03:priority")
+tracks/2/path = NodePath("../CutGetCaps/Shot04:priority")
 tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 4.83333, 23.0535, 28.4282),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 7.66667, 17.6333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0, 3, 3, 3]
+"values": [0, 3, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../CutGetCaps/Shot04:priority")
+tracks/3/path = NodePath("../CutGetCaps/Shot05:priority")
 tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 7.66667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 17.6333, 20.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0, 3]
+"values": [0, 3, 0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../CutGetCaps/Shot05:priority")
+tracks/4/path = NodePath("../CutGetCaps/Shot06:priority")
 tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 17.6333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 20.3, 20.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0, 3]
+"values": [0, 3, 0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../CutGetCaps/Shot06:priority")
+tracks/5/path = NodePath("../CutGetCaps/Shot07:priority")
 tracks/5/interp = 0
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 20.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 20.4, 23.0535),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0, 3]
+"values": [0, 3, 0]
 }
-tracks/6/type = "value"
+tracks/6/type = "position_3d"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../CutGetCaps/Shot07:priority")
-tracks/6/interp = 0
+tracks/6/path = NodePath("../CutWake/Shot01")
+tracks/6/interp = 1
 tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 20.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 3]
-}
+tracks/6/keys = PackedFloat32Array()
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
@@ -476,10 +483,10 @@ tracks/7/path = NodePath("../CutGetCaps/Shot08:priority")
 tracks/7/interp = 0
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 26.5333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 26.5333, 28.4282),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0, 3]
+"values": [0, 3, 0]
 }
 tracks/8/type = "audio"
 tracks/8/imported = false
@@ -500,36 +507,36 @@ tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/path = NodePath("../../===UI========/WorldDialogueBox:visible")
-tracks/9/interp = 1
+tracks/9/interp = 0
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 5.06667, 6.8, 8.26667, 11.2667, 11.7333, 15.5667, 16.9333, 19.1333, 24.4333, 26.5333, 30.3183, 33.3225, 35.9334, 40.9),
+"times": PackedFloat32Array(0, 5.06667, 6.8, 8.26667, 11.2667, 11.7333, 15.5667, 16.9333, 19.1333, 24.4333, 26.5333, 30.3183, 32.6667, 35.9334, 40.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/path = NodePath("../../===UI========/WorldDialogueBox/SpeakerBackground/Speaker:text")
-tracks/10/interp = 1
+tracks/10/interp = 0
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(5.06667, 11.3667, 24.4333, 35.9333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": ["Samson", "Simon", "Samson", "Simon"]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/path = NodePath("../../===UI========/WorldDialogueBox/MarginContainer/ScrollingText:text")
-tracks/11/interp = 1
+tracks/11/interp = 0
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(5.2, 8.56667, 11.8667, 16.9333, 24.4333, 30.3183, 35.9333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": ["DAD!!!", "Is she here yet dad?", "Patience, child. She will be here when God is ready", "For now, I must give you a gift.", "But I didn't ask for", "Thank you for the gift.", "Trust me, this will be the most important gift you get today"]
 }
 tracks/12/type = "value"
@@ -548,25 +555,49 @@ tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/path = NodePath("../../===STORYBOARD========/Image:visible")
-tracks/13/interp = 1
+tracks/13/interp = 0
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0.5333),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [true]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/path = NodePath("../../===STORYBOARD========/Image:texture")
-tracks/14/interp = 1
+tracks/14/interp = 0
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0.533333, 2.1, 4.8333, 5.6, 7.66667, 8.46667, 12, 15.5667, 16.5667, 17.1667, 17.6333, 18.4333, 20.3, 20.4333, 20.5667, 23.0536, 24.1334, 26.5333, 28.4283, 30.4266, 34.4333, 36.5, 38.8),
+"times": PackedFloat32Array(0.5333, 2.66667, 4.8333, 5.6, 7.66667, 8.46667, 12, 15.5667, 16.5667, 17.1667, 17.6333, 18.4333, 20.3, 20.4333, 20.5667, 23.0536, 24.1334, 26.5333, 28.4283, 30.4266, 34.9667, 36.5, 38.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [ExtResource("21_g3al7"), ExtResource("22_bcqfs"), ExtResource("23_62hqk"), ExtResource("24_wc72f"), ExtResource("24_62hqk"), ExtResource("25_wc72f"), ExtResource("26_5qm56"), ExtResource("27_csewg"), ExtResource("28_1082y"), ExtResource("29_cu8m1"), ExtResource("30_1082y"), ExtResource("31_cu8m1"), null, ExtResource("32_g5nk4"), ExtResource("33_b868m"), ExtResource("34_bgbj5"), ExtResource("35_jhfha"), ExtResource("36_jhfha"), ExtResource("37_a7mn4"), ExtResource("38_4d1ew"), ExtResource("39_b18tf"), ExtResource("40_tjtau"), ExtResource("41_wwngq")]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../CutGetCaps/Shot01:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(1.34415, 3.46667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(4.01364, 0.77378, 0.163754), Vector3(4.014, 1.871, 0.164)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../CutGetCaps/Shot01:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(1.34415, 3.46667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.401426, -1.5708, 0), Vector3(-0.261799, -1.5708, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_78jc1"]
@@ -711,12 +742,6 @@ duration = 0.0
 transition = 0
 ease = 2
 
-[sub_resource type="Resource" id="Resource_s48k1"]
-script = ExtResource("3_njvbj")
-duration = 2.0
-transition = 0
-ease = 2
-
 [sub_resource type="Resource" id="Resource_bfexw"]
 script = ExtResource("3_njvbj")
 duration = 0.0
@@ -752,6 +777,42 @@ script = ExtResource("3_njvbj")
 duration = 1.0
 transition = 0
 ease = 2
+
+[sub_resource type="Animation" id="Animation_b18tf"]
+resource_name = "set_priority"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 0]
+}
+
+[sub_resource type="Animation" id="Animation_tjtau"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wwngq"]
+_data = {
+&"RESET": SubResource("Animation_tjtau"),
+&"set_priority": SubResource("Animation_b18tf")
+}
 
 [sub_resource type="Environment" id="Environment_qtj8i"]
 background_mode = 1
@@ -855,8 +916,7 @@ node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_anima
 [node name="LvlHospitalWaitingRoom" instance=ExtResource("1_3r1kw")]
 
 [node name="MainCamera" parent="===CAMERA========" index="0"]
-physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -8.70819, 3.11042, 4.90518)
+transform = Transform3D(1, -3.70892e-16, 3.25183e-16, 3.48787e-16, 0.997851, 0.065525, -3.48787e-16, -0.065525, 0.997851, 4.0993, 0.273302, -0.971149)
 fov = 45.0
 far = 100.0
 
@@ -964,7 +1024,6 @@ libraries = {
 transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Shot01" type="Node3D" parent="===CUTSCENE========/CutWake" index="0"]
-transform = Transform3D(1, 7.65033e-17, 9.89213e-17, -9.89213e-17, 0.967863, 0.251478, -7.65033e-17, -0.251478, 0.967863, -8.2974, 1.35493, 1.42382)
 script = ExtResource("2_qxgj8")
 tween_resource = SubResource("Resource_g3al7")
 camera_3d_resource = ExtResource("4_cvh6f")
@@ -980,77 +1039,66 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="CutGetCaps" type="Node3D" parent="===CUTSCENE========" index="2"]
 
 [node name="Shot01" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="0"]
-transform = Transform3D(-3.93109e-08, 0.437273, -0.899329, 1.91138e-08, 0.899329, 0.437273, 1, 1.87628e-16, -4.37114e-08, 4.01364, 0.77378, 0.163754)
-visible = false
+transform = Transform3D(-4.37114e-08, 0.390731, -0.920505, 0, 0.920505, 0.390731, 1, 1.70794e-08, -4.02366e-08, 4.01364, 0.77378, 0.163754)
 script = ExtResource("2_qxgj8")
 tween_resource = SubResource("Resource_kiegc")
 camera_3d_resource = ExtResource("4_cvh6f")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="Shot02" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="1"]
-transform = Transform3D(-4.26082e-08, -0.22325, -0.974761, -9.75857e-09, 0.974761, -0.22325, 1, -6.60863e-16, -4.37114e-08, 3.87339, 1.07453, 0.163754)
-visible = false
-script = ExtResource("2_qxgj8")
-tween_resource = SubResource("Resource_s48k1")
-camera_3d_resource = ExtResource("4_cvh6f")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="Shot03" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="2"]
+[node name="Shot03" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="1"]
 transform = Transform3D(1, 6.68903e-17, 8.32364e-17, -8.32364e-17, 0.976567, 0.215213, -6.68903e-17, -0.215213, 0.976567, 4.20945, 1.61184, 3.60619)
-visible = false
 script = ExtResource("2_qxgj8")
 tween_resource = SubResource("Resource_bfexw")
 camera_3d_resource = ExtResource("4_cvh6f")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="Shot04" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="3"]
+[node name="Shot04" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="2"]
 transform = Transform3D(-4.37114e-08, -0.131737, -0.991285, 0, 0.991285, -0.131737, 1, -5.75842e-09, -4.33304e-08, 1.16133, 0.481326, 5.07631e-08)
-visible = false
 script = ExtResource("2_qxgj8")
 tween_resource = SubResource("Resource_8rtte")
 camera_3d_resource = ExtResource("4_cvh6f")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="Shot05" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="4"]
+[node name="Shot05" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.68315, 1.44713, 2.32211)
-visible = false
 script = ExtResource("2_qxgj8")
 tween_resource = SubResource("Resource_bfexw")
 camera_3d_resource = ExtResource("4_cvh6f")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="Shot06" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="5"]
+[node name="Shot06" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="4"]
 transform = Transform3D(1, 0, -1.12238e-23, -1.21652e-31, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.63015, 1.57679, -0.0368146)
-visible = false
 script = ExtResource("2_qxgj8")
 tween_resource = SubResource("Resource_1082y")
 camera_3d_resource = ExtResource("4_cvh6f")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="Shot07" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="6"]
+[node name="Shot07" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="5"]
 transform = Transform3D(1, 0, -1.12238e-23, -1.21652e-31, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.63015, 1.29153, -0.0368145)
-visible = false
 script = ExtResource("2_qxgj8")
 tween_resource = SubResource("Resource_cu8m1")
 camera_3d_resource = ExtResource("4_cvh6f")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="Shot08" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="7"]
+[node name="Shot08" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="6"]
 transform = Transform3D(-4.26082e-08, -0.22325, -0.974761, -9.75857e-09, 0.974761, -0.22325, 1, -6.60863e-16, -4.37114e-08, 3.87339, 1.07453, 0.163754)
-visible = false
 script = ExtResource("2_qxgj8")
 tween_resource = SubResource("Resource_uxids")
 camera_3d_resource = ExtResource("4_cvh6f")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="Shot09" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="8"]
-transform = Transform3D(1, 0, 0, 0, 0.997851, 0.065525, 0, -0.065525, 0.997851, 4.27103, 0.509961, -0.749708)
-visible = false
+[node name="Shot09" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="7"]
+transform = Transform3D(1, 3.30872e-24, 0, -1.21652e-31, 0.997851, 0.065525, 0, -0.065525, 0.997851, 4.0993, 0.273302, -0.971149)
 script = ExtResource("2_qxgj8")
-priority = 3
+priority_override = true
 tween_resource = SubResource("Resource_t6qw7")
 camera_3d_resource = ExtResource("4_cvh6f")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="===CUTSCENE========/CutGetCaps/Shot09" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_wwngq")
+}
 
 [node name="HeavyBreathing" type="AudioStreamPlayer" parent="===AUDIO========" index="0"]
 volume_db = -5.0
@@ -1095,8 +1143,7 @@ transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, -8.6955
 bbcode_enabled = true
 
 [node name="Camera3D" parent="===STORYBOARD========/CameraView/SubViewport" index="0"]
-physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -8.70819, 3.11042, 4.90518)
+transform = Transform3D(1, -3.70892e-16, 3.25183e-16, 3.48787e-16, 0.997851, 0.065525, -3.48787e-16, -0.065525, 0.997851, 4.0993, 0.273302, -0.971149)
 
 [node name="Image" parent="===STORYBOARD========" index="2"]
 texture = SubResource("ImageTexture_ot6eh")

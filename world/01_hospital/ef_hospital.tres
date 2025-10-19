@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="1_7rw1e"]
 [ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="2_6vodb"]
-[ext_resource type="Resource" uid="uid://ctd3jsa0tk7ni" path="res://world/01_hospital/waiting_room/event/ev_cut_wake_01.tres" id="2_tct05"]
+[ext_resource type="Resource" uid="uid://curl4y87vmqru" path="res://world/01_hospital/waiting_room/event/ev_cut_get_caps_01.tres" id="2_tct05"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="3_3n8ud"]
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="4_0n7pl"]
 
