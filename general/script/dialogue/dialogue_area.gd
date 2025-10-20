@@ -17,11 +17,11 @@ func _ready():
 	scrolling_text.on_scroll_completed.connect(func(): on_dialogue_finished.emit())
 
 func set_text(text: String, speaker_name: String = ""):
-	if speaker_label && speaker_name != "": 
+	if speaker_label && speaker_control && speaker_name != "": 
 		speaker_control.visible = true
 		speaker_label.text = speaker_name
 	else:
-		speaker_control.visible = false
+		if speaker_control: speaker_control.visible = false
 	
 	scrolling_text.set_scrolling_text(text)
 
