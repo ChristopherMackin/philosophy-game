@@ -8,6 +8,8 @@ enum Frequency {
 	INFINITE
 }
 
+@export var skip:= false
+
 @export var can_interupt := false
 @export var await_event := false
 @export var frequency : Frequency

@@ -17,6 +17,8 @@ func unsubscribe(subscriber : EventSubscriber):
 		subscribers.remove_at(index)
 
 func start_event(event : Event):
+	if event.skip: return
+	
 	if !event || (current_task && !event.can_interupt): return
 	
 	if current_task:

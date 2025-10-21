@@ -56,8 +56,6 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 	
 	var dialogue_area: DialogueArea = default_dialogue_area
 	
-	dialogue_area.visible = true
-	
 	if current_actor:
 		if current_actor.dialogue_area_override:
 			dialogue_area = current_actor.dialogue_area_override
@@ -67,6 +65,8 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 	
 	else:
 		dialogue_area.set_text(line)
+	
+	dialogue_area.visible = true
 	
 	await Util.await_any([
 		func(): await dialogue_area.on_dialogue_finished,

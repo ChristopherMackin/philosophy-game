@@ -20,8 +20,8 @@ func _process(delta):
 	
 	normalized_dialogue_position += delta / length_in_seconds
 	
-	visible_characters = floor(text.length() * normalized_dialogue_position)
-	if visible_characters >= text.length():
+	visible_characters = floor(get_parsed_text().length() * normalized_dialogue_position)
+	if visible_characters >= get_parsed_text().length():
 		is_scrolling = false
 		normalized_dialogue_position = 1;
 		on_scroll_completed.emit()
@@ -30,10 +30,10 @@ func set_scrolling_text(scrolling_text : String, auto_scroll := true):
 	normalized_dialogue_position = 0
 	text = scrolling_text
 	visible_characters = 0
-	length_in_seconds = text.length() * seconds_between_characters
+	length_in_seconds = get_parsed_text().length() * seconds_between_characters
 	is_scrolling = auto_scroll
 
 func skip_to_the_end():
-	visible_characters = text.length()
+	visible_characters = get_parsed_text().length()
 	is_scrolling = false
 	on_scroll_completed.emit()
