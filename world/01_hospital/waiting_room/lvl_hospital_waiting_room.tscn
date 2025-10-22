@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://m2fsq1a2vk6"]
+[gd_scene load_steps=124 format=3 uid="uid://m2fsq1a2vk6"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_3r1kw"]
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://cutscene/prelude_scene_manager.gd" id="2_q7j4r"]
@@ -17,14 +17,16 @@
 [ext_resource type="PackedScene" uid="uid://68cejhmeamon" path="res://asset/world/01_hospital/hospital_waiting_room.glb" id="10_78jc1"]
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="10_fhm6w"]
 [ext_resource type="PackedScene" uid="uid://cb38p6q7g6lab" path="res://character/young_samson/cb_young_samson.tscn" id="11_ik6mw"]
-[ext_resource type="Resource" uid="uid://w5lrdjtyrsq6" path="res://world/01_hospital/waiting_room/event/ev_clock_01.tres" id="15_1mgba"]
-[ext_resource type="Resource" uid="uid://qk3tq41ywmr6" path="res://world/01_hospital/waiting_room/event/ev_vending_machine_01.tres" id="15_ypuf2"]
 [ext_resource type="Script" uid="uid://bexeevctdvv0t" path="res://system/script/event/event_trigger.gd" id="16_lj4x8"]
-[ext_resource type="Resource" uid="uid://curl4y87vmqru" path="res://world/01_hospital/waiting_room/event/ev_cut_get_caps_01.tres" id="17_b0ff8"]
-[ext_resource type="Resource" uid="uid://j38ww74aqjqe" path="res://world/01_hospital/waiting_room/event/ev_bathroom_01.tres" id="18_78jc1"]
+[ext_resource type="Resource" uid="uid://qk3tq41ywmr6" path="res://world/01_hospital/waiting_room/event/ev_vending_machine_01.tres" id="16_mgf10"]
+[ext_resource type="Resource" uid="uid://w5lrdjtyrsq6" path="res://world/01_hospital/waiting_room/event/ev_clock_01.tres" id="17_42yw3"]
+[ext_resource type="Resource" uid="uid://curl4y87vmqru" path="res://world/01_hospital/waiting_room/event/ev_cut_get_caps_01.tres" id="19_q7j4r"]
 [ext_resource type="AudioStream" uid="uid://2rtsikaw8w71" path="res://asset/sfx/door_open.mp3" id="20_l4stn"]
+[ext_resource type="Resource" uid="uid://j38ww74aqjqe" path="res://world/01_hospital/waiting_room/event/ev_bathroom_01.tres" id="20_nnx3h"]
+[ext_resource type="Resource" uid="uid://cb48syk4ow31p" path="res://world/01_hospital/waiting_room/event/ev_richard_01.tres" id="21_2urq8"]
 [ext_resource type="Texture2D" uid="uid://vh3grcfun8kx" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_01.png" id="21_g3al7"]
 [ext_resource type="Texture2D" uid="uid://dwsu2vy8vpmn4" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_01.png" id="21_lo3dk"]
+[ext_resource type="PackedScene" uid="uid://cw3ibw5bifstm" path="res://character/richard/richard_actor.tscn" id="21_nnx3h"]
 [ext_resource type="Texture2D" uid="uid://cbsp5jqblch5u" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_02.png" id="22_bcqfs"]
 [ext_resource type="Texture2D" uid="uid://cxla5t800c0no" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_02.png" id="22_kiegc"]
 [ext_resource type="AudioStream" uid="uid://3gwf2ris55m" path="res://asset/sfx/heavy_breathing.mp3" id="23_1mgba"]
@@ -85,102 +87,113 @@ ease = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_e1cpf"]
 size = Vector3(5.37573, 6.35559, 3.09017)
 
-[sub_resource type="Resource" id="Resource_ypuf2"]
+[sub_resource type="Resource" id="Resource_ddrbv"]
 script = ExtResource("10_fhm6w")
-concept = 5
 criteria = Array[ExtResource("9_tusbe")]([])
 metadata/_custom_type_script = "uid://bal31j6jwdxqy"
 
-[sub_resource type="Resource" id="Resource_lj4x8"]
+[sub_resource type="Resource" id="Resource_mgf10"]
 script = ExtResource("7_ypuf2")
 event = ExtResource("8_cvh6f")
-rule = SubResource("Resource_ypuf2")
+rule = SubResource("Resource_ddrbv")
 metadata/_custom_type_script = "uid://dftjqkpxopsus"
 
 [sub_resource type="Resource" id="Resource_mmuw0"]
 script = ExtResource("8_lj4x8")
-payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_lj4x8")])
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_mgf10")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qtj8i"]
 height = 2.7627
 
-[sub_resource type="Resource" id="Resource_l4stn"]
+[sub_resource type="Resource" id="Resource_q7j4r"]
 script = ExtResource("10_fhm6w")
-concept = 5
 criteria = Array[ExtResource("9_tusbe")]([])
 metadata/_custom_type_script = "uid://bal31j6jwdxqy"
 
-[sub_resource type="Resource" id="Resource_lhgxm"]
+[sub_resource type="Resource" id="Resource_42yw3"]
 script = ExtResource("7_ypuf2")
-event = ExtResource("15_ypuf2")
-rule = SubResource("Resource_l4stn")
+event = ExtResource("16_mgf10")
+rule = SubResource("Resource_q7j4r")
 metadata/_custom_type_script = "uid://dftjqkpxopsus"
 
 [sub_resource type="Resource" id="Resource_lo3dk"]
 script = ExtResource("8_lj4x8")
-payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_lhgxm")])
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_42yw3")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1mgba"]
 size = Vector3(2.36935, 2.0853, 0.846832)
 
-[sub_resource type="Resource" id="Resource_b0ff8"]
+[sub_resource type="Resource" id="Resource_nnx3h"]
 script = ExtResource("10_fhm6w")
-concept = 5
 criteria = Array[ExtResource("9_tusbe")]([])
 metadata/_custom_type_script = "uid://bal31j6jwdxqy"
 
-[sub_resource type="Resource" id="Resource_78jc1"]
+[sub_resource type="Resource" id="Resource_2urq8"]
 script = ExtResource("7_ypuf2")
-event = ExtResource("15_1mgba")
-rule = SubResource("Resource_b0ff8")
+event = ExtResource("17_42yw3")
+rule = SubResource("Resource_nnx3h")
 metadata/_custom_type_script = "uid://dftjqkpxopsus"
 
 [sub_resource type="Resource" id="Resource_vhnqu"]
 script = ExtResource("8_lj4x8")
-payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_78jc1")])
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_2urq8")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l4stn"]
 size = Vector3(0.715693, 2.55649, 0.275513)
 
-[sub_resource type="Resource" id="Resource_bflrm"]
+[sub_resource type="Resource" id="Resource_7qhb1"]
 script = ExtResource("10_fhm6w")
-concept = 5
 criteria = Array[ExtResource("9_tusbe")]([])
-metadata/_custom_type_script = "uid://bal31j6jwdxqy"
 
-[sub_resource type="Resource" id="Resource_uc58m"]
+[sub_resource type="Resource" id="Resource_bjile"]
 script = ExtResource("7_ypuf2")
-event = ExtResource("17_b0ff8")
-rule = SubResource("Resource_bflrm")
+event = ExtResource("19_q7j4r")
+rule = SubResource("Resource_7qhb1")
 metadata/_custom_type_script = "uid://dftjqkpxopsus"
 
 [sub_resource type="Resource" id="Resource_x4ed0"]
 script = ExtResource("8_lj4x8")
-payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_uc58m")])
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_bjile")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"
 
-[sub_resource type="Resource" id="Resource_6qhs7"]
+[sub_resource type="Resource" id="Resource_0bkpg"]
 script = ExtResource("10_fhm6w")
-concept = 5
 criteria = Array[ExtResource("9_tusbe")]([])
-metadata/_custom_type_script = "uid://bal31j6jwdxqy"
 
-[sub_resource type="Resource" id="Resource_004ox"]
+[sub_resource type="Resource" id="Resource_psei2"]
 script = ExtResource("7_ypuf2")
-event = ExtResource("18_78jc1")
-rule = SubResource("Resource_6qhs7")
+event = ExtResource("20_nnx3h")
+rule = SubResource("Resource_0bkpg")
 metadata/_custom_type_script = "uid://dftjqkpxopsus"
 
-[sub_resource type="Resource" id="Resource_1mgba"]
+[sub_resource type="Resource" id="Resource_rsunl"]
 script = ExtResource("8_lj4x8")
-payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_004ox")])
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_psei2")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vhnqu"]
 size = Vector3(1, 2.39014, 1)
+
+[sub_resource type="Resource" id="Resource_e3cfe"]
+script = ExtResource("10_fhm6w")
+criteria = Array[ExtResource("9_tusbe")]([])
+
+[sub_resource type="Resource" id="Resource_lmnoa"]
+script = ExtResource("7_ypuf2")
+event = ExtResource("21_2urq8")
+rule = SubResource("Resource_e3cfe")
+metadata/_custom_type_script = "uid://dftjqkpxopsus"
+
+[sub_resource type="Resource" id="Resource_ursct"]
+script = ExtResource("8_lj4x8")
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_lmnoa")])
+metadata/_custom_type_script = "uid://dghxtp7la36tj"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nnx3h"]
+height = 1.8
 
 [sub_resource type="ImageTexture" id="ImageTexture_ot6eh"]
 
@@ -1062,7 +1075,7 @@ blackboard = ExtResource("6_ypuf2")
 event_factory = ExtResource("7_lj4x8")
 
 [node name="SceneEventManager" parent="===MANAGER========" index="2" node_paths=PackedStringArray("actors")]
-actors = [NodePath("../../===ACTOR========/CBYoungSamson/YoungSamsonActor")]
+actors = [NodePath("../../===ACTOR========/CBYoungSamson/YoungSamsonActor"), NodePath("../../===ACTOR========/RichardActor")]
 
 [node name="Tree" type="Area3D" parent="===EVENT========" index="0"]
 collision_layer = 16384
@@ -1102,7 +1115,6 @@ debug_color = Color(0, 0.6, 0.701961, 1)
 [node name="SimonTimer" type="Timer" parent="===EVENT========" index="3"]
 wait_time = 10.0
 one_shot = true
-autostart = true
 script = ExtResource("16_lj4x8")
 event_manager = ExtResource("9_b0ff8")
 event_factory = SubResource("Resource_x4ed0")
@@ -1111,12 +1123,24 @@ event_factory = SubResource("Resource_x4ed0")
 collision_layer = 16384
 collision_mask = 0
 script = ExtResource("6_fhm6w")
-event_factory = SubResource("Resource_1mgba")
+event_factory = SubResource("Resource_rsunl")
 event_manager = ExtResource("9_b0ff8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="===EVENT========/Bathroom" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2465, 0.896329, 0.593194)
 shape = SubResource("BoxShape3D_vhnqu")
+
+[node name="Richard" type="Area3D" parent="===EVENT========" index="5"]
+collision_layer = 16384
+collision_mask = 0
+script = ExtResource("6_fhm6w")
+event_factory = SubResource("Resource_ursct")
+event_manager = ExtResource("9_b0ff8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="===EVENT========/Richard" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0018, -2.96658)
+shape = SubResource("CapsuleShape3D_nnx3h")
+debug_color = Color(0.940506, 0.245901, 0, 1)
 
 [node name="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator" index="1"]
 libraries = {
@@ -1227,6 +1251,9 @@ acceleration = 5.0
 [node name="CharacterAnimationTree" parent="===ACTOR========/CBYoungSamson/YoungSamsonActor" index="4"]
 tree_root = SubResource("AnimationNodeBlendTree_fhm6w")
 
+[node name="RichardActor" parent="===ACTOR========" index="1" instance=ExtResource("21_nnx3h")]
+transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, 0.019722, -2.38421e-07, -2.95818)
+
 [node name="WorldDialogueBox" parent="===UI========" index="0"]
 visible = false
 
@@ -1255,6 +1282,7 @@ color = Color(0, 0, 0, 0)
 [node name="Image" parent="===STORYBOARD========" index="3"]
 texture = SubResource("ImageTexture_ot6eh")
 
+[connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===EVENT========/SimonTimer" method="start"]
 [connection signal="timeout" from="===EVENT========/SimonTimer" to="===EVENT========/SimonTimer" method="query_event"]
 
 [editable path="===ACTOR========/CBYoungSamson"]

@@ -64,7 +64,7 @@ func clear_data():
 	suit_track_dictionary = {}
 	play_stack = CardCollection.new()
 
-func init(blackboard: Blackboard, player_character : Character, computer_character : Character, debate_settings : DebateSettings):
+func start_debate(blackboard: Blackboard, player_character : Character, computer_character : Character, debate_settings : DebateSettings):
 	self.blackboard = blackboard
 	clear_data()
 	

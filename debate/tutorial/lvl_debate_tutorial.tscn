@@ -1,15 +1,14 @@
-[gd_scene load_steps=120 format=3 uid="uid://crwfrdpgb1rkh"]
+[gd_scene load_steps=119 format=3 uid="uid://crwfrdpgb1rkh"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_epd0d"]
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="2_l67st"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="3_pnbyu"]
 [ext_resource type="Resource" uid="uid://bgnrnyyqdy8uv" path="res://debate/tutorial/bb_lvl_tutorial.tres" id="4_6q6vs"]
-[ext_resource type="Resource" uid="uid://27sna6u0b0wj" path="res://character/simon/debate/debate_simon_event_factory.tres" id="5_556i7"]
-[ext_resource type="Resource" uid="uid://2p5t31gftu36" path="res://debate/tutorial/ef_lvl_tutorial.tres" id="5_gp5s2"]
 [ext_resource type="Script" uid="uid://bojj5s0o4f2s3" path="res://system/script/input/world_input_manager.gd" id="6_1m8n1"]
 [ext_resource type="Script" uid="uid://dhulr5f133qcw" path="res://debate/script/subscriber/node_based/debate_scene_manager.gd" id="7_ydmbp"]
 [ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://system/debate_settings.tres" id="8_1pbye"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player_data.tres" id="9_3etdd"]
+[ext_resource type="Resource" uid="uid://fl8x7vlubnei" path="res://debate/tutorial/ef_lvl_tutorial.tres" id="9_556i7"]
 [ext_resource type="Resource" uid="uid://b20s3xcb4bqtx" path="res://debate/tutorial/tutorial_simon.tres" id="10_tpjju"]
 [ext_resource type="Resource" uid="uid://bxdnjlvt3iyth" path="res://system/debate_manager.tres" id="11_bsb2g"]
 [ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="12_vqxp2"]
@@ -1003,7 +1002,7 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 script = ExtResource("2_l67st")
 event_manager = ExtResource("3_pnbyu")
 blackboard = ExtResource("4_6q6vs")
-event_factory = ExtResource("5_556i7")
+event_factory = ExtResource("9_556i7")
 
 [node name="InputManager" type="Node" parent="."]
 script = ExtResource("6_1m8n1")
@@ -1012,7 +1011,7 @@ active_handler = ExtResource("16_dr8dd")
 [node name="DebateSceneManager" type="Node" parent="." node_paths=PackedStringArray("selection_manager", "board", "hand_ui", "energy_ui", "hold_area_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
 script = ExtResource("7_ydmbp")
 blackboard = ExtResource("4_6q6vs")
-event_factory = ExtResource("5_gp5s2")
+event_factory = ExtResource("9_556i7")
 event_manager = ExtResource("3_pnbyu")
 debate_settings = ExtResource("8_1pbye")
 player = ExtResource("9_3etdd")
@@ -1181,7 +1180,7 @@ bones/28/rotation = Quaternion(0.00705786, 0.913792, 0.40612, 0.000277099)
 bones/29/rotation = Quaternion(9.90806e-07, 0.0239037, -5.47604e-07, 0.999714)
 bones/30/position = Vector3(0.672594, 1.09417, 0.00324741)
 bones/30/rotation = Quaternion(1.58715e-23, 1.46323e-06, 0, 1)
-bones/31/position = Vector3(0.0815765, -9.7493e-06, 3.77166e-10)
+bones/31/position = Vector3(0.346507, -0.0844125, -3.7952e-08)
 bones/31/rotation = Quaternion(-2.25537e-10, -1.37868e-06, -1.37873e-06, 1)
 bones/31/scale = Vector3(1, 1, 1)
 bones/32/position = Vector3(0.672594, -0.128914, 0.00324741)
@@ -1714,6 +1713,8 @@ grow_vertical = 0
 focus_mode = 2
 texture = ExtResource("67_itpaa")
 metadata/focus_type = "submit"
+
+[connection signal="on_scene_load" from="SceneLoadManager" to="DebateSceneManager" method="start_debate" flags=7]
 
 [editable path="YoungSamsonActor"]
 [editable path="SimonActor"]

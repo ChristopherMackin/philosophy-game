@@ -34,7 +34,9 @@ var is_animation_locked := false
 
 func _ready():
 	super._ready()
-	manager.init(blackboard, player, computer, debate_settings)
+
+func start_debate():
+	manager.start_debate(blackboard, player, computer, debate_settings)
 
 func on_debate_start():
 	await update_everything()
@@ -42,9 +44,11 @@ func on_debate_start():
 
 func on_turn_start(_contestant: Contestant):
 	await update_everything()
+	await query_event(Const.Concept.ON_TURN_START)
 
 func on_turn_end(contestant: Contestant):
 	await update_everything()
+	await query_event(Const.Concept.ON_TURN_END)
 	
 	if contestant.character_is(player): selection_manager.pause_input()
 

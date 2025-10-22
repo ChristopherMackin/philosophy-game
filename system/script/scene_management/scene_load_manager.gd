@@ -27,11 +27,10 @@ func query_event():
 	
 	var event = event_factory.get_event(query)
 	
-	if !event: return
+	if event:
+		if event.await_event:
+			await event_manager.start_event(event)
+		else:
+			event_manager.start_event(event)
 	
-	if event.await_event:
-		await event_manager.start_event(event)
-	else:
-		event_manager.start_event(event)
-	
-	_event_finished.emit()
+	_event_finished.emit.call_deferred()

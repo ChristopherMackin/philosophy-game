@@ -15,6 +15,7 @@ action = SubResource("Resource_x7ur8")
 
 [resource]
 script = ExtResource("1_8j2aj")
+skip = false
 can_interupt = false
 await_event = true
 frequency = 2

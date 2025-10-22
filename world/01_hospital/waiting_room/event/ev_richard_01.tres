@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://cb48syk4ow31p"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_ko0a8"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_o280a"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_s3pbx"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_s3pbx")
+
+[sub_resource type="Resource" id="Resource_r0q8h"]
+script = ExtResource("2_o280a")
+outputs = Array[int]([])
+inputs = ["TAKE YOUR FUCKING SEAT NERD!!!", "richard", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_ko0a8")
+skip = false
+can_interupt = false
+await_event = true
+frequency = 0
+start_task = SubResource("Resource_r0q8h")
+tasks = Array[ExtResource("2_o280a")]([SubResource("Resource_r0q8h")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

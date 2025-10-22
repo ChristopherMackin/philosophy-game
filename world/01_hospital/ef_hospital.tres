@@ -8,9 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_g1c1t"]
 script = ExtResource("4_0n7pl")
-concept = 4
 criteria = Array[ExtResource("3_3n8ud")]([])
-metadata/_custom_type_script = "uid://bal31j6jwdxqy"
 
 [sub_resource type="Resource" id="Resource_13f7h"]
 script = ExtResource("1_7rw1e")

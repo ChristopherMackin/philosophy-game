@@ -1,24 +1,29 @@
-[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=8 format=3 uid="uid://2p5t31gftu36"]
+[gd_resource type="Resource" script_class="OrderedBucketEventFactory" load_steps=10 format=3 uid="uid://fl8x7vlubnei"]
 
-[ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="1_hjw77"]
-[ext_resource type="Resource" uid="uid://ygtqujy6qdkv" path="res://debate/tutorial/event/ev_tutorial_01.tres" id="2_mldeo"]
-[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="3_kigwk"]
-[ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="4_22ccj"]
-[ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="5_5lci1"]
+[ext_resource type="Script" uid="uid://ujd6vl7brq4e" path="res://system/script/event_factory/event_payload_bucket.gd" id="1_30w5w"]
+[ext_resource type="Script" uid="uid://bcbeuvdrhjbe6" path="res://system/script/event_factory/ordered_bucket_event_factory.gd" id="2_bxcm8"]
+[ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="2_v6ear"]
+[ext_resource type="Resource" uid="uid://ygtqujy6qdkv" path="res://debate/tutorial/event/ev_tutorial_01.tres" id="3_u4wis"]
+[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="4_2ibdx"]
+[ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="5_axr2t"]
 
-[sub_resource type="Resource" id="Resource_hwf8q"]
-script = ExtResource("4_22ccj")
-concept = 2
-criteria = Array[ExtResource("3_kigwk")]([])
-metadata/_custom_type_script = "uid://bal31j6jwdxqy"
+[sub_resource type="Resource" id="Resource_udeph"]
+script = ExtResource("5_axr2t")
+criteria = Array[ExtResource("4_2ibdx")]([])
 
-[sub_resource type="Resource" id="Resource_s7253"]
-script = ExtResource("1_hjw77")
-event = ExtResource("2_mldeo")
-rule = SubResource("Resource_hwf8q")
+[sub_resource type="Resource" id="Resource_whlk4"]
+script = ExtResource("2_v6ear")
+event = ExtResource("3_u4wis")
+rule = SubResource("Resource_udeph")
 metadata/_custom_type_script = "uid://dftjqkpxopsus"
 
+[sub_resource type="Resource" id="Resource_28ruw"]
+script = ExtResource("1_30w5w")
+concept = 6
+payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_whlk4")])
+metadata/_custom_type_script = "uid://ujd6vl7brq4e"
+
 [resource]
-script = ExtResource("5_5lci1")
-payload_list = Array[ExtResource("1_hjw77")]([SubResource("Resource_s7253")])
-metadata/_custom_type_script = "uid://dghxtp7la36tj"
+script = ExtResource("2_bxcm8")
+buckets = Array[ExtResource("1_30w5w")]([SubResource("Resource_28ruw")])
+metadata/_custom_type_script = "uid://bcbeuvdrhjbe6"
