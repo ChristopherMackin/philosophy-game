@@ -1,7 +1,7 @@
 [gd_scene load_steps=64 format=3 uid="uid://cxqe21ykp21j7"]
 
 [ext_resource type="PackedScene" uid="uid://dc040kc5h0pkf" path="res://debate/lvl_debate_base.tscn" id="1_hv0x1"]
-[ext_resource type="Environment" uid="uid://cvkkw0m8yajla" path="res://debate/simon/lvl_debate_simon.tres" id="2_n7pdm"]
+[ext_resource type="Environment" uid="uid://cvkkw0m8yajla" path="res://debate/simon/env_debate_simon.tres" id="2_n7pdm"]
 [ext_resource type="Resource" uid="uid://d1yevyo6mrvth" path="res://debate/simon/bb_debate_simon.tres" id="2_sb58c"]
 [ext_resource type="PackedScene" uid="uid://r4i5a44ihqej" path="res://asset/world/church/lectern.glb" id="2_xkf0u"]
 [ext_resource type="Texture2D" uid="uid://s31gpcwuarso" path="res://asset/world/church/stained_glass.png" id="3_b8tro"]

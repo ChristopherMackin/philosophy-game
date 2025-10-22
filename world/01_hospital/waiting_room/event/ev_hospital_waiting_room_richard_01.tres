@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="Event" load_steps=12 format=3 uid="uid://4onqnmdxlaol"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_0wrj8"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_fbrgf"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="3_8ym8d"]
+[ext_resource type="Script" uid="uid://bjjvg321qh1hk" path="res://system/script/event/task_action/set_local_value_task_action.gd" id="4_5oi6l"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_fbrgf")
+
+[sub_resource type="Resource" id="Resource_wpdyy"]
+script = ExtResource("3_8ym8d")
+outputs = Array[int]([1])
+inputs = ["Hey little one! How are you feeling?", "richard", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_hf1v8"]
+script = ExtResource("3_8ym8d")
+outputs = Array[int]([2])
+inputs = ["[shake rate=20.0 level=5 connected=1]...[/shake]", "young_samson", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_5mjhl"]
+script = ExtResource("3_8ym8d")
+outputs = Array[int]([4])
+inputs = ["Oh, stranger danger. I get it!", "richard", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_8sexx"]
+script = ExtResource("3_8ym8d")
+outputs = Array[int]([])
+inputs = ["Don't worry, I'm sure your dad will be back here soon.", "richard", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_04j1f"]
+script = ExtResource("4_5oi6l")
+
+[sub_resource type="Resource" id="Resource_s0b21"]
+script = ExtResource("3_8ym8d")
+outputs = Array[int]([3])
+inputs = ["ev_lvl_hospital_waiting_room_stranger_danger", "true"]
+action = SubResource("Resource_04j1f")
+
+[resource]
+script = ExtResource("1_0wrj8")
+skip = false
+can_interupt = false
+await_event = true
+frequency = 0
+start_task = SubResource("Resource_wpdyy")
+tasks = Array[ExtResource("3_8ym8d")]([SubResource("Resource_wpdyy"), SubResource("Resource_hf1v8"), SubResource("Resource_5mjhl"), SubResource("Resource_8sexx"), SubResource("Resource_s0b21")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

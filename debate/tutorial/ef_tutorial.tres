@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="OrderedBucketEventFactory" load_steps=10 format=3 uid="uid://fl8x7vlubnei"]
+[gd_resource type="Resource" script_class="OrderedBucketEventFactory" load_steps=14 format=3 uid="uid://fl8x7vlubnei"]
 
 [ext_resource type="Script" uid="uid://ujd6vl7brq4e" path="res://system/script/event_factory/event_payload_bucket.gd" id="1_30w5w"]
 [ext_resource type="Script" uid="uid://bcbeuvdrhjbe6" path="res://system/script/event_factory/ordered_bucket_event_factory.gd" id="2_bxcm8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://ygtqujy6qdkv" path="res://debate/tutorial/event/ev_tutorial_01.tres" id="3_u4wis"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="4_2ibdx"]
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="5_axr2t"]
+[ext_resource type="Resource" uid="uid://cpbkj0m2p5pyn" path="res://debate/tutorial/event/ev_tutorial_final.tres" id="6_wrlcu"]
 
 [sub_resource type="Resource" id="Resource_udeph"]
 script = ExtResource("5_axr2t")
@@ -23,7 +24,23 @@ concept = 6
 payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_whlk4")])
 metadata/_custom_type_script = "uid://ujd6vl7brq4e"
 
+[sub_resource type="Resource" id="Resource_a6xy3"]
+script = ExtResource("5_axr2t")
+criteria = Array[ExtResource("4_2ibdx")]([])
+
+[sub_resource type="Resource" id="Resource_7ielx"]
+script = ExtResource("2_v6ear")
+event = ExtResource("6_wrlcu")
+rule = SubResource("Resource_a6xy3")
+metadata/_custom_type_script = "uid://dftjqkpxopsus"
+
+[sub_resource type="Resource" id="Resource_70oid"]
+script = ExtResource("1_30w5w")
+concept = 5
+payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_7ielx")])
+metadata/_custom_type_script = "uid://ujd6vl7brq4e"
+
 [resource]
 script = ExtResource("2_bxcm8")
-buckets = Array[ExtResource("1_30w5w")]([SubResource("Resource_28ruw")])
+buckets = Array[ExtResource("1_30w5w")]([SubResource("Resource_28ruw"), SubResource("Resource_70oid")])
 metadata/_custom_type_script = "uid://bcbeuvdrhjbe6"

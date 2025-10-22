@@ -34,11 +34,11 @@ script = ExtResource("1_kfviy")
 task_action = SubResource("Resource_idxig")
 
 [node name="Key" type="TextEdit" parent="."]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 placeholder_text = "Key"
 
 [node name="Value" type="TextEdit" parent="."]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 placeholder_text = "Value"

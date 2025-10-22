@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dp5ktcf5rd31l"]
 
-[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://cutscene/prelude_scene_manager.gd" id="1_vumy4"]
+[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://cutscene/scene_change_node.gd" id="1_vumy4"]
 [ext_resource type="AudioStream" uid="uid://brspvy678a3sh" path="res://asset/sfx/static.mp3" id="2_g4mq0"]
 [ext_resource type="Shader" uid="uid://capxcs54yhxwx" path="res://general/style/tv_static.gdshader" id="2_vpb4t"]
 [ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://general/style/default_theme.tres" id="3_s4d3p"]
@@ -84,27 +84,13 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/2/type = "method"
+tracks/2/type = "audio"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".")
+tracks/2/path = NodePath("Sound/Static")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(22),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"progress"
-}]
-}
-tracks/3/type = "audio"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sound/Static")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -112,30 +98,44 @@ tracks/3/keys = {
 }],
 "times": PackedFloat32Array(15.3667)
 }
-tracks/3/use_blend = true
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sound/Static:volume_db")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sound/Static:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(15.4333, 16, 21.3333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [-80.0, -40.0, 0.0]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("===UI========/Background:color")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("===UI========/Background:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(16.6667, 21.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.137255, 0.0862745, 0.0588235, 1), Color(0.137255, 0.0862745, 0.0588235, 0)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("===MANAGER========/ToLvlHospitalWaitingRoom")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(22),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"progress"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x84ys"]
@@ -151,6 +151,13 @@ shader_parameter/amount = 40.0
 [node name="Prelude" type="Node3D"]
 script = ExtResource("1_vumy4")
 scene_name = "lvl_hospital_waiting_room"
+
+[node name="===MANAGER========" type="Node3D" parent="."]
+
+[node name="ToLvlHospitalWaitingRoom" type="Node" parent="===MANAGER========"]
+script = ExtResource("1_vumy4")
+scene_name = "lvl_hospital_waiting_room"
+metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
 
 [node name="===CUTSCENE========" type="Node3D" parent="."]
 

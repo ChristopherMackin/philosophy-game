@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://ctd3jsa0tk7ni"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_jyhoa"]
+[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="2_6il6c"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="3_3tqqf"]
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("2_6il6c")
+
+[sub_resource type="Resource" id="Resource_v3ruw"]
+script = ExtResource("3_3tqqf")
+outputs = Array[int]([])
+inputs = ["cut_wake", "", true, true]
+action = SubResource("Resource_ml60a")
+
+[resource]
+script = ExtResource("1_jyhoa")
+skip = false
+can_interupt = true
+await_event = true
+frequency = 0
+start_task = SubResource("Resource_v3ruw")
+tasks = Array[ExtResource("3_3tqqf")]([SubResource("Resource_v3ruw")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"
