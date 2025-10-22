@@ -18,7 +18,6 @@ script = ExtResource("3_0g3v2")
 
 [resource]
 script = ExtResource("1_cdwd0")
-starting_player = 0
 redraw_on_hand_depleted = false
 retain_excess_energy = false
 suits = Array[ExtResource("2_4blar")]([ExtResource("3_oowsw"), ExtResource("2_p7u10"), ExtResource("5_t3pf5"), ExtResource("4_tit4q")])

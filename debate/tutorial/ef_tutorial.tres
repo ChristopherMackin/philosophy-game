@@ -10,7 +10,6 @@
 
 [sub_resource type="Resource" id="Resource_udeph"]
 script = ExtResource("5_axr2t")
-criteria = Array[ExtResource("4_2ibdx")]([])
 
 [sub_resource type="Resource" id="Resource_whlk4"]
 script = ExtResource("2_v6ear")
@@ -26,7 +25,6 @@ metadata/_custom_type_script = "uid://ujd6vl7brq4e"
 
 [sub_resource type="Resource" id="Resource_a6xy3"]
 script = ExtResource("5_axr2t")
-criteria = Array[ExtResource("4_2ibdx")]([])
 
 [sub_resource type="Resource" id="Resource_7ielx"]
 script = ExtResource("2_v6ear")

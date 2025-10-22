@@ -10,28 +10,16 @@
 
 [sub_resource type="Resource" id="Resource_0fe25"]
 script = ExtResource("3_0fe25")
-which_contestant = 0
-collection_filters = Array[ExtResource("3_67ah5")]([])
 metadata/_custom_type_script = "uid://rqidt26nwrc8"
 
 [sub_resource type="Resource" id="Resource_pdd32"]
 script = ExtResource("4_67ah5")
 collection_container = SubResource("Resource_0fe25")
-which_contestant = 0
 metadata/_custom_type_script = "uid://4v61ulpu2ysv"
 
 [resource]
 script = ExtResource("1_08ivs")
 suit = ExtResource("2_p5gsa")
 title = "Closed Window"
-base_cost = 0
 description = "Discard the card in your hold slot"
 on_play_card_actions = Array[ExtResource("2_xe0ix")]([SubResource("Resource_pdd32")])
-on_discard_card_actions = Array[ExtResource("2_xe0ix")]([])
-on_banish_card_actions = Array[ExtResource("2_xe0ix")]([])
-on_turn_start_card_actions = Array[ExtResource("2_xe0ix")]([])
-on_turn_end_card_actions = Array[ExtResource("2_xe0ix")]([])
-on_hold_start_card_actions = Array[ExtResource("2_xe0ix")]([])
-on_hold_stay_card_actions = Array[ExtResource("2_xe0ix")]([])
-on_hold_end_card_actions = Array[ExtResource("2_xe0ix")]([])
-cost_modifiers = Array[ExtResource("1_jq1pd")]([])

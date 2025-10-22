@@ -68,8 +68,6 @@
 [sub_resource type="Resource" id="Resource_e1cpf"]
 script = ExtResource("3_njvbj")
 duration = 2.5
-transition = 0
-ease = 2
 
 [sub_resource type="Curve3D" id="Curve3D_e1cpf"]
 _data = {
@@ -81,15 +79,12 @@ point_count = 2
 [sub_resource type="Resource" id="Resource_0yj8j"]
 script = ExtResource("3_njvbj")
 duration = 0.5
-transition = 0
-ease = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e1cpf"]
 size = Vector3(5.37573, 6.35559, 3.09017)
 
 [sub_resource type="Resource" id="Resource_ddrbv"]
 script = ExtResource("10_fhm6w")
-criteria = Array[ExtResource("9_tusbe")]([])
 metadata/_custom_type_script = "uid://bal31j6jwdxqy"
 
 [sub_resource type="Resource" id="Resource_mgf10"]
@@ -108,7 +103,6 @@ height = 2.7627
 
 [sub_resource type="Resource" id="Resource_q7j4r"]
 script = ExtResource("10_fhm6w")
-criteria = Array[ExtResource("9_tusbe")]([])
 metadata/_custom_type_script = "uid://bal31j6jwdxqy"
 
 [sub_resource type="Resource" id="Resource_42yw3"]
@@ -127,7 +121,6 @@ size = Vector3(2.36935, 2.0853, 0.846832)
 
 [sub_resource type="Resource" id="Resource_nnx3h"]
 script = ExtResource("10_fhm6w")
-criteria = Array[ExtResource("9_tusbe")]([])
 metadata/_custom_type_script = "uid://bal31j6jwdxqy"
 
 [sub_resource type="Resource" id="Resource_2urq8"]
@@ -146,7 +139,6 @@ size = Vector3(0.715693, 2.55649, 0.275513)
 
 [sub_resource type="Resource" id="Resource_7qhb1"]
 script = ExtResource("10_fhm6w")
-criteria = Array[ExtResource("9_tusbe")]([])
 
 [sub_resource type="Resource" id="Resource_bjile"]
 script = ExtResource("7_ypuf2")
@@ -161,7 +153,6 @@ metadata/_custom_type_script = "uid://dghxtp7la36tj"
 
 [sub_resource type="Resource" id="Resource_0bkpg"]
 script = ExtResource("10_fhm6w")
-criteria = Array[ExtResource("9_tusbe")]([])
 
 [sub_resource type="Resource" id="Resource_psei2"]
 script = ExtResource("7_ypuf2")
@@ -179,7 +170,6 @@ size = Vector3(1, 2.39014, 1)
 
 [sub_resource type="Resource" id="Resource_e3cfe"]
 script = ExtResource("10_fhm6w")
-criteria = Array[ExtResource("9_tusbe")]([])
 
 [sub_resource type="Resource" id="Resource_lmnoa"]
 script = ExtResource("7_ypuf2")
@@ -876,56 +866,38 @@ _data = {
 [sub_resource type="Resource" id="Resource_g3al7"]
 script = ExtResource("3_njvbj")
 duration = 0.0
-transition = 0
-ease = 2
 
 [sub_resource type="Resource" id="Resource_bcqfs"]
 script = ExtResource("3_njvbj")
 duration = 6.0
-transition = 0
-ease = 2
 
 [sub_resource type="Resource" id="Resource_kiegc"]
 script = ExtResource("3_njvbj")
 duration = 0.0
-transition = 0
-ease = 2
 
 [sub_resource type="Resource" id="Resource_bfexw"]
 script = ExtResource("3_njvbj")
 duration = 0.0
-transition = 0
-ease = 2
 
 [sub_resource type="Resource" id="Resource_8rtte"]
 script = ExtResource("3_njvbj")
 duration = 0.0
-transition = 0
-ease = 2
 
 [sub_resource type="Resource" id="Resource_1082y"]
 script = ExtResource("3_njvbj")
 duration = 0.0
-transition = 0
-ease = 2
 
 [sub_resource type="Resource" id="Resource_cu8m1"]
 script = ExtResource("3_njvbj")
 duration = 3.0
-transition = 0
-ease = 2
 
 [sub_resource type="Resource" id="Resource_uxids"]
 script = ExtResource("3_njvbj")
 duration = 0.0
-transition = 0
-ease = 2
 
 [sub_resource type="Resource" id="Resource_b18tf"]
 script = ExtResource("3_njvbj")
 duration = 0.0
-transition = 0
-ease = 2
 
 [sub_resource type="Environment" id="Environment_qtj8i"]
 background_mode = 1
@@ -1006,6 +978,7 @@ animation = &"walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_fhm6w"]
 resource_local_to_scene = true
+nodes/output/position = Vector2(310, 160)
 nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
 nodes/action/position = Vector2(-600, -130)
 nodes/animation/node = SubResource("AnimationNodeAdd2_8dv24")
@@ -1024,7 +997,6 @@ nodes/idle_variant/node = SubResource("AnimationNodeAnimation_bxpyq")
 nodes/idle_variant/position = Vector2(-750, -320)
 nodes/idling/node = SubResource("AnimationNodeOneShot_4f1rm")
 nodes/idling/position = Vector2(-530, -440)
-nodes/output/position = Vector2(310, 160)
 nodes/take_action/node = SubResource("AnimationNodeOneShot_s6d67")
 nodes/take_action/position = Vector2(-320, -280)
 nodes/talk/node = SubResource("AnimationNodeAnimation_k26ml")
@@ -1037,7 +1009,7 @@ nodes/walk/node = SubResource("AnimationNodeAnimation_axsce")
 nodes/walk/position = Vector2(-320, 30)
 nodes/walking/node = SubResource("AnimationNodeBlend2_k26ml")
 nodes/walking/position = Vector2(-130, -110)
-node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"output", 0, &"animation", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
+node_connections = [&"output", 0, &"animation", &"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
 
 [node name="LvlHospitalWaitingRoom" instance=ExtResource("1_3r1kw")]
 script = ExtResource("2_q7j4r")
@@ -1045,12 +1017,12 @@ scene_name = "lvl_debate_tutorial"
 
 [node name="MainCamera" parent="===CAMERA========" index="0"]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -8.70819, 3.11042, 4.90518)
+transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -8.708195, 3.1104178, 4.9051814)
 fov = 45.0
 far = 100.0
 
 [node name="MainAngle" type="Node3D" parent="===CAMERA========" index="1" node_paths=PackedStringArray("follow_target", "follow_path")]
-transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -8.70819, 3.11042, 4.90518)
+transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -8.708195, 3.1104178, 4.9051814)
 top_level = true
 script = ExtResource("2_qxgj8")
 priority = 1
@@ -1186,7 +1158,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="CutGetCaps" type="Node3D" parent="===CUTSCENE========" index="2"]
 
 [node name="Shot01" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="0"]
-transform = Transform3D(-3.61999e-06, 0.390731, -0.920505, 0, 0.920505, 0.390731, 1, 1.41444e-06, -3.33222e-06, 4.01364, 0.77378, 0.163754)
+transform = Transform3D(-3.6199901e-06, 0.39073136, -0.92050475, 0, 0.92050475, 0.39073136, 1, 1.4144437e-06, -3.332218e-06, 4.01364, 0.77378, 0.163754)
 script = ExtResource("2_qxgj8")
 tween_resource = SubResource("Resource_kiegc")
 camera_3d_resource = ExtResource("4_cvh6f")
@@ -1235,7 +1207,7 @@ camera_3d_resource = ExtResource("4_cvh6f")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Shot09" type="Node3D" parent="===CUTSCENE========/CutGetCaps" index="7"]
-transform = Transform3D(1, 1.21391e-31, 7.97127e-33, -1.21652e-31, 0.997851, 0.065525, -2.27752e-38, -0.065525, 0.997851, 4.0993, 0.273302, -0.971149)
+transform = Transform3D(1, 1.2139055e-31, 7.9712726e-33, -1.21652e-31, 0.99785095, 0.06552502, -2.2775203e-38, -0.06552502, 0.99785095, 4.0993, 0.273302, -0.971149)
 script = ExtResource("2_qxgj8")
 tween_resource = SubResource("Resource_b18tf")
 camera_3d_resource = ExtResource("4_cvh6f")
@@ -1312,14 +1284,14 @@ render_target_update_mode = 0
 
 [node name="PortraitCamera" parent="===UI========/WorldDialogueBox/Portrait/SubViewport" index="0"]
 physics_interpolation_mode = 1
-transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, -8.69555, 1.29199, 1.36154)
+transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, -8.695551, 1.29199, 1.361536)
 
 [node name="ScrollingText" parent="===UI========/WorldDialogueBox/MarginContainer" index="0"]
 bbcode_enabled = true
 
 [node name="Camera3D" parent="===STORYBOARD========/CameraView/SubViewport" index="0"]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -8.70819, 3.11042, 4.90518)
+transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -8.708195, 3.1104178, 4.9051814)
 
 [node name="Blackout" type="ColorRect" parent="===STORYBOARD========" index="2"]
 anchors_preset = 15

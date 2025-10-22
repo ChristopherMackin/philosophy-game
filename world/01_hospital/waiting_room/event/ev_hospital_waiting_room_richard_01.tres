@@ -28,7 +28,6 @@ action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_8sexx"]
 script = ExtResource("3_8ym8d")
-outputs = Array[int]([])
 inputs = ["Don't worry, I'm sure your dad will be back here soon.", "richard", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
@@ -43,10 +42,7 @@ action = SubResource("Resource_04j1f")
 
 [resource]
 script = ExtResource("1_0wrj8")
-skip = false
-can_interupt = false
 await_event = true
-frequency = 0
 start_task = SubResource("Resource_wpdyy")
 tasks = Array[ExtResource("3_8ym8d")]([SubResource("Resource_wpdyy"), SubResource("Resource_hf1v8"), SubResource("Resource_5mjhl"), SubResource("Resource_8sexx"), SubResource("Resource_s0b21")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

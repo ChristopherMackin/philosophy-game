@@ -19,34 +19,25 @@
 
 [sub_resource type="Resource" id="Resource_lnlrq"]
 script = ExtResource("3_lnlrq")
-key = "suits"
 suit_options = Array[ExtResource("4_5dh6k")]([ExtResource("5_o12v6"), ExtResource("7_sva2d"), ExtResource("8_gjkwf"), ExtResource("6_6p6oe")])
-suit_selection_action = 1
 metadata/_custom_type_script = "uid://bkcitaxix1ncs"
 
 [sub_resource type="Resource" id="Resource_u1sng"]
 script = ExtResource("10_w4ypc")
-key = "action_suits"
-filter_mode = 0
 metadata/_custom_type_script = "uid://ba0lgn6ygtilc"
 
 [sub_resource type="Resource" id="Resource_gjkwf"]
 script = ExtResource("11_jsiak")
-slice_direction = 0
 amount = 1
 metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
 
 [sub_resource type="Resource" id="Resource_w4ypc"]
 script = ExtResource("11_t371b")
-which_contestant = 0
-insertion_point = 0
 collection_filters = Array[ExtResource("9_w4ypc")]([SubResource("Resource_u1sng"), SubResource("Resource_gjkwf")])
 metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
 [sub_resource type="Resource" id="Resource_jsiak"]
 script = ExtResource("14_48qua")
-which_contestant = 0
-collection_filters = Array[ExtResource("9_w4ypc")]([])
 metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
 
 [sub_resource type="Resource" id="Resource_t371b"]
@@ -62,11 +53,3 @@ title = "Recollect"
 base_cost = 1
 description = "Draw a card of a specified suit"
 on_play_card_actions = Array[ExtResource("2_i5s1o")]([SubResource("Resource_lnlrq"), SubResource("Resource_t371b")])
-on_discard_card_actions = Array[ExtResource("2_i5s1o")]([])
-on_banish_card_actions = Array[ExtResource("2_i5s1o")]([])
-on_turn_start_card_actions = Array[ExtResource("2_i5s1o")]([])
-on_turn_end_card_actions = Array[ExtResource("2_i5s1o")]([])
-on_hold_start_card_actions = Array[ExtResource("2_i5s1o")]([])
-on_hold_stay_card_actions = Array[ExtResource("2_i5s1o")]([])
-on_hold_end_card_actions = Array[ExtResource("2_i5s1o")]([])
-cost_modifiers = Array[ExtResource("1_mhacy")]([])

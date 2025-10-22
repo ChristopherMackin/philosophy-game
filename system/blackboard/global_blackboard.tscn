@@ -17,5 +17,6 @@ blackboard = ExtResource("2_vy501")
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("3_dgyem")
+load_data = false
 save_data_list = Array[ExtResource("4_gu701")]([SubResource("Resource_j0tf4")])
 metadata/_custom_type_script = "uid://bqa5o66nsm0hq"

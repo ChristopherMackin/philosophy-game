@@ -19,20 +19,17 @@ metadata/_custom_type_script = "uid://bbr50dvcf2gmc"
 
 [sub_resource type="Resource" id="Resource_j2xrb"]
 script = ExtResource("7_ydk5d")
-slice_direction = 0
 amount = 1
 metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
 
 [sub_resource type="Resource" id="Resource_wogss"]
 script = ExtResource("6_4g70h")
-which_contestant = 0
 collection_filters = Array[ExtResource("3_y58wo")]([SubResource("Resource_4g70h"), SubResource("Resource_j2xrb")])
 metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
 
 [sub_resource type="Resource" id="Resource_xbisx"]
 script = ExtResource("5_if0ua")
 collection_container = SubResource("Resource_wogss")
-which_contestant = 0
 metadata/_custom_type_script = "uid://4v61ulpu2ysv"
 
 [resource]
@@ -42,11 +39,3 @@ title = "Forget"
 base_cost = 1
 description = "Discard a random color card from your hand"
 on_play_card_actions = Array[ExtResource("2_otdrs")]([SubResource("Resource_xbisx")])
-on_discard_card_actions = Array[ExtResource("2_otdrs")]([])
-on_banish_card_actions = Array[ExtResource("2_otdrs")]([])
-on_turn_start_card_actions = Array[ExtResource("2_otdrs")]([])
-on_turn_end_card_actions = Array[ExtResource("2_otdrs")]([])
-on_hold_start_card_actions = Array[ExtResource("2_otdrs")]([])
-on_hold_stay_card_actions = Array[ExtResource("2_otdrs")]([])
-on_hold_end_card_actions = Array[ExtResource("2_otdrs")]([])
-cost_modifiers = Array[ExtResource("1_1mpm3")]([])

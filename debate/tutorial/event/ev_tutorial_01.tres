@@ -55,7 +55,6 @@ action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_il8fe"]
 script = ExtResource("2_2udwm")
-outputs = Array[int]([])
 inputs = ["To change thoughts.", "simon", true, 2.0]
 action = SubResource("Resource_x7ur8")
 

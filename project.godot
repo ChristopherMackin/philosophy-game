@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Philosophy"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=60
 config/icon="res://asset/debate/icon.svg"
 
@@ -26,7 +26,6 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/stretch/mode="viewport"
 
 [editor_plugins]

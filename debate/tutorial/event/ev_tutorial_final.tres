@@ -20,16 +20,13 @@ script = ExtResource("4_qvyo8")
 
 [sub_resource type="Resource" id="Resource_qvyo8"]
 script = ExtResource("2_q3uqt")
-outputs = Array[int]([])
 inputs = ["cut_tutorial_debate_finished", "", true, true]
 action = SubResource("Resource_ml60a")
 
 [resource]
 script = ExtResource("1_5r5xf")
-skip = false
 can_interupt = true
 await_event = true
-frequency = 0
 start_task = SubResource("Resource_ur1ht")
 tasks = Array[ExtResource("2_q3uqt")]([SubResource("Resource_qvyo8"), SubResource("Resource_ur1ht")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

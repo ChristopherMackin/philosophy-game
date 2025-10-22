@@ -9,16 +9,13 @@ script = ExtResource("2_vc1oj")
 
 [sub_resource type="Resource" id="Resource_okphr"]
 script = ExtResource("3_wr61c")
-outputs = Array[int]([])
 inputs = ["cut_get_caps", "", true, true]
 action = SubResource("Resource_ml60a")
 
 [resource]
 script = ExtResource("1_q08xt")
-skip = false
 can_interupt = true
 await_event = true
-frequency = 0
 start_task = SubResource("Resource_okphr")
 tasks = Array[ExtResource("3_wr61c")]([SubResource("Resource_okphr")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"
