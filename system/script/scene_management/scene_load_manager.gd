@@ -10,6 +10,9 @@ signal _event_finished
 @export var event_factory: EventFactory
 
 func _ready():
+	blackboard.expire(blackboard.ExpirationToken.ON_SCENE_ENTER)
+	SceneManager.on_scene_unload.connect(func(): blackboard.expire(blackboard.ExpirationToken.ON_SCENE_EXIT), CONNECT_ONE_SHOT)
+	
 	if blackboard:
 		event_manager.blackboard = blackboard
 	

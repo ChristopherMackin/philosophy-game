@@ -1,16 +1,26 @@
-[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=14 format=3 uid="uid://bxr41ykmete5i"]
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=13 format=3 uid="uid://bxr41ykmete5i"]
 
 [ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="1_7rw1e"]
-[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="2_0n7pl"]
+[ext_resource type="Resource" uid="uid://b8vnqsn2jf4ob" path="res://world/01_hospital/waiting_room/event/cutscene/ev_hospital_waiting_room_cut_tutorial_ended.tres" id="2_3n8ud"]
 [ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="2_6vodb"]
-[ext_resource type="Resource" uid="uid://ctd3jsa0tk7ni" path="res://world/01_hospital/waiting_room/event/ev_hospital_waiting_room_cut_wake_01.tres" id="2_tct05"]
+[ext_resource type="Resource" uid="uid://ctd3jsa0tk7ni" path="res://world/01_hospital/waiting_room/event/cutscene/ev_hospital_waiting_room_cut_wake_01.tres" id="2_tct05"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="3_3n8ud"]
-[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="3_g1c1t"]
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="4_0n7pl"]
 
-[sub_resource type="Resource" id="Resource_tsd4r"]
-script = ExtResource("2_0n7pl")
-metadata/_custom_type_script = "uid://ce1vejtu0bdfn"
+[sub_resource type="Resource" id="Resource_3n8ud"]
+script = ExtResource("3_3n8ud")
+expression = "hospital_waiting_room_tutorial_finished is false"
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
+[sub_resource type="Resource" id="Resource_g1c1t"]
+script = ExtResource("4_0n7pl")
+criteria = Array[ExtResource("3_3n8ud")]([SubResource("Resource_3n8ud")])
+
+[sub_resource type="Resource" id="Resource_13f7h"]
+script = ExtResource("1_7rw1e")
+event = ExtResource("2_tct05")
+rule = SubResource("Resource_g1c1t")
+metadata/_custom_type_script = "uid://dftjqkpxopsus"
 
 [sub_resource type="Resource" id="Resource_6ed57"]
 script = ExtResource("3_3n8ud")
@@ -23,20 +33,11 @@ criteria = Array[ExtResource("3_3n8ud")]([SubResource("Resource_6ed57")])
 
 [sub_resource type="Resource" id="Resource_hl5nm"]
 script = ExtResource("1_7rw1e")
-event = SubResource("Resource_tsd4r")
+event = ExtResource("2_3n8ud")
 rule = SubResource("Resource_yheux")
-metadata/_custom_type_script = "uid://dftjqkpxopsus"
-
-[sub_resource type="Resource" id="Resource_g1c1t"]
-script = ExtResource("4_0n7pl")
-
-[sub_resource type="Resource" id="Resource_13f7h"]
-script = ExtResource("1_7rw1e")
-event = ExtResource("2_tct05")
-rule = SubResource("Resource_g1c1t")
 metadata/_custom_type_script = "uid://dftjqkpxopsus"
 
 [resource]
 script = ExtResource("2_6vodb")
-payload_list = Array[ExtResource("1_7rw1e")]([SubResource("Resource_hl5nm"), SubResource("Resource_13f7h")])
+payload_list = Array[ExtResource("1_7rw1e")]([SubResource("Resource_13f7h"), SubResource("Resource_hl5nm")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"

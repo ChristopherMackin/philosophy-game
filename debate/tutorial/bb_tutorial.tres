@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="Blackboard" load_steps=2 format=3 uid="uid://bgnrnyyqdy8uv"]
+[gd_resource type="Resource" script_class="Blackboard" load_steps=3 format=3 uid="uid://bgnrnyyqdy8uv"]
 
+[ext_resource type="Script" uid="uid://b0owp8ov8lkj2" path="res://system/script/blackboard/blackboard_entry.gd" id="1_7y46a"]
 [ext_resource type="Script" uid="uid://c1eaebx4srk2s" path="res://system/script/blackboard/blackboard.gd" id="1_inqry"]
 
 [resource]
 script = ExtResource("1_inqry")
-_entries = Dictionary[String, Variant]({})
-_expiration_tokens = Dictionary[String, int]({})
 metadata/_custom_type_script = "uid://c1eaebx4srk2s"

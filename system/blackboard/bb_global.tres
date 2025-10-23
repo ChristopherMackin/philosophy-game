@@ -4,5 +4,3 @@
 
 [resource]
 script = ExtResource("1_bw6ub")
-_entries = Dictionary[String, Variant]({})
-_expiration_tokens = Dictionary[String, int]({})

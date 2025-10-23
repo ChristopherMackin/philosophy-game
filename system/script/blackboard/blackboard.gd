@@ -14,36 +14,36 @@ enum ExpirationToken {
 	ON_SCENE_EXIT,
 }
 
-@export var _entries : Dictionary[String, Variant]
-@export var _expiration_tokens : Dictionary[String, ExpirationToken]
+@export var _entries : Dictionary[String, BlackboardEntry]
 
 func has(key: String):
 	return _entries.has(key)
 
 func get_value(key: String):
-	return _entries.get(key, null)
+	return _entries.get(key, null).value
 
 func get_expiration_token(key: String):
-	return _expiration_tokens.get(key, null)
+	return _entries.get(key, null).expiration_token
 
 func add(key: String, value, expiration_token : Blackboard.ExpirationToken = Blackboard.ExpirationToken.NEVER):
 	if typeof(value) == TYPE_STRING:
 		value = value.to_snake_case()
-	_entries[key] = value
-	_expiration_tokens[key] = expiration_token
+	_entries[key] = BlackboardEntry.new(value, expiration_token)
 
 func erase(key: String):
 	_entries.erase(key)
-	_expiration_tokens.erase(key)
 
 func expire(expiration_token : Blackboard.ExpirationToken):
 	var keys_to_erase : Array[String] = []
-	for key in _expiration_tokens:
-		if _expiration_tokens[key] == expiration_token:
+	for key in _entries:
+		if _entries[key].expiration_token == expiration_token:
 			keys_to_erase.append(key)
 	
 	for key in keys_to_erase:
 		erase(key)
 
 func get_query():
-	return _entries.duplicate()
+	var query : Dictionary[String, Variant]
+	for key in _entries:
+		query[key] = _entries[key].value
+	return query

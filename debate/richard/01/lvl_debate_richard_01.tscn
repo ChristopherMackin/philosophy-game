@@ -1,0 +1,236 @@
+[gd_scene load_steps=40 format=3 uid="uid://ctjbjhou2vn01"]
+
+[ext_resource type="PackedScene" uid="uid://6tf5uq4g0k3r" path="res://debate/lvl_debate_base.tscn" id="1_0p6ir"]
+[ext_resource type="Resource" uid="uid://bj3guxr162ud" path="res://debate/richard/01/bb_debate_richard_01.tres" id="2_xcfaf"]
+[ext_resource type="Resource" uid="uid://7n8iaxa0sof3" path="res://debate/richard/01/ef_debate_richard_01.tres" id="3_bk8r0"]
+[ext_resource type="PackedScene" uid="uid://dcc5jdxai5dtq" path="res://character/young_samson/young_samson_actor.tscn" id="4_sfbst"]
+[ext_resource type="Resource" uid="uid://bp8xjt365y0m2" path="res://debate/richard/01/ch_debate_richard_01.tres" id="4_xcfaf"]
+[ext_resource type="PackedScene" uid="uid://cw3ibw5bifstm" path="res://character/richard/richard_actor.tscn" id="5_hxvvi"]
+
+[sub_resource type="Environment" id="Environment_0p6ir"]
+background_mode = 3
+background_color = Color(0.977565, 0.97089, 0.932925, 1)
+background_energy_multiplier = 0.5
+background_canvas_max_layer = -100
+ambient_light_source = 2
+ambient_light_color = Color(0.976471, 0.972549, 0.933333, 1)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qfv6"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_8dv24"]
+filter_enabled = true
+filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4f1rm"]
+animation = &"blink"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dlmfx"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ja5cw"]
+autorestart = true
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_sijwa"]
+filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dv24"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bxpyq"]
+animation = &"idle_variant_01"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_4f1rm"]
+fadein_time = 0.3
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_s6d67"]
+fadein_time = 0.3
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k26ml"]
+animation = &"talk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lydv1"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_uceat"]
+autorestart = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_axsce"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_k26ml"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_xcfaf"]
+resource_local_to_scene = true
+graph_offset = Vector2(-626.396, -182.127)
+nodes/output/position = Vector2(310, 160)
+nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
+nodes/action/position = Vector2(-600, -130)
+nodes/animation/node = SubResource("AnimationNodeAdd2_8dv24")
+nodes/animation/position = Vector2(80, 60)
+nodes/blink/node = SubResource("AnimationNodeAnimation_4f1rm")
+nodes/blink/position = Vector2(-890, 470)
+nodes/blink_reset/node = SubResource("AnimationNodeAnimation_dlmfx")
+nodes/blink_reset/position = Vector2(-890, 300)
+nodes/blink_trigger/node = SubResource("AnimationNodeOneShot_ja5cw")
+nodes/blink_trigger/position = Vector2(-480, 260)
+nodes/facial_animation/node = SubResource("AnimationNodeAdd2_sijwa")
+nodes/facial_animation/position = Vector2(-210, 220)
+nodes/idle/node = SubResource("AnimationNodeAnimation_8dv24")
+nodes/idle/position = Vector2(-750, -500)
+nodes/idle_variant/node = SubResource("AnimationNodeAnimation_bxpyq")
+nodes/idle_variant/position = Vector2(-750, -320)
+nodes/idling/node = SubResource("AnimationNodeOneShot_4f1rm")
+nodes/idling/position = Vector2(-530, -440)
+nodes/take_action/node = SubResource("AnimationNodeOneShot_s6d67")
+nodes/take_action/position = Vector2(-320, -280)
+nodes/talk/node = SubResource("AnimationNodeAnimation_k26ml")
+nodes/talk/position = Vector2(-890, 820)
+nodes/talk_reset/node = SubResource("AnimationNodeAnimation_lydv1")
+nodes/talk_reset/position = Vector2(-890, 650)
+nodes/talk_trigger/node = SubResource("AnimationNodeOneShot_uceat")
+nodes/talk_trigger/position = Vector2(-480, 600)
+nodes/walk/node = SubResource("AnimationNodeAnimation_axsce")
+nodes/walk/position = Vector2(-320, 30)
+nodes/walking/node = SubResource("AnimationNodeBlend2_k26ml")
+nodes/walking/position = Vector2(-130, -110)
+node_connections = [&"output", 0, &"animation", &"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bk8r0"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_sfbst"]
+filter_enabled = true
+filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hxvvi"]
+animation = &"blink"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_af5xy"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_omcx8"]
+autorestart = true
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_setbp"]
+filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7cvc6"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3dbi5"]
+animation = &"idle_variant_01"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ib4gl"]
+fadein_time = 0.3
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_3dwnn"]
+fadein_time = 0.3
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_06t1f"]
+animation = &"talk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8wste"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_jqmsb"]
+autorestart = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kk4yj"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_yedk6"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dhk53"]
+resource_local_to_scene = true
+graph_offset = Vector2(-626.396, -182.127)
+nodes/output/position = Vector2(310, 160)
+nodes/action/node = SubResource("AnimationNodeAnimation_bk8r0")
+nodes/action/position = Vector2(-600, -130)
+nodes/animation/node = SubResource("AnimationNodeAdd2_sfbst")
+nodes/animation/position = Vector2(80, 60)
+nodes/blink/node = SubResource("AnimationNodeAnimation_hxvvi")
+nodes/blink/position = Vector2(-890, 470)
+nodes/blink_reset/node = SubResource("AnimationNodeAnimation_af5xy")
+nodes/blink_reset/position = Vector2(-890, 300)
+nodes/blink_trigger/node = SubResource("AnimationNodeOneShot_omcx8")
+nodes/blink_trigger/position = Vector2(-480, 260)
+nodes/facial_animation/node = SubResource("AnimationNodeAdd2_setbp")
+nodes/facial_animation/position = Vector2(-210, 220)
+nodes/idle/node = SubResource("AnimationNodeAnimation_7cvc6")
+nodes/idle/position = Vector2(-750, -500)
+nodes/idle_variant/node = SubResource("AnimationNodeAnimation_3dbi5")
+nodes/idle_variant/position = Vector2(-750, -320)
+nodes/idling/node = SubResource("AnimationNodeOneShot_ib4gl")
+nodes/idling/position = Vector2(-530, -440)
+nodes/take_action/node = SubResource("AnimationNodeOneShot_3dwnn")
+nodes/take_action/position = Vector2(-320, -280)
+nodes/talk/node = SubResource("AnimationNodeAnimation_06t1f")
+nodes/talk/position = Vector2(-890, 820)
+nodes/talk_reset/node = SubResource("AnimationNodeAnimation_8wste")
+nodes/talk_reset/position = Vector2(-890, 650)
+nodes/talk_trigger/node = SubResource("AnimationNodeOneShot_jqmsb")
+nodes/talk_trigger/position = Vector2(-480, 600)
+nodes/walk/node = SubResource("AnimationNodeAnimation_kk4yj")
+nodes/walk/position = Vector2(-320, 30)
+nodes/walking/node = SubResource("AnimationNodeBlend2_yedk6")
+nodes/walking/position = Vector2(-130, -110)
+node_connections = [&"output", 0, &"animation", &"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
+
+[node name="LvlDebateRichard01" instance=ExtResource("1_0p6ir")]
+
+[node name="SceneLoadManager" parent="===MANAGER========" index="0"]
+blackboard = ExtResource("2_xcfaf")
+event_factory = ExtResource("3_bk8r0")
+
+[node name="DebateSceneManager" parent="===MANAGER========" index="2"]
+blackboard = ExtResource("2_xcfaf")
+event_factory = ExtResource("3_bk8r0")
+computer = ExtResource("4_xcfaf")
+
+[node name="SceneEventManager" parent="===MANAGER========" index="3" node_paths=PackedStringArray("actors")]
+actors = [NodePath("../../===ACTOR========/YoungSamsonActor"), NodePath("../../===ACTOR========/RichardActor")]
+
+[node name="WorldEnvironment" parent="===WORLD========" index="0"]
+environment = SubResource("Environment_0p6ir")
+
+[node name="YoungSamsonActor" parent="===ACTOR========" index="0" node_paths=PackedStringArray("dialogue_area_override") instance=ExtResource("4_sfbst")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0.75)
+dialogue_area_override = NodePath("../../===UI========/Player/BasicDialogueBubble")
+
+[node name="YoungSamsonSkin" parent="===ACTOR========/YoungSamsonActor" index="0"]
+layers = 3
+
+[node name="LayerMask" parent="===ACTOR========/YoungSamsonActor" index="1"]
+layers = Array[bool]([true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
+
+[node name="CharacterAnimationTree" parent="===ACTOR========/YoungSamsonActor" index="4"]
+tree_root = SubResource("AnimationNodeBlendTree_xcfaf")
+
+[node name="RichardActor" parent="===ACTOR========" index="1" node_paths=PackedStringArray("dialogue_area_override") instance=ExtResource("5_hxvvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75)
+dialogue_area_override = NodePath("../../===UI========/Computer/BasicDialogueBubble")
+
+[node name="RichardSkin" parent="===ACTOR========/RichardActor" index="0"]
+layers = 5
+
+[node name="LayerMask" parent="===ACTOR========/RichardActor" index="1"]
+layers = Array[bool]([true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
+
+[node name="CharacterAnimationTree" parent="===ACTOR========/RichardActor" index="4"]
+tree_root = SubResource("AnimationNodeBlendTree_dhk53")
+
+[node name="Camera3D" parent="===UI========/Player/PlayerPortrait/SubViewport" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.1566567, -0.18347955)
+
+[node name="Camera3D" parent="===UI========/Computer/ComputerPortrait/SubViewport" index="0"]
+transform = Transform3D(0.9593583, 0, 0.2821911, 0, 1, 0, -0.2821911, 0, 0.9593583, 0.27108142, 1.3752598, -0.0061279535)
+
+[editable path="===ACTOR========/YoungSamsonActor"]
+[editable path="===ACTOR========/RichardActor"]
+[editable path="===UI========/BasicPlayBoard"]
+[editable path="===UI========/Player/BasicDialogueBubble"]

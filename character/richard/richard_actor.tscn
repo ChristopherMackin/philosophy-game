@@ -52,7 +52,7 @@ animation = &"walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m44ln"]
 resource_local_to_scene = true
-graph_offset = Vector2(-626.396, -182.127)
+nodes/output/position = Vector2(310, 160)
 nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
 nodes/action/position = Vector2(-600, -130)
 nodes/animation/node = SubResource("AnimationNodeAdd2_8dv24")
@@ -71,7 +71,6 @@ nodes/idle_variant/node = SubResource("AnimationNodeAnimation_bxpyq")
 nodes/idle_variant/position = Vector2(-750, -320)
 nodes/idling/node = SubResource("AnimationNodeOneShot_4f1rm")
 nodes/idling/position = Vector2(-530, -440)
-nodes/output/position = Vector2(310, 160)
 nodes/take_action/node = SubResource("AnimationNodeOneShot_s6d67")
 nodes/take_action/position = Vector2(-320, -280)
 nodes/talk/node = SubResource("AnimationNodeAnimation_k26ml")
@@ -84,7 +83,7 @@ nodes/walk/node = SubResource("AnimationNodeAnimation_axsce")
 nodes/walk/position = Vector2(-320, 30)
 nodes/walking/node = SubResource("AnimationNodeBlend2_k26ml")
 nodes/walking/position = Vector2(-130, -110)
-node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"output", 0, &"animation", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
+node_connections = [&"output", 0, &"animation", &"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
 
 [node name="RichardActor" instance=ExtResource("1_lcc2q")]
 actor_name = "richard"

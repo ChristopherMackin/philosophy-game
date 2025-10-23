@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Event" load_steps=10 format=3 uid="uid://d4dkhfl71t3ey"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_n1ofr"]
+[ext_resource type="Script" uid="uid://ds3hmx2cyb7ga" path="res://system/script/event/task_action/check_criterion_task_action.gd" id="2_p58m8"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_xmtpc"]
+[ext_resource type="Script" uid="uid://cnwb80jbsgd2s" path="res://system/script/event/task_action/console_task_action.gd" id="4_klk32"]
+
+[sub_resource type="Resource" id="Resource_5jo60"]
+script = ExtResource("2_p58m8")
+metadata/_custom_type_script = "uid://ds3hmx2cyb7ga"
+
+[sub_resource type="Resource" id="Resource_p58m8"]
+script = ExtResource("2_xmtpc")
+outputs = Array[int]([2, 1])
+inputs = ["ev_lvl_hospital_waiting_room_stranger_danger", null]
+action = SubResource("Resource_5jo60")
+
+[sub_resource type="Resource" id="Resource_kfrek"]
+script = ExtResource("4_klk32")
+
+[sub_resource type="Resource" id="Resource_klk32"]
+script = ExtResource("2_xmtpc")
+inputs = ["Stranger Danger!"]
+action = SubResource("Resource_kfrek")
+
+[sub_resource type="Resource" id="Resource_wheyh"]
+script = ExtResource("2_xmtpc")
+inputs = ["No Stranger Danger"]
+action = SubResource("Resource_kfrek")
+
+[resource]
+script = ExtResource("1_n1ofr")
+start_task = SubResource("Resource_p58m8")
+tasks = Array[ExtResource("2_xmtpc")]([SubResource("Resource_p58m8"), SubResource("Resource_klk32"), SubResource("Resource_wheyh")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

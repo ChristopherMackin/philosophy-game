@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://bp8xjt365y0m2"]
+
+[ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="1_4no04"]
+[ext_resource type="Script" uid="uid://2hwgbl7c4ebq" path="res://character/script/brain/simple_ai_brain.gd" id="1_s4dmp"]
+[ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="2_j7bgm"]
+[ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://system/script/card/card_deck_config.gd" id="2_oymke"]
+[ext_resource type="Resource" uid="uid://hn3fmi2k8xsl" path="res://system/card/others/basic_others.tres" id="3_tcs8y"]
+[ext_resource type="Script" uid="uid://dlqqr4qxqi2ht" path="res://system/script/deck/infinite_deck.gd" id="4_7kngm"]
+
+[sub_resource type="Resource" id="Resource_ygiir"]
+script = ExtResource("1_s4dmp")
+metadata/_custom_type_script = "uid://2hwgbl7c4ebq"
+
+[sub_resource type="Resource" id="Resource_1yaq7"]
+script = ExtResource("2_oymke")
+base = ExtResource("3_tcs8y")
+count = 1
+metadata/_custom_type_script = "uid://bcrhpdjlreow5"
+
+[sub_resource type="Resource" id="Resource_o387m"]
+script = ExtResource("4_7kngm")
+composition_card_deck_config_array = Array[ExtResource("2_oymke")]([SubResource("Resource_1yaq7")])
+metadata/_custom_type_script = "uid://dlqqr4qxqi2ht"
+
+[resource]
+script = ExtResource("1_4no04")
+name = "Richard"
+brain = SubResource("Resource_ygiir")
+deck = SubResource("Resource_o387m")
+metadata/_custom_type_script = "uid://b0gx18dmx3sv3"

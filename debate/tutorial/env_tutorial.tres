@@ -1,7 +1,4 @@
-[gd_resource type="Environment" load_steps=9 format=3 uid="uid://c566usehy2i6i"]
-
-[ext_resource type="Shader" uid="uid://b26sxmlyd4mw8" path="res://debate/simon/debate_simon.gdshader" id="1_mo5g0"]
-[ext_resource type="Texture2D" uid="uid://cevnh551hdpgr" path="res://asset/debate/simon/debate/graphic/circles_background.png" id="2_g0ad5"]
+[gd_resource type="Environment" load_steps=5 format=3 uid="uid://c566usehy2i6i"]
 
 [sub_resource type="Gradient" id="Gradient_mo5g0"]
 colors = PackedColorArray(0.137255, 0.0862745, 0.0588235, 1, 1, 1, 1, 1)
@@ -9,21 +6,7 @@ colors = PackedColorArray(0.137255, 0.0862745, 0.0588235, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_g0ad5"]
 gradient = SubResource("Gradient_mo5g0")
 
-[sub_resource type="Gradient" id="Gradient_gixg8"]
-offsets = PackedFloat32Array(0, 0.462963, 0.779835, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 0.439216, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_4nxar"]
-gradient = SubResource("Gradient_gixg8")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4nxar"]
-shader = ExtResource("1_mo5g0")
-shader_parameter/sky_texture = ExtResource("2_g0ad5")
-shader_parameter/tile_amount = 5.0
-shader_parameter/y_gradient = SubResource("GradientTexture1D_4nxar")
-shader_parameter/modulate = Color(1, 1, 1, 1)
-shader_parameter/distortion = Vector2(100, 100)
-shader_parameter/scroll_velocity = Vector2(0.1, 0.1)
 
 [sub_resource type="Sky" id="Sky_ij3pb"]
 sky_material = SubResource("ShaderMaterial_4nxar")

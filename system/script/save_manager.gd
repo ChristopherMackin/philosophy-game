@@ -8,6 +8,8 @@ static var _loaded_data_list: Array[SaveData]
 @export var save_data_list : Array[SaveData]
 
 func _enter_tree():
+	SceneManager.on_scene_unload.connect(_save_data)
+	
 	if !load_data: return
 		
 	for data : SaveData in save_data_list:
@@ -15,9 +17,8 @@ func _enter_tree():
 			data.load_data()
 			_loaded_data_list.append(data)
 
-func _notification(what):
+func _save_data():
 	if !save_data: return
 	
-	if what == NOTIFICATION_WM_CLOSE_REQUEST || what == NOTIFICATION_EXIT_TREE:
-		for data : SaveData in save_data_list:
+	for data : SaveData in save_data_list:
 			data.save_data()
