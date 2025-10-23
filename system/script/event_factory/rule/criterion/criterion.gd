@@ -12,16 +12,26 @@ func check(query : Dictionary) -> bool:
 	return evaluate(expression, _query_and_variables.keys(), _query_and_variables.values())
 
 func evaluate(command, variable_names = [], variable_values = []) -> bool:
-	var expression = Expression.new()
+	var expression := Expression.new()
 	
 	var error = expression.parse(command, variable_names)
+	
 	if error != OK:
 		push_error(expression.get_error_text())
 		return false
-
+	
 	var result = expression.execute(variable_values, self)
+	
+	while expression.has_execute_failed():
+		var error_text = expression.get_error_text()
+		if !error_text.contains("Invalid named index"):
+			return false
+		
+		variable_names.append(error_text.split("'")[1])
+		variable_values.append(false)
+		
+		error = expression.parse(command, variable_names)
+	
+		result = expression.execute(variable_values, self)
 
-	if expression.has_execute_failed():
-		return false
-
-	return result == "true"
+	return result
