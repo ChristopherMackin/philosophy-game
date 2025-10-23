@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://e34wojt5i7xr"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_0wmog"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_af5l3"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="3_5jv1b"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_af5l3")
+
+[sub_resource type="Resource" id="Resource_quuep"]
+script = ExtResource("3_5jv1b")
+inputs = ["Let me know if you need anything!", "richard", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_0wmog")
+await_event = true
+frequency = 2
+start_task = SubResource("Resource_quuep")
+tasks = Array[ExtResource("3_5jv1b")]([SubResource("Resource_quuep")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

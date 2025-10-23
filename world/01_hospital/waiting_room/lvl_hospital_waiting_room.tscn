@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://m2fsq1a2vk6"]
+[gd_scene load_steps=138 format=3 uid="uid://m2fsq1a2vk6"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_3r1kw"]
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://cutscene/scene_change_node.gd" id="2_q7j4r"]
@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://xapilrhg3oc6" path="res://world/01_hospital/waiting_room/event/ev_hospital_waiting_room_tree_01.tres" id="8_cvh6f"]
 [ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="8_lj4x8"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="9_b0ff8"]
+[ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://system/script/save_data.gd" id="9_bjile"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="9_tusbe"]
 [ext_resource type="PackedScene" uid="uid://68cejhmeamon" path="res://asset/world/01_hospital/hospital_waiting_room.glb" id="10_78jc1"]
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="10_fhm6w"]
@@ -23,15 +24,17 @@
 [ext_resource type="Resource" uid="uid://curl4y87vmqru" path="res://world/01_hospital/waiting_room/event/ev_hospital_waiting_room_cut_get_caps_01.tres" id="19_q7j4r"]
 [ext_resource type="AudioStream" uid="uid://2rtsikaw8w71" path="res://asset/sfx/door_open.mp3" id="20_l4stn"]
 [ext_resource type="Resource" uid="uid://j38ww74aqjqe" path="res://world/01_hospital/waiting_room/event/ev_hospital_waiting_room_bathroom_01.tres" id="20_nnx3h"]
-[ext_resource type="Resource" uid="uid://4onqnmdxlaol" path="res://world/01_hospital/waiting_room/event/ev_hospital_waiting_room_richard_01.tres" id="21_2urq8"]
+[ext_resource type="Resource" uid="uid://4onqnmdxlaol" path="res://world/01_hospital/waiting_room/event/richard/ev_hospital_waiting_room_richard_01.tres" id="21_2urq8"]
 [ext_resource type="Texture2D" uid="uid://vh3grcfun8kx" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_01.png" id="21_g3al7"]
 [ext_resource type="Texture2D" uid="uid://dwsu2vy8vpmn4" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_01.png" id="21_lo3dk"]
 [ext_resource type="PackedScene" uid="uid://cw3ibw5bifstm" path="res://character/richard/richard_actor.tscn" id="21_nnx3h"]
+[ext_resource type="Resource" uid="uid://bp821lcwu77vc" path="res://world/01_hospital/waiting_room/event/richard/ev_hospital_waiting_room_richard_02.tres" id="22_7qhb1"]
 [ext_resource type="Texture2D" uid="uid://cbsp5jqblch5u" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_02.png" id="22_bcqfs"]
 [ext_resource type="Texture2D" uid="uid://cxla5t800c0no" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_02.png" id="22_kiegc"]
 [ext_resource type="AudioStream" uid="uid://3gwf2ris55m" path="res://asset/sfx/heavy_breathing.mp3" id="23_1mgba"]
 [ext_resource type="Texture2D" uid="uid://ce8c40jrpc4l8" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_03.png" id="23_62hqk"]
 [ext_resource type="Texture2D" uid="uid://cm1vl3r4i4eo0" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_03.png" id="23_s48k1"]
+[ext_resource type="Resource" uid="uid://e34wojt5i7xr" path="res://world/01_hospital/waiting_room/event/richard/ev_hospital_waiting_room_richard_final.tres" id="24_0bkpg"]
 [ext_resource type="Texture2D" uid="uid://bo0r6dhacggcl" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_05.png" id="24_62hqk"]
 [ext_resource type="Texture2D" uid="uid://c4muxwgk4ht5x" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_04.png" id="24_bfexw"]
 [ext_resource type="AudioStream" uid="uid://b5bhj4w3bcmnm" path="res://asset/sfx/kid_gasp.mp3" id="24_vhnqu"]
@@ -82,6 +85,12 @@ duration = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e1cpf"]
 size = Vector3(5.37573, 6.35559, 3.09017)
+
+[sub_resource type="Resource" id="Resource_gr4do"]
+script = ExtResource("9_bjile")
+path = "bb_hospital.res"
+resource = ExtResource("6_ypuf2")
+metadata/_custom_type_script = "uid://dcyrmp3ja8f55"
 
 [sub_resource type="Resource" id="Resource_ddrbv"]
 script = ExtResource("10_fhm6w")
@@ -168,8 +177,14 @@ metadata/_custom_type_script = "uid://dghxtp7la36tj"
 [sub_resource type="BoxShape3D" id="BoxShape3D_vhnqu"]
 size = Vector3(1, 2.39014, 1)
 
+[sub_resource type="Resource" id="Resource_j6mxy"]
+script = ExtResource("9_tusbe")
+expression = "!hospital_waiting_room_tutorial_finished"
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
 [sub_resource type="Resource" id="Resource_e3cfe"]
 script = ExtResource("10_fhm6w")
+criteria = Array[ExtResource("9_tusbe")]([SubResource("Resource_j6mxy")])
 
 [sub_resource type="Resource" id="Resource_lmnoa"]
 script = ExtResource("7_ypuf2")
@@ -177,9 +192,33 @@ event = ExtResource("21_2urq8")
 rule = SubResource("Resource_e3cfe")
 metadata/_custom_type_script = "uid://dftjqkpxopsus"
 
+[sub_resource type="Resource" id="Resource_1dcyu"]
+script = ExtResource("9_tusbe")
+expression = "hospital_waiting_room_tutorial_finished"
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
+[sub_resource type="Resource" id="Resource_vq7wx"]
+script = ExtResource("10_fhm6w")
+criteria = Array[ExtResource("9_tusbe")]([SubResource("Resource_1dcyu")])
+
+[sub_resource type="Resource" id="Resource_yco6m"]
+script = ExtResource("7_ypuf2")
+event = ExtResource("22_7qhb1")
+rule = SubResource("Resource_vq7wx")
+metadata/_custom_type_script = "uid://dftjqkpxopsus"
+
+[sub_resource type="Resource" id="Resource_bsw30"]
+script = ExtResource("10_fhm6w")
+
+[sub_resource type="Resource" id="Resource_5s1gt"]
+script = ExtResource("7_ypuf2")
+event = ExtResource("24_0bkpg")
+rule = SubResource("Resource_bsw30")
+metadata/_custom_type_script = "uid://dftjqkpxopsus"
+
 [sub_resource type="Resource" id="Resource_ursct"]
 script = ExtResource("8_lj4x8")
-payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_lmnoa")])
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_lmnoa"), SubResource("Resource_yco6m"), SubResource("Resource_5s1gt")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nnx3h"]
@@ -1063,6 +1102,9 @@ event_factory = ExtResource("7_lj4x8")
 [node name="SceneEventManager" parent="===MANAGER========" index="2" node_paths=PackedStringArray("actors")]
 actors = [NodePath("../../===ACTOR========/CBYoungSamson/YoungSamsonActor"), NodePath("../../===ACTOR========/RichardActor")]
 
+[node name="SaveManager" parent="===MANAGER========" index="3"]
+save_data_list = Array[ExtResource("9_bjile")]([SubResource("Resource_gr4do")])
+
 [node name="ToLvlTutorial" type="Node" parent="===MANAGER========" index="4"]
 script = ExtResource("2_q7j4r")
 scene_name = "lvl_tutorial"
@@ -1104,7 +1146,7 @@ shape = SubResource("BoxShape3D_l4stn")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="SimonTimer" type="Timer" parent="===EVENT========" index="3"]
-wait_time = 50.0
+wait_time = 15.0
 one_shot = true
 script = ExtResource("16_lj4x8")
 event_manager = ExtResource("9_b0ff8")

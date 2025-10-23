@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cigpy34phehbr"]
+[gd_scene load_steps=14 format=3 uid="uid://cigpy34phehbr"]
 
 [ext_resource type="Script" uid="uid://cgrbakyn86j8w" path="res://addons/event_tree_plugin/event_tree_graph_editor.gd" id="1_5451c"]
 [ext_resource type="Script" uid="uid://cmxpujb4d3phc" path="res://addons/event_tree_plugin/event_type_list.gd" id="1_mpg4u"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://sv8os1jyt8o2" path="res://addons/event_tree_plugin/task_node/set_global_value_node.tscn" id="10_s0ywo"]
 [ext_resource type="PackedScene" uid="uid://b8grwpsb8a8t5" path="res://addons/event_tree_plugin/task_node/animation_node.tscn" id="11_1e0xf"]
 [ext_resource type="PackedScene" uid="uid://du3ueixbb1wck" path="res://addons/event_tree_plugin/task_node/set_local_value_node.tscn" id="11_y5fjh"]
+[ext_resource type="PackedScene" uid="uid://35fxxo0l0oge" path="res://addons/event_tree_plugin/task_node/check_criterion_node.tscn" id="12_nl20v"]
 
 [node name="Event Tree Graph Editor" type="Control"]
 custom_minimum_size = Vector2(500, 0)
@@ -98,19 +99,20 @@ offset_top = -0.400085
 offset_right = 0.319992
 grow_vertical = 0
 size_flags_vertical = 3
-item_count = 5
+item_count = 7
 item_0/text = "ConsoleLog"
 item_1/text = "Dialogue"
 item_2/text = "Wait"
 item_3/text = "Animate"
-item_4/text = "SetValue"
+item_4/text = "SetGlobalValue"
+item_5/text = "SetLocalValue"
+item_6/text = "CheckCriterion"
 script = ExtResource("1_mpg4u")
 event_graph = NodePath("../GraphContainer/EventGraph")
 task_node_type_parent = NodePath("../TaskNodeTypeParent")
 
 [node name="TaskNodeTypeParent" type="Control" parent="."]
 visible = false
-layout_mode = 2
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -131,6 +133,9 @@ layout_mode = 0
 layout_mode = 0
 
 [node name="SetLocalValue" parent="TaskNodeTypeParent" instance=ExtResource("11_y5fjh")]
+layout_mode = 0
+
+[node name="CheckCriterion" parent="TaskNodeTypeParent" instance=ExtResource("12_nl20v")]
 layout_mode = 0
 
 [node name="OpenDialogue" type="FileDialog" parent="."]

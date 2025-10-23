@@ -61,7 +61,7 @@ func update_event_from_graph(event : Event) -> Event:
 		
 		#Sort by port order
 		connections.sort_custom(func (a, b): 
-			return a.from_port > b.from_port
+			return a.to_port > b.to_port
 		)
 		
 		#Make an array of the events

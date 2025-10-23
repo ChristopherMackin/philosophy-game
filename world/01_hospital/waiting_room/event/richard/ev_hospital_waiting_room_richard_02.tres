@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="Event" load_steps=10 format=3 uid="uid://bp821lcwu77vc"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_y4tkw"]
+[ext_resource type="Script" uid="uid://cuvp6fqjy7jlu" path="res://system/script/event/task_action/check_criterion_task_action.gd" id="2_p58m8"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_xbm3j"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="3_50ugf"]
+
+[sub_resource type="Resource" id="Resource_5jo60"]
+script = ExtResource("2_p58m8")
+metadata/_custom_type_script = "uid://cuvp6fqjy7jlu"
+
+[sub_resource type="Resource" id="Resource_p58m8"]
+script = ExtResource("3_50ugf")
+outputs = Array[int]([2, 0])
+inputs = ["ev_lvl_hospital_waiting_room_stranger_danger", null]
+action = SubResource("Resource_5jo60")
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_xbm3j")
+
+[sub_resource type="Resource" id="Resource_klk32"]
+script = ExtResource("3_50ugf")
+inputs = ["How can I help you?", "richard", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_wheyh"]
+script = ExtResource("3_50ugf")
+outputs = Array[int]([0])
+inputs = ["Well if it isn't my little stranger!", "richard", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_y4tkw")
+await_event = true
+start_task = SubResource("Resource_p58m8")
+tasks = Array[ExtResource("3_50ugf")]([SubResource("Resource_klk32"), SubResource("Resource_p58m8"), SubResource("Resource_wheyh")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"
