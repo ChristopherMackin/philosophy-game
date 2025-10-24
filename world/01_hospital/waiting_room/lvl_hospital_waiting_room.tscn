@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://xapilrhg3oc6" path="res://world/01_hospital/waiting_room/event/ev_hospital_waiting_room_tree_01.tres" id="8_cvh6f"]
 [ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="8_lj4x8"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="9_b0ff8"]
-[ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://system/script/save_data.gd" id="9_bjile"]
+[ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://system/script/save/save_data.gd" id="9_bjile"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="9_tusbe"]
 [ext_resource type="PackedScene" uid="uid://68cejhmeamon" path="res://asset/world/01_hospital/hospital_waiting_room.glb" id="10_78jc1"]
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="10_fhm6w"]

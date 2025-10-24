@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dhulr5f133qcw" path="res://debate/script/subscriber/node_based/debate_scene_manager.gd" id="4_qelru"]
 [ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="5_oh8d6"]
 [ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://system/debate_settings.tres" id="6_lmcxv"]
-[ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save_manager.gd" id="6_wvpjk"]
+[ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="6_wvpjk"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player_data.tres" id="7_pb7jm"]
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="7_qqgx8"]
 [ext_resource type="Script" uid="uid://4bchriocygww" path="res://general/script/dialogue/dialogue_area.gd" id="8_0k6xc"]

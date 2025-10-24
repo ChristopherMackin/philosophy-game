@@ -2,6 +2,8 @@ extends Resource
 
 class_name SaveData
 
+@export var should_save_data := true
+@export var should_load_data := true
 @export var path : String
 var full_path:
 	get: return Const.save_path + path

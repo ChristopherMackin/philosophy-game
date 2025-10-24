@@ -21,6 +21,7 @@ GlobalTimer="*res://utility/script/timer.gd"
 SceneManager="*res://scene_management/scene_manager.tscn"
 GlobalBlackboard="*res://system/blackboard/global_blackboard.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+SaveDataGlobalList="*res://system/script/save/save_data_global_list.gd"
 
 [display]
 

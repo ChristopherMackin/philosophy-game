@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bjv4hqyvjwdsh"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_qlsal"]
-[ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save_manager.gd" id="1_xgvwx"]
+[ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="1_xgvwx"]
 [ext_resource type="Script" uid="uid://bojj5s0o4f2s3" path="res://system/script/input/world_input_manager.gd" id="2_8d011"]
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="2_be1jf"]
 [ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="2_t3rax"]

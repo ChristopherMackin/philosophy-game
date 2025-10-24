@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SaveData" load_steps=3 format=3 uid="uid://ge1h5tpdyptd"]
 
 [ext_resource type="Resource" uid="uid://b150jnrliiino" path="res://system/test/dk_test.tres" id="1_gne3a"]
-[ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://system/script/save_data.gd" id="2_whngw"]
+[ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://system/script/save/save_data.gd" id="2_whngw"]
 
 [resource]
 script = ExtResource("2_whngw")

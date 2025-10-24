@@ -14,7 +14,7 @@
 [ext_resource type="Resource" uid="uid://bxdnjlvt3iyth" path="res://system/debate_manager.tres" id="12_0glcn"]
 [ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="13_1ivmw"]
 [ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="14_u5kaj"]
-[ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save_manager.gd" id="15_0yugn"]
+[ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="15_0yugn"]
 [ext_resource type="Script" uid="uid://syaosi1lkwul" path="res://debate/script/ui/selection_manager.gd" id="16_348ui"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="17_4yltu"]
 [ext_resource type="Resource" uid="uid://cw71yo3318tof" path="res://system/focus_group/idle_focus_group.tres" id="18_e5pxo"]
@@ -1065,8 +1065,6 @@ manager = ExtResource("3_itujv")
 
 [node name="SaveManager" type="Node" parent="===MANAGER========"]
 script = ExtResource("15_0yugn")
-save_data = false
-load_data = false
 metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
 
 [node name="SelectionManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("ui_clear_focus_node", "card_selector", "suit_selector")]
@@ -1200,7 +1198,7 @@ bones/28/rotation = Quaternion(0.007057863, 0.91379243, 0.40612015, 0.0002770991
 bones/29/rotation = Quaternion(9.908064e-07, 0.023903709, -5.4760415e-07, 0.9997144)
 bones/30/position = Vector3(0.6725944, 1.0941687, 0.0032474084)
 bones/30/rotation = Quaternion(1.5871528e-23, 1.4632345e-06, 0, 1)
-bones/31/position = Vector3(0.4348555, -0.11255886, -5.065666e-08)
+bones/31/position = Vector3(0.081576526, -9.749164e-06, 3.6293157e-10)
 bones/31/rotation = Quaternion(-2.2553684e-10, -1.378681e-06, -1.37873e-06, 1)
 bones/31/scale = Vector3(1.0000001, 1, 1)
 bones/32/position = Vector3(0.6725944, -0.12891442, 0.0032474091)

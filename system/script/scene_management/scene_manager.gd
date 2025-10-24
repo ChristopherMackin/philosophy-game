@@ -1,5 +1,8 @@
 extends Node
 
+signal on_scene_unloaded
+signal on_scene_loaded
+
 var loaded_scenes: Dictionary[int, Array]
 var canvas: CanvasLayer
 
@@ -45,28 +48,34 @@ func replace_scene_by_index_async(scene_index: int, transition: PackedScene = nu
 		if transition_instance is SceneTransition:
 			canvas.add_child(transition_instance)
 			await transition_instance.start_transition_out()
-		
+			
 			await Util.await_all(free_functions)
 			loaded_scenes.clear()
-					
+			on_scene_unloaded.emit()
+			
 			instantiate_scene_by_index.call_deferred(scene_index)
 			
 			await transition_instance.start_transition_in()
 			transition_instance.queue_free()
+			on_scene_loaded.emit()
 		
 		else:
 			transition_instance.queue_free()
-
+			
 			await Util.await_all(free_functions)
 			loaded_scenes.clear()
+			on_scene_unloaded.emit()
 		
 			instantiate_scene_by_index.call_deferred(scene_index)
+			on_scene_loaded.emit()
 	
 	else:
 		await Util.await_all(free_functions)
 		loaded_scenes.clear()
+		on_scene_unloaded.emit()
 		
 		instantiate_scene_by_index.call_deferred(scene_index)
+		on_scene_loaded.emit()
 	
 	return true
 
