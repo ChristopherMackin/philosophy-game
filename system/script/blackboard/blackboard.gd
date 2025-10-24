@@ -14,36 +14,51 @@ enum ExpirationToken {
 	ON_SCENE_EXIT,
 }
 
-@export var _entries : Dictionary[String, Variant]
-@export var _expiration_tokens : Dictionary[String, ExpirationToken]
+@export var _entries : Array[BlackboardEntry]
 
 func has(key: String):
 	return _entries.has(key)
 
 func get_value(key: String):
-	return _entries.get(key, null)
+	var index = find_key_index(key)
+	return _entries[index].value if index != -1 else null
 
-func get_expiration_token(key: String):
-	return _expiration_tokens.get(key, null)
+func get_expiration_token(key: String) -> ExpirationToken:
+	var index = find_key_index(key)
+	return _entries[index].expiration_token if index != -1 else null
 
 func add(key: String, value, expiration_token : Blackboard.ExpirationToken = Blackboard.ExpirationToken.NEVER):
 	if typeof(value) == TYPE_STRING:
 		value = value.to_snake_case()
-	_entries[key] = value
-	_expiration_tokens[key] = expiration_token
+	
+	var index = find_key_index(key)
+	
+	if index != -1:
+		_entries[index].value = value
+		_entries[index].expiration_token = expiration_token
+	
+	else:
+		var entry = BlackboardEntry.new()
+		entry.key = key
+		entry.value = value
+		entry.expiration_token = expiration_token
+		_entries.append(entry)
 
 func erase(key: String):
-	_entries.erase(key)
-	_expiration_tokens.erase(key)
+	var index = find_key_index(key)
+	if index == -1: return
+	
+	_entries.remove_at(index)
 
 func expire(expiration_token : Blackboard.ExpirationToken):
-	var keys_to_erase : Array[String] = []
-	for key in _expiration_tokens:
-		if _expiration_tokens[key] == expiration_token:
-			keys_to_erase.append(key)
-	
-	for key in keys_to_erase:
-		erase(key)
+	_entries = _entries.filter(func(x: BlackboardEntry): return x.expiration_token != expiration_token)
 
 func get_query():
-	return _entries.duplicate()
+	var query: Dictionary
+	for entry in _entries:
+		query[entry.key] = entry.value
+	
+	return query
+
+func find_key_index(key: String):
+	return _entries.find_custom(func(x: BlackboardEntry): return x.key == key)
