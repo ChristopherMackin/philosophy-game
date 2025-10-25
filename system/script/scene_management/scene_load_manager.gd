@@ -58,6 +58,5 @@ func set_room_state():
 			scene_animator.play(state.string)
 			break
 
-
 func set_player_spawn():
 	pass

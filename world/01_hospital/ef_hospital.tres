@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=9 format=3 uid="uid://bxr41ykmete5i"]
+[gd_resource type="Resource" script_class="OrderedEventFactory" load_steps=12 format=3 uid="uid://bxr41ykmete5i"]
 
 [ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="1_7rw1e"]
 [ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="2_6vodb"]
 [ext_resource type="Resource" uid="uid://ctd3jsa0tk7ni" path="res://world/01_hospital/waiting_room/event/cutscene/ev_cut_wake_01_hospital_waiting_room.tres" id="2_tct05"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="3_3n8ud"]
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="4_0n7pl"]
+[ext_resource type="Resource" uid="uid://bf84cfds75v3e" path="res://world/01_hospital/waiting_room/event/ev_on_tutorial_finished_hospital_waiting_room.tres" id="5_3n8ud"]
 
 [sub_resource type="Resource" id="Resource_3n8ud"]
 script = ExtResource("3_3n8ud")
@@ -21,7 +22,16 @@ script = ExtResource("1_7rw1e")
 event = ExtResource("2_tct05")
 rule = SubResource("Resource_ivk2j")
 
+[sub_resource type="Resource" id="Resource_0n7pl"]
+script = ExtResource("4_0n7pl")
+
+[sub_resource type="Resource" id="Resource_g1c1t"]
+resource_name = "ev_on_tutorial_finished_hospital_waiting_room"
+script = ExtResource("1_7rw1e")
+event = ExtResource("5_3n8ud")
+rule = SubResource("Resource_0n7pl")
+
 [resource]
 script = ExtResource("2_6vodb")
-payload_list = Array[ExtResource("1_7rw1e")]([SubResource("Resource_tct05")])
+payload_list = Array[ExtResource("1_7rw1e")]([SubResource("Resource_tct05"), SubResource("Resource_g1c1t")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"

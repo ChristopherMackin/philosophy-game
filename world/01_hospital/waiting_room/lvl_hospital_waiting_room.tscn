@@ -1205,7 +1205,7 @@ scene_animator = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationPlay
 ordered_room_states = Array[ExtResource("9_42yw3")]([SubResource("Resource_8b060"), SubResource("Resource_l2rcj")])
 
 [node name="SceneEventManager" parent="===MANAGER========" index="2" node_paths=PackedStringArray("actors")]
-actors = [NodePath("../../===ACTOR========/CBYoungSamson/YoungSamsonActor"), NodePath("../../===ACTOR========/RichardActor")]
+actors = [NodePath("../../===ACTOR========/CBYoungSamson/YoungSamsonActor"), NodePath("../../===ACTOR========/RichardActor"), NodePath("../../===ACTOR========/SimonActor")]
 
 [node name="SaveManager" parent="===MANAGER========" index="3"]
 save_data_list = Array[ExtResource("9_bjile")]([SubResource("Resource_gr4do")])
@@ -1422,6 +1422,7 @@ tree_root = SubResource("AnimationNodeBlendTree_fhm6w")
 
 [node name="RichardActor" parent="===ACTOR========" index="1" instance=ExtResource("21_nnx3h")]
 transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, 0.019722, -2.38421e-07, -2.95818)
+display_name = "Healthcare Worker"
 
 [node name="SimonActor" parent="===ACTOR========" index="2" instance=ExtResource("68_psei2")]
 transform = Transform3D(0.9736625, -3.147331e-17, -0.22799402, 3.8535334e-17, 1, 2.6523275e-17, 0.22799402, -3.4610534e-17, 0.9736625, 3.5687525, 0, -1.3018948)

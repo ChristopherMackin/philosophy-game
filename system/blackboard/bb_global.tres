@@ -1,7 +1,14 @@
-[gd_resource type="Resource" script_class="Blackboard" load_steps=3 format=3 uid="uid://c0jua2cphnqw6"]
+[gd_resource type="Resource" script_class="Blackboard" load_steps=4 format=3 uid="uid://c0jua2cphnqw6"]
 
 [ext_resource type="Script" uid="uid://c1eaebx4srk2s" path="res://system/script/blackboard/blackboard.gd" id="1_bw6ub"]
 [ext_resource type="Script" uid="uid://cxodlpgrmgtv7" path="res://system/script/blackboard/blackboard_entry.gd" id="1_q82c0"]
 
+[sub_resource type="Resource" id="Resource_q82c0"]
+resource_name = "tutorial_finished"
+script = ExtResource("1_q82c0")
+key = "tutorial_finished"
+value = false
+
 [resource]
 script = ExtResource("1_bw6ub")
+_entries = Array[ExtResource("1_q82c0")]([SubResource("Resource_q82c0")])

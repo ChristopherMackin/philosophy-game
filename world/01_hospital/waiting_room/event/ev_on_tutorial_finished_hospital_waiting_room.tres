@@ -1,19 +1,45 @@
-[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://bf84cfds75v3e"]
+[gd_resource type="Resource" script_class="Event" load_steps=10 format=3 uid="uid://bf84cfds75v3e"]
 
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_5hhg4"]
-[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="2_05c5c"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_05c5c"]
 [ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_7hnee"]
 
-[sub_resource type="Resource" id="Resource_ml60a"]
+[sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("2_05c5c")
+
+[sub_resource type="Resource" id="Resource_05c5c"]
+script = ExtResource("2_7hnee")
+outputs = Array[int]([1])
+inputs = ["Looks like I've taught you well!", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_rdt0k"]
 script = ExtResource("2_7hnee")
-inputs = ["rs_02", "", true, true]
-action = SubResource("Resource_ml60a")
+outputs = Array[int]([2])
+inputs = ["However, it will not always be so easy...", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_yo2b0"]
+script = ExtResource("2_7hnee")
+outputs = Array[int]([3])
+inputs = ["Sharpen your iron with those who share your faith.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_ut8ye"]
+script = ExtResource("2_7hnee")
+outputs = Array[int]([4])
+inputs = ["Then share your faith with the world: those with unenlightened souls.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_ajk6o"]
+script = ExtResource("2_7hnee")
+inputs = ["I must attend to mother.  You should share your bolstered faith with that worker.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
 
 [resource]
 script = ExtResource("1_5hhg4")
-start_task = SubResource("Resource_rdt0k")
-tasks = Array[ExtResource("2_7hnee")]([SubResource("Resource_rdt0k")])
+can_interupt = true
+await_event = true
+start_task = SubResource("Resource_05c5c")
+tasks = Array[ExtResource("2_7hnee")]([SubResource("Resource_05c5c"), SubResource("Resource_rdt0k"), SubResource("Resource_yo2b0"), SubResource("Resource_ut8ye"), SubResource("Resource_ajk6o")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"
