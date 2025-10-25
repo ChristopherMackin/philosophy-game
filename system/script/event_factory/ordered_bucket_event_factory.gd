@@ -1,8 +1,11 @@
+@tool
 extends EventFactory
 
 class_name OrderedBucketEventFactory
 
-@export var buckets: Array[EventPayloadBucket]
+@export var buckets: Array[EventPayloadBucket]:
+	set(val):
+		buckets = Util.auto_populate_resource_array(buckets, val, EventPayloadBucket, "Event Payload Bucket")
 
 func get_event(query: Dictionary) -> Event:
 	var payload_list: Array[EventFactoryPayload]

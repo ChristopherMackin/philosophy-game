@@ -8,37 +8,37 @@
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="5_axr2t"]
 [ext_resource type="Resource" uid="uid://cpbkj0m2p5pyn" path="res://debate/tutorial/event/ev_tutorial_final.tres" id="6_wrlcu"]
 
-[sub_resource type="Resource" id="Resource_udeph"]
+[sub_resource type="Resource" id="Resource_wrlcu"]
 script = ExtResource("5_axr2t")
-
-[sub_resource type="Resource" id="Resource_whlk4"]
-script = ExtResource("2_v6ear")
-event = ExtResource("3_u4wis")
-rule = SubResource("Resource_udeph")
-metadata/_custom_type_script = "uid://dftjqkpxopsus"
-
-[sub_resource type="Resource" id="Resource_28ruw"]
-script = ExtResource("1_30w5w")
-concept = 6
-payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_whlk4")])
-metadata/_custom_type_script = "uid://ujd6vl7brq4e"
 
 [sub_resource type="Resource" id="Resource_a6xy3"]
-script = ExtResource("5_axr2t")
+resource_name = "ev_tutorial_01"
+script = ExtResource("2_v6ear")
+event = ExtResource("3_u4wis")
+rule = SubResource("Resource_wrlcu")
+
+[sub_resource type="Resource" id="Resource_mdb41"]
+resource_name = "Event Payload Bucket"
+script = ExtResource("1_30w5w")
+concept = 6
+payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_a6xy3")])
 
 [sub_resource type="Resource" id="Resource_7ielx"]
-script = ExtResource("2_v6ear")
-event = ExtResource("6_wrlcu")
-rule = SubResource("Resource_a6xy3")
-metadata/_custom_type_script = "uid://dftjqkpxopsus"
+script = ExtResource("5_axr2t")
 
 [sub_resource type="Resource" id="Resource_70oid"]
+resource_name = "ev_tutorial_final"
+script = ExtResource("2_v6ear")
+event = ExtResource("6_wrlcu")
+rule = SubResource("Resource_7ielx")
+
+[sub_resource type="Resource" id="Resource_nhywn"]
+resource_name = "Event Payload Bucket"
 script = ExtResource("1_30w5w")
 concept = 5
-payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_7ielx")])
-metadata/_custom_type_script = "uid://ujd6vl7brq4e"
+payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_70oid")])
 
 [resource]
 script = ExtResource("2_bxcm8")
-buckets = Array[ExtResource("1_30w5w")]([SubResource("Resource_28ruw"), SubResource("Resource_70oid")])
+buckets = Array[ExtResource("1_30w5w")]([SubResource("Resource_mdb41"), SubResource("Resource_nhywn")])
 metadata/_custom_type_script = "uid://bcbeuvdrhjbe6"

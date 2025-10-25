@@ -2,26 +2,26 @@
 
 [ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="1_7rw1e"]
 [ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="2_6vodb"]
-[ext_resource type="Resource" uid="uid://ctd3jsa0tk7ni" path="res://world/01_hospital/waiting_room/event/ev_hospital_waiting_room_cut_wake_01.tres" id="2_tct05"]
+[ext_resource type="Resource" uid="uid://ctd3jsa0tk7ni" path="res://world/01_hospital/waiting_room/event/cutscene/ev_cut_wake_01_hospital_waiting_room.tres" id="2_tct05"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="3_3n8ud"]
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="4_0n7pl"]
 
-[sub_resource type="Resource" id="Resource_0n7pl"]
+[sub_resource type="Resource" id="Resource_3n8ud"]
 script = ExtResource("3_3n8ud")
-expression = "not hospital_waiting_room_tutorial_finished"
+expression = "not tutorial_finished"
 metadata/_custom_type_script = "uid://b3gc77q7whheh"
 
-[sub_resource type="Resource" id="Resource_g1c1t"]
+[sub_resource type="Resource" id="Resource_ivk2j"]
 script = ExtResource("4_0n7pl")
-criteria = Array[ExtResource("3_3n8ud")]([SubResource("Resource_0n7pl")])
+criteria = Array[ExtResource("3_3n8ud")]([SubResource("Resource_3n8ud")])
 
-[sub_resource type="Resource" id="Resource_13f7h"]
+[sub_resource type="Resource" id="Resource_tct05"]
+resource_name = "ev_cut_wake_01_hospital_waiting_room"
 script = ExtResource("1_7rw1e")
 event = ExtResource("2_tct05")
-rule = SubResource("Resource_g1c1t")
-metadata/_custom_type_script = "uid://dftjqkpxopsus"
+rule = SubResource("Resource_ivk2j")
 
 [resource]
 script = ExtResource("2_6vodb")
-payload_list = Array[ExtResource("1_7rw1e")]([SubResource("Resource_13f7h")])
+payload_list = Array[ExtResource("1_7rw1e")]([SubResource("Resource_tct05")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"

@@ -7,6 +7,8 @@ class_name Criterion
 @export var variables : Dictionary[String, Variant]
 
 func check(query : Dictionary) -> bool:
+	if expression.trim_prefix(" ") == "": return true
+	
 	var _query_and_variables = variables.duplicate()
 	_query_and_variables.merge(query)
 	return evaluate(expression, _query_and_variables.keys(), _query_and_variables.values())

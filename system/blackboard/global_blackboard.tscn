@@ -7,6 +7,8 @@
 
 [sub_resource type="Resource" id="Resource_j0tf4"]
 script = ExtResource("4_gu701")
+should_save_data = false
+should_load_data = false
 path = "bb_global.res"
 resource = ExtResource("2_vy501")
 metadata/_custom_type_script = "uid://dcyrmp3ja8f55"
@@ -17,7 +19,5 @@ blackboard = ExtResource("2_vy501")
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("3_dgyem")
-save_data = false
-load_data = false
 save_data_list = Array[ExtResource("4_gu701")]([SubResource("Resource_j0tf4")])
 metadata/_custom_type_script = "uid://bqa5o66nsm0hq"

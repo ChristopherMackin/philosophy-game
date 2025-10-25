@@ -10,9 +10,11 @@ func _enter_tree():
 
 func load_data():
 	for data : SaveData in save_data_list:
-		if data.should_load_data && !SaveDataGlobalList.loaded_data.has(data.resource):
-			data.load_data()
+		if !SaveDataGlobalList.loaded_data.has(data.resource):
+			if data.should_load_data:
+				data.load_data()
 			SaveDataGlobalList.loaded_data.append(data.resource)
+
 
 func save_data():
 	for data : SaveData in save_data_list:

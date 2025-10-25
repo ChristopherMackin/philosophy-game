@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://bf84cfds75v3e"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_5hhg4"]
+[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="2_05c5c"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_7hnee"]
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("2_05c5c")
+
+[sub_resource type="Resource" id="Resource_rdt0k"]
+script = ExtResource("2_7hnee")
+inputs = ["rs_02", "", true, true]
+action = SubResource("Resource_ml60a")
+
+[resource]
+script = ExtResource("1_5hhg4")
+start_task = SubResource("Resource_rdt0k")
+tasks = Array[ExtResource("2_7hnee")]([SubResource("Resource_rdt0k")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

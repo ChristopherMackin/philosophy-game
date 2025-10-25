@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=3 uid="uid://m2fsq1a2vk6"]
+[gd_scene load_steps=144 format=3 uid="uid://m2fsq1a2vk6"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_3r1kw"]
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://cutscene/scene_change_node.gd" id="2_q7j4r"]
@@ -10,36 +10,37 @@
 [ext_resource type="Resource" uid="uid://y0i5h5u7acd" path="res://world/01_hospital/bb_hospital.tres" id="6_ypuf2"]
 [ext_resource type="Resource" uid="uid://bxr41ykmete5i" path="res://world/01_hospital/ef_hospital.tres" id="7_lj4x8"]
 [ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="7_ypuf2"]
-[ext_resource type="Resource" uid="uid://xapilrhg3oc6" path="res://world/01_hospital/waiting_room/event/ev_hospital_waiting_room_tree_01.tres" id="8_cvh6f"]
 [ext_resource type="Script" uid="uid://dghxtp7la36tj" path="res://system/script/event_factory/ordered_event_factory.gd" id="8_lj4x8"]
+[ext_resource type="Script" uid="uid://db6k5klr1jx5r" path="res://system/script/string_criterion.gd" id="9_42yw3"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="9_b0ff8"]
 [ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://system/script/save/save_data.gd" id="9_bjile"]
-[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="9_tusbe"]
 [ext_resource type="PackedScene" uid="uid://68cejhmeamon" path="res://asset/world/01_hospital/hospital_waiting_room.glb" id="10_78jc1"]
-[ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="10_fhm6w"]
 [ext_resource type="PackedScene" uid="uid://cb38p6q7g6lab" path="res://character/young_samson/cb_young_samson.tscn" id="11_ik6mw"]
+[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="12_mgf10"]
+[ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="13_42yw3"]
+[ext_resource type="Resource" uid="uid://xapilrhg3oc6" path="res://world/01_hospital/waiting_room/event/ev_tree_01_hospital_waiting_room.tres" id="14_rsunl"]
 [ext_resource type="Script" uid="uid://bexeevctdvv0t" path="res://system/script/event/event_trigger.gd" id="16_lj4x8"]
-[ext_resource type="Resource" uid="uid://qk3tq41ywmr6" path="res://world/01_hospital/waiting_room/event/ev_hospital_waiting_room_vending_machine_01.tres" id="16_mgf10"]
-[ext_resource type="Resource" uid="uid://w5lrdjtyrsq6" path="res://world/01_hospital/waiting_room/event/ev_hospital_waiting_room_clock_01.tres" id="17_42yw3"]
-[ext_resource type="Resource" uid="uid://curl4y87vmqru" path="res://world/01_hospital/waiting_room/event/ev_hospital_waiting_room_cut_get_caps_01.tres" id="19_q7j4r"]
+[ext_resource type="Resource" uid="uid://qk3tq41ywmr6" path="res://world/01_hospital/waiting_room/event/ev_machine_01_hospital_waiting_room_vending.tres" id="18_e3cfe"]
+[ext_resource type="Resource" uid="uid://w5lrdjtyrsq6" path="res://world/01_hospital/waiting_room/event/ev_clock_01_hospital_waiting_room.tres" id="19_lmnoa"]
 [ext_resource type="AudioStream" uid="uid://2rtsikaw8w71" path="res://asset/sfx/door_open.mp3" id="20_l4stn"]
-[ext_resource type="Resource" uid="uid://j38ww74aqjqe" path="res://world/01_hospital/waiting_room/event/ev_hospital_waiting_room_bathroom_01.tres" id="20_nnx3h"]
-[ext_resource type="Resource" uid="uid://4onqnmdxlaol" path="res://world/01_hospital/waiting_room/event/richard/ev_hospital_waiting_room_richard_01.tres" id="21_2urq8"]
 [ext_resource type="Texture2D" uid="uid://vh3grcfun8kx" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_01.png" id="21_g3al7"]
 [ext_resource type="Texture2D" uid="uid://dwsu2vy8vpmn4" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_01.png" id="21_lo3dk"]
 [ext_resource type="PackedScene" uid="uid://cw3ibw5bifstm" path="res://character/richard/richard_actor.tscn" id="21_nnx3h"]
-[ext_resource type="Resource" uid="uid://bp821lcwu77vc" path="res://world/01_hospital/waiting_room/event/richard/ev_hospital_waiting_room_richard_02.tres" id="22_7qhb1"]
+[ext_resource type="Resource" uid="uid://curl4y87vmqru" path="res://world/01_hospital/waiting_room/event/cutscene/ev_cut_get_caps_hospital_waiting_room.tres" id="21_ursct"]
 [ext_resource type="Texture2D" uid="uid://cbsp5jqblch5u" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_02.png" id="22_bcqfs"]
+[ext_resource type="Resource" uid="uid://j38ww74aqjqe" path="res://world/01_hospital/waiting_room/event/ev_bathroom_01_hospital_waiting_room.tres" id="22_j6mxy"]
 [ext_resource type="Texture2D" uid="uid://cxla5t800c0no" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_02.png" id="22_kiegc"]
 [ext_resource type="AudioStream" uid="uid://3gwf2ris55m" path="res://asset/sfx/heavy_breathing.mp3" id="23_1mgba"]
 [ext_resource type="Texture2D" uid="uid://ce8c40jrpc4l8" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_03.png" id="23_62hqk"]
 [ext_resource type="Texture2D" uid="uid://cm1vl3r4i4eo0" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_03.png" id="23_s48k1"]
-[ext_resource type="Resource" uid="uid://e34wojt5i7xr" path="res://world/01_hospital/waiting_room/event/richard/ev_hospital_waiting_room_richard_final.tres" id="24_0bkpg"]
+[ext_resource type="Resource" uid="uid://4onqnmdxlaol" path="res://world/01_hospital/waiting_room/event/richard/ev_richard_01_hospital_waiting_room.tres" id="23_vq7wx"]
 [ext_resource type="Texture2D" uid="uid://bo0r6dhacggcl" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_05.png" id="24_62hqk"]
 [ext_resource type="Texture2D" uid="uid://c4muxwgk4ht5x" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_04.png" id="24_bfexw"]
 [ext_resource type="AudioStream" uid="uid://b5bhj4w3bcmnm" path="res://asset/sfx/kid_gasp.mp3" id="24_vhnqu"]
 [ext_resource type="Texture2D" uid="uid://bqskk328ohyde" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_04.png" id="24_wc72f"]
+[ext_resource type="Resource" uid="uid://bp821lcwu77vc" path="res://world/01_hospital/waiting_room/event/richard/ev_richard_02_hospital_waiting_room.tres" id="24_yco6m"]
 [ext_resource type="Texture2D" uid="uid://db8coljvjnas0" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_wake/cut_wake_img_05.png" id="25_g3al7"]
+[ext_resource type="Resource" uid="uid://e34wojt5i7xr" path="res://world/01_hospital/waiting_room/event/richard/ev_richard_looping_hospital_waiting_room.tres" id="25_gr4do"]
 [ext_resource type="AudioStream" uid="uid://cic7g30wrxidp" path="res://asset/sfx/chair_scoot.mp3" id="25_l4stn"]
 [ext_resource type="Texture2D" uid="uid://cpwuicsd7pcvx" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_06.png" id="25_wc72f"]
 [ext_resource type="Texture2D" uid="uid://bmjm4dmsa2sy8" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_07.png" id="26_5qm56"]
@@ -67,6 +68,7 @@
 [ext_resource type="Texture2D" uid="uid://dmlimag1cwg1o" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_28.png" id="48_q7j4r"]
 [ext_resource type="Texture2D" uid="uid://bhwhn54d05c7d" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_29.png" id="49_nnx3h"]
 [ext_resource type="Texture2D" uid="uid://ds0rs5cyln0jk" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_30.png" id="50_2urq8"]
+[ext_resource type="PackedScene" uid="uid://crjk3jxv3f3il" path="res://character/simon/simon_actor.tscn" id="68_psei2"]
 
 [sub_resource type="Resource" id="Resource_e1cpf"]
 script = ExtResource("3_njvbj")
@@ -86,139 +88,151 @@ duration = 0.5
 [sub_resource type="BoxShape3D" id="BoxShape3D_e1cpf"]
 size = Vector3(5.37573, 6.35559, 3.09017)
 
+[sub_resource type="Resource" id="Resource_kcjf0"]
+script = ExtResource("12_mgf10")
+expression = "not tutorial_finished"
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
+[sub_resource type="Resource" id="Resource_8b060"]
+resource_name = "RESET"
+script = ExtResource("9_42yw3")
+string = "RESET"
+criterion = SubResource("Resource_kcjf0")
+
+[sub_resource type="Resource" id="Resource_ridai"]
+script = ExtResource("12_mgf10")
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
+[sub_resource type="Resource" id="Resource_l2rcj"]
+resource_name = "rs_02"
+script = ExtResource("9_42yw3")
+string = "rs_02"
+criterion = SubResource("Resource_ridai")
+
 [sub_resource type="Resource" id="Resource_gr4do"]
 script = ExtResource("9_bjile")
 path = "bb_hospital.res"
 resource = ExtResource("6_ypuf2")
 metadata/_custom_type_script = "uid://dcyrmp3ja8f55"
 
-[sub_resource type="Resource" id="Resource_ddrbv"]
-script = ExtResource("10_fhm6w")
-metadata/_custom_type_script = "uid://bal31j6jwdxqy"
+[sub_resource type="Resource" id="Resource_q7j4r"]
+script = ExtResource("13_42yw3")
 
-[sub_resource type="Resource" id="Resource_mgf10"]
+[sub_resource type="Resource" id="Resource_nnx3h"]
+resource_name = "ev_tree_01_hospital_waiting_room"
 script = ExtResource("7_ypuf2")
-event = ExtResource("8_cvh6f")
-rule = SubResource("Resource_ddrbv")
-metadata/_custom_type_script = "uid://dftjqkpxopsus"
+event = ExtResource("14_rsunl")
+rule = SubResource("Resource_q7j4r")
 
 [sub_resource type="Resource" id="Resource_mmuw0"]
 script = ExtResource("8_lj4x8")
-payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_mgf10")])
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_nnx3h")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qtj8i"]
 height = 2.7627
 
-[sub_resource type="Resource" id="Resource_q7j4r"]
-script = ExtResource("10_fhm6w")
-metadata/_custom_type_script = "uid://bal31j6jwdxqy"
+[sub_resource type="Resource" id="Resource_2urq8"]
+script = ExtResource("13_42yw3")
 
-[sub_resource type="Resource" id="Resource_42yw3"]
+[sub_resource type="Resource" id="Resource_7qhb1"]
+resource_name = "ev_machine_01_hospital_waiting_room_vending"
 script = ExtResource("7_ypuf2")
-event = ExtResource("16_mgf10")
-rule = SubResource("Resource_q7j4r")
-metadata/_custom_type_script = "uid://dftjqkpxopsus"
+event = ExtResource("18_e3cfe")
+rule = SubResource("Resource_2urq8")
 
 [sub_resource type="Resource" id="Resource_lo3dk"]
 script = ExtResource("8_lj4x8")
-payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_42yw3")])
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_7qhb1")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1mgba"]
 size = Vector3(2.36935, 2.0853, 0.846832)
 
-[sub_resource type="Resource" id="Resource_nnx3h"]
-script = ExtResource("10_fhm6w")
-metadata/_custom_type_script = "uid://bal31j6jwdxqy"
+[sub_resource type="Resource" id="Resource_bjile"]
+script = ExtResource("13_42yw3")
 
-[sub_resource type="Resource" id="Resource_2urq8"]
+[sub_resource type="Resource" id="Resource_0bkpg"]
+resource_name = "ev_clock_01_hospital_waiting_room"
 script = ExtResource("7_ypuf2")
-event = ExtResource("17_42yw3")
-rule = SubResource("Resource_nnx3h")
-metadata/_custom_type_script = "uid://dftjqkpxopsus"
+event = ExtResource("19_lmnoa")
+rule = SubResource("Resource_bjile")
 
 [sub_resource type="Resource" id="Resource_vhnqu"]
 script = ExtResource("8_lj4x8")
-payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_2urq8")])
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_0bkpg")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l4stn"]
 size = Vector3(0.715693, 2.55649, 0.275513)
 
-[sub_resource type="Resource" id="Resource_7qhb1"]
-script = ExtResource("10_fhm6w")
+[sub_resource type="Resource" id="Resource_psei2"]
+script = ExtResource("13_42yw3")
 
-[sub_resource type="Resource" id="Resource_bjile"]
+[sub_resource type="Resource" id="Resource_e3cfe"]
+resource_name = "ev_cut_get_caps_hospital_waiting_room"
 script = ExtResource("7_ypuf2")
-event = ExtResource("19_q7j4r")
-rule = SubResource("Resource_7qhb1")
-metadata/_custom_type_script = "uid://dftjqkpxopsus"
+event = ExtResource("21_ursct")
+rule = SubResource("Resource_psei2")
 
 [sub_resource type="Resource" id="Resource_x4ed0"]
 script = ExtResource("8_lj4x8")
-payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_bjile")])
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_e3cfe")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"
 
-[sub_resource type="Resource" id="Resource_0bkpg"]
-script = ExtResource("10_fhm6w")
+[sub_resource type="Resource" id="Resource_lmnoa"]
+script = ExtResource("13_42yw3")
 
-[sub_resource type="Resource" id="Resource_psei2"]
+[sub_resource type="Resource" id="Resource_j6mxy"]
+resource_name = "ev_bathroom_01_hospital_waiting_room"
 script = ExtResource("7_ypuf2")
-event = ExtResource("20_nnx3h")
-rule = SubResource("Resource_0bkpg")
-metadata/_custom_type_script = "uid://dftjqkpxopsus"
+event = ExtResource("22_j6mxy")
+rule = SubResource("Resource_lmnoa")
 
 [sub_resource type="Resource" id="Resource_rsunl"]
 script = ExtResource("8_lj4x8")
-payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_psei2")])
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_j6mxy")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vhnqu"]
 size = Vector3(1, 2.39014, 1)
 
-[sub_resource type="Resource" id="Resource_j6mxy"]
-script = ExtResource("9_tusbe")
-expression = "!hospital_waiting_room_tutorial_finished"
-metadata/_custom_type_script = "uid://b3gc77q7whheh"
-
-[sub_resource type="Resource" id="Resource_e3cfe"]
-script = ExtResource("10_fhm6w")
-criteria = Array[ExtResource("9_tusbe")]([SubResource("Resource_j6mxy")])
-
-[sub_resource type="Resource" id="Resource_lmnoa"]
-script = ExtResource("7_ypuf2")
-event = ExtResource("21_2urq8")
-rule = SubResource("Resource_e3cfe")
-metadata/_custom_type_script = "uid://dftjqkpxopsus"
-
-[sub_resource type="Resource" id="Resource_1dcyu"]
-script = ExtResource("9_tusbe")
-expression = "hospital_waiting_room_tutorial_finished"
+[sub_resource type="Resource" id="Resource_txfd3"]
+script = ExtResource("12_mgf10")
+expression = "not tutorial_finished"
 metadata/_custom_type_script = "uid://b3gc77q7whheh"
 
 [sub_resource type="Resource" id="Resource_vq7wx"]
-script = ExtResource("10_fhm6w")
-criteria = Array[ExtResource("9_tusbe")]([SubResource("Resource_1dcyu")])
+script = ExtResource("13_42yw3")
+criteria = Array[ExtResource("12_mgf10")]([SubResource("Resource_txfd3")])
 
 [sub_resource type="Resource" id="Resource_yco6m"]
+resource_name = "ev_richard_01_hospital_waiting_room"
 script = ExtResource("7_ypuf2")
-event = ExtResource("22_7qhb1")
+event = ExtResource("23_vq7wx")
 rule = SubResource("Resource_vq7wx")
-metadata/_custom_type_script = "uid://dftjqkpxopsus"
 
 [sub_resource type="Resource" id="Resource_bsw30"]
-script = ExtResource("10_fhm6w")
+script = ExtResource("13_42yw3")
 
 [sub_resource type="Resource" id="Resource_5s1gt"]
+resource_name = "ev_richard_02_hospital_waiting_room"
 script = ExtResource("7_ypuf2")
-event = ExtResource("24_0bkpg")
+event = ExtResource("24_yco6m")
 rule = SubResource("Resource_bsw30")
-metadata/_custom_type_script = "uid://dftjqkpxopsus"
+
+[sub_resource type="Resource" id="Resource_1dcyu"]
+script = ExtResource("13_42yw3")
+
+[sub_resource type="Resource" id="Resource_pyhwy"]
+resource_name = "ev_richard_looping_hospital_waiting_room"
+script = ExtResource("7_ypuf2")
+event = ExtResource("25_gr4do")
+rule = SubResource("Resource_1dcyu")
 
 [sub_resource type="Resource" id="Resource_ursct"]
 script = ExtResource("8_lj4x8")
-payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_lmnoa"), SubResource("Resource_yco6m"), SubResource("Resource_5s1gt")])
+payload_list = Array[ExtResource("7_ypuf2")]([SubResource("Resource_yco6m"), SubResource("Resource_5s1gt"), SubResource("Resource_pyhwy")])
 metadata/_custom_type_script = "uid://dghxtp7la36tj"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nnx3h"]
@@ -503,6 +517,42 @@ tracks/22/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("../../===ACTOR========/SimonActor:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("../../===ACTOR========/CBYoungSamson:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-8.70776, -2.07854e-12, 0.198626)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("../../===ACTOR========/CBYoungSamson:rotation")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_vhnqu"]
@@ -895,11 +945,64 @@ tracks/7/keys = {
 "values": [false, true]
 }
 
+[sub_resource type="Animation" id="Animation_0bkpg"]
+resource_name = "rs_02"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../===ACTOR========/SimonActor:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../===ACTOR========/CBYoungSamson:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../===ACTOR========/CBYoungSamson:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3.1934562, -2.0826906e-12, 0.198626), Vector3(3.1905746, -2.08268e-12, 0.22780275)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../===ACTOR========/CBYoungSamson:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4.2235728e-16, 2.8990092, 2.5479217e-16)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ik6mw"]
 _data = {
 &"RESET": SubResource("Animation_ik6mw"),
 &"cut_get_caps": SubResource("Animation_vhnqu"),
-&"cut_wake": SubResource("Animation_78jc1")
+&"cut_wake": SubResource("Animation_78jc1"),
+&"rs_02": SubResource("Animation_0bkpg")
 }
 
 [sub_resource type="Resource" id="Resource_g3al7"]
@@ -1095,9 +1198,11 @@ angle = NodePath("../ElevatorAngle")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0938721, 2.6778, 3.22619)
 shape = SubResource("BoxShape3D_e1cpf")
 
-[node name="SceneLoadManager" parent="===MANAGER========" index="0"]
+[node name="SceneLoadManager" parent="===MANAGER========" index="0" node_paths=PackedStringArray("scene_animator")]
 blackboard = ExtResource("6_ypuf2")
 event_factory = ExtResource("7_lj4x8")
+scene_animator = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationPlayer")
+ordered_room_states = Array[ExtResource("9_42yw3")]([SubResource("Resource_8b060"), SubResource("Resource_l2rcj")])
 
 [node name="SceneEventManager" parent="===MANAGER========" index="2" node_paths=PackedStringArray("actors")]
 actors = [NodePath("../../===ACTOR========/CBYoungSamson/YoungSamsonActor"), NodePath("../../===ACTOR========/RichardActor")]
@@ -1307,7 +1412,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77868, 1.28833, -2.7177)
 shape = SubResource("CylinderShape3D_7qhb1")
 
 [node name="CBYoungSamson" parent="===ACTOR========" index="0" node_paths=PackedStringArray("camera") instance=ExtResource("11_ik6mw")]
-transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, -8.70776, -2.07854e-12, 0.198626)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.70776, -2.07854e-12, 0.198626)
 camera = NodePath("../../===CAMERA========/MainCamera")
 move_speed = 1.0
 acceleration = 5.0
@@ -1318,6 +1423,10 @@ tree_root = SubResource("AnimationNodeBlendTree_fhm6w")
 [node name="RichardActor" parent="===ACTOR========" index="1" instance=ExtResource("21_nnx3h")]
 transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, 0.019722, -2.38421e-07, -2.95818)
 
+[node name="SimonActor" parent="===ACTOR========" index="2" instance=ExtResource("68_psei2")]
+transform = Transform3D(0.9736625, -3.147331e-17, -0.22799402, 3.8535334e-17, 1, 2.6523275e-17, 0.22799402, -3.4610534e-17, 0.9736625, 3.5687525, 0, -1.3018948)
+visible = false
+
 [node name="WorldDialogueBox" parent="===UI========" index="0"]
 visible = false
 
@@ -1326,7 +1435,7 @@ render_target_update_mode = 0
 
 [node name="PortraitCamera" parent="===UI========/WorldDialogueBox/Portrait/SubViewport" index="0"]
 physics_interpolation_mode = 1
-transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, -8.695551, 1.29199, 1.361536)
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -8.695551, 1.29199, 1.361536)
 
 [node name="ScrollingText" parent="===UI========/WorldDialogueBox/MarginContainer" index="0"]
 bbcode_enabled = true

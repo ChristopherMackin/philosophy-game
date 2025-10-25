@@ -14,7 +14,9 @@ enum ExpirationToken {
 	ON_SCENE_EXIT,
 }
 
-@export var _entries : Array[BlackboardEntry]
+@export var _entries : Array[BlackboardEntry]:
+	set(val):
+		_entries = Util.auto_populate_resource_array(_entries, val, BlackboardEntry, "New Entry")
 
 func has(key: String):
 	return _entries.has(key)

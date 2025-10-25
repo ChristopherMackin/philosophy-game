@@ -31,7 +31,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/blackboard_editor_plugin/plugin.cfg", "res://addons/event_tree_plugin/plugin.cfg", "res://addons/expression_editor_plugin/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/event_tree_plugin/plugin.cfg", "res://addons/expression_editor_plugin/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [filesystem]
 
