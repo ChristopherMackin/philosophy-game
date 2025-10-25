@@ -1,6 +1,6 @@
 [gd_resource type="Environment" load_steps=9 format=3 uid="uid://c566usehy2i6i"]
 
-[ext_resource type="Shader" uid="uid://b26sxmlyd4mw8" path="res://debate/simon/debate_simon.gdshader" id="1_mo5g0"]
+[ext_resource type="Shader" uid="uid://b26sxmlyd4mw8" path="res://debate_simon.gdshader" id="1_mo5g0"]
 [ext_resource type="Texture2D" uid="uid://cevnh551hdpgr" path="res://asset/debate/simon/debate/graphic/circles_background.png" id="2_g0ad5"]
 
 [sub_resource type="Gradient" id="Gradient_mo5g0"]

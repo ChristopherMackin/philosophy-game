@@ -9,7 +9,6 @@
 
 [sub_resource type="Resource" id="Resource_t1sxg"]
 script = ExtResource("3_3pawf")
-which_contestant = 0
 tag = 2
 energy_per_tag = 0.5
 metadata/_custom_type_script = "uid://cbogtpodmwi6f"
@@ -22,12 +21,4 @@ base_cost = 1
 description = "Gan an energy for every 2 [color=red]supernatural[/color] tokens in play"
 token_data = ExtResource("6_3pawf")
 on_play_card_actions = Array[ExtResource("2_35018")]([SubResource("Resource_t1sxg")])
-on_discard_card_actions = Array[ExtResource("2_35018")]([])
-on_banish_card_actions = Array[ExtResource("2_35018")]([])
-on_turn_start_card_actions = Array[ExtResource("2_35018")]([])
-on_turn_end_card_actions = Array[ExtResource("2_35018")]([])
-on_hold_start_card_actions = Array[ExtResource("2_35018")]([])
-on_hold_stay_card_actions = Array[ExtResource("2_35018")]([])
-on_hold_end_card_actions = Array[ExtResource("2_35018")]([])
-cost_modifiers = Array[ExtResource("1_ct8oh")]([])
 metadata/_custom_type_script = "uid://dy4e7i5501yv5"

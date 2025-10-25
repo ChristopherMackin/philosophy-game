@@ -19,21 +19,16 @@ metadata/_custom_type_script = "uid://bpvma4twpb02c"
 
 [sub_resource type="Resource" id="Resource_y1cvx"]
 script = ExtResource("7_5i80k")
-slice_direction = 0
 amount = 2
 metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
 
 [sub_resource type="Resource" id="Resource_x36aq"]
 script = ExtResource("8_oy14w")
-which_contestant = 0
-insertion_point = 0
 collection_filters = Array[ExtResource("6_oyr8b")]([SubResource("Resource_y1cvx")])
 metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
 [sub_resource type="Resource" id="Resource_02iab"]
 script = ExtResource("10_q405g")
-which_contestant = 0
-collection_filters = Array[ExtResource("6_oyr8b")]([])
 metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
 
 [sub_resource type="Resource" id="Resource_xwlv4"]
@@ -46,15 +41,6 @@ metadata/_custom_type_script = "uid://cm5qf41iurdc3"
 script = ExtResource("3_hjpp3")
 suit = ExtResource("5_4hyeu")
 title = "One Step Back"
-base_cost = 0
 description = "Remove a token from the faith track. Draw 2 cards"
 on_play_card_actions = Array[ExtResource("2_h3xro")]([SubResource("Resource_3c6v5"), SubResource("Resource_xwlv4")])
-on_discard_card_actions = Array[ExtResource("2_h3xro")]([])
-on_banish_card_actions = Array[ExtResource("2_h3xro")]([])
-on_turn_start_card_actions = Array[ExtResource("2_h3xro")]([])
-on_turn_end_card_actions = Array[ExtResource("2_h3xro")]([])
-on_hold_start_card_actions = Array[ExtResource("2_h3xro")]([])
-on_hold_stay_card_actions = Array[ExtResource("2_h3xro")]([])
-on_hold_end_card_actions = Array[ExtResource("2_h3xro")]([])
-cost_modifiers = Array[ExtResource("1_64fp4")]([])
 metadata/_custom_type_script = "uid://dy4e7i5501yv5"

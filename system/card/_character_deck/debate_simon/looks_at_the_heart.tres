@@ -15,14 +15,11 @@
 
 [sub_resource type="Resource" id="Resource_1jcun"]
 script = ExtResource("4_pmox8")
-slice_direction = 0
 amount = 3
 metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
 
 [sub_resource type="Resource" id="Resource_y25wa"]
 script = ExtResource("5_mcpa3")
-which_contestant = 0
-insertion_point = 0
 collection_filters = Array[ExtResource("3_fhbu1")]([SubResource("Resource_1jcun")])
 metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
@@ -33,26 +30,21 @@ metadata/_custom_type_script = "uid://cgmtcfsq1rn5n"
 
 [sub_resource type="Resource" id="Resource_54q8g"]
 script = ExtResource("4_pmox8")
-slice_direction = 0
 amount = 3
 metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
 
 [sub_resource type="Resource" id="Resource_ggla8"]
 script = ExtResource("7_oxxku")
 suits = Array[ExtResource("8_pvaem")]([ExtResource("12_e2b5o")])
-filter_mode = 0
 metadata/_custom_type_script = "uid://bbr50dvcf2gmc"
 
 [sub_resource type="Resource" id="Resource_m0uq3"]
 script = ExtResource("5_mcpa3")
-which_contestant = 0
-insertion_point = 0
 collection_filters = Array[ExtResource("3_fhbu1")]([SubResource("Resource_54q8g"), SubResource("Resource_ggla8")])
 metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
 [sub_resource type="Resource" id="Resource_odpi6"]
 script = ExtResource("10_c3qjd")
-which_contestant = 0
 collection = SubResource("Resource_m0uq3")
 energy_per_card = 1.0
 metadata/_custom_type_script = "uid://c2ou5f8h5d2ds"
@@ -66,12 +58,4 @@ description = "Scry 3
 +1 energy for each faith"
 token_data = ExtResource("13_k0aei")
 on_play_card_actions = Array[ExtResource("2_6duoa")]([SubResource("Resource_c22wt"), SubResource("Resource_odpi6")])
-on_discard_card_actions = Array[ExtResource("2_6duoa")]([])
-on_banish_card_actions = Array[ExtResource("2_6duoa")]([])
-on_turn_start_card_actions = Array[ExtResource("2_6duoa")]([])
-on_turn_end_card_actions = Array[ExtResource("2_6duoa")]([])
-on_hold_start_card_actions = Array[ExtResource("2_6duoa")]([])
-on_hold_stay_card_actions = Array[ExtResource("2_6duoa")]([])
-on_hold_end_card_actions = Array[ExtResource("2_6duoa")]([])
-cost_modifiers = Array[ExtResource("1_ey4l3")]([])
 metadata/_custom_type_script = "uid://dy4e7i5501yv5"

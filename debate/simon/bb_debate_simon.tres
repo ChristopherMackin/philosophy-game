@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Blackboard" load_steps=3 format=3 uid="uid://d1yevyo6mrvth"]
-
-[ext_resource type="Script" uid="uid://c1eaebx4srk2s" path="res://system/script/blackboard/blackboard.gd" id="1_2wvex"]
-[ext_resource type="Script" uid="uid://cxodlpgrmgtv7" path="res://system/script/blackboard/blackboard_entry.gd" id="1_lb6px"]
-
-[resource]
-script = ExtResource("1_2wvex")
-metadata/_custom_type_script = "uid://c1eaebx4srk2s"

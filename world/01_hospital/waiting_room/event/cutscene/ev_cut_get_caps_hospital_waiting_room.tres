@@ -16,6 +16,7 @@ action = SubResource("Resource_ml60a")
 script = ExtResource("1_q08xt")
 can_interupt = true
 await_event = true
+frequency = 1
 start_task = SubResource("Resource_okphr")
 tasks = Array[ExtResource("3_wr61c")]([SubResource("Resource_okphr")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

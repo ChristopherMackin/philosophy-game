@@ -19,12 +19,10 @@
 [sub_resource type="Resource" id="Resource_wu68s"]
 script = ExtResource("4_84cft")
 suits = Array[ExtResource("5_xlq1u")]([ExtResource("12_ji7dy")])
-filter_mode = 0
 metadata/_custom_type_script = "uid://bbr50dvcf2gmc"
 
 [sub_resource type="Resource" id="Resource_3xhbu"]
 script = ExtResource("4_xlq1u")
-selection_action = 1
 metadata/_custom_type_script = "uid://16samtkb1lb4"
 
 [sub_resource type="Resource" id="Resource_l3f5q"]
@@ -36,18 +34,14 @@ metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
 [sub_resource type="Resource" id="Resource_f4kei"]
 script = ExtResource("6_wlkku")
 collection_container = SubResource("Resource_l3f5q")
-key = "cards"
 metadata/_custom_type_script = "uid://3bcejrl3rpfw"
 
 [sub_resource type="Resource" id="Resource_8vtef"]
 script = ExtResource("7_0o63f")
-key = "action_cards"
-collection_filters = Array[ExtResource("3_84cft")]([])
 metadata/_custom_type_script = "uid://b8ux8avexlyhr"
 
 [sub_resource type="Resource" id="Resource_yjmhk"]
 script = ExtResource("9_bpmrm")
-collection_filters = Array[ExtResource("3_84cft")]([])
 metadata/_custom_type_script = "uid://c01o3g4pilnun"
 
 [sub_resource type="Resource" id="Resource_f3sta"]
@@ -58,8 +52,6 @@ metadata/_custom_type_script = "uid://cm5qf41iurdc3"
 
 [sub_resource type="Resource" id="Resource_bvgs1"]
 script = ExtResource("7_0o63f")
-key = "action_cards"
-collection_filters = Array[ExtResource("3_84cft")]([])
 metadata/_custom_type_script = "uid://b8ux8avexlyhr"
 
 [sub_resource type="Resource" id="Resource_mv573"]
@@ -78,11 +70,3 @@ description = "Play a faith card from your opponents hand
 Banish the card and remove it from the play stack"
 token_data = ExtResource("13_tkgrv")
 on_play_card_actions = Array[ExtResource("2_qxvmm")]([SubResource("Resource_f4kei"), SubResource("Resource_f3sta"), SubResource("Resource_mv573")])
-on_discard_card_actions = Array[ExtResource("2_qxvmm")]([])
-on_banish_card_actions = Array[ExtResource("2_qxvmm")]([])
-on_turn_start_card_actions = Array[ExtResource("2_qxvmm")]([])
-on_turn_end_card_actions = Array[ExtResource("2_qxvmm")]([])
-on_hold_start_card_actions = Array[ExtResource("2_qxvmm")]([])
-on_hold_stay_card_actions = Array[ExtResource("2_qxvmm")]([])
-on_hold_end_card_actions = Array[ExtResource("2_qxvmm")]([])
-cost_modifiers = Array[ExtResource("1_8h0yu")]([])

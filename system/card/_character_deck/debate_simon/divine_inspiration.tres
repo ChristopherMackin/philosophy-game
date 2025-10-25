@@ -17,14 +17,11 @@
 
 [sub_resource type="Resource" id="Resource_holyy"]
 script = ExtResource("4_j0o45")
-slice_direction = 0
 amount = 1
 metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
 
 [sub_resource type="Resource" id="Resource_ruq48"]
 script = ExtResource("5_svkqm")
-which_contestant = 0
-insertion_point = 0
 collection_filters = Array[ExtResource("3_7tbas")]([SubResource("Resource_holyy")])
 metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
@@ -48,23 +45,17 @@ metadata/_custom_type_script = "uid://dv3r8bflihqwc"
 
 [sub_resource type="Resource" id="Resource_0t5pe"]
 script = ExtResource("4_j0o45")
-slice_direction = 0
 amount = 1
 metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
 
 [sub_resource type="Resource" id="Resource_yxyat"]
 script = ExtResource("5_svkqm")
-which_contestant = 0
-insertion_point = 0
 collection_filters = Array[ExtResource("3_7tbas")]([SubResource("Resource_0t5pe")])
 metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
 [sub_resource type="Resource" id="Resource_gvmac"]
 script = ExtResource("10_alxfo")
-amount = 0
 priority = 99
-can_expire = false
-turn_lifetime = -1
 metadata/_custom_type_script = "uid://dyif3nbemyr0d"
 
 [sub_resource type="Resource" id="Resource_gp6wa"]
@@ -75,21 +66,16 @@ metadata/_custom_type_script = "uid://cli7rttnpf5db"
 
 [sub_resource type="Resource" id="Resource_cxx5q"]
 script = ExtResource("4_j0o45")
-slice_direction = 0
 amount = 1
 metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
 
 [sub_resource type="Resource" id="Resource_a2os3"]
 script = ExtResource("5_svkqm")
-which_contestant = 0
-insertion_point = 0
 collection_filters = Array[ExtResource("3_7tbas")]([SubResource("Resource_cxx5q")])
 metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
 [sub_resource type="Resource" id="Resource_5l04b"]
 script = ExtResource("13_1y706")
-which_contestant = 0
-collection_filters = Array[ExtResource("3_7tbas")]([])
 metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
 
 [sub_resource type="Resource" id="Resource_1c3nx"]
@@ -107,12 +93,4 @@ description = "Scry 1
 If it is faith, draw it
 It costs 0 to play"
 on_play_card_actions = Array[ExtResource("2_6l0oi")]([SubResource("Resource_bx3cr"), SubResource("Resource_tgslw"), SubResource("Resource_gp6wa"), SubResource("Resource_1c3nx")])
-on_discard_card_actions = Array[ExtResource("2_6l0oi")]([])
-on_banish_card_actions = Array[ExtResource("2_6l0oi")]([])
-on_turn_start_card_actions = Array[ExtResource("2_6l0oi")]([])
-on_turn_end_card_actions = Array[ExtResource("2_6l0oi")]([])
-on_hold_start_card_actions = Array[ExtResource("2_6l0oi")]([])
-on_hold_stay_card_actions = Array[ExtResource("2_6l0oi")]([])
-on_hold_end_card_actions = Array[ExtResource("2_6l0oi")]([])
-cost_modifiers = Array[ExtResource("1_aht25")]([])
 metadata/_custom_type_script = "uid://dy4e7i5501yv5"

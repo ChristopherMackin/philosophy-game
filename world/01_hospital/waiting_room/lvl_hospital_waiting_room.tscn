@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=3 uid="uid://m2fsq1a2vk6"]
+[gd_scene load_steps=145 format=3 uid="uid://m2fsq1a2vk6"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_3r1kw"]
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://cutscene/scene_change_node.gd" id="2_q7j4r"]
@@ -111,6 +111,8 @@ criterion = SubResource("Resource_ridai")
 
 [sub_resource type="Resource" id="Resource_gr4do"]
 script = ExtResource("9_bjile")
+should_save_data = false
+should_load_data = false
 path = "bb_hospital.res"
 resource = ExtResource("6_ypuf2")
 metadata/_custom_type_script = "uid://dcyrmp3ja8f55"
@@ -166,8 +168,14 @@ metadata/_custom_type_script = "uid://dghxtp7la36tj"
 [sub_resource type="BoxShape3D" id="BoxShape3D_l4stn"]
 size = Vector3(0.715693, 2.55649, 0.275513)
 
+[sub_resource type="Resource" id="Resource_shh1l"]
+script = ExtResource("12_mgf10")
+expression = "not tutorial_finished"
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
 [sub_resource type="Resource" id="Resource_psei2"]
 script = ExtResource("13_42yw3")
+criteria = Array[ExtResource("12_mgf10")]([SubResource("Resource_shh1l")])
 
 [sub_resource type="Resource" id="Resource_e3cfe"]
 resource_name = "ev_cut_get_caps_hospital_waiting_room"
@@ -827,6 +835,18 @@ tracks/21/keys = {
 "method": &"progress"
 }]
 }
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("../../===ACTOR========/CBYoungSamson:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0.5333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_78jc1"]
 resource_name = "intro"
@@ -1159,12 +1179,12 @@ scene_name = "lvl_debate_tutorial"
 
 [node name="MainCamera" parent="===CAMERA========" index="0"]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -8.708195, 3.1104178, 4.9051814)
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -8.59233, 0.767399, 1.41712)
 fov = 45.0
 far = 100.0
 
 [node name="MainAngle" type="Node3D" parent="===CAMERA========" index="1" node_paths=PackedStringArray("follow_target", "follow_path")]
-transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -8.708195, 3.1104178, 4.9051814)
+transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, 3.1237507, 3.111266, 4.905714)
 top_level = true
 script = ExtResource("2_qxgj8")
 priority = 1
@@ -1215,6 +1235,10 @@ script = ExtResource("2_q7j4r")
 scene_name = "lvl_tutorial"
 metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
 
+[node name="ToLvlRichard01" type="Node" parent="===MANAGER========" index="5"]
+script = ExtResource("2_q7j4r")
+metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
+
 [node name="Tree" type="Area3D" parent="===EVENT========" index="0"]
 collision_layer = 16384
 collision_mask = 0
@@ -1251,7 +1275,7 @@ shape = SubResource("BoxShape3D_l4stn")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="SimonTimer" type="Timer" parent="===EVENT========" index="3"]
-wait_time = 15.0
+wait_time = 45.0
 one_shot = true
 script = ExtResource("16_lj4x8")
 event_manager = ExtResource("9_b0ff8")
@@ -1436,14 +1460,14 @@ render_target_update_mode = 0
 
 [node name="PortraitCamera" parent="===UI========/WorldDialogueBox/Portrait/SubViewport" index="0"]
 physics_interpolation_mode = 1
-transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -8.695551, 1.29199, 1.361536)
+transform = Transform3D(-0.97072065, -1.2165238e-31, 0.2402112, -2.646978e-23, 1, 0, -0.2402112, -2.646978e-23, -0.97072065, 3.4609497, 1.29199, -0.9331674)
 
 [node name="ScrollingText" parent="===UI========/WorldDialogueBox/MarginContainer" index="0"]
 bbcode_enabled = true
 
 [node name="Camera3D" parent="===STORYBOARD========/CameraView/SubViewport" index="0"]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.938451, 0.345413, 0, -0.345413, 0.938451, -8.708195, 3.1104178, 4.9051814)
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -8.59233, 0.767399, 1.41712)
 
 [node name="Blackout" type="ColorRect" parent="===STORYBOARD========" index="2"]
 anchors_preset = 15
