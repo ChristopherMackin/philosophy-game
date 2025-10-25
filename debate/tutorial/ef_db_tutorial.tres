@@ -3,16 +3,16 @@
 [ext_resource type="Script" uid="uid://ujd6vl7brq4e" path="res://system/script/event_factory/event_payload_bucket.gd" id="1_30w5w"]
 [ext_resource type="Script" uid="uid://bcbeuvdrhjbe6" path="res://system/script/event_factory/ordered_bucket_event_factory.gd" id="2_bxcm8"]
 [ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="2_v6ear"]
-[ext_resource type="Resource" uid="uid://ygtqujy6qdkv" path="res://debate/tutorial/event/ev_tutorial_01.tres" id="3_u4wis"]
+[ext_resource type="Resource" uid="uid://ygtqujy6qdkv" path="res://debate/tutorial/event/ev_01_db_tutorial.tres" id="3_u4wis"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="4_2ibdx"]
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="5_axr2t"]
-[ext_resource type="Resource" uid="uid://cpbkj0m2p5pyn" path="res://debate/tutorial/event/ev_tutorial_final.tres" id="6_wrlcu"]
+[ext_resource type="Resource" uid="uid://cpbkj0m2p5pyn" path="res://debate/tutorial/event/ev_final_db_tutorial.tres" id="6_wrlcu"]
 
 [sub_resource type="Resource" id="Resource_wrlcu"]
 script = ExtResource("5_axr2t")
 
 [sub_resource type="Resource" id="Resource_a6xy3"]
-resource_name = "ev_tutorial_01"
+resource_name = "ev_01_db_tutorial"
 script = ExtResource("2_v6ear")
 event = ExtResource("3_u4wis")
 rule = SubResource("Resource_wrlcu")
@@ -27,7 +27,7 @@ payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_a6xy3")])
 script = ExtResource("5_axr2t")
 
 [sub_resource type="Resource" id="Resource_70oid"]
-resource_name = "ev_tutorial_final"
+resource_name = "ev_final_db_tutorial"
 script = ExtResource("2_v6ear")
 event = ExtResource("6_wrlcu")
 rule = SubResource("Resource_7ielx")

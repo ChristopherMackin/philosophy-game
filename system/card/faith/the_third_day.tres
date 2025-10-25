@@ -17,24 +17,18 @@
 
 [sub_resource type="Resource" id="Resource_ackk7"]
 script = ExtResource("2_y4vw7")
-amount = 1
-priority = 0
 can_expire = true
 turn_lifetime = 1
 metadata/_custom_type_script = "uid://cafx678ucokyp"
 
 [sub_resource type="Resource" id="Resource_k7tc7"]
 script = ExtResource("2_y4vw7")
-amount = 1
-priority = 0
 can_expire = true
 turn_lifetime = 2
 metadata/_custom_type_script = "uid://cafx678ucokyp"
 
 [sub_resource type="Resource" id="Resource_n2ls8"]
 script = ExtResource("2_y4vw7")
-amount = 1
-priority = 0
 can_expire = true
 turn_lifetime = 3
 metadata/_custom_type_script = "uid://cafx678ucokyp"
@@ -45,7 +39,6 @@ metadata/_custom_type_script = "uid://db7ssfsuhgkqv"
 
 [sub_resource type="Resource" id="Resource_j8bjc"]
 script = ExtResource("6_vdu7j")
-collection_filters = Array[ExtResource("4_t8og4")]([])
 metadata/_custom_type_script = "uid://bw3sfhshf5fwh"
 
 [sub_resource type="Resource" id="Resource_fmb61"]
@@ -56,7 +49,6 @@ metadata/_custom_type_script = "uid://b1plf5m5kk3ib"
 
 [sub_resource type="Resource" id="Resource_rfvs5"]
 script = ExtResource("8_fc7ui")
-selection_action = 1
 metadata/_custom_type_script = "uid://16samtkb1lb4"
 
 [sub_resource type="Resource" id="Resource_duhsh"]
@@ -66,7 +58,6 @@ metadata/_custom_type_script = "uid://c01o3g4pilnun"
 
 [sub_resource type="Resource" id="Resource_luk7v"]
 script = ExtResource("11_lng4b")
-which_contestant = 0
 collection_filters = Array[ExtResource("4_t8og4")]([null])
 metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
 
@@ -80,16 +71,8 @@ metadata/_custom_type_script = "uid://cm5qf41iurdc3"
 script = ExtResource("12_b03tc")
 suit = ExtResource("13_uggvm")
 title = "The Third Day"
-base_cost = 0
 description = "Add a card from the play stack to your hand. (Cannot be [color=blue]The Third Day[/color])"
 token_data = ExtResource("14_oa17h")
 on_play_card_actions = Array[ExtResource("3_1jin6")]([SubResource("Resource_0iigg")])
-on_discard_card_actions = Array[ExtResource("3_1jin6")]([])
-on_banish_card_actions = Array[ExtResource("3_1jin6")]([])
-on_turn_start_card_actions = Array[ExtResource("3_1jin6")]([])
-on_turn_end_card_actions = Array[ExtResource("3_1jin6")]([])
-on_hold_start_card_actions = Array[ExtResource("3_1jin6")]([])
-on_hold_stay_card_actions = Array[ExtResource("3_1jin6")]([])
-on_hold_end_card_actions = Array[ExtResource("3_1jin6")]([])
 cost_modifiers = Array[ExtResource("1_p0c0l")]([SubResource("Resource_ackk7"), SubResource("Resource_k7tc7"), SubResource("Resource_n2ls8")])
 metadata/_custom_type_script = "uid://dy4e7i5501yv5"

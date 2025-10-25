@@ -15,38 +15,30 @@
 
 [sub_resource type="Resource" id="Resource_mk7p1"]
 script = ExtResource("4_xn01e")
-selection_action = 1
 metadata/_custom_type_script = "uid://16samtkb1lb4"
 
 [sub_resource type="Resource" id="Resource_dphyk"]
 script = ExtResource("3_wcfsb")
-which_contestant = 0
 collection_filters = Array[ExtResource("3_s3h7t")]([SubResource("Resource_mk7p1")])
 metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
 
 [sub_resource type="Resource" id="Resource_8mi16"]
 script = ExtResource("7_s3h7t")
 collection_container = SubResource("Resource_dphyk")
-which_contestant = 0
 metadata/_custom_type_script = "uid://4v61ulpu2ysv"
 
 [sub_resource type="Resource" id="Resource_kmahb"]
 script = ExtResource("7_xn01e")
-slice_direction = 0
 amount = 2
 metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
 
 [sub_resource type="Resource" id="Resource_7wo3j"]
 script = ExtResource("5_qpnl4")
-which_contestant = 0
-insertion_point = 0
 collection_filters = Array[ExtResource("3_s3h7t")]([SubResource("Resource_kmahb")])
 metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
 [sub_resource type="Resource" id="Resource_por1q"]
 script = ExtResource("3_wcfsb")
-which_contestant = 0
-collection_filters = Array[ExtResource("3_s3h7t")]([])
 metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
 
 [sub_resource type="Resource" id="Resource_66jc1"]
@@ -63,12 +55,4 @@ base_cost = 1
 description = "Discard a card and draw 2 cards"
 token_data = ExtResource("8_7wo3j")
 on_play_card_actions = Array[ExtResource("2_wcfsb")]([SubResource("Resource_8mi16"), SubResource("Resource_66jc1")])
-on_discard_card_actions = Array[ExtResource("2_wcfsb")]([])
-on_banish_card_actions = Array[ExtResource("2_wcfsb")]([])
-on_turn_start_card_actions = Array[ExtResource("2_wcfsb")]([])
-on_turn_end_card_actions = Array[ExtResource("2_wcfsb")]([])
-on_hold_start_card_actions = Array[ExtResource("2_wcfsb")]([])
-on_hold_stay_card_actions = Array[ExtResource("2_wcfsb")]([])
-on_hold_end_card_actions = Array[ExtResource("2_wcfsb")]([])
-cost_modifiers = Array[ExtResource("1_qf3vq")]([])
 metadata/_custom_type_script = "uid://dy4e7i5501yv5"

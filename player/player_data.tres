@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="1_it1nf"]
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="1_lbckr"]
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="1_xfscq"]
-[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/dk_default.tres" id="3_lbckr"]
+[ext_resource type="Resource" uid="uid://b5sy6l3nbmcts" path="res://_save/dk_player.res" id="3_lbckr"]
 [ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="5_lbckr"]
 
 [resource]
@@ -11,8 +11,4 @@ script = ExtResource("1_xfscq")
 name = "Joy"
 brain = ExtResource("1_it1nf")
 deck = ExtResource("3_lbckr")
-starting_effects = Array[ExtResource("5_lbckr")]([])
-energy_level = 3
-draw_limit = 5
-hand_limit = 8
 blackboard = ExtResource("1_lbckr")

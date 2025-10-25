@@ -2,7 +2,7 @@ extends Board
 
 class_name Board3D
 
-@export var viewport_board : ViewportBoard
+@export var viewport_board : BoardGUI
 @export var board_sprite : Sprite3D
 @export var debate_settings: DebateSettings
 

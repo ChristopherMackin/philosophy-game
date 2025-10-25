@@ -12,14 +12,11 @@
 
 [sub_resource type="Resource" id="Resource_gll64"]
 script = ExtResource("4_wfopu")
-slice_direction = 0
 amount = 3
 metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
 
 [sub_resource type="Resource" id="Resource_wfopu"]
 script = ExtResource("3_hysfy")
-which_contestant = 0
-insertion_point = 0
 collection_filters = Array[ExtResource("3_78far")]([SubResource("Resource_gll64")])
 metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
@@ -36,12 +33,4 @@ base_cost = 1
 description = "Scry 3"
 token_data = ExtResource("6_hysfy")
 on_play_card_actions = Array[ExtResource("2_78far")]([SubResource("Resource_q2net")])
-on_discard_card_actions = Array[ExtResource("2_78far")]([])
-on_banish_card_actions = Array[ExtResource("2_78far")]([])
-on_turn_start_card_actions = Array[ExtResource("2_78far")]([])
-on_turn_end_card_actions = Array[ExtResource("2_78far")]([])
-on_hold_start_card_actions = Array[ExtResource("2_78far")]([])
-on_hold_stay_card_actions = Array[ExtResource("2_78far")]([])
-on_hold_end_card_actions = Array[ExtResource("2_78far")]([])
-cost_modifiers = Array[ExtResource("1_hysfy")]([])
 metadata/_custom_type_script = "uid://dy4e7i5501yv5"

@@ -21,6 +21,5 @@ script = ExtResource("4_kno4w")
 redraw_on_hand_depleted = false
 retain_excess_energy = false
 suits = Array[ExtResource("5_okn76")]([ExtResource("6_5gim0"), ExtResource("7_bev87"), ExtResource("8_p5jg5"), ExtResource("9_6yw25")])
-slots = 1
 line_clear_direction = 1
 game_end_conditions = Array[ExtResource("1_hcqr6")]([SubResource("Resource_po6lf"), SubResource("Resource_o0xxy")])

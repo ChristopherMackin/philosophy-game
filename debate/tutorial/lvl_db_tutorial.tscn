@@ -1,78 +1,80 @@
-[gd_scene load_steps=122 format=3 uid="uid://crwfrdpgb1rkh"]
+[gd_scene load_steps=124 format=3 uid="uid://crwfrdpgb1rkh"]
 
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_kc3c6"]
-[ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="2_brn8x"]
-[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="3_itujv"]
-[ext_resource type="Resource" uid="uid://bgnrnyyqdy8uv" path="res://debate/tutorial/bb_tutorial.tres" id="4_yyni1"]
-[ext_resource type="Resource" uid="uid://fl8x7vlubnei" path="res://debate/tutorial/ef_tutorial.tres" id="5_630e7"]
-[ext_resource type="Script" uid="uid://bojj5s0o4f2s3" path="res://system/script/input/world_input_manager.gd" id="6_dx4bd"]
-[ext_resource type="Resource" uid="uid://coqtgijiyc02d" path="res://system/input/ih_selection_manager.tres" id="7_6ue7d"]
-[ext_resource type="Script" uid="uid://dhulr5f133qcw" path="res://debate/script/subscriber/node_based/debate_scene_manager.gd" id="8_nb4cf"]
-[ext_resource type="Resource" uid="uid://cq4fb0k21oesm" path="res://debate/tutorial/ds_tutorial.tres" id="9_p66hx"]
-[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player_data.tres" id="10_07ssi"]
-[ext_resource type="Resource" uid="uid://b20s3xcb4bqtx" path="res://debate/tutorial/tutorial_simon.tres" id="11_s48qk"]
-[ext_resource type="Resource" uid="uid://bxdnjlvt3iyth" path="res://system/debate_manager.tres" id="12_0glcn"]
-[ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="13_1ivmw"]
-[ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="14_u5kaj"]
-[ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="15_0yugn"]
-[ext_resource type="Script" uid="uid://syaosi1lkwul" path="res://debate/script/ui/selection_manager.gd" id="16_348ui"]
-[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="17_4yltu"]
-[ext_resource type="Resource" uid="uid://cw71yo3318tof" path="res://system/focus_group/idle_focus_group.tres" id="18_e5pxo"]
-[ext_resource type="Resource" uid="uid://vxjneadxt621" path="res://system/focus_group/hand_focus_group.tres" id="19_u8cid"]
-[ext_resource type="Resource" uid="uid://gxn0k63lex4l" path="res://system/focus_group/play_area_focus_group.tres" id="20_ag8ir"]
-[ext_resource type="Resource" uid="uid://bo5lyi4q2kuag" path="res://system/focus_group/card_selector_focus_group.tres" id="21_j5d7l"]
-[ext_resource type="Resource" uid="uid://8fi1d2l5sq45" path="res://system/focus_group/suit_focus_group.tres" id="22_ax3mw"]
-[ext_resource type="Script" uid="uid://cde2wsdjn62td" path="res://debate/script/ui/board_3d.gd" id="23_xi51c"]
-[ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://system/debate_settings.tres" id="24_vne7a"]
-[ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://debate/packed_scene/token_3d.tscn" id="25_65x0t"]
-[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://cutscene/scene_change_node.gd" id="26_brn8x"]
-[ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="26_rim5u"]
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="27_v8uyp"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="28_0wyus"]
-[ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="29_2lw6l"]
-[ext_resource type="Environment" uid="uid://c566usehy2i6i" path="res://debate/tutorial/env_tutorial.tres" id="30_63483"]
-[ext_resource type="PackedScene" uid="uid://cyl6gpr0e32en" path="res://asset/debate/01_tutorial/tutorial_table.glb" id="31_6bxnp"]
-[ext_resource type="PackedScene" uid="uid://dcc5jdxai5dtq" path="res://character/young_samson/young_samson_actor.tscn" id="32_s17s7"]
-[ext_resource type="PackedScene" uid="uid://crjk3jxv3f3il" path="res://character/simon/simon_actor.tscn" id="33_m3gqk"]
-[ext_resource type="Animation" uid="uid://dxqckym8ojekg" path="res://character/simon/animation/accuse.res" id="34_umrci"]
-[ext_resource type="Animation" uid="uid://ba4ww4txu7pbw" path="res://character/simon/animation/blink.res" id="35_voi0x"]
-[ext_resource type="Animation" uid="uid://01wd3jss8itq" path="res://character/simon/animation/debate_simon_intro.res" id="36_ru6lc"]
-[ext_resource type="Animation" uid="uid://bhvm1qc04ilee" path="res://character/simon/animation/praise.res" id="37_fncwo"]
-[ext_resource type="Animation" uid="uid://b8gfenh0v54bm" path="res://character/simon/animation/recollect.res" id="38_1ni7g"]
-[ext_resource type="Animation" uid="uid://u2e3govw73cd" path="res://character/simon/animation/talk.res" id="39_pif53"]
-[ext_resource type="PackedScene" uid="uid://du5ime7hk86tp" path="res://debate/packed_scene/board/board_gui.tscn" id="40_x6uoa"]
-[ext_resource type="PackedScene" uid="uid://do5swux8f3nq3" path="res://debate/packed_scene/token_gui.tscn" id="41_jw0f1"]
-[ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/debate/_general/graphic/stats_area/turn_counter_background.png" id="42_8yw23"]
-[ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/_general/font/Fredoka-VariableFont_wdth,wght.ttf" id="43_73y68"]
-[ext_resource type="Script" uid="uid://ba8ai3bmpwetc" path="res://debate/script/ui/gui/energy_gui.gd" id="44_7eki6"]
-[ext_resource type="Texture2D" uid="uid://csnb8nne3qn56" path="res://asset/debate/_general/graphic/stats_area/draw_pile.png" id="45_kv71c"]
-[ext_resource type="Script" uid="uid://5deqam17jqt3" path="res://debate/script/ui/gui/draw_pile_gui.gd" id="46_jr4rn"]
-[ext_resource type="Script" uid="uid://duts3e4cshe3t" path="res://debate/script/ui/gui/hold_area_gui.gd" id="47_qfj5l"]
-[ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/card_gui/card_gui.tscn" id="48_dvahx"]
-[ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_gui/tokenless_card_gui.tscn" id="49_cl0lr"]
-[ext_resource type="Script" uid="uid://ct7j27rex1yjk" path="res://system/script/card/suit_packed_scene.gd" id="50_78vvx"]
-[ext_resource type="PackedScene" uid="uid://bmxatnrtkqwmu" path="res://debate/packed_scene/card_gui/peace_card_gui.tscn" id="51_bsufg"]
-[ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="52_gocwi"]
-[ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/packed_scene/basic_dialogue_area.tscn" id="53_vhd5q"]
-[ext_resource type="Texture2D" uid="uid://caks003lacvsp" path="res://asset/debate/_general/graphic/stats_area/hand_icon.png" id="54_lyhak"]
-[ext_resource type="Script" uid="uid://ks6wf626gfx2" path="res://debate/script/ui/gui/hand_count_gui.gd" id="55_kbe15"]
-[ext_resource type="Script" uid="uid://dur1nyt0adfmo" path="res://debate/script/ui/gui/hand_gui.gd" id="56_xuohb"]
-[ext_resource type="Script" uid="uid://vgpd0x8mfpi" path="res://curve_container.gd" id="57_tu3e2"]
-[ext_resource type="Script" uid="uid://dh6wdv1jmcd8j" path="res://debate/script/ui/suit_selector.gd" id="58_6bmfq"]
-[ext_resource type="PackedScene" uid="uid://p7gbun4jgavh" path="res://debate/packed_scene/suit_banner_gui/doubt_banner.tscn" id="59_pfj1f"]
-[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="60_wrk6a"]
-[ext_resource type="PackedScene" uid="uid://cfr37mhe3tadq" path="res://debate/packed_scene/suit_banner_gui/faith_banner.tscn" id="61_6mt42"]
-[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="62_up74w"]
-[ext_resource type="PackedScene" uid="uid://b5x4pryb3x8hp" path="res://debate/packed_scene/suit_banner_gui/others_banner.tscn" id="63_w1maf"]
-[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="64_ecsvq"]
-[ext_resource type="PackedScene" uid="uid://d32w30jhpgu6v" path="res://debate/packed_scene/suit_banner_gui/self_banner.tscn" id="65_73bap"]
-[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="66_2f2qq"]
-[ext_resource type="Texture2D" uid="uid://qiqjkvvjvbi4" path="res://asset/debate/simon/_general/simon_dialogue.png" id="67_ks78n"]
-[ext_resource type="Script" uid="uid://i6q2q68f73y6" path="res://debate/script/ui/card_selector.gd" id="68_3lmur"]
-[ext_resource type="Texture2D" uid="uid://duwx1hkh07na8" path="res://asset/debate/simon/_general/simon_confirm_button.png" id="69_e6yfn"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_b27wb"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_svgpu"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_uqhy2"]
+[ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_777ud"]
+[ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="5_ry6s0"]
+[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="6_evco1"]
+[ext_resource type="Resource" uid="uid://bgnrnyyqdy8uv" path="res://debate/tutorial/bb_db_tutorial.tres" id="7_v4h8d"]
+[ext_resource type="Resource" uid="uid://fl8x7vlubnei" path="res://debate/tutorial/ef_db_tutorial.tres" id="8_myecp"]
+[ext_resource type="Script" uid="uid://bojj5s0o4f2s3" path="res://system/script/input/world_input_manager.gd" id="9_aokxo"]
+[ext_resource type="Resource" uid="uid://coqtgijiyc02d" path="res://system/input/ih_selection_manager.tres" id="10_b3rsh"]
+[ext_resource type="Script" uid="uid://dhulr5f133qcw" path="res://debate/script/subscriber/node_based/debate_scene_manager.gd" id="11_co1o1"]
+[ext_resource type="Resource" uid="uid://cq4fb0k21oesm" path="res://debate/tutorial/ds_db_tutorial.tres" id="12_5wvrs"]
+[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player_data.tres" id="13_i10ia"]
+[ext_resource type="Resource" uid="uid://b20s3xcb4bqtx" path="res://debate/tutorial/db_tutorial_simon.tres" id="14_b56bn"]
+[ext_resource type="Resource" uid="uid://bxdnjlvt3iyth" path="res://system/debate_manager.tres" id="15_qliuy"]
+[ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="16_oh6jv"]
+[ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="17_1tpcs"]
+[ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="18_11s31"]
+[ext_resource type="Script" uid="uid://syaosi1lkwul" path="res://debate/script/ui/selection_manager.gd" id="19_qiqfx"]
+[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="20_whtlg"]
+[ext_resource type="Resource" uid="uid://cw71yo3318tof" path="res://system/focus_group/idle_focus_group.tres" id="21_nvhxf"]
+[ext_resource type="Resource" uid="uid://vxjneadxt621" path="res://system/focus_group/hand_focus_group.tres" id="22_qgr8k"]
+[ext_resource type="Resource" uid="uid://gxn0k63lex4l" path="res://system/focus_group/play_area_focus_group.tres" id="23_r5ewy"]
+[ext_resource type="Resource" uid="uid://bo5lyi4q2kuag" path="res://system/focus_group/card_selector_focus_group.tres" id="24_uvqcd"]
+[ext_resource type="Resource" uid="uid://8fi1d2l5sq45" path="res://system/focus_group/suit_focus_group.tres" id="25_q0knd"]
+[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://cutscene/scene_change_node.gd" id="26_1h7lh"]
+[ext_resource type="Script" uid="uid://cde2wsdjn62td" path="res://debate/script/ui/board_3d.gd" id="27_ny687"]
+[ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://system/debate_settings.tres" id="28_o6is1"]
+[ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://debate/packed_scene/token_3d.tscn" id="29_kvhx5"]
+[ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="30_qghyr"]
+[ext_resource type="Environment" uid="uid://c566usehy2i6i" path="res://debate/tutorial/env_db_tutorial.tres" id="31_xswt5"]
+[ext_resource type="PackedScene" uid="uid://cyl6gpr0e32en" path="res://asset/debate/01_tutorial/tutorial_table.glb" id="32_bsb34"]
+[ext_resource type="PackedScene" uid="uid://dcc5jdxai5dtq" path="res://character/young_samson/young_samson_actor.tscn" id="33_8hvq4"]
+[ext_resource type="PackedScene" uid="uid://crjk3jxv3f3il" path="res://character/simon/simon_actor.tscn" id="34_suovc"]
+[ext_resource type="Animation" uid="uid://dxqckym8ojekg" path="res://character/simon/animation/accuse.res" id="35_4rp2l"]
+[ext_resource type="Animation" uid="uid://ba4ww4txu7pbw" path="res://character/simon/animation/blink.res" id="36_7slm0"]
+[ext_resource type="Animation" uid="uid://01wd3jss8itq" path="res://character/simon/animation/debate_simon_intro.res" id="37_btgbq"]
+[ext_resource type="Animation" uid="uid://bhvm1qc04ilee" path="res://character/simon/animation/praise.res" id="38_1c58x"]
+[ext_resource type="Animation" uid="uid://b8gfenh0v54bm" path="res://character/simon/animation/recollect.res" id="39_qppk5"]
+[ext_resource type="Animation" uid="uid://u2e3govw73cd" path="res://character/simon/animation/talk.res" id="40_gueop"]
+[ext_resource type="PackedScene" uid="uid://du5ime7hk86tp" path="res://debate/packed_scene/board/board_gui.tscn" id="41_6y5fk"]
+[ext_resource type="PackedScene" uid="uid://do5swux8f3nq3" path="res://debate/packed_scene/token_gui.tscn" id="42_0vxbg"]
+[ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/debate/_general/graphic/stats_area/turn_counter_background.png" id="43_3k812"]
+[ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/_general/font/Fredoka-VariableFont_wdth,wght.ttf" id="44_cmspg"]
+[ext_resource type="Script" uid="uid://ba8ai3bmpwetc" path="res://debate/script/ui/gui/energy_gui.gd" id="45_2nv56"]
+[ext_resource type="Texture2D" uid="uid://csnb8nne3qn56" path="res://asset/debate/_general/graphic/stats_area/draw_pile.png" id="46_12woj"]
+[ext_resource type="Script" uid="uid://5deqam17jqt3" path="res://debate/script/ui/gui/draw_pile_gui.gd" id="47_n8clu"]
+[ext_resource type="Script" uid="uid://duts3e4cshe3t" path="res://debate/script/ui/gui/hold_area_gui.gd" id="48_4ftmr"]
+[ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/card_gui/card_gui.tscn" id="49_jx0wo"]
+[ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_gui/tokenless_card_gui.tscn" id="50_rrhh6"]
+[ext_resource type="Script" uid="uid://ct7j27rex1yjk" path="res://system/script/card/suit_packed_scene.gd" id="51_nh6ci"]
+[ext_resource type="PackedScene" uid="uid://bmxatnrtkqwmu" path="res://debate/packed_scene/card_gui/peace_card_gui.tscn" id="52_5vrv7"]
+[ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="53_k61tf"]
+[ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/packed_scene/basic_dialogue_area.tscn" id="54_3mrh1"]
+[ext_resource type="Texture2D" uid="uid://caks003lacvsp" path="res://asset/debate/_general/graphic/stats_area/hand_icon.png" id="55_sy4pn"]
+[ext_resource type="Script" uid="uid://ks6wf626gfx2" path="res://debate/script/ui/gui/hand_count_gui.gd" id="56_76sev"]
+[ext_resource type="Script" uid="uid://dur1nyt0adfmo" path="res://debate/script/ui/gui/hand_gui.gd" id="57_q50qf"]
+[ext_resource type="Script" uid="uid://vgpd0x8mfpi" path="res://curve_container.gd" id="58_4gvsa"]
+[ext_resource type="Script" uid="uid://dh6wdv1jmcd8j" path="res://debate/script/ui/suit_selector.gd" id="59_lu6dm"]
+[ext_resource type="PackedScene" uid="uid://p7gbun4jgavh" path="res://debate/packed_scene/suit_banner_gui/doubt_banner.tscn" id="60_nny3v"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="61_3tksx"]
+[ext_resource type="PackedScene" uid="uid://cfr37mhe3tadq" path="res://debate/packed_scene/suit_banner_gui/faith_banner.tscn" id="62_pc84r"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="63_gdi2s"]
+[ext_resource type="PackedScene" uid="uid://b5x4pryb3x8hp" path="res://debate/packed_scene/suit_banner_gui/others_banner.tscn" id="64_8qu1h"]
+[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="65_6ohl0"]
+[ext_resource type="PackedScene" uid="uid://d32w30jhpgu6v" path="res://debate/packed_scene/suit_banner_gui/self_banner.tscn" id="66_04mkx"]
+[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="67_wi73k"]
+[ext_resource type="Texture2D" uid="uid://qiqjkvvjvbi4" path="res://asset/debate/simon/_general/simon_dialogue.png" id="68_sryu7"]
+[ext_resource type="Script" uid="uid://i6q2q68f73y6" path="res://debate/script/ui/card_selector.gd" id="69_qxosv"]
+[ext_resource type="Texture2D" uid="uid://duwx1hkh07na8" path="res://asset/debate/simon/_general/simon_confirm_button.png" id="70_s052s"]
+[ext_resource type="Script" uid="uid://ddig2iswn7qy4" path="res://debate/script/ui/play_area_selector_gui.gd" id="71_uqhy2"]
+[ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/token_selector_gui.tscn" id="72_777ud"]
 
 [sub_resource type="Resource" id="Resource_58hn1"]
-script = ExtResource("28_0wyus")
+script = ExtResource("3_uqhy2")
 duration = 0.5
 
 [sub_resource type="Animation" id="Animation_kc3c6"]
@@ -839,12 +841,12 @@ tracks/92/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 resource_local_to_scene = true
 _data = {
 &"RESET": SubResource("Animation_066da"),
-&"accuse": ExtResource("34_umrci"),
-&"blink": ExtResource("35_voi0x"),
-&"db01_intro": ExtResource("36_ru6lc"),
-&"praise": ExtResource("37_fncwo"),
-&"recollect": ExtResource("38_1ni7g"),
-&"talk": ExtResource("39_pif53")
+&"accuse": ExtResource("35_4rp2l"),
+&"blink": ExtResource("36_7slm0"),
+&"db01_intro": ExtResource("37_btgbq"),
+&"praise": ExtResource("38_1c58x"),
+&"recollect": ExtResource("39_qppk5"),
+&"talk": ExtResource("40_gueop")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aun3t"]
@@ -944,15 +946,15 @@ colors = PackedColorArray(0.137255, 0.0862745, 0.0588235, 1)
 gradient = SubResource("Gradient_wnina")
 
 [sub_resource type="Resource" id="Resource_svr5q"]
-script = ExtResource("50_78vvx")
-suit = ExtResource("52_gocwi")
-packed_scene = ExtResource("51_bsufg")
+script = ExtResource("51_nh6ci")
+suit = ExtResource("53_k61tf")
+packed_scene = ExtResource("52_5vrv7")
 metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 
 [sub_resource type="Resource" id="Resource_x8g0f"]
-script = ExtResource("50_78vvx")
-suit = ExtResource("52_gocwi")
-packed_scene = ExtResource("51_bsufg")
+script = ExtResource("51_nh6ci")
+suit = ExtResource("53_k61tf")
+packed_scene = ExtResource("52_5vrv7")
 metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 
 [sub_resource type="Curve" id="Curve_6t1my"]
@@ -968,36 +970,36 @@ point_count = 2
 bg_color = Color(0.137255, 0.0862745, 0.0588235, 0.596078)
 
 [sub_resource type="Resource" id="Resource_d0dx4"]
-script = ExtResource("50_78vvx")
-suit = ExtResource("60_wrk6a")
-packed_scene = ExtResource("59_pfj1f")
+script = ExtResource("51_nh6ci")
+suit = ExtResource("61_3tksx")
+packed_scene = ExtResource("60_nny3v")
 metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 
 [sub_resource type="Resource" id="Resource_v3sbc"]
-script = ExtResource("50_78vvx")
-suit = ExtResource("62_up74w")
-packed_scene = ExtResource("61_6mt42")
+script = ExtResource("51_nh6ci")
+suit = ExtResource("63_gdi2s")
+packed_scene = ExtResource("62_pc84r")
 metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 
 [sub_resource type="Resource" id="Resource_cff6m"]
-script = ExtResource("50_78vvx")
-suit = ExtResource("64_ecsvq")
-packed_scene = ExtResource("63_w1maf")
+script = ExtResource("51_nh6ci")
+suit = ExtResource("65_6ohl0")
+packed_scene = ExtResource("64_8qu1h")
 metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 
 [sub_resource type="Resource" id="Resource_f2s5c"]
-script = ExtResource("50_78vvx")
-suit = ExtResource("66_2f2qq")
-packed_scene = ExtResource("65_73bap")
+script = ExtResource("51_nh6ci")
+suit = ExtResource("67_wi73k")
+packed_scene = ExtResource("66_04mkx")
 metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 
 [sub_resource type="Resource" id="Resource_swvjr"]
-script = ExtResource("50_78vvx")
-suit = ExtResource("52_gocwi")
-packed_scene = ExtResource("51_bsufg")
+script = ExtResource("51_nh6ci")
+suit = ExtResource("53_k61tf")
+packed_scene = ExtResource("52_5vrv7")
 metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 
-[node name="LvlTutorial" type="Node3D"]
+[node name="LvlDbTutorial" type="Node3D"]
 
 [node name="===CAMERA========" type="Node3D" parent="."]
 
@@ -1010,40 +1012,40 @@ far = 100.0
 [node name="PhantomCameraHost" type="Node" parent="===CAMERA========/MainCamera"]
 process_priority = 300
 process_physics_priority = 300
-script = ExtResource("1_kc3c6")
+script = ExtResource("1_b27wb")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="GameplayShot" type="Node3D" parent="===CAMERA========"]
 transform = Transform3D(0.442257, -0.484891, 0.754513, -2.3632e-08, 0.841256, 0.540637, -0.896888, -0.239101, 0.372052, 2.00664, 2.39027, 1.31833)
-script = ExtResource("27_v8uyp")
+script = ExtResource("2_svgpu")
 priority = 1
 tween_resource = SubResource("Resource_58hn1")
 tween_on_load = false
-camera_3d_resource = ExtResource("29_2lw6l")
+camera_3d_resource = ExtResource("4_777ud")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="===MANAGER========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="SceneLoadManager" type="Node" parent="===MANAGER========"]
-script = ExtResource("2_brn8x")
-event_manager = ExtResource("3_itujv")
-blackboard = ExtResource("4_yyni1")
-event_factory = ExtResource("5_630e7")
+script = ExtResource("5_ry6s0")
+event_manager = ExtResource("6_evco1")
+blackboard = ExtResource("7_v4h8d")
+event_factory = ExtResource("8_myecp")
 
 [node name="InputManager" type="Node" parent="===MANAGER========"]
-script = ExtResource("6_dx4bd")
-active_handler = ExtResource("7_6ue7d")
+script = ExtResource("9_aokxo")
+active_handler = ExtResource("10_b3rsh")
 
 [node name="DebateSceneManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("selection_manager", "board", "hand_ui", "energy_ui", "hold_area_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
-script = ExtResource("8_nb4cf")
-blackboard = ExtResource("4_yyni1")
-event_factory = ExtResource("5_630e7")
-event_manager = ExtResource("3_itujv")
-debate_settings = ExtResource("9_p66hx")
-player = ExtResource("10_07ssi")
+script = ExtResource("11_co1o1")
+blackboard = ExtResource("7_v4h8d")
+event_factory = ExtResource("8_myecp")
+event_manager = ExtResource("6_evco1")
+debate_settings = ExtResource("12_5wvrs")
+player = ExtResource("13_i10ia")
 selection_manager = NodePath("../SelectionManager")
-computer = ExtResource("11_s48qk")
+computer = ExtResource("14_b56bn")
 board = NodePath("../../===UI========/PlayArea/BasicPlayBoard")
 hand_ui = NodePath("../../===UI========/PlayArea/Hand")
 energy_ui = NodePath("../../===UI========/PlayArea/Player/PlayerStats/HBoxContainer/Energy/Count")
@@ -1051,32 +1053,33 @@ hold_area_ui = NodePath("../../===UI========/PlayArea/Player/HoldArea")
 draw_pile_ui = NodePath("../../===UI========/PlayArea/Player/PlayerStats/HBoxContainer/DrawPile/Count")
 computer_energy_ui = NodePath("../../===UI========/PlayArea/Computer/ComputerStats/Energy/Count")
 computer_hand_ui = NodePath("../../===UI========/PlayArea/Computer/ComputerStats/Hand/Count")
-manager = ExtResource("12_0glcn")
+manager = ExtResource("15_qliuy")
 metadata/_custom_type_script = "uid://dhulr5f133qcw"
 
 [node name="SceneEventManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("scene_animator_handler", "actors", "default_dialogue_area", "input_manager")]
-script = ExtResource("13_1ivmw")
+script = ExtResource("16_oh6jv")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
 actors = [NodePath("../../===ACTOR========/YoungSamsonActor"), NodePath("../../===ACTOR========/SimonActor")]
 default_dialogue_area = NodePath("../../===UI========/PlayArea/Player/BasicDialogueBubble")
 input_manager = NodePath("../InputManager")
-dialogue_input_handler = ExtResource("14_u5kaj")
-manager = ExtResource("3_itujv")
+dialogue_input_handler = ExtResource("17_1tpcs")
+manager = ExtResource("6_evco1")
 
 [node name="SaveManager" type="Node" parent="===MANAGER========"]
-script = ExtResource("15_0yugn")
+script = ExtResource("18_11s31")
 metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
 
-[node name="SelectionManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("ui_clear_focus_node", "card_selector", "suit_selector")]
-script = ExtResource("16_348ui")
-input_handler = ExtResource("7_6ue7d")
-player_brain = ExtResource("17_4yltu")
-idle_focus_group = ExtResource("18_e5pxo")
-hand_ui_focus_group = ExtResource("19_u8cid")
-play_area_selector_focus_group = ExtResource("20_ag8ir")
-card_selector_focus_group = ExtResource("21_j5d7l")
-suit_selector_focus_group = ExtResource("22_ax3mw")
+[node name="SelectionManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("ui_clear_focus_node", "play_area_selector", "card_selector", "suit_selector")]
+script = ExtResource("19_qiqfx")
+input_handler = ExtResource("10_b3rsh")
+player_brain = ExtResource("20_whtlg")
+idle_focus_group = ExtResource("21_nvhxf")
+hand_ui_focus_group = ExtResource("22_qgr8k")
+play_area_selector_focus_group = ExtResource("23_r5ewy")
+card_selector_focus_group = ExtResource("24_uvqcd")
+suit_selector_focus_group = ExtResource("25_q0knd")
 ui_clear_focus_node = NodePath("UIClearFocus")
+play_area_selector = NodePath("../../===UI========/PlayArea/PlayAreaSelector")
 card_selector = NodePath("../../===UI========/PlayArea/CardSelector")
 suit_selector = NodePath("../../===UI========/PlayArea/SuitSelector")
 metadata/_custom_type_script = "uid://syaosi1lkwul"
@@ -1088,7 +1091,7 @@ focus_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="ToLvlHospitalWaitingRoom" type="Node" parent="===MANAGER========"]
-script = ExtResource("26_brn8x")
+script = ExtResource("26_1h7lh")
 scene_name = "lvl_hospital_waiting_room"
 metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
 
@@ -1096,11 +1099,11 @@ metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
 
 [node name="Board3D" type="Node3D" parent="===GAMEPLAY========" node_paths=PackedStringArray("viewport_board", "board_sprite")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7414, 0)
-script = ExtResource("23_xi51c")
+script = ExtResource("27_ny687")
 viewport_board = NodePath("../../===UI========/PlayArea/BasicPlayBoard")
 board_sprite = NodePath("BoardSprite")
-debate_settings = ExtResource("24_vne7a")
-token_3d_packed_scene = ExtResource("25_65x0t")
+debate_settings = ExtResource("28_o6is1")
+token_3d_packed_scene = ExtResource("29_kvhx5")
 
 [node name="BoardSprite" type="Sprite3D" parent="===GAMEPLAY========/Board3D"]
 transform = Transform3D(1, -6.97575e-16, -3.0492e-23, 2.89925e-17, 0.0415617, 0.999136, -6.96972e-16, -0.999136, 0.0415617, 0, 0.00686598, 0)
@@ -1114,7 +1117,7 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 [node name="SceneAnimator" type="Node" parent="===CUTSCENE========"]
 
 [node name="AnimationHandler" type="Node" parent="===CUTSCENE========/SceneAnimator" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("26_rim5u")
+script = ExtResource("30_qghyr")
 animation_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator"]
@@ -1128,7 +1131,7 @@ libraries = {
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="===WORLD========"]
-environment = ExtResource("30_63483")
+environment = ExtResource("31_xswt5")
 
 [node name="===ENVIRONMENT========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -1136,12 +1139,12 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 [node name="Model" type="Node3D" parent="===ENVIRONMENT========"]
 transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, -2.08165e-12, -2.08165e-12, -2.08165e-12)
 
-[node name="TutorialTable" parent="===ENVIRONMENT========/Model" instance=ExtResource("31_6bxnp")]
+[node name="TutorialTable" parent="===ENVIRONMENT========/Model" instance=ExtResource("32_bsb34")]
 
 [node name="===ACTOR========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="YoungSamsonActor" parent="===ACTOR========" node_paths=PackedStringArray("dialogue_area_override") instance=ExtResource("32_s17s7")]
+[node name="YoungSamsonActor" parent="===ACTOR========" node_paths=PackedStringArray("dialogue_area_override") instance=ExtResource("33_8hvq4")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, -2.08208e-12, -2.08122e-12, 1.24626)
 dialogue_area_override = NodePath("../../===UI========/PlayArea/Player/BasicDialogueBubble")
 
@@ -1154,7 +1157,7 @@ layers = Array[bool]([true, true, false, false, false, false, false, false, fals
 [node name="CharacterAnimationTree" parent="===ACTOR========/YoungSamsonActor" index="4"]
 tree_root = SubResource("AnimationNodeBlendTree_pecwm")
 
-[node name="SimonActor" parent="===ACTOR========" node_paths=PackedStringArray("dialogue_area_override") instance=ExtResource("33_m3gqk")]
+[node name="SimonActor" parent="===ACTOR========" node_paths=PackedStringArray("dialogue_area_override") instance=ExtResource("34_suovc")]
 transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, -2.08118e-12, -2.08212e-12, -1.33708)
 dialogue_area_override = NodePath("../../===UI========/PlayArea/Computer/BasicDialogueBubble")
 
@@ -1198,7 +1201,7 @@ bones/28/rotation = Quaternion(0.007057863, 0.91379243, 0.40612015, 0.0002770991
 bones/29/rotation = Quaternion(9.908064e-07, 0.023903709, -5.4760415e-07, 0.9997144)
 bones/30/position = Vector3(0.6725944, 1.0941687, 0.0032474084)
 bones/30/rotation = Quaternion(1.5871528e-23, 1.4632345e-06, 0, 1)
-bones/31/position = Vector3(0.4223536, -0.10857595, -4.887903e-08)
+bones/31/position = Vector3(0.081576526, -9.749242e-06, 3.7121356e-10)
 bones/31/rotation = Quaternion(-2.2553684e-10, -1.378681e-06, -1.37873e-06, 1)
 bones/31/scale = Vector3(1.0000001, 1, 1)
 bones/32/position = Vector3(0.6725944, -0.12891442, 0.0032474091)
@@ -1315,7 +1318,7 @@ offset_bottom = -0.160004
 grow_horizontal = 2
 texture = SubResource("GradientTexture1D_qe3ln")
 
-[node name="BasicPlayBoard" parent="===UI========/PlayArea" instance=ExtResource("40_x6uoa")]
+[node name="BasicPlayBoard" parent="===UI========/PlayArea" instance=ExtResource("41_6y5fk")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1325,8 +1328,8 @@ offset_right = 1390.0
 offset_bottom = 964.0
 grow_horizontal = 2
 scale = Vector2(0.65, 0.65)
-debate_settings = ExtResource("9_p66hx")
-token_gui_packed_scene = ExtResource("41_jw0f1")
+debate_settings = ExtResource("12_5wvrs")
+token_gui_packed_scene = ExtResource("42_0vxbg")
 
 [node name="Background" parent="===UI========/PlayArea/BasicPlayBoard/Header" index="0"]
 self_modulate = Color(1, 1, 1, 0.752941)
@@ -1387,7 +1390,7 @@ alignment = 1
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("42_8yw23")
+texture = ExtResource("43_3k812")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1404,19 +1407,19 @@ offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("43_73y68")
+theme_override_fonts/normal_font = ExtResource("44_cmspg")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[center]5[/center]"
 fit_content = true
 autowrap_mode = 0
-script = ExtResource("44_7eki6")
+script = ExtResource("45_2nv56")
 
 [node name="DrawPile" type="TextureRect" parent="===UI========/PlayArea/Player/PlayerStats/HBoxContainer"]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("45_kv71c")
+texture = ExtResource("46_12woj")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1431,13 +1434,13 @@ offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("43_73y68")
+theme_override_fonts/normal_font = ExtResource("44_cmspg")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[center]13[/center]"
 fit_content = true
 autowrap_mode = 0
-script = ExtResource("46_jr4rn")
+script = ExtResource("47_n8clu")
 
 [node name="HoldArea" type="Control" parent="===UI========/PlayArea/Player"]
 layout_mode = 1
@@ -1447,12 +1450,12 @@ anchor_bottom = 1.0
 offset_top = -400.0
 offset_bottom = -400.0
 grow_vertical = 0
-script = ExtResource("47_qfj5l")
-default_card_gui_packed_scene = ExtResource("48_dvahx")
-default_tokenless_card_gui_packed_scene = ExtResource("49_cl0lr")
-tokenless_card_gui_suit_packed_scenes = Array[ExtResource("50_78vvx")]([SubResource("Resource_svr5q")])
+script = ExtResource("48_4ftmr")
+default_card_gui_packed_scene = ExtResource("49_jx0wo")
+default_tokenless_card_gui_packed_scene = ExtResource("50_rrhh6")
+tokenless_card_gui_suit_packed_scenes = Array[ExtResource("51_nh6ci")]([SubResource("Resource_svr5q")])
 
-[node name="BasicDialogueBubble" parent="===UI========/PlayArea/Player" instance=ExtResource("53_vhd5q")]
+[node name="BasicDialogueBubble" parent="===UI========/PlayArea/Player" instance=ExtResource("54_3mrh1")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.372
@@ -1522,7 +1525,7 @@ alignment = 1
 [node name="Hand" type="TextureRect" parent="===UI========/PlayArea/Computer/ComputerStats"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("54_lyhak")
+texture = ExtResource("55_sy4pn")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1539,19 +1542,19 @@ offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("43_73y68")
+theme_override_fonts/normal_font = ExtResource("44_cmspg")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[center]5[/center]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
-script = ExtResource("55_kbe15")
+script = ExtResource("56_76sev")
 
 [node name="Energy" type="TextureRect" parent="===UI========/PlayArea/Computer/ComputerStats"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("42_8yw23")
+texture = ExtResource("43_3k812")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1569,16 +1572,16 @@ offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("43_73y68")
+theme_override_fonts/normal_font = ExtResource("44_cmspg")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[center]5[/center]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
-script = ExtResource("44_7eki6")
+script = ExtResource("45_2nv56")
 
-[node name="BasicDialogueBubble" parent="===UI========/PlayArea/Computer" instance=ExtResource("53_vhd5q")]
+[node name="BasicDialogueBubble" parent="===UI========/PlayArea/Computer" instance=ExtResource("54_3mrh1")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.055
@@ -1598,14 +1601,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("56_xuohb")
-default_card_gui_packed_scene = ExtResource("48_dvahx")
-default_tokenless_card_gui_packed_scene = ExtResource("49_cl0lr")
-tokenless_card_gui_suit_packed_scenes = Array[ExtResource("50_78vvx")]([SubResource("Resource_x8g0f")])
+script = ExtResource("57_q50qf")
+default_card_gui_packed_scene = ExtResource("49_jx0wo")
+default_tokenless_card_gui_packed_scene = ExtResource("50_rrhh6")
+tokenless_card_gui_suit_packed_scenes = Array[ExtResource("51_nh6ci")]([SubResource("Resource_x8g0f")])
 draw_pile = NodePath("../Player/PlayerStats/HBoxContainer/DrawPile")
 card_parent = NodePath("CurveContainer")
-focus_group = ExtResource("19_u8cid")
-player_brain = ExtResource("17_4yltu")
+focus_group = ExtResource("22_qgr8k")
+player_brain = ExtResource("20_whtlg")
 
 [node name="CurveContainer" type="Container" parent="===UI========/PlayArea/Hand"]
 layout_mode = 1
@@ -1618,7 +1621,7 @@ offset_right = -10.8
 offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("57_tu3e2")
+script = ExtResource("58_4gvsa")
 hand_curve = SubResource("Curve_6t1my")
 rotation_curve = SubResource("Curve_1343t")
 max_rotation_degrees = 15
@@ -1636,11 +1639,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_w7dnp")
-script = ExtResource("58_6bmfq")
-suit_banner_gui_suit_packed_scene = Array[ExtResource("50_78vvx")]([SubResource("Resource_d0dx4"), SubResource("Resource_v3sbc"), SubResource("Resource_cff6m"), SubResource("Resource_f2s5c")])
+script = ExtResource("59_lu6dm")
+suit_banner_gui_suit_packed_scene = Array[ExtResource("51_nh6ci")]([SubResource("Resource_d0dx4"), SubResource("Resource_v3sbc"), SubResource("Resource_cff6m"), SubResource("Resource_f2s5c")])
 card_container = NodePath("Dialogue/HBoxContainer")
-focus_group = ExtResource("22_ax3mw")
-player_brain = ExtResource("17_4yltu")
+focus_group = ExtResource("25_q0knd")
+player_brain = ExtResource("20_whtlg")
 
 [node name="Dialogue" type="TextureRect" parent="===UI========/PlayArea/SuitSelector"]
 layout_mode = 1
@@ -1655,7 +1658,7 @@ offset_right = 700.0
 offset_bottom = 351.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("67_ks78n")
+texture = ExtResource("68_sryu7")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="===UI========/PlayArea/SuitSelector/Dialogue"]
 layout_mode = 1
@@ -1680,13 +1683,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_w7dnp")
-script = ExtResource("68_3lmur")
-default_card_gui_packed_scene = ExtResource("48_dvahx")
-default_tokenless_card_gui_packed_scene = ExtResource("49_cl0lr")
-tokenless_card_gui_suit_packed_scenes = Array[ExtResource("50_78vvx")]([SubResource("Resource_swvjr")])
+script = ExtResource("69_qxosv")
+default_card_gui_packed_scene = ExtResource("49_jx0wo")
+default_tokenless_card_gui_packed_scene = ExtResource("50_rrhh6")
+tokenless_card_gui_suit_packed_scenes = Array[ExtResource("51_nh6ci")]([SubResource("Resource_swvjr")])
 card_container = NodePath("Dialogue/HFlowContainer")
-focus_group = ExtResource("21_j5d7l")
-player_brain = ExtResource("17_4yltu")
+focus_group = ExtResource("24_uvqcd")
+player_brain = ExtResource("20_whtlg")
 submit_button = NodePath("Dialogue/SubmitButton")
 
 [node name="Dialogue" type="TextureRect" parent="===UI========/PlayArea/CardSelector"]
@@ -1702,7 +1705,7 @@ offset_right = 700.0
 offset_bottom = 351.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("67_ks78n")
+texture = ExtResource("68_sryu7")
 
 [node name="HFlowContainer" type="HFlowContainer" parent="===UI========/PlayArea/CardSelector/Dialogue"]
 layout_mode = 0
@@ -1730,8 +1733,20 @@ offset_bottom = 102.0
 grow_horizontal = 0
 grow_vertical = 0
 focus_mode = 2
-texture = ExtResource("69_e6yfn")
+texture = ExtResource("70_s052s")
 metadata/focus_type = "submit"
+
+[node name="PlayAreaSelector" type="Control" parent="===UI========/PlayArea" node_paths=PackedStringArray("board")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("71_uqhy2")
+selector_packed_scene = ExtResource("72_777ud")
+board = NodePath("../BasicPlayBoard")
+focus_group = ExtResource("23_r5ewy")
+player_brain = ExtResource("20_whtlg")
+metadata/_custom_type_script = "uid://ddig2iswn7qy4"
 
 [connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateSceneManager" method="start_debate" flags=7]
 

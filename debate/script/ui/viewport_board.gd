@@ -1,7 +1,7 @@
 @tool
 extends Board
 
-class_name ViewportBoard
+class_name BoardGUI
 
 @export var suit_track_parent : Control
 

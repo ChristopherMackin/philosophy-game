@@ -1,8 +1,11 @@
+@tool
 extends Resource
 
 class_name Deck
 
-@export var composition_card_deck_config_array : Array[DeckConfig]
+@export var composition_card_deck_config_array : Array[DeckConfig]:
+	set(val):
+		composition_card_deck_config_array = Util.auto_populate_resource_array(composition_card_deck_config_array, val, DeckConfig)
 
 var manager : DebateManager
 

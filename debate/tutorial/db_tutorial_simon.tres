@@ -12,7 +12,8 @@
 script = ExtResource("2_glfs3")
 metadata/_custom_type_script = "uid://2hwgbl7c4ebq"
 
-[sub_resource type="Resource" id="Resource_tajt0"]
+[sub_resource type="Resource" id="Resource_yd13a"]
+resource_name = "Basic Faith"
 script = ExtResource("4_t2gwq")
 base = ExtResource("4_grb6l")
 count = 1
@@ -20,7 +21,7 @@ metadata/_custom_type_script = "uid://bcrhpdjlreow5"
 
 [sub_resource type="Resource" id="Resource_t2gwq"]
 script = ExtResource("5_glfs3")
-composition_card_deck_config_array = Array[ExtResource("4_t2gwq")]([SubResource("Resource_tajt0")])
+composition_card_deck_config_array = Array[ExtResource("4_t2gwq")]([SubResource("Resource_yd13a")])
 metadata/_custom_type_script = "uid://dlqqr4qxqi2ht"
 
 [resource]
