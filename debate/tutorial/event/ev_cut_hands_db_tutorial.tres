@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://cxguyu7a7h5ls"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_ygmpp"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_t2p2y"]
+[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="2_yfu8i"]
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("2_yfu8i")
+
+[sub_resource type="Resource" id="Resource_yfu8i"]
+script = ExtResource("2_t2p2y")
+inputs = ["cut_hands", "", true, true]
+action = SubResource("Resource_ml60a")
+
+[resource]
+script = ExtResource("1_ygmpp")
+can_interupt = true
+await_event = true
+frequency = 1
+start_task = SubResource("Resource_yfu8i")
+tasks = Array[ExtResource("2_t2p2y")]([SubResource("Resource_yfu8i")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

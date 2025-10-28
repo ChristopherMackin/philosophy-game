@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://crwfrdpgb1rkh"]
+[gd_scene load_steps=125 format=3 uid="uid://crwfrdpgb1rkh"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_b27wb"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_svgpu"]
@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://coqtgijiyc02d" path="res://system/input/ih_selection_manager.tres" id="10_b3rsh"]
 [ext_resource type="Script" uid="uid://dhulr5f133qcw" path="res://debate/script/subscriber/node_based/debate_scene_manager.gd" id="11_co1o1"]
 [ext_resource type="Resource" uid="uid://cq4fb0k21oesm" path="res://debate/tutorial/ds_db_tutorial.tres" id="12_5wvrs"]
-[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player_data.tres" id="13_i10ia"]
+[ext_resource type="Resource" uid="uid://c0ky3rdu750c6" path="res://character/young_samson/young_samson.tres" id="13_uqhy2"]
 [ext_resource type="Resource" uid="uid://b20s3xcb4bqtx" path="res://debate/tutorial/db_tutorial_simon.tres" id="14_b56bn"]
 [ext_resource type="Resource" uid="uid://bxdnjlvt3iyth" path="res://system/debate_manager.tres" id="15_qliuy"]
 [ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="16_oh6jv"]
@@ -94,8 +94,12 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_uqhy2"]
+resource_name = "cut_hands"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_brn8x"]
 _data = {
+&"cut_hands": SubResource("Animation_uqhy2"),
 &"cut_tutorial_finished": SubResource("Animation_kc3c6")
 }
 
@@ -1043,16 +1047,16 @@ blackboard = ExtResource("7_v4h8d")
 event_factory = ExtResource("8_myecp")
 event_manager = ExtResource("6_evco1")
 debate_settings = ExtResource("12_5wvrs")
-player = ExtResource("13_i10ia")
+player = ExtResource("13_uqhy2")
 selection_manager = NodePath("../SelectionManager")
 computer = ExtResource("14_b56bn")
-board = NodePath("../../===UI========/PlayArea/BasicPlayBoard")
-hand_ui = NodePath("../../===UI========/PlayArea/Hand")
-energy_ui = NodePath("../../===UI========/PlayArea/Player/PlayerStats/HBoxContainer/Energy/Count")
-hold_area_ui = NodePath("../../===UI========/PlayArea/Player/HoldArea")
-draw_pile_ui = NodePath("../../===UI========/PlayArea/Player/PlayerStats/HBoxContainer/DrawPile/Count")
-computer_energy_ui = NodePath("../../===UI========/PlayArea/Computer/ComputerStats/Energy/Count")
-computer_hand_ui = NodePath("../../===UI========/PlayArea/Computer/ComputerStats/Hand/Count")
+board = NodePath("../../===UI========/BasicPlayBoard")
+hand_ui = NodePath("../../===UI========/Hand")
+energy_ui = NodePath("../../===UI========/Player/PlayerStats/HBoxContainer/Energy/Count")
+hold_area_ui = NodePath("../../===UI========/Player/HoldArea")
+draw_pile_ui = NodePath("../../===UI========/Player/PlayerStats/HBoxContainer/DrawPile/Count")
+computer_energy_ui = NodePath("../../===UI========/Computer/ComputerStats/Energy/Count")
+computer_hand_ui = NodePath("../../===UI========/Computer/ComputerStats/Hand/Count")
 manager = ExtResource("15_qliuy")
 metadata/_custom_type_script = "uid://dhulr5f133qcw"
 
@@ -1060,7 +1064,7 @@ metadata/_custom_type_script = "uid://dhulr5f133qcw"
 script = ExtResource("16_oh6jv")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
 actors = [NodePath("../../===ACTOR========/YoungSamsonActor"), NodePath("../../===ACTOR========/SimonActor")]
-default_dialogue_area = NodePath("../../===UI========/PlayArea/Player/BasicDialogueBubble")
+default_dialogue_area = NodePath("../../===UI========/Player/BasicDialogueBubble")
 input_manager = NodePath("../InputManager")
 dialogue_input_handler = ExtResource("17_1tpcs")
 manager = ExtResource("6_evco1")
@@ -1079,9 +1083,9 @@ play_area_selector_focus_group = ExtResource("23_r5ewy")
 card_selector_focus_group = ExtResource("24_uvqcd")
 suit_selector_focus_group = ExtResource("25_q0knd")
 ui_clear_focus_node = NodePath("UIClearFocus")
-play_area_selector = NodePath("../../===UI========/PlayArea/PlayAreaSelector")
-card_selector = NodePath("../../===UI========/PlayArea/CardSelector")
-suit_selector = NodePath("../../===UI========/PlayArea/SuitSelector")
+play_area_selector = NodePath("../../===UI========/PlayAreaSelector")
+card_selector = NodePath("../../===UI========/CardSelector")
+suit_selector = NodePath("../../===UI========/SuitSelector")
 metadata/_custom_type_script = "uid://syaosi1lkwul"
 
 [node name="UIClearFocus" type="Control" parent="===MANAGER========/SelectionManager"]
@@ -1100,7 +1104,7 @@ metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
 [node name="Board3D" type="Node3D" parent="===GAMEPLAY========" node_paths=PackedStringArray("viewport_board", "board_sprite")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7414, 0)
 script = ExtResource("27_ny687")
-viewport_board = NodePath("../../===UI========/PlayArea/BasicPlayBoard")
+viewport_board = NodePath("../../===UI========/BasicPlayBoard")
 board_sprite = NodePath("BoardSprite")
 debate_settings = ExtResource("28_o6is1")
 token_3d_packed_scene = ExtResource("29_kvhx5")
@@ -1146,7 +1150,7 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 
 [node name="YoungSamsonActor" parent="===ACTOR========" node_paths=PackedStringArray("dialogue_area_override") instance=ExtResource("33_8hvq4")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, -2.08208e-12, -2.08122e-12, 1.24626)
-dialogue_area_override = NodePath("../../===UI========/PlayArea/Player/BasicDialogueBubble")
+dialogue_area_override = NodePath("../../===UI========/Player/BasicDialogueBubble")
 
 [node name="YoungSamsonSkin" parent="===ACTOR========/YoungSamsonActor" index="0"]
 layers = 3
@@ -1159,7 +1163,7 @@ tree_root = SubResource("AnimationNodeBlendTree_pecwm")
 
 [node name="SimonActor" parent="===ACTOR========" node_paths=PackedStringArray("dialogue_area_override") instance=ExtResource("34_suovc")]
 transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, -2.08118e-12, -2.08212e-12, -1.33708)
-dialogue_area_override = NodePath("../../===UI========/PlayArea/Computer/BasicDialogueBubble")
+dialogue_area_override = NodePath("../../===UI========/Computer/BasicDialogueBubble")
 
 [node name="Skeleton3D" parent="===ACTOR========/SimonActor/SimonSkin/root" index="0"]
 bones/1/position = Vector3(1.93526e-10, 0.783266, -0.0011068298)
@@ -1201,7 +1205,7 @@ bones/28/rotation = Quaternion(0.007057863, 0.91379243, 0.40612015, 0.0002770991
 bones/29/rotation = Quaternion(9.908064e-07, 0.023903709, -5.4760415e-07, 0.9997144)
 bones/30/position = Vector3(0.6725944, 1.0941687, 0.0032474084)
 bones/30/rotation = Quaternion(1.5871528e-23, 1.4632345e-06, 0, 1)
-bones/31/position = Vector3(0.081576526, -9.749242e-06, 3.7121356e-10)
+bones/31/position = Vector3(0.081576526, -9.7492775e-06, 3.750153e-10)
 bones/31/rotation = Quaternion(-2.2553684e-10, -1.378681e-06, -1.37873e-06, 1)
 bones/31/scale = Vector3(1.0000001, 1, 1)
 bones/32/position = Vector3(0.6725944, -0.12891442, 0.0032474091)
@@ -1276,12 +1280,9 @@ layers = Array[bool]([true, false, true, false, false, false, false, false, fals
 [node name="CharacterAnimationTree" parent="===ACTOR========/SimonActor" index="4"]
 tree_root = SubResource("AnimationNodeBlendTree_08nhg")
 
-[node name="===UI========" type="Node3D" parent="."]
-transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+[node name="===UI========" type="CanvasLayer" parent="."]
 
-[node name="PlayArea" type="CanvasLayer" parent="===UI========"]
-
-[node name="Background" type="Control" parent="===UI========/PlayArea"]
+[node name="Background" type="Control" parent="===UI========"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1289,7 +1290,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScreenDarken" type="TextureRect" parent="===UI========/PlayArea/Background"]
+[node name="ScreenDarken" type="TextureRect" parent="===UI========/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1298,7 +1299,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_77toc")
 
-[node name="Footer" type="TextureRect" parent="===UI========/PlayArea/Background"]
+[node name="Footer" type="TextureRect" parent="===UI========/Background"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.796
@@ -1309,7 +1310,7 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = SubResource("GradientTexture1D_qe3ln")
 
-[node name="Header" type="TextureRect" parent="===UI========/PlayArea/Background"]
+[node name="Header" type="TextureRect" parent="===UI========/Background"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -1318,7 +1319,7 @@ offset_bottom = -0.160004
 grow_horizontal = 2
 texture = SubResource("GradientTexture1D_qe3ln")
 
-[node name="BasicPlayBoard" parent="===UI========/PlayArea" instance=ExtResource("41_6y5fk")]
+[node name="BasicPlayBoard" parent="===UI========" instance=ExtResource("41_6y5fk")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1331,13 +1332,13 @@ scale = Vector2(0.65, 0.65)
 debate_settings = ExtResource("12_5wvrs")
 token_gui_packed_scene = ExtResource("42_0vxbg")
 
-[node name="Background" parent="===UI========/PlayArea/BasicPlayBoard/Header" index="0"]
+[node name="Background" parent="===UI========/BasicPlayBoard/Header" index="0"]
 self_modulate = Color(1, 1, 1, 0.752941)
 
-[node name="Background" parent="===UI========/PlayArea/BasicPlayBoard/PlayArea" index="0"]
+[node name="Background" parent="===UI========/BasicPlayBoard/PlayArea" index="0"]
 self_modulate = Color(0.278431, 0.278431, 0.278431, 0.752941)
 
-[node name="Player" type="Control" parent="===UI========/PlayArea"]
+[node name="Player" type="Control" parent="===UI========"]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -1346,7 +1347,7 @@ offset_top = -400.0
 offset_right = 960.0
 grow_vertical = 0
 
-[node name="PlayerPortrait" type="SubViewportContainer" parent="===UI========/PlayArea/Player"]
+[node name="PlayerPortrait" type="SubViewportContainer" parent="===UI========/Player"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.023
@@ -1358,17 +1359,17 @@ offset_right = -0.240051
 offset_bottom = 2.0
 grow_vertical = 0
 
-[node name="SubViewport" type="SubViewport" parent="===UI========/PlayArea/Player/PlayerPortrait"]
+[node name="SubViewport" type="SubViewport" parent="===UI========/Player/PlayerPortrait"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(500, 400)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="===UI========/PlayArea/Player/PlayerPortrait/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="===UI========/Player/PlayerPortrait/SubViewport"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.888441, 0.124079)
 cull_mask = 2
 
-[node name="PlayerStats" type="MarginContainer" parent="===UI========/PlayArea/Player"]
+[node name="PlayerStats" type="MarginContainer" parent="===UI========/Player"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.45
@@ -1380,13 +1381,13 @@ offset_bottom = -6.10352e-05
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="VBoxContainer" parent="===UI========/PlayArea/Player/PlayerStats"]
+[node name="HBoxContainer" type="VBoxContainer" parent="===UI========/Player/PlayerStats"]
 z_index = 1
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Energy" type="TextureRect" parent="===UI========/PlayArea/Player/PlayerStats/HBoxContainer"]
+[node name="Energy" type="TextureRect" parent="===UI========/Player/PlayerStats/HBoxContainer"]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -1394,7 +1395,7 @@ texture = ExtResource("43_3k812")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Count" type="RichTextLabel" parent="===UI========/PlayArea/Player/PlayerStats/HBoxContainer/Energy"]
+[node name="Count" type="RichTextLabel" parent="===UI========/Player/PlayerStats/HBoxContainer/Energy"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.221
@@ -1415,7 +1416,7 @@ fit_content = true
 autowrap_mode = 0
 script = ExtResource("45_2nv56")
 
-[node name="DrawPile" type="TextureRect" parent="===UI========/PlayArea/Player/PlayerStats/HBoxContainer"]
+[node name="DrawPile" type="TextureRect" parent="===UI========/Player/PlayerStats/HBoxContainer"]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -1423,7 +1424,7 @@ texture = ExtResource("46_12woj")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Count" type="RichTextLabel" parent="===UI========/PlayArea/Player/PlayerStats/HBoxContainer/DrawPile"]
+[node name="Count" type="RichTextLabel" parent="===UI========/Player/PlayerStats/HBoxContainer/DrawPile"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 15
@@ -1442,7 +1443,7 @@ fit_content = true
 autowrap_mode = 0
 script = ExtResource("47_n8clu")
 
-[node name="HoldArea" type="Control" parent="===UI========/PlayArea/Player"]
+[node name="HoldArea" type="Control" parent="===UI========/Player"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -1455,7 +1456,7 @@ default_card_gui_packed_scene = ExtResource("49_jx0wo")
 default_tokenless_card_gui_packed_scene = ExtResource("50_rrhh6")
 tokenless_card_gui_suit_packed_scenes = Array[ExtResource("51_nh6ci")]([SubResource("Resource_svr5q")])
 
-[node name="BasicDialogueBubble" parent="===UI========/PlayArea/Player" instance=ExtResource("54_3mrh1")]
+[node name="BasicDialogueBubble" parent="===UI========/Player" instance=ExtResource("54_3mrh1")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.372
@@ -1468,7 +1469,7 @@ offset_right = -0.28009
 offset_bottom = -0.000137329
 flip_h = true
 
-[node name="ScrollingText" parent="===UI========/PlayArea/Player/BasicDialogueBubble" index="0"]
+[node name="ScrollingText" parent="===UI========/Player/BasicDialogueBubble" index="0"]
 anchor_left = 0.144
 anchor_right = 1.0
 offset_left = 19.12
@@ -1476,7 +1477,7 @@ offset_top = 14.0
 offset_right = -14.92
 offset_bottom = -12.0
 
-[node name="Computer" type="Control" parent="===UI========/PlayArea"]
+[node name="Computer" type="Control" parent="===UI========"]
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -1488,7 +1489,7 @@ offset_top = -400.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="ComputerPortrait" type="SubViewportContainer" parent="===UI========/PlayArea/Computer"]
+[node name="ComputerPortrait" type="SubViewportContainer" parent="===UI========/Computer"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.417
@@ -1499,17 +1500,17 @@ offset_right = 0.47998
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="SubViewport" type="SubViewport" parent="===UI========/PlayArea/Computer/ComputerPortrait"]
+[node name="SubViewport" type="SubViewport" parent="===UI========/Computer/ComputerPortrait"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(500, 400)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="===UI========/PlayArea/Computer/ComputerPortrait/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="===UI========/Computer/ComputerPortrait/SubViewport"]
 transform = Transform3D(0.959358, 0, 0.282191, 0, 1, 0, -0.282191, 0, 0.959358, 0.255904, 1.31561, -0.568268)
 cull_mask = 4
 
-[node name="ComputerStats" type="VBoxContainer" parent="===UI========/PlayArea/Computer"]
+[node name="ComputerStats" type="VBoxContainer" parent="===UI========/Computer"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.792
@@ -1522,14 +1523,14 @@ grow_vertical = 0
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Hand" type="TextureRect" parent="===UI========/PlayArea/Computer/ComputerStats"]
+[node name="Hand" type="TextureRect" parent="===UI========/Computer/ComputerStats"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("55_sy4pn")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Count" type="RichTextLabel" parent="===UI========/PlayArea/Computer/ComputerStats/Hand"]
+[node name="Count" type="RichTextLabel" parent="===UI========/Computer/ComputerStats/Hand"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.158
@@ -1551,14 +1552,14 @@ scroll_active = false
 autowrap_mode = 0
 script = ExtResource("56_76sev")
 
-[node name="Energy" type="TextureRect" parent="===UI========/PlayArea/Computer/ComputerStats"]
+[node name="Energy" type="TextureRect" parent="===UI========/Computer/ComputerStats"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("43_3k812")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Count" type="RichTextLabel" parent="===UI========/PlayArea/Computer/ComputerStats/Energy"]
+[node name="Count" type="RichTextLabel" parent="===UI========/Computer/ComputerStats/Energy"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.257
@@ -1581,7 +1582,7 @@ scroll_active = false
 autowrap_mode = 0
 script = ExtResource("45_2nv56")
 
-[node name="BasicDialogueBubble" parent="===UI========/PlayArea/Computer" instance=ExtResource("54_3mrh1")]
+[node name="BasicDialogueBubble" parent="===UI========/Computer" instance=ExtResource("54_3mrh1")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.055
@@ -1593,7 +1594,7 @@ offset_top = -3.05176e-05
 offset_right = 0.039978
 offset_bottom = -4.57764e-05
 
-[node name="Hand" type="Control" parent="===UI========/PlayArea" node_paths=PackedStringArray("draw_pile", "card_parent")]
+[node name="Hand" type="Control" parent="===UI========" node_paths=PackedStringArray("draw_pile", "card_parent")]
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
@@ -1610,7 +1611,7 @@ card_parent = NodePath("CurveContainer")
 focus_group = ExtResource("22_qgr8k")
 player_brain = ExtResource("20_whtlg")
 
-[node name="CurveContainer" type="Container" parent="===UI========/PlayArea/Hand"]
+[node name="CurveContainer" type="Container" parent="===UI========/Hand"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.266
@@ -1630,7 +1631,7 @@ y_min = 0
 y_max = -25
 card_size = Vector2(370, 320)
 
-[node name="SuitSelector" type="Panel" parent="===UI========/PlayArea" node_paths=PackedStringArray("card_container")]
+[node name="SuitSelector" type="Panel" parent="===UI========" node_paths=PackedStringArray("card_container")]
 visible = false
 z_index = 10
 anchors_preset = 15
@@ -1645,7 +1646,7 @@ card_container = NodePath("Dialogue/HBoxContainer")
 focus_group = ExtResource("25_q0knd")
 player_brain = ExtResource("20_whtlg")
 
-[node name="Dialogue" type="TextureRect" parent="===UI========/PlayArea/SuitSelector"]
+[node name="Dialogue" type="TextureRect" parent="===UI========/SuitSelector"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1660,7 +1661,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("68_sryu7")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="===UI========/PlayArea/SuitSelector/Dialogue"]
+[node name="HBoxContainer" type="HBoxContainer" parent="===UI========/SuitSelector/Dialogue"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1674,7 +1675,7 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="CardSelector" type="Panel" parent="===UI========/PlayArea" node_paths=PackedStringArray("card_container", "submit_button")]
+[node name="CardSelector" type="Panel" parent="===UI========" node_paths=PackedStringArray("card_container", "submit_button")]
 visible = false
 z_index = 10
 anchors_preset = 15
@@ -1692,7 +1693,7 @@ focus_group = ExtResource("24_uvqcd")
 player_brain = ExtResource("20_whtlg")
 submit_button = NodePath("Dialogue/SubmitButton")
 
-[node name="Dialogue" type="TextureRect" parent="===UI========/PlayArea/CardSelector"]
+[node name="Dialogue" type="TextureRect" parent="===UI========/CardSelector"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1707,7 +1708,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("68_sryu7")
 
-[node name="HFlowContainer" type="HFlowContainer" parent="===UI========/PlayArea/CardSelector/Dialogue"]
+[node name="HFlowContainer" type="HFlowContainer" parent="===UI========/CardSelector/Dialogue"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 70.0
@@ -1720,7 +1721,7 @@ theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 alignment = 1
 
-[node name="SubmitButton" type="TextureRect" parent="===UI========/PlayArea/CardSelector/Dialogue"]
+[node name="SubmitButton" type="TextureRect" parent="===UI========/CardSelector/Dialogue"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -1736,7 +1737,7 @@ focus_mode = 2
 texture = ExtResource("70_s052s")
 metadata/focus_type = "submit"
 
-[node name="PlayAreaSelector" type="Control" parent="===UI========/PlayArea" node_paths=PackedStringArray("board")]
+[node name="PlayAreaSelector" type="Control" parent="===UI========" node_paths=PackedStringArray("board")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -1753,5 +1754,5 @@ metadata/_custom_type_script = "uid://ddig2iswn7qy4"
 [editable path="===ACTOR========/YoungSamsonActor"]
 [editable path="===ACTOR========/SimonActor"]
 [editable path="===ACTOR========/SimonActor/SimonSkin"]
-[editable path="===UI========/PlayArea/BasicPlayBoard"]
-[editable path="===UI========/PlayArea/Player/BasicDialogueBubble"]
+[editable path="===UI========/BasicPlayBoard"]
+[editable path="===UI========/Player/BasicDialogueBubble"]

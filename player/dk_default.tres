@@ -13,46 +13,55 @@
 [ext_resource type="Script" uid="uid://dhdtv0v6h0rkq" path="res://system/script/deck/deck.gd" id="11_wv4ln"]
 
 [sub_resource type="Resource" id="Resource_3dpgd"]
+resource_name = "4 Basic Doubt"
 script = ExtResource("1_dpatv")
 base = ExtResource("2_m0bdr")
 count = 4
 
 [sub_resource type="Resource" id="Resource_knmrv"]
+resource_name = "4 Basic Faith"
 script = ExtResource("1_dpatv")
 base = ExtResource("3_n7vtf")
 count = 4
 
 [sub_resource type="Resource" id="Resource_43cn6"]
+resource_name = "4 Basic Others"
 script = ExtResource("1_dpatv")
 base = ExtResource("4_t63th")
 count = 4
 
 [sub_resource type="Resource" id="Resource_pn2ol"]
+resource_name = "4 Basic Self"
 script = ExtResource("1_dpatv")
 base = ExtResource("5_0p4h1")
 count = 4
 
 [sub_resource type="Resource" id="Resource_pgtkg"]
+resource_name = "1 Overthink"
 script = ExtResource("1_dpatv")
 base = ExtResource("6_pvg2d")
 count = 1
 
 [sub_resource type="Resource" id="Resource_4oq50"]
+resource_name = "1 Recollect"
 script = ExtResource("1_dpatv")
 base = ExtResource("7_p4pl4")
 count = 1
 
 [sub_resource type="Resource" id="Resource_i63n3"]
+resource_name = "1 Recontextualize"
 script = ExtResource("1_dpatv")
 base = ExtResource("8_jbe3y")
 count = 1
 
 [sub_resource type="Resource" id="Resource_ot082"]
+resource_name = "1 Closed Window"
 script = ExtResource("1_dpatv")
 base = ExtResource("9_8r88j")
 count = 1
 
 [sub_resource type="Resource" id="Resource_m2kny"]
+resource_name = "2 Forget"
 script = ExtResource("1_dpatv")
 base = ExtResource("10_ubp6u")
 count = 2

@@ -8,7 +8,11 @@ var hand : CardCollection = CardCollection.new()
 var draw_pile : CardCollection
 var discard_pile : CardCollection = CardCollection.new()
 var playable_cards : Array[Card]:
-	get: return hand.get_cards().filter(func(x): return x.cost <= current_energy)
+	get: 
+		var playable := hand.get_cards().filter(func(x): return x.cost <= current_energy)
+		for filter in playable_card_filter_condition_effects:
+			playable = filter.filter(playable)
+		return playable
 var held_card : CardCollection = CardCollection.new()
 var can_hold : bool = true
 
@@ -34,6 +38,7 @@ var blackboard : Blackboard:
 var status_effects: Array[StatusEffect]
 var can_play_condition_effects: Array[ConditionEffect]
 var can_draw_condition_effects: Array[ConditionEffect]
+var playable_card_filter_condition_effects: Array[PlayableCardFilterEffect]
 
 var can_play:
 	get:

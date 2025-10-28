@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="OrderedDeck" load_steps=11 format=3 uid="uid://bay0u7vbn2o7b"]
+
+[ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://system/script/card/card_deck_config.gd" id="1_uatyi"]
+[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/basic_faith.tres" id="2_bywxd"]
+[ext_resource type="Script" uid="uid://qxw0hsqa58ko" path="res://system/script/deck/ordered_deck.gd" id="2_y7jsd"]
+[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="3_gtdj3"]
+[ext_resource type="Resource" uid="uid://dgsd4p0ynlqhk" path="res://system/card/self/basic_self.tres" id="4_lgal6"]
+[ext_resource type="Resource" uid="uid://hn3fmi2k8xsl" path="res://system/card/others/basic_others.tres" id="5_js71a"]
+
+[sub_resource type="Resource" id="Resource_iyouj"]
+resource_name = "2 Basic Faith"
+script = ExtResource("1_uatyi")
+base = ExtResource("2_bywxd")
+count = 2
+
+[sub_resource type="Resource" id="Resource_eq43l"]
+resource_name = "1 Basic Doubt"
+script = ExtResource("1_uatyi")
+base = ExtResource("3_gtdj3")
+count = 1
+
+[sub_resource type="Resource" id="Resource_4sxh4"]
+resource_name = "1 Basic Self"
+script = ExtResource("1_uatyi")
+base = ExtResource("4_lgal6")
+count = 1
+
+[sub_resource type="Resource" id="Resource_am04r"]
+resource_name = "1 Basic Others"
+script = ExtResource("1_uatyi")
+base = ExtResource("5_js71a")
+count = 1
+
+[resource]
+script = ExtResource("2_y7jsd")
+composition_card_deck_config_array = Array[ExtResource("1_uatyi")]([SubResource("Resource_iyouj"), SubResource("Resource_eq43l"), SubResource("Resource_4sxh4"), SubResource("Resource_am04r")])
+metadata/_custom_type_script = "uid://qxw0hsqa58ko"
