@@ -9,7 +9,7 @@ var draw_pile : CardCollection
 var discard_pile : CardCollection = CardCollection.new()
 var playable_cards : Array[Card]:
 	get: 
-		var playable := hand.get_cards().filter(func(x): return x.cost <= current_energy)
+		var playable : Array[Card] = hand.get_cards().filter(func(x): return x.cost <= current_energy)
 		for filter in playable_card_filter_condition_effects:
 			playable = filter.filter(playable)
 		return playable

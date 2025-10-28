@@ -2,13 +2,6 @@ extends StatusEffect
 
 class_name PlayableCardFilterEffect
 
-enum Application{
-	CAN_DRAW,
-	CAN_PLAY
-}
-
-@export var application: Application
-
 func filter(cards: Array[Card]) -> Array[Card]:
 	return cards
 
