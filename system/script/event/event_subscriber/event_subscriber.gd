@@ -7,10 +7,10 @@ class_name EventSubscriber
 func _ready():
 	manager.subscribe(self)
 
-func _start_event(event: Event):
+func _start_event(_event: Event):
 	pass
 
-func _end_event(event: Event):
+func _end_event(_event: Event):
 	pass
 
 func display_dialogue(_line : String, _actor : String, _await_input : bool, _seconds_before_close : float):
@@ -19,8 +19,14 @@ func display_dialogue(_line : String, _actor : String, _await_input : bool, _sec
 func cancel_dialogue(_actor : String):
 	pass
 
-func play_animation(_animation : String, _actor : String, overwrite_animation: bool, _await_animation: bool):
+func play_animation(_animation : String, _actor : String, _overwrite_animation: bool, _await_animation: bool):
 	pass
 
 func cancel_animation(_actor : String):
+	pass
+
+func add_status_effect(_effect: StatusEffect, _which_player: Const.Player):
+	pass
+
+func remove_status_effect(_effect: StatusEffect, _which_player: Const.Player):
 	pass

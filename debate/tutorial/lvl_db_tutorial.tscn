@@ -77,6 +77,9 @@
 script = ExtResource("3_uqhy2")
 duration = 0.5
 
+[sub_resource type="Animation" id="Animation_uqhy2"]
+resource_name = "cut_hands"
+
 [sub_resource type="Animation" id="Animation_kc3c6"]
 resource_name = "cap_finish_debate_tutorial"
 tracks/0/type = "method"
@@ -93,9 +96,6 @@ tracks/0/keys = {
 "method": &"progress"
 }]
 }
-
-[sub_resource type="Animation" id="Animation_uqhy2"]
-resource_name = "cut_hands"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_brn8x"]
 _data = {
@@ -1062,6 +1062,7 @@ metadata/_custom_type_script = "uid://dhulr5f133qcw"
 
 [node name="SceneEventManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("scene_animator_handler", "actors", "default_dialogue_area", "input_manager")]
 script = ExtResource("16_oh6jv")
+debate_manager = ExtResource("15_qliuy")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
 actors = [NodePath("../../===ACTOR========/YoungSamsonActor"), NodePath("../../===ACTOR========/SimonActor")]
 default_dialogue_area = NodePath("../../===UI========/Player/BasicDialogueBubble")
@@ -1205,7 +1206,7 @@ bones/28/rotation = Quaternion(0.007057863, 0.91379243, 0.40612015, 0.0002770991
 bones/29/rotation = Quaternion(9.908064e-07, 0.023903709, -5.4760415e-07, 0.9997144)
 bones/30/position = Vector3(0.6725944, 1.0941687, 0.0032474084)
 bones/30/rotation = Quaternion(1.5871528e-23, 1.4632345e-06, 0, 1)
-bones/31/position = Vector3(0.081576526, -9.749341e-06, 3.8186632e-10)
+bones/31/position = Vector3(0.081576526, -9.749341e-06, 3.8186598e-10)
 bones/31/rotation = Quaternion(-2.2553684e-10, -1.378681e-06, -1.37873e-06, 1)
 bones/31/scale = Vector3(1.0000001, 1, 1)
 bones/32/position = Vector3(0.6725944, -0.12891442, 0.0032474091)

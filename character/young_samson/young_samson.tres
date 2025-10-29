@@ -1,27 +1,13 @@
-[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://c0ky3rdu750c6"]
+[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://c0ky3rdu750c6"]
 
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="1_j3evr"]
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="1_wx247"]
 [ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="2_4nqno"]
 [ext_resource type="Resource" uid="uid://bay0u7vbn2o7b" path="res://debate/tutorial/dk_db_tutorial.tres" id="2_j3evr"]
-[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="5_frsep"]
-[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/basic_faith.tres" id="6_7idrk"]
-[ext_resource type="Script" uid="uid://52ayxfyxhars" path="res://debate/script/contestant/status_effect/playable_card_filter_effect/card_base_list_filter_effect.gd" id="7_nanlu"]
-
-[sub_resource type="Resource" id="Resource_v8ymv"]
-script = ExtResource("7_nanlu")
-card_bases = Array[ExtResource("5_frsep")]([ExtResource("6_7idrk")])
-metadata/_custom_type_script = "uid://52ayxfyxhars"
-
-[sub_resource type="Resource" id="Resource_g2si6"]
-script = ExtResource("2_4nqno")
-status_effect = SubResource("Resource_v8ymv")
-metadata/_custom_type_script = "uid://bkr7ctg24gqrv"
 
 [resource]
 script = ExtResource("1_wx247")
 name = "Samson"
 brain = ExtResource("1_j3evr")
 deck = ExtResource("2_j3evr")
-starting_effects = Array[ExtResource("2_4nqno")]([SubResource("Resource_g2si6")])
 metadata/_custom_type_script = "uid://b0gx18dmx3sv3"

@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://bruka2los7mb5"]
+
+[ext_resource type="Script" uid="uid://8qc3j4r3w1d4" path="res://addons/event_tree_plugin/task_node.gd" id="1_d3lam"]
+[ext_resource type="Script" uid="uid://ihbr472vboue" path="res://system/script/event/task_action/add_status_effect_task_action.gd" id="2_d3lam"]
+[ext_resource type="Script" uid="uid://2qtryrr0st1u" path="res://addons/event_tree_plugin/custom_resource_loader.tres.gd" id="3_ytnb4"]
+
+[sub_resource type="Resource" id="Resource_ytnb4"]
+script = ExtResource("2_d3lam")
+metadata/_custom_type_script = "uid://ihbr472vboue"
+
+[node name="AddStatusEffectNode" type="GraphNode"]
+offset_right = 354.0
+offset_bottom = 256.0
+size_flags_vertical = 0
+resizable = true
+title = "Add Status Effect"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("1_d3lam")
+task_action = SubResource("Resource_ytnb4")
+
+[node name="CustomResourceLoader" type="MenuButton" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+flat = false
+item_count = 1
+popup/item_0/text = "Load Status Effect"
+popup/item_0/id = 0
+script = ExtResource("3_ytnb4")
+metadata/_custom_type_script = "uid://2qtryrr0st1u"
+
+[node name="OptionButton" type="OptionButton" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "HUMAN"
+popup/item_0/id = 0
+popup/item_1/text = "COMPUTER"
+popup/item_1/id = 1

@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="Event" load_steps=16 format=3 uid="uid://ygtqujy6qdkv"]
+[gd_resource type="Resource" script_class="Event" load_steps=20 format=3 uid="uid://ygtqujy6qdkv"]
 
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_22ldw"]
 [ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_2udwm"]
 [ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="2_b683d"]
 [ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_lval0"]
+[ext_resource type="Script" uid="uid://ihbr472vboue" path="res://system/script/event/task_action/add_status_effect_task_action.gd" id="5_mjrbq"]
 
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_b683d")
 
-[sub_resource type="Resource" id="Resource_lval0"]
+[sub_resource type="Resource" id="Resource_mjrbq"]
 script = ExtResource("2_2udwm")
 outputs = Array[int]([1])
 inputs = ["recoil", "young_samson", false, false]
@@ -17,51 +18,67 @@ action = SubResource("Resource_ml60a")
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("2_lval0")
 
-[sub_resource type="Resource" id="Resource_b683d"]
+[sub_resource type="Resource" id="Resource_7lnpo"]
 script = ExtResource("2_2udwm")
 outputs = Array[int]([2])
 inputs = ["wh...", "young_samson", false, 0.3]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_fsiwe"]
+[sub_resource type="Resource" id="Resource_2sgaf"]
 script = ExtResource("2_2udwm")
 outputs = Array[int]([3])
 inputs = ["panic", "young_samson", false, false]
 action = SubResource("Resource_ml60a")
 
-[sub_resource type="Resource" id="Resource_yi4yy"]
+[sub_resource type="Resource" id="Resource_sqy3k"]
 script = ExtResource("2_2udwm")
 outputs = Array[int]([4])
 inputs = ["WHAT?!?!!", "young_samson", true, 1.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_lq7uh"]
+[sub_resource type="Resource" id="Resource_fux2l"]
 script = ExtResource("2_2udwm")
 outputs = Array[int]([5])
 inputs = ["WHERE ARE WE???", "young_samson", true, 2.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_wokj8"]
+[sub_resource type="Resource" id="Resource_ix2o6"]
 script = ExtResource("2_2udwm")
 outputs = Array[int]([6])
 inputs = ["praise", "simon", false, false]
 action = SubResource("Resource_ml60a")
 
-[sub_resource type="Resource" id="Resource_b1lsv"]
+[sub_resource type="Resource" id="Resource_2ictw"]
 script = ExtResource("2_2udwm")
 outputs = Array[int]([8])
 inputs = ["This is the battleground: the space that exists in the suspension of our disbelief.", "simon", true, 2.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_il8fe"]
+[sub_resource type="Resource" id="Resource_b15x1"]
 script = ExtResource("2_2udwm")
+outputs = Array[int]([9])
 inputs = ["To change thoughts.", "simon", true, 2.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_082i4"]
+[sub_resource type="Resource" id="Resource_qe8b8"]
 script = ExtResource("2_2udwm")
 outputs = Array[int]([7])
 inputs = ["It is here we have the power to change hearts", "simon", false, 1.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_ytnb4"]
+script = ExtResource("5_mjrbq")
+metadata/_custom_type_script = "uid://ihbr472vboue"
+
+[sub_resource type="Resource" id="Resource_2bii7"]
+script = ExtResource("2_2udwm")
+outputs = Array[int]([10])
+inputs = ["/Users/christopher.sartin/Documents/Projects/Godot Games/Philosophy/debate/tutorial/status_effect/basic_faith_filter.tres", 0]
+action = SubResource("Resource_ytnb4")
+
+[sub_resource type="Resource" id="Resource_undx5"]
+script = ExtResource("2_2udwm")
+inputs = ["Try playing a Basic Faith card", "Simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [resource]
@@ -69,5 +86,5 @@ script = ExtResource("1_22ldw")
 can_interupt = true
 await_event = true
 frequency = 1
-start_task = SubResource("Resource_lval0")
-tasks = Array[ExtResource("2_2udwm")]([SubResource("Resource_lval0"), SubResource("Resource_b683d"), SubResource("Resource_fsiwe"), SubResource("Resource_yi4yy"), SubResource("Resource_lq7uh"), SubResource("Resource_wokj8"), SubResource("Resource_b1lsv"), SubResource("Resource_il8fe"), SubResource("Resource_082i4")])
+start_task = SubResource("Resource_mjrbq")
+tasks = Array[ExtResource("2_2udwm")]([SubResource("Resource_mjrbq"), SubResource("Resource_7lnpo"), SubResource("Resource_2sgaf"), SubResource("Resource_sqy3k"), SubResource("Resource_fux2l"), SubResource("Resource_ix2o6"), SubResource("Resource_2ictw"), SubResource("Resource_b15x1"), SubResource("Resource_qe8b8"), SubResource("Resource_2bii7"), SubResource("Resource_undx5")])

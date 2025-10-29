@@ -57,3 +57,9 @@ func play_animation(animation : String, actor : String, overwrite_animation: boo
 
 func cancel_animation(actor : String):
 	for sub : EventSubscriber in subscribers: await sub.cancel_animation(actor)
+
+func add_status_effect(effect: StatusEffect, which_player: Const.Player = Const.Player.HUMAN):
+	for sub : EventSubscriber in subscribers: await sub.add_status_effect(effect, which_player)
+
+func remove_status_effect(effect: StatusEffect, which_player: Const.Player = Const.Player.HUMAN):
+	for sub : EventSubscriber in subscribers: await sub.remove_status_effect(effect, which_player)

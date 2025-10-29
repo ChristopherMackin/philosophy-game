@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cigpy34phehbr"]
+[gd_scene load_steps=16 format=3 uid="uid://cigpy34phehbr"]
 
 [ext_resource type="Script" uid="uid://cgrbakyn86j8w" path="res://addons/event_tree_plugin/event_tree_graph_editor.gd" id="1_5451c"]
 [ext_resource type="Script" uid="uid://cmxpujb4d3phc" path="res://addons/event_tree_plugin/event_type_list.gd" id="1_mpg4u"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://b8grwpsb8a8t5" path="res://addons/event_tree_plugin/task_node/animation_node.tscn" id="11_1e0xf"]
 [ext_resource type="PackedScene" uid="uid://du3ueixbb1wck" path="res://addons/event_tree_plugin/task_node/set_local_value_node.tscn" id="11_y5fjh"]
 [ext_resource type="PackedScene" uid="uid://35fxxo0l0oge" path="res://addons/event_tree_plugin/task_node/check_criterion_node.tscn" id="12_nl20v"]
+[ext_resource type="PackedScene" uid="uid://bruka2los7mb5" path="res://addons/event_tree_plugin/task_node/add_status_effect_node.tscn" id="13_ly33u"]
+[ext_resource type="PackedScene" uid="uid://nhhgwmvbjjr4" path="res://addons/event_tree_plugin/task_node/remove_status_effect_node.tscn" id="14_5ysm2"]
 
 [node name="Event Tree Graph Editor" type="Control"]
 custom_minimum_size = Vector2(500, 0)
@@ -99,7 +101,7 @@ offset_top = -0.400085
 offset_right = 0.319992
 grow_vertical = 0
 size_flags_vertical = 3
-item_count = 7
+item_count = 9
 item_0/text = "ConsoleLog"
 item_1/text = "Dialogue"
 item_2/text = "Wait"
@@ -107,6 +109,8 @@ item_3/text = "Animate"
 item_4/text = "SetGlobalValue"
 item_5/text = "SetLocalValue"
 item_6/text = "CheckCriterion"
+item_7/text = "AddStatusEffect"
+item_8/text = "RemoveStatusEffect"
 script = ExtResource("1_mpg4u")
 event_graph = NodePath("../GraphContainer/EventGraph")
 task_node_type_parent = NodePath("../TaskNodeTypeParent")
@@ -136,6 +140,12 @@ layout_mode = 0
 layout_mode = 0
 
 [node name="CheckCriterion" parent="TaskNodeTypeParent" instance=ExtResource("12_nl20v")]
+layout_mode = 0
+
+[node name="AddStatusEffect" parent="TaskNodeTypeParent" instance=ExtResource("13_ly33u")]
+layout_mode = 0
+
+[node name="RemoveStatusEffect" parent="TaskNodeTypeParent" instance=ExtResource("14_5ysm2")]
 layout_mode = 0
 
 [node name="OpenDialogue" type="FileDialog" parent="."]
