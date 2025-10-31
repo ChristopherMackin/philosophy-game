@@ -32,5 +32,6 @@ bbcode_enabled = true
 text = "This is a test of the text and such"
 scroll_active = false
 scroll_following = true
+scroll_following_visible_characters = true
 script = ExtResource("3_fjgyg")
 characters_per_second = 20

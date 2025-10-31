@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="Event" load_steps=11 format=3 uid="uid://dmtj6mprmn1x1"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_y7aa2"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_4gkas"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_ygy53"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_ygy53")
+
+[sub_resource type="Resource" id="Resource_ygy53"]
+script = ExtResource("2_4gkas")
+outputs = Array[int]([4])
+inputs = ["You're a quick learner, just like your father!", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_fjycu"]
+script = ExtResource("2_4gkas")
+outputs = Array[int]([5])
+inputs = ["Your goal is to make sure faith is dominant when the debate is over.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_wo5jd"]
+script = ExtResource("2_4gkas")
+outputs = Array[int]([0])
+inputs = ["Filling up any of the tracks with tokens will end the debate.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_1efdo"]
+script = ExtResource("2_4gkas")
+outputs = Array[int]([2])
+inputs = ["Since this card had no power, it only added a token to the board.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_4j28x"]
+script = ExtResource("2_4gkas")
+outputs = Array[int]([3])
+inputs = ["When you play a card, it's token will be added to the track of it's same suit. Then, it's powers will take effect.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_ar5ig"]
+script = ExtResource("2_4gkas")
+inputs = ["Now, play your other Basic Faith card.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_y7aa2")
+can_interupt = true
+await_event = true
+frequency = 1
+start_task = SubResource("Resource_ygy53")
+tasks = Array[ExtResource("2_4gkas")]([SubResource("Resource_fjycu"), SubResource("Resource_ygy53"), SubResource("Resource_wo5jd"), SubResource("Resource_1efdo"), SubResource("Resource_4j28x"), SubResource("Resource_ar5ig")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

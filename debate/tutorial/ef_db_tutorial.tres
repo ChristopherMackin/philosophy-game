@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="OrderedBucketEventFactory" load_steps=18 format=3 uid="uid://fl8x7vlubnei"]
+[gd_resource type="Resource" script_class="OrderedBucketEventFactory" load_steps=30 format=3 uid="uid://fl8x7vlubnei"]
 
 [ext_resource type="Script" uid="uid://ujd6vl7brq4e" path="res://system/script/event_factory/event_payload_bucket.gd" id="1_30w5w"]
 [ext_resource type="Script" uid="uid://bcbeuvdrhjbe6" path="res://system/script/event_factory/ordered_bucket_event_factory.gd" id="2_bxcm8"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="4_2ibdx"]
 [ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="5_axr2t"]
 [ext_resource type="Resource" uid="uid://cpbkj0m2p5pyn" path="res://debate/tutorial/event/ev_final_db_tutorial.tres" id="6_wrlcu"]
+[ext_resource type="Resource" uid="uid://dmtj6mprmn1x1" path="res://debate/tutorial/event/ev_02_db_tutorial.tres" id="7_7jlp4"]
+[ext_resource type="Resource" uid="uid://cwqwjkxtn60aa" path="res://debate/tutorial/event/ev_04_db_tutorial.tres" id="7_s06ia"]
+[ext_resource type="Resource" uid="uid://njcx6t1ugs8c" path="res://debate/tutorial/event/ev_03_db_tutorial.tres" id="8_411dg"]
 
 [sub_resource type="Resource" id="Resource_dc1mp"]
 script = ExtResource("5_axr2t")
@@ -20,25 +23,72 @@ rule = SubResource("Resource_dc1mp")
 metadata/_custom_type_script = "uid://dftjqkpxopsus"
 
 [sub_resource type="Resource" id="Resource_mdb41"]
-resource_name = "Event Payload Bucket"
+resource_name = "ON_SCENE_ENTER"
 script = ExtResource("1_30w5w")
 concept = 6
 payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_7jlp4")])
 
-[sub_resource type="Resource" id="Resource_411dg"]
-script = ExtResource("5_axr2t")
-
 [sub_resource type="Resource" id="Resource_s06ia"]
+script = ExtResource("4_2ibdx")
+expression = "active_contestant == \"player\""
+variables = Dictionary[String, Variant]({
+"player": "player"
+})
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
+[sub_resource type="Resource" id="Resource_yjn75"]
+script = ExtResource("5_axr2t")
+criteria = Array[ExtResource("4_2ibdx")]([SubResource("Resource_s06ia")])
+
+[sub_resource type="Resource" id="Resource_a4xdh"]
 resource_name = "ev_01_db_tutorial"
 script = ExtResource("2_v6ear")
 event = ExtResource("3_u4wis")
-rule = SubResource("Resource_411dg")
+rule = SubResource("Resource_yjn75")
 
-[sub_resource type="Resource" id="Resource_yjn75"]
-resource_name = "Event Payload Bucket"
+[sub_resource type="Resource" id="Resource_tmg8b"]
+script = ExtResource("4_2ibdx")
+expression = "active_contestant == \"player\""
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
+[sub_resource type="Resource" id="Resource_wrwpy"]
+script = ExtResource("5_axr2t")
+criteria = Array[ExtResource("4_2ibdx")]([SubResource("Resource_tmg8b")])
+
+[sub_resource type="Resource" id="Resource_lwtl6"]
+resource_name = "ev_04_db_tutorial"
+script = ExtResource("2_v6ear")
+event = ExtResource("7_s06ia")
+rule = SubResource("Resource_wrwpy")
+
+[sub_resource type="Resource" id="Resource_sl6p8"]
+resource_name = "ON_TURN_START"
 script = ExtResource("1_30w5w")
-concept = 4
-payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_s06ia")])
+concept = 2
+payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_a4xdh"), SubResource("Resource_lwtl6")])
+
+[sub_resource type="Resource" id="Resource_efs4t"]
+script = ExtResource("5_axr2t")
+
+[sub_resource type="Resource" id="Resource_q2eno"]
+resource_name = "ev_02_db_tutorial"
+script = ExtResource("2_v6ear")
+event = ExtResource("7_7jlp4")
+rule = SubResource("Resource_efs4t")
+
+[sub_resource type="Resource" id="Resource_o7qvn"]
+script = ExtResource("5_axr2t")
+
+[sub_resource type="Resource" id="Resource_6brpu"]
+resource_name = "ev_03_db_tutorial"
+script = ExtResource("2_v6ear")
+event = ExtResource("8_411dg")
+rule = SubResource("Resource_o7qvn")
+
+[sub_resource type="Resource" id="Resource_401kq"]
+resource_name = "ON_PLAY"
+script = ExtResource("1_30w5w")
+payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_q2eno"), SubResource("Resource_6brpu")])
 
 [sub_resource type="Resource" id="Resource_7ielx"]
 script = ExtResource("5_axr2t")
@@ -50,12 +100,12 @@ event = ExtResource("6_wrlcu")
 rule = SubResource("Resource_7ielx")
 
 [sub_resource type="Resource" id="Resource_nhywn"]
-resource_name = "Event Payload Bucket"
+resource_name = "ON_DEBATE_END"
 script = ExtResource("1_30w5w")
 concept = 5
 payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_70oid")])
 
 [resource]
 script = ExtResource("2_bxcm8")
-buckets = Array[ExtResource("1_30w5w")]([SubResource("Resource_mdb41"), SubResource("Resource_yjn75"), SubResource("Resource_nhywn")])
+buckets = Array[ExtResource("1_30w5w")]([SubResource("Resource_mdb41"), SubResource("Resource_sl6p8"), SubResource("Resource_401kq"), SubResource("Resource_nhywn")])
 metadata/_custom_type_script = "uid://bcbeuvdrhjbe6"

@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Event" load_steps=9 format=3 uid="uid://cwqwjkxtn60aa"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_57oye"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_70a5d"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_cuv1l"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_cuv1l")
+
+[sub_resource type="Resource" id="Resource_cuv1l"]
+script = ExtResource("2_70a5d")
+outputs = Array[int]([2])
+inputs = ["You have drawn a Basic Doubt. That is...", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_o2tei"]
+script = ExtResource("2_70a5d")
+outputs = Array[int]([3])
+inputs = ["However, you musn't worry. There are ways to police your thoughts.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_840fj"]
+script = ExtResource("2_70a5d")
+outputs = Array[int]([1])
+inputs = ["Unfortunate.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_tw4vy"]
+script = ExtResource("2_70a5d")
+inputs = ["You are allowed to hold one card away from your hand. Why not add that Basic Doubt to your hold.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_57oye")
+can_interupt = true
+await_event = true
+frequency = 1
+start_task = SubResource("Resource_cuv1l")
+tasks = Array[ExtResource("2_70a5d")]([SubResource("Resource_cuv1l"), SubResource("Resource_o2tei"), SubResource("Resource_840fj"), SubResource("Resource_tw4vy")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

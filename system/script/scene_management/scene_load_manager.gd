@@ -18,6 +18,8 @@ signal _event_finished
 		ordered_room_states = Util.auto_populate_resource_array(ordered_room_states, val, StringCriterion)
 
 func _ready():
+	if Engine.is_editor_hint(): return;
+	
 	set_room_state()
 	set_player_spawn()
 	

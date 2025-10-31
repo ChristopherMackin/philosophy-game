@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="DebateManager" load_steps=2 format=3 uid="uid://bxdnjlvt3iyth"]
+[gd_resource type="Resource" script_class="DebateManager" load_steps=3 format=3 uid="uid://bxdnjlvt3iyth"]
 
 [ext_resource type="Script" uid="uid://cd5e5s82rdgur" path="res://debate/script/debate_manager.gd" id="1_f1qo7"]
+[ext_resource type="Resource" uid="uid://x7jhf53rxpyl" path="res://system/blackboard_storage_debate_subscriber.tres" id="2_iycr5"]
 
 [resource]
 script = ExtResource("1_f1qo7")
-subscribers = []
+subscribers = [ExtResource("2_iycr5")]
 metadata/_custom_type_script = "uid://cd5e5s82rdgur"

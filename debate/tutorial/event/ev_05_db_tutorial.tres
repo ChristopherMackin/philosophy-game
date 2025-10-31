@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Event" load_steps=3 format=3 uid="uid://d05ipy7juasyv"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_pdrm7"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_ekhiv"]
+
+[resource]
+script = ExtResource("1_pdrm7")
+can_interupt = true
+await_event = true
+frequency = 1
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

@@ -78,7 +78,7 @@ action = SubResource("Resource_ytnb4")
 
 [sub_resource type="Resource" id="Resource_undx5"]
 script = ExtResource("2_2udwm")
-inputs = ["Try playing a Basic Faith card", "Simon", true, 0.0]
+inputs = ["Try playing a Basic Faith card.", "Simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [resource]

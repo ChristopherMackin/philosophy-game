@@ -10,4 +10,5 @@ script = ExtResource("1_wx247")
 name = "Samson"
 brain = ExtResource("1_j3evr")
 deck = ExtResource("2_j3evr")
+energy_level = 2
 metadata/_custom_type_script = "uid://b0gx18dmx3sv3"
