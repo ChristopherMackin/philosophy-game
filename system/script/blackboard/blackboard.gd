@@ -19,7 +19,7 @@ enum ExpirationToken {
 		_entries = Util.auto_populate_resource_array(_entries, val, BlackboardEntry, "New Entry")
 
 func has(key: String):
-	return _entries.has(key)
+	return _entries.map(func(x: BlackboardEntry): return x.key).has(key)
 
 func get_value(key: String):
 	var index = find_key_index(key)

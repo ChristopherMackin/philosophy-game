@@ -1,4 +1,4 @@
-extends PlayableCardFilterEffect
+extends CardFilterEffect
 
 class_name CardBaseListFilterEffect
 

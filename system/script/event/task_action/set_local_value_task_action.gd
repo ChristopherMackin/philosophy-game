@@ -2,6 +2,9 @@ extends TaskAction
 
 class_name SetLocalValueTaskAction
 
+func skip(task: Task, manager : EventManager):
+	invoke(task, manager)
+
 func invoke(task : Task, manager : EventManager):
 	var bb : Blackboard = manager.blackboard
 	

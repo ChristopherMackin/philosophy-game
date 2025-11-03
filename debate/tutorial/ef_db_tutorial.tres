@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="OrderedBucketEventFactory" load_steps=30 format=3 uid="uid://fl8x7vlubnei"]
+[gd_resource type="Resource" script_class="OrderedBucketEventFactory" load_steps=34 format=3 uid="uid://fl8x7vlubnei"]
 
 [ext_resource type="Script" uid="uid://ujd6vl7brq4e" path="res://system/script/event_factory/event_payload_bucket.gd" id="1_30w5w"]
 [ext_resource type="Script" uid="uid://bcbeuvdrhjbe6" path="res://system/script/event_factory/ordered_bucket_event_factory.gd" id="2_bxcm8"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://dmtj6mprmn1x1" path="res://debate/tutorial/event/ev_02_db_tutorial.tres" id="7_7jlp4"]
 [ext_resource type="Resource" uid="uid://cwqwjkxtn60aa" path="res://debate/tutorial/event/ev_04_db_tutorial.tres" id="7_s06ia"]
 [ext_resource type="Resource" uid="uid://njcx6t1ugs8c" path="res://debate/tutorial/event/ev_03_db_tutorial.tres" id="8_411dg"]
+[ext_resource type="Resource" uid="uid://d05ipy7juasyv" path="res://debate/tutorial/event/ev_05_db_tutorial.tres" id="8_yjn75"]
 
 [sub_resource type="Resource" id="Resource_dc1mp"]
 script = ExtResource("5_axr2t")
@@ -48,7 +49,7 @@ rule = SubResource("Resource_yjn75")
 
 [sub_resource type="Resource" id="Resource_tmg8b"]
 script = ExtResource("4_2ibdx")
-expression = "active_contestant == \"player\""
+expression = "active_contestant == \"computer\""
 metadata/_custom_type_script = "uid://b3gc77q7whheh"
 
 [sub_resource type="Resource" id="Resource_wrwpy"]
@@ -61,11 +62,25 @@ script = ExtResource("2_v6ear")
 event = ExtResource("7_s06ia")
 rule = SubResource("Resource_wrwpy")
 
+[sub_resource type="Resource" id="Resource_nyjqa"]
+script = ExtResource("4_2ibdx")
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
+[sub_resource type="Resource" id="Resource_ee7uc"]
+script = ExtResource("5_axr2t")
+criteria = Array[ExtResource("4_2ibdx")]([SubResource("Resource_nyjqa")])
+
+[sub_resource type="Resource" id="Resource_ducw0"]
+resource_name = "ev_05_db_tutorial"
+script = ExtResource("2_v6ear")
+event = ExtResource("8_yjn75")
+rule = SubResource("Resource_ee7uc")
+
 [sub_resource type="Resource" id="Resource_sl6p8"]
 resource_name = "ON_TURN_START"
 script = ExtResource("1_30w5w")
 concept = 2
-payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_a4xdh"), SubResource("Resource_lwtl6")])
+payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_a4xdh"), SubResource("Resource_lwtl6"), SubResource("Resource_ducw0")])
 
 [sub_resource type="Resource" id="Resource_efs4t"]
 script = ExtResource("5_axr2t")

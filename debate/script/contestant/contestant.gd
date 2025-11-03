@@ -10,9 +10,15 @@ var discard_pile : CardCollection = CardCollection.new()
 var playable_cards : Array[Card]:
 	get: 
 		var playable : Array[Card] = hand.get_cards().filter(func(x): return x.cost <= current_energy)
-		for filter in playable_card_filter_condition_effects:
+		for filter in playable_card_filter_effects:
 			playable = filter.filter(playable)
 		return playable
+var holdable_cards : Array[Card]:
+	get: 
+		var holdable: Array[Card] = hand.get_cards()
+		for filter in holdable_card_filter_effects:
+			holdable = filter.filter(holdable)
+		return holdable
 var held_card : CardCollection = CardCollection.new()
 var can_hold : bool = true
 
@@ -35,10 +41,26 @@ var current_energy : int:
 var blackboard : Blackboard:
 	get: return character.blackboard
 
-var status_effects: Array[StatusEffect]
-var can_play_condition_effects: Array[ConditionEffect]
-var can_draw_condition_effects: Array[ConditionEffect]
-var playable_card_filter_condition_effects: Array[PlayableCardFilterEffect]
+var status_effects: Array[StatusEffect]:
+	set(val):
+		val.sort_custom(func(a, b): return a.priority > b.priority)
+		status_effects = val
+var can_play_condition_effects: Array[ConditionEffect]:
+	set(val):
+		val.sort_custom(func(a, b): return a.priority > b.priority)
+		can_play_condition_effects = val
+var can_draw_condition_effects: Array[ConditionEffect]:
+	set(val):
+		val.sort_custom(func(a, b): return a.priority > b.priority)
+		can_draw_condition_effects = val
+var playable_card_filter_effects: Array[CardFilterEffect]:
+	set(val):
+		val.sort_custom(func(a, b): return a.priority > b.priority)
+		playable_card_filter_effects = val
+var holdable_card_filter_effects: Array[CardFilterEffect]:
+	set(val):
+		val.sort_custom(func(a, b): return a.priority > b.priority)
+		holdable_card_filter_effects = val
 
 var can_play:
 	get:
@@ -149,7 +171,7 @@ func take_turn() -> SelectionResponse:
 			"play":
 				valid_response = playable_cards.has(card)
 			"hold":
-				if can_hold:
+				if can_hold and holdable_cards.has(card):
 					await hold_card(card)
 				else: valid_response = false
 				

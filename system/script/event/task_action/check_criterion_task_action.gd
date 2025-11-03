@@ -2,6 +2,9 @@ extends TaskAction
 
 class_name CheckCriterionTaskAction
 
+func skip(task: Task, manager : EventManager):
+	await invoke(task, manager)
+
 func invoke(task : Task, manager : EventManager):
 	var query: Dictionary
 	query.merge(GlobalBlackboard.blackboard.get_query())

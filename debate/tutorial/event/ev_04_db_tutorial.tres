@@ -27,7 +27,7 @@ action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_tw4vy"]
 script = ExtResource("2_70a5d")
-inputs = ["You are allowed to hold one card away from your hand. Why not add that Basic Doubt to your hold.", "simon", true, 0.0]
+inputs = ["Let me finish and I will show you.", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [resource]

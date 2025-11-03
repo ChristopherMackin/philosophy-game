@@ -10,6 +10,11 @@ class_name Task
 
 var blackboard: Blackboard
 
+func skip(blackboard: Blackboard, manager : EventManager):
+	self.blackboard = blackboard
+	action.skip.call_deferred(self, manager)
+	return await action.on_action_complete
+
 func invoke(blackboard: Blackboard, manager : EventManager):
 	self.blackboard = blackboard
 	action.invoke.call_deferred(self, manager)

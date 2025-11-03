@@ -16,9 +16,7 @@ func unsubscribe(subscriber : EventSubscriber):
 	if index != -1:
 		subscribers.remove_at(index)
 
-func start_event(event : Event):
-	if event.skip: return
-	
+func start_event(event : Event):	
 	if !event || (current_task && !event.can_interupt): return
 	
 	if current_task:
@@ -31,7 +29,9 @@ func start_event(event : Event):
 	await _start_event(current_event)
 	
 	while current_task:
-		var index = await current_task.invoke(blackboard, self)
+		var index
+		if current_event.skip: index = await current_task.skip(blackboard, self)
+		else: index = await current_task.invoke(blackboard, self)
 		current_task = current_event.get_task(index)
 	
 	var expire = current_event.get_expiration_token()

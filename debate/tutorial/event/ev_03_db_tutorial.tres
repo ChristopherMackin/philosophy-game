@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Event" load_steps=11 format=3 uid="uid://njcx6t1ugs8c"]
+[gd_resource type="Resource" script_class="Event" load_steps=13 format=3 uid="uid://njcx6t1ugs8c"]
 
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_2s5km"]
 [ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_2o4p8"]
@@ -8,31 +8,43 @@
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("2_2o4p8")
 
-[sub_resource type="Resource" id="Resource_4hj7o"]
+[sub_resource type="Resource" id="Resource_5mw6g"]
 script = ExtResource("2_uh84i")
 outputs = Array[int]([0])
 inputs = ["You can only play cards that you have enough energy to play.", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_fxq4c"]
+[sub_resource type="Resource" id="Resource_4hj7o"]
 script = ExtResource("2_uh84i")
 outputs = Array[int]([2])
-inputs = ["When you are unable to play any more cards, your turn will end.", "simon", true, 0.0]
+inputs = ["When you are unable to play any more cards or your energy reaches zero, your turn will end.", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_atpl4"]
+[sub_resource type="Resource" id="Resource_fxq4c"]
 script = ExtResource("2_uh84i")
-outputs = Array[int]([3])
-inputs = ["Now, I will take my turn.", "simon", true, 0.0]
+outputs = Array[int]([4])
+inputs = ["Now your turn is over, you will draw to your hand limit and restore your energy.", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_mi8hg"]
 script = ExtResource("4_5mw6g")
 metadata/_custom_type_script = "uid://d0n4tc7hc1dfp"
 
+[sub_resource type="Resource" id="Resource_atpl4"]
+script = ExtResource("2_uh84i")
+outputs = Array[int]([5])
+inputs = ["/Users/christopher.sartin/Documents/Projects/Godot Games/Philosophy/debate/tutorial/status_effect/se_basic_faith_playable_filter_db_tutorial.tres", 0]
+action = SubResource("Resource_mi8hg")
+
 [sub_resource type="Resource" id="Resource_egx58"]
 script = ExtResource("2_uh84i")
-inputs = ["/Users/christopher.sartin/Documents/Projects/Godot Games/Philosophy/debate/tutorial/status_effect/basic_faith_filter.tres", 0]
+outputs = Array[int]([3])
+inputs = ["Then I will  take my turn,", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_4th5o"]
+script = ExtResource("2_uh84i")
+inputs = ["/Users/christopher.sartin/Documents/Projects/Godot Games/Philosophy/debate/_general/status_effect/se_cant_hold_cards.tres", 0]
 action = SubResource("Resource_mi8hg")
 
 [resource]
@@ -40,6 +52,6 @@ script = ExtResource("1_2s5km")
 can_interupt = true
 await_event = true
 frequency = 1
-start_task = SubResource("Resource_4hj7o")
-tasks = Array[ExtResource("2_uh84i")]([SubResource("Resource_fxq4c"), SubResource("Resource_4hj7o"), SubResource("Resource_atpl4"), SubResource("Resource_egx58")])
+start_task = SubResource("Resource_5mw6g")
+tasks = Array[ExtResource("2_uh84i")]([SubResource("Resource_4hj7o"), SubResource("Resource_5mw6g"), SubResource("Resource_fxq4c"), SubResource("Resource_atpl4"), SubResource("Resource_egx58"), SubResource("Resource_4th5o")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

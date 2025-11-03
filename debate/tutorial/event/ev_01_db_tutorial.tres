@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Event" load_steps=20 format=3 uid="uid://ygtqujy6qdkv"]
+[gd_resource type="Resource" script_class="Event" load_steps=21 format=3 uid="uid://ygtqujy6qdkv"]
 
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_22ldw"]
 [ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_2udwm"]
@@ -66,20 +66,26 @@ outputs = Array[int]([7])
 inputs = ["It is here we have the power to change hearts", "simon", false, 1.0]
 action = SubResource("Resource_x7ur8")
 
+[sub_resource type="Resource" id="Resource_2bii7"]
+script = ExtResource("2_2udwm")
+outputs = Array[int]([11])
+inputs = ["Try playing a Basic Faith card.", "Simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
 [sub_resource type="Resource" id="Resource_ytnb4"]
 script = ExtResource("5_mjrbq")
 metadata/_custom_type_script = "uid://ihbr472vboue"
 
-[sub_resource type="Resource" id="Resource_2bii7"]
-script = ExtResource("2_2udwm")
-outputs = Array[int]([10])
-inputs = ["/Users/christopher.sartin/Documents/Projects/Godot Games/Philosophy/debate/tutorial/status_effect/basic_faith_filter.tres", 0]
-action = SubResource("Resource_ytnb4")
-
 [sub_resource type="Resource" id="Resource_undx5"]
 script = ExtResource("2_2udwm")
-inputs = ["Try playing a Basic Faith card.", "Simon", true, 0.0]
-action = SubResource("Resource_x7ur8")
+inputs = ["/Users/christopher.sartin/Documents/Projects/Godot Games/Philosophy/debate/tutorial/status_effect/se_basic_faith_playable_filter_db_tutorial.tres", 0]
+action = SubResource("Resource_ytnb4")
+
+[sub_resource type="Resource" id="Resource_ntti5"]
+script = ExtResource("2_2udwm")
+outputs = Array[int]([10])
+inputs = ["/Users/christopher.sartin/Documents/Projects/Godot Games/Philosophy/debate/_general/status_effect/se_cant_hold_cards.tres", 0]
+action = SubResource("Resource_ytnb4")
 
 [resource]
 script = ExtResource("1_22ldw")
@@ -87,4 +93,4 @@ can_interupt = true
 await_event = true
 frequency = 1
 start_task = SubResource("Resource_mjrbq")
-tasks = Array[ExtResource("2_2udwm")]([SubResource("Resource_mjrbq"), SubResource("Resource_7lnpo"), SubResource("Resource_2sgaf"), SubResource("Resource_sqy3k"), SubResource("Resource_fux2l"), SubResource("Resource_ix2o6"), SubResource("Resource_2ictw"), SubResource("Resource_b15x1"), SubResource("Resource_qe8b8"), SubResource("Resource_2bii7"), SubResource("Resource_undx5")])
+tasks = Array[ExtResource("2_2udwm")]([SubResource("Resource_mjrbq"), SubResource("Resource_7lnpo"), SubResource("Resource_2sgaf"), SubResource("Resource_sqy3k"), SubResource("Resource_fux2l"), SubResource("Resource_ix2o6"), SubResource("Resource_2ictw"), SubResource("Resource_b15x1"), SubResource("Resource_qe8b8"), SubResource("Resource_2bii7"), SubResource("Resource_undx5"), SubResource("Resource_ntti5")])

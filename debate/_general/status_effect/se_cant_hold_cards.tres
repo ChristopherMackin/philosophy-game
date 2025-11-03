@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="NoCardsFilterEffect" load_steps=2 format=3 uid="uid://c3df3n760ftf7"]
+
+[ext_resource type="Script" uid="uid://bea23tadlvqxp" path="res://debate/script/contestant/status_effect/card_filter_effect/no_cards_filter_effect.gd" id="1_i3mut"]
+
+[resource]
+script = ExtResource("1_i3mut")
+card_collection = 1
+metadata/_custom_type_script = "uid://bea23tadlvqxp"
