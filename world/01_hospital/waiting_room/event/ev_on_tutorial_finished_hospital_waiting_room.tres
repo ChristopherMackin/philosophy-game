@@ -10,30 +10,30 @@ script = ExtResource("2_05c5c")
 [sub_resource type="Resource" id="Resource_05c5c"]
 script = ExtResource("2_7hnee")
 outputs = Array[int]([1])
-inputs = ["Looks like I've taught you well!", "simon", true, 0.0]
+inputs = ["Hopefully you can see how powerful these cards can be!", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_rdt0k"]
 script = ExtResource("2_7hnee")
 outputs = Array[int]([2])
-inputs = ["However, it will not always be so easy...", "simon", true, 0.0]
+inputs = ["You must grow as I have.", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_yo2b0"]
 script = ExtResource("2_7hnee")
 outputs = Array[int]([3])
-inputs = ["Sharpen your iron with those who share your faith.", "simon", true, 0.0]
+inputs = ["Then, share your faith with the world: those with unenlightened souls.", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_ut8ye"]
 script = ExtResource("2_7hnee")
 outputs = Array[int]([4])
-inputs = ["Then share your faith with the world: those with unenlightened souls.", "simon", true, 0.0]
+inputs = ["I must attend to mother.  Now that you are enlightened,", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_ajk6o"]
 script = ExtResource("2_7hnee")
-inputs = ["I must attend to mother.  You should share your bolstered faith with that worker.", "simon", true, 0.0]
+inputs = ["you should share your faith with that worker.", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [resource]

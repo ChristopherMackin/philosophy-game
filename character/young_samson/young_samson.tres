@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://c0ky3rdu750c6"]
+[gd_resource type="Resource" script_class="Character" load_steps=6 format=3 uid="uid://c0ky3rdu750c6"]
 
+[ext_resource type="Resource" uid="uid://cuxb4cp0jarog" path="res://character/young_samson/bb_young_samson.tres" id="1_0pwbs"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="1_j3evr"]
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="1_wx247"]
 [ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="2_4nqno"]
@@ -11,4 +12,5 @@ name = "Samson"
 brain = ExtResource("1_j3evr")
 deck = ExtResource("2_j3evr")
 energy_level = 2
+blackboard = ExtResource("1_0pwbs")
 metadata/_custom_type_script = "uid://b0gx18dmx3sv3"

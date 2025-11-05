@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="OrderedBucketEventFactory" load_steps=38 format=3 uid="uid://fl8x7vlubnei"]
+[gd_resource type="Resource" script_class="OrderedBucketEventFactory" load_steps=49 format=3 uid="uid://fl8x7vlubnei"]
 
 [ext_resource type="Script" uid="uid://ujd6vl7brq4e" path="res://system/script/event_factory/event_payload_bucket.gd" id="1_30w5w"]
 [ext_resource type="Script" uid="uid://bcbeuvdrhjbe6" path="res://system/script/event_factory/ordered_bucket_event_factory.gd" id="2_bxcm8"]
@@ -13,6 +13,8 @@
 [ext_resource type="Resource" uid="uid://njcx6t1ugs8c" path="res://debate/tutorial/event/ev_03_db_tutorial.tres" id="8_411dg"]
 [ext_resource type="Resource" uid="uid://d05ipy7juasyv" path="res://debate/tutorial/event/ev_05_db_tutorial.tres" id="8_yjn75"]
 [ext_resource type="Resource" uid="uid://cxehgecuxdk06" path="res://debate/tutorial/event/ev_06_db_tutorial.tres" id="11_efs4t"]
+[ext_resource type="Resource" uid="uid://d2b3apjx0k6a4" path="res://debate/tutorial/event/ev_07_db_tutorial.tres" id="11_q2eno"]
+[ext_resource type="Resource" uid="uid://dag803sg25b5b" path="res://debate/tutorial/event/ev_08_db_tutorial.tres" id="12_401kq"]
 
 [sub_resource type="Resource" id="Resource_dc1mp"]
 script = ExtResource("5_axr2t")
@@ -77,11 +79,26 @@ script = ExtResource("2_v6ear")
 event = ExtResource("8_yjn75")
 rule = SubResource("Resource_ee7uc")
 
+[sub_resource type="Resource" id="Resource_c43i4"]
+script = ExtResource("4_2ibdx")
+expression = "active_contestant == \"computer\""
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
+[sub_resource type="Resource" id="Resource_vbk2j"]
+script = ExtResource("5_axr2t")
+criteria = Array[ExtResource("4_2ibdx")]([SubResource("Resource_c43i4")])
+
+[sub_resource type="Resource" id="Resource_qfmvt"]
+resource_name = "ev_08_db_tutorial"
+script = ExtResource("2_v6ear")
+event = ExtResource("12_401kq")
+rule = SubResource("Resource_vbk2j")
+
 [sub_resource type="Resource" id="Resource_sl6p8"]
 resource_name = "ON_TURN_START"
 script = ExtResource("1_30w5w")
 concept = 2
-payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_a4xdh"), SubResource("Resource_lwtl6"), SubResource("Resource_ducw0")])
+payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_a4xdh"), SubResource("Resource_lwtl6"), SubResource("Resource_ducw0"), SubResource("Resource_qfmvt")])
 
 [sub_resource type="Resource" id="Resource_efs4t"]
 script = ExtResource("5_axr2t")
@@ -101,10 +118,40 @@ script = ExtResource("2_v6ear")
 event = ExtResource("8_411dg")
 rule = SubResource("Resource_o7qvn")
 
+[sub_resource type="Resource" id="Resource_vxwps"]
+script = ExtResource("4_2ibdx")
+expression = "active_contestant == \"player\""
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
+[sub_resource type="Resource" id="Resource_woqwd"]
+script = ExtResource("5_axr2t")
+criteria = Array[ExtResource("4_2ibdx")]([SubResource("Resource_vxwps")])
+
+[sub_resource type="Resource" id="Resource_y8afj"]
+resource_name = "ev_07_db_tutorial"
+script = ExtResource("2_v6ear")
+event = ExtResource("11_q2eno")
+rule = SubResource("Resource_woqwd")
+
+[sub_resource type="Resource" id="Resource_l3k1l"]
+script = ExtResource("4_2ibdx")
+expression = "active_contestant == \"player\""
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
+[sub_resource type="Resource" id="Resource_ntx25"]
+script = ExtResource("5_axr2t")
+criteria = Array[ExtResource("4_2ibdx")]([SubResource("Resource_l3k1l")])
+
+[sub_resource type="Resource" id="Resource_hphek"]
+resource_name = "ev_08_db_tutorial"
+script = ExtResource("2_v6ear")
+event = ExtResource("12_401kq")
+rule = SubResource("Resource_ntx25")
+
 [sub_resource type="Resource" id="Resource_401kq"]
 resource_name = "ON_PLAY"
 script = ExtResource("1_30w5w")
-payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_q2eno"), SubResource("Resource_6brpu")])
+payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_q2eno"), SubResource("Resource_6brpu"), SubResource("Resource_y8afj"), SubResource("Resource_hphek")])
 
 [sub_resource type="Resource" id="Resource_84scm"]
 script = ExtResource("5_axr2t")

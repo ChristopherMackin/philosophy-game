@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Event" load_steps=9 format=3 uid="uid://dag803sg25b5b"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_6h3qf"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_257me"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_f76k4"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_257me")
+
+[sub_resource type="Resource" id="Resource_257me"]
+script = ExtResource("2_f76k4")
+outputs = Array[int]([1])
+inputs = ["You listen well.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_47g4d"]
+script = ExtResource("2_f76k4")
+outputs = Array[int]([2])
+inputs = ["But you will not always have my guidance to help you through.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_cqgaw"]
+script = ExtResource("2_f76k4")
+outputs = Array[int]([3])
+inputs = ["Teach others and grow, so that you may always be ready to give an answer.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_187w0"]
+script = ExtResource("2_f76k4")
+inputs = ["Now, let me show you what sharpened iron can do!!", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_6h3qf")
+can_interupt = true
+await_event = true
+frequency = 1
+start_task = SubResource("Resource_257me")
+tasks = Array[ExtResource("2_f76k4")]([SubResource("Resource_257me"), SubResource("Resource_47g4d"), SubResource("Resource_cqgaw"), SubResource("Resource_187w0")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

@@ -11,7 +11,7 @@ script = ExtResource("2_dbvp5")
 [sub_resource type="Resource" id="Resource_cc0vx"]
 script = ExtResource("2_ekhiv")
 outputs = Array[int]([1])
-inputs = ["Now, I'll teach you about the hold.", "simon", true, 0.0]
+inputs = ["It's time to utilize the hold.", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_p0812"]
@@ -49,7 +49,6 @@ action = SubResource("Resource_x7ur8")
 
 [resource]
 script = ExtResource("1_pdrm7")
-skip = true
 can_interupt = true
 await_event = true
 frequency = 1

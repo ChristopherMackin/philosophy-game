@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Event" load_steps=11 format=3 uid="uid://cwqwjkxtn60aa"]
+[gd_resource type="Resource" script_class="Event" load_steps=12 format=3 uid="uid://cwqwjkxtn60aa"]
 
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_57oye"]
 [ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_70a5d"]
@@ -21,7 +21,8 @@ action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_840fj"]
 script = ExtResource("2_70a5d")
-inputs = ["Let me finish my turn and I will instruct you again.", "simon", true, 0.0]
+outputs = Array[int]([6])
+inputs = ["I will use my turn to help lower your energy,", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_tw4vy"]
@@ -33,7 +34,7 @@ action = SubResource("Resource_x7ur8")
 [sub_resource type="Resource" id="Resource_iopgk"]
 script = ExtResource("2_70a5d")
 outputs = Array[int]([0])
-inputs = ["Unfortunate.", "simon", true, 0.0]
+inputs = ["unfortunate.", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_xqhq3"]
@@ -42,12 +43,16 @@ outputs = Array[int]([4])
 inputs = ["No new faith cards. That is...", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
+[sub_resource type="Resource" id="Resource_unhyc"]
+script = ExtResource("2_70a5d")
+inputs = ["then I will instruct you on how to avoid playing sinful cards.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
 [resource]
 script = ExtResource("1_57oye")
-skip = true
 can_interupt = true
 await_event = true
 frequency = 1
 start_task = SubResource("Resource_cuv1l")
-tasks = Array[ExtResource("2_70a5d")]([SubResource("Resource_o2tei"), SubResource("Resource_840fj"), SubResource("Resource_cuv1l"), SubResource("Resource_tw4vy"), SubResource("Resource_iopgk"), SubResource("Resource_xqhq3")])
+tasks = Array[ExtResource("2_70a5d")]([SubResource("Resource_o2tei"), SubResource("Resource_840fj"), SubResource("Resource_cuv1l"), SubResource("Resource_tw4vy"), SubResource("Resource_iopgk"), SubResource("Resource_xqhq3"), SubResource("Resource_unhyc")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"
