@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmxatnrtkqwmu"]
+[gd_scene load_steps=14 format=3 uid="uid://bmxatnrtkqwmu"]
 
 [ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://debate/script/ui/gui/card_gui.gd" id="1_bq4c2"]
 [ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/debate/_general/graphic/card/card_base.png" id="2_vkr7h"]
@@ -8,6 +8,8 @@
 [ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://asset/_general/font/TenorSans-Regular.ttf" id="6_78tlw"]
 [ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://asset/_general/font/fahkwang/Fahkwang-Bold.ttf" id="7_vwcdj"]
 [ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://_general/script/exposed_control_methods.gd" id="8_v3r2e"]
+[ext_resource type="Script" uid="uid://dc8gq2l3o144t" path="res://system/script/focus_group/focus_group_signal_node.gd" id="9_o5taa"]
+[ext_resource type="Script" uid="uid://cumbxctg3u56" path="res://debate/script/ui/gui/card_focus_animation.gd" id="10_bt0b4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3y6m8"]
 resource_local_to_scene = true
@@ -43,7 +45,6 @@ offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(185, 320)
-focus_mode = 2
 script = ExtResource("1_bq4c2")
 card_bg = NodePath("CardBG")
 title = NodePath("CardBG/Title")
@@ -162,9 +163,14 @@ scroll_active = false
 script = ExtResource("8_v3r2e")
 root = NodePath("..")
 
-[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_global_rotation" binds= [0.0]]
-[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_z_index" binds= [1]]
-[connection signal="focus_entered" from="." to="ExposedControlMethods" method="set_position" binds= [Vector2(0, -100)]]
-[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_rotation" binds= [0.0]]
-[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_z_index" binds= [0]]
-[connection signal="focus_exited" from="." to="ExposedControlMethods" method="set_position" binds= [Vector2(0, 0)]]
+[node name="FocusGroupSignalNode" type="Node" parent="."]
+script = ExtResource("9_o5taa")
+metadata/_custom_type_script = "uid://dc8gq2l3o144t"
+
+[node name="CardFocusAnimation" type="Node" parent="." node_paths=PackedStringArray("exposed_control_methods")]
+script = ExtResource("10_bt0b4")
+exposed_control_methods = NodePath("../ExposedControlMethods")
+metadata/_custom_type_script = "uid://cumbxctg3u56"
+
+[connection signal="on_focus_entered" from="FocusGroupSignalNode" to="CardFocusAnimation" method="_on_focus_entered"]
+[connection signal="on_focus_exited" from="FocusGroupSignalNode" to="CardFocusAnimation" method="_on_focus_exited"]

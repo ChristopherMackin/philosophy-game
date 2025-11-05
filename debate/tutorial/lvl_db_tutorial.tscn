@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=3 uid="uid://crwfrdpgb1rkh"]
+[gd_scene load_steps=124 format=3 uid="uid://crwfrdpgb1rkh"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_b27wb"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_svgpu"]
@@ -20,7 +20,6 @@
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="18_11s31"]
 [ext_resource type="Script" uid="uid://syaosi1lkwul" path="res://debate/script/ui/selection_manager.gd" id="19_qiqfx"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="20_whtlg"]
-[ext_resource type="Resource" uid="uid://cw71yo3318tof" path="res://system/focus_group/idle_focus_group.tres" id="21_nvhxf"]
 [ext_resource type="Resource" uid="uid://vxjneadxt621" path="res://system/focus_group/hand_focus_group.tres" id="22_qgr8k"]
 [ext_resource type="Resource" uid="uid://gxn0k63lex4l" path="res://system/focus_group/play_area_focus_group.tres" id="23_r5ewy"]
 [ext_resource type="Resource" uid="uid://bo5lyi4q2kuag" path="res://system/focus_group/card_selector_focus_group.tres" id="24_uvqcd"]
@@ -1074,26 +1073,18 @@ manager = ExtResource("6_evco1")
 script = ExtResource("18_11s31")
 metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
 
-[node name="SelectionManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("ui_clear_focus_node", "play_area_selector", "card_selector", "suit_selector")]
+[node name="SelectionManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("play_area_selector", "card_selector", "suit_selector")]
 script = ExtResource("19_qiqfx")
 input_handler = ExtResource("10_b3rsh")
 player_brain = ExtResource("20_whtlg")
-idle_focus_group = ExtResource("21_nvhxf")
 hand_ui_focus_group = ExtResource("22_qgr8k")
 play_area_selector_focus_group = ExtResource("23_r5ewy")
 card_selector_focus_group = ExtResource("24_uvqcd")
 suit_selector_focus_group = ExtResource("25_q0knd")
-ui_clear_focus_node = NodePath("UIClearFocus")
 play_area_selector = NodePath("../../===UI========/PlayAreaSelector")
 card_selector = NodePath("../../===UI========/CardSelector")
 suit_selector = NodePath("../../===UI========/SuitSelector")
 metadata/_custom_type_script = "uid://syaosi1lkwul"
-
-[node name="UIClearFocus" type="Control" parent="===MANAGER========/SelectionManager"]
-layout_mode = 3
-anchors_preset = 0
-focus_mode = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="ToLvlHospitalWaitingRoom" type="Node" parent="===MANAGER========"]
 script = ExtResource("26_1h7lh")
@@ -1206,7 +1197,7 @@ bones/28/rotation = Quaternion(0.007057863, 0.91379243, 0.40612015, 0.0002770991
 bones/29/rotation = Quaternion(9.908064e-07, 0.023903709, -5.4760415e-07, 0.9997144)
 bones/30/position = Vector3(0.6725944, 1.0941687, 0.0032474084)
 bones/30/rotation = Quaternion(1.5871528e-23, 1.4632345e-06, 0, 1)
-bones/31/position = Vector3(0.081576526, -9.749302e-06, 3.7768916e-10)
+bones/31/position = Vector3(0.081576526, -9.749341e-06, 3.8186587e-10)
 bones/31/rotation = Quaternion(-2.2553684e-10, -1.378681e-06, -1.37873e-06, 1)
 bones/31/scale = Vector3(1.0000001, 1, 1)
 bones/32/position = Vector3(0.6725944, -0.12891442, 0.0032474091)

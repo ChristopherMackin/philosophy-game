@@ -9,39 +9,50 @@ class_name SelectionManager
 @export var player_brain : PlayerBrain
 
 @export_group("Focus Groups")
-@export var idle_focus_group : FocusGroup
 @export var hand_ui_focus_group : FocusGroup
 @export var play_area_selector_focus_group : FocusGroup
 @export var card_selector_focus_group : FocusGroup
 @export var suit_selector_focus_group : FocusGroup
-
-@export_group("Focus Clear")
-@export var ui_clear_focus_node : Control
 
 @export_group("Selectors")
 @export var play_area_selector : PlayAreaSelector
 @export var card_selector : CardSelector
 @export var suit_selector : SuitSelector
 
-var active_focus_group : FocusGroup
+var active_focus_group : FocusGroup:
+	set(val):
+		active_focus_group = val
+		if active_focus_group != null:
+			cached_focus_group = active_focus_group
+
+var cached_focus_group : FocusGroup
 
 var focused_node : Control:
 	get: return active_focus_group.focused_node
 
 func _ready():
-	idle_focus_group.focused_node = ui_clear_focus_node
 	player_brain.on_selection_requested.connect(on_selection_requested)
-	get_viewport().gui_focus_changed.connect(on_focus_changed)
 	input_handler.on_handle_input.connect(_handle_input)
-
-func on_focus_changed(node : Node):
-	if node is Control:
-		node.grab_focus()
-	else: ui_clear_focus_node.grab_focus()
+	input_handler.on_handler_selected.connect(_on_handler_selected)
+	input_handler.on_handler_deselected.connect(_on_handler_deselected)
 	
-	active_focus_group.focus(node)
 
-func _handle_input(delta, input):
+func _on_handler_selected():
+	set_focus_group(cached_focus_group)
+
+func _on_handler_deselected():
+	set_focus_group(null)
+
+func _handle_input(_delta, input):
+	if input.is_action_just_pressed("up"):
+		active_focus_group.focus_top()
+	elif input.is_action_just_pressed("down"):
+		active_focus_group.focus_bottom()
+	elif input.is_action_just_pressed("left"):
+		active_focus_group.focus_left()
+	elif input.is_action_just_pressed("right"):
+		active_focus_group.focus_right()
+	
 	if input.is_action_just_pressed("action_1"):
 		active_focus_group.select()
 	if input.is_action_just_pressed("action_2"):
@@ -71,15 +82,11 @@ func focus_card_selector(request : SelectionRequest):
 		set_focus_group(card_selector_focus_group)
 
 func pause_input():
-	set_focus_group(idle_focus_group)
+	set_focus_group(null)
 
 func set_focus_group(focus_group : FocusGroup):
-	if active_focus_group:
-		active_focus_group.on_focus_changed.disconnect(on_focus_changed)
-		active_focus_group.on_group_deselected.emit()
+	if active_focus_group: active_focus_group.on_group_deselected()
 	
 	active_focus_group = focus_group
-	active_focus_group.on_focus_changed.connect(on_focus_changed)
-	active_focus_group.on_group_selected.emit()
 	
-	on_focus_changed(active_focus_group.focused_node)
+	if active_focus_group: active_focus_group.on_group_selected()

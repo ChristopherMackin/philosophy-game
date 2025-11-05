@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardBaseListFilterEffect" load_steps=4 format=3 uid="uid://dmusww7xqswq"]
+
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="1_8154v"]
+[ext_resource type="Script" uid="uid://52ayxfyxhars" path="res://debate/script/contestant/status_effect/card_filter_effect/card_base_list_filter_effect.gd" id="2_l51xy"]
+[ext_resource type="Resource" uid="uid://ylhvgo4gct1r" path="res://system/card/_peace/overthink.tres" id="2_rhnxt"]
+
+[resource]
+script = ExtResource("2_l51xy")
+card_bases = Array[ExtResource("1_8154v")]([ExtResource("2_rhnxt")])
+metadata/_custom_type_script = "uid://52ayxfyxhars"

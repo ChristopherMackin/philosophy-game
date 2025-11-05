@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Event" load_steps=12 format=3 uid="uid://d05ipy7juasyv"]
+[gd_resource type="Resource" script_class="Event" load_steps=13 format=3 uid="uid://d05ipy7juasyv"]
 
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_pdrm7"]
 [ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_dbvp5"]
@@ -16,8 +16,8 @@ action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_p0812"]
 script = ExtResource("2_ekhiv")
-outputs = Array[int]([3])
-inputs = ["You are allowed to hold one card away from your hand. Why not add that Basic Doubt to your hold.", "simon", true, 0.0]
+outputs = Array[int]([5])
+inputs = ["You are allowed to hold one card away from your hand.", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_ytnb4"]
@@ -41,11 +41,17 @@ script = ExtResource("2_ekhiv")
 inputs = ["/Users/christopher.sartin/Documents/Projects/Godot Games/Philosophy/debate/tutorial/status_effect/se_tutorial_fake_card_filter_effect_db_tutorial.tres", 0]
 action = SubResource("Resource_ytnb4")
 
+[sub_resource type="Resource" id="Resource_hb3r2"]
+script = ExtResource("2_ekhiv")
+outputs = Array[int]([3])
+inputs = ["Add that Basic Doubt to your hold.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
 [resource]
 script = ExtResource("1_pdrm7")
 can_interupt = true
 await_event = true
 frequency = 1
 start_task = SubResource("Resource_cc0vx")
-tasks = Array[ExtResource("2_ekhiv")]([SubResource("Resource_cc0vx"), SubResource("Resource_p0812"), SubResource("Resource_ngh8f"), SubResource("Resource_urvvf"), SubResource("Resource_cspy1")])
+tasks = Array[ExtResource("2_ekhiv")]([SubResource("Resource_cc0vx"), SubResource("Resource_p0812"), SubResource("Resource_ngh8f"), SubResource("Resource_urvvf"), SubResource("Resource_cspy1"), SubResource("Resource_hb3r2")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"
