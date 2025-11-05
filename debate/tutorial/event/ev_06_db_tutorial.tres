@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Event" load_steps=21 format=3 uid="uid://cxehgecuxdk06"]
+[gd_resource type="Resource" script_class="Event" load_steps=22 format=3 uid="uid://cxehgecuxdk06"]
 
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_ip4nn"]
 [ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_10bgy"]
@@ -27,6 +27,7 @@ metadata/_custom_type_script = "uid://ihbr472vboue"
 
 [sub_resource type="Resource" id="Resource_uk7ol"]
 script = ExtResource("2_10bgy")
+outputs = Array[int]([12])
 inputs = ["/Users/christopher.sartin/Documents/Projects/Godot Games/Philosophy/debate/tutorial/status_effect/se_overthink_playable_filter_db_tutorial.tres", 0]
 action = SubResource("Resource_ytnb4")
 
@@ -88,11 +89,16 @@ outputs = Array[int]([8])
 inputs = ["I know: start by playing [color=\"red\"]Overthink[/color]", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
+[sub_resource type="Resource" id="Resource_mk0gi"]
+script = ExtResource("2_10bgy")
+inputs = ["/Users/christopher.sartin/Documents/Projects/Godot Games/Philosophy/debate/tutorial/status_effect/se_closed_window_selectable_filter.tres", 0]
+action = SubResource("Resource_ytnb4")
+
 [resource]
 script = ExtResource("1_ip4nn")
 can_interupt = true
 await_event = true
 frequency = 1
 start_task = SubResource("Resource_ks3xx")
-tasks = Array[ExtResource("2_10bgy")]([SubResource("Resource_6g0pq"), SubResource("Resource_uk7ol"), SubResource("Resource_p64q5"), SubResource("Resource_qj3je"), SubResource("Resource_kujlm"), SubResource("Resource_a51m4"), SubResource("Resource_hwrpw"), SubResource("Resource_ks3xx"), SubResource("Resource_ydapi"), SubResource("Resource_aosqu"), SubResource("Resource_baatx"), SubResource("Resource_6mvw7")])
+tasks = Array[ExtResource("2_10bgy")]([SubResource("Resource_6g0pq"), SubResource("Resource_uk7ol"), SubResource("Resource_p64q5"), SubResource("Resource_qj3je"), SubResource("Resource_kujlm"), SubResource("Resource_a51m4"), SubResource("Resource_hwrpw"), SubResource("Resource_ks3xx"), SubResource("Resource_ydapi"), SubResource("Resource_aosqu"), SubResource("Resource_baatx"), SubResource("Resource_6mvw7"), SubResource("Resource_mk0gi")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

@@ -14,6 +14,8 @@ func apply(contestant: Contestant):
 			contestant.playable_card_filter_effects.add(self)
 		1:
 			contestant.holdable_card_filter_effects.add(self)
+		2:
+			contestant.selectable_card_filter_effects.add(self)
 
 func remove(contestant: Contestant):
 	super.remove(contestant)
@@ -27,3 +29,7 @@ func remove(contestant: Contestant):
 			var index = contestant.holdable_card_filter_effects.find(self)
 			if index == -1: return
 			contestant.holdable_card_filter_effects.remove_at(index)
+		2:
+			var index = contestant.selectable_card_filter_effects.find(self)
+			if index == -1: return
+			contestant.selectable_card_filter_effects.remove_at(index)

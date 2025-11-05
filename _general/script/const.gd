@@ -26,8 +26,7 @@ enum Player {
 
 enum SelectionAction {
 	VIEW,
-	SINGLE,
-	MULTI,
+	SELECT,
 	PLAY
 }
 

@@ -44,11 +44,12 @@ action = SubResource("Resource_ytnb4")
 [sub_resource type="Resource" id="Resource_hb3r2"]
 script = ExtResource("2_ekhiv")
 outputs = Array[int]([3])
-inputs = ["Add that Basic Doubt to your hold.", "simon", true, 0.0]
+inputs = ["Add that [color=\"red\"]Basic Doubt[/color] to your hold.", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [resource]
 script = ExtResource("1_pdrm7")
+skip = true
 can_interupt = true
 await_event = true
 frequency = 1

@@ -47,8 +47,10 @@ var sort_func = func(a, b):
 var status_effects: SortedArray = SortedArray.new(sort_func)
 var can_play_condition_effects: SortedArray = SortedArray.new(sort_func)
 var can_draw_condition_effects: SortedArray = SortedArray.new(sort_func)
+
 var playable_card_filter_effects: SortedArray = SortedArray.new(sort_func)
 var holdable_card_filter_effects: SortedArray = SortedArray.new(sort_func)
+var selectable_card_filter_effects: SortedArray = SortedArray.new(sort_func)
 
 var can_play:
 	get:

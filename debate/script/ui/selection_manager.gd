@@ -19,13 +19,7 @@ class_name SelectionManager
 @export var card_selector : CardSelector
 @export var suit_selector : SuitSelector
 
-var active_focus_group : FocusGroup:
-	set(val):
-		active_focus_group = val
-		if active_focus_group != null:
-			cached_focus_group = active_focus_group
-
-var cached_focus_group : FocusGroup
+var active_focus_group : FocusGroup
 
 var focused_node : Control:
 	get: return active_focus_group.focused_node
@@ -38,10 +32,12 @@ func _ready():
 	
 
 func _on_handler_selected():
-	set_focus_group(cached_focus_group)
+	if active_focus_group:
+		active_focus_group.on_group_selected()
 
 func _on_handler_deselected():
-	set_focus_group(null)
+	if active_focus_group:
+		active_focus_group.on_group_deselected()
 
 func _handle_input(_delta, input):
 	if input.is_action_just_pressed("up"):
@@ -78,11 +74,8 @@ func focus_card_selector(request : SelectionRequest):
 		suit_selector.open_selector(request.options, request.visible_to_player)
 		set_focus_group(suit_selector_focus_group)
 	else:
-		card_selector.open_selector(request.options, request.visible_to_player, request.action)
+		card_selector.open_selector(request.options, request.visible_to_player, request.action, request.amount, request.min_amount)
 		set_focus_group(card_selector_focus_group)
-
-func pause_input():
-	set_focus_group(null)
 
 func set_focus_group(focus_group : FocusGroup):
 	if active_focus_group: active_focus_group.on_group_deselected()
