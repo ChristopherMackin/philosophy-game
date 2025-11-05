@@ -16,9 +16,9 @@ func apply(contestant: Contestant):
 	super.apply(contestant)
 	match application:
 		Application.CAN_DRAW:
-			contestant.can_draw_condition_effects.append(self)
+			contestant.can_draw_condition_effects.add(self)
 		Application.CAN_PLAY:
-			contestant.can_play_condition_effects.append(self)
+			contestant.can_play_condition_effects.add(self)
 
 func remove(contestant: Contestant):
 	super.remove(contestant)

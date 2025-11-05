@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://cutscene/scene_change_node.gd" id="1_vumy4"]
 [ext_resource type="AudioStream" uid="uid://brspvy678a3sh" path="res://asset/sfx/static.mp3" id="2_g4mq0"]
-[ext_resource type="Shader" uid="uid://capxcs54yhxwx" path="res://general/style/tv_static.gdshader" id="2_vpb4t"]
-[ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://general/style/default_theme.tres" id="3_s4d3p"]
+[ext_resource type="Shader" uid="uid://capxcs54yhxwx" path="res://_general/style/tv_static.gdshader" id="2_vpb4t"]
+[ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://_general/style/default_theme.tres" id="3_s4d3p"]
 [ext_resource type="PackedScene" uid="uid://bsd5rt1g6ytnr" path="res://cutscene/packed_scene/cutscene_subtitles.tscn" id="4_y7hlm"]
 
 [sub_resource type="Animation" id="Animation_x84ys"]

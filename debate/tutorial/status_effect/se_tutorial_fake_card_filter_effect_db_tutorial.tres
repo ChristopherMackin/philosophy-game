@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_fl1av")
+priority = 999
 metadata/_custom_type_script = "uid://83w1stim8d1g"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="OrderedBucketEventFactory" load_steps=34 format=3 uid="uid://fl8x7vlubnei"]
+[gd_resource type="Resource" script_class="OrderedBucketEventFactory" load_steps=38 format=3 uid="uid://fl8x7vlubnei"]
 
 [ext_resource type="Script" uid="uid://ujd6vl7brq4e" path="res://system/script/event_factory/event_payload_bucket.gd" id="1_30w5w"]
 [ext_resource type="Script" uid="uid://bcbeuvdrhjbe6" path="res://system/script/event_factory/ordered_bucket_event_factory.gd" id="2_bxcm8"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://cwqwjkxtn60aa" path="res://debate/tutorial/event/ev_04_db_tutorial.tres" id="7_s06ia"]
 [ext_resource type="Resource" uid="uid://njcx6t1ugs8c" path="res://debate/tutorial/event/ev_03_db_tutorial.tres" id="8_411dg"]
 [ext_resource type="Resource" uid="uid://d05ipy7juasyv" path="res://debate/tutorial/event/ev_05_db_tutorial.tres" id="8_yjn75"]
+[ext_resource type="Resource" uid="uid://cxehgecuxdk06" path="res://debate/tutorial/event/ev_06_db_tutorial.tres" id="11_efs4t"]
 
 [sub_resource type="Resource" id="Resource_dc1mp"]
 script = ExtResource("5_axr2t")
@@ -105,6 +106,21 @@ resource_name = "ON_PLAY"
 script = ExtResource("1_30w5w")
 payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_q2eno"), SubResource("Resource_6brpu")])
 
+[sub_resource type="Resource" id="Resource_84scm"]
+script = ExtResource("5_axr2t")
+
+[sub_resource type="Resource" id="Resource_nu3q2"]
+resource_name = "ev_06_db_tutorial"
+script = ExtResource("2_v6ear")
+event = ExtResource("11_efs4t")
+rule = SubResource("Resource_84scm")
+
+[sub_resource type="Resource" id="Resource_mpfor"]
+resource_name = "ON_HOLD"
+script = ExtResource("1_30w5w")
+concept = 1
+payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_nu3q2")])
+
 [sub_resource type="Resource" id="Resource_7ielx"]
 script = ExtResource("5_axr2t")
 
@@ -122,5 +138,5 @@ payload_list = Array[ExtResource("2_v6ear")]([SubResource("Resource_70oid")])
 
 [resource]
 script = ExtResource("2_bxcm8")
-buckets = Array[ExtResource("1_30w5w")]([SubResource("Resource_mdb41"), SubResource("Resource_sl6p8"), SubResource("Resource_401kq"), SubResource("Resource_nhywn")])
+buckets = Array[ExtResource("1_30w5w")]([SubResource("Resource_mdb41"), SubResource("Resource_sl6p8"), SubResource("Resource_401kq"), SubResource("Resource_mpfor"), SubResource("Resource_nhywn")])
 metadata/_custom_type_script = "uid://bcbeuvdrhjbe6"

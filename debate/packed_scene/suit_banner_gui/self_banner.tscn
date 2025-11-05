@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://crmlj17ur3ikf" path="res://asset/debate/_general/graphic/suit/self_icon.png" id="1_374ob"]
 [ext_resource type="Script" uid="uid://0f7kri64cayx" path="res://debate/script/ui/gui/banner_gui.gd" id="1_ws23k"]
-[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://general/script/exposed_control_methods.gd" id="2_b7ptw"]
+[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://_general/script/exposed_control_methods.gd" id="2_b7ptw"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="2_metey"]
 
 [node name="SelfBanner" type="ColorRect"]

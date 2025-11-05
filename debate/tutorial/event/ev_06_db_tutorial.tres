@@ -1,0 +1,80 @@
+[gd_resource type="Resource" script_class="Event" load_steps=18 format=3 uid="uid://cxehgecuxdk06"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_ip4nn"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_10bgy"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_ks3xx"]
+[ext_resource type="Script" uid="uid://d0n4tc7hc1dfp" path="res://system/script/event/task_action/remove_status_effect_task_action.gd" id="4_6g0pq"]
+[ext_resource type="Script" uid="uid://ihbr472vboue" path="res://system/script/event/task_action/add_status_effect_task_action.gd" id="5_uk7ol"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_ks3xx")
+
+[sub_resource type="Resource" id="Resource_ks3xx"]
+script = ExtResource("2_10bgy")
+outputs = Array[int]([8])
+inputs = ["Now you can use a card like [color=\"red\"]Closed Window[/color] to discard your hold card.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_ytnb4"]
+script = ExtResource("5_uk7ol")
+metadata/_custom_type_script = "uid://ihbr472vboue"
+
+[sub_resource type="Resource" id="Resource_6g0pq"]
+script = ExtResource("2_10bgy")
+inputs = ["/Users/christopher.sartin/Documents/Projects/Godot Games/Philosophy/debate/tutorial/status_effect/se_closed_window_playable_filter_db_tutorial.tres", 0]
+action = SubResource("Resource_ytnb4")
+
+[sub_resource type="Resource" id="Resource_uk7ol"]
+script = ExtResource("2_10bgy")
+outputs = Array[int]([1])
+inputs = ["/Users/christopher.sartin/Documents/Projects/Godot Games/Philosophy/debate/_general/status_effect/se_cant_hold_cards.tres", 0]
+action = SubResource("Resource_ytnb4")
+
+[sub_resource type="Resource" id="Resource_mi8hg"]
+script = ExtResource("4_6g0pq")
+metadata/_custom_type_script = "uid://d0n4tc7hc1dfp"
+
+[sub_resource type="Resource" id="Resource_p64q5"]
+script = ExtResource("2_10bgy")
+outputs = Array[int]([2])
+inputs = ["/Users/christopher.sartin/Documents/Projects/Godot Games/Philosophy/debate/tutorial/status_effect/se_basic_doubt_holdable_filter_db_tutorial.tres", 0]
+action = SubResource("Resource_mi8hg")
+
+[sub_resource type="Resource" id="Resource_qj3je"]
+script = ExtResource("2_10bgy")
+outputs = Array[int]([3])
+inputs = ["/Users/christopher.sartin/Documents/Projects/Godot Games/Philosophy/debate/tutorial/status_effect/se_tutorial_fake_card_filter_effect_db_tutorial.tres", 0]
+action = SubResource("Resource_mi8hg")
+
+[sub_resource type="Resource" id="Resource_kujlm"]
+script = ExtResource("2_10bgy")
+outputs = Array[int]([4])
+inputs = ["/Users/christopher.sartin/Documents/Projects/Godot Games/Philosophy/debate/_general/status_effect/se_cant_play_cards.tres", 0]
+action = SubResource("Resource_mi8hg")
+
+[sub_resource type="Resource" id="Resource_a51m4"]
+script = ExtResource("2_10bgy")
+outputs = Array[int]([7])
+inputs = ["These cards have no associated token track, only card powers.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_hwrpw"]
+script = ExtResource("2_10bgy")
+outputs = Array[int]([5])
+inputs = ["Hmmm... it appears that this card only costs 1 energy to play.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_ydapi"]
+script = ExtResource("2_10bgy")
+outputs = Array[int]([6])
+inputs = ["[color=\"red\"]Closed Window[/color] is colorless card.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_ip4nn")
+can_interupt = true
+await_event = true
+frequency = 1
+start_task = SubResource("Resource_ks3xx")
+tasks = Array[ExtResource("2_10bgy")]([SubResource("Resource_ks3xx"), SubResource("Resource_6g0pq"), SubResource("Resource_uk7ol"), SubResource("Resource_p64q5"), SubResource("Resource_qj3je"), SubResource("Resource_kujlm"), SubResource("Resource_a51m4"), SubResource("Resource_hwrpw"), SubResource("Resource_ydapi")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

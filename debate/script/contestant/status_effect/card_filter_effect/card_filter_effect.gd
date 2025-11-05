@@ -11,9 +11,9 @@ func apply(contestant: Contestant):
 	super.apply(contestant)
 	match card_collection:
 		0:
-			contestant.playable_card_filter_effects.append(self)
+			contestant.playable_card_filter_effects.add(self)
 		1:
-			contestant.holdable_card_filter_effects.append(self)
+			contestant.holdable_card_filter_effects.add(self)
 
 func remove(contestant: Contestant):
 	super.remove(contestant)

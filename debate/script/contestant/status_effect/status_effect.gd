@@ -21,7 +21,7 @@ func _validate_property(property: Dictionary):
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 
 func apply(contestant: Contestant):
-	contestant.status_effects.append(self)
+	contestant.status_effects.add(self)
 	self.contestant = contestant
 
 func remove(contestant: Contestant):

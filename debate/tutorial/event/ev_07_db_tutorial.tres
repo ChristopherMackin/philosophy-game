@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="Event" load_steps=10 format=3 uid="uid://dag803sg25b5b"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_64o7f"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_bxy5y"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_kl3yd"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_kl3yd")
+
+[sub_resource type="Resource" id="Resource_kl3yd"]
+script = ExtResource("2_bxy5y")
+outputs = Array[int]([1])
+inputs = ["Now you have ended your turn without adding any non-faith tokens to the board!", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_g1oto"]
+script = ExtResource("2_bxy5y")
+outputs = Array[int]([2])
+inputs = ["These other non faith cards are just as detremental though.", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_b6xkv"]
+script = ExtResource("2_bxy5y")
+outputs = Array[int]([3])
+inputs = ["However, as you grow and play, you will have opportunities to remove these less desireables,", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_mvpem"]
+script = ExtResource("2_bxy5y")
+outputs = Array[int]([4])
+inputs = ["and replace them with valuable faith cards!", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_qjrei"]
+script = ExtResource("2_bxy5y")
+inputs = ["Now, let me show you what a sharpened iron can do!", "simon", true, 0.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_64o7f")
+can_interupt = true
+await_event = true
+frequency = 1
+start_task = SubResource("Resource_kl3yd")
+tasks = Array[ExtResource("2_bxy5y")]([SubResource("Resource_kl3yd"), SubResource("Resource_g1oto"), SubResource("Resource_b6xkv"), SubResource("Resource_mvpem"), SubResource("Resource_qjrei")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

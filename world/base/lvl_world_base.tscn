@@ -9,10 +9,10 @@
 [ext_resource type="Resource" uid="uid://4avsth0e8b0u" path="res://system/input/ih_player_movement.tres" id="5_ot6eh"]
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="5_t3rax"]
 [ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="6_ilpj6"]
-[ext_resource type="Script" uid="uid://4bchriocygww" path="res://general/script/dialogue/dialogue_area.gd" id="8_ilpj6"]
+[ext_resource type="Script" uid="uid://4bchriocygww" path="res://_general/script/dialogue/dialogue_area.gd" id="8_ilpj6"]
 [ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://asset/cutscene/name_background.png" id="9_ot6eh"]
-[ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://general/style/default_theme.tres" id="10_85jcy"]
-[ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://general/script/ui/scrolling-text.gd" id="11_eto5s"]
+[ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://_general/style/default_theme.tres" id="10_85jcy"]
+[ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://_general/script/ui/scrolling-text.gd" id="11_eto5s"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_ot6eh"]
 

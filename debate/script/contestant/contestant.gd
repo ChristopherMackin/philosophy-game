@@ -10,13 +10,13 @@ var discard_pile : CardCollection = CardCollection.new()
 var playable_cards : Array[Card]:
 	get: 
 		var playable : Array[Card] = hand.get_cards().filter(func(x): return x.cost <= current_energy)
-		for filter in playable_card_filter_effects:
+		for filter in playable_card_filter_effects.values:
 			playable = filter.filter(playable)
 		return playable
 var holdable_cards : Array[Card]:
 	get: 
 		var holdable: Array[Card] = hand.get_cards()
-		for filter in holdable_card_filter_effects:
+		for filter in holdable_card_filter_effects.values:
 			holdable = filter.filter(holdable)
 		return holdable
 var held_card : CardCollection = CardCollection.new()
@@ -41,35 +41,23 @@ var current_energy : int:
 var blackboard : Blackboard:
 	get: return character.blackboard
 
-var status_effects: Array[StatusEffect]:
-	set(val):
-		val.sort_custom(func(a, b): return a.priority > b.priority)
-		status_effects = val
-var can_play_condition_effects: Array[ConditionEffect]:
-	set(val):
-		val.sort_custom(func(a, b): return a.priority > b.priority)
-		can_play_condition_effects = val
-var can_draw_condition_effects: Array[ConditionEffect]:
-	set(val):
-		val.sort_custom(func(a, b): return a.priority > b.priority)
-		can_draw_condition_effects = val
-var playable_card_filter_effects: Array[CardFilterEffect]:
-	set(val):
-		val.sort_custom(func(a, b): return a.priority > b.priority)
-		playable_card_filter_effects = val
-var holdable_card_filter_effects: Array[CardFilterEffect]:
-	set(val):
-		val.sort_custom(func(a, b): return a.priority > b.priority)
-		holdable_card_filter_effects = val
+var sort_func = func(a, b):
+	return a.priority < b.priority
+
+var status_effects: SortedArray = SortedArray.new(sort_func)
+var can_play_condition_effects: SortedArray = SortedArray.new(sort_func)
+var can_draw_condition_effects: SortedArray = SortedArray.new(sort_func)
+var playable_card_filter_effects: SortedArray = SortedArray.new(sort_func)
+var holdable_card_filter_effects: SortedArray = SortedArray.new(sort_func)
 
 var can_play:
 	get:
-		for condition in can_play_condition_effects:
+		for condition in can_play_condition_effects.values:
 			if !condition.check(): return false 
 		return current_energy > 0 && playable_cards.size() > 0
 var can_draw:
 	get:
-		for condition in can_draw_condition_effects:
+		for condition in can_draw_condition_effects.values:
 			if !condition.check(): return false  
 		return hand.size() < hand_limit && draw_pile.size() > 0
 
@@ -142,7 +130,7 @@ func end_turn():
 				var index = card.cost_modifiers.find(modifier)
 				card.cost_modifiers.remove_at(index)
 	
-	for status_effect: StatusEffect in status_effects.filter(func(x): return x.can_expire).duplicate():
+	for status_effect: StatusEffect in status_effects.values.filter(func(x): return x.can_expire).duplicate():
 		status_effect.turn_lifetime -= 1
 		if status_effect.turn_lifetime <= 0:
 			status_effect.remove(self)

@@ -11,7 +11,7 @@ script = ExtResource("2_dbvp5")
 [sub_resource type="Resource" id="Resource_cc0vx"]
 script = ExtResource("2_ekhiv")
 outputs = Array[int]([1])
-inputs = ["Now, let me teach you about the hold.", "simon", true, 0.0]
+inputs = ["Now, I'll teach you about the hold.", "simon", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_p0812"]

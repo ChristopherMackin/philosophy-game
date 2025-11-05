@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_i3mut")
 card_collection = 1
+priority = 900
 metadata/_custom_type_script = "uid://bea23tadlvqxp"

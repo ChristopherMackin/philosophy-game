@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://debate/script/ui/gui/card_gui.gd" id="1_ikumh"]
 [ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/debate/_general/graphic/card/card_base.png" id="2_2i2ja"]
-[ext_resource type="Shader" uid="uid://tnou2ig6rqyn" path="res://general/style/color_swap.gdshader" id="3_ry72i"]
+[ext_resource type="Shader" uid="uid://tnou2ig6rqyn" path="res://_general/style/color_swap.gdshader" id="3_ry72i"]
 [ext_resource type="Texture2D" uid="uid://dcddfgqbb0arx" path="res://asset/debate/_general/graphic/card/tokenless_card_bg.png" id="4_7yo4m"]
 [ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/debate/_general/graphic/suit/faith_icon.png" id="5_7a47j"]
 [ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://asset/_general/font/TenorSans-Regular.ttf" id="6_kr228"]
 [ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://asset/_general/font/fahkwang/Fahkwang-Bold.ttf" id="7_b30a2"]
-[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://general/script/exposed_control_methods.gd" id="8_kxija"]
+[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://_general/script/exposed_control_methods.gd" id="8_kxija"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3y6m8"]
 resource_local_to_scene = true
