@@ -14,7 +14,8 @@ class_name DebateSceneManager
 
 @export_group ("Player")
 @export var player : Character
-@export var selection_manager : SelectionManager
+@export var input_manager : InputManager
+@export var selection_handler : InputHandler
 
 @export_group ("Computer")
 @export var computer : Character
@@ -42,15 +43,18 @@ func on_debate_start():
 	await update_everything()
 	await query_event(Const.Concept.ON_DEBATE_START)
 
-func on_turn_start(_contestant: Contestant):
+func on_turn_start(contestant: Contestant):
 	await update_everything()
 	await query_event(Const.Concept.ON_TURN_START)
+	
+	if contestant.character_is(player): input_manager.active_handler = selection_handler
+
 
 func on_turn_end(contestant: Contestant):
 	await update_everything()
 	await query_event(Const.Concept.ON_TURN_END)
 	
-	if contestant.character_is(player): selection_manager.pause_input()
+	if contestant.character_is(player): input_manager.active_handler = null
 
 func on_card_played(card: Card, contestant : Contestant):	
 	await update_everything()
