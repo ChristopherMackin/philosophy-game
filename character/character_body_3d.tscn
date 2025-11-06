@@ -5,10 +5,9 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cpsf1"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("interaction_area")]
+[node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_yf8mh")
 input_handler = ExtResource("2_myh4u")
-interaction_area = NodePath("")
 move_speed = 2.0
 acceleration = 10.0
 

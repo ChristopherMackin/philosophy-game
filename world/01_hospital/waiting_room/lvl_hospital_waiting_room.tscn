@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=3 uid="uid://m2fsq1a2vk6"]
+[gd_scene load_steps=154 format=3 uid="uid://m2fsq1a2vk6"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_3r1kw"]
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://cutscene/scene_change_node.gd" id="2_q7j4r"]
@@ -68,7 +68,14 @@
 [ext_resource type="Texture2D" uid="uid://dmlimag1cwg1o" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_28.png" id="48_q7j4r"]
 [ext_resource type="Texture2D" uid="uid://bhwhn54d05c7d" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_29.png" id="49_nnx3h"]
 [ext_resource type="Texture2D" uid="uid://ds0rs5cyln0jk" path="res://asset/world/01_hospital/hospital_waiting_room/cutscene/cut_get_caps/cut_get_caps_img_30.png" id="50_2urq8"]
+[ext_resource type="Animation" uid="uid://my16xyybyy8l" path="res://character/joy/animation/RESET.res" id="68_gr4do"]
 [ext_resource type="PackedScene" uid="uid://crjk3jxv3f3il" path="res://character/simon/simon_actor.tscn" id="68_psei2"]
+[ext_resource type="Animation" uid="uid://crmi4qmpml6wh" path="res://character/joy/animation/blink.res" id="69_bsw30"]
+[ext_resource type="Animation" uid="uid://d05iq6pm4gbd5" path="res://character/joy/animation/breakdown.res" id="70_5s1gt"]
+[ext_resource type="Animation" uid="uid://r5k1m8q47t7n" path="res://character/joy/animation/idle.res" id="71_1dcyu"]
+[ext_resource type="Animation" uid="uid://dkpr32t1ba2s" path="res://character/joy/animation/idle_variant_01.res" id="72_pyhwy"]
+[ext_resource type="Animation" uid="uid://1o2pl8o5qvdd" path="res://character/joy/animation/talk.res" id="73_kcjf0"]
+[ext_resource type="Animation" uid="uid://cn4vi21lprmuk" path="res://character/joy/animation/walk.res" id="74_8b060"]
 
 [sub_resource type="Resource" id="Resource_e1cpf"]
 script = ExtResource("3_njvbj")
@@ -220,8 +227,14 @@ script = ExtResource("7_ypuf2")
 event = ExtResource("23_vq7wx")
 rule = SubResource("Resource_vq7wx")
 
+[sub_resource type="Resource" id="Resource_prcha"]
+script = ExtResource("12_mgf10")
+expression = "tutorial_finished"
+metadata/_custom_type_script = "uid://b3gc77q7whheh"
+
 [sub_resource type="Resource" id="Resource_bsw30"]
 script = ExtResource("13_42yw3")
+criteria = Array[ExtResource("12_mgf10")]([SubResource("Resource_prcha")])
 
 [sub_resource type="Resource" id="Resource_5s1gt"]
 resource_name = "ev_richard_02_hospital_waiting_room"
@@ -1091,6 +1104,18 @@ radius = 1.70947
 height = 2.68311
 radius = 1.13672
 
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gr4do"]
+resource_local_to_scene = true
+_data = {
+&"RESET": ExtResource("68_gr4do"),
+&"blink": ExtResource("69_bsw30"),
+&"breakdown": ExtResource("70_5s1gt"),
+&"idle": ExtResource("71_1dcyu"),
+&"idle_variant_01": ExtResource("72_pyhwy"),
+&"talk": ExtResource("73_kcjf0"),
+&"walk": ExtResource("74_8b060")
+}
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qfv6"]
 animation = &"walk"
 
@@ -1138,8 +1163,9 @@ animation = &"walk"
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_k26ml"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_fhm6w"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bsw30"]
 resource_local_to_scene = true
+graph_offset = Vector2(-626.396, -182.127)
 nodes/output/position = Vector2(310, 160)
 nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
 nodes/action/position = Vector2(-600, -130)
@@ -1232,7 +1258,7 @@ save_data_list = Array[ExtResource("9_bjile")]([SubResource("Resource_gr4do")])
 
 [node name="ToLvlTutorial" type="Node" parent="===MANAGER========" index="4"]
 script = ExtResource("2_q7j4r")
-scene_name = "lvl_tutorial"
+scene_name = "lvl_db_tutorial"
 metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
 
 [node name="ToLvlRichard01" type="Node" parent="===MANAGER========" index="5"]
@@ -1240,7 +1266,7 @@ script = ExtResource("2_q7j4r")
 metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
 
 [node name="Tree" type="Area3D" parent="===EVENT========" index="0"]
-collision_layer = 16384
+collision_layer = 49152
 collision_mask = 0
 script = ExtResource("6_fhm6w")
 event_factory = SubResource("Resource_mmuw0")
@@ -1251,7 +1277,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77932, 1.3782, -2.68382)
 shape = SubResource("CylinderShape3D_qtj8i")
 
 [node name="VendingMachine" type="Area3D" parent="===EVENT========" index="1"]
-collision_layer = 16384
+collision_layer = 49152
 collision_mask = 0
 script = ExtResource("6_fhm6w")
 event_factory = SubResource("Resource_lo3dk")
@@ -1263,7 +1289,7 @@ shape = SubResource("BoxShape3D_1mgba")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="Clock" type="Area3D" parent="===EVENT========" index="2"]
-collision_layer = 16384
+collision_layer = 49152
 collision_mask = 0
 script = ExtResource("6_fhm6w")
 event_factory = SubResource("Resource_vhnqu")
@@ -1282,7 +1308,7 @@ event_manager = ExtResource("9_b0ff8")
 event_factory = SubResource("Resource_x4ed0")
 
 [node name="Bathroom" type="Area3D" parent="===EVENT========" index="4"]
-collision_layer = 16384
+collision_layer = 49152
 collision_mask = 0
 script = ExtResource("6_fhm6w")
 event_factory = SubResource("Resource_rsunl")
@@ -1441,8 +1467,13 @@ camera = NodePath("../../===CAMERA========/MainCamera")
 move_speed = 1.0
 acceleration = 5.0
 
+[node name="AnimationPlayer" parent="===ACTOR========/CBYoungSamson/YoungSamsonActor/JoySkin" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_gr4do")
+}
+
 [node name="CharacterAnimationTree" parent="===ACTOR========/CBYoungSamson/YoungSamsonActor" index="4"]
-tree_root = SubResource("AnimationNodeBlendTree_fhm6w")
+tree_root = SubResource("AnimationNodeBlendTree_bsw30")
 
 [node name="RichardActor" parent="===ACTOR========" index="1" instance=ExtResource("21_nnx3h")]
 transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, 0.019722, -2.38421e-07, -2.95818)
@@ -1485,3 +1516,4 @@ texture = SubResource("ImageTexture_ot6eh")
 
 [editable path="===ACTOR========/CBYoungSamson"]
 [editable path="===ACTOR========/CBYoungSamson/YoungSamsonActor"]
+[editable path="===ACTOR========/CBYoungSamson/YoungSamsonActor/JoySkin"]

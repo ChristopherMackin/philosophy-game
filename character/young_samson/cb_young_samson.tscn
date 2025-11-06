@@ -1,8 +1,27 @@
-[gd_scene load_steps=21 format=3 uid="uid://cb38p6q7g6lab"]
+[gd_scene load_steps=29 format=3 uid="uid://cb38p6q7g6lab"]
 
 [ext_resource type="PackedScene" uid="uid://4fyxges65twa" path="res://character/character_body_3d.tscn" id="1_xxfsn"]
 [ext_resource type="PackedScene" uid="uid://dcc5jdxai5dtq" path="res://character/young_samson/young_samson_actor.tscn" id="2_2lpp4"]
 [ext_resource type="Script" uid="uid://btmrfolkq1aj5" path="res://character/interaction_area.gd" id="3_kyt6e"]
+[ext_resource type="Animation" uid="uid://r5k1m8q47t7n" path="res://character/joy/animation/idle.res" id="3_vhmiq"]
+[ext_resource type="Animation" uid="uid://cn4vi21lprmuk" path="res://character/joy/animation/walk.res" id="4_yca6k"]
+[ext_resource type="Animation" uid="uid://crmi4qmpml6wh" path="res://character/joy/animation/blink.res" id="5_1u56c"]
+[ext_resource type="Animation" uid="uid://1o2pl8o5qvdd" path="res://character/joy/animation/talk.res" id="6_45ihv"]
+[ext_resource type="Animation" uid="uid://dkpr32t1ba2s" path="res://character/joy/animation/idle_variant_01.res" id="7_78de6"]
+[ext_resource type="Animation" uid="uid://my16xyybyy8l" path="res://character/joy/animation/RESET.res" id="8_qgdr0"]
+[ext_resource type="Animation" uid="uid://d05iq6pm4gbd5" path="res://character/joy/animation/breakdown.res" id="9_c0kpv"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_07pww"]
+resource_local_to_scene = true
+_data = {
+&"RESET": ExtResource("8_qgdr0"),
+&"blink": ExtResource("5_1u56c"),
+&"breakdown": ExtResource("9_c0kpv"),
+&"idle": ExtResource("3_vhmiq"),
+&"idle_variant_01": ExtResource("7_78de6"),
+&"talk": ExtResource("6_45ihv"),
+&"walk": ExtResource("4_yca6k")
+}
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qfv6"]
 animation = &"walk"
@@ -53,7 +72,8 @@ animation = &"walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_p8cho"]
 resource_local_to_scene = true
-graph_offset = Vector2(-626.396, -182.127)
+graph_offset = Vector2(-441.11633, -219.56712)
+nodes/output/position = Vector2(310, 160)
 nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
 nodes/action/position = Vector2(-600, -130)
 nodes/animation/node = SubResource("AnimationNodeAdd2_8dv24")
@@ -72,7 +92,6 @@ nodes/idle_variant/node = SubResource("AnimationNodeAnimation_bxpyq")
 nodes/idle_variant/position = Vector2(-750, -320)
 nodes/idling/node = SubResource("AnimationNodeOneShot_4f1rm")
 nodes/idling/position = Vector2(-530, -440)
-nodes/output/position = Vector2(310, 160)
 nodes/take_action/node = SubResource("AnimationNodeOneShot_s6d67")
 nodes/take_action/position = Vector2(-320, -280)
 nodes/talk/node = SubResource("AnimationNodeAnimation_k26ml")
@@ -85,7 +104,7 @@ nodes/walk/node = SubResource("AnimationNodeAnimation_axsce")
 nodes/walk/position = Vector2(-320, 30)
 nodes/walking/node = SubResource("AnimationNodeBlend2_k26ml")
 nodes/walking/position = Vector2(-130, -110)
-node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"output", 0, &"animation", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
+node_connections = [&"output", 0, &"animation", &"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x8n0q"]
 size = Vector3(2, 3, 1.75)
@@ -99,13 +118,30 @@ character_animator = NodePath("YoungSamsonActor/CharacterAnimationTree")
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.703077, 0)
 
-[node name="YoungSamsonActor" parent="." index="1" instance=ExtResource("2_2lpp4")]
+[node name="YoungSamsonActor" parent="." index="1" node_paths=PackedStringArray("_look_at_modifier") instance=ExtResource("2_2lpp4")]
+_look_at_modifier = NodePath("JoySkin/root/Skeleton3D/LookAtModifier3D")
 
-[node name="YoungSamsonSkin" parent="YoungSamsonActor" index="0"]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.699458, 0)
+[node name="LookAtModifier3D" type="LookAtModifier3D" parent="YoungSamsonActor/JoySkin/root/Skeleton3D" index="9"]
+bone_name = "head.x"
+bone = 4
+
+[node name="AnimationPlayer" parent="YoungSamsonActor/JoySkin" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_07pww")
+}
+
+[node name="FacialAnimator" parent="YoungSamsonActor" index="2" node_paths=PackedStringArray("eyes", "mouth", "skeleton")]
+eyes = NodePath("../JoySkin/root/Skeleton3D/Eyes")
+mouth = NodePath("../JoySkin/root/Skeleton3D/Mouth")
+skeleton = NodePath("../JoySkin/root/Skeleton3D")
 
 [node name="CharacterAnimationTree" parent="YoungSamsonActor" index="4"]
+root_node = NodePath("../JoySkin")
 tree_root = SubResource("AnimationNodeBlendTree_p8cho")
+anim_player = NodePath("../JoySkin/AnimationPlayer")
+
+[node name="DialogueCamera" parent="YoungSamsonActor" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 0.8583181, 1.16291)
 
 [node name="InteractionArea" type="Area3D" parent="YoungSamsonActor" index="7"]
 visible = false
@@ -117,4 +153,7 @@ script = ExtResource("3_kyt6e")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.625)
 shape = SubResource("BoxShape3D_x8n0q")
 
+[connection signal="pose_updated" from="YoungSamsonActor/JoySkin/root/Skeleton3D" to="YoungSamsonActor/FacialAnimator" method="pose_updated"]
+
 [editable path="YoungSamsonActor"]
+[editable path="YoungSamsonActor/JoySkin"]

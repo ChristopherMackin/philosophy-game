@@ -1,8 +1,26 @@
-[gd_scene load_steps=19 format=3 uid="uid://dcc5jdxai5dtq"]
+[gd_scene load_steps=27 format=3 uid="uid://dcc5jdxai5dtq"]
 
 [ext_resource type="PackedScene" uid="uid://ncpnghqpw8tc" path="res://character/character_actor.tscn" id="1_2imrk"]
+[ext_resource type="PackedScene" uid="uid://dxb04jcrfgpu5" path="res://character/joy/joy_skin.tscn" id="2_t7rng"]
+[ext_resource type="Animation" uid="uid://r5k1m8q47t7n" path="res://character/joy/animation/idle.res" id="3_iy38j"]
+[ext_resource type="Animation" uid="uid://cn4vi21lprmuk" path="res://character/joy/animation/walk.res" id="4_tysm7"]
+[ext_resource type="Animation" uid="uid://crmi4qmpml6wh" path="res://character/joy/animation/blink.res" id="5_iwos5"]
+[ext_resource type="Animation" uid="uid://1o2pl8o5qvdd" path="res://character/joy/animation/talk.res" id="6_l17qp"]
+[ext_resource type="Animation" uid="uid://dkpr32t1ba2s" path="res://character/joy/animation/idle_variant_01.res" id="7_bmlyv"]
+[ext_resource type="Animation" uid="uid://my16xyybyy8l" path="res://character/joy/animation/RESET.res" id="8_r11r0"]
+[ext_resource type="Animation" uid="uid://d05iq6pm4gbd5" path="res://character/joy/animation/breakdown.res" id="9_g2crl"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_bt4xu"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qekum"]
+resource_local_to_scene = true
+_data = {
+&"RESET": ExtResource("8_r11r0"),
+&"blink": ExtResource("5_iwos5"),
+&"breakdown": ExtResource("9_g2crl"),
+&"idle": ExtResource("3_iy38j"),
+&"idle_variant_01": ExtResource("7_bmlyv"),
+&"talk": ExtResource("6_l17qp"),
+&"walk": ExtResource("4_tysm7")
+}
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qfv6"]
 animation = &"walk"
@@ -53,7 +71,7 @@ animation = &"walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uoaxl"]
 resource_local_to_scene = true
-graph_offset = Vector2(-626.396, -182.127)
+nodes/output/position = Vector2(310, 160)
 nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
 nodes/action/position = Vector2(-600, -130)
 nodes/animation/node = SubResource("AnimationNodeAdd2_8dv24")
@@ -72,7 +90,6 @@ nodes/idle_variant/node = SubResource("AnimationNodeAnimation_bxpyq")
 nodes/idle_variant/position = Vector2(-750, -320)
 nodes/idling/node = SubResource("AnimationNodeOneShot_4f1rm")
 nodes/idling/position = Vector2(-530, -440)
-nodes/output/position = Vector2(310, 160)
 nodes/take_action/node = SubResource("AnimationNodeOneShot_s6d67")
 nodes/take_action/position = Vector2(-320, -280)
 nodes/talk/node = SubResource("AnimationNodeAnimation_k26ml")
@@ -85,15 +102,30 @@ nodes/walk/node = SubResource("AnimationNodeAnimation_axsce")
 nodes/walk/position = Vector2(-320, 30)
 nodes/walking/node = SubResource("AnimationNodeBlend2_k26ml")
 nodes/walking/position = Vector2(-130, -110)
-node_connections = [&"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"output", 0, &"animation", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
+node_connections = [&"output", 0, &"animation", &"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
 
 [node name="YoungSamsonActor" instance=ExtResource("1_2imrk")]
 actor_name = "young_samson"
 display_name = "Samson"
 
-[node name="YoungSamsonSkin" type="MeshInstance3D" parent="." index="0"]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.5, 0)
-mesh = SubResource("CapsuleMesh_bt4xu")
+[node name="JoySkin" parent="." index="0" instance=ExtResource("2_t7rng")]
+transform = Transform3D(0.7, 0, 0, 0, 0.5, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="AnimationPlayer" parent="JoySkin" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_qekum")
+}
+
+[node name="FacialAnimator" parent="." index="2" node_paths=PackedStringArray("eyes", "mouth", "skeleton")]
+eyes = NodePath("../JoySkin/root/Skeleton3D/Eyes")
+mouth = NodePath("../JoySkin/root/Skeleton3D/Mouth")
+skeleton = NodePath("../JoySkin/root/Skeleton3D")
 
 [node name="CharacterAnimationTree" parent="." index="4"]
+root_node = NodePath("../JoySkin")
 tree_root = SubResource("AnimationNodeBlendTree_uoaxl")
+anim_player = NodePath("../JoySkin/AnimationPlayer")
+
+[connection signal="pose_updated" from="JoySkin/root/Skeleton3D" to="FacialAnimator" method="pose_updated"]
+
+[editable path="JoySkin"]

@@ -16,7 +16,11 @@ func set_hold_card(card: Card):
 		held_card.queue_free()
 		held_card = null
 	
-	if card == null: return
+	if card == null:
+		get_parent().visible = false
+		return
+	else:
+		get_parent().visible = true
 	
 	var card_gui_packed_scene = get_card_gui_packed_scene(card)
 	

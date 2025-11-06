@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://crwfrdpgb1rkh"]
+[gd_scene load_steps=133 format=3 uid="uid://crwfrdpgb1rkh"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_b27wb"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_svgpu"]
@@ -32,15 +32,23 @@
 [ext_resource type="Environment" uid="uid://c566usehy2i6i" path="res://debate/tutorial/env_db_tutorial.tres" id="31_xswt5"]
 [ext_resource type="PackedScene" uid="uid://cyl6gpr0e32en" path="res://asset/debate/01_tutorial/tutorial_table.glb" id="32_bsb34"]
 [ext_resource type="PackedScene" uid="uid://dcc5jdxai5dtq" path="res://character/young_samson/young_samson_actor.tscn" id="33_8hvq4"]
+[ext_resource type="Animation" uid="uid://r5k1m8q47t7n" path="res://character/joy/animation/idle.res" id="33_b3rsh"]
+[ext_resource type="Animation" uid="uid://cn4vi21lprmuk" path="res://character/joy/animation/walk.res" id="34_co1o1"]
 [ext_resource type="PackedScene" uid="uid://crjk3jxv3f3il" path="res://character/simon/simon_actor.tscn" id="34_suovc"]
 [ext_resource type="Animation" uid="uid://dxqckym8ojekg" path="res://character/simon/animation/accuse.res" id="35_4rp2l"]
+[ext_resource type="Animation" uid="uid://crmi4qmpml6wh" path="res://character/joy/animation/blink.res" id="35_5wvrs"]
 [ext_resource type="Animation" uid="uid://ba4ww4txu7pbw" path="res://character/simon/animation/blink.res" id="36_7slm0"]
+[ext_resource type="Animation" uid="uid://1o2pl8o5qvdd" path="res://character/joy/animation/talk.res" id="36_i10ia"]
+[ext_resource type="Animation" uid="uid://dkpr32t1ba2s" path="res://character/joy/animation/idle_variant_01.res" id="37_b56bn"]
 [ext_resource type="Animation" uid="uid://01wd3jss8itq" path="res://character/simon/animation/debate_simon_intro.res" id="37_btgbq"]
 [ext_resource type="Animation" uid="uid://bhvm1qc04ilee" path="res://character/simon/animation/praise.res" id="38_1c58x"]
+[ext_resource type="Animation" uid="uid://my16xyybyy8l" path="res://character/joy/animation/RESET.res" id="38_qliuy"]
+[ext_resource type="Animation" uid="uid://d05iq6pm4gbd5" path="res://character/joy/animation/breakdown.res" id="39_oh6jv"]
 [ext_resource type="Animation" uid="uid://b8gfenh0v54bm" path="res://character/simon/animation/recollect.res" id="39_qppk5"]
 [ext_resource type="Animation" uid="uid://u2e3govw73cd" path="res://character/simon/animation/talk.res" id="40_gueop"]
 [ext_resource type="PackedScene" uid="uid://du5ime7hk86tp" path="res://debate/packed_scene/board/board_gui.tscn" id="41_6y5fk"]
 [ext_resource type="PackedScene" uid="uid://do5swux8f3nq3" path="res://debate/packed_scene/token_gui.tscn" id="42_0vxbg"]
+[ext_resource type="Texture2D" uid="uid://ccck72fquc0fb" path="res://asset/debate/_general/graphic/stats_area/thought_bubble.png" id="42_uqhy2"]
 [ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/debate/_general/graphic/stats_area/turn_counter_background.png" id="43_3k812"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/_general/font/Fredoka-VariableFont_wdth,wght.ttf" id="44_cmspg"]
 [ext_resource type="Script" uid="uid://ba8ai3bmpwetc" path="res://debate/script/ui/gui/energy_gui.gd" id="45_2nv56"]
@@ -100,6 +108,18 @@ tracks/0/keys = {
 _data = {
 &"cut_hands": SubResource("Animation_uqhy2"),
 &"cut_tutorial_finished": SubResource("Animation_kc3c6")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1tpcs"]
+resource_local_to_scene = true
+_data = {
+&"RESET": ExtResource("38_qliuy"),
+&"blink": ExtResource("35_5wvrs"),
+&"breakdown": ExtResource("39_oh6jv"),
+&"idle": ExtResource("33_b3rsh"),
+&"idle_variant_01": ExtResource("37_b56bn"),
+&"talk": ExtResource("36_i10ia"),
+&"walk": ExtResource("34_co1o1")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qfv6"]
@@ -1052,9 +1072,9 @@ selection_handler = ExtResource("10_b3rsh")
 computer = ExtResource("14_b56bn")
 board = NodePath("../../===UI========/BasicPlayBoard")
 hand_ui = NodePath("../../===UI========/Hand")
-energy_ui = NodePath("../../===UI========/Player/PlayerStats/HBoxContainer/Energy/Count")
-hold_area_ui = NodePath("../../===UI========/Player/HoldArea")
-draw_pile_ui = NodePath("../../===UI========/Player/PlayerStats/HBoxContainer/DrawPile/Count")
+energy_ui = NodePath("../../===UI========/Player/PlayerStats/MarginContainer/HBoxContainer/Energy/Count")
+hold_area_ui = NodePath("../../===UI========/Player/PlayerStats/ThoughtBubble/HoldArea")
+draw_pile_ui = NodePath("../../===UI========/Player/PlayerStats/MarginContainer/HBoxContainer/DrawPile/Count")
 computer_energy_ui = NodePath("../../===UI========/Computer/ComputerStats/Energy/Count")
 computer_hand_ui = NodePath("../../===UI========/Computer/ComputerStats/Hand/Count")
 manager = ExtResource("15_qliuy")
@@ -1145,8 +1165,37 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, -2.08208e-12, -2.08122e-12, 1.24626)
 dialogue_area_override = NodePath("../../===UI========/Player/BasicDialogueBubble")
 
-[node name="YoungSamsonSkin" parent="===ACTOR========/YoungSamsonActor" index="0"]
+[node name="Body" parent="===ACTOR========/YoungSamsonActor/JoySkin/root/Skeleton3D" index="0"]
 layers = 3
+
+[node name="Eyes" parent="===ACTOR========/YoungSamsonActor/JoySkin/root/Skeleton3D" index="1"]
+layers = 3
+
+[node name="FutureClothes" parent="===ACTOR========/YoungSamsonActor/JoySkin/root/Skeleton3D" index="2"]
+layers = 3
+
+[node name="FutureEarings" parent="===ACTOR========/YoungSamsonActor/JoySkin/root/Skeleton3D" index="3"]
+layers = 3
+
+[node name="FutureHair" parent="===ACTOR========/YoungSamsonActor/JoySkin/root/Skeleton3D" index="4"]
+layers = 3
+
+[node name="FutureHairClip" parent="===ACTOR========/YoungSamsonActor/JoySkin/root/Skeleton3D" index="5"]
+layers = 3
+
+[node name="FutureShoes" parent="===ACTOR========/YoungSamsonActor/JoySkin/root/Skeleton3D" index="6"]
+layers = 3
+
+[node name="Head" parent="===ACTOR========/YoungSamsonActor/JoySkin/root/Skeleton3D" index="7"]
+layers = 3
+
+[node name="Mouth" parent="===ACTOR========/YoungSamsonActor/JoySkin/root/Skeleton3D" index="8"]
+layers = 3
+
+[node name="AnimationPlayer" parent="===ACTOR========/YoungSamsonActor/JoySkin" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_1tpcs")
+}
 
 [node name="LayerMask" parent="===ACTOR========/YoungSamsonActor" index="1"]
 layers = Array[bool]([true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
@@ -1198,7 +1247,7 @@ bones/28/rotation = Quaternion(0.007057863, 0.91379243, 0.40612015, 0.0002770991
 bones/29/rotation = Quaternion(9.908064e-07, 0.023903709, -5.4760415e-07, 0.9997144)
 bones/30/position = Vector3(0.6725944, 1.0941687, 0.0032474084)
 bones/30/rotation = Quaternion(1.5871528e-23, 1.4632345e-06, 0, 1)
-bones/31/position = Vector3(0.4348555, -0.11255886, -5.0684196e-08)
+bones/31/position = Vector3(0.081576526, -9.749107e-06, 3.5688763e-10)
 bones/31/rotation = Quaternion(-2.2553684e-10, -1.378681e-06, -1.37873e-06, 1)
 bones/31/scale = Vector3(1.0000001, 1, 1)
 bones/32/position = Vector3(0.6725944, -0.12891442, 0.0032474091)
@@ -1341,47 +1390,52 @@ offset_top = -400.0
 offset_right = 960.0
 grow_vertical = 0
 
-[node name="PlayerPortrait" type="SubViewportContainer" parent="===UI========/Player"]
+[node name="PlayerStats" type="Control" parent="===UI========/Player"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.023
-anchor_top = 0.005
-anchor_right = 0.544
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.0800018
-offset_right = -0.240051
-offset_bottom = 2.0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="SubViewport" type="SubViewport" parent="===UI========/Player/PlayerPortrait"]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(500, 400)
-render_target_update_mode = 4
+[node name="ThoughtBubble" type="TextureRect" parent="===UI========/Player/PlayerStats"]
+layout_mode = 0
+offset_top = -157.0
+offset_right = 286.0
+offset_bottom = 222.0
+texture = ExtResource("42_uqhy2")
 
-[node name="Camera3D" type="Camera3D" parent="===UI========/Player/PlayerPortrait/SubViewport"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.888441, 0.124079)
-cull_mask = 2
+[node name="HoldArea" type="Control" parent="===UI========/Player/PlayerStats/ThoughtBubble"]
+anchors_preset = 0
+offset_left = 73.0
+offset_top = 50.0
+offset_right = 359.0
+offset_bottom = 429.0
+scale = Vector2(0.45, 0.45)
+script = ExtResource("48_4ftmr")
+default_card_gui_packed_scene = ExtResource("49_jx0wo")
+default_tokenless_card_gui_packed_scene = ExtResource("50_rrhh6")
+tokenless_card_gui_suit_packed_scenes = Array[ExtResource("51_nh6ci")]([SubResource("Resource_svr5q")])
 
-[node name="PlayerStats" type="MarginContainer" parent="===UI========/Player"]
+[node name="MarginContainer" type="MarginContainer" parent="===UI========/Player/PlayerStats"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.45
 anchor_right = 0.208
 anchor_bottom = 1.0
-offset_top = -6.10352e-05
-offset_right = 0.319992
-offset_bottom = -6.10352e-05
+offset_top = -6.1035156e-05
+offset_right = 0.31999207
+offset_bottom = -6.1035156e-05
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="VBoxContainer" parent="===UI========/Player/PlayerStats"]
+[node name="HBoxContainer" type="VBoxContainer" parent="===UI========/Player/PlayerStats/MarginContainer"]
 z_index = 1
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Energy" type="TextureRect" parent="===UI========/Player/PlayerStats/HBoxContainer"]
+[node name="Energy" type="TextureRect" parent="===UI========/Player/PlayerStats/MarginContainer/HBoxContainer"]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -1389,7 +1443,7 @@ texture = ExtResource("43_3k812")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Count" type="RichTextLabel" parent="===UI========/Player/PlayerStats/HBoxContainer/Energy"]
+[node name="Count" type="RichTextLabel" parent="===UI========/Player/PlayerStats/MarginContainer/HBoxContainer/Energy"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.221
@@ -1410,7 +1464,7 @@ fit_content = true
 autowrap_mode = 0
 script = ExtResource("45_2nv56")
 
-[node name="DrawPile" type="TextureRect" parent="===UI========/Player/PlayerStats/HBoxContainer"]
+[node name="DrawPile" type="TextureRect" parent="===UI========/Player/PlayerStats/MarginContainer/HBoxContainer"]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -1418,7 +1472,7 @@ texture = ExtResource("46_12woj")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Count" type="RichTextLabel" parent="===UI========/Player/PlayerStats/HBoxContainer/DrawPile"]
+[node name="Count" type="RichTextLabel" parent="===UI========/Player/PlayerStats/MarginContainer/HBoxContainer/DrawPile"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 15
@@ -1437,18 +1491,27 @@ fit_content = true
 autowrap_mode = 0
 script = ExtResource("47_n8clu")
 
-[node name="HoldArea" type="Control" parent="===UI========/Player"]
+[node name="PlayerPortrait" type="SubViewportContainer" parent="===UI========/Player"]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = -1
+anchor_left = 0.023
+anchor_top = 0.005
+anchor_right = 0.544
 anchor_bottom = 1.0
-offset_top = -400.0
-offset_bottom = -400.0
+offset_left = -0.0800018
+offset_right = -0.240051
+offset_bottom = 2.0
 grow_vertical = 0
-script = ExtResource("48_4ftmr")
-default_card_gui_packed_scene = ExtResource("49_jx0wo")
-default_tokenless_card_gui_packed_scene = ExtResource("50_rrhh6")
-tokenless_card_gui_suit_packed_scenes = Array[ExtResource("51_nh6ci")]([SubResource("Resource_svr5q")])
+
+[node name="SubViewport" type="SubViewport" parent="===UI========/Player/PlayerPortrait"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(500, 400)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="===UI========/Player/PlayerPortrait/SubViewport"]
+transform = Transform3D(-0.9688691, 0, 0.24757391, 0, 1, 0, -0.24757391, 0, -0.9688691, 0.13900614, 0.7906143, 0.7301824)
+cull_mask = 2
 
 [node name="BasicDialogueBubble" parent="===UI========/Player" instance=ExtResource("54_3mrh1")]
 layout_mode = 1
@@ -1600,7 +1663,7 @@ script = ExtResource("57_q50qf")
 default_card_gui_packed_scene = ExtResource("49_jx0wo")
 default_tokenless_card_gui_packed_scene = ExtResource("50_rrhh6")
 tokenless_card_gui_suit_packed_scenes = Array[ExtResource("51_nh6ci")]([SubResource("Resource_x8g0f")])
-draw_pile = NodePath("../Player/PlayerStats/HBoxContainer/DrawPile")
+draw_pile = NodePath("../Player/PlayerStats/MarginContainer/HBoxContainer/DrawPile")
 card_parent = NodePath("CurveContainer")
 focus_group = ExtResource("22_qgr8k")
 player_brain = ExtResource("20_whtlg")
@@ -1744,8 +1807,10 @@ player_brain = ExtResource("20_whtlg")
 metadata/_custom_type_script = "uid://ddig2iswn7qy4"
 
 [connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateSceneManager" method="start_debate" flags=7]
+[connection signal="pose_updated" from="===ACTOR========/YoungSamsonActor/JoySkin/root/Skeleton3D" to="===ACTOR========/YoungSamsonActor/FacialAnimator" method="pose_updated"]
 
 [editable path="===ACTOR========/YoungSamsonActor"]
+[editable path="===ACTOR========/YoungSamsonActor/JoySkin"]
 [editable path="===ACTOR========/SimonActor"]
 [editable path="===ACTOR========/SimonActor/SimonSkin"]
 [editable path="===UI========/BasicPlayBoard"]
