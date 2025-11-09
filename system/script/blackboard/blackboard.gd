@@ -27,6 +27,7 @@ func get_value(key: String):
 
 func get_expiration_token(key: String) -> ExpirationToken:
 	var index = find_key_index(key)
+	@warning_ignore("incompatible_ternary")
 	return _entries[index].expiration_token if index != -1 else null
 
 func add(key: String, value, expiration_token : Blackboard.ExpirationToken = Blackboard.ExpirationToken.NEVER):

@@ -19,7 +19,7 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool
 	
 	var response = await player.select(SelectionRequest.new(
 		selectable_tokens,
-		Const.SelectionAction.SINGLE,
+		Const.SelectionAction.SELECT,
 		Const.SelectionType.TOKEN
 	))
 	

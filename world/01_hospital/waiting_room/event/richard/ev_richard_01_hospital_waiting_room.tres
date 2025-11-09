@@ -8,25 +8,25 @@
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("2_fbrgf")
 
-[sub_resource type="Resource" id="Resource_wpdyy"]
+[sub_resource type="Resource" id="Resource_jqio3"]
 script = ExtResource("3_8ym8d")
 outputs = Array[int]([1])
 inputs = ["Hey little one! How are you feeling?", "richard", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_hf1v8"]
+[sub_resource type="Resource" id="Resource_ifvjk"]
 script = ExtResource("3_8ym8d")
 outputs = Array[int]([2])
 inputs = ["[shake rate=20.0 level=5 connected=1]...[/shake]", "young_samson", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_5mjhl"]
+[sub_resource type="Resource" id="Resource_aibyf"]
 script = ExtResource("3_8ym8d")
 outputs = Array[int]([4])
 inputs = ["Oh, stranger danger. I get it!", "richard", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_8sexx"]
+[sub_resource type="Resource" id="Resource_3il3f"]
 script = ExtResource("3_8ym8d")
 inputs = ["Don't worry, I'm sure your dad will be back here soon.", "richard", true, 0.0]
 action = SubResource("Resource_x7ur8")
@@ -34,7 +34,7 @@ action = SubResource("Resource_x7ur8")
 [sub_resource type="Resource" id="Resource_04j1f"]
 script = ExtResource("4_5oi6l")
 
-[sub_resource type="Resource" id="Resource_s0b21"]
+[sub_resource type="Resource" id="Resource_ige67"]
 script = ExtResource("3_8ym8d")
 outputs = Array[int]([3])
 inputs = ["ev_lvl_hospital_waiting_room_stranger_danger", "true"]
@@ -43,6 +43,6 @@ action = SubResource("Resource_04j1f")
 [resource]
 script = ExtResource("1_0wrj8")
 await_event = true
-start_task = SubResource("Resource_wpdyy")
-tasks = Array[ExtResource("3_8ym8d")]([SubResource("Resource_wpdyy"), SubResource("Resource_hf1v8"), SubResource("Resource_5mjhl"), SubResource("Resource_8sexx"), SubResource("Resource_s0b21")])
+start_task = SubResource("Resource_jqio3")
+tasks = Array[ExtResource("3_8ym8d")]([SubResource("Resource_jqio3"), SubResource("Resource_ifvjk"), SubResource("Resource_aibyf"), SubResource("Resource_3il3f"), SubResource("Resource_ige67")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"
