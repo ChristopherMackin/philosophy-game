@@ -1,7 +1,11 @@
-[gd_scene load_steps=66 format=3 uid="uid://ds0c42ghy27jc"]
+[gd_scene load_steps=81 format=3 uid="uid://ds0c42ghy27jc"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_ex63t"]
+[ext_resource type="Script" uid="uid://bpb8n3aqb48yr" path="res://debate/script/camera/debate_background_angle.gd" id="2_2hdq6"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_ghdjh"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_ayvee"]
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="5_3nl4p"]
+[ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="5_igvqd"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="6_tnya4"]
 [ext_resource type="Script" uid="uid://bojj5s0o4f2s3" path="res://system/script/input/world_input_manager.gd" id="9_2k5l1"]
 [ext_resource type="Resource" uid="uid://coqtgijiyc02d" path="res://system/input/ih_selection_manager.tres" id="10_sf3wj"]
@@ -14,6 +18,7 @@
 [ext_resource type="Script" uid="uid://syaosi1lkwul" path="res://debate/script/ui/selection_manager.gd" id="19_8d68c"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="20_8qes8"]
 [ext_resource type="Texture2D" uid="uid://ccck72fquc0fb" path="res://asset/debate/_general/graphic/stats_area/thought_bubble.png" id="21_3uwon"]
+[ext_resource type="Script" uid="uid://csow7w8d3n2ux" path="res://debate/script/camera/debate_background_camera_manager.gd" id="22_ghdjh"]
 [ext_resource type="Resource" uid="uid://vxjneadxt621" path="res://system/focus_group/hand_focus_group.tres" id="22_iy8ys"]
 [ext_resource type="Resource" uid="uid://gxn0k63lex4l" path="res://system/focus_group/play_area_focus_group.tres" id="23_dnmon"]
 [ext_resource type="Resource" uid="uid://bo5lyi4q2kuag" path="res://system/focus_group/card_selector_focus_group.tres" id="24_jhuis"]
@@ -51,6 +56,46 @@
 [ext_resource type="Texture2D" uid="uid://qiqjkvvjvbi4" path="res://asset/debate/simon/_general/simon_dialogue.png" id="68_x05n2"]
 [ext_resource type="Script" uid="uid://i6q2q68f73y6" path="res://debate/script/ui/card_selector.gd" id="69_4bjla"]
 [ext_resource type="Texture2D" uid="uid://duwx1hkh07na8" path="res://asset/debate/simon/_general/simon_confirm_button.png" id="70_djrj6"]
+
+[sub_resource type="Resource" id="Resource_tlos6"]
+script = ExtResource("4_ayvee")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_2dmla"]
+script = ExtResource("4_ayvee")
+duration = 10.0
+
+[sub_resource type="Resource" id="Resource_8t3db"]
+script = ExtResource("4_ayvee")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_sg66j"]
+script = ExtResource("4_ayvee")
+duration = 8.0
+
+[sub_resource type="Resource" id="Resource_nh8g4"]
+script = ExtResource("4_ayvee")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_58n4r"]
+script = ExtResource("4_ayvee")
+duration = 15.0
+
+[sub_resource type="Resource" id="Resource_fee10"]
+script = ExtResource("4_ayvee")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_scfs0"]
+script = ExtResource("4_ayvee")
+duration = 12.0
+
+[sub_resource type="Resource" id="Resource_o8cdu"]
+script = ExtResource("4_ayvee")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_i1nxk"]
+script = ExtResource("4_ayvee")
+duration = 9.0
 
 [sub_resource type="Gradient" id="Gradient_x8g0f"]
 offsets = PackedFloat32Array(0)
@@ -125,7 +170,7 @@ metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 [node name="===CAMERA========" type="Node3D" parent="."]
 
 [node name="MainCamera" type="Camera3D" parent="===CAMERA========"]
-transform = Transform3D(0.9999997, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000005, 0, 0, 0)
+transform = Transform3D(0.92021817, -0.06396044, 0.38614458, 0.063960426, 0.9978698, 0.012862084, -0.38614455, 0.01286204, 0.922349, 0.025898933, 0.85376585, 0.025793817)
 current = true
 fov = 45.0
 far = 100.0
@@ -135,6 +180,95 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("1_ex63t")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="DebateBackgroundAngles" type="Node3D" parent="===CAMERA========"]
+
+[node name="Angle01" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+script = ExtResource("2_2hdq6")
+
+[node name="StartAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle01"]
+transform = Transform3D(0.92021817, -0.06396044, 0.38614458, 0.06396043, 0.99786985, 0.012862085, -0.38614458, 0.012862041, 0.92234904, 0.025898933, 0.8537659, 0.025793819)
+script = ExtResource("3_ghdjh")
+tween_resource = SubResource("Resource_tlos6")
+camera_3d_resource = ExtResource("5_igvqd")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="EndAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle01"]
+transform = Transform3D(0.92021817, -0.063960455, 0.38614464, 0.06396042, 0.99786997, 0.012862113, -0.38614452, 0.012862054, 0.922349, -0.054, 1.4, -0.004)
+script = ExtResource("3_ghdjh")
+tween_resource = SubResource("Resource_2dmla")
+camera_3d_resource = ExtResource("5_igvqd")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Angle02" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles"]
+script = ExtResource("2_2hdq6")
+
+[node name="StartAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle02"]
+transform = Transform3D(-0.26435974, 0.1911003, -0.9453015, -0.00647847, 0.9797978, 0.19988573, 0.9644025, 0.05896584, -0.2577811, -3.672316, 1.704742, -1.0718565)
+script = ExtResource("3_ghdjh")
+tween_resource = SubResource("Resource_8t3db")
+camera_3d_resource = ExtResource("5_igvqd")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="EndAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle02"]
+transform = Transform3D(0.3216359, 0.30318493, -0.8970113, -0.10233176, 0.9529317, 0.28539333, 0.9413175, 0, 0.3375225, -3.672316, 2.0503752, 1.4023657)
+script = ExtResource("3_ghdjh")
+tween_resource = SubResource("Resource_sg66j")
+camera_3d_resource = ExtResource("5_igvqd")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Angle03" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles"]
+script = ExtResource("2_2hdq6")
+
+[node name="StartAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle03"]
+transform = Transform3D(0.6492755, -0.7605533, -3.324484e-08, 0, -4.371139e-08, 1, -0.7605533, -0.6492755, -2.8380732e-08, 0, 5.14217, -0.22422314)
+script = ExtResource("3_ghdjh")
+tween_resource = SubResource("Resource_nh8g4")
+camera_3d_resource = ExtResource("5_igvqd")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="EndAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle03"]
+transform = Transform3D(0.6492755, -0.7605533, -3.324484e-08, 0, -4.371139e-08, 1, -0.7605533, -0.6492755, -2.8380732e-08, 0, 2.9505835, -0.09962559)
+script = ExtResource("3_ghdjh")
+tween_resource = SubResource("Resource_58n4r")
+camera_3d_resource = ExtResource("5_igvqd")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Angle04" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles"]
+script = ExtResource("2_2hdq6")
+
+[node name="StartAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle04"]
+transform = Transform3D(-0.8212886, -0.5705129, -3.324484e-08, -4.3495184e-08, 4.3421586e-09, 1, -0.5705129, 0.8212886, -2.8380732e-08, 0, 5.14217, 2.4382372)
+script = ExtResource("3_ghdjh")
+tween_resource = SubResource("Resource_fee10")
+camera_3d_resource = ExtResource("5_igvqd")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="EndAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle04"]
+transform = Transform3D(-0.8212886, -0.5705129, -3.324484e-08, -4.3495184e-08, 4.3421586e-09, 1, -0.5705129, 0.8212886, -2.8380732e-08, 0, 4.3147783, -2.1768436)
+script = ExtResource("3_ghdjh")
+tween_resource = SubResource("Resource_scfs0")
+camera_3d_resource = ExtResource("5_igvqd")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Angle05" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+script = ExtResource("2_2hdq6")
+
+[node name="StartAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle05"]
+transform = Transform3D(-0.87331015, -0.018386945, 0.48681808, 0.063960366, 0.9863099, 0.15199223, -0.48294768, 0.1638734, -0.8601785, 0.069809556, 0.85376555, 0.11643748)
+script = ExtResource("3_ghdjh")
+tween_resource = SubResource("Resource_o8cdu")
+camera_3d_resource = ExtResource("5_igvqd")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="EndAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle05"]
+transform = Transform3D(-0.9157936, -0.07511367, 0.39456367, 0.158059, 0.8356979, 0.5259525, -0.36924204, 0.5440282, -0.75345397, -0.13498181, 1.3219053, -0.03140153)
+script = ExtResource("3_ghdjh")
+tween_resource = SubResource("Resource_i1nxk")
+camera_3d_resource = ExtResource("5_igvqd")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="===MANAGER========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -164,11 +298,10 @@ computer_hand_ui = NodePath("../../===UI========/Computer/ComputerStats/Hand/Cou
 manager = ExtResource("15_ub5fw")
 metadata/_custom_type_script = "uid://dhulr5f133qcw"
 
-[node name="SceneEventManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("scene_animator_handler", "default_dialogue_area", "input_manager")]
+[node name="SceneEventManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("scene_animator_handler", "input_manager")]
 script = ExtResource("16_hi8d6")
 debate_manager = ExtResource("15_ub5fw")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
-default_dialogue_area = NodePath("")
 input_manager = NodePath("../InputManager")
 dialogue_input_handler = ExtResource("17_bvf3v")
 manager = ExtResource("6_tnya4")
@@ -189,6 +322,10 @@ play_area_selector = NodePath("../../===UI========/PlayAreaSelector")
 card_selector = NodePath("../../===UI========/CardSelector")
 suit_selector = NodePath("../../===UI========/SuitSelector")
 metadata/_custom_type_script = "uid://syaosi1lkwul"
+
+[node name="DebateBackgroundCameraManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("angles")]
+script = ExtResource("22_ghdjh")
+angles = [NodePath("../../===CAMERA========/DebateBackgroundAngles/Angle01"), NodePath("../../===CAMERA========/DebateBackgroundAngles/Angle02"), NodePath("../../===CAMERA========/DebateBackgroundAngles/Angle03"), NodePath("../../===CAMERA========/DebateBackgroundAngles/Angle04"), NodePath("../../===CAMERA========/DebateBackgroundAngles/Angle05")]
 
 [node name="===CUTSCENE========" type="Node3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -541,7 +678,7 @@ offset_top = -3.05176e-05
 offset_right = 0.039978
 offset_bottom = -4.57764e-05
 
-[node name="Hand" type="Control" parent="===UI========" node_paths=PackedStringArray("draw_pile", "card_parent")]
+[node name="Hand" type="Control" parent="===UI========" node_paths=PackedStringArray("card_parent")]
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
@@ -553,7 +690,6 @@ script = ExtResource("57_oqf32")
 default_card_gui_packed_scene = ExtResource("49_f7rw5")
 default_tokenless_card_gui_packed_scene = ExtResource("50_sy3ii")
 tokenless_card_gui_suit_packed_scenes = Array[ExtResource("51_yverm")]([SubResource("Resource_x8g0f")])
-draw_pile = NodePath("")
 card_parent = NodePath("CurveContainer")
 focus_group = ExtResource("22_iy8ys")
 player_brain = ExtResource("20_8qes8")

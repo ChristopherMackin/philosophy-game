@@ -1,9 +1,6 @@
-[gd_scene load_steps=67 format=3 uid="uid://defmfju7pqy0n"]
+[gd_scene load_steps=63 format=3 uid="uid://defmfju7pqy0n"]
 
 [ext_resource type="PackedScene" uid="uid://ds0c42ghy27jc" path="res://debate/lvl_db_base.tscn" id="1_5xcsi"]
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_svgpu"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_uqhy2"]
-[ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_777ud"]
 [ext_resource type="Resource" uid="uid://bgnrnyyqdy8uv" path="res://debate/tutorial/bb_db_tutorial.tres" id="7_v4h8d"]
 [ext_resource type="Resource" uid="uid://fl8x7vlubnei" path="res://debate/tutorial/ef_db_tutorial.tres" id="8_myecp"]
 [ext_resource type="Resource" uid="uid://cq4fb0k21oesm" path="res://debate/tutorial/ds_db_tutorial.tres" id="12_5wvrs"]
@@ -30,10 +27,6 @@
 [ext_resource type="Animation" uid="uid://d05iq6pm4gbd5" path="res://character/joy/animation/breakdown.res" id="39_oh6jv"]
 [ext_resource type="Animation" uid="uid://b8gfenh0v54bm" path="res://character/simon/animation/recollect.res" id="39_qppk5"]
 [ext_resource type="Animation" uid="uid://u2e3govw73cd" path="res://character/simon/animation/talk.res" id="40_gueop"]
-
-[sub_resource type="Resource" id="Resource_ob4np"]
-script = ExtResource("3_uqhy2")
-duration = 0.5
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1tpcs"]
 resource_local_to_scene = true
@@ -880,18 +873,6 @@ node_connections = [&"output", 0, &"animation", &"animation", 0, &"walking", &"a
 
 [node name="LvlDbTutorial" instance=ExtResource("1_5xcsi")]
 
-[node name="MainCamera" parent="===CAMERA========" index="0"]
-transform = Transform3D(0.442257, -0.484891, 0.754513, -2.3632e-08, 0.841256, 0.540637, -0.896888, -0.239101, 0.372052, 2.00664, 2.39027, 1.31833)
-
-[node name="GameplayShot" type="Node3D" parent="===CAMERA========" index="1"]
-transform = Transform3D(0.442257, -0.484891, 0.754513, -2.3632e-08, 0.841256, 0.540637, -0.896888, -0.239101, 0.372052, 2.00664, 2.39027, 1.31833)
-script = ExtResource("2_svgpu")
-priority = 1
-tween_resource = SubResource("Resource_ob4np")
-tween_on_load = false
-camera_3d_resource = ExtResource("4_777ud")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
 [node name="SceneLoadManager" parent="===MANAGER========" index="0"]
 blackboard = ExtResource("7_v4h8d")
 event_factory = ExtResource("8_myecp")
@@ -906,7 +887,7 @@ computer = ExtResource("14_b56bn")
 [node name="SceneEventManager" parent="===MANAGER========" index="3" node_paths=PackedStringArray("actors")]
 actors = [NodePath("../../===ACTOR========/YoungSamsonActor"), NodePath("../../===ACTOR========/SimonActor")]
 
-[node name="ToLvlHospitalWaitingRoom" type="Node" parent="===MANAGER========" index="6"]
+[node name="ToLvlHospitalWaitingRoom" type="Node" parent="===MANAGER========" index="7"]
 script = ExtResource("26_1h7lh")
 scene_name = "lvl_hospital_waiting_room"
 metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
@@ -1026,7 +1007,7 @@ bones/28/rotation = Quaternion(0.007057863, 0.91379243, 0.40612015, 0.0002770991
 bones/29/rotation = Quaternion(9.908064e-07, 0.023903709, -5.4760415e-07, 0.9997144)
 bones/30/position = Vector3(0.6725944, 1.0941687, 0.0032474084)
 bones/30/rotation = Quaternion(1.5871528e-23, 1.4632345e-06, 0, 1)
-bones/31/position = Vector3(0.4348555, -0.11255886, -5.071085e-08)
+bones/31/position = Vector3(0.081576526, -9.749304e-06, 3.778557e-10)
 bones/31/rotation = Quaternion(-2.2553684e-10, -1.378681e-06, -1.37873e-06, 1)
 bones/31/scale = Vector3(1.0000001, 1, 1)
 bones/32/position = Vector3(0.6725944, -0.12891442, 0.0032474091)
