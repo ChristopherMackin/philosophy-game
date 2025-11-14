@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://du5ime7hk86tp"]
+[gd_scene load_steps=8 format=3 uid="uid://du5ime7hk86tp"]
 
 [ext_resource type="Script" uid="uid://b7h2dcftdphdd" path="res://debate/_script/ui/viewport_board.gd" id="1_35eep"]
 [ext_resource type="Texture2D" uid="uid://chq6s0x8t7rqn" path="res://asset/debate/_general/graphic/board/placeholder_nine_rect.png" id="1_g74qh"]
@@ -6,12 +6,6 @@
 [ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://system/debate_settings.tres" id="2_l7a4r"]
 [ext_resource type="PackedScene" uid="uid://do5swux8f3nq3" path="res://debate/packed_scene/token_gui.tscn" id="3_ainss"]
 [ext_resource type="PackedScene" uid="uid://c3dp665dqpd04" path="res://debate/packed_scene/board/viewport_suit_track.tscn" id="5_rwyct"]
-[ext_resource type="Script" uid="uid://cqjwh2vo503ku" path="res://debate/_script/ui/gui/viewport_suit_track.gd" id="7_g8d21"]
-[ext_resource type="PackedScene" uid="uid://bqet8vee0dfje" path="res://debate/packed_scene/token_slot_gui.tscn" id="8_wet3t"]
-[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="9_0b3gf"]
-[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="10_cyomt"]
-[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="11_xufkg"]
-[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="12_r10y5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_da2hp"]
 content_margin_left = 0.0
@@ -29,7 +23,7 @@ offset_bottom = 855.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
 script = ExtResource("1_35eep")
-suit_track_parent = NodePath("PlayArea/MarginContainer/SuitTracks")
+suit_track_parent = NodePath("")
 debate_settings = ExtResource("2_l7a4r")
 token_gui_packed_scene = ExtResource("3_ainss")
 suit_track_packed_scene = ExtResource("5_rwyct")
@@ -62,58 +56,3 @@ theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
-
-[node name="SuitTracks" type="VBoxContainer" parent="PlayArea/MarginContainer"]
-layout_mode = 2
-
-[node name="SuitTrackGUI" type="MarginContainer" parent="PlayArea/MarginContainer/SuitTracks" node_paths=PackedStringArray("slot_parent", "icon") instance=ExtResource("5_rwyct")]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-script = ExtResource("7_g8d21")
-token_gui_packed_scene = ExtResource("3_ainss")
-token_slot_packed_scene = ExtResource("8_wet3t")
-suit = ExtResource("9_0b3gf")
-slot_parent = NodePath("HBoxContainer/TokenSlots")
-icon = NodePath("HBoxContainer/Icon")
-
-[node name="SuitTrackGUI2" type="MarginContainer" parent="PlayArea/MarginContainer/SuitTracks" node_paths=PackedStringArray("slot_parent", "icon") instance=ExtResource("5_rwyct")]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-script = ExtResource("7_g8d21")
-token_gui_packed_scene = ExtResource("3_ainss")
-token_slot_packed_scene = ExtResource("8_wet3t")
-suit = ExtResource("10_cyomt")
-slot_parent = NodePath("HBoxContainer/TokenSlots")
-icon = NodePath("HBoxContainer/Icon")
-
-[node name="SuitTrackGUI3" type="MarginContainer" parent="PlayArea/MarginContainer/SuitTracks" node_paths=PackedStringArray("slot_parent", "icon") instance=ExtResource("5_rwyct")]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-script = ExtResource("7_g8d21")
-token_gui_packed_scene = ExtResource("3_ainss")
-token_slot_packed_scene = ExtResource("8_wet3t")
-suit = ExtResource("11_xufkg")
-slot_parent = NodePath("HBoxContainer/TokenSlots")
-icon = NodePath("HBoxContainer/Icon")
-
-[node name="SuitTrackGUI4" type="MarginContainer" parent="PlayArea/MarginContainer/SuitTracks" node_paths=PackedStringArray("slot_parent", "icon") instance=ExtResource("5_rwyct")]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-script = ExtResource("7_g8d21")
-token_gui_packed_scene = ExtResource("3_ainss")
-token_slot_packed_scene = ExtResource("8_wet3t")
-suit = ExtResource("12_r10y5")
-slot_parent = NodePath("HBoxContainer/TokenSlots")
-icon = NodePath("HBoxContainer/Icon")

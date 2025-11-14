@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://ds0c42ghy27jc"]
+[gd_scene load_steps=81 format=3 uid="uid://ds0c42ghy27jc"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_ex63t"]
 [ext_resource type="Script" uid="uid://bpb8n3aqb48yr" path="res://debate/_script/camera/debate_background_angle.gd" id="2_2hdq6"]
@@ -22,11 +22,10 @@
 [ext_resource type="Resource" uid="uid://vxjneadxt621" path="res://system/focus_group/hand_focus_group.tres" id="22_iy8ys"]
 [ext_resource type="Resource" uid="uid://gxn0k63lex4l" path="res://system/focus_group/play_area_focus_group.tres" id="23_dnmon"]
 [ext_resource type="Resource" uid="uid://bo5lyi4q2kuag" path="res://system/focus_group/card_selector_focus_group.tres" id="24_jhuis"]
+[ext_resource type="PackedScene" uid="uid://d0smq58at560j" path="res://board_gui_new.tscn" id="24_vcgx2"]
 [ext_resource type="Resource" uid="uid://8fi1d2l5sq45" path="res://system/focus_group/suit_focus_group.tres" id="25_w8c35"]
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="30_xda6k"]
 [ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://_general/style/debate_contestant_viewport.tres" id="38_shvv0"]
-[ext_resource type="PackedScene" uid="uid://du5ime7hk86tp" path="res://debate/packed_scene/board/board_gui.tscn" id="41_fs32k"]
-[ext_resource type="PackedScene" uid="uid://do5swux8f3nq3" path="res://debate/packed_scene/token_gui.tscn" id="42_hi4ds"]
 [ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/debate/_general/graphic/stats_area/turn_counter_background.png" id="43_7dqfo"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/_general/font/Fredoka-VariableFont_wdth,wght.ttf" id="44_x8xci"]
 [ext_resource type="Script" uid="uid://ba8ai3bmpwetc" path="res://debate/_script/ui/gui/energy_gui.gd" id="45_b31pg"]
@@ -283,13 +282,12 @@ scene_animator = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationPlay
 script = ExtResource("9_2k5l1")
 active_handler = ExtResource("10_sf3wj")
 
-[node name="DebateSceneManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("input_manager", "board", "hand_ui", "energy_ui", "hold_area_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
+[node name="DebateSceneManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("input_manager", "hand_ui", "energy_ui", "hold_area_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
 script = ExtResource("11_7sn7f")
 event_manager = ExtResource("6_tnya4")
 player = ExtResource("13_iabad")
 input_manager = NodePath("../InputManager")
 selection_handler = ExtResource("10_sf3wj")
-board = NodePath("../../===UI========/BasicPlayBoard")
 hand_ui = NodePath("../../===UI========/Hand")
 energy_ui = NodePath("../../===UI========/Player/PlayerStats/MarginContainer/HBoxContainer/Energy/Count")
 hold_area_ui = NodePath("../../===UI========/Player/PlayerStats/ThoughtBubble/HoldArea")
@@ -391,23 +389,11 @@ offset_bottom = -0.160004
 grow_horizontal = 2
 texture = SubResource("GradientTexture1D_qe3ln")
 
-[node name="BasicPlayBoard" parent="===UI========" instance=ExtResource("41_fs32k")]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -664.0
-offset_top = 140.0
-offset_right = 1390.0
-offset_bottom = 964.0
-grow_horizontal = 2
-scale = Vector2(0.65, 0.65)
-token_gui_packed_scene = ExtResource("42_hi4ds")
-
-[node name="Background" parent="===UI========/BasicPlayBoard/Header" index="0"]
-self_modulate = Color(1, 1, 1, 0.752941)
-
-[node name="Background" parent="===UI========/BasicPlayBoard/PlayArea" index="0"]
-self_modulate = Color(0.278431, 0.278431, 0.278431, 0.752941)
+[node name="BoardGui" parent="===UI========" instance=ExtResource("24_vcgx2")]
+offset_left = 8.0
+offset_top = 150.0
+offset_right = 8.0
+offset_bottom = 606.0
 
 [node name="Player" type="Control" parent="===UI========"]
 layout_mode = 3
@@ -827,19 +813,17 @@ focus_mode = 2
 texture = ExtResource("70_djrj6")
 metadata/focus_type = "submit"
 
-[node name="PlayAreaSelector" type="Control" parent="===UI========" node_paths=PackedStringArray("board")]
+[node name="PlayAreaSelector" type="Control" parent="===UI========"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("51_c4v3n")
 selector_packed_scene = ExtResource("52_0pw6n")
-board = NodePath("../BasicPlayBoard")
 focus_group = ExtResource("23_dnmon")
 player_brain = ExtResource("20_8qes8")
 metadata/_custom_type_script = "uid://ddig2iswn7qy4"
 
 [connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateSceneManager" method="start_debate" flags=7]
 
-[editable path="===UI========/BasicPlayBoard"]
 [editable path="===UI========/Player/BasicDialogueBubble"]
