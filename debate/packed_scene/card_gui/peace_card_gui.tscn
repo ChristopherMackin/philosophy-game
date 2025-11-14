@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bmxatnrtkqwmu"]
 
-[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://debate/script/ui/gui/card_gui.gd" id="1_bq4c2"]
+[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://debate/_script/ui/gui/card_gui.gd" id="1_bq4c2"]
 [ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://asset/debate/_general/graphic/card/card_base.png" id="2_vkr7h"]
 [ext_resource type="Shader" uid="uid://tnou2ig6rqyn" path="res://_general/style/color_swap.gdshader" id="3_aw4th"]
 [ext_resource type="Texture2D" uid="uid://dcddfgqbb0arx" path="res://asset/debate/_general/graphic/card/tokenless_card_bg.png" id="4_3y6m8"]
@@ -9,7 +9,7 @@
 [ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://asset/_general/font/fahkwang/Fahkwang-Bold.ttf" id="7_vwcdj"]
 [ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://_general/script/exposed_control_methods.gd" id="8_v3r2e"]
 [ext_resource type="Script" uid="uid://dc8gq2l3o144t" path="res://system/script/focus_group/focus_group_signal_node.gd" id="9_o5taa"]
-[ext_resource type="Script" uid="uid://cumbxctg3u56" path="res://debate/script/ui/gui/card_focus_animation.gd" id="10_bt0b4"]
+[ext_resource type="Script" uid="uid://cumbxctg3u56" path="res://debate/_script/ui/gui/card_focus_animation.gd" id="10_bt0b4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3y6m8"]
 resource_local_to_scene = true

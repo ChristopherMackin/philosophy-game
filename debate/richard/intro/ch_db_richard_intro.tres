@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://b8ix5cebnrs1a"]
+
+[ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="1_ptuy3"]
+[ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="1_shbm4"]
+[ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="2_1lqud"]
+[ext_resource type="Script" uid="uid://2hwgbl7c4ebq" path="res://character/script/brain/simple_ai_brain.gd" id="2_buenf"]
+[ext_resource type="Resource" uid="uid://ckrew2qtpmoo5" path="res://debate/richard/intro/dk_db_richard_intro.tres" id="3_oobwh"]
+
+[sub_resource type="Resource" id="Resource_6osin"]
+script = ExtResource("2_buenf")
+metadata/_custom_type_script = "uid://2hwgbl7c4ebq"
+
+[resource]
+script = ExtResource("1_shbm4")
+name = "Healthcare Worker"
+brain = SubResource("Resource_6osin")
+deck = ExtResource("3_oobwh")
+blackboard = ExtResource("1_ptuy3")
+metadata/_custom_type_script = "uid://b0gx18dmx3sv3"

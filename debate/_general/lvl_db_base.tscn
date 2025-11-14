@@ -1,7 +1,7 @@
-[gd_scene load_steps=81 format=3 uid="uid://ds0c42ghy27jc"]
+[gd_scene load_steps=82 format=3 uid="uid://ds0c42ghy27jc"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_ex63t"]
-[ext_resource type="Script" uid="uid://bpb8n3aqb48yr" path="res://debate/script/camera/debate_background_angle.gd" id="2_2hdq6"]
+[ext_resource type="Script" uid="uid://bpb8n3aqb48yr" path="res://debate/_script/camera/debate_background_angle.gd" id="2_2hdq6"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_ghdjh"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_ayvee"]
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="5_3nl4p"]
@@ -9,42 +9,43 @@
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="6_tnya4"]
 [ext_resource type="Script" uid="uid://bojj5s0o4f2s3" path="res://system/script/input/world_input_manager.gd" id="9_2k5l1"]
 [ext_resource type="Resource" uid="uid://coqtgijiyc02d" path="res://system/input/ih_selection_manager.tres" id="10_sf3wj"]
-[ext_resource type="Script" uid="uid://dhulr5f133qcw" path="res://debate/script/subscriber/node_based/debate_scene_manager.gd" id="11_7sn7f"]
+[ext_resource type="Script" uid="uid://dhulr5f133qcw" path="res://debate/_script/subscriber/node_based/debate_scene_manager.gd" id="11_7sn7f"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/player_data.tres" id="13_iabad"]
 [ext_resource type="Resource" uid="uid://bxdnjlvt3iyth" path="res://system/debate_manager.tres" id="15_ub5fw"]
 [ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="16_hi8d6"]
 [ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="17_bvf3v"]
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="18_21cnb"]
-[ext_resource type="Script" uid="uid://syaosi1lkwul" path="res://debate/script/ui/selection_manager.gd" id="19_8d68c"]
+[ext_resource type="Script" uid="uid://syaosi1lkwul" path="res://debate/_script/ui/selection_manager.gd" id="19_8d68c"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/player_brain.tres" id="20_8qes8"]
 [ext_resource type="Texture2D" uid="uid://ccck72fquc0fb" path="res://asset/debate/_general/graphic/stats_area/thought_bubble.png" id="21_3uwon"]
-[ext_resource type="Script" uid="uid://csow7w8d3n2ux" path="res://debate/script/camera/debate_background_camera_manager.gd" id="22_ghdjh"]
+[ext_resource type="Script" uid="uid://csow7w8d3n2ux" path="res://debate/_script/camera/debate_background_camera_manager.gd" id="22_ghdjh"]
 [ext_resource type="Resource" uid="uid://vxjneadxt621" path="res://system/focus_group/hand_focus_group.tres" id="22_iy8ys"]
 [ext_resource type="Resource" uid="uid://gxn0k63lex4l" path="res://system/focus_group/play_area_focus_group.tres" id="23_dnmon"]
 [ext_resource type="Resource" uid="uid://bo5lyi4q2kuag" path="res://system/focus_group/card_selector_focus_group.tres" id="24_jhuis"]
 [ext_resource type="Resource" uid="uid://8fi1d2l5sq45" path="res://system/focus_group/suit_focus_group.tres" id="25_w8c35"]
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="30_xda6k"]
+[ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://_general/style/debate_contestant_viewport.tres" id="38_shvv0"]
 [ext_resource type="PackedScene" uid="uid://du5ime7hk86tp" path="res://debate/packed_scene/board/board_gui.tscn" id="41_fs32k"]
 [ext_resource type="PackedScene" uid="uid://do5swux8f3nq3" path="res://debate/packed_scene/token_gui.tscn" id="42_hi4ds"]
 [ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://asset/debate/_general/graphic/stats_area/turn_counter_background.png" id="43_7dqfo"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://asset/_general/font/Fredoka-VariableFont_wdth,wght.ttf" id="44_x8xci"]
-[ext_resource type="Script" uid="uid://ba8ai3bmpwetc" path="res://debate/script/ui/gui/energy_gui.gd" id="45_b31pg"]
+[ext_resource type="Script" uid="uid://ba8ai3bmpwetc" path="res://debate/_script/ui/gui/energy_gui.gd" id="45_b31pg"]
 [ext_resource type="Texture2D" uid="uid://csnb8nne3qn56" path="res://asset/debate/_general/graphic/stats_area/draw_pile.png" id="46_r6v5q"]
-[ext_resource type="Script" uid="uid://5deqam17jqt3" path="res://debate/script/ui/gui/draw_pile_gui.gd" id="47_wk8eu"]
-[ext_resource type="Script" uid="uid://duts3e4cshe3t" path="res://debate/script/ui/gui/hold_area_gui.gd" id="48_gopoh"]
+[ext_resource type="Script" uid="uid://5deqam17jqt3" path="res://debate/_script/ui/gui/draw_pile_gui.gd" id="47_wk8eu"]
+[ext_resource type="Script" uid="uid://duts3e4cshe3t" path="res://debate/_script/ui/gui/hold_area_gui.gd" id="48_gopoh"]
 [ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/card_gui/card_gui.tscn" id="49_f7rw5"]
 [ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_gui/tokenless_card_gui.tscn" id="50_sy3ii"]
-[ext_resource type="Script" uid="uid://ddig2iswn7qy4" path="res://debate/script/ui/play_area_selector_gui.gd" id="51_c4v3n"]
+[ext_resource type="Script" uid="uid://ddig2iswn7qy4" path="res://debate/_script/ui/play_area_selector_gui.gd" id="51_c4v3n"]
 [ext_resource type="Script" uid="uid://ct7j27rex1yjk" path="res://system/script/card/suit_packed_scene.gd" id="51_yverm"]
 [ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/token_selector_gui.tscn" id="52_0pw6n"]
 [ext_resource type="PackedScene" uid="uid://bmxatnrtkqwmu" path="res://debate/packed_scene/card_gui/peace_card_gui.tscn" id="52_xmg2k"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="53_j5dr4"]
 [ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/packed_scene/basic_dialogue_area.tscn" id="54_0ee2r"]
 [ext_resource type="Texture2D" uid="uid://caks003lacvsp" path="res://asset/debate/_general/graphic/stats_area/hand_icon.png" id="55_jbfgj"]
-[ext_resource type="Script" uid="uid://ks6wf626gfx2" path="res://debate/script/ui/gui/hand_count_gui.gd" id="56_33pwx"]
-[ext_resource type="Script" uid="uid://dur1nyt0adfmo" path="res://debate/script/ui/gui/hand_gui.gd" id="57_oqf32"]
-[ext_resource type="Script" uid="uid://vgpd0x8mfpi" path="res://curve_container.gd" id="58_8i608"]
-[ext_resource type="Script" uid="uid://dh6wdv1jmcd8j" path="res://debate/script/ui/suit_selector.gd" id="59_8iymb"]
+[ext_resource type="Script" uid="uid://ks6wf626gfx2" path="res://debate/_script/ui/gui/hand_count_gui.gd" id="56_33pwx"]
+[ext_resource type="Script" uid="uid://dur1nyt0adfmo" path="res://debate/_script/ui/gui/hand_gui.gd" id="57_oqf32"]
+[ext_resource type="Script" uid="uid://vgpd0x8mfpi" path="res://_general/script/ui/curve_container.gd" id="58_8i608"]
+[ext_resource type="Script" uid="uid://dh6wdv1jmcd8j" path="res://debate/_script/ui/suit_selector.gd" id="59_8iymb"]
 [ext_resource type="PackedScene" uid="uid://p7gbun4jgavh" path="res://debate/packed_scene/suit_banner_gui/doubt_banner.tscn" id="60_0kmuh"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="61_gxksl"]
 [ext_resource type="PackedScene" uid="uid://cfr37mhe3tadq" path="res://debate/packed_scene/suit_banner_gui/faith_banner.tscn" id="62_c4ou7"]
@@ -54,7 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://d32w30jhpgu6v" path="res://debate/packed_scene/suit_banner_gui/self_banner.tscn" id="66_yd2cj"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="67_30gx3"]
 [ext_resource type="Texture2D" uid="uid://qiqjkvvjvbi4" path="res://asset/debate/simon/_general/simon_dialogue.png" id="68_x05n2"]
-[ext_resource type="Script" uid="uid://i6q2q68f73y6" path="res://debate/script/ui/card_selector.gd" id="69_4bjla"]
+[ext_resource type="Script" uid="uid://i6q2q68f73y6" path="res://debate/_script/ui/card_selector.gd" id="69_4bjla"]
 [ext_resource type="Texture2D" uid="uid://duwx1hkh07na8" path="res://asset/debate/simon/_general/simon_confirm_button.png" id="70_djrj6"]
 
 [sub_resource type="Resource" id="Resource_tlos6"]
@@ -539,6 +540,9 @@ render_target_update_mode = 4
 [node name="Camera3D" type="Camera3D" parent="===UI========/Player/PlayerPortrait/SubViewport"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 cull_mask = 2
+environment = ExtResource("38_shvv0")
+fov = 45.0
+far = 10.0
 
 [node name="BasicDialogueBubble" parent="===UI========/Player" instance=ExtResource("54_0ee2r")]
 layout_mode = 1
@@ -593,6 +597,9 @@ render_target_update_mode = 4
 [node name="Camera3D" type="Camera3D" parent="===UI========/Computer/ComputerPortrait/SubViewport"]
 transform = Transform3D(0.9999997, 0, 0, 0, 1, 0, 0, 0, 0.9999997, 0, 0, 0)
 cull_mask = 4
+environment = ExtResource("38_shvv0")
+fov = 45.0
+far = 10.0
 
 [node name="ComputerStats" type="VBoxContainer" parent="===UI========/Computer"]
 layout_mode = 1

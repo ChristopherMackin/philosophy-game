@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="2_54kiu"]
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="2_telqy"]
 [ext_resource type="Resource" uid="uid://bd7qx0u8c3yjv" path="res://world/test/joys_appartment/bb_joys_apartment.tres" id="3_4xacb"]
-[ext_resource type="Environment" uid="uid://vowbyk10rg4v" path="res://debate/debate_scene_environment.tres" id="3_54kiu"]
+[ext_resource type="Environment" uid="uid://vowbyk10rg4v" path="res://debate/_general/debate_scene_environment.tres" id="3_54kiu"]
 [ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="4_o11hx"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_piwyu"]
 [ext_resource type="Resource" uid="uid://dkj38626s4dbh" path="res://world/test/joys_appartment/event/test_event01.tres" id="5_d4llj"]

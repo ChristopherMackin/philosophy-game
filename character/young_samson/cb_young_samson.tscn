@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://4fyxges65twa" path="res://character/character_body_3d.tscn" id="1_xxfsn"]
 [ext_resource type="PackedScene" uid="uid://dcc5jdxai5dtq" path="res://character/young_samson/young_samson_actor.tscn" id="2_2lpp4"]
-[ext_resource type="Script" uid="uid://btmrfolkq1aj5" path="res://character/interaction_area.gd" id="3_kyt6e"]
+[ext_resource type="Script" uid="uid://btmrfolkq1aj5" path="res://character/script/interaction_area.gd" id="3_kyt6e"]
 [ext_resource type="Animation" uid="uid://r5k1m8q47t7n" path="res://character/joy/animation/idle.res" id="3_vhmiq"]
 [ext_resource type="Animation" uid="uid://cn4vi21lprmuk" path="res://character/joy/animation/walk.res" id="4_yca6k"]
 [ext_resource type="Animation" uid="uid://crmi4qmpml6wh" path="res://character/joy/animation/blink.res" id="5_1u56c"]

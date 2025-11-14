@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TutorialFakeCardFilterEffect" load_steps=2 format=3 uid="uid://p1cfs7eeoyjx"]
 
-[ext_resource type="Script" uid="uid://83w1stim8d1g" path="res://debate/script/contestant/status_effect/card_filter_effect/tutorial_fake_card_filter_effect.gd" id="1_fl1av"]
+[ext_resource type="Script" uid="uid://83w1stim8d1g" path="res://debate/_script/contestant/status_effect/card_filter_effect/tutorial_fake_card_filter_effect.gd" id="1_fl1av"]
 
 [resource]
 script = ExtResource("1_fl1av")

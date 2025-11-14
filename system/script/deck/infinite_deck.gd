@@ -1,7 +1,9 @@
+@tool
 extends Deck
 
 class_name InfiniteDeck
 
+@warning_ignore("shadowed_variable_base_class")
 func create_draw_pile(manager : DebateManager) -> CardCollection:
 	self.manager = manager
 	var draw_pile : Array[Card] = []

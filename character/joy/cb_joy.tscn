@@ -9,7 +9,7 @@
 [ext_resource type="Animation" uid="uid://dkpr32t1ba2s" path="res://character/joy/animation/idle_variant_01.res" id="7_jsjn7"]
 [ext_resource type="Animation" uid="uid://1o2pl8o5qvdd" path="res://character/joy/animation/talk.res" id="8_juq5b"]
 [ext_resource type="Animation" uid="uid://cn4vi21lprmuk" path="res://character/joy/animation/walk.res" id="9_errhc"]
-[ext_resource type="Script" uid="uid://btmrfolkq1aj5" path="res://character/interaction_area.gd" id="10_ktstx"]
+[ext_resource type="Script" uid="uid://btmrfolkq1aj5" path="res://character/script/interaction_area.gd" id="10_ktstx"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rkxom"]
 resource_local_to_scene = true

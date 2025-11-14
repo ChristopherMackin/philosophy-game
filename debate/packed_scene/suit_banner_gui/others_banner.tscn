@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5x4pryb3x8hp"]
 
 [ext_resource type="Texture2D" uid="uid://8m5h442qngjv" path="res://asset/debate/_general/graphic/suit/others_icon.png" id="1_41xp2"]
-[ext_resource type="Script" uid="uid://0f7kri64cayx" path="res://debate/script/ui/gui/banner_gui.gd" id="1_185hb"]
+[ext_resource type="Script" uid="uid://0f7kri64cayx" path="res://debate/_script/ui/gui/banner_gui.gd" id="1_185hb"]
 [ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://_general/script/exposed_control_methods.gd" id="2_62e33"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="2_74xxh"]
 

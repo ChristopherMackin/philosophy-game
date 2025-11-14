@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="1_1h3fd"]
 [ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="2_507wf"]
-[ext_resource type="Script" uid="uid://52ayxfyxhars" path="res://debate/script/contestant/status_effect/card_filter_effect/card_base_list_filter_effect.gd" id="3_f2vrc"]
+[ext_resource type="Script" uid="uid://52ayxfyxhars" path="res://debate/_script/contestant/status_effect/card_filter_effect/card_base_list_filter_effect.gd" id="3_f2vrc"]
 
 [resource]
 script = ExtResource("3_f2vrc")

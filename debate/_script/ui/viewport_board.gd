@@ -38,7 +38,8 @@ func create_suit_tracks():
 	
 	for suit in debate_settings.suits:
 		var suit_track : ViewportSuitTrack = suit_track_packed_scene.instantiate()
-		suit_track_parent.add_child(suit_track)
+		suit_track_parent.add_child(suit_track, true)
+		suit_track.owner = get_tree().edited_scene_root
 		suit_track.suit = suit
 		suit_track.slot_count = debate_settings.slots
 		

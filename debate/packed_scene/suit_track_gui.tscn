@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://vl4omq8dgeem"]
 
-[ext_resource type="Script" uid="uid://cqjwh2vo503ku" path="res://debate/script/ui/gui/viewport_suit_track.gd" id="1_xtnm3"]
+[ext_resource type="Script" uid="uid://cqjwh2vo503ku" path="res://debate/_script/ui/gui/viewport_suit_track.gd" id="1_xtnm3"]
 [ext_resource type="PackedScene" uid="uid://do5swux8f3nq3" path="res://debate/packed_scene/token_gui.tscn" id="2_d8m43"]
 [ext_resource type="PackedScene" uid="uid://bqet8vee0dfje" path="res://debate/packed_scene/token_slot_gui.tscn" id="3_eaqw5"]
 

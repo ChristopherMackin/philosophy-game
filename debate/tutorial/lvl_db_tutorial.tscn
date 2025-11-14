@@ -1,14 +1,14 @@
 [gd_scene load_steps=63 format=3 uid="uid://defmfju7pqy0n"]
 
-[ext_resource type="PackedScene" uid="uid://ds0c42ghy27jc" path="res://debate/lvl_db_base.tscn" id="1_5xcsi"]
+[ext_resource type="PackedScene" uid="uid://ds0c42ghy27jc" path="res://debate/_general/lvl_db_base.tscn" id="1_5xcsi"]
 [ext_resource type="Resource" uid="uid://bgnrnyyqdy8uv" path="res://debate/tutorial/bb_db_tutorial.tres" id="7_v4h8d"]
 [ext_resource type="Resource" uid="uid://fl8x7vlubnei" path="res://debate/tutorial/ef_db_tutorial.tres" id="8_myecp"]
 [ext_resource type="Resource" uid="uid://cq4fb0k21oesm" path="res://debate/tutorial/ds_db_tutorial.tres" id="12_5wvrs"]
 [ext_resource type="Resource" uid="uid://c0ky3rdu750c6" path="res://character/young_samson/young_samson.tres" id="13_uqhy2"]
-[ext_resource type="Resource" uid="uid://b20s3xcb4bqtx" path="res://debate/tutorial/db_tutorial_simon.tres" id="14_b56bn"]
+[ext_resource type="Resource" uid="uid://b20s3xcb4bqtx" path="res://debate/tutorial/ch_simon_db_tutorial.tres" id="14_b56bn"]
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://cutscene/scene_change_node.gd" id="26_1h7lh"]
 [ext_resource type="AnimationLibrary" uid="uid://d1ecm5s14yoio" path="res://debate/tutorial/al_db_tutorial.tres" id="27_co1o1"]
-[ext_resource type="Script" uid="uid://cde2wsdjn62td" path="res://debate/script/ui/board_3d.gd" id="27_ny687"]
+[ext_resource type="Script" uid="uid://cde2wsdjn62td" path="res://debate/_script/ui/board_3d.gd" id="27_ny687"]
 [ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://debate/packed_scene/token_3d.tscn" id="29_kvhx5"]
 [ext_resource type="Environment" uid="uid://c566usehy2i6i" path="res://debate/tutorial/env_db_tutorial.tres" id="31_xswt5"]
 [ext_resource type="PackedScene" uid="uid://cyl6gpr0e32en" path="res://asset/debate/01_tutorial/tutorial_table.glb" id="32_bsb34"]
@@ -1007,7 +1007,7 @@ bones/28/rotation = Quaternion(0.007057863, 0.91379243, 0.40612015, 0.0002770991
 bones/29/rotation = Quaternion(9.908064e-07, 0.023903709, -5.4760415e-07, 0.9997144)
 bones/30/position = Vector3(0.6725944, 1.0941687, 0.0032474084)
 bones/30/rotation = Quaternion(1.5871528e-23, 1.4632345e-06, 0, 1)
-bones/31/position = Vector3(0.081576526, -9.749304e-06, 3.778557e-10)
+bones/31/position = Vector3(0.081576526, -9.749341e-06, 3.8186632e-10)
 bones/31/rotation = Quaternion(-2.2553684e-10, -1.378681e-06, -1.37873e-06, 1)
 bones/31/scale = Vector3(1.0000001, 1, 1)
 bones/32/position = Vector3(0.6725944, -0.12891442, 0.0032474091)
@@ -1083,11 +1083,18 @@ layers = Array[bool]([true, false, true, false, false, false, false, false, fals
 [node name="CharacterAnimationTree" parent="===ACTOR========/SimonActor" index="4"]
 tree_root = SubResource("AnimationNodeBlendTree_dp51s")
 
+[node name="BasicPlayBoard" parent="===UI========" index="1"]
+offset_left = -144.0
+offset_top = 0.0
+offset_right = 144.0
+offset_bottom = 784.0
+scale = Vector2(1, 1)
+
 [node name="Camera3D" parent="===UI========/Player/PlayerPortrait/SubViewport" index="0"]
-transform = Transform3D(-0.96886903, 0, 0.2475739, 0, 1, 0, -0.2475739, 0, -0.96886903, 0.13900614, 0.7906143, 0.7301824)
+transform = Transform3D(-0.96886903, 0, 0.2475739, 0, 1, 0, -0.2475739, 0, -0.96886903, 0.25219965, 0.73170584, 0.2994573)
 
 [node name="Camera3D" parent="===UI========/Computer/ComputerPortrait/SubViewport" index="0"]
-transform = Transform3D(0.9593579, 0, 0.28219098, 0, 1, 0, -0.28219098, 0, 0.9593579, 0.255904, 1.31561, -0.568268)
+transform = Transform3D(0.9593583, 0, 0.28219107, 0, 1, 0, -0.28219107, 0, 0.9593583, 0.42798978, 1.2546655, 0.048785016)
 
 [editable path="===ACTOR========/YoungSamsonActor"]
 [editable path="===ACTOR========/YoungSamsonActor/JoySkin"]

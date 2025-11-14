@@ -5,11 +5,11 @@
 [ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://character/script/facial_animator.gd" id="3_mv020"]
 [ext_resource type="Script" uid="uid://4lmkf6b3mly" path="res://system/script/animation/character_tree_animation_handler.gd" id="4_t36e5"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://deg11edoj1x7r" path="res://character/character_animation_tree.tres" id="5_l0lrf"]
-[ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/joy/character_animation_tree.gd" id="6_g0jyn"]
+[ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/script/character_animation_tree.gd" id="6_g0jyn"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="7_5d15r"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_m4kvb"]
 [ext_resource type="Resource" uid="uid://v2wiqt0q1qwn" path="res://character/portrait_camera_resource.tres" id="9_t8a6v"]
-[ext_resource type="Script" uid="uid://c8jtfyfmyewm1" path="res://character/joy/area_with_exceptions.gd" id="10_v5ghv"]
+[ext_resource type="Script" uid="uid://c8jtfyfmyewm1" path="res://_general/script/area_with_exceptions.gd" id="10_v5ghv"]
 
 [sub_resource type="Resource" id="Resource_v5ghv"]
 script = ExtResource("8_m4kvb")

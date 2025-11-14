@@ -40,6 +40,7 @@ func refresh_slots():
 	for i in slot_count:
 		var slot = token_slot_packed_scene.instantiate()
 		slot_parent.add_child(slot)
+		slot.owner = get_tree().edited_scene_root
 		slots.append(slot)
 	
 	update_color()

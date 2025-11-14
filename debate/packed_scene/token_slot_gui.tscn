@@ -3,8 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://bjbqp7dbl75wf" path="res://asset/debate/_general/graphic/board/token_slot.png" id="1_kic5u"]
 
 [node name="TokenSlot" type="TextureRect"]
-custom_minimum_size = Vector2(138, 138)
+custom_minimum_size = Vector2(69, 69)
+offset_right = 138.0
+offset_bottom = 138.0
 size_flags_horizontal = 3
+size_flags_vertical = 4
 texture = ExtResource("1_kic5u")
-expand_mode = 1
+expand_mode = 2
 stretch_mode = 5
