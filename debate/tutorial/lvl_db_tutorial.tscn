@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://defmfju7pqy0n"]
+[gd_scene format=3 uid="uid://defmfju7pqy0n"]
 
 [ext_resource type="PackedScene" uid="uid://ds0c42ghy27jc" path="res://debate/_general/lvl_db_base.tscn" id="1_5xcsi"]
 [ext_resource type="Resource" uid="uid://bgnrnyyqdy8uv" path="res://debate/tutorial/bb_db_tutorial.tres" id="7_v4h8d"]
@@ -28,7 +28,7 @@
 [ext_resource type="Animation" uid="uid://b8gfenh0v54bm" path="res://character/simon/animation/recollect.res" id="39_qppk5"]
 [ext_resource type="Animation" uid="uid://u2e3govw73cd" path="res://character/simon/animation/talk.res" id="40_gueop"]
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1tpcs"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ttqh6"]
 resource_local_to_scene = true
 _data = {
 &"RESET": ExtResource("38_qliuy"),
@@ -87,7 +87,7 @@ animation = &"walk"
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_k26ml"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_fjdmb"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h7qn3"]
 resource_local_to_scene = true
 nodes/output/position = Vector2(310, 160)
 nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
@@ -777,7 +777,7 @@ tracks/92/interp = 1
 tracks/92/loop_wrap = true
 tracks/92/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_syyee"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gedm6"]
 resource_local_to_scene = true
 _data = {
 &"RESET": SubResource("Animation_066da"),
@@ -836,7 +836,7 @@ animation = &"RESET"
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_dk11m"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dp51s"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5xcsi"]
 resource_local_to_scene = true
 nodes/output/position = Vector2(310, 160)
 nodes/action/node = SubResource("AnimationNodeAnimation_aun3t")
@@ -871,7 +871,7 @@ nodes/walking/node = SubResource("AnimationNodeBlend2_dk11m")
 nodes/walking/position = Vector2(-130, -110)
 node_connections = [&"output", 0, &"animation", &"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
 
-[node name="LvlDbTutorial" instance=ExtResource("1_5xcsi")]
+[node name="LvlDbTutorial" unique_id=1270230017 instance=ExtResource("1_5xcsi")]
 
 [node name="SceneLoadManager" parent="===MANAGER========" index="0"]
 blackboard = ExtResource("7_v4h8d")
@@ -888,38 +888,36 @@ board = NodePath("../../===UI========/BoardGui")
 [node name="SceneEventManager" parent="===MANAGER========" index="3" node_paths=PackedStringArray("actors")]
 actors = [NodePath("../../===ACTOR========/YoungSamsonActor"), NodePath("../../===ACTOR========/SimonActor")]
 
-[node name="ToLvlHospitalWaitingRoom" type="Node" parent="===MANAGER========" index="7"]
+[node name="ToLvlHospitalWaitingRoom" type="Node" parent="===MANAGER========" index="7" unique_id=1417738453]
 script = ExtResource("26_1h7lh")
 scene_name = "lvl_hospital_waiting_room"
 metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
 
 [node name="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator" index="1"]
-libraries = {
-&"": ExtResource("27_co1o1")
-}
+libraries/ = ExtResource("27_co1o1")
 
 [node name="WorldEnvironment" parent="===WORLD========" index="0"]
 environment = ExtResource("31_xswt5")
 
-[node name="Model" type="Node3D" parent="===ENVIRONMENT========" index="0"]
+[node name="Model" type="Node3D" parent="===ENVIRONMENT========" index="0" unique_id=1372413613]
 transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, -2.08165e-12, -2.08165e-12, -2.08165e-12)
 
-[node name="TutorialTable" parent="===ENVIRONMENT========/Model" index="0" instance=ExtResource("32_bsb34")]
+[node name="TutorialTable" parent="===ENVIRONMENT========/Model" index="0" unique_id=100825737 instance=ExtResource("32_bsb34")]
 
-[node name="Board3D" type="Node3D" parent="===ENVIRONMENT========" index="1" node_paths=PackedStringArray("board_sprite")]
+[node name="Board3D" type="Node3D" parent="===ENVIRONMENT========" index="1" unique_id=169069279 node_paths=PackedStringArray("board_sprite")]
 transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, -2.0813913e-12, 0.7414, -2.0819086e-12)
 script = ExtResource("27_ny687")
 board_sprite = NodePath("BoardSprite")
 debate_settings = ExtResource("12_5wvrs")
 token_3d_packed_scene = ExtResource("29_kvhx5")
 
-[node name="BoardSprite" type="Sprite3D" parent="===ENVIRONMENT========/Board3D" index="0"]
+[node name="BoardSprite" type="Sprite3D" parent="===ENVIRONMENT========/Board3D" index="0" unique_id=1549735335]
 transform = Transform3D(1, -6.97575e-16, -3.0492e-23, 2.89925e-17, 0.0415617, 0.999136, -6.96972e-16, -0.999136, 0.0415617, 0, 0.00686598, 0)
 pixel_size = 0.0003
 alpha_cut = 2
 texture_filter = 0
 
-[node name="YoungSamsonActor" parent="===ACTOR========" index="0" node_paths=PackedStringArray("dialogue_area_override") instance=ExtResource("33_8hvq4")]
+[node name="YoungSamsonActor" parent="===ACTOR========" index="0" unique_id=1514725151 node_paths=PackedStringArray("dialogue_area_override") instance=ExtResource("33_8hvq4")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, -2.08208e-12, -2.08122e-12, 1.24626)
 dialogue_area_override = NodePath("../../===UI========/Player/BasicDialogueBubble")
 
@@ -951,19 +949,17 @@ layers = 3
 layers = 3
 
 [node name="AnimationPlayer" parent="===ACTOR========/YoungSamsonActor/JoySkin" index="1"]
-libraries = {
-&"": SubResource("AnimationLibrary_1tpcs")
-}
+libraries/ = SubResource("AnimationLibrary_ttqh6")
 
 [node name="LayerMask" parent="===ACTOR========/YoungSamsonActor" index="1"]
 layers = Array[bool]([true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
 
 [node name="CharacterAnimationTree" parent="===ACTOR========/YoungSamsonActor" index="4"]
-tree_root = SubResource("AnimationNodeBlendTree_fjdmb")
+tree_root = SubResource("AnimationNodeBlendTree_h7qn3")
 parameters/blink_trigger/active = true
 parameters/blink_trigger/internal_active = true
 
-[node name="SimonActor" parent="===ACTOR========" index="1" node_paths=PackedStringArray("dialogue_area_override") instance=ExtResource("34_suovc")]
+[node name="SimonActor" parent="===ACTOR========" index="1" unique_id=209513821 node_paths=PackedStringArray("dialogue_area_override") instance=ExtResource("34_suovc")]
 transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, -2.08118e-12, -2.08212e-12, -1.33708)
 dialogue_area_override = NodePath("../../===UI========/Computer/BasicDialogueBubble")
 
@@ -1007,7 +1003,7 @@ bones/28/rotation = Quaternion(0.007057863, 0.91379243, 0.40612015, 0.0002770991
 bones/29/rotation = Quaternion(9.908064e-07, 0.023903709, -5.4760415e-07, 0.9997144)
 bones/30/position = Vector3(0.6725944, 1.0941687, 0.0032474084)
 bones/30/rotation = Quaternion(1.5871528e-23, 1.4632345e-06, 0, 1)
-bones/31/position = Vector3(0.4348555, -0.11255886, -5.0660503e-08)
+bones/31/position = Vector3(0.081576526, -9.749037e-06, 3.4938924e-10)
 bones/31/rotation = Quaternion(-2.2553684e-10, -1.378681e-06, -1.37873e-06, 1)
 bones/31/scale = Vector3(1.0000001, 1, 1)
 bones/32/position = Vector3(0.6725944, -0.12891442, 0.0032474091)
@@ -1073,15 +1069,13 @@ layers = 5
 transform = Transform3D(0.99999994, 5.5879354e-09, -6.8041496e-05, -3.0691735e-06, 0.9989854, -0.045033604, 6.797258e-05, 0.045033544, 0.9989854, 1.3998308e-09, 1.3756151, -0.007969363)
 
 [node name="AnimationPlayer" parent="===ACTOR========/SimonActor/SimonSkin" index="1"]
-libraries = {
-&"": SubResource("AnimationLibrary_syyee")
-}
+libraries/ = SubResource("AnimationLibrary_gedm6")
 
 [node name="LayerMask" parent="===ACTOR========/SimonActor" index="1"]
 layers = Array[bool]([true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
 
 [node name="CharacterAnimationTree" parent="===ACTOR========/SimonActor" index="4"]
-tree_root = SubResource("AnimationNodeBlendTree_dp51s")
+tree_root = SubResource("AnimationNodeBlendTree_5xcsi")
 
 [node name="Camera3D" parent="===UI========/Player/PlayerPortrait/SubViewport" index="0"]
 transform = Transform3D(-0.96886903, 0, 0.2475739, 0, 1, 0, -0.2475739, 0, -0.96886903, 0.25219965, 0.73170584, 0.2994573)

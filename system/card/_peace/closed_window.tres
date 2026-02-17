@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=10 format=3 uid="uid://bmipydv28i6px"]
+[gd_resource type="Resource" script_class="CardBase" format=3 uid="uid://bmipydv28i6px"]
 
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="1_08ivs"]
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://system/script/card/card_cost_modifier/card_cost_modifier.gd" id="1_jq1pd"]

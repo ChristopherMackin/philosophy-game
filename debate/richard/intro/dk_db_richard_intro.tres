@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="InfiniteDeck" load_steps=5 format=3 uid="uid://ckrew2qtpmoo5"]
+[gd_resource type="Resource" script_class="InfiniteDeck" format=3 uid="uid://ckrew2qtpmoo5"]
 
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://system/script/card/card_deck_config.gd" id="1_iwup1"]
 [ext_resource type="Script" uid="uid://dlqqr4qxqi2ht" path="res://system/script/deck/infinite_deck.gd" id="2_3ugiv"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Blackboard" load_steps=4 format=3 uid="uid://c0jua2cphnqw6"]
+[gd_resource type="Resource" script_class="Blackboard" format=3 uid="uid://c0jua2cphnqw6"]
 
 [ext_resource type="Script" uid="uid://c1eaebx4srk2s" path="res://system/script/blackboard/blackboard.gd" id="1_bw6ub"]
 [ext_resource type="Script" uid="uid://cxodlpgrmgtv7" path="res://system/script/blackboard/blackboard_entry.gd" id="1_q82c0"]

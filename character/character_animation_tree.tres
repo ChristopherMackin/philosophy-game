@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeBlendTree" load_steps=16 format=3 uid="uid://deg11edoj1x7r"]
+[gd_resource type="AnimationNodeBlendTree" format=3 uid="uid://deg11edoj1x7r"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qfv6"]
 animation = &"walk"

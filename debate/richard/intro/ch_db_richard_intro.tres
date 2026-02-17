@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://b8ix5cebnrs1a"]
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://b8ix5cebnrs1a"]
 
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="1_ptuy3"]
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="1_shbm4"]

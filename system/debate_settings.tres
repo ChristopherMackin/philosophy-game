@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DebateSettings" load_steps=12 format=3 uid="uid://b51gfuqtvp857"]
+[gd_resource type="Resource" script_class="DebateSettings" format=3 uid="uid://b51gfuqtvp857"]
 
 [ext_resource type="Script" uid="uid://dyxs1xiriknno" path="res://debate/_script/game_end_condition/game_end_condition.gd" id="1_86ws4"]
 [ext_resource type="Script" uid="uid://bsgp8gq0j6wbn" path="res://debate/_script/debate_settings.gd" id="1_cdwd0"]

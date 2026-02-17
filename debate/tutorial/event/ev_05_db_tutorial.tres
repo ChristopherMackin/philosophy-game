@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Event" load_steps=13 format=3 uid="uid://d05ipy7juasyv"]
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://d05ipy7juasyv"]
 
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_pdrm7"]
 [ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_dbvp5"]

@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=2 format=3 uid="uid://d1ecm5s14yoio"]
+[gd_resource type="AnimationLibrary" format=3 uid="uid://d1ecm5s14yoio"]
 
 [sub_resource type="Animation" id="Animation_kc3c6"]
 resource_name = "cap_finish_debate_tutorial"
