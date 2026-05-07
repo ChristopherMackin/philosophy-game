@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dp5ktcf5rd31l"]
+[gd_scene format=3 uid="uid://dp5ktcf5rd31l"]
 
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://cutscene/scene_change_node.gd" id="1_vumy4"]
 [ext_resource type="AudioStream" uid="uid://brspvy678a3sh" path="res://asset/sfx/static.mp3" id="2_g4mq0"]
@@ -148,33 +148,31 @@ _data = {
 shader = ExtResource("2_vpb4t")
 shader_parameter/amount = 40.0
 
-[node name="Prelude" type="Node3D"]
+[node name="Prelude" type="Node3D" unique_id=420393196]
 script = ExtResource("1_vumy4")
 scene_name = "lvl_hospital_waiting_room"
 
-[node name="===MANAGER========" type="Node3D" parent="."]
+[node name="===MANAGER========" type="Node3D" parent="." unique_id=82324019]
 
-[node name="ToLvlHospitalWaitingRoom" type="Node" parent="===MANAGER========"]
+[node name="ToLvlHospitalWaitingRoom" type="Node" parent="===MANAGER========" unique_id=25660253]
 script = ExtResource("1_vumy4")
 scene_name = "lvl_hospital_waiting_room"
 metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
 
-[node name="===CUTSCENE========" type="Node3D" parent="."]
+[node name="===CUTSCENE========" type="Node3D" parent="." unique_id=1293818364]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="===CUTSCENE========"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="===CUTSCENE========" unique_id=1320180988]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_x84ys")
-}
-autoplay = "intro_01"
+libraries/ = SubResource("AnimationLibrary_x84ys")
+autoplay = &"intro_01"
 
-[node name="Sound" type="Node3D" parent="."]
+[node name="Sound" type="Node3D" parent="." unique_id=539985926]
 
-[node name="Static" type="AudioStreamPlayer" parent="Sound"]
+[node name="Static" type="AudioStreamPlayer" parent="Sound" unique_id=1430824532]
 
-[node name="===UI========" type="CanvasLayer" parent="."]
+[node name="===UI========" type="CanvasLayer" parent="." unique_id=359012464]
 
-[node name="TVStatic" type="ColorRect" parent="===UI========"]
+[node name="TVStatic" type="ColorRect" parent="===UI========" unique_id=1582526141]
 material = SubResource("ShaderMaterial_g4mq0")
 anchors_preset = 15
 anchor_right = 1.0
@@ -182,7 +180,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="===UI========"]
+[node name="ColorRect" type="ColorRect" parent="===UI========" unique_id=1832867059]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -190,7 +188,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.380392, 0.133333, 0.486275, 0.811765)
 
-[node name="Background" type="ColorRect" parent="===UI========"]
+[node name="Background" type="ColorRect" parent="===UI========" unique_id=1928941793]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -198,7 +196,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.137255, 0.0862745, 0.0588235, 1)
 
-[node name="IntroText" type="RichTextLabel" parent="===UI========"]
+[node name="IntroText" type="RichTextLabel" parent="===UI========" unique_id=1098510314]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -211,4 +209,4 @@ text = "Train up a child in the way he should go:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CutsceneSubtitles" parent="===UI========" instance=ExtResource("4_y7hlm")]
+[node name="CutsceneSubtitles" parent="===UI========" unique_id=2097565215 instance=ExtResource("4_y7hlm")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://6yd0idunoow2"]
+[gd_scene format=3 uid="uid://6yd0idunoow2"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_jxdct"]
 [ext_resource type="Resource" uid="uid://b8vrfkw1aod6c" path="res://world/test/webber_house/bb_webber_house.tres" id="2_45hv8"]
@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="7_5uqbe"]
 [ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="8_v3xt8"]
 [ext_resource type="PackedScene" uid="uid://viosiv4ckmqb" path="res://asset/world/webber_house/webber_living_room.glb" id="9_bfxx6"]
-[ext_resource type="PackedScene" uid="uid://cb38p6q7g6lab" path="res://character/young_samson/cb_young_samson.tscn" id="10_7xply"]
+[ext_resource type="PackedScene" uid="uid://cb38p6q7g6lab" path="res://character/depricated_young_samson/cb_young_samson.tscn" id="10_7xply"]
 [ext_resource type="PackedScene" uid="uid://crjk3jxv3f3il" path="res://character/simon/simon_actor.tscn" id="11_mi37h"]
 [ext_resource type="Script" uid="uid://dd6d8mjib2ks" path="res://system/script/event/interactable.gd" id="12_0enge"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="13_147pc"]

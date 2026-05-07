@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://bgnrnyyqdy8uv" path="res://debate/tutorial/bb_db_tutorial.tres" id="7_v4h8d"]
 [ext_resource type="Resource" uid="uid://fl8x7vlubnei" path="res://debate/tutorial/ef_db_tutorial.tres" id="8_myecp"]
 [ext_resource type="Resource" uid="uid://cq4fb0k21oesm" path="res://debate/tutorial/ds_db_tutorial.tres" id="12_5wvrs"]
-[ext_resource type="Resource" uid="uid://c0ky3rdu750c6" path="res://character/young_samson/young_samson.tres" id="13_uqhy2"]
+[ext_resource type="Resource" uid="uid://c0ky3rdu750c6" path="res://character/depricated_young_samson/young_samson.tres" id="13_uqhy2"]
 [ext_resource type="Resource" uid="uid://b20s3xcb4bqtx" path="res://debate/tutorial/ch_simon_db_tutorial.tres" id="14_b56bn"]
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://cutscene/scene_change_node.gd" id="26_1h7lh"]
 [ext_resource type="AnimationLibrary" uid="uid://d1ecm5s14yoio" path="res://debate/tutorial/al_db_tutorial.tres" id="27_co1o1"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c3uy2gmuqkttm" path="res://debate/packed_scene/token_3d.tscn" id="29_kvhx5"]
 [ext_resource type="Environment" uid="uid://c566usehy2i6i" path="res://debate/tutorial/env_db_tutorial.tres" id="31_xswt5"]
 [ext_resource type="PackedScene" uid="uid://cyl6gpr0e32en" path="res://asset/debate/01_tutorial/tutorial_table.glb" id="32_bsb34"]
-[ext_resource type="PackedScene" uid="uid://dcc5jdxai5dtq" path="res://character/young_samson/young_samson_actor.tscn" id="33_8hvq4"]
+[ext_resource type="PackedScene" uid="uid://dcc5jdxai5dtq" path="res://character/depricated_young_samson/young_samson_actor.tscn" id="33_8hvq4"]
 [ext_resource type="Animation" uid="uid://r5k1m8q47t7n" path="res://character/joy/animation/idle.res" id="33_b3rsh"]
 [ext_resource type="Animation" uid="uid://cn4vi21lprmuk" path="res://character/joy/animation/walk.res" id="34_co1o1"]
 [ext_resource type="PackedScene" uid="uid://crjk3jxv3f3il" path="res://character/simon/simon_actor.tscn" id="34_suovc"]
@@ -1003,7 +1003,7 @@ bones/28/rotation = Quaternion(0.007057863, 0.91379243, 0.40612015, 0.0002770991
 bones/29/rotation = Quaternion(9.908064e-07, 0.023903709, -5.4760415e-07, 0.9997144)
 bones/30/position = Vector3(0.6725944, 1.0941687, 0.0032474084)
 bones/30/rotation = Quaternion(1.5871528e-23, 1.4632345e-06, 0, 1)
-bones/31/position = Vector3(0.081576526, -9.749037e-06, 3.4938924e-10)
+bones/31/position = Vector3(0.4348555, -0.11255886, -5.0687685e-08)
 bones/31/rotation = Quaternion(-2.2553684e-10, -1.378681e-06, -1.37873e-06, 1)
 bones/31/scale = Vector3(1.0000001, 1, 1)
 bones/32/position = Vector3(0.6725944, -0.12891442, 0.0032474091)
