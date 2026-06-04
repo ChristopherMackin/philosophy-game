@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="Suit" load_steps=3 format=3 uid="uid://d2pl5fnaluyfr"]
+[gd_resource type="Resource" script_class="Suit" format=3 uid="uid://d2pl5fnaluyfr"]
 
-[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://asset/debate/_general/graphic/suit/faith_icon.png" id="1_cy58r"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://_asset/debate/_general/graphic/suit/faith_icon.png" id="1_cy58r"]
 [ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://system/script/suit/suit.gd" id="1_lx4ug"]
 
 [resource]

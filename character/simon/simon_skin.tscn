@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvudykbbs45t7"]
+[gd_scene format=3 uid="uid://cvudykbbs45t7"]
 
-[ext_resource type="PackedScene" uid="uid://doagmnjb5kjij" path="res://asset/character/simon/simon.glb" id="1_tib51"]
+[ext_resource type="PackedScene" uid="uid://doagmnjb5kjij" path="res://_asset/character/simon/simon.glb" id="1_tib51"]
 [ext_resource type="AnimationLibrary" uid="uid://c7aqovwpelfbc" path="res://character/simon/animation/simon_animation_library.res" id="2_wq1tm"]
 
 [node name="SimonSkin" instance=ExtResource("1_tib51")]

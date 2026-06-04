@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjv4hqyvjwdsh"]
+[gd_scene format=3 uid="uid://bjv4hqyvjwdsh"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_qlsal"]
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="1_xgvwx"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="5_t3rax"]
 [ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="6_ilpj6"]
 [ext_resource type="Script" uid="uid://4bchriocygww" path="res://_general/script/dialogue/dialogue_area.gd" id="8_ilpj6"]
-[ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://asset/cutscene/name_background.png" id="9_ot6eh"]
+[ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://_asset/cutscene/name_background.png" id="9_ot6eh"]
 [ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://_general/style/default_theme.tres" id="10_85jcy"]
 [ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://_general/script/ui/scrolling-text.gd" id="11_eto5s"]
 

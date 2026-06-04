@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://du5ime7hk86tp"]
+[gd_scene format=3 uid="uid://du5ime7hk86tp"]
 
 [ext_resource type="Script" uid="uid://b7h2dcftdphdd" path="res://debate/_script/ui/viewport_board.gd" id="1_35eep"]
-[ext_resource type="Texture2D" uid="uid://chq6s0x8t7rqn" path="res://asset/debate/_general/graphic/board/placeholder_nine_rect.png" id="1_g74qh"]
-[ext_resource type="Texture2D" uid="uid://coqbma8qhqfm2" path="res://asset/debate/_general/graphic/board/play_stack_area.png" id="2_ftxwm"]
+[ext_resource type="Texture2D" uid="uid://chq6s0x8t7rqn" path="res://_asset/debate/_general/graphic/board/placeholder_nine_rect.png" id="1_g74qh"]
+[ext_resource type="Texture2D" uid="uid://coqbma8qhqfm2" path="res://_asset/debate/_general/graphic/board/play_stack_area.png" id="2_ftxwm"]
 [ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://system/debate_settings.tres" id="2_l7a4r"]
 [ext_resource type="PackedScene" uid="uid://do5swux8f3nq3" path="res://debate/packed_scene/token_gui.tscn" id="3_ainss"]
 [ext_resource type="PackedScene" uid="uid://c3dp665dqpd04" path="res://debate/packed_scene/board/viewport_suit_track.tscn" id="5_rwyct"]

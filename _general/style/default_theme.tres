@@ -1,6 +1,6 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c8qmn8ulyc5k6"]
+[gd_resource type="Theme" format=3 uid="uid://c8qmn8ulyc5k6"]
 
-[ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://asset/_general/font/TenorSans-Regular.ttf" id="1_iuegx"]
+[ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://_asset/_general/font/TenorSans-Regular.ttf" id="1_iuegx"]
 
 [resource]
 default_font = ExtResource("1_iuegx")

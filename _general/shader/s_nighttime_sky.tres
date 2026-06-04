@@ -1,0 +1,50 @@
+[gd_resource type="VisualShader" format=3 uid="uid://ccsxi8xvcgfe2"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_rsc2m"]
+input_name = "sky_coords"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_ub68g"]
+default_input_values = [1, Vector2(10, 10), 2, Vector2(0, 0)]
+function = 1
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_o4bfx"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_rsc2m"]
+parameter_name = "sky_texture"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ub68g"]
+source = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_5hxba"]
+parameter_name = "Texture2DParameter"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_1l47f"]
+source = 5
+texture_type = 1
+
+[resource]
+mode = 3
+flags/use_half_res_pass = false
+flags/use_quarter_res_pass = false
+flags/disable_fog = false
+flags/use_debanding = false
+nodes/sky/0/position = Vector2(760, 170)
+nodes/sky/3/node = SubResource("VisualShaderNodeTexture2DParameter_rsc2m")
+nodes/sky/3/position = Vector2(-490, 350)
+nodes/sky/4/node = SubResource("VisualShaderNodeTexture_ub68g")
+nodes/sky/4/position = Vector2(180, 340)
+nodes/sky/7/node = SubResource("VisualShaderNodeTexture2DParameter_5hxba")
+nodes/sky/7/position = Vector2(-480, 700)
+nodes/sky/8/node = SubResource("VisualShaderNodeTexture_1l47f")
+nodes/sky/8/position = Vector2(190, 570)
+nodes/sky/10/node = SubResource("VisualShaderNodeInput_rsc2m")
+nodes/sky/10/position = Vector2(-580, 180)
+nodes/sky/11/node = SubResource("VisualShaderNodeUVFunc_ub68g")
+nodes/sky/11/position = Vector2(-80, 190)
+nodes/sky/12/node = SubResource("VisualShaderNodeVectorOp_o4bfx")
+nodes/sky/12/position = Vector2(480, 440)
+nodes/sky/connections = PackedInt32Array(3, 0, 4, 2, 7, 0, 8, 2, 10, 0, 11, 0, 11, 0, 4, 0, 10, 0, 8, 0, 4, 0, 12, 0, 8, 0, 12, 1, 12, 0, 0, 0)

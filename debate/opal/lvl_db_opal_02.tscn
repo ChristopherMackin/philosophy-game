@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cw0e3v0tttud"]
+
+[ext_resource type="PackedScene" uid="uid://ds0c42ghy27jc" path="res://debate/_general/lvl_db_base.tscn" id="1_08ibf"]
+
+[node name="LvlDbBase" unique_id=1140928789 instance=ExtResource("1_08ibf")]
+
+[node name="MainCamera" parent="===CAMERA========" index="0"]
+transform = Transform3D(-0.9157936, -0.07511367, 0.39456367, 0.15805899, 0.8356978, 0.52595246, -0.369242, 0.54402816, -0.7534539, -0.13498181, 1.3219051, -0.031401526)
+top_level = true
+
+[editable path="===UI========/Player/BasicDialogueBubble"]

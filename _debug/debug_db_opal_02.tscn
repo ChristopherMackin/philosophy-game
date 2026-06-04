@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://ct0kolk8vaisf"]
+
+[ext_resource type="PackedScene" uid="uid://b6up1alpc3bbp" path="res://debate/opal/db_02/env_db_opal_02.tscn" id="1_meyfg"]
+[ext_resource type="Shader" uid="uid://ccsxi8xvcgfe2" path="res://_general/shader/s_nighttime_sky.tres" id="2_w8f7r"]
+[ext_resource type="Texture2D" uid="uid://64uo8ucmg2va" path="res://_asset/_general/texture/t_stary_sky_col.jpg" id="3_h2afu"]
+[ext_resource type="Shader" uid="uid://372vl3dqemde" path="res://_general/shader/s_simple_film_grain.gdshader" id="4_h2afu"]
+[ext_resource type="PackedScene" uid="uid://dnalajbqwpcg2" path="res://character/joy/joy_actor.tscn" id="5_lx1ym"]
+
+[sub_resource type="Gradient" id="Gradient_lx1ym"]
+offsets = PackedFloat32Array(0.41037735, 0.5424528)
+colors = PackedColorArray(0, 0, 0, 1, 0.21266115, 0.24141532, 0.4834233, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gyrkl"]
+gradient = SubResource("Gradient_lx1ym")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0.00882353)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8crt"]
+shader = ExtResource("2_w8f7r")
+shader_parameter/sky_texture = ExtResource("3_h2afu")
+shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_gyrkl")
+
+[sub_resource type="Sky" id="Sky_bqpnl"]
+sky_material = SubResource("ShaderMaterial_o8crt")
+
+[sub_resource type="Environment" id="Environment_hmn5i"]
+background_mode = 2
+sky = SubResource("Sky_bqpnl")
+ambient_light_source = 2
+ambient_light_color = Color(0.87738556, 0.6706256, 0.80945665, 1)
+ambient_light_energy = 2.0
+ssao_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lx1ym"]
+shader = ExtResource("4_h2afu")
+shader_parameter/amount = 0.1499999966472
+shader_parameter/speed = 0.20000000298024
+
+[node name="DebugDBOpal02" type="Node3D" unique_id=2610997]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1031782069]
+transform = Transform3D(0.97415024, -0.012050832, 0.22557953, -2.3255804e-10, 0.99857616, 0.05334559, -0.22590117, -0.051966622, 0.9727632, 3.7446249, 2.6767476, 2.4082146)
+fov = 40.0
+
+[node name="EnvDbOpal02" parent="." unique_id=472548192 instance=ExtResource("1_meyfg")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=105062772]
+environment = SubResource("Environment_hmn5i")
+
+[node name="JoyActor" parent="." unique_id=2066360241 instance=ExtResource("5_lx1ym")]
+transform = Transform3D(0.5560199, 0, -0.8311689, 0, 1, 0, 0.8311689, 0, 0.5560199, 4.029024, 1.2166325, 0.37524724)
+
+[node name="PostProcess" type="CanvasLayer" parent="." unique_id=1951869873]
+
+[node name="FilmGrain" type="ColorRect" parent="PostProcess" unique_id=1398025520]
+material = SubResource("ShaderMaterial_lx1ym")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

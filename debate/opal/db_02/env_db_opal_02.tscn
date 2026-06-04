@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b6up1alpc3bbp"]
+
+[ext_resource type="PackedScene" uid="uid://uvwu3pbnr0el" path="res://_asset/debate/opal/db_opal_02/env_db_opal_02.glb" id="1_uk2rk"]
+
+[node name="EnvDbOpal02" unique_id=472548192 instance=ExtResource("1_uk2rk")]
+
+[node name="Ground" parent="." index="0" unique_id=308811121]
+instance_shader_parameters/ColorParameter = Color(0.16470589, 0.16470589, 0.16470589, 1)
+
+[node name="TrashBag_01" parent="TrashBags" parent_id_path=PackedInt32Array(590466257) index="0" unique_id=1295032390]
+instance_shader_parameters/ColorParameter = Color(0.08662925, 0.08662925, 0.08662925, 1)
+
+[node name="TrashBag_02" parent="TrashBags" parent_id_path=PackedInt32Array(590466257) index="1" unique_id=1895658718]
+instance_shader_parameters/ColorParameter = Color(0.08662925, 0.08662925, 0.08662925, 1)
+
+[node name="TrashBag_03" parent="TrashBags" parent_id_path=PackedInt32Array(590466257) index="2" unique_id=334232859]
+instance_shader_parameters/ColorParameter = Color(0.08662925, 0.08662925, 0.08662925, 1)
+
+[node name="Exterior_Door" parent="Exterior" parent_id_path=PackedInt32Array(561718993) index="0" unique_id=2119351614]
+instance_shader_parameters/ColorParameter = Color(0.44313726, 0.43529412, 0.5137255, 1)
+
+[node name="Exterior_DoorHandle" parent="Exterior/Exterior_Door" index="0" unique_id=183527229]
+instance_shader_parameters/ColorParameter = Color(0.44313726, 0.43529412, 0.5137255, 1)
+
+[node name="Exterior_Stairs" parent="Exterior" parent_id_path=PackedInt32Array(561718993) index="1" unique_id=1960949403]
+instance_shader_parameters/ColorParameter = Color(0.44313726, 0.43529412, 0.5137255, 1)
+
+[node name="Exterior_Wall" parent="Exterior" parent_id_path=PackedInt32Array(561718993) index="2" unique_id=900367319]
+instance_shader_parameters/ColorParameter = Color(0.7764706, 0.7254902, 0.6392157, 1)
+
+[node name="Exterior_WallTrim" parent="Exterior" parent_id_path=PackedInt32Array(561718993) index="3" unique_id=928265694]
+instance_shader_parameters/ColorParameter = Color(0.5921569, 0.45490196, 0.4509804, 1)
+
+[node name="CardboardBox_01" parent="CardboardBoxes" parent_id_path=PackedInt32Array(496799241) index="0" unique_id=596158841]
+transform = Transform3D(0.32483017, 0, -0.94577247, 0, 1, 0, 0.94577247, 0, 0.32483017, -1.6799598, 2.3663044e-05, -0.42038384)
+instance_shader_parameters/ColorParameter = Color(0.6745098, 0.5882353, 0.4745098, 1)
+
+[node name="CardboardBox_02" parent="CardboardBoxes" parent_id_path=PackedInt32Array(496799241) index="1" unique_id=1746959006]
+instance_shader_parameters/ColorParameter = Color(0.6745098, 0.5882353, 0.4745098, 1)
+
+[node name="CardboardBox_03" parent="CardboardBoxes" parent_id_path=PackedInt32Array(496799241) index="2" unique_id=573823690]
+instance_shader_parameters/ColorParameter = Color(0.6745098, 0.5882353, 0.4745098, 1)
+
+[node name="CardboardBox_04" parent="CardboardBoxes" parent_id_path=PackedInt32Array(496799241) index="3" unique_id=527701835]
+instance_shader_parameters/ColorParameter = Color(0.6745098, 0.5882353, 0.4745098, 1)
+
+[node name="Dumpster_Body" parent="Dumpster" parent_id_path=PackedInt32Array(1360667182) index="0" unique_id=445166676]
+instance_shader_parameters/ColorParameter = Color(0.1882353, 0.3882353, 0.12156863, 1)
+
+[node name="Dumpster_Lid" parent="Dumpster" parent_id_path=PackedInt32Array(1360667182) index="4" unique_id=1200827875]
+instance_shader_parameters/ColorParameter = Color(0.18039216, 0.18039216, 0.18039216, 1)
+
+[node name="Dumpster_Wheels" parent="Dumpster" parent_id_path=PackedInt32Array(1360667182) index="5" unique_id=445934281]
+instance_shader_parameters/ColorParameter = Color(0.08274146, 0.08274145, 0.08274143, 1)
+
+[node name="Streetlight_Post" parent="Streetlight" parent_id_path=PackedInt32Array(1976653798) index="1" unique_id=73170110]
+instance_shader_parameters/ColorParameter = Color(0.18039216, 0.18039216, 0.18039216, 1)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Streetlight" parent_id_path=PackedInt32Array(1976653798) index="2" unique_id=1944799545]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6500764, 3.0623288, 0)
+light_color = Color(1, 0.8784314, 0.5921569, 1)
+light_energy = 160.0
+light_specular = 0.3
+shadow_enabled = true
+spot_angle = 70.0
+spot_angle_attenuation = 6.4980335

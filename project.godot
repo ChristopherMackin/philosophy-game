@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Philosophy"
 config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=60
-config/icon="res://asset/debate/icon.svg"
+config/icon="res://_asset/debate/icon.svg"
 
 [autoload]
 
