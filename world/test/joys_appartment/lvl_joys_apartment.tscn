@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://clf55p74f0340"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_7ep36"]
-[ext_resource type="PackedScene" uid="uid://cj5cemq8g42b2" path="res://_asset/world/joys_apartment/joys_apartment.glb" id="1_wwls2"]
+[ext_resource type="PackedScene" uid="uid://cj5cemq8g42b2" path="res://_asset/world/joys_apartment/mod_joys_apartment.glb" id="1_wwls2"]
 [ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="2_rnieb"]
 [ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://system/script/scene_management/scene_transition_trigger.gd" id="2_yiwpo"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_khgda"]
@@ -13,11 +13,11 @@
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="6_prmnt"]
 [ext_resource type="PackedScene" path="res://character/joy/cb_joy.tscn" id="7_khgda"]
 [ext_resource type="Resource" uid="uid://cosams0ydhgkf" path="res://world/test/joys_appartment/ef_joys_apartment.tres" id="7_prmnt"]
-[ext_resource type="Animation" path="res://character/joy/animation/RESET.res" id="12_ih1j2"]
-[ext_resource type="Animation" path="res://character/joy/animation/blink.res" id="13_b3me4"]
+[ext_resource type="Animation" uid="uid://bj0omtpe1vrjx" path="res://character/joy/animation/RESET.res" id="12_ih1j2"]
+[ext_resource type="Animation" uid="uid://c8jdwucoy6g66" path="res://character/joy/animation/blink.res" id="13_b3me4"]
 [ext_resource type="Animation" path="res://character/joy/animation/idle.res" id="14_2srbu"]
 [ext_resource type="Animation" path="res://character/joy/animation/idle_variant_01.res" id="15_m0qcy"]
-[ext_resource type="Animation" path="res://character/joy/animation/talk.res" id="16_oym8r"]
+[ext_resource type="Animation" uid="uid://dhr6mg0frruyy" path="res://character/joy/animation/talk.res" id="16_oym8r"]
 [ext_resource type="Animation" path="res://character/joy/animation/walk.res" id="17_d8nki"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_khgda"]

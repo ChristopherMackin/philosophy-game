@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dgjj6ix2mlftp"]
+
+[ext_resource type="PackedScene" uid="uid://ncpnghqpw8tc" path="res://character/character_actor.tscn" id="1_mp54a"]
+[ext_resource type="PackedScene" uid="uid://dwfkirhxcxyxm" path="res://_asset/character/opal/sk_opal.glb" id="2_h2vxd"]
+[ext_resource type="PackedScene" uid="uid://bpaim2pre43w5" path="res://_asset/character/opal/outfit/mod_opal_outfit_01.glb" id="3_f4ogg"]
+[ext_resource type="Script" uid="uid://uof5fhcqdag3" path="res://character/script/follow_skeleton.gd" id="4_c8hue"]
+[ext_resource type="Animation" uid="uid://bum71cpl5fpw5" path="res://character/opal/animation/anim_opal_RESET.res" id="5_c8hue"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ewib"]
+_data = {
+&"anim_opal_RESET": ExtResource("5_c8hue")
+}
+
+[node name="OpalActor" unique_id=1017530611 instance=ExtResource("1_mp54a")]
+
+[node name="Skeleton" parent="." index="0" unique_id=1276102160 instance=ExtResource("2_h2vxd")]
+
+[node name="Skeleton3D" parent="Skeleton/root" parent_id_path=PackedInt32Array(1276102160, 1935117241) index="0" unique_id=778954127]
+bones/1/position = Vector3(1.7998226e-09, 0.8237081, -0.010293799)
+bones/8/rotation = Quaternion(-0.68300915, -0.4264003, 0.17390876, 0.56695426)
+bones/9/rotation = Quaternion(5.6945037e-08, 0.61849725, 7.849542e-08, 0.785787)
+bones/10/rotation = Quaternion(-7.270688e-05, -0.00027512567, 0.25575155, 0.9667425)
+bones/11/rotation = Quaternion(1.4067933e-08, 0.14004812, 4.0544528e-08, 0.99014467)
+bones/12/rotation = Quaternion(0.18413168, 0.16156267, 0.12524122, 0.9614092)
+bones/13/rotation = Quaternion(0.51222277, 0.51222265, 0.48747092, -0.4874709)
+bones/14/rotation = Quaternion(-0.6830531, 0.4264148, -0.17387602, 0.5669005)
+bones/15/rotation = Quaternion(-1.7616442e-07, -0.6183134, -1.8000874e-07, 0.78593165)
+bones/16/rotation = Quaternion(4.2219813e-07, -1.6437907e-06, -0.25575227, 0.9667424)
+bones/17/rotation = Quaternion(4.2126327e-08, -0.13978645, 2.4704164e-08, 0.99018174)
+bones/18/rotation = Quaternion(0.18402575, -0.16129638, -0.12528196, 0.96146894)
+bones/19/rotation = Quaternion(0.7072201, 0.08355819, 0.7006515, 0.0441065)
+bones/20/rotation = Quaternion(1.5339516e-08, 0.00017705088, -7.5651005e-09, 1)
+bones/21/rotation = Quaternion(-6.575007e-09, -8.195677e-09, 0.20031361, 0.9797319)
+bones/22/rotation = Quaternion(0.4080884, 0.5499535, -0.43505472, 0.58458745)
+bones/24/rotation = Quaternion(-3.440466e-09, 0.00026753155, -1.9906937e-08, 1)
+bones/25/rotation = Quaternion(0.707215, -0.083557956, -0.7006565, 0.04410807)
+bones/25/scale = Vector3(0.9999998, 0.9999999, 1.0000001)
+bones/26/rotation = Quaternion(-3.1444707e-09, -0.0001768446, -1.6584346e-08, 1)
+bones/27/rotation = Quaternion(-3.9799176e-08, 1.750854e-08, -0.20031345, 0.97973186)
+bones/28/rotation = Quaternion(0.40808862, -0.54995334, 0.43505478, 0.58458745)
+bones/29/rotation = Quaternion(2.7341692e-08, 0.9997896, 0.02051262, -4.783169e-07)
+bones/30/rotation = Quaternion(1.3999565e-09, -0.00026739552, -2.1012195e-08, 1)
+
+[node name="OpalOutfit01" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="0" unique_id=1795094773 node_paths=PackedStringArray("target") instance=ExtResource("3_f4ogg")]
+script = ExtResource("4_c8hue")
+target = NodePath("../../Skeleton/root/Skeleton3D")
+
+[node name="Skeleton3D" parent="Outfit/OpalOutfit01/root" parent_id_path=PackedInt32Array(1795094773, 1817633129) index="0" unique_id=1868633994]
+bones/1/position = Vector3(1.7998226e-09, 0.8237081, -0.010293799)
+bones/8/rotation = Quaternion(-0.68300915, -0.4264003, 0.17390876, 0.56695426)
+bones/9/rotation = Quaternion(5.6945037e-08, 0.61849725, 7.849542e-08, 0.785787)
+bones/10/rotation = Quaternion(-7.270688e-05, -0.00027512567, 0.25575155, 0.9667425)
+bones/11/rotation = Quaternion(1.4067933e-08, 0.14004812, 4.0544528e-08, 0.99014467)
+bones/12/rotation = Quaternion(0.18413168, 0.16156267, 0.12524122, 0.9614092)
+bones/13/rotation = Quaternion(0.51222277, 0.51222265, 0.48747092, -0.4874709)
+bones/14/rotation = Quaternion(-0.6830531, 0.4264148, -0.17387602, 0.5669005)
+bones/15/rotation = Quaternion(-1.7616442e-07, -0.6183134, -1.8000874e-07, 0.78593165)
+bones/16/rotation = Quaternion(4.2219813e-07, -1.6437907e-06, -0.25575227, 0.9667424)
+bones/17/rotation = Quaternion(4.2126327e-08, -0.13978645, 2.4704164e-08, 0.99018174)
+bones/18/rotation = Quaternion(0.18402575, -0.16129638, -0.12528196, 0.96146894)
+bones/19/rotation = Quaternion(0.7072201, 0.08355819, 0.7006515, 0.0441065)
+bones/20/rotation = Quaternion(1.5339516e-08, 0.00017705088, -7.5651005e-09, 1)
+bones/21/rotation = Quaternion(-6.575007e-09, -8.195677e-09, 0.20031361, 0.9797319)
+bones/22/rotation = Quaternion(0.4080884, 0.5499535, -0.43505472, 0.58458745)
+bones/24/rotation = Quaternion(-3.440466e-09, 0.00026753155, -1.9906937e-08, 1)
+bones/25/rotation = Quaternion(0.707215, -0.083557956, -0.7006565, 0.04410807)
+bones/25/scale = Vector3(0.9999998, 0.9999999, 1.0000001)
+bones/26/rotation = Quaternion(-3.1444707e-09, -0.0001768446, -1.6584346e-08, 1)
+bones/27/rotation = Quaternion(-3.9799176e-08, 1.750854e-08, -0.20031345, 0.97973186)
+bones/28/rotation = Quaternion(0.40808862, -0.54995334, 0.43505478, 0.58458745)
+bones/29/rotation = Quaternion(2.7341692e-08, 0.9997896, 0.02051262, -4.783169e-07)
+bones/30/rotation = Quaternion(1.3999565e-09, -0.00026739552, -2.1012195e-08, 1)
+
+[node name="AnimationPlayer" parent="." index="5" unique_id=99323753]
+root_node = NodePath("../Skeleton")
+libraries/ = SubResource("AnimationLibrary_5ewib")
+
+[editable path="Skeleton"]
+[editable path="Outfit/OpalOutfit01"]

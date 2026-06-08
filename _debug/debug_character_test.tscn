@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d35kxgnfi0l5m"]
 
-[ext_resource type="PackedScene" uid="uid://dnalajbqwpcg2" path="res://character/joy/joy_actor.tscn" id="1_kodrj"]
+[ext_resource type="PackedScene" uid="uid://dnalajbqwpcg2" path="res://character/joy/act_joy.tscn" id="1_kodrj"]
 
 [node name="DebugCharacterTest" type="Node3D" unique_id=1216856175]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b6up1alpc3bbp"]
 
-[ext_resource type="PackedScene" uid="uid://uvwu3pbnr0el" path="res://_asset/debate/opal/db_opal_02/env_db_opal_02.glb" id="1_uk2rk"]
+[ext_resource type="PackedScene" uid="uid://uvwu3pbnr0el" path="res://_asset/debate/opal/db_opal_02/mod_env_db_opal_02.glb" id="1_uk2rk"]
 
 [node name="EnvDbOpal02" unique_id=472548192 instance=ExtResource("1_uk2rk")]
 

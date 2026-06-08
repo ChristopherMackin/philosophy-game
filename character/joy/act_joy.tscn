@@ -1,108 +1,27 @@
 [gd_scene format=3 uid="uid://dnalajbqwpcg2"]
 
-[ext_resource type="PackedScene" uid="uid://ncpnghqpw8tc" path="res://character/character_actor.tscn" id="1_1ao0f"]
-[ext_resource type="PackedScene" uid="uid://bx1f5w6xl7bbq" path="res://_asset/character/joy/joy_skeleton.glb" id="2_v65r5"]
-[ext_resource type="PackedScene" uid="uid://btxy47ct0bbsf" path="res://_asset/character/joy/outfit/joy_outfit_05a.glb" id="3_1ao0f"]
-[ext_resource type="Script" uid="uid://uof5fhcqdag3" path="res://character/script/outfit_skeleton_target.gd" id="4_v65r5"]
-[ext_resource type="Animation" uid="uid://bj0omtpe1vrjx" path="res://character/joy/animation/RESET.res" id="5_ti8so"]
-[ext_resource type="Animation" uid="uid://c8jdwucoy6g66" path="res://character/joy/animation/blink.res" id="6_v65r5"]
-[ext_resource type="Animation" uid="uid://dhr6mg0frruyy" path="res://character/joy/animation/talk.res" id="7_3kbtu"]
+[ext_resource type="PackedScene" uid="uid://ncpnghqpw8tc" path="res://character/character_actor.tscn" id="1_humdt"]
+[ext_resource type="PackedScene" uid="uid://bx1f5w6xl7bbq" path="res://_asset/character/joy/sk_joy.glb" id="2_w153v"]
+[ext_resource type="PackedScene" uid="uid://btxy47ct0bbsf" path="res://_asset/character/joy/outfit/mod_joy_outfit_05a.glb" id="3_16udo"]
+[ext_resource type="Script" uid="uid://uof5fhcqdag3" path="res://character/script/follow_skeleton.gd" id="4_f5idp"]
+[ext_resource type="Animation" uid="uid://b2q6b6j42pdai" path="res://character/joy/animation/anim_joy_RESET.res" id="5_f5idp"]
+[ext_resource type="Animation" uid="uid://dgq065bi8he28" path="res://character/joy/animation/anim_joy_blink.res" id="6_08ssm"]
+[ext_resource type="Animation" uid="uid://bv2v2r6t7vl8q" path="res://character/joy/animation/anim_joy_opal_db_02_sit.res" id="7_08ssm"]
+[ext_resource type="Animation" uid="uid://dm72blnj48nkj" path="res://character/joy/animation/anim_joy_talk.res" id="7_fejen"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yj5q6"]
 _data = {
-&"RESET": ExtResource("5_ti8so"),
-&"blink": ExtResource("6_v65r5"),
-&"talk": ExtResource("7_3kbtu")
+&"RESET": ExtResource("5_f5idp"),
+&"anim_joy_blink": ExtResource("6_08ssm"),
+&"anim_joy_opal_db_02_sit": ExtResource("7_08ssm"),
+&"anim_joy_talk": ExtResource("7_fejen")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qfv6"]
-animation = &"walk"
+[node name="JoyActor" unique_id=2066360241 instance=ExtResource("1_humdt")]
 
-[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_8dv24"]
-filter_enabled = true
-filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
+[node name="Skeleton" parent="." index="0" unique_id=1590792561 instance=ExtResource("2_w153v")]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4f1rm"]
-animation = &"blink"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dlmfx"]
-animation = &"RESET"
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ja5cw"]
-autorestart = true
-
-[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_sijwa"]
-filters = ["root/Skeleton3D:eye_selector", "root/Skeleton3D:mouth_selector"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dv24"]
-animation = &"RESET"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bxpyq"]
-animation = &"idle_variant_01"
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_4f1rm"]
-fadein_time = 0.3
-fadeout_time = 0.3
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_s6d67"]
-fadein_time = 0.3
-fadeout_time = 0.3
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k26ml"]
-animation = &"talk"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lydv1"]
-animation = &"RESET"
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_uceat"]
-autorestart = true
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_axsce"]
-animation = &"walk"
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_k26ml"]
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_3kbtu"]
-resource_local_to_scene = true
-graph_offset = Vector2(-644.8884, -288.67178)
-nodes/output/position = Vector2(310, 160)
-nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
-nodes/action/position = Vector2(-600, -130)
-nodes/animation/node = SubResource("AnimationNodeAdd2_8dv24")
-nodes/animation/position = Vector2(80, 60)
-nodes/blink/node = SubResource("AnimationNodeAnimation_4f1rm")
-nodes/blink/position = Vector2(-890, 470)
-nodes/blink_reset/node = SubResource("AnimationNodeAnimation_dlmfx")
-nodes/blink_reset/position = Vector2(-890, 300)
-nodes/blink_trigger/node = SubResource("AnimationNodeOneShot_ja5cw")
-nodes/blink_trigger/position = Vector2(-480, 260)
-nodes/facial_animation/node = SubResource("AnimationNodeAdd2_sijwa")
-nodes/facial_animation/position = Vector2(-210, 220)
-nodes/idle/node = SubResource("AnimationNodeAnimation_8dv24")
-nodes/idle/position = Vector2(-750, -500)
-nodes/idle_variant/node = SubResource("AnimationNodeAnimation_bxpyq")
-nodes/idle_variant/position = Vector2(-750, -320)
-nodes/idling/node = SubResource("AnimationNodeOneShot_4f1rm")
-nodes/idling/position = Vector2(-530, -440)
-nodes/take_action/node = SubResource("AnimationNodeOneShot_s6d67")
-nodes/take_action/position = Vector2(-320, -280)
-nodes/talk/node = SubResource("AnimationNodeAnimation_k26ml")
-nodes/talk/position = Vector2(-890, 820)
-nodes/talk_reset/node = SubResource("AnimationNodeAnimation_lydv1")
-nodes/talk_reset/position = Vector2(-890, 650)
-nodes/talk_trigger/node = SubResource("AnimationNodeOneShot_uceat")
-nodes/talk_trigger/position = Vector2(-480, 600)
-nodes/walk/node = SubResource("AnimationNodeAnimation_axsce")
-nodes/walk/position = Vector2(-320, 30)
-nodes/walking/node = SubResource("AnimationNodeBlend2_k26ml")
-nodes/walking/position = Vector2(-130, -110)
-node_connections = [&"output", 0, &"animation", &"animation", 0, &"walking", &"animation", 1, &"facial_animation", &"blink_trigger", 0, &"blink_reset", &"blink_trigger", 1, &"blink", &"facial_animation", 0, &"blink_trigger", &"facial_animation", 1, &"talk_trigger", &"idling", 0, &"idle", &"idling", 1, &"idle_variant", &"take_action", 0, &"idling", &"take_action", 1, &"action", &"talk_trigger", 0, &"talk_reset", &"talk_trigger", 1, &"talk", &"walking", 0, &"take_action", &"walking", 1, &"walk"]
-
-[node name="JoyActor" unique_id=2066360241 instance=ExtResource("1_1ao0f")]
-
-[node name="Skeleton" parent="." index="0" unique_id=1590792561 instance=ExtResource("2_v65r5")]
-
-[node name="Skeleton3D" parent="Skeleton/root" parent_id_path=PackedInt32Array(1590792561, 2130966669) index="0" unique_id=1921462973]
+[node name="Skeleton3D" parent="Skeleton/root" parent_id_path=PackedInt32Array(1590792561, 666139986) index="0" unique_id=1907057756]
 bones/1/position = Vector3(-6.1773626e-09, 0.740271, 0.035330232)
 bones/1/rotation = Quaternion(-0.014819604, -3.5441028e-06, 4.993685e-08, 0.9998902)
 bones/1/scale = Vector3(1, 1.0000001, 1.0000001)
@@ -195,11 +114,11 @@ bones/33/rotation = Quaternion(-4.8676796e-08, -1.1924875e-08, -6.8448012e-15, 1
 bones/34/position = Vector3(0.17131895, 1.5701507e-09, 2.5760052e-08)
 bones/34/rotation = Quaternion(-3.4756e-41, -7.54979e-08, -1.6543612e-24, 1)
 
-[node name="JoyOutfit05a" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="0" unique_id=638160934 node_paths=PackedStringArray("target") instance=ExtResource("3_1ao0f")]
-script = ExtResource("4_v65r5")
+[node name="JoyOutfit05a" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="0" unique_id=638160934 node_paths=PackedStringArray("target") instance=ExtResource("3_16udo")]
+script = ExtResource("4_f5idp")
 target = NodePath("../../Skeleton/root/Skeleton3D")
 
-[node name="Skeleton3D" parent="Outfit/JoyOutfit05a/root" parent_id_path=PackedInt32Array(638160934, 611015045) index="0" unique_id=1274659592]
+[node name="Skeleton3D" parent="Outfit/JoyOutfit05a/root" parent_id_path=PackedInt32Array(638160934, 1411261005) index="0" unique_id=73177355]
 bones/1/position = Vector3(-6.1773626e-09, 0.740271, 0.035330232)
 bones/1/rotation = Quaternion(-0.014819604, -3.5441028e-06, 4.993685e-08, 0.9998902)
 bones/1/scale = Vector3(1, 1.0000001, 1.0000001)
@@ -292,7 +211,7 @@ bones/33/rotation = Quaternion(-4.8676796e-08, -1.1924875e-08, -6.8448012e-15, 1
 bones/34/position = Vector3(0.17131895, 1.5701507e-09, 2.5760052e-08)
 bones/34/rotation = Quaternion(-3.4756e-41, -7.54979e-08, -1.6543612e-24, 1)
 
-[node name="Joy_Base_Mouth" parent="Outfit/JoyOutfit05a/root/Skeleton3D" index="2" unique_id=1456073653]
+[node name="Joy_Base_Mouth" parent="Outfit/JoyOutfit05a/root/Skeleton3D" index="2" unique_id=832823445]
 sorting_offset = 1.0
 
 [node name="FacialAnimator" parent="." index="3" unique_id=2118967770 node_paths=PackedStringArray("eyes_meshes", "mouth_meshes", "skeleton")]
@@ -304,13 +223,7 @@ skeleton = NodePath("../Skeleton/root/Skeleton3D")
 root_node = NodePath("../Skeleton")
 libraries/ = SubResource("AnimationLibrary_yj5q6")
 
-[node name="CharacterAnimationTree" parent="." index="6" unique_id=414468221]
-root_node = NodePath("../Skeleton")
-tree_root = SubResource("AnimationNodeBlendTree_3kbtu")
-parameters/blink_trigger/active = true
-parameters/blink_trigger/internal_active = true
-
-[node name="DialogueCamera" parent="." index="7" unique_id=1887443005]
+[node name="DialogueCamera" parent="." index="6" unique_id=1887443005]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 1.5407988, 1.16291)
 
 [connection signal="pose_updated" from="Skeleton/root/Skeleton3D" to="FacialAnimator" method="pose_updated"]

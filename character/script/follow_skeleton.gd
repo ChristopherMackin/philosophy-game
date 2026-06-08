@@ -1,7 +1,15 @@
 @tool
 extends Node3D
 
-class_name OutfitSkeletonTarget
+class_name FollowSkeleton
+
+func _ready():
+	if !skeleton:
+		var skeletons = find_children("*", "Skeleton3D", true)
+		if not skeletons.is_empty():
+			skeleton = skeletons[0]
+	
+	_pose_updated()
 
 var skeleton: Skeleton3D:
 	get:
@@ -21,6 +29,8 @@ var skeleton: Skeleton3D:
 		
 		if target and not target.pose_updated.is_connected(_pose_updated):
 			target.pose_updated.connect(_pose_updated)
+		
+		_pose_updated()
 
 func _pose_updated():
 	if !skeleton || !target: return

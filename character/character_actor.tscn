@@ -4,8 +4,6 @@
 [ext_resource type="Script" uid="uid://br5kxd06vsn3n" path="res://utility/script/set_layer_mask.gd" id="2_v5ghv"]
 [ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://character/script/facial_animator.gd" id="3_mv020"]
 [ext_resource type="Script" uid="uid://4lmkf6b3mly" path="res://system/script/animation/character_tree_animation_handler.gd" id="4_t36e5"]
-[ext_resource type="AnimationNodeBlendTree" uid="uid://deg11edoj1x7r" path="res://character/character_animation_tree.tres" id="5_l0lrf"]
-[ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/script/character_animation_tree.gd" id="6_g0jyn"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="7_5d15r"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_m4kvb"]
 [ext_resource type="Resource" uid="uid://v2wiqt0q1qwn" path="res://character/portrait_camera_resource.tres" id="9_t8a6v"]
@@ -19,11 +17,10 @@ ease = 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_lrl4d"]
 size = Vector3(2, 3, 1.75)
 
-[node name="AnimatedActor" type="Node3D" unique_id=1017530611 node_paths=PackedStringArray("_layer_mask", "_dialgoue_camera", "character_animation_tree")]
+[node name="AnimatedActor" type="Node3D" unique_id=1017530611 node_paths=PackedStringArray("_layer_mask", "_dialgoue_camera")]
 script = ExtResource("1_lrl4d")
 _layer_mask = NodePath("LayerMask")
 _dialgoue_camera = NodePath("DialogueCamera")
-character_animation_tree = NodePath("CharacterAnimationTree")
 
 [node name="Outfit" type="Node3D" parent="." unique_id=216209769]
 
@@ -37,36 +34,12 @@ script = ExtResource("3_mv020")
 mouth_row_count = 8
 metadata/_custom_type_script = "uid://bj0ldo17kyup3"
 
-[node name="AnimationHandler" type="Node" parent="." unique_id=1134272481 node_paths=PackedStringArray("animation_tree")]
+[node name="AnimationHandler" type="Node" parent="." unique_id=1134272481]
 script = ExtResource("4_t36e5")
-animation_tree = NodePath("../CharacterAnimationTree")
 metadata/_custom_type_script = "uid://4lmkf6b3mly"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=99323753]
-
-[node name="CharacterAnimationTree" type="AnimationTree" parent="." unique_id=414468221]
-tree_root = ExtResource("5_l0lrf")
-anim_player = NodePath("../AnimationPlayer")
-parameters/animation/add_amount = 1.0
-parameters/blink_trigger/active = false
-parameters/blink_trigger/internal_active = false
-parameters/blink_trigger/request = 0
-parameters/facial_animation/add_amount = 1.0
-parameters/idling/active = false
-parameters/idling/internal_active = false
-parameters/idling/request = 0
-parameters/take_action/active = false
-parameters/take_action/internal_active = false
-parameters/take_action/request = 0
-parameters/talk_trigger/active = false
-parameters/talk_trigger/internal_active = false
-parameters/talk_trigger/request = 0
-parameters/walking/blend_amount = 0.0
-script = ExtResource("6_g0jyn")
-idle_variation_count = 1
-idle_variation_min = 20.0
-idle_variation_max = 31.0
-metadata/_custom_type_script = "uid://2kn4432bu4u8"
+reset_on_save = false
 
 [node name="DialogueCamera" type="Node3D" parent="." unique_id=1887443005]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 1.29199, 1.16291)
