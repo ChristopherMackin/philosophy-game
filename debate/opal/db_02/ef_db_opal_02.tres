@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="OrderedBucketEventFactory" format=3 uid="uid://tlcoyw2fklgw"]
+
+[ext_resource type="Script" uid="uid://ujd6vl7brq4e" path="res://system/script/event_factory/event_payload_bucket.gd" id="1_65fn2"]
+[ext_resource type="Script" uid="uid://bcbeuvdrhjbe6" path="res://system/script/event_factory/ordered_bucket_event_factory.gd" id="2_u550f"]
+
+[resource]
+script = ExtResource("2_u550f")
+metadata/_custom_type_script = "uid://bcbeuvdrhjbe6"

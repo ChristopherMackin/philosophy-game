@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://cw0e3v0tttud"]
 
 [ext_resource type="PackedScene" uid="uid://ds0c42ghy27jc" path="res://debate/_general/lvl_db_base.tscn" id="1_08ibf"]
+[ext_resource type="Environment" uid="uid://en34lm5ch6gf" path="res://we_db_opal_02.tres" id="2_ex5l2"]
+[ext_resource type="Resource" uid="uid://do4ijr1aixaqw" path="res://debate/opal/db_02/bb_db_opal_02.tres" id="2_m8pkt"]
+[ext_resource type="PackedScene" uid="uid://b6up1alpc3bbp" path="res://debate/opal/db_02/env_db_opal_02.tscn" id="2_nk7y5"]
+[ext_resource type="Resource" uid="uid://tlcoyw2fklgw" path="res://debate/opal/db_02/ef_db_opal_02.tres" id="3_7perk"]
+[ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://system/debate_settings.tres" id="4_d8h3i"]
+[ext_resource type="PackedScene" uid="uid://dnalajbqwpcg2" path="res://character/joy/act_joy.tscn" id="4_sobop"]
+[ext_resource type="Resource" uid="uid://bc7p0mjt75pco" path="res://debate/opal/db_02/char_db_opal_02.tres" id="5_cmp1c"]
+[ext_resource type="PackedScene" uid="uid://dgjj6ix2mlftp" path="res://character/opal/act_opal.tscn" id="5_l1ksb"]
 
 [node name="LvlDbBase" unique_id=1140928789 instance=ExtResource("1_08ibf")]
 
@@ -8,4 +16,79 @@
 transform = Transform3D(-0.9157936, -0.07511367, 0.39456367, 0.15805899, 0.8356978, 0.52595246, -0.369242, 0.54402816, -0.7534539, -0.13498181, 1.3219051, -0.031401526)
 top_level = true
 
+[node name="SceneLoadManager" parent="===MANAGER========" index="0"]
+blackboard = ExtResource("2_m8pkt")
+event_factory = ExtResource("3_7perk")
+
+[node name="DebateSceneManager" parent="===MANAGER========" index="2" node_paths=PackedStringArray("board")]
+blackboard = ExtResource("2_m8pkt")
+event_factory = ExtResource("3_7perk")
+debate_settings = ExtResource("4_d8h3i")
+computer = ExtResource("5_cmp1c")
+board = NodePath("../../===UI========/BoardGui")
+
+[node name="SceneEventManager" parent="===MANAGER========" index="3" node_paths=PackedStringArray("actors", "default_dialogue_area")]
+actors = [NodePath("../../===ACTOR========/JoyActor"), NodePath("../../===ACTOR========/OpalActor")]
+default_dialogue_area = NodePath("../../===UI========/Player/BasicDialogueBubble")
+
+[node name="WorldEnvironment" parent="===WORLD========" index="0"]
+environment = ExtResource("2_ex5l2")
+
+[node name="EnvDbOpal02" parent="===ENVIRONMENT========" index="0" unique_id=472548192 instance=ExtResource("2_nk7y5")]
+
+[node name="JoyActor" parent="===ACTOR========" index="0" unique_id=2066360241 instance=ExtResource("4_sobop")]
+
+[node name="Joy_Base_Body" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="0" unique_id=1383156024]
+layers = 3
+
+[node name="Joy_Base_Face" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="1" unique_id=1019652094]
+layers = 3
+
+[node name="Joy_Base_Mouth" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="2" unique_id=1443948411]
+layers = 3
+
+[node name="Joy_Base_Pupils" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="3" unique_id=1977402618]
+layers = 3
+
+[node name="Joy_Base_Skull" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="4" unique_id=853670762]
+layers = 3
+
+[node name="Joy_Base_Sockets" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="5" unique_id=1790840942]
+layers = 3
+
+[node name="Joy_Hair_04a" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="6" unique_id=946662070]
+layers = 3
+
+[node name="Joy_Outfit_05_Hat" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="7" unique_id=1037515678]
+layers = 3
+
+[node name="Joy_Outfit_05_NameTag" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="8" unique_id=843495148]
+layers = 3
+
+[node name="Joy_Outfit_05_Shirt" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="9" unique_id=200945530]
+layers = 3
+
+[node name="Joy_Outfit_05_Shoes" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="10" unique_id=650872247]
+layers = 3
+
+[node name="Joy_Outfit_05_Shorts" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="11" unique_id=419595216]
+layers = 3
+
+[node name="Joy_Outfit_05_Socks" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="12" unique_id=1352703182]
+layers = 3
+
+[node name="LayerMask" parent="===ACTOR========/JoyActor" index="2" unique_id=111101249]
+layers = Array[bool]([true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
+
+[node name="OpalActor" parent="===ACTOR========" index="1" unique_id=1017530611 instance=ExtResource("5_l1ksb")]
+
+[node name="Camera3D" parent="===UI========/Player/PlayerPortrait/SubViewport" index="0"]
+transform = Transform3D(0.92930025, 0, 0.3693251, 0, 1, 0, -0.3693251, 0, 0.92930025, 0.1782582, 0.7807163, 2.4587579)
+
+[node name="PlayAreaSelector" parent="===UI========" index="7" node_paths=PackedStringArray("board")]
+board = NodePath("../BoardGui")
+
+[editable path="===ACTOR========/JoyActor"]
+[editable path="===ACTOR========/JoyActor/Skeleton"]
+[editable path="===ACTOR========/JoyActor/Outfit/JoyOutfit05a"]
 [editable path="===UI========/Player/BasicDialogueBubble"]

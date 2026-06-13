@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://bc7p0mjt75pco"]
+
+[ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="1_dgeyy"]
+[ext_resource type="Resource" uid="uid://801jacpgcn81" path="res://character/opal/bb_opal.tres" id="1_oespp"]
+[ext_resource type="Script" uid="uid://2hwgbl7c4ebq" path="res://character/script/brain/simple_ai_brain.gd" id="2_2f8yc"]
+[ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="2_pj6hy"]
+[ext_resource type="Resource" uid="uid://2ck3c4aeaqbv" path="res://debate/opal/db_02/dk_db_opal_02.tres" id="3_vpxqi"]
+
+[sub_resource type="Resource" id="Resource_pj6hy"]
+script = ExtResource("2_2f8yc")
+metadata/_custom_type_script = "uid://2hwgbl7c4ebq"
+
+[resource]
+script = ExtResource("1_dgeyy")
+brain = SubResource("Resource_pj6hy")
+deck = ExtResource("3_vpxqi")
+blackboard = ExtResource("1_oespp")
+metadata/_custom_type_script = "uid://b0gx18dmx3sv3"
