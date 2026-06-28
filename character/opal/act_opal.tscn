@@ -135,6 +135,9 @@ bones/66/rotation = Quaternion(0.41699848, -0.5347462, 0.46193293, 0.57164395)
 bones/67/rotation = Quaternion(2.7341677e-08, 0.9997896, 0.020512626, -4.783171e-07)
 bones/68/rotation = Quaternion(-2.944373e-08, -0.0062149637, 4.7445735e-07, 0.9999807)
 
+[node name="Opal_Base_Face_001" parent="Outfit/OpalOutfit01/root/Skeleton3D" index="2" unique_id=1272425223]
+sorting_offset = 1.0
+
 [node name="AnimationPlayer" parent="." index="5" unique_id=99323753]
 root_node = NodePath("../Skeleton")
 libraries/ = SubResource("AnimationLibrary_5ewib")

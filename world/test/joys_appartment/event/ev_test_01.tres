@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://dkj38626s4dbh"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_k7lfb"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_2wb67"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="3_gosn5"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_2wb67")
+
+[sub_resource type="Resource" id="Resource_vm50t"]
+script = ExtResource("3_gosn5")
+outputs = Array[int]([1])
+inputs = ["This tree looks dumb as hell... I hope someone takes it down soon so I don't have to look at it anymore!", "joy", true, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_r3djr"]
+script = ExtResource("3_gosn5")
+inputs = ["Isn't that neat and stuff?", "opal", true, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_k7lfb")
+await_event = true
+start_task = SubResource("Resource_vm50t")
+tasks = Array[ExtResource("3_gosn5")]([SubResource("Resource_vm50t"), SubResource("Resource_r3djr")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

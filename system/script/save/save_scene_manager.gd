@@ -6,7 +6,8 @@ class_name SaveSceneManager
 
 func _enter_tree():
 	load_data()
-	SceneManager.on_scene_unloaded.connect(save_data, CONNECT_ONE_SHOT)
+	if !SceneManager.is_connected("on_scene_unloaded", save_data):
+		SceneManager.on_scene_unloaded.connect(save_data, CONNECT_ONE_SHOT)
 
 func load_data():
 	for data : SaveData in save_data_list:

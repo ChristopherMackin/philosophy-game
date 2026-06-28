@@ -21,7 +21,6 @@ class_name DebateSceneManager
 @export var computer : Character
 
 @export_group("Player UI")
-@export var board : Board
 @export var hand_ui : HandGUI
 @export var energy_ui : EnergyGUI
 @export var hold_area_ui : HoldAreaGUI
@@ -72,7 +71,7 @@ func on_card_hold_updated(card : Card, active_contestant : Contestant):
 	await query_event(Const.Concept.ON_HOLD)
 
 func on_lines_cleared(count : int):
-	await board.clear_row(count)
+	pass
 
 func on_actions_invoked(card : Card, action_type: CardAction.Type, contestant : Contestant):
 	await update_everything()
@@ -108,14 +107,14 @@ func update_board():
 	if !manager.active_contestant: return
 	
 	var active_contestant = "player" if manager.active_contestant.character_is(player) else "computer"
-	await board.update_board(manager.suit_track_dictionary, active_contestant)
+	pass
 
 func update_player_ui():
-	await hand_ui.update_hand(manager.player.hand)
-	await energy_ui.update_amount(manager.player.current_energy)
-	await hold_area_ui.set_hold_card(manager.player.held_card.get_card_at_index(0))
-	await draw_pile_ui.update_amount(manager.player.draw_pile.size())
+	if hand_ui: await hand_ui.update_hand(manager.player.hand)
+	if energy_ui: await energy_ui.update_amount(manager.player.current_energy)
+	if hold_area_ui: await hold_area_ui.set_hold_card(manager.player.held_card.get_card_at_index(0))
+	if draw_pile_ui: await draw_pile_ui.update_amount(manager.player.draw_pile.size())
 
 func update_computer_ui():
-	await computer_hand_ui.update_amount(manager.computer.hand.size())
-	await computer_energy_ui.update_amount(manager.computer.current_energy)
+	if computer_hand_ui: await computer_hand_ui.update_amount(manager.computer.hand.size())
+	if computer_energy_ui: await computer_energy_ui.update_amount(manager.computer.current_energy)

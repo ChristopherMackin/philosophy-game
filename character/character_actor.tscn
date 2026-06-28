@@ -19,15 +19,10 @@ size = Vector3(2, 3, 1.75)
 
 [node name="AnimatedActor" type="Node3D" unique_id=1017530611 node_paths=PackedStringArray("_layer_mask", "_dialgoue_camera")]
 script = ExtResource("1_lrl4d")
-_layer_mask = NodePath("LayerMask")
+_layer_mask = NodePath("")
 _dialgoue_camera = NodePath("DialogueCamera")
 
 [node name="Outfit" type="Node3D" parent="." unique_id=216209769]
-
-[node name="LayerMask" type="Node" parent="." unique_id=111101249]
-script = ExtResource("2_v5ghv")
-layers = Array[bool]([true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
-metadata/_custom_type_script = "uid://br5kxd06vsn3n"
 
 [node name="FacialAnimator" type="Node" parent="." unique_id=2118967770]
 script = ExtResource("3_mv020")
@@ -60,6 +55,11 @@ script = ExtResource("10_v5ghv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PersonalBubble" unique_id=364469082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.625)
 shape = SubResource("BoxShape3D_lrl4d")
+
+[node name="LayerMask" type="Node" parent="." unique_id=1716574017]
+script = ExtResource("2_v5ghv")
+layers = 1
+metadata/_custom_type_script = "uid://br5kxd06vsn3n"
 
 [connection signal="area_entered" from="PersonalBubble" to="PersonalBubble" method="_on_area_entered"]
 [connection signal="area_exited" from="PersonalBubble" to="PersonalBubble" method="_on_area_exited"]

@@ -9,6 +9,8 @@ func _ready():
 	_change_camera()
 
 func _change_camera():
+	if angles.size() <= 0: return
+	
 	var index = randi_range(0, angles.size() - 1)
 	while cached_indexes.has(index):
 		index += 1

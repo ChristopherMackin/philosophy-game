@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cw0e3v0tttud"]
+
+[ext_resource type="PackedScene" uid="uid://ds0c42ghy27jc" path="res://debate/_general/lvl_db_base.tscn" id="1_08ibf"]
+[ext_resource type="Environment" uid="uid://en34lm5ch6gf" path="res://debate/opal/db_02/we_db_opal_02.tres" id="2_ex5l2"]
+[ext_resource type="Resource" uid="uid://do4ijr1aixaqw" path="res://debate/opal/db_02/bb_db_opal_02.tres" id="2_m8pkt"]
+[ext_resource type="PackedScene" uid="uid://b6up1alpc3bbp" path="res://debate/opal/db_02/env_db_opal_02.tscn" id="2_nk7y5"]
+[ext_resource type="Resource" uid="uid://tlcoyw2fklgw" path="res://debate/opal/db_02/ef_db_opal_02.tres" id="3_7perk"]
+[ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://system/debate_settings.tres" id="4_d8h3i"]
+[ext_resource type="PackedScene" uid="uid://dnalajbqwpcg2" path="res://character/joy/act_joy.tscn" id="4_sobop"]
+[ext_resource type="Resource" uid="uid://bc7p0mjt75pco" path="res://debate/opal/db_02/char_db_opal_02.tres" id="5_cmp1c"]
+[ext_resource type="PackedScene" uid="uid://dgjj6ix2mlftp" path="res://character/opal/act_opal.tscn" id="5_l1ksb"]
+
+[node name="LvlDbOpal02" unique_id=1140928789 instance=ExtResource("1_08ibf")]
+
+[node name="MainCamera" parent="===CAMERA========" parent_id_path=PackedInt32Array(1860563192) index="0" unique_id=282409628]
+physics_interpolation_mode = 2
+transform = Transform3D(0.980758, -1.4614434e-08, -0.1952273, 0.16368124, 0.5450343, 0.82228106, 0.10640554, -0.8384138, 0.5345468, 0.38477612, 6.1676216, 4.12362)
+top_level = true
+
+[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="0" unique_id=4102704]
+blackboard = ExtResource("2_m8pkt")
+event_factory = ExtResource("3_7perk")
+
+[node name="DebateSceneManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="2" unique_id=1646962725]
+blackboard = ExtResource("2_m8pkt")
+event_factory = ExtResource("3_7perk")
+debate_settings = ExtResource("4_d8h3i")
+computer = ExtResource("5_cmp1c")
+
+[node name="SceneEventManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="3" unique_id=1999759174 node_paths=PackedStringArray("actors", "default_dialogue_area")]
+actors = [NodePath("../../===ACTOR========/JoyActor"), NodePath("../../===ACTOR========/OpalActor")]
+default_dialogue_area = NodePath("../../===UI========/Player/BasicDialogueBubble")
+
+[node name="DebateBackgroundCameraManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="6" unique_id=730746972 node_paths=PackedStringArray("angles")]
+angles = []
+
+[node name="WorldEnvironment" parent="===WORLD========" parent_id_path=PackedInt32Array(738740360) index="0" unique_id=1681757404]
+environment = ExtResource("2_ex5l2")
+
+[node name="EnvDbOpal02" parent="===ENVIRONMENT========" parent_id_path=PackedInt32Array(1647520102) index="0" unique_id=472548192 instance=ExtResource("2_nk7y5")]
+
+[node name="JoyActor" parent="===ACTOR========" parent_id_path=PackedInt32Array(1690436738) index="0" unique_id=2066360241 node_paths=PackedStringArray("dialogue_area_override") instance=ExtResource("4_sobop")]
+dialogue_area_override = NodePath("../../===UI========/Player/BasicDialogueBubble")
+
+[node name="OpalActor" parent="===ACTOR========" parent_id_path=PackedInt32Array(1690436738) index="1" unique_id=1017530611 node_paths=PackedStringArray("dialogue_area_override") instance=ExtResource("5_l1ksb")]
+transform = Transform3D(0.59061974, 0, -0.80695, 0, 1, 0, 0.80695, 0, 0.59061974, 3.3337862, 1.2082886, 0.64108145)
+dialogue_area_override = NodePath("../../===UI========/Computer/BasicDialogueBubble")
+
+[node name="Camera3D" parent="===UI========/Player/PlayerPortrait/SubViewport" parent_id_path=PackedInt32Array(1395937397) index="0" unique_id=1739722317]
+transform = Transform3D(0.92930025, 0, 0.3693251, 0, 1, 0, -0.3693251, 0, 0.92930025, 0.1782582, 0.7807163, 2.4587579)
+
+[editable path="===ACTOR========/JoyActor"]
+[editable path="===ACTOR========/JoyActor/Skeleton"]
+[editable path="===ACTOR========/JoyActor/Outfit/JoyOutfit05a"]
+[editable path="===UI========/Player/BasicDialogueBubble"]

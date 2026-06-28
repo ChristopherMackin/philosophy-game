@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TokenData" format=3 uid="uid://dlmgmycw0djem"]
 
-[ext_resource type="Texture2D" uid="uid://cpasg5witafv0" path="res://_asset/debate/_general/graphic/token/basic_doubt_tex.png" id="1_0klc6"]
+[ext_resource type="Texture2D" uid="uid://cpasg5witafv0" path="res://_asset/debate/_general/texture/token/t_basic_doubt_tex.png" id="1_0klc6"]
 [ext_resource type="Script" uid="uid://cip7nwc18tb27" path="res://system/script/token/token_data.gd" id="1_swlgb"]
 
 [resource]

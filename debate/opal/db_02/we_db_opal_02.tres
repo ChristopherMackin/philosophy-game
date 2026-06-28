@@ -1,19 +1,18 @@
 [gd_resource type="Environment" format=3 uid="uid://en34lm5ch6gf"]
 
-[ext_resource type="Shader" uid="uid://ccsxi8xvcgfe2" path="res://_general/shader/s_nighttime_sky.tres" id="1_ibcoj"]
+[ext_resource type="Shader" uid="uid://ccsxi8xvcgfe2" path="res://_general/shader/sh_nighttime_sky.tres" id="1_x2jjk"]
 [ext_resource type="Texture2D" uid="uid://64uo8ucmg2va" path="res://_asset/_general/texture/t_stary_sky_col.jpg" id="2_66x3o"]
 
 [sub_resource type="Gradient" id="Gradient_lx1ym"]
-offsets = PackedFloat32Array(0.50564975, 0.64689267)
-colors = PackedColorArray(0, 0, 0, 1, 0.2139, 0.26151007, 0.69, 1)
+offsets = PackedFloat32Array(0.50564975, 0.64689267, 0.70487803)
+colors = PackedColorArray(0, 0, 0, 1, 0.2139, 0.26151007, 0.69, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gyrkl"]
 gradient = SubResource("Gradient_lx1ym")
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0.00882353)
+fill_to = Vector2(0.0064102565, 0.77991456)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o8crt"]
-shader = ExtResource("1_ibcoj")
+shader = ExtResource("1_x2jjk")
 shader_parameter/sky_texture = ExtResource("2_66x3o")
 shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_gyrkl")
 

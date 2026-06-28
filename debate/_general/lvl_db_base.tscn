@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://ds0c42ghy27jc"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_ex63t"]
-[ext_resource type="Script" uid="uid://bpb8n3aqb48yr" path="res://debate/_script/camera/debate_background_angle.gd" id="2_2hdq6"]
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_ghdjh"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_ayvee"]
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="5_3nl4p"]
-[ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="5_igvqd"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="6_tnya4"]
 [ext_resource type="Script" uid="uid://bojj5s0o4f2s3" path="res://system/script/input/world_input_manager.gd" id="9_2k5l1"]
 [ext_resource type="Resource" uid="uid://coqtgijiyc02d" path="res://system/input/ih_selection_manager.tres" id="10_sf3wj"]
@@ -17,32 +13,29 @@
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="18_21cnb"]
 [ext_resource type="Script" uid="uid://syaosi1lkwul" path="res://debate/_script/ui/selection_manager.gd" id="19_8d68c"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/br_player.tres" id="20_8qes8"]
-[ext_resource type="Texture2D" uid="uid://ccck72fquc0fb" path="res://_asset/debate/_general/graphic/stats_area/thought_bubble.png" id="21_3uwon"]
+[ext_resource type="Texture2D" uid="uid://ccck72fquc0fb" path="res://_asset/debate/_general/texture/stats_area/t_thought_bubble.png" id="21_3uwon"]
 [ext_resource type="Script" uid="uid://csow7w8d3n2ux" path="res://debate/_script/camera/debate_background_camera_manager.gd" id="22_ghdjh"]
 [ext_resource type="Resource" uid="uid://vxjneadxt621" path="res://system/focus_group/hand_focus_group.tres" id="22_iy8ys"]
 [ext_resource type="Resource" uid="uid://gxn0k63lex4l" path="res://system/focus_group/play_area_focus_group.tres" id="23_dnmon"]
 [ext_resource type="Resource" uid="uid://bo5lyi4q2kuag" path="res://system/focus_group/card_selector_focus_group.tres" id="24_jhuis"]
-[ext_resource type="PackedScene" uid="uid://d0smq58at560j" path="res://board_gui_new.tscn" id="24_vcgx2"]
 [ext_resource type="Resource" uid="uid://8fi1d2l5sq45" path="res://system/focus_group/suit_focus_group.tres" id="25_w8c35"]
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="30_xda6k"]
 [ext_resource type="Environment" uid="uid://dusoeojvrrec8" path="res://_general/style/debate_contestant_viewport.tres" id="38_shvv0"]
-[ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://_asset/debate/_general/graphic/stats_area/turn_counter_background.png" id="43_7dqfo"]
+[ext_resource type="Texture2D" uid="uid://x41q7eg5gtw0" path="res://_asset/debate/_general/texture/stats_area/t_turn_counter_background.png" id="43_7dqfo"]
 [ext_resource type="FontFile" uid="uid://cmeigjr04hthx" path="res://_asset/_general/font/Fredoka-VariableFont_wdth,wght.ttf" id="44_x8xci"]
-[ext_resource type="Script" uid="uid://ba8ai3bmpwetc" path="res://debate/_script/ui/gui/energy_gui.gd" id="45_b31pg"]
-[ext_resource type="Texture2D" uid="uid://csnb8nne3qn56" path="res://_asset/debate/_general/graphic/stats_area/draw_pile.png" id="46_r6v5q"]
-[ext_resource type="Script" uid="uid://5deqam17jqt3" path="res://debate/_script/ui/gui/draw_pile_gui.gd" id="47_wk8eu"]
-[ext_resource type="Script" uid="uid://duts3e4cshe3t" path="res://debate/_script/ui/gui/hold_area_gui.gd" id="48_gopoh"]
+[ext_resource type="Script" uid="uid://ba8ai3bmpwetc" path="res://debate/_script/ui/energy_gui.gd" id="45_b31pg"]
+[ext_resource type="Texture2D" uid="uid://csnb8nne3qn56" path="res://_asset/debate/_general/texture/stats_area/t_draw_pile.png" id="46_r6v5q"]
+[ext_resource type="Script" uid="uid://5deqam17jqt3" path="res://debate/_script/ui/draw_pile_gui.gd" id="47_wk8eu"]
+[ext_resource type="Script" uid="uid://duts3e4cshe3t" path="res://debate/_script/ui/hold_area_gui.gd" id="48_gopoh"]
 [ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/card_gui/card_gui.tscn" id="49_f7rw5"]
 [ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_gui/tokenless_card_gui.tscn" id="50_sy3ii"]
-[ext_resource type="Script" uid="uid://ddig2iswn7qy4" path="res://debate/_script/ui/play_area_selector_gui.gd" id="51_c4v3n"]
 [ext_resource type="Script" uid="uid://ct7j27rex1yjk" path="res://system/script/card/suit_packed_scene.gd" id="51_yverm"]
-[ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/token_selector_gui.tscn" id="52_0pw6n"]
 [ext_resource type="PackedScene" uid="uid://bmxatnrtkqwmu" path="res://debate/packed_scene/card_gui/peace_card_gui.tscn" id="52_xmg2k"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="53_j5dr4"]
 [ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/packed_scene/basic_dialogue_area.tscn" id="54_0ee2r"]
-[ext_resource type="Texture2D" uid="uid://caks003lacvsp" path="res://_asset/debate/_general/graphic/stats_area/hand_icon.png" id="55_jbfgj"]
-[ext_resource type="Script" uid="uid://ks6wf626gfx2" path="res://debate/_script/ui/gui/hand_count_gui.gd" id="56_33pwx"]
-[ext_resource type="Script" uid="uid://dur1nyt0adfmo" path="res://debate/_script/ui/gui/hand_gui.gd" id="57_oqf32"]
+[ext_resource type="Texture2D" uid="uid://caks003lacvsp" path="res://_asset/debate/_general/texture/stats_area/t_hand_icon.png" id="55_jbfgj"]
+[ext_resource type="Script" uid="uid://ks6wf626gfx2" path="res://debate/_script/ui/hand_count_gui.gd" id="56_33pwx"]
+[ext_resource type="Script" uid="uid://dur1nyt0adfmo" path="res://debate/_script/ui/hand_gui.gd" id="57_oqf32"]
 [ext_resource type="Script" uid="uid://vgpd0x8mfpi" path="res://_general/script/ui/curve_container.gd" id="58_8i608"]
 [ext_resource type="Script" uid="uid://dh6wdv1jmcd8j" path="res://debate/_script/ui/suit_selector.gd" id="59_8iymb"]
 [ext_resource type="PackedScene" uid="uid://p7gbun4jgavh" path="res://debate/packed_scene/suit_banner_gui/doubt_banner.tscn" id="60_0kmuh"]
@@ -56,46 +49,6 @@
 [ext_resource type="Texture2D" uid="uid://qiqjkvvjvbi4" path="res://_asset/debate/simon/_general/simon_dialogue.png" id="68_x05n2"]
 [ext_resource type="Script" uid="uid://i6q2q68f73y6" path="res://debate/_script/ui/card_selector.gd" id="69_4bjla"]
 [ext_resource type="Texture2D" uid="uid://duwx1hkh07na8" path="res://_asset/debate/simon/_general/simon_confirm_button.png" id="70_djrj6"]
-
-[sub_resource type="Resource" id="Resource_tlos6"]
-script = ExtResource("4_ayvee")
-duration = 0.0
-
-[sub_resource type="Resource" id="Resource_2dmla"]
-script = ExtResource("4_ayvee")
-duration = 10.0
-
-[sub_resource type="Resource" id="Resource_8t3db"]
-script = ExtResource("4_ayvee")
-duration = 0.0
-
-[sub_resource type="Resource" id="Resource_sg66j"]
-script = ExtResource("4_ayvee")
-duration = 8.0
-
-[sub_resource type="Resource" id="Resource_nh8g4"]
-script = ExtResource("4_ayvee")
-duration = 0.0
-
-[sub_resource type="Resource" id="Resource_58n4r"]
-script = ExtResource("4_ayvee")
-duration = 15.0
-
-[sub_resource type="Resource" id="Resource_fee10"]
-script = ExtResource("4_ayvee")
-duration = 0.0
-
-[sub_resource type="Resource" id="Resource_scfs0"]
-script = ExtResource("4_ayvee")
-duration = 12.0
-
-[sub_resource type="Resource" id="Resource_o8cdu"]
-script = ExtResource("4_ayvee")
-duration = 0.0
-
-[sub_resource type="Resource" id="Resource_i1nxk"]
-script = ExtResource("4_ayvee")
-duration = 9.0
 
 [sub_resource type="Gradient" id="Gradient_x8g0f"]
 offsets = PackedFloat32Array(0)
@@ -165,124 +118,37 @@ suit = ExtResource("53_j5dr4")
 packed_scene = ExtResource("52_xmg2k")
 metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 
-[node name="LvlDbBase" type="Node3D"]
+[node name="LvlDbBase" type="Node3D" unique_id=1926068290]
 
-[node name="===CAMERA========" type="Node3D" parent="."]
+[node name="===CAMERA========" type="Node3D" parent="." unique_id=1860563192]
 
-[node name="MainCamera" type="Camera3D" parent="===CAMERA========"]
-transform = Transform3D(0.92021817, -0.06396044, 0.38614458, 0.063960426, 0.9978698, 0.012862084, -0.38614455, 0.01286204, 0.922349, 0.025898933, 0.85376585, 0.025793817)
+[node name="MainCamera" type="Camera3D" parent="===CAMERA========" unique_id=282409628]
+transform = Transform3D(-0.9157935, -0.07511359, 0.39456338, 0.15805897, 0.835698, 0.5259527, -0.36924198, 0.54402834, -0.7534544, -0.13498181, 1.3219051, -0.031401526)
 current = true
 fov = 45.0
 far = 100.0
 
-[node name="PhantomCameraHost" type="Node" parent="===CAMERA========/MainCamera"]
+[node name="PhantomCameraHost" type="Node" parent="===CAMERA========/MainCamera" unique_id=1846865450]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("1_ex63t")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="DebateBackgroundAngles" type="Node3D" parent="===CAMERA========"]
+[node name="DebateBackgroundAngles" type="Node3D" parent="===CAMERA========" unique_id=771068528]
 
-[node name="Angle01" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles"]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-script = ExtResource("2_2hdq6")
-
-[node name="StartAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle01"]
-transform = Transform3D(0.92021817, -0.06396044, 0.38614458, 0.06396043, 0.99786985, 0.012862085, -0.38614458, 0.012862041, 0.92234904, 0.025898933, 0.8537659, 0.025793819)
-script = ExtResource("3_ghdjh")
-tween_resource = SubResource("Resource_tlos6")
-camera_3d_resource = ExtResource("5_igvqd")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="EndAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle01"]
-transform = Transform3D(0.92021817, -0.063960455, 0.38614464, 0.06396042, 0.99786997, 0.012862113, -0.38614452, 0.012862054, 0.922349, -0.054, 1.4, -0.004)
-script = ExtResource("3_ghdjh")
-tween_resource = SubResource("Resource_2dmla")
-camera_3d_resource = ExtResource("5_igvqd")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="Angle02" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles"]
-script = ExtResource("2_2hdq6")
-
-[node name="StartAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle02"]
-transform = Transform3D(-0.26435974, 0.1911003, -0.9453015, -0.00647847, 0.9797978, 0.19988573, 0.9644025, 0.05896584, -0.2577811, -3.672316, 1.704742, -1.0718565)
-script = ExtResource("3_ghdjh")
-tween_resource = SubResource("Resource_8t3db")
-camera_3d_resource = ExtResource("5_igvqd")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="EndAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle02"]
-transform = Transform3D(0.3216359, 0.30318493, -0.8970113, -0.10233176, 0.9529317, 0.28539333, 0.9413175, 0, 0.3375225, -3.672316, 2.0503752, 1.4023657)
-script = ExtResource("3_ghdjh")
-tween_resource = SubResource("Resource_sg66j")
-camera_3d_resource = ExtResource("5_igvqd")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="Angle03" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles"]
-script = ExtResource("2_2hdq6")
-
-[node name="StartAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle03"]
-transform = Transform3D(0.6492755, -0.7605533, -3.324484e-08, 0, -4.371139e-08, 1, -0.7605533, -0.6492755, -2.8380732e-08, 0, 5.14217, -0.22422314)
-script = ExtResource("3_ghdjh")
-tween_resource = SubResource("Resource_nh8g4")
-camera_3d_resource = ExtResource("5_igvqd")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="EndAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle03"]
-transform = Transform3D(0.6492755, -0.7605533, -3.324484e-08, 0, -4.371139e-08, 1, -0.7605533, -0.6492755, -2.8380732e-08, 0, 2.9505835, -0.09962559)
-script = ExtResource("3_ghdjh")
-tween_resource = SubResource("Resource_58n4r")
-camera_3d_resource = ExtResource("5_igvqd")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="Angle04" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles"]
-script = ExtResource("2_2hdq6")
-
-[node name="StartAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle04"]
-transform = Transform3D(-0.8212886, -0.5705129, -3.324484e-08, -4.3495184e-08, 4.3421586e-09, 1, -0.5705129, 0.8212886, -2.8380732e-08, 0, 5.14217, 2.4382372)
-script = ExtResource("3_ghdjh")
-tween_resource = SubResource("Resource_fee10")
-camera_3d_resource = ExtResource("5_igvqd")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="EndAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle04"]
-transform = Transform3D(-0.8212886, -0.5705129, -3.324484e-08, -4.3495184e-08, 4.3421586e-09, 1, -0.5705129, 0.8212886, -2.8380732e-08, 0, 4.3147783, -2.1768436)
-script = ExtResource("3_ghdjh")
-tween_resource = SubResource("Resource_scfs0")
-camera_3d_resource = ExtResource("5_igvqd")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="Angle05" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles"]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-script = ExtResource("2_2hdq6")
-
-[node name="StartAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle05"]
-transform = Transform3D(-0.87331015, -0.018386945, 0.48681808, 0.063960366, 0.9863099, 0.15199223, -0.48294768, 0.1638734, -0.8601785, 0.069809556, 0.85376555, 0.11643748)
-script = ExtResource("3_ghdjh")
-tween_resource = SubResource("Resource_o8cdu")
-camera_3d_resource = ExtResource("5_igvqd")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="EndAngle" type="Node3D" parent="===CAMERA========/DebateBackgroundAngles/Angle05"]
-transform = Transform3D(-0.9157936, -0.07511367, 0.39456367, 0.158059, 0.8356979, 0.5259525, -0.36924204, 0.5440282, -0.75345397, -0.13498181, 1.3219053, -0.03140153)
-script = ExtResource("3_ghdjh")
-tween_resource = SubResource("Resource_i1nxk")
-camera_3d_resource = ExtResource("5_igvqd")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="===MANAGER========" type="Node3D" parent="."]
+[node name="===MANAGER========" type="Node3D" parent="." unique_id=1441557243]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="SceneLoadManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("scene_animator")]
+[node name="SceneLoadManager" type="Node" parent="===MANAGER========" unique_id=4102704 node_paths=PackedStringArray("scene_animator")]
 script = ExtResource("5_3nl4p")
 event_manager = ExtResource("6_tnya4")
 scene_animator = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationPlayer")
 
-[node name="InputManager" type="Node" parent="===MANAGER========"]
+[node name="InputManager" type="Node" parent="===MANAGER========" unique_id=233808309]
 script = ExtResource("9_2k5l1")
 active_handler = ExtResource("10_sf3wj")
 
-[node name="DebateSceneManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("input_manager", "hand_ui", "energy_ui", "hold_area_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
+[node name="DebateSceneManager" type="Node" parent="===MANAGER========" unique_id=1646962725 node_paths=PackedStringArray("input_manager", "hand_ui", "energy_ui", "hold_area_ui", "draw_pile_ui", "computer_energy_ui", "computer_hand_ui")]
 script = ExtResource("11_7sn7f")
 event_manager = ExtResource("6_tnya4")
 player = ExtResource("13_iabad")
@@ -297,7 +163,7 @@ computer_hand_ui = NodePath("../../===UI========/Computer/ComputerStats/Hand/Cou
 manager = ExtResource("15_ub5fw")
 metadata/_custom_type_script = "uid://dhulr5f133qcw"
 
-[node name="SceneEventManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("scene_animator_handler", "input_manager")]
+[node name="SceneEventManager" type="Node" parent="===MANAGER========" unique_id=1999759174 node_paths=PackedStringArray("scene_animator_handler", "input_manager")]
 script = ExtResource("16_hi8d6")
 debate_manager = ExtResource("15_ub5fw")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
@@ -305,11 +171,11 @@ input_manager = NodePath("../InputManager")
 dialogue_input_handler = ExtResource("17_bvf3v")
 manager = ExtResource("6_tnya4")
 
-[node name="SaveManager" type="Node" parent="===MANAGER========"]
+[node name="SaveManager" type="Node" parent="===MANAGER========" unique_id=982282546]
 script = ExtResource("18_21cnb")
 metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
 
-[node name="SelectionManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("play_area_selector", "card_selector", "suit_selector")]
+[node name="SelectionManager" type="Node" parent="===MANAGER========" unique_id=1647373781 node_paths=PackedStringArray("play_area_selector", "card_selector", "suit_selector")]
 script = ExtResource("19_8d68c")
 input_handler = ExtResource("10_sf3wj")
 player_brain = ExtResource("20_8qes8")
@@ -317,42 +183,42 @@ hand_ui_focus_group = ExtResource("22_iy8ys")
 play_area_selector_focus_group = ExtResource("23_dnmon")
 card_selector_focus_group = ExtResource("24_jhuis")
 suit_selector_focus_group = ExtResource("25_w8c35")
-play_area_selector = NodePath("../../===UI========/PlayAreaSelector")
+play_area_selector = NodePath("")
 card_selector = NodePath("../../===UI========/CardSelector")
 suit_selector = NodePath("../../===UI========/SuitSelector")
 metadata/_custom_type_script = "uid://syaosi1lkwul"
 
-[node name="DebateBackgroundCameraManager" type="Node" parent="===MANAGER========" node_paths=PackedStringArray("angles")]
+[node name="DebateBackgroundCameraManager" type="Node" parent="===MANAGER========" unique_id=730746972 node_paths=PackedStringArray("angles")]
 script = ExtResource("22_ghdjh")
-angles = [NodePath("../../===CAMERA========/DebateBackgroundAngles/Angle01"), NodePath("../../===CAMERA========/DebateBackgroundAngles/Angle02"), NodePath("../../===CAMERA========/DebateBackgroundAngles/Angle03"), NodePath("../../===CAMERA========/DebateBackgroundAngles/Angle04"), NodePath("../../===CAMERA========/DebateBackgroundAngles/Angle05")]
+angles = [null, null, null, null, null]
 
-[node name="===CUTSCENE========" type="Node3D" parent="."]
+[node name="===CUTSCENE========" type="Node3D" parent="." unique_id=1244565895]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="SceneAnimator" type="Node" parent="===CUTSCENE========"]
+[node name="SceneAnimator" type="Node" parent="===CUTSCENE========" unique_id=110888127]
 
-[node name="AnimationHandler" type="Node" parent="===CUTSCENE========/SceneAnimator" node_paths=PackedStringArray("animation_player")]
+[node name="AnimationHandler" type="Node" parent="===CUTSCENE========/SceneAnimator" unique_id=1748291934 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("30_xda6k")
 animation_player = NodePath("../AnimationPlayer")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator" unique_id=1148660164]
 
-[node name="===AUDIO========" type="Node3D" parent="."]
+[node name="===AUDIO========" type="Node3D" parent="." unique_id=1313241417]
 
-[node name="===WORLD========" type="Node3D" parent="."]
+[node name="===WORLD========" type="Node3D" parent="." unique_id=738740360]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="===WORLD========"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="===WORLD========" unique_id=1681757404]
 
-[node name="===ENVIRONMENT========" type="Node3D" parent="."]
+[node name="===ENVIRONMENT========" type="Node3D" parent="." unique_id=1647520102]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="===ACTOR========" type="Node3D" parent="."]
+[node name="===ACTOR========" type="Node3D" parent="." unique_id=1690436738]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="===UI========" type="CanvasLayer" parent="."]
+[node name="===UI========" type="CanvasLayer" parent="." unique_id=701129504]
 
-[node name="Background" type="Control" parent="===UI========"]
+[node name="Background" type="Control" parent="===UI========" unique_id=391341993]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -360,7 +226,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScreenDarken" type="TextureRect" parent="===UI========/Background"]
+[node name="ScreenDarken" type="TextureRect" parent="===UI========/Background" unique_id=2125470132]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -369,7 +235,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_77toc")
 
-[node name="Footer" type="TextureRect" parent="===UI========/Background"]
+[node name="Footer" type="TextureRect" parent="===UI========/Background" unique_id=1215581814]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.796
@@ -380,7 +246,7 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = SubResource("GradientTexture1D_qe3ln")
 
-[node name="Header" type="TextureRect" parent="===UI========/Background"]
+[node name="Header" type="TextureRect" parent="===UI========/Background" unique_id=1638204076]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -389,13 +255,7 @@ offset_bottom = -0.160004
 grow_horizontal = 2
 texture = SubResource("GradientTexture1D_qe3ln")
 
-[node name="BoardGui" parent="===UI========" instance=ExtResource("24_vcgx2")]
-offset_left = 8.0
-offset_top = 150.0
-offset_right = 8.0
-offset_bottom = 606.0
-
-[node name="Player" type="Control" parent="===UI========"]
+[node name="Player" type="Control" parent="===UI========" unique_id=1708720811]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -404,7 +264,7 @@ offset_top = -400.0
 offset_right = 960.0
 grow_vertical = 0
 
-[node name="PlayerStats" type="Control" parent="===UI========/Player"]
+[node name="PlayerStats" type="Control" parent="===UI========/Player" unique_id=132556601]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -412,14 +272,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ThoughtBubble" type="TextureRect" parent="===UI========/Player/PlayerStats"]
+[node name="ThoughtBubble" type="TextureRect" parent="===UI========/Player/PlayerStats" unique_id=230534584]
 layout_mode = 0
 offset_top = -157.0
 offset_right = 286.0
 offset_bottom = 222.0
 texture = ExtResource("21_3uwon")
 
-[node name="HoldArea" type="Control" parent="===UI========/Player/PlayerStats/ThoughtBubble"]
+[node name="HoldArea" type="Control" parent="===UI========/Player/PlayerStats/ThoughtBubble" unique_id=656236011]
 anchors_preset = 0
 offset_left = 73.0
 offset_top = 50.0
@@ -431,7 +291,7 @@ default_card_gui_packed_scene = ExtResource("49_f7rw5")
 default_tokenless_card_gui_packed_scene = ExtResource("50_sy3ii")
 tokenless_card_gui_suit_packed_scenes = Array[ExtResource("51_yverm")]([SubResource("Resource_svr5q")])
 
-[node name="MarginContainer" type="MarginContainer" parent="===UI========/Player/PlayerStats"]
+[node name="MarginContainer" type="MarginContainer" parent="===UI========/Player/PlayerStats" unique_id=1023174383]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.45
@@ -443,13 +303,13 @@ offset_bottom = -6.1035156e-05
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="VBoxContainer" parent="===UI========/Player/PlayerStats/MarginContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="===UI========/Player/PlayerStats/MarginContainer" unique_id=670035510]
 z_index = 1
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Energy" type="TextureRect" parent="===UI========/Player/PlayerStats/MarginContainer/HBoxContainer"]
+[node name="Energy" type="TextureRect" parent="===UI========/Player/PlayerStats/MarginContainer/HBoxContainer" unique_id=12758743]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -457,7 +317,7 @@ texture = ExtResource("43_7dqfo")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Count" type="RichTextLabel" parent="===UI========/Player/PlayerStats/MarginContainer/HBoxContainer/Energy"]
+[node name="Count" type="RichTextLabel" parent="===UI========/Player/PlayerStats/MarginContainer/HBoxContainer/Energy" unique_id=553154514]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.221
@@ -478,7 +338,7 @@ fit_content = true
 autowrap_mode = 0
 script = ExtResource("45_b31pg")
 
-[node name="DrawPile" type="TextureRect" parent="===UI========/Player/PlayerStats/MarginContainer/HBoxContainer"]
+[node name="DrawPile" type="TextureRect" parent="===UI========/Player/PlayerStats/MarginContainer/HBoxContainer" unique_id=1690097347]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -486,7 +346,7 @@ texture = ExtResource("46_r6v5q")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Count" type="RichTextLabel" parent="===UI========/Player/PlayerStats/MarginContainer/HBoxContainer/DrawPile"]
+[node name="Count" type="RichTextLabel" parent="===UI========/Player/PlayerStats/MarginContainer/HBoxContainer/DrawPile" unique_id=1839533901]
 z_index = 1
 layout_mode = 1
 anchors_preset = 15
@@ -505,7 +365,7 @@ fit_content = true
 autowrap_mode = 0
 script = ExtResource("47_wk8eu")
 
-[node name="PlayerPortrait" type="SubViewportContainer" parent="===UI========/Player"]
+[node name="PlayerPortrait" type="SubViewportContainer" parent="===UI========/Player" unique_id=1661907014]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.023
@@ -517,20 +377,20 @@ offset_right = -0.240051
 offset_bottom = 2.0
 grow_vertical = 0
 
-[node name="SubViewport" type="SubViewport" parent="===UI========/Player/PlayerPortrait"]
+[node name="SubViewport" type="SubViewport" parent="===UI========/Player/PlayerPortrait" unique_id=1395937397]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(500, 400)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="===UI========/Player/PlayerPortrait/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="===UI========/Player/PlayerPortrait/SubViewport" unique_id=1739722317]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 cull_mask = 2
 environment = ExtResource("38_shvv0")
 fov = 45.0
 far = 10.0
 
-[node name="BasicDialogueBubble" parent="===UI========/Player" instance=ExtResource("54_0ee2r")]
+[node name="BasicDialogueBubble" parent="===UI========/Player" unique_id=1286357085 instance=ExtResource("54_0ee2r")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.372
@@ -551,7 +411,7 @@ offset_top = 14.0
 offset_right = -14.92
 offset_bottom = -12.0
 
-[node name="Computer" type="Control" parent="===UI========"]
+[node name="Computer" type="Control" parent="===UI========" unique_id=59716521]
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -563,7 +423,7 @@ offset_top = -400.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="ComputerPortrait" type="SubViewportContainer" parent="===UI========/Computer"]
+[node name="ComputerPortrait" type="SubViewportContainer" parent="===UI========/Computer" unique_id=953478926]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.417
@@ -574,20 +434,20 @@ offset_right = 0.47998
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="SubViewport" type="SubViewport" parent="===UI========/Computer/ComputerPortrait"]
+[node name="SubViewport" type="SubViewport" parent="===UI========/Computer/ComputerPortrait" unique_id=976942127]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(500, 400)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="===UI========/Computer/ComputerPortrait/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="===UI========/Computer/ComputerPortrait/SubViewport" unique_id=608817588]
 transform = Transform3D(0.9999997, 0, 0, 0, 1, 0, 0, 0, 0.9999997, 0, 0, 0)
 cull_mask = 4
 environment = ExtResource("38_shvv0")
 fov = 45.0
 far = 10.0
 
-[node name="ComputerStats" type="VBoxContainer" parent="===UI========/Computer"]
+[node name="ComputerStats" type="VBoxContainer" parent="===UI========/Computer" unique_id=1968649279]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.792
@@ -600,14 +460,14 @@ grow_vertical = 0
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Hand" type="TextureRect" parent="===UI========/Computer/ComputerStats"]
+[node name="Hand" type="TextureRect" parent="===UI========/Computer/ComputerStats" unique_id=161141258]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("55_jbfgj")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Count" type="RichTextLabel" parent="===UI========/Computer/ComputerStats/Hand"]
+[node name="Count" type="RichTextLabel" parent="===UI========/Computer/ComputerStats/Hand" unique_id=1403814038]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.158
@@ -629,14 +489,14 @@ scroll_active = false
 autowrap_mode = 0
 script = ExtResource("56_33pwx")
 
-[node name="Energy" type="TextureRect" parent="===UI========/Computer/ComputerStats"]
+[node name="Energy" type="TextureRect" parent="===UI========/Computer/ComputerStats" unique_id=1718044787]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("43_7dqfo")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Count" type="RichTextLabel" parent="===UI========/Computer/ComputerStats/Energy"]
+[node name="Count" type="RichTextLabel" parent="===UI========/Computer/ComputerStats/Energy" unique_id=191164620]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.257
@@ -659,7 +519,7 @@ scroll_active = false
 autowrap_mode = 0
 script = ExtResource("45_b31pg")
 
-[node name="BasicDialogueBubble" parent="===UI========/Computer" instance=ExtResource("54_0ee2r")]
+[node name="BasicDialogueBubble" parent="===UI========/Computer" unique_id=341845567 instance=ExtResource("54_0ee2r")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.055
@@ -671,7 +531,7 @@ offset_top = -3.05176e-05
 offset_right = 0.039978
 offset_bottom = -4.57764e-05
 
-[node name="Hand" type="Control" parent="===UI========" node_paths=PackedStringArray("card_parent")]
+[node name="Hand" type="Control" parent="===UI========" unique_id=1121779610 node_paths=PackedStringArray("card_parent")]
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
@@ -687,7 +547,7 @@ card_parent = NodePath("CurveContainer")
 focus_group = ExtResource("22_iy8ys")
 player_brain = ExtResource("20_8qes8")
 
-[node name="CurveContainer" type="Container" parent="===UI========/Hand"]
+[node name="CurveContainer" type="Container" parent="===UI========/Hand" unique_id=1460115611]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.266
@@ -707,7 +567,7 @@ y_min = 0
 y_max = -25
 card_size = Vector2(370, 320)
 
-[node name="SuitSelector" type="Panel" parent="===UI========" node_paths=PackedStringArray("card_container")]
+[node name="SuitSelector" type="Panel" parent="===UI========" unique_id=1229257299 node_paths=PackedStringArray("card_container")]
 visible = false
 z_index = 10
 anchors_preset = 15
@@ -722,7 +582,7 @@ card_container = NodePath("Dialogue/HBoxContainer")
 focus_group = ExtResource("25_w8c35")
 player_brain = ExtResource("20_8qes8")
 
-[node name="Dialogue" type="TextureRect" parent="===UI========/SuitSelector"]
+[node name="Dialogue" type="TextureRect" parent="===UI========/SuitSelector" unique_id=357923874]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -737,7 +597,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("68_x05n2")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="===UI========/SuitSelector/Dialogue"]
+[node name="HBoxContainer" type="HBoxContainer" parent="===UI========/SuitSelector/Dialogue" unique_id=286734443]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -751,7 +611,7 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="CardSelector" type="Panel" parent="===UI========" node_paths=PackedStringArray("card_container", "submit_button")]
+[node name="CardSelector" type="Panel" parent="===UI========" unique_id=1146716570 node_paths=PackedStringArray("card_container", "submit_button")]
 visible = false
 z_index = 10
 anchors_preset = 15
@@ -769,7 +629,7 @@ focus_group = ExtResource("24_jhuis")
 player_brain = ExtResource("20_8qes8")
 submit_button = NodePath("Dialogue/SubmitButton")
 
-[node name="Dialogue" type="TextureRect" parent="===UI========/CardSelector"]
+[node name="Dialogue" type="TextureRect" parent="===UI========/CardSelector" unique_id=955392771]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -784,7 +644,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("68_x05n2")
 
-[node name="HFlowContainer" type="HFlowContainer" parent="===UI========/CardSelector/Dialogue"]
+[node name="HFlowContainer" type="HFlowContainer" parent="===UI========/CardSelector/Dialogue" unique_id=741552996]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 70.0
@@ -797,7 +657,7 @@ theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 alignment = 1
 
-[node name="SubmitButton" type="TextureRect" parent="===UI========/CardSelector/Dialogue"]
+[node name="SubmitButton" type="TextureRect" parent="===UI========/CardSelector/Dialogue" unique_id=1900097605]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -812,17 +672,6 @@ grow_vertical = 0
 focus_mode = 2
 texture = ExtResource("70_djrj6")
 metadata/focus_type = "submit"
-
-[node name="PlayAreaSelector" type="Control" parent="===UI========"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("51_c4v3n")
-selector_packed_scene = ExtResource("52_0pw6n")
-focus_group = ExtResource("23_dnmon")
-player_brain = ExtResource("20_8qes8")
-metadata/_custom_type_script = "uid://ddig2iswn7qy4"
 
 [connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateSceneManager" method="start_debate" flags=7]
 

@@ -2,30 +2,32 @@
 extends Node
 class_name LayerMask
 
-@onready var parent = $".."
-const ARRAY_SIZE : int = 20
+@onready var parent = $"..":
+	set(val):
+		if parent != null and parent.is_connected("child_order_changed", _update_layers):
+			parent.disconnect("child_order_changed", _update_layers)
+		
+		parent = val
+		
+		if parent != null and !parent.is_connected("child_order_changed", _update_layers):
+			parent.connect("child_order_changed", _update_layers)
+		
 
-@export var layers : Array[bool]:
+@export_flags_3d_render var layers: int:
 	set(val):
 		layers = val
-		update_layers.call_deferred(layers)
+		_update_layers.call_deferred(layers)
 
-func update_layers(layers):
-	if (layers.size() < ARRAY_SIZE):
-		var difference = ARRAY_SIZE - layers.size()
-		layers.resize(ARRAY_SIZE)
-		
-		for i in difference:
-			layers[i] = false
-	else:
-		layers.resize(ARRAY_SIZE)
-	
+func _update_layers(val):
 	for child in Util.get_all_children(parent):
-		if child.has_method("set_layer_mask_value"):
-			for i in 20:
-				child.set_layer_mask_value(i + 1, layers[i])
+			if "layers" in child and child != self:
+				child.layers = val
+	
 
-func set_layer(index, val):
-	if index > layers.size() or index <= 0: return
-	layers[index - 1] = val
-	update_layers(layers)
+func set_layer(layer: int, value: bool):
+	var flag = 1 << layer
+	
+	if value:
+		layers &= flag
+	else:
+		layers &= ~flag

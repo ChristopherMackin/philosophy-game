@@ -1,8 +1,28 @@
 [gd_resource type="Resource" script_class="OrderedBucketEventFactory" format=3 uid="uid://tlcoyw2fklgw"]
 
 [ext_resource type="Script" uid="uid://ujd6vl7brq4e" path="res://system/script/event_factory/event_payload_bucket.gd" id="1_65fn2"]
+[ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="2_b7gbn"]
 [ext_resource type="Script" uid="uid://bcbeuvdrhjbe6" path="res://system/script/event_factory/ordered_bucket_event_factory.gd" id="2_u550f"]
+[ext_resource type="Resource" uid="uid://dkj38626s4dbh" path="res://world/test/joys_appartment/event/ev_test_01.tres" id="3_b6dcq"]
+[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="4_5syok"]
+[ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="5_vwrq4"]
+
+[sub_resource type="Resource" id="Resource_i0cw1"]
+script = ExtResource("5_vwrq4")
+
+[sub_resource type="Resource" id="Resource_8p8g2"]
+resource_name = "ev_test_01"
+script = ExtResource("2_b7gbn")
+event = ExtResource("3_b6dcq")
+rule = SubResource("Resource_i0cw1")
+
+[sub_resource type="Resource" id="Resource_fayrp"]
+resource_name = "ON_SCENE_ENTER"
+script = ExtResource("1_65fn2")
+concept = 6
+payload_list = Array[ExtResource("2_b7gbn")]([SubResource("Resource_8p8g2")])
 
 [resource]
 script = ExtResource("2_u550f")
+buckets = Array[ExtResource("1_65fn2")]([SubResource("Resource_fayrp")])
 metadata/_custom_type_script = "uid://bcbeuvdrhjbe6"

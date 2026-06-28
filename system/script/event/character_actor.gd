@@ -12,13 +12,13 @@ class_name CharacterActor
 	get():
 		return character_animation_tree.is_talking
 	set(val):
-		character_animation_tree.is_talking = val
+		if character_animation_tree: character_animation_tree.is_talking = val
 
 @export var is_blinking: bool = true:
 	get():
 		return character_animation_tree.is_blinking
 	set(val):
-		character_animation_tree.is_blinking = val
+		if character_animation_tree: character_animation_tree.is_blinking = val
 
 func focus_actor(val: bool):
 	if val:

@@ -26,6 +26,7 @@ SceneManager="*res://scene_management/scene_manager.tscn"
 GlobalBlackboard="*res://system/blackboard/global_blackboard.tscn"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 SaveDataGlobalList="*res://system/script/save/save_data_global_list.gd"
+EditorViewportCullMask="*uid://bexe33ma4jjxf"
 
 [display]
 
@@ -135,7 +136,10 @@ pause={
 
 [layer_names]
 
-3d_render/layer_20="DialogueCamera"
+3d_render/layer_2="Dialogue Camera 1"
+3d_render/layer_3="Dialogue Camera 2"
+3d_render/layer_16="Gameplay Camera"
+3d_render/layer_20="Global Dialogue Camera"
 3d_physics/layer_1="General"
 3d_physics/layer_2="Character Body"
 3d_physics/layer_15="Interaction"
@@ -145,3 +149,7 @@ pause={
 
 3d/default_gravity=20.0
 common/physics_interpolation=true
+
+[rendering]
+
+anti_aliasing/quality/msaa_3d=2
