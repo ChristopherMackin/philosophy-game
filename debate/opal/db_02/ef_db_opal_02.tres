@@ -3,26 +3,51 @@
 [ext_resource type="Script" uid="uid://ujd6vl7brq4e" path="res://system/script/event_factory/event_payload_bucket.gd" id="1_65fn2"]
 [ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="2_b7gbn"]
 [ext_resource type="Script" uid="uid://bcbeuvdrhjbe6" path="res://system/script/event_factory/ordered_bucket_event_factory.gd" id="2_u550f"]
-[ext_resource type="Resource" uid="uid://dkj38626s4dbh" path="res://world/test/joys_appartment/event/ev_test_01.tres" id="3_b6dcq"]
-[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/event_factory/rule/criterion/criterion.gd" id="4_5syok"]
-[ext_resource type="Script" uid="uid://bal31j6jwdxqy" path="res://system/script/event_factory/rule/rule.gd" id="5_vwrq4"]
+[ext_resource type="Resource" uid="uid://df76027oj3c3p" path="res://debate/opal/db_02/event/ev_db_opal_02_debate_start.tres" id="3_lrybp"]
+[ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/criterion/concept_criterion.gd" id="4_b7gbn"]
+[ext_resource type="Script" uid="uid://cgsr0p1sth0wy" path="res://system/script/criterion/expression_criterion.gd" id="5_b7gbn"]
 
-[sub_resource type="Resource" id="Resource_i0cw1"]
-script = ExtResource("5_vwrq4")
-
-[sub_resource type="Resource" id="Resource_8p8g2"]
-resource_name = "ev_test_01"
+[sub_resource type="Resource" id="Resource_b6dcq"]
+resource_name = "ev_db_opal_02_debate_start"
 script = ExtResource("2_b7gbn")
-event = ExtResource("3_b6dcq")
-rule = SubResource("Resource_i0cw1")
+event = ExtResource("3_lrybp")
+
+[sub_resource type="Resource" id="Resource_5syok"]
+resource_name = "ON_DEBATE_START"
+script = ExtResource("4_b7gbn")
+concept = 4
+metadata/_custom_type_script = "uid://fnphjbccs4gy"
+
+[sub_resource type="Resource" id="Resource_vwrq4"]
+resource_name = "ON_DEBATE_START"
+script = ExtResource("1_65fn2")
+rule = SubResource("Resource_5syok")
+payload_list = Array[ExtResource("2_b7gbn")]([SubResource("Resource_b6dcq")])
+
+[sub_resource type="Resource" id="Resource_b7gbn"]
+resource_name = "ON_TURN_START"
+script = ExtResource("4_b7gbn")
+concept = 2
+metadata/_custom_type_script = "uid://fnphjbccs4gy"
 
 [sub_resource type="Resource" id="Resource_fayrp"]
-resource_name = "ON_SCENE_ENTER"
+resource_name = "ev_db_opal_02_debate_start"
+script = ExtResource("2_b7gbn")
+event = ExtResource("3_lrybp")
+rule = SubResource("Resource_b7gbn")
+
+[sub_resource type="Resource" id="Resource_i0cw1"]
+script = ExtResource("5_b7gbn")
+expression = "active_contestant == \"player\""
+metadata/_custom_type_script = "uid://cgsr0p1sth0wy"
+
+[sub_resource type="Resource" id="Resource_8p8g2"]
+resource_name = "Exp: activ"
 script = ExtResource("1_65fn2")
-concept = 6
-payload_list = Array[ExtResource("2_b7gbn")]([SubResource("Resource_8p8g2")])
+rule = SubResource("Resource_i0cw1")
+payload_list = Array[ExtResource("2_b7gbn")]([SubResource("Resource_fayrp")])
 
 [resource]
 script = ExtResource("2_u550f")
-buckets = Array[ExtResource("1_65fn2")]([SubResource("Resource_fayrp")])
+buckets = Array[ExtResource("1_65fn2")]([SubResource("Resource_vwrq4"), SubResource("Resource_8p8g2")])
 metadata/_custom_type_script = "uid://bcbeuvdrhjbe6"

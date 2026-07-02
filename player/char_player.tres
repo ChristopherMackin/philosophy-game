@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="1_ejsjc"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/br_player.tres" id="2_qkq1j"]
-[ext_resource type="Resource" uid="uid://b5sy6l3nbmcts" path="res://_save/dk_player.res" id="3_ljcpc"]
+[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/dk_default.tres" id="3_ejsjc"]
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="4_oq3ie"]
 [ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="5_yck4m"]
 
@@ -10,5 +10,5 @@
 script = ExtResource("4_oq3ie")
 name = "Joy"
 brain = ExtResource("2_qkq1j")
-deck = ExtResource("3_ljcpc")
+deck = ExtResource("3_ejsjc")
 blackboard = ExtResource("1_ejsjc")

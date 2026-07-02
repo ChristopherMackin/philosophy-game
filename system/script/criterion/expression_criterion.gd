@@ -1,9 +1,13 @@
 @tool
-extends Resource
+extends Rule
 
-class_name Criterion
+class_name ExpressionRule
 
-@export_custom(PROPERTY_HINT_EXPRESSION, "") var expression : String = ""
+@export_custom(PROPERTY_HINT_EXPRESSION, "") var expression : String = "":
+	set(val):
+		expression = val
+		_update_rule_in_editor("Exp: " + val.substr(0, 5))
+
 @export var variables : Dictionary[String, Variant]
 
 func check(query : Dictionary) -> bool:

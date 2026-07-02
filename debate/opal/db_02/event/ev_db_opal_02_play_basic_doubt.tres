@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://dc0bbjmgfginy"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_a8mki"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_5iffc"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_rb7ru"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_5iffc")
+
+[sub_resource type="Resource" id="Resource_rb7ru"]
+script = ExtResource("2_rb7ru")
+inputs = ["Basic Doubt Played", "joy", true, 2.0]
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_a8mki")
+await_event = true
+start_task = SubResource("Resource_rb7ru")
+tasks = Array[ExtResource("2_rb7ru")]([SubResource("Resource_rb7ru")])

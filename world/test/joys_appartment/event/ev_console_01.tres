@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://cnuugsky8tk1v"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_2x8go"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_2j7h2"]
+[ext_resource type="Script" uid="uid://cnwb80jbsgd2s" path="res://system/script/event/task_action/console_task_action.gd" id="2_18yu5"]
+
+[sub_resource type="Resource" id="Resource_kfrek"]
+script = ExtResource("2_18yu5")
+
+[sub_resource type="Resource" id="Resource_2j7h2"]
+script = ExtResource("2_2j7h2")
+inputs = ["Here is the thing!"]
+action = SubResource("Resource_kfrek")
+
+[resource]
+script = ExtResource("1_2x8go")
+start_task = SubResource("Resource_2j7h2")
+tasks = Array[ExtResource("2_2j7h2")]([SubResource("Resource_2j7h2")])

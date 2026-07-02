@@ -13,9 +13,9 @@ signal _event_finished
 
 @export_group("Room State")
 @export var scene_animator: AnimationPlayer
-@export var ordered_room_states: Array[StringCriterion]:
+@export var ordered_room_states: Array[StringRule]:
 	set(val):
-		ordered_room_states = Util.auto_populate_resource_array(ordered_room_states, val, StringCriterion)
+		ordered_room_states = Util.auto_populate_resource_array(ordered_room_states, val, StringRule)
 
 func _ready():
 	if Engine.is_editor_hint(): return;
@@ -56,7 +56,7 @@ func set_room_state():
 	query.merge(blackboard.get_query())
 	
 	for state in ordered_room_states:
-		if state.criterion.check(query):
+		if state.rule.check(query):
 			scene_animator.play(state.string)
 			break
 

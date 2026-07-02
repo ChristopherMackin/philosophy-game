@@ -1,10 +1,10 @@
 @tool
 extends ConditionEffect
 
-class_name CriterionConditionEffect
+class_name RuleConditionEffect
 
-@export var criterion: Criterion
+@export var rule: Rule
 
 func check() -> bool:
 	var manager = contestant.manager
-	return criterion.check(manager.blackboard.get_query())
+	return rule.check(manager.blackboard.get_query())

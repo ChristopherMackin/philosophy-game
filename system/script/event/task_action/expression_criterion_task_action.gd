@@ -1,6 +1,6 @@
 extends TaskAction
 
-class_name CheckCriterionTaskAction
+class_name ExpressionRuleTaskAction
 
 func skip(task: Task, manager : EventManager):
 	await invoke(task, manager)
@@ -10,10 +10,10 @@ func invoke(task : Task, manager : EventManager):
 	query.merge(GlobalBlackboard.blackboard.get_query())
 	query.merge(manager.blackboard.get_query())
 	
-	var criterion := Criterion.new()
-	criterion.expression = task.get_input(0)
+	var rule := ExpressionRule.new()
+	rule.expression = task.get_input(0)
 	
-	if criterion.check(query):
+	if rule.check(query):
 		on_action_complete.emit(task.get_output(0))
 	else:
 		on_action_complete.emit(task.get_output(1))

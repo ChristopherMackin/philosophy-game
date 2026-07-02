@@ -7,4 +7,4 @@ class_name EventFactoryPayload
 	set(val):
 		event = val
 		resource_name = Util.get_resource_name(event)
-@export var rule : Rule = Rule.new()
+@export var rule : Rule
