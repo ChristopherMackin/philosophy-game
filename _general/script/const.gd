@@ -41,7 +41,7 @@ enum Direction {
 	RIGHT
 }
 
-enum Concept{
+enum Concept {
 	#DEBATE
 	ON_PLAY,
 	ON_HOLD,
@@ -52,6 +52,14 @@ enum Concept{
 	#GLOBAL
 	ON_SCENE_ENTER,
 	ON_EVENT_TRIGGER_INVOKED
+}
+
+enum SFX {
+	
+}
+
+enum VFX {
+	
 }
 
 const Autocomplete = [
@@ -68,7 +76,7 @@ const Autocomplete = [
 	"action_added_card_base",
 	"action_moved_cards",
 	"action_discarded_cards",
-	"action_bniahsed_cards",
+	"action_banished_cards",
 	"action_viewed_cards",
 	"action_",
 ]

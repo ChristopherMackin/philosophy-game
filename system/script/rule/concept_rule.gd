@@ -6,8 +6,7 @@ class_name ConceptRule
 @export var concept : Const.Concept:
 	set(val):
 		concept = val
-		resource_name = Const.Concept.keys()[concept]
-		_update_rule_in_editor(resource_name)
+		_update_rule_in_editor(Const.Concept.keys()[concept])
 
 func check(query: Dictionary):
 	if ! query.has("concept"): return false

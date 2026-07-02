@@ -18,4 +18,4 @@ class_name EventPayloadBucket
 		payload_list = Util.auto_populate_resource_array(payload_list, val, EventFactoryPayload)
 
 func _update_resource_name(name: String):
-	resource_name = name
+	resource_name = "BK: " + name

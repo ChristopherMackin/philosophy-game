@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cigpy34phehbr"]
+[gd_scene format=3 uid="uid://cigpy34phehbr"]
 
 [ext_resource type="Script" uid="uid://cgrbakyn86j8w" path="res://addons/event_tree_plugin/event_tree_graph_editor.gd" id="1_5451c"]
 [ext_resource type="Script" uid="uid://cmxpujb4d3phc" path="res://addons/event_tree_plugin/event_type_list.gd" id="1_mpg4u"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://sv8os1jyt8o2" path="res://addons/event_tree_plugin/task_node/set_global_value_node.tscn" id="10_s0ywo"]
 [ext_resource type="PackedScene" uid="uid://b8grwpsb8a8t5" path="res://addons/event_tree_plugin/task_node/animation_node.tscn" id="11_1e0xf"]
 [ext_resource type="PackedScene" uid="uid://du3ueixbb1wck" path="res://addons/event_tree_plugin/task_node/set_local_value_node.tscn" id="11_y5fjh"]
-[ext_resource type="PackedScene" uid="uid://35fxxo0l0oge" path="res://addons/event_tree_plugin/task_node/check_criterion_node.tscn" id="12_nl20v"]
+[ext_resource type="PackedScene" uid="uid://35fxxo0l0oge" path="res://addons/event_tree_plugin/task_node/expression_rule_node.tscn" id="12_nl20v"]
 [ext_resource type="PackedScene" uid="uid://bruka2los7mb5" path="res://addons/event_tree_plugin/task_node/add_status_effect_node.tscn" id="13_ly33u"]
 [ext_resource type="PackedScene" uid="uid://nhhgwmvbjjr4" path="res://addons/event_tree_plugin/task_node/remove_status_effect_node.tscn" id="14_5ysm2"]
 

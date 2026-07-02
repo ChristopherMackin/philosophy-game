@@ -22,3 +22,5 @@ class_name CardBase
 @export var cost_modifiers : Array[CardCostModifier]
 
 @export_group("FX")
+@export var sfx: Array[Const.SFX] = []
+@export var vfx: Array[Const.VFX] = []

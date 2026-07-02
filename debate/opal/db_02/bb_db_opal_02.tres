@@ -3,6 +3,13 @@
 [ext_resource type="Script" uid="uid://cxodlpgrmgtv7" path="res://system/script/blackboard/blackboard_entry.gd" id="1_b31g1"]
 [ext_resource type="Script" uid="uid://c1eaebx4srk2s" path="res://system/script/blackboard/blackboard.gd" id="2_fkx6m"]
 
+[sub_resource type="Resource" id="Resource_aahia"]
+resource_name = "db_opal_02_pt_01"
+script = ExtResource("1_b31g1")
+key = "db_opal_02_pt_01"
+value = false
+
 [resource]
 script = ExtResource("2_fkx6m")
+_entries = Array[ExtResource("1_b31g1")]([SubResource("Resource_aahia")])
 metadata/_custom_type_script = "uid://c1eaebx4srk2s"
