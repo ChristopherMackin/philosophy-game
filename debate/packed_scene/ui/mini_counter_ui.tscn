@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cgco4lvdxl1wf"]
+
+[ext_resource type="Script" uid="uid://b1k76fw3jnei6" path="res://debate/_script/ui/counter_ui.gd" id="1_73dmk"]
+[ext_resource type="Texture2D" uid="uid://df3d6qi6ah0vf" path="res://_asset/_general/texture/t_circle.png" id="1_kxbmt"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_73dmk"]
+viewport_path = NodePath("SubViewport")
+
+[node name="MiniCounterUi" type="Sprite3D" unique_id=1817069595 node_paths=PackedStringArray("rich_text")]
+transform = Transform3D(0.27140555, 0, 0, 0, -1.1863513e-08, 0.27140555, 0, -0.27140555, -1.1863513e-08, 0, 0, 0)
+layers = 32768
+pixel_size = 0.0005
+shaded = true
+alpha_cut = 2
+texture = SubResource("ViewportTexture_73dmk")
+script = ExtResource("1_73dmk")
+rich_text = NodePath("SubViewport/Border/Fill/Label")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1419498728]
+transparent_bg = true
+size = Vector2i(128, 128)
+
+[node name="Border" type="TextureRect" parent="SubViewport" unique_id=1476294174]
+self_modulate = Color(0.3515629, 0.35156292, 0.35156274, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kxbmt")
+
+[node name="Fill" type="TextureRect" parent="SubViewport/Border" unique_id=612248546]
+self_modulate = Color(0.9144639, 0.9144638, 0.9144638, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = -9.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kxbmt")
+
+[node name="Label" type="RichTextLabel" parent="SubViewport/Border/Fill" unique_id=245654660]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.3529412, 0.3529412, 0.3529412, 1)
+theme_override_font_sizes/normal_font_size = 52
+bbcode_enabled = true
+text = "13"
+horizontal_alignment = 1
+vertical_alignment = 1

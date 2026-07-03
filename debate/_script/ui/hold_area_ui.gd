@@ -1,6 +1,6 @@
 extends Control
 
-class_name HoldAreaGUI
+class_name HoldAreaUi
 
 @export_group("Packed Scene")
 @export var default_card_gui_packed_scene: PackedScene

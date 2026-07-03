@@ -1,6 +1,6 @@
 extends Node
 
-class_name HandGUI
+class_name HandUi
 
 @export_group("Packed Scene")
 @export var default_card_gui_packed_scene: PackedScene

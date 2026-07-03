@@ -28,6 +28,6 @@ func set_layer(layer: int, value: bool):
 	var flag = 1 << layer
 	
 	if value:
-		layers &= flag
+		layers |= flag
 	else:
 		layers &= ~flag

@@ -32,15 +32,18 @@
 [ext_resource type="PackedScene" uid="uid://pv1n6aa3yhjr" path="res://_asset/debate/_general/model/mod_card.glb" id="25_8wfbp"]
 [ext_resource type="PackedScene" uid="uid://bctncdoyoajwy" path="res://_asset/debate/_general/model/mod_discard_counter.glb" id="25_78hq6"]
 [ext_resource type="PackedScene" uid="uid://kcku858e7kpb" path="res://_asset/zzz_test/mod_token_tray_test.glb" id="25_cwy3g"]
-[ext_resource type="Texture2D" uid="uid://df3d6qi6ah0vf" path="res://_asset/_general/texture/t_circle.png" id="25_y6c6n"]
 [ext_resource type="PackedScene" uid="uid://bufq4a3okdy40" path="res://_asset/debate/_general/model/mod_energy_counter.glb" id="26_7g2ac"]
 [ext_resource type="PackedScene" uid="uid://4pw7ywqa3y3l" path="res://_asset/debate/_general/model/mod_turn_counter.glb" id="26_8wfbp"]
 [ext_resource type="Texture2D" uid="uid://cjibu358pdc3s" path="res://_asset/_general/texture/t_colorable_checkerboard.png" id="26_cwy3g"]
 [ext_resource type="PackedScene" uid="uid://bk4ich5jfslat" path="res://_asset/debate/_general/model/mod_line_clear_counter.glb" id="29_udfsd"]
+[ext_resource type="Texture2D" uid="uid://0xx8gpn3m2io" path="res://_asset/debate/_general/texture/t_computer_discard_counter_col.png" id="30_dbiua"]
 [ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/card_gui/card_gui.tscn" id="30_y0dq0"]
 [ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_gui/tokenless_card_gui.tscn" id="31_5a0yb"]
 [ext_resource type="Script" uid="uid://br5kxd06vsn3n" path="res://utility/script/set_layer_mask.gd" id="31_gbo4f"]
+[ext_resource type="Texture2D" uid="uid://cwnyj54n846jx" path="res://_asset/debate/_general/texture/t_discard_counter_ao.png" id="31_p0yir"]
+[ext_resource type="Texture2D" uid="uid://dnphaeqd0w0xa" path="res://_asset/debate/_general/texture/t_computer_energy_counter_col.png" id="32_84k4r"]
 [ext_resource type="Script" uid="uid://ct7j27rex1yjk" path="res://system/script/card/suit_packed_scene.gd" id="32_x0iaq"]
+[ext_resource type="Texture2D" uid="uid://d1xa8k3f7vgji" path="res://_asset/debate/_general/texture/t_energy_counter_ao.png" id="33_3m87t"]
 [ext_resource type="PackedScene" uid="uid://bmxatnrtkqwmu" path="res://debate/packed_scene/card_gui/peace_card_gui.tscn" id="33_k3amr"]
 [ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://_asset/debate/_general/texture/suit/t_faith_icon.png" id="34_336qk"]
 [ext_resource type="Texture2D" uid="uid://bnr31kwk7jglt" path="res://_asset/debate/_general/texture/t_doubt_token_box_col.png" id="34_dbiua"]
@@ -53,12 +56,14 @@
 [ext_resource type="Texture2D" uid="uid://8m5h442qngjv" path="res://_asset/debate/_general/texture/suit/t_others_icon.png" id="37_3prre"]
 [ext_resource type="Texture2D" uid="uid://cjj7unll4jg7p" path="res://_asset/debate/_general/texture/t_count_background.png" id="40_t0s88"]
 [ext_resource type="Texture2D" uid="uid://b7roh63xeclm" path="res://_asset/_general/texture/t_lined_paper.png" id="41_yt7fp"]
-[ext_resource type="Script" uid="uid://dur1nyt0adfmo" path="res://debate/_script/ui/hand_gui.gd" id="44_upyyq"]
+[ext_resource type="PackedScene" uid="uid://cgco4lvdxl1wf" path="res://debate/packed_scene/ui/mini_counter_ui.tscn" id="44_336qk"]
+[ext_resource type="Script" uid="uid://dur1nyt0adfmo" path="res://debate/_script/ui/hand_ui.gd" id="44_upyyq"]
 [ext_resource type="Script" uid="uid://vgpd0x8mfpi" path="res://_general/script/ui/curve_container.gd" id="45_sv800"]
 [ext_resource type="Script" uid="uid://dh6wdv1jmcd8j" path="res://debate/_script/ui/suit_selector.gd" id="46_5t0sq"]
 [ext_resource type="PackedScene" uid="uid://p7gbun4jgavh" path="res://debate/packed_scene/suit_banner_gui/doubt_banner.tscn" id="47_hi5lk"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="48_pl8w0"]
 [ext_resource type="PackedScene" uid="uid://cfr37mhe3tadq" path="res://debate/packed_scene/suit_banner_gui/faith_banner.tscn" id="49_1ey6v"]
+[ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/script/character_animation_tree.gd" id="50_3prre"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="50_wpwql"]
 [ext_resource type="PackedScene" uid="uid://b5x4pryb3x8hp" path="res://debate/packed_scene/suit_banner_gui/others_banner.tscn" id="51_uduhj"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="52_my5hr"]
@@ -68,6 +73,40 @@
 [ext_resource type="Script" uid="uid://i6q2q68f73y6" path="res://debate/_script/ui/card_selector.gd" id="56_fxmxk"]
 [ext_resource type="Texture2D" uid="uid://duwx1hkh07na8" path="res://_asset/debate/simon/_general/simon_confirm_button.png" id="57_q0c1o"]
 [ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/packed_scene/basic_dialogue_area.tscn" id="65_nhoxv"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_336qk"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_w5tvy"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="GDScript" id="GDScript_w5tvy"]
+script/source = "extends Node
+
+class_name EnergyCounter
+
+func update_amount(amount : int):
+	set(\"text\", \"[center]%s[/center]\" % amount)
+"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bjofe"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8igq"]
+albedo_texture = ExtResource("30_dbiua")
+ao_enabled = true
+ao_texture = ExtResource("31_p0yir")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3prre"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jelp"]
+albedo_texture = ExtResource("32_84k4r")
+ao_enabled = true
+ao_texture = ExtResource("33_3m87t")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dbiua"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sl1r7"]
 albedo_texture = ExtResource("34_dbiua")
@@ -92,6 +131,45 @@ albedo_texture = ExtResource("26_cwy3g")
 uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vwmdg"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p0yir"]
+animation = &"anim_joy_opal_db_02_sit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_84k4r"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3m87t"]
+states/anim_joy_opal_db_02_sit/node = SubResource("AnimationNodeAnimation_p0yir")
+states/anim_joy_opal_db_02_sit/position = Vector2(533.5, 101.125)
+transitions = ["Start", "anim_joy_opal_db_02_sit", SubResource("AnimationNodeStateMachineTransition_84k4r")]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dbiua"]
+animation = &"anim_joy_blink"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_p0yir"]
+filter_enabled = true
+filters = ["root/Skeleton3D:eye_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3prre"]
+animation = &"anim_joy_talk"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_84k4r"]
+filter_enabled = true
+filters = ["root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_sl1r7"]
+nodes/output/position = Vector2(590, 440)
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_3m87t")
+nodes/StateMachine/position = Vector2(-170, 260)
+nodes/talk/node = SubResource("AnimationNodeAnimation_3prre")
+nodes/talk/position = Vector2(200, 640)
+nodes/blink/node = SubResource("AnimationNodeAnimation_dbiua")
+nodes/blink/position = Vector2(-10, 550)
+nodes/blink_trigger/node = SubResource("AnimationNodeOneShot_p0yir")
+nodes/blink_trigger/position = Vector2(190, 340)
+nodes/talk_trigger/node = SubResource("AnimationNodeOneShot_84k4r")
+nodes/talk_trigger/position = Vector2(390, 440)
+node_connections = [&"output", 0, &"talk_trigger", &"blink_trigger", 0, &"StateMachine", &"blink_trigger", 1, &"blink", &"talk_trigger", 0, &"blink_trigger", &"talk_trigger", 1, &"talk"]
 
 [sub_resource type="Environment" id="Environment_vwmdg"]
 background_mode = 1
@@ -172,7 +250,7 @@ scene_animator = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationPlay
 script = ExtResource("6_wjr7v")
 active_handler = ExtResource("7_faur5")
 
-[node name="DebateSceneManager" type="Node" parent="===MANAGER========" unique_id=1646962725 node_paths=PackedStringArray("input_manager", "hand_ui")]
+[node name="DebateSceneManager" type="Node" parent="===MANAGER========" unique_id=1646962725 node_paths=PackedStringArray("input_manager", "hand_ui", "energy_ui", "draw_ui", "discard_ui", "computer_hand_ui", "computer_energy_ui", "computer_discard_ui")]
 script = ExtResource("8_75n12")
 blackboard = ExtResource("2_kjk8x")
 event_factory = ExtResource("3_m1df6")
@@ -183,6 +261,12 @@ input_manager = NodePath("../InputManager")
 selection_handler = ExtResource("7_faur5")
 computer = ExtResource("5_bd10g")
 hand_ui = NodePath("../../===UI========/Hand")
+energy_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/Label")
+draw_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerDrawCounter/MiniCounterUi")
+discard_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi")
+computer_hand_ui = NodePath("../../===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi")
+computer_energy_ui = NodePath("../../===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi")
+computer_discard_ui = NodePath("../../===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi")
 manager = ExtResource("12_fev28")
 metadata/_custom_type_script = "uid://dhulr5f133qcw"
 
@@ -240,65 +324,19 @@ environment = ExtResource("6_vypjq")
 
 [node name="PlayerUi" type="Node3D" parent="===GAMEPLAY========" unique_id=1067092224]
 
-[node name="PlayerDeckCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=251752299 instance=ExtResource("24_sqn6e")]
+[node name="PlayerDrawCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=251752299 instance=ExtResource("24_sqn6e")]
 transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.9890571, -0.018066663, -0.12245832, -7.450581e-09, 0.99247366, -0.1516307, 0.0004506167, 0.08272594)
 
-[node name="Sprite3D" type="Sprite3D" parent="===GAMEPLAY========/PlayerUi/PlayerDeckCounter" unique_id=1711961988]
-transform = Transform3D(0.019858213, -1.8987339e-05, 0.002476917, 0.002476917, 0.0003056185, -0.019855876, -1.8987339e-05, 0.02000976, 0.0003056184, 0.011375323, 0.012049016, 0.014225915)
-layers = 32768
-modulate = Color(0.9275334, 0.92753345, 0.9275333, 1)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("25_y6c6n")
-
-[node name="Sprite3D2" type="Sprite3D" parent="===GAMEPLAY========/PlayerUi/PlayerDeckCounter/Sprite3D" unique_id=1478932491]
-transform = Transform3D(1.1407473, 0, 3.2200435e-07, -1.4901161e-08, 1.1591723, 4.2982833e-08, -3.2411054e-07, -3.7785664e-08, 1.0736457, 0.00027489662, 0.0011510849, 0.04023257)
-layers = 32768
-modulate = Color(0.27569968, 0.27569968, 0.27569965, 1)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("25_y6c6n")
-
-[node name="Label3D" type="Label3D" parent="===GAMEPLAY========/PlayerUi/PlayerDeckCounter/Sprite3D/Sprite3D2" unique_id=1590164626]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742277e-08, 0, -8.742278e-08, -0.99999994, -0.0018715858, -0.00022745132, -0.08695996)
-layers = 32768
-cast_shadow = 1
-shaded = true
-alpha_cut = 2
-modulate = Color(0.25490198, 0.25490198, 0.25490198, 1)
-text = "13"
-font_size = 64
-outline_size = 0
+[node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawCounter" unique_id=1817069595 instance=ExtResource("44_336qk")]
+transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
+texture = SubResource("ViewportTexture_336qk")
 
 [node name="PlayerDiscardCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1140548364 instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.9890571, -0.018066663, -0.12245832, -7.450581e-09, 0.99247366, -0.15000284, 0.0004506167, 0.13493468)
 
-[node name="Sprite3D2" type="Sprite3D" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" unique_id=1721786992]
-transform = Transform3D(0.019858211, -1.8987339e-05, 0.0024769169, 0.0024769166, 0.00030561842, -0.019855874, -1.8987106e-05, 0.02000976, 0.00030561845, 0.0145570785, 0.01252723, 0.014618501)
-layers = 32768
-modulate = Color(0.9275334, 0.92753345, 0.9275333, 1)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("25_y6c6n")
-
-[node name="Sprite3D2" type="Sprite3D" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/Sprite3D2" unique_id=1989776303]
-transform = Transform3D(1.1407472, 0, 3.212603e-07, -2.9802322e-08, 1.1591723, 4.2959336e-08, -3.262607e-07, -3.7978875e-08, 1.0736456, 0.0002746582, 0.0011515617, 0.04023257)
-layers = 32768
-modulate = Color(0.27569968, 0.27569968, 0.27569965, 1)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("25_y6c6n")
-
-[node name="Label3D" type="Label3D" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/Sprite3D2/Sprite3D2" unique_id=1301897779]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742277e-08, 0, -8.742278e-08, -0.99999994, -0.0018715858, -0.00022745132, -0.08695996)
-layers = 32768
-cast_shadow = 1
-shaded = true
-alpha_cut = 2
-modulate = Color(0.25490198, 0.25490198, 0.25490198, 1)
-text = "13"
-font_size = 64
-outline_size = 0
+[node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" unique_id=1611050952 instance=ExtResource("44_336qk")]
+transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
+texture = SubResource("ViewportTexture_w5tvy")
 
 [node name="PlayerEnergyCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1840847040 instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.577133, 0.07591381, 1.8900888, 0.29692417, 1.9479705, -0.16890348, -1.8681635, 0.33306077, 0.557061, -0.120429605, 0.0004506167, 0.20629291)
@@ -312,6 +350,7 @@ shaded = true
 alpha_cut = 2
 text = "3/3"
 font_size = 64
+script = SubResource("GDScript_w5tvy")
 
 [node name="PlayerHeldCard" parent="===GAMEPLAY========/PlayerUi" unique_id=856621973 instance=ExtResource("25_8wfbp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0058919787, 0, 0.18703443)
@@ -321,92 +360,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0058919787, 0, 0.18703443)
 [node name="CpuHandCounter" parent="===GAMEPLAY========/CpiUi" unique_id=1763425977 instance=ExtResource("24_78hq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15324764, 0.00012001136, -0.039170876)
 
-[node name="LabelFg" type="Sprite3D" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" unique_id=206047715]
-transform = Transform3D(0.01983896, -0.0009193445, 0.002460658, 0.002476918, 0.0003056185, -0.019855877, 0.00087458896, 0.019988643, 0.0004167625, -0.0124485195, 0.012049025, 0.014225911)
-layers = 32768
-modulate = Color(0.9275334, 0.92753345, 0.9275333, 1)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("25_y6c6n")
-
-[node name="LabelBG" type="Sprite3D" parent="===GAMEPLAY========/CpiUi/CpuHandCounter/LabelFg" unique_id=75328294]
-transform = Transform3D(1.1407473, 0, 3.2200435e-07, -1.4901161e-08, 1.1591723, 4.2982833e-08, -3.2411054e-07, -3.7785664e-08, 1.0736457, 0.00027489662, 0.0011510849, 0.04023257)
-layers = 32768
-modulate = Color(0.27569968, 0.27569968, 0.27569965, 1)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("25_y6c6n")
-
-[node name="Label" type="Label3D" parent="===GAMEPLAY========/CpiUi/CpuHandCounter/LabelFg/LabelBG" unique_id=1916260467]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742277e-08, 0, -8.742278e-08, -0.99999994, -0.0018715858, -0.00022745132, -0.08695996)
-layers = 32768
-cast_shadow = 1
-shaded = true
-alpha_cut = 2
-modulate = Color(0.25490198, 0.25490198, 0.25490198, 1)
-text = "13"
-font_size = 64
-outline_size = 0
+[node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" unique_id=467383888 instance=ExtResource("44_336qk")]
+transform = Transform3D(0.26024163, -0.009793821, -0.076415636, 0.076465435, -1.1382936e-08, 0.26041123, -0.009397088, -0.27122876, 0.0027592867, -0.011028126, 0.015155774, 0.0153282415)
+texture = SubResource("ViewportTexture_bjofe")
 
 [node name="CpuDiscardCounter" parent="===GAMEPLAY========/CpiUi" unique_id=1590190797 instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.94619274, -0.32360363, 0, 0.32360363, 0.94619274, 0, 0, 0, 1, 0.15350369, 0, 0.013281487)
 
-[node name="LabelFg" type="Sprite3D" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" unique_id=583737714]
-transform = Transform3D(0.019680372, -0.00078724546, -0.0035422402, -0.0035216939, 0.00056466047, -0.019691702, 0.00087458885, 0.019988634, 0.00041676243, -0.0124485195, 0.012049025, 0.014225911)
+[node name="DiscardCounter" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" index="0" unique_id=1427313704]
 layers = 32768
-modulate = Color(0.9275334, 0.92753345, 0.9275333, 1)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("25_y6c6n")
+surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
 
-[node name="LabelBG" type="Sprite3D" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter/LabelFg" unique_id=745768704]
-transform = Transform3D(1.1407473, 0, 3.2200435e-07, -1.4901161e-08, 1.1591723, 4.2982833e-08, -3.2411054e-07, -3.7785664e-08, 1.0736457, 0.00027489662, 0.0011510849, 0.04023257)
-layers = 32768
-modulate = Color(0.27569968, 0.27569968, 0.27569965, 1)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("25_y6c6n")
-
-[node name="Label" type="Label3D" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter/LabelFg/LabelBG" unique_id=1002861740]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742277e-08, 0, -8.742278e-08, -0.99999994, -0.0018715858, -0.00022745132, -0.08695996)
-layers = 32768
-cast_shadow = 1
-shaded = true
-alpha_cut = 2
-modulate = Color(0.25490198, 0.25490198, 0.25490198, 1)
-text = "13"
-font_size = 64
-outline_size = 0
+[node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" unique_id=1511716073 instance=ExtResource("44_336qk")]
+transform = Transform3D(0.2708025, 0.006386812, -0.016917214, 0.016962603, -0.0017474849, 0.27086934, 0.0062652696, -0.27132475, -0.002142772, -0.011028126, 0.015155774, 0.0153282415)
+texture = SubResource("ViewportTexture_3prre")
 
 [node name="CpuEnergyCounter" parent="===GAMEPLAY========/CpiUi" unique_id=151891147 instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.9523734, -0.26442856, 0.15186363, 0.26112953, 0.9644053, 0.04163922, -0.15746869, -3.7252903e-09, 0.987524, 0.15333109, 2.9802322e-08, 0.071661524)
 
-[node name="LabelFg" type="Sprite3D" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" unique_id=1729652432]
-transform = Transform3D(0.019742044, -0.0022981092, -0.002335524, -0.0023346788, 0.00014233727, -0.019874932, 0.0022989693, 0.019879209, -0.00012768836, -0.0124485195, 0.012049025, 0.014225911)
+[node name="EnergyCounter" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" index="0" unique_id=939435994]
 layers = 32768
-modulate = Color(0.9275334, 0.92753345, 0.9275333, 1)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("25_y6c6n")
+surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
 
-[node name="LabelBG" type="Sprite3D" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter/LabelFg" unique_id=825717526]
-transform = Transform3D(1.1407473, 0, 3.2200435e-07, -1.4901161e-08, 1.1591723, 4.2982833e-08, -3.2411054e-07, -3.7785664e-08, 1.0736457, 0.00027489662, 0.0011510849, 0.04023257)
-layers = 32768
-modulate = Color(0.27569968, 0.27569968, 0.27569965, 1)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("25_y6c6n")
-
-[node name="Label" type="Label3D" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter/LabelFg/LabelBG" unique_id=1547900251]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742277e-08, 0, -8.742278e-08, -0.99999994, -0.0018715858, -0.00022745132, -0.08695996)
-layers = 32768
-cast_shadow = 1
-shaded = true
-alpha_cut = 2
-modulate = Color(0.25490198, 0.25490198, 0.25490198, 1)
-text = "13"
-font_size = 64
-outline_size = 0
+[node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" unique_id=969618535 instance=ExtResource("44_336qk")]
+transform = Transform3D(0.26872277, 0.03799277, 0.0023667924, -0.00091665983, -0.010411309, 0.27120426, 0.038055386, -0.26853144, -0.010180076, -0.011028126, 0.015155774, 0.015328243)
+texture = SubResource("ViewportTexture_dbiua")
 
 [node name="GameBoardState" type="Node3D" parent="===GAMEPLAY========" unique_id=215128257]
 
@@ -576,201 +554,27 @@ transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 
 [node name="===ACTOR========" type="Node3D" parent="." unique_id=1690436738]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="JoyActor" parent="===ACTOR========" unique_id=2066360241 node_paths=PackedStringArray("_layer_mask") instance=ExtResource("8_w340p")]
+[node name="JoyActor" parent="===ACTOR========" unique_id=2066360241 node_paths=PackedStringArray("_layer_mask", "character_animation_tree") instance=ExtResource("8_w340p")]
 _layer_mask = NodePath("LayerMask")
+character_animation_tree = NodePath("CharacterAnimationTree")
 
-[node name="Skeleton3D" parent="===ACTOR========/JoyActor/Skeleton/root" parent_id_path=PackedInt32Array(2066360241, 1298630328, 1006879066) index="0" unique_id=1569458232]
-bones/0/position = Vector3(-0.39782217, 1.8539849e-15, 0.90514696)
-bones/1/position = Vector3(-7.114377e-07, 0.06982851, 0.061533652)
-bones/1/rotation = Quaternion(-0.2141166, -3.4622892e-06, -7.5893433e-07, 0.9768081)
-bones/2/position = Vector3(-1.9287627e-07, 0.2591281, -0.021411406)
-bones/2/rotation = Quaternion(0.36386773, 3.4510226e-06, 2.0439327e-07, 0.9314507)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/position = Vector3(2.9802168e-08, 0.25028738, 2.115273e-08)
-bones/3/rotation = Quaternion(0.12674466, 1.694066e-20, 4.235165e-21, 0.99193543)
-bones/3/scale = Vector3(1, 1.0000001, 1.0000001)
-bones/4/position = Vector3(-1.6564528e-13, 0.0864115, -1.0031917e-07)
-bones/4/rotation = Quaternion(-0.013524331, -0.17775396, 0.10507013, 0.97835624)
-bones/4/scale = Vector3(0.99999994, 1, 1)
-bones/7/position = Vector3(-0.03556309, 0.2003769, -0.023510354)
-bones/7/rotation = Quaternion(0.50349045, -0.5034905, -0.496485, -0.49648494)
-bones/8/position = Vector3(-2.363018e-07, 0.10668923, 1.3983448e-07)
-bones/8/rotation = Quaternion(-0.45239955, -0.050623372, 0.09683939, 0.8850956)
-bones/8/scale = Vector3(1.0000001, 1.0000004, 0.99999994)
-bones/9/position = Vector3(-3.1664964e-08, -5.4948025e-08, -1.3147655e-08)
-bones/9/rotation = Quaternion(-1.5369955e-07, 0.10295719, 1.6958683e-07, 0.99468577)
-bones/9/scale = Vector3(1, 0.99999976, 1)
-bones/10/position = Vector3(-1.4682492e-08, 0.24721348, -7.72179e-08)
-bones/10/rotation = Quaternion(-6.917747e-05, -0.00012272246, 0.49032962, 0.8715371)
-bones/10/scale = Vector3(0.99999976, 1.0000002, 0.99999994)
-bones/11/position = Vector3(-1.2621468e-08, 0.13209814, -8.30907e-08)
-bones/11/rotation = Quaternion(3.6780712e-08, 0.065737925, -1.1944732e-07, 0.997837)
-bones/11/scale = Vector3(0.99999994, 1, 1)
-bones/12/position = Vector3(1.9204267e-08, 0.26419652, 4.5514142e-08)
-bones/12/rotation = Quaternion(0.22196768, 0.020075472, -0.18988003, 0.95617616)
-bones/12/scale = Vector3(0.9999997, 0.99999976, 0.99999994)
-bones/32/position = Vector3(0.03556306, 0.2003769, -0.023510354)
-bones/32/rotation = Quaternion(0.5531296, 0.4483893, 0.4421504, -0.54543346)
-bones/32/scale = Vector3(0.9999999, 1, 0.99999994)
-bones/33/position = Vector3(-3.897883e-09, 0.10668913, -1.9451335e-08)
-bones/33/rotation = Quaternion(-0.39692456, -0.061816543, -0.38523754, 0.8307959)
-bones/33/scale = Vector3(1.0000002, 0.9999998, 1.0000002)
-bones/34/position = Vector3(-8.940698e-08, -3.282912e-08, 4.276353e-08)
-bones/34/rotation = Quaternion(-2.081621e-07, -0.15077011, 2.9465636e-07, 0.98856884)
-bones/34/scale = Vector3(1.0000001, 0.9999999, 0.99999994)
-bones/35/position = Vector3(-1.6971241e-07, 0.24721374, -9.1115524e-08)
-bones/35/rotation = Quaternion(-3.1287873e-05, 2.4273757e-05, -0.7863601, 0.61776847)
-bones/35/scale = Vector3(1.0000001, 0.99999994, 0.9999999)
-bones/36/position = Vector3(-6.3795724e-08, 0.13209815, 6.350371e-08)
-bones/36/rotation = Quaternion(-5.1045955e-08, 0.34133178, 6.701468e-08, 0.93994296)
-bones/36/scale = Vector3(0.99999976, 0.99999994, 0.9999998)
-bones/37/position = Vector3(1.4868693e-09, 0.2641962, 5.690458e-08)
-bones/37/rotation = Quaternion(-0.14816654, 0.34443256, -0.0017076635, 0.9270437)
-bones/37/scale = Vector3(0.9999998, 0.9999997, 0.9999998)
-bones/57/position = Vector3(0.07767487, 1.1553094e-07, -6.0621096e-07)
-bones/57/rotation = Quaternion(0.36764568, 0.6611014, 0.22748151, 0.6132159)
-bones/57/scale = Vector3(1.0000021, 0.999995, 1.0000021)
-bones/58/position = Vector3(5.7509176e-08, -2.1886066e-08, 3.690365e-08)
-bones/58/rotation = Quaternion(-1.8801675e-08, 0.24559197, -6.310638e-08, 0.96937335)
-bones/58/scale = Vector3(1, 1.0000004, 1.0000002)
-bones/59/position = Vector3(1.3455525e-07, 0.31259513, 5.616943e-09)
-bones/59/rotation = Quaternion(2.22456e-08, 6.268225e-08, 0.80888087, 0.5879727)
-bones/59/scale = Vector3(1.0000006, 1.0000002, 1.0000004)
-bones/60/position = Vector3(-3.712677e-08, 0.31248027, 1.9881474e-10)
-bones/60/rotation = Quaternion(0.09437903, 0.7594884, -0.015432864, 0.64345306)
-bones/60/scale = Vector3(1.0000017, 0.99999994, 0.9999999)
-bones/61/position = Vector3(-1.4596303e-08, 0.1750828, 5.4444858e-08)
-bones/61/rotation = Quaternion(2.180797e-06, 0.98906046, 0.14751072, 1.918724e-06)
-bones/61/scale = Vector3(0.99999946, 0.9999993, 0.9999998)
-bones/62/position = Vector3(-2.840533e-08, 0.15624015, -5.3449185e-08)
-bones/62/rotation = Quaternion(3.9830667e-08, 0.07683144, 1.0508604e-07, 0.99704415)
-bones/62/scale = Vector3(1, 0.9999997, 1.0000002)
-bones/63/position = Vector3(-0.07767498, 5.5480218e-08, 5.535899e-07)
-bones/63/rotation = Quaternion(-0.7443593, 0.36782756, -0.037636686, -0.5560717)
-bones/63/scale = Vector3(1.0000029, 1.0000125, 0.9999844)
-bones/64/position = Vector3(-7.846393e-08, 1.8929128e-07, -1.0739306e-08)
-bones/64/rotation = Quaternion(-6.4812866e-10, -0.7295477, 1.7642748e-08, 0.68393)
-bones/64/scale = Vector3(1.0000002, 1.0000001, 1)
-bones/65/position = Vector3(-9.0439464e-08, 0.3125949, -1.6762696e-08)
-bones/65/rotation = Quaternion(1.1533883e-07, -9.2396014e-08, -0.5935153, 0.8048228)
-bones/65/scale = Vector3(1.0000002, 0.99999976, 1)
-bones/66/position = Vector3(-9.511265e-09, 0.31248018, 3.2684206e-08)
-bones/66/rotation = Quaternion(0.117719784, -0.56506115, 0.2195027, 0.78655356)
-bones/66/scale = Vector3(0.99999994, 1.0000002, 1.0000013)
-bones/67/position = Vector3(9.522939e-09, 0.1750829, -2.2705244e-08)
-bones/67/rotation = Quaternion(6.6448843e-06, 0.98906535, 0.14747803, -4.930228e-07)
-bones/67/scale = Vector3(1, 0.9999993, 1.0000005)
-bones/68/position = Vector3(4.3306514e-08, 0.15624, 4.4216e-08)
-bones/68/rotation = Quaternion(-6.420125e-08, 0.07791749, -2.3853775e-07, 0.9969598)
-bones/68/scale = Vector3(0.9999999, 0.99999994, 1)
-bones/69/position = Vector3(0.66153806, 1.3903611, 0.023947254)
-bones/69/rotation = Quaternion(-4.867681e-08, -1.1924875e-08, -6.844804e-15, 1)
-bones/69/scale = Vector3(1, 1, 1)
-bones/70/position = Vector3(0.2879915, -0.05750511, -6.773296e-09)
-bones/70/rotation = Quaternion(0.7071069, -5.3385072e-08, 5.338507e-08, 0.70710665)
-bones/70/scale = Vector3(1, 1, 1)
-bones/71/position = Vector3(0.66153806, 2.5755637, 0.023947166)
-bones/71/rotation = Quaternion(-4.8676796e-08, -1.1924875e-08, -6.8448004e-15, 1)
-bones/72/position = Vector3(0.7482513, -0.11801002, -0.011061881)
-bones/72/rotation = Quaternion(-5.372627e-37, -7.54979e-08, -1.6512432e-32, 1)
-
-[node name="Skeleton3D" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root" parent_id_path=PackedInt32Array(2066360241, 19173196, 1042139329) index="0" unique_id=1822254773]
-bones/0/position = Vector3(-0.39782217, 1.8539849e-15, 0.90514696)
-bones/1/position = Vector3(-7.114377e-07, 0.06982851, 0.061533652)
-bones/1/rotation = Quaternion(-0.2141166, -3.4622892e-06, -7.5893433e-07, 0.9768081)
-bones/2/position = Vector3(-1.9287627e-07, 0.2591281, -0.021411406)
-bones/2/rotation = Quaternion(0.36386773, 3.4510226e-06, 2.0439327e-07, 0.9314507)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/position = Vector3(2.9802168e-08, 0.25028738, 2.115273e-08)
-bones/3/rotation = Quaternion(0.12674466, 1.694066e-20, 4.235165e-21, 0.99193543)
-bones/3/scale = Vector3(1, 1.0000001, 1.0000001)
-bones/4/position = Vector3(-1.6564528e-13, 0.0864115, -1.0031917e-07)
-bones/4/rotation = Quaternion(-0.013524331, -0.17775396, 0.10507013, 0.97835624)
-bones/4/scale = Vector3(0.99999994, 1, 1)
-bones/7/position = Vector3(-0.03556309, 0.2003769, -0.023510354)
-bones/7/rotation = Quaternion(0.50349045, -0.5034905, -0.496485, -0.49648494)
-bones/8/position = Vector3(-2.363018e-07, 0.10668923, 1.3983448e-07)
-bones/8/rotation = Quaternion(-0.45239955, -0.050623372, 0.09683939, 0.8850956)
-bones/8/scale = Vector3(1.0000001, 1.0000004, 0.99999994)
-bones/9/position = Vector3(-3.1664964e-08, -5.4948025e-08, -1.3147655e-08)
-bones/9/rotation = Quaternion(-1.5369955e-07, 0.10295719, 1.6958683e-07, 0.99468577)
-bones/9/scale = Vector3(1, 0.99999976, 1)
-bones/10/position = Vector3(-1.4682492e-08, 0.24721348, -7.72179e-08)
-bones/10/rotation = Quaternion(-6.917747e-05, -0.00012272246, 0.49032962, 0.8715371)
-bones/10/scale = Vector3(0.99999976, 1.0000002, 0.99999994)
-bones/11/position = Vector3(-1.2621468e-08, 0.13209814, -8.30907e-08)
-bones/11/rotation = Quaternion(3.6780712e-08, 0.065737925, -1.1944732e-07, 0.997837)
-bones/11/scale = Vector3(0.99999994, 1, 1)
-bones/12/position = Vector3(1.9204267e-08, 0.26419652, 4.5514142e-08)
-bones/12/rotation = Quaternion(0.22196768, 0.020075472, -0.18988003, 0.95617616)
-bones/12/scale = Vector3(0.9999997, 0.99999976, 0.99999994)
-bones/32/position = Vector3(0.03556306, 0.2003769, -0.023510354)
-bones/32/rotation = Quaternion(0.5531296, 0.4483893, 0.4421504, -0.54543346)
-bones/32/scale = Vector3(0.9999999, 1, 0.99999994)
-bones/33/position = Vector3(-3.897883e-09, 0.10668913, -1.9451335e-08)
-bones/33/rotation = Quaternion(-0.39692456, -0.061816543, -0.38523754, 0.8307959)
-bones/33/scale = Vector3(1.0000002, 0.9999998, 1.0000002)
-bones/34/position = Vector3(-8.940698e-08, -3.282912e-08, 4.276353e-08)
-bones/34/rotation = Quaternion(-2.081621e-07, -0.15077011, 2.9465636e-07, 0.98856884)
-bones/34/scale = Vector3(1.0000001, 0.9999999, 0.99999994)
-bones/35/position = Vector3(-1.6971241e-07, 0.24721374, -9.1115524e-08)
-bones/35/rotation = Quaternion(-3.1287873e-05, 2.4273757e-05, -0.7863601, 0.61776847)
-bones/35/scale = Vector3(1.0000001, 0.99999994, 0.9999999)
-bones/36/position = Vector3(-6.3795724e-08, 0.13209815, 6.350371e-08)
-bones/36/rotation = Quaternion(-5.1045955e-08, 0.34133178, 6.701468e-08, 0.93994296)
-bones/36/scale = Vector3(0.99999976, 0.99999994, 0.9999998)
-bones/37/position = Vector3(1.4868693e-09, 0.2641962, 5.690458e-08)
-bones/37/rotation = Quaternion(-0.14816654, 0.34443256, -0.0017076635, 0.9270437)
-bones/37/scale = Vector3(0.9999998, 0.9999997, 0.9999998)
-bones/57/position = Vector3(0.07767487, 1.1553094e-07, -6.0621096e-07)
-bones/57/rotation = Quaternion(0.36764568, 0.6611014, 0.22748151, 0.6132159)
-bones/57/scale = Vector3(1.0000021, 0.999995, 1.0000021)
-bones/58/position = Vector3(5.7509176e-08, -2.1886066e-08, 3.690365e-08)
-bones/58/rotation = Quaternion(-1.8801675e-08, 0.24559197, -6.310638e-08, 0.96937335)
-bones/58/scale = Vector3(1, 1.0000004, 1.0000002)
-bones/59/position = Vector3(1.3455525e-07, 0.31259513, 5.616943e-09)
-bones/59/rotation = Quaternion(2.22456e-08, 6.268225e-08, 0.80888087, 0.5879727)
-bones/59/scale = Vector3(1.0000006, 1.0000002, 1.0000004)
-bones/60/position = Vector3(-3.712677e-08, 0.31248027, 1.9881474e-10)
-bones/60/rotation = Quaternion(0.09437903, 0.7594884, -0.015432864, 0.64345306)
-bones/60/scale = Vector3(1.0000017, 0.99999994, 0.9999999)
-bones/61/position = Vector3(-1.4596303e-08, 0.1750828, 5.4444858e-08)
-bones/61/rotation = Quaternion(2.180797e-06, 0.98906046, 0.14751072, 1.918724e-06)
-bones/61/scale = Vector3(0.99999946, 0.9999993, 0.9999998)
-bones/62/position = Vector3(-2.840533e-08, 0.15624015, -5.3449185e-08)
-bones/62/rotation = Quaternion(3.9830667e-08, 0.07683144, 1.0508604e-07, 0.99704415)
-bones/62/scale = Vector3(1, 0.9999997, 1.0000002)
-bones/63/position = Vector3(-0.07767498, 5.5480218e-08, 5.535899e-07)
-bones/63/rotation = Quaternion(-0.7443593, 0.36782756, -0.037636686, -0.5560717)
-bones/63/scale = Vector3(1.0000029, 1.0000125, 0.9999844)
-bones/64/position = Vector3(-7.846393e-08, 1.8929128e-07, -1.0739306e-08)
-bones/64/rotation = Quaternion(-6.4812866e-10, -0.7295477, 1.7642748e-08, 0.68393)
-bones/64/scale = Vector3(1.0000002, 1.0000001, 1)
-bones/65/position = Vector3(-9.0439464e-08, 0.3125949, -1.6762696e-08)
-bones/65/rotation = Quaternion(1.1533883e-07, -9.2396014e-08, -0.5935153, 0.8048228)
-bones/65/scale = Vector3(1.0000002, 0.99999976, 1)
-bones/66/position = Vector3(-9.511265e-09, 0.31248018, 3.2684206e-08)
-bones/66/rotation = Quaternion(0.117719784, -0.56506115, 0.2195027, 0.78655356)
-bones/66/scale = Vector3(0.99999994, 1.0000002, 1.0000013)
-bones/67/position = Vector3(9.522939e-09, 0.1750829, -2.2705244e-08)
-bones/67/rotation = Quaternion(6.6448843e-06, 0.98906535, 0.14747803, -4.930228e-07)
-bones/67/scale = Vector3(1, 0.9999993, 1.0000005)
-bones/68/position = Vector3(4.3306514e-08, 0.15624, 4.4216e-08)
-bones/68/rotation = Quaternion(-6.420125e-08, 0.07791749, -2.3853775e-07, 0.9969598)
-bones/68/scale = Vector3(0.9999999, 0.99999994, 1)
-bones/69/position = Vector3(0.66153806, 1.3903611, 0.023947254)
-bones/69/rotation = Quaternion(-4.867681e-08, -1.1924875e-08, -6.844804e-15, 1)
-bones/69/scale = Vector3(1, 1, 1)
-bones/70/position = Vector3(0.2879915, -0.05750511, -6.773296e-09)
-bones/70/rotation = Quaternion(0.7071069, -5.3385072e-08, 5.338507e-08, 0.70710665)
-bones/70/scale = Vector3(1, 1, 1)
-bones/71/position = Vector3(0.66153806, 2.5755637, 0.023947166)
-bones/71/rotation = Quaternion(-4.8676796e-08, -1.1924875e-08, -6.8448004e-15, 1)
-bones/72/position = Vector3(0.7482513, -0.11801002, -0.011061881)
-bones/72/rotation = Quaternion(-5.372627e-37, -7.54979e-08, -1.6512432e-32, 1)
+[node name="AnimationHandler" parent="===ACTOR========/JoyActor" index="3" unique_id=1134272481 node_paths=PackedStringArray("animation_tree")]
+animation_tree = NodePath("../CharacterAnimationTree")
 
 [node name="AnimationPlayer" parent="===ACTOR========/JoyActor" index="4" unique_id=99323753]
 active = false
+
+[node name="CharacterAnimationTree" type="AnimationTree" parent="===ACTOR========/JoyActor" unique_id=1783163870]
+root_node = NodePath("../Skeleton")
+tree_root = SubResource("AnimationNodeBlendTree_sl1r7")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blink_trigger/active = true
+parameters/blink_trigger/internal_active = true
+parameters/blink_trigger/request = 0
+parameters/talk_trigger/active = false
+parameters/talk_trigger/internal_active = false
+parameters/talk_trigger/request = 0
+script = ExtResource("50_3prre")
 
 [node name="OpalActor" parent="===ACTOR========" unique_id=1017530611 node_paths=PackedStringArray("_layer_mask") instance=ExtResource("9_8fbt7")]
 transform = Transform3D(0.59061974, 0, -0.80695, 0, 1, 0, 0.80695, 0, 0.59061974, 3.3337862, 1.2082886, 0.64108145)
@@ -995,6 +799,8 @@ text = "This UX allows for camera angles and dialogue to be more dynamic"
 
 [connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateSceneManager" method="start_debate" flags=7]
 
+[editable path="===GAMEPLAY========/CpiUi/CpuDiscardCounter"]
+[editable path="===GAMEPLAY========/CpiUi/CpuEnergyCounter"]
 [editable path="===GAMEPLAY========/TokenTracks/DoubtTrack"]
 [editable path="===GAMEPLAY========/TokenTracks/SelfTrack"]
 [editable path="===GAMEPLAY========/TokenTracks/OtherTrack"]

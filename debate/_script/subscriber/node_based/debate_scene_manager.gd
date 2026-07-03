@@ -21,14 +21,16 @@ class_name DebateSceneManager
 @export var computer : Character
 
 @export_group("Player UI")
-@export var hand_ui : HandGUI
-@export var energy_ui : EnergyGUI
-@export var hold_area_ui : HoldAreaGUI
-@export var draw_pile_ui : DrawPileGUI
+@export var hand_ui : HandUi
+@export var hold_area_ui : HoldAreaUi
+@export var energy_ui : CounterUi
+@export var draw_ui : CounterUi
+@export var discard_ui : CounterUi
 
 @export_group("Computer UI")
-@export var computer_energy_ui : EnergyGUI
-@export var computer_hand_ui : HandCountGUI
+@export var computer_hand_ui : CounterUi
+@export var computer_energy_ui : CounterUi
+@export var computer_discard_ui : CounterUi
 
 var is_animation_locked := false
 
@@ -111,10 +113,13 @@ func update_board():
 
 func update_player_ui():
 	if hand_ui: await hand_ui.update_hand(manager.player.hand)
-	if energy_ui: await energy_ui.update_amount(manager.player.current_energy)
 	if hold_area_ui: await hold_area_ui.set_hold_card(manager.player.held_card.get_card_at_index(0))
-	if draw_pile_ui: await draw_pile_ui.update_amount(manager.player.draw_pile.size())
+	if energy_ui: await energy_ui.update_amount(manager.player.current_energy)
+	if draw_ui: await draw_ui.update_amount(manager.player.draw_pile.size())
+	if discard_ui: await discard_ui.update_amount(manager.player.discard_pile.size())
+
 
 func update_computer_ui():
 	if computer_hand_ui: await computer_hand_ui.update_amount(manager.computer.hand.size())
 	if computer_energy_ui: await computer_energy_ui.update_amount(manager.computer.current_energy)
+	if computer_discard_ui: await computer_discard_ui.update_amount(manager.computer.discard_pile.size())

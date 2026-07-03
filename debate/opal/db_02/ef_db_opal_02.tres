@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bcbeuvdrhjbe6" path="res://system/script/event_factory/ordered_bucket_event_factory.gd" id="2_u550f"]
 [ext_resource type="Resource" uid="uid://df76027oj3c3p" path="res://debate/opal/db_02/event/ev_db_opal_02_debate_start.tres" id="3_lrybp"]
 [ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/rule/concept_rule.gd" id="4_b7gbn"]
+[ext_resource type="Resource" uid="uid://dc0bbjmgfginy" path="res://debate/opal/db_02/event/ev_db_opal_02_play_basic_doubt.tres" id="5_5syok"]
 [ext_resource type="Script" uid="uid://cgsr0p1sth0wy" path="res://system/script/rule/expression_rule.gd" id="5_b6dcq"]
 [ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="6_b6dcq"]
 
@@ -25,22 +26,23 @@ script = ExtResource("1_65fn2")
 rule = SubResource("Resource_lrybp")
 payload_list = Array[ExtResource("2_b7gbn")]([SubResource("Resource_b6dcq")])
 
-[sub_resource type="Resource" id="Resource_b7gbn"]
-resource_name = "RU: Exp: "
+[sub_resource type="Resource" id="Resource_i0cw1"]
+resource_name = "RU: Exp: card_"
 script = ExtResource("5_b6dcq")
+expression = "card_history[0].base == card_base"
 variables = Dictionary[String, Variant]({
-"cb": ExtResource("6_b6dcq")
+"card_base": ExtResource("6_b6dcq")
 })
 metadata/_custom_type_script = "uid://cgsr0p1sth0wy"
 
 [sub_resource type="Resource" id="Resource_fayrp"]
-resource_name = "ev_db_opal_02_debate_start"
+resource_name = "ev_db_opal_02_play_basic_doubt"
 script = ExtResource("2_b7gbn")
-event = ExtResource("3_lrybp")
-rule = SubResource("Resource_b7gbn")
+event = ExtResource("5_5syok")
+rule = SubResource("Resource_i0cw1")
 
 [sub_resource type="Resource" id="Resource_5syok"]
-resource_name = "RU: ON_PLAY"
+resource_name = "RU: ConceptRule"
 script = ExtResource("4_b7gbn")
 metadata/_custom_type_script = "uid://fnphjbccs4gy"
 
