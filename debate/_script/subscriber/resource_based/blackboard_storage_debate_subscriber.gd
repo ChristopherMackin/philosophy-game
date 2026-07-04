@@ -16,11 +16,11 @@ func on_turn_start(contestant: Contestant):
 	blackboard.add("turn_card_history", [], Blackboard.ExpirationToken.ON_DEBATE_START)
 	blackboard.add("turn_token_history", [], Blackboard.ExpirationToken.ON_DEBATE_START)
 
-func on_turn_end(contestant: Contestant):
+func on_turn_end(_contestant: Contestant):
 	blackboard.add("current_turn", manager.current_turn, Blackboard.ExpirationToken.ON_DEBATE_START)
 	blackboard.add("current_round", manager.current_round, Blackboard.ExpirationToken.ON_DEBATE_START)
 
-func on_card_played(card: Card, contestant : Contestant):
+func on_card_played(card: Card, _contestant : Contestant):
 	#Update Card History
 	if !blackboard.has("card_history"): blackboard.add("card_history", [], Blackboard.ExpirationToken.ON_DEBATE_START)
 	var history = blackboard.get_value("card_history")

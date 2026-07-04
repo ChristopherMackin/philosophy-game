@@ -6,7 +6,7 @@ class_name Rule
 func _init():
 	resource_name = "RU: " + get_script().get_global_name()
 
-func check(query : Dictionary) -> bool:
+func check(_query : Dictionary) -> bool:
 	return false
 
 func _update_rule_in_editor(name: String):

@@ -6,5 +6,5 @@ class_name Actor
 @export var display_name: String
 @export var dialogue_area_override: DialogueArea
 
-func focus_actor(val: bool):
+func focus_actor(_val: bool):
 	pass

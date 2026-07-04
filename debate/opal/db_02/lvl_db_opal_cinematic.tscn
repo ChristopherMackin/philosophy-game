@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://bufq4a3okdy40" path="res://_asset/debate/_general/model/mod_energy_counter.glb" id="26_7g2ac"]
 [ext_resource type="PackedScene" uid="uid://4pw7ywqa3y3l" path="res://_asset/debate/_general/model/mod_turn_counter.glb" id="26_8wfbp"]
 [ext_resource type="Texture2D" uid="uid://cjibu358pdc3s" path="res://_asset/_general/texture/t_colorable_checkerboard.png" id="26_cwy3g"]
+[ext_resource type="Script" uid="uid://b1k76fw3jnei6" path="res://debate/_script/ui/rich_text_label_update_emitter.gd" id="28_p0yir"]
 [ext_resource type="PackedScene" uid="uid://bk4ich5jfslat" path="res://_asset/debate/_general/model/mod_line_clear_counter.glb" id="29_udfsd"]
 [ext_resource type="Texture2D" uid="uid://0xx8gpn3m2io" path="res://_asset/debate/_general/texture/t_computer_discard_counter_col.png" id="30_dbiua"]
 [ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/card_gui/card_gui.tscn" id="30_y0dq0"]
@@ -74,22 +75,16 @@
 [ext_resource type="Texture2D" uid="uid://duwx1hkh07na8" path="res://_asset/debate/simon/_general/simon_confirm_button.png" id="57_q0c1o"]
 [ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/packed_scene/basic_dialogue_area.tscn" id="65_nhoxv"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_336qk"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_p0yir"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_w5tvy"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_84k4r"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="GDScript" id="GDScript_w5tvy"]
-script/source = "extends Node
+[sub_resource type="ViewportTexture" id="ViewportTexture_dbiua"]
+viewport_path = NodePath("===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport")
 
-class_name EnergyCounter
-
-func update_amount(amount : int):
-	set(\"text\", \"[center]%s[/center]\" % amount)
-"
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_bjofe"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3m87t"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8igq"]
@@ -97,7 +92,7 @@ albedo_texture = ExtResource("30_dbiua")
 ao_enabled = true
 ao_texture = ExtResource("31_p0yir")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3prre"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_sl1r7"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jelp"]
@@ -105,7 +100,7 @@ albedo_texture = ExtResource("32_84k4r")
 ao_enabled = true
 ao_texture = ExtResource("33_3m87t")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dbiua"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0c38c"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sl1r7"]
@@ -261,12 +256,12 @@ input_manager = NodePath("../InputManager")
 selection_handler = ExtResource("7_faur5")
 computer = ExtResource("5_bd10g")
 hand_ui = NodePath("../../===UI========/Hand")
-energy_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/Label")
-draw_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerDrawCounter/MiniCounterUi")
-discard_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi")
-computer_hand_ui = NodePath("../../===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi")
-computer_energy_ui = NodePath("../../===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi")
-computer_discard_ui = NodePath("../../===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi")
+energy_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport/Label")
+draw_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerDrawCounter/MiniCounterUi/SubViewport/Border/Fill/Label")
+discard_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label")
+computer_hand_ui = NodePath("../../===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill/Label")
+computer_energy_ui = NodePath("../../===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill/Label")
+computer_discard_ui = NodePath("../../===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label")
 manager = ExtResource("12_fev28")
 metadata/_custom_type_script = "uid://dhulr5f133qcw"
 
@@ -329,28 +324,44 @@ transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.989057
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawCounter" unique_id=1817069595 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_336qk")
+texture = SubResource("ViewportTexture_p0yir")
 
 [node name="PlayerDiscardCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1140548364 instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.9890571, -0.018066663, -0.12245832, -7.450581e-09, 0.99247366, -0.15000284, 0.0004506167, 0.13493468)
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" unique_id=1611050952 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_w5tvy")
+texture = SubResource("ViewportTexture_84k4r")
 
 [node name="PlayerEnergyCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1840847040 instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.577133, 0.07591381, 1.8900888, 0.29692417, 1.9479705, -0.16890348, -1.8681635, 0.33306077, 0.557061, -0.120429605, 0.0004506167, 0.20629291)
 
-[node name="Label" type="Label3D" parent="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter" unique_id=575903243]
-transform = Transform3D(0.11361814, 0.3677788, 0.058454458, 0.014944885, -0.065568514, 0.38349012, 0.37209523, -0.10966662, -0.033251442, 0.004173994, 0.012972456, 0.0010689367)
+[node name="CounterUi" type="Sprite3D" parent="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter" unique_id=496586397]
+transform = Transform3D(0.0637292, 0.3659591, 0.0063736998, -0.010203889, -0.0046906397, 0.37135154, 0.3658722, -0.06387509, 0.009246513, 0.0054180995, 0.016486436, 0.0013057943)
 layers = 32768
-cast_shadow = 1
 pixel_size = 0.0005
 shaded = true
 alpha_cut = 2
+texture = SubResource("ViewportTexture_dbiua")
+
+[node name="SubViewport" type="SubViewport" parent="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi" unique_id=519236677]
+transparent_bg = true
+size = Vector2i(256, 256)
+
+[node name="Label" type="RichTextLabel" parent="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport" unique_id=197936095]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
+theme_override_colors/font_outline_color = Color(0.3529412, 0.3529412, 0.3529412, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/normal_font_size = 64
 text = "3/3"
-font_size = 64
-script = SubResource("GDScript_w5tvy")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("28_p0yir")
 
 [node name="PlayerHeldCard" parent="===GAMEPLAY========/PlayerUi" unique_id=856621973 instance=ExtResource("25_8wfbp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0058919787, 0, 0.18703443)
@@ -362,7 +373,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15324764, 0.00012001136, -0
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" unique_id=467383888 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26024163, -0.009793821, -0.076415636, 0.076465435, -1.1382936e-08, 0.26041123, -0.009397088, -0.27122876, 0.0027592867, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_bjofe")
+texture = SubResource("ViewportTexture_3m87t")
 
 [node name="CpuDiscardCounter" parent="===GAMEPLAY========/CpiUi" unique_id=1590190797 instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.94619274, -0.32360363, 0, 0.32360363, 0.94619274, 0, 0, 0, 1, 0.15350369, 0, 0.013281487)
@@ -373,7 +384,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" unique_id=1511716073 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.2708025, 0.006386812, -0.016917214, 0.016962603, -0.0017474849, 0.27086934, 0.0062652696, -0.27132475, -0.002142772, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_3prre")
+texture = SubResource("ViewportTexture_sl1r7")
 
 [node name="CpuEnergyCounter" parent="===GAMEPLAY========/CpiUi" unique_id=151891147 instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.9523734, -0.26442856, 0.15186363, 0.26112953, 0.9644053, 0.04163922, -0.15746869, -3.7252903e-09, 0.987524, 0.15333109, 2.9802322e-08, 0.071661524)
@@ -384,7 +395,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" unique_id=969618535 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26872277, 0.03799277, 0.0023667924, -0.00091665983, -0.010411309, 0.27120426, 0.038055386, -0.26853144, -0.010180076, -0.011028126, 0.015155774, 0.015328243)
-texture = SubResource("ViewportTexture_dbiua")
+texture = SubResource("ViewportTexture_0c38c")
 
 [node name="GameBoardState" type="Node3D" parent="===GAMEPLAY========" unique_id=215128257]
 
@@ -799,8 +810,13 @@ text = "This UX allows for camera angles and dialogue to be more dynamic"
 
 [connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateSceneManager" method="start_debate" flags=7]
 
+[editable path="===GAMEPLAY========/PlayerUi/PlayerDrawCounter/MiniCounterUi"]
+[editable path="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi"]
+[editable path="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi"]
 [editable path="===GAMEPLAY========/CpiUi/CpuDiscardCounter"]
+[editable path="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi"]
 [editable path="===GAMEPLAY========/CpiUi/CpuEnergyCounter"]
+[editable path="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi"]
 [editable path="===GAMEPLAY========/TokenTracks/DoubtTrack"]
 [editable path="===GAMEPLAY========/TokenTracks/SelfTrack"]
 [editable path="===GAMEPLAY========/TokenTracks/OtherTrack"]

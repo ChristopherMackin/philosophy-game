@@ -2,5 +2,5 @@ extends Resource
 
 class_name GameEndCondition
 
-func check_condition(manager: DebateManager):
+func check_condition(_manager: DebateManager):
 	return false

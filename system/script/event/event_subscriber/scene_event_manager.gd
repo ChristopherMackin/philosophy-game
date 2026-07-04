@@ -27,7 +27,7 @@ func _ready():
 	
 	dialogue_input_handler.on_handle_input.connect(_handle_input)
 
-func _handle_input(delta, input):
+func _handle_input(_delta, input):
 	if input.is_action_just_pressed("action_1"):
 		continue_dialogue.emit()
 	if input.is_action_just_pressed("cancel"):
@@ -123,7 +123,7 @@ func play_animation(animation : String, actor : String, overwrite_animation: boo
 	animation_handler.start_animation(animation)
 	
 	if await_animation:
-		var finished_animation
+		var finished_animation = await animation_handler.on_animation_finished
 		while finished_animation != animation:
 			finished_animation = await animation_handler.on_animation_finished
 			print("finished_animation")

@@ -16,7 +16,7 @@ var card : Card:
 		card = val
 		update_card.call_deferred(card)
 
-func _process(delta):
+func _process(_delta):
 	if !card:
 			return
 		

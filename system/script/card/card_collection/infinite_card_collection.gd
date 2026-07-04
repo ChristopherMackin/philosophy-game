@@ -7,7 +7,7 @@ var original_draw_pile = []
 func _init(cards: Array[Card] = []):
 	original_draw_pile = cards
 	
-	on_removed.add_listener(func(card: Card): if _cards.size() <= 0: replinish_cards())
+	on_removed.add_listener(func(_card: Card): if _cards.size() <= 0: replinish_cards())
 	replinish_cards()
 
 func replinish_cards():

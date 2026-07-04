@@ -33,7 +33,7 @@ func _ready():
 	
 	focus_group.on_select.connect(on_select)
 
-func on_select(data, what: String, focus_type : String):
+func on_select(data, what: String, _focus_type : String):
 	player_brain.make_selection(SelectionResponse.new(data, what))
 
 func update_hand(hand : CardCollection):
@@ -93,8 +93,6 @@ func clear_hand():
 	cards_gui.clear()
 
 func sort_hand(hand : CardCollection):
-	var children = card_parent.get_children()
-	
 	for card in hand.get_cards():
 		var index = cards_gui.map(func(x): return x.card).find(card)
 		card_slots[index].move_to_front()

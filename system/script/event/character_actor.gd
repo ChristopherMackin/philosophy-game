@@ -28,14 +28,14 @@ func focus_actor(val: bool):
 		_layer_mask.set_layer(20, false)
 		_dialgoue_camera.priority = 0
 
-func focus_look_at_body_shape(area_rid, body: Node3D, body_shape_index, local_shape_index):
+func focus_look_at_body_shape(_area_rid, body: Node3D, body_shape_index, _local_shape_index):
 	var body_shape_owner = body.shape_find_owner(body_shape_index)
 	var body_shape_node = body.shape_owner_get_owner(body_shape_owner)
 	
 	if !_look_at_modifier: return
 	_look_at_modifier.target_node = body_shape_node.get_path()
 
-func unfocus_look_at_body_shape(area_rid, body: Node3D, body_shape_index, local_shape_index):
+func unfocus_look_at_body_shape(_area_rid, body: Node3D, body_shape_index, _local_shape_index):
 	var body_shape_owner = body.shape_find_owner(body_shape_index)
 	var body_shape_node = body.shape_owner_get_owner(body_shape_owner)
 	
@@ -43,14 +43,14 @@ func unfocus_look_at_body_shape(area_rid, body: Node3D, body_shape_index, local_
 	if _look_at_modifier.target_node == body_shape_node.get_path():
 		_look_at_modifier.target_node = NodePath()
 
-func focus_look_at_area_shape(area_rid, area: Area3D, area_shape_index, local_shape_index):
+func focus_look_at_area_shape(_area_rid, area: Area3D, area_shape_index, _local_shape_index):
 	var area_shape_owner = area.shape_find_owner(area_shape_index)
 	var area_shape_node = area.shape_owner_get_owner(area_shape_owner)
 	
 	if !_look_at_modifier: return
 	_look_at_modifier.target_node = area_shape_node.get_path()
 
-func unfocus_look_at_area_shape(area_rid, area: Area3D, area_shape_index, local_shape_index):
+func unfocus_look_at_area_shape(_area_rid, area: Area3D, area_shape_index, _local_shape_index):
 	var area_shape_owner = area.shape_find_owner(area_shape_index)
 	var area_shape_node = area.shape_owner_get_owner(area_shape_owner)
 	

@@ -32,7 +32,7 @@ var contestants : Array[Contestant]
 var current_turn : int = 0
 
 var current_round : int:
-	get: return floor(current_turn / 2)
+	get: return floor(current_turn / 2.0)
 
 var lines_cleared : int = 0
 
@@ -150,22 +150,22 @@ func play_card(card : Card, contestant : Contestant):
 	await play_stack.push_front(card)
 	
 func clear_lines():
-	var min = suit_track_dictionary.values()[0].size()
+	var min_tokens_in_track = suit_track_dictionary.values()[0].size()
 	
 	for value in suit_track_dictionary.values():
-		if min > value.size():
-			min = value.size()
+		if min_tokens_in_track > value.size():
+			min_tokens_in_track = value.size()
 	
-	if min > 0:
+	if min_tokens_in_track > 0:
 		for key in suit_track_dictionary:
 			var array = suit_track_dictionary[key] as Array
-			for i in min:
+			for i in min_tokens_in_track:
 				if debate_settings.line_clear_direction == Const.Direction.RIGHT:
 					array.remove_at(array.size() - 1)
 				else:
 					array.remove_at(0)
 		
-		lines_cleared += min
+		lines_cleared += min_tokens_in_track
 		for sub in subscribers: await sub.on_lines_cleared(min)
 
 

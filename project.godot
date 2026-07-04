@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Philosophy"
 config/features=PackedStringArray("4.6", "Forward Plus")
-run/max_fps=60
+run/max_fps=30
 config/icon="res://_asset/debate/icon.svg"
 
 [autoload]
@@ -26,7 +26,15 @@ SceneManager="*res://scene_management/scene_manager.tscn"
 GlobalBlackboard="*res://system/blackboard/global_blackboard.tscn"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 SaveDataGlobalList="*res://system/script/save/save_data_global_list.gd"
-EditorViewportCullMask="*uid://bexe33ma4jjxf"
+
+[debug]
+
+gdscript/warnings/unused_parameter=0
+gdscript/warnings/unused_signal=0
+gdscript/warnings/shadowed_variable=0
+gdscript/warnings/shadowed_variable_base_class=0
+gdscript/warnings/redundant_await=0
+gdscript/warnings/confusable_local_declaration=0
 
 [display]
 
@@ -41,6 +49,10 @@ enabled=PackedStringArray("res://addons/event_tree_plugin/plugin.cfg", "res://ad
 [filesystem]
 
 import/blender/enabled=false
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
 
 [importer_defaults]
 

@@ -24,5 +24,5 @@ class_name CharacterAnimationTree
 @export var idle_variation_min: float = 1.5
 @export var idle_variation_max: float = 4.2
 
-func set_trigger(trigger: String):
+func set_trigger(_trigger: String):
 	pass
