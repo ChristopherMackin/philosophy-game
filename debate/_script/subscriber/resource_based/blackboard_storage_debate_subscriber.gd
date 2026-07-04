@@ -44,7 +44,7 @@ func on_token_played(token: Token, _suit: Suit, _contestant : Contestant):
 	turn_history.push_front(token)
 	blackboard.add("turn_token_history", turn_history, Blackboard.ExpirationToken.ON_DEBATE_START)
 
-func on_lines_cleared(_count : int):
+func on_lines_cleared(count : int):
 	blackboard.add("lines_cleared", manager.lines_cleared, Blackboard.ExpirationToken.ON_DEBATE_START)
 
 func on_debate_finished():

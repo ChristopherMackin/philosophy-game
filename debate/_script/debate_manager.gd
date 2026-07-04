@@ -166,7 +166,7 @@ func clear_lines():
 					array.remove_at(0)
 		
 		lines_cleared += min_tokens_in_track
-		for sub in subscribers: await sub.on_lines_cleared(min)
+		for sub in subscribers: await sub.on_lines_cleared(min_tokens_in_track)
 
 
 
