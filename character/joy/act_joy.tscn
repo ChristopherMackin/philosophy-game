@@ -17,7 +17,8 @@ _data = {
 &"anim_joy_talk": ExtResource("7_fejen")
 }
 
-[node name="JoyActor" unique_id=2066360241 instance=ExtResource("1_humdt")]
+[node name="JoyActor" unique_id=2066360241 node_paths=PackedStringArray("_layer_mask") instance=ExtResource("1_humdt")]
+_layer_mask = NodePath("LayerMask")
 actor_name = "joy"
 display_name = "Joy"
 
@@ -231,8 +232,8 @@ bones/70/rotation = Quaternion(-3.078726e-07, 5.6864223e-15, -6.1799524e-17, 1)
 bones/70/scale = Vector3(1, 1.0000001, 1.0000001)
 bones/71/position = Vector3(0.70251954, 1.8160107, 0.038472526)
 bones/71/rotation = Quaternion(-6.252386e-08, 3.4133582e-06, -1.0448057e-14, 1)
-bones/72/position = Vector3(0.13033779, 4.7890456e-09, -6.81235e-09)
-bones/72/rotation = Quaternion(3.112878e-08, 1.7780916e-15, 1.02253826e-17, 1)
+bones/72/position = Vector3(0.4887963, -0.11884611, -4.983172e-07)
+bones/72/rotation = Quaternion(0.7071069, 3.478841e-15, 1.2542436e-15, 0.70710665)
 
 [node name="JoyOutfit05a" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="0" unique_id=19173196 node_paths=PackedStringArray("target") instance=ExtResource("3_16udo")]
 script = ExtResource("4_f5idp")
@@ -446,13 +447,14 @@ bones/70/rotation = Quaternion(-3.078726e-07, 5.6864223e-15, -6.1799524e-17, 1)
 bones/70/scale = Vector3(1, 1.0000001, 1.0000001)
 bones/71/position = Vector3(0.70251954, 1.8160107, 0.038472526)
 bones/71/rotation = Quaternion(-6.252386e-08, 3.4133582e-06, -1.0448057e-14, 1)
-bones/72/position = Vector3(0.13033779, 4.7890456e-09, -6.81235e-09)
-bones/72/rotation = Quaternion(3.112878e-08, 1.7780916e-15, 1.02253826e-17, 1)
+bones/72/position = Vector3(0.4887963, -0.11884611, -4.983172e-07)
+bones/72/rotation = Quaternion(0.7071069, 3.478841e-15, 1.2542436e-15, 0.70710665)
 
 [node name="Joy_Base_Mouth" parent="Outfit/JoyOutfit05a/root/Skeleton3D" index="2" unique_id=1443948411]
 sorting_offset = 1.0
 
 [node name="FacialAnimator" parent="." index="2" unique_id=2118967770 node_paths=PackedStringArray("eyes_meshes", "mouth_meshes", "skeleton")]
+emotion_index = 1
 eyes_meshes = [NodePath("../Outfit/JoyOutfit05a/root/Skeleton3D/Joy_Base_Face")]
 mouth_meshes = [NodePath("../Outfit/JoyOutfit05a/root/Skeleton3D/Joy_Base_Mouth")]
 skeleton = NodePath("../Skeleton/root/Skeleton3D")

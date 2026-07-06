@@ -621,7 +621,6 @@ skeleton = NodePath("../..")
 
 [node name="===ENVIRONMENT========" type="Node3D" parent="." unique_id=1647520102]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
-visible = false
 
 [node name="EnvDbOpal02" parent="===ENVIRONMENT========" unique_id=472548192 instance=ExtResource("7_wwxuk")]
 
@@ -633,11 +632,18 @@ transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 
 
 [node name="===ACTOR========" type="Node3D" parent="." unique_id=1690436738]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
-visible = false
 
-[node name="JoyActor" parent="===ACTOR========" unique_id=2066360241 node_paths=PackedStringArray("_layer_mask", "character_animation_tree") instance=ExtResource("8_w340p")]
-_layer_mask = NodePath("LayerMask")
+[node name="JoyActor" parent="===ACTOR========" unique_id=2066360241 node_paths=PackedStringArray("_facial_animator", "character_animation_tree") instance=ExtResource("8_w340p")]
+_facial_animator = NodePath("FacialAnimator")
 character_animation_tree = NodePath("CharacterAnimationTree")
+
+[node name="Skeleton3D" parent="===ACTOR========/JoyActor/Skeleton/root" parent_id_path=PackedInt32Array(2066360241, 1298630328, 1006879066) index="0" unique_id=1569458232]
+bones/72/position = Vector3(0.13033779, 4.7890456e-09, -6.81235e-09)
+bones/72/rotation = Quaternion(3.112878e-08, 1.7780916e-15, 1.02253826e-17, 1)
+
+[node name="Skeleton3D" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root" parent_id_path=PackedInt32Array(2066360241, 19173196, 1042139329) index="0" unique_id=1822254773]
+bones/72/position = Vector3(0.13033779, 4.7890456e-09, -6.81235e-09)
+bones/72/rotation = Quaternion(3.112878e-08, 1.7780916e-15, 1.02253826e-17, 1)
 
 [node name="AnimationHandler" parent="===ACTOR========/JoyActor" index="3" unique_id=1134272481 node_paths=PackedStringArray("animation_tree")]
 animation_tree = NodePath("../CharacterAnimationTree")

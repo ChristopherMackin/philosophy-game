@@ -5,6 +5,7 @@ class_name CharacterActor
 @export var _layer_mask: LayerMask
 @export var _dialgoue_camera: PhantomCamera3D
 @export var _look_at_modifier: LookAtModifier3D
+@export var _facial_animator: FacialAnimator
 
 @export var character_animation_tree: CharacterAnimationTree
 
@@ -13,6 +14,7 @@ class_name CharacterActor
 		return character_animation_tree.is_talking
 	set(val):
 		if character_animation_tree: character_animation_tree.is_talking = val
+		if _facial_animator: _facial_animator.override_mouth_emotion = val
 
 @export var is_blinking: bool = true:
 	get():

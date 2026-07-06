@@ -54,6 +54,11 @@ enum Concept {
 	ON_EVENT_TRIGGER_INVOKED
 }
 
+enum Emotion{
+	REST,
+	SAD,
+}
+
 enum SFX {
 	
 }
