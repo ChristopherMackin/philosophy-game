@@ -32,6 +32,11 @@ class_name DebateSceneManager
 @export var computer_energy_ui : RichTextLableUpdateEmitter
 @export var computer_discard_ui : RichTextLableUpdateEmitter
 
+@export_group("Game State UI")
+@export var game_board: GameBoard3d
+@export var turn_ui: RichTextLableUpdateEmitter
+@export var lines_cleared_ui: RichTextLableUpdateEmitter
+
 var is_animation_locked := false
 
 func _ready():
@@ -73,7 +78,7 @@ func on_card_hold_updated(card : Card, active_contestant : Contestant):
 	await query_event(Const.Concept.ON_HOLD)
 
 func on_lines_cleared(count : int):
-	pass
+	if lines_cleared_ui: lines_cleared_ui.update_label(str(count))
 
 func on_actions_invoked(card : Card, action_type: CardAction.Type, contestant : Contestant):
 	await update_everything()
@@ -101,13 +106,9 @@ func query_event(concept : Const.Concept):
 		event_manager.start_event(event)
 
 func update_everything():
-	await update_board()
 	await update_player_ui()
 	await update_computer_ui()
-
-func update_board():
-	if !manager.active_contestant: return
-	pass
+	await update_board_statue_ui()
 
 func update_player_ui():
 	if hand_ui: await hand_ui.update_hand(manager.player.hand)
@@ -121,3 +122,8 @@ func update_computer_ui():
 	if computer_hand_ui: await computer_hand_ui.update_label(str(manager.computer.hand.size()))
 	if computer_energy_ui: await computer_energy_ui.update_label(str(manager.computer.current_energy))
 	if computer_discard_ui: await computer_discard_ui.update_label(str(manager.computer.discard_pile.size()))
+
+func update_board_statue_ui():
+	if game_board: await game_board.update_token_tracks(manager.suit_track_dictionary)
+	if turn_ui: await turn_ui.update_label(str(manager.current_round))
+	if lines_cleared_ui: lines_cleared_ui.update_label(str(manager.lines_cleared))

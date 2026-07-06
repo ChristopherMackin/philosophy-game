@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bihxgmiftc4dn"]
+
+[ext_resource type="PackedScene" uid="uid://b43dtgwyd0wma" path="res://_asset/debate/_general/model/mod_token.glb" id="1_eu65l"]
+[ext_resource type="Script" uid="uid://be61h1xtdg6je" path="res://token_3d.gd" id="2_supr0"]
+
+[node name="Token3d" unique_id=977084215 instance=ExtResource("1_eu65l")]
+script = ExtResource("2_supr0")
+
+[node name="Token" parent="." index="0" unique_id=926642036]
+layers = 32768

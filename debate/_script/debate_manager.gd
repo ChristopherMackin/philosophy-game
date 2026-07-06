@@ -32,7 +32,7 @@ var contestants : Array[Contestant]
 var current_turn : int = 0
 
 var current_round : int:
-	get: return floor(current_turn / 2.0)
+	get: return 1 + floor(current_turn - 1) / 2
 
 var lines_cleared : int = 0
 
