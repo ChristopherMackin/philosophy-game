@@ -1,0 +1,68 @@
+[gd_resource type="VisualShader" format=3 uid="uid://ck4n15bmbvxeu"]
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_kvyar"]
+function = 1
+
+[sub_resource type="VisualShaderNodeVectorLen" id="VisualShaderNodeVectorLen_hpp1d"]
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_rw60q"]
+operator = 3
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_0o002"]
+default_input_values = [1, Vector2(4, 4), 2, Vector2(0, 0)]
+function = 1
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_kvyar"]
+parameter_name = "Color"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_hpp1d"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_kvyar"]
+parameter_name = "Texture2DParameter"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_hpp1d"]
+source = 5
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_rw60q"]
+input_name = "screen_uv"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_x3uxs"]
+expanded_output_ports = [0]
+input_name = "viewport_size"
+
+[resource]
+modes/cull = 2
+modes/diffuse = 3
+modes/specular = 2
+flags/unshaded = true
+stencil/enabled = true
+stencil_flags/write = true
+preview_params/Texture2DParameter = "Resource(\"uid://cjibu358pdc3s\", \"res://_asset/_general/texture/t_colorable_checkerboard.png\")"
+preview_params/Color = "Color(0.98895735, 0.98895746, 0.98895735, 1)"
+nodes/fragment/0/position = Vector2(720, 530)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture2DParameter_kvyar")
+nodes/fragment/5/position = Vector2(-480, 930)
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_hpp1d")
+nodes/fragment/6/position = Vector2(100, 780)
+nodes/fragment/7/node = SubResource("VisualShaderNodeInput_rw60q")
+nodes/fragment/7/position = Vector2(-1200, 690)
+nodes/fragment/8/node = SubResource("VisualShaderNodeInput_x3uxs")
+nodes/fragment/8/position = Vector2(-1420, 870)
+nodes/fragment/11/node = SubResource("VisualShaderNodeUVFunc_kvyar")
+nodes/fragment/11/position = Vector2(-770, 710)
+nodes/fragment/12/node = SubResource("VisualShaderNodeVectorLen_hpp1d")
+nodes/fragment/12/position = Vector2(-1020, 1090)
+nodes/fragment/13/node = SubResource("VisualShaderNodeVectorOp_rw60q")
+nodes/fragment/13/position = Vector2(-1020, 820)
+nodes/fragment/14/node = SubResource("VisualShaderNodeUVFunc_0o002")
+nodes/fragment/14/position = Vector2(-460, 680)
+nodes/fragment/15/node = SubResource("VisualShaderNodeColorParameter_kvyar")
+nodes/fragment/15/position = Vector2(20, 590)
+nodes/fragment/16/node = SubResource("VisualShaderNodeVectorOp_hpp1d")
+nodes/fragment/16/position = Vector2(370, 670)
+nodes/fragment/connections = PackedInt32Array(5, 0, 6, 2, 7, 0, 11, 0, 8, 0, 12, 0, 8, 0, 13, 0, 12, 0, 13, 1, 13, 0, 11, 1, 11, 0, 14, 0, 14, 0, 6, 0, 15, 0, 16, 0, 6, 0, 16, 1, 16, 0, 0, 0)

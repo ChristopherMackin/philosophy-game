@@ -124,6 +124,7 @@ modes/depth_draw = 1
 modes/cull = 2
 flags/depth_prepass_alpha = true
 flags/alpha_to_coverage = true
+stencil/enabled = true
 nodes/fragment/0/position = Vector2(2320, 3260)
 nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_kdkbh")
 nodes/fragment/5/position = Vector2(1460, 3190)

@@ -3,17 +3,33 @@
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_a8mki"]
 [ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_5iffc"]
 [ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_rb7ru"]
+[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="2_wud8u"]
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("2_wud8u")
+
+[sub_resource type="Resource" id="Resource_5iffc"]
+script = ExtResource("2_rb7ru")
+outputs = Array[int]([0])
+inputs = ["talk", "joy", false, false]
+action = SubResource("Resource_ml60a")
 
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("2_5iffc")
 
-[sub_resource type="Resource" id="Resource_rb7ru"]
+[sub_resource type="Resource" id="Resource_wud8u"]
 script = ExtResource("2_rb7ru")
+outputs = Array[int]([2])
 inputs = ["I just played a special card or whatnot I wanted to test the speaking.", "joy", true, 2.0]
 action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_a3e8l"]
+script = ExtResource("2_rb7ru")
+inputs = ["reset", "joy", false, false]
+action = SubResource("Resource_ml60a")
 
 [resource]
 script = ExtResource("1_a8mki")
 await_event = true
-start_task = SubResource("Resource_rb7ru")
-tasks = Array[ExtResource("2_rb7ru")]([SubResource("Resource_rb7ru")])
+start_task = SubResource("Resource_5iffc")
+tasks = Array[ExtResource("2_rb7ru")]([SubResource("Resource_wud8u"), SubResource("Resource_5iffc"), SubResource("Resource_a3e8l")])
