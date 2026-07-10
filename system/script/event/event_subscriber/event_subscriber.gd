@@ -2,7 +2,21 @@ extends Node
 
 class_name EventSubscriber
 
-@export var manager : EventManager
+@export var manager : EventManager:
+	set(val):
+		if manager:
+			manager.unsubscribe(self)
+		
+		manager = val
+		
+		if manager:
+			manager.subscribe(self)
+		
+
+func _notification(what):
+	if (what == NOTIFICATION_PREDELETE):
+		if manager:
+			manager.unsubscribe(self)
 
 func _ready():
 	manager.subscribe(self)

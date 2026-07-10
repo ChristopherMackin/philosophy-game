@@ -1,3 +1,4 @@
+@tool
 extends AnimationHandler
 
 class_name CharacterTreeAnimationHandler

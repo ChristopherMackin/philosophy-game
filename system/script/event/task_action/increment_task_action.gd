@@ -1,3 +1,4 @@
+@tool
 extends TaskAction
 
 class_name IncrementTaskAction

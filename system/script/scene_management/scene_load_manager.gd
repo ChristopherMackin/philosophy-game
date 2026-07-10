@@ -23,9 +23,6 @@ func _ready():
 	set_room_state()
 	set_player_spawn()
 	
-	if blackboard:
-		event_manager.blackboard = blackboard
-	
 	if event_factory:
 		query_event.call_deferred()
 		await _event_finished

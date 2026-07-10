@@ -1,3 +1,4 @@
+@tool
 extends Actor
 
 class_name CharacterActor
@@ -10,13 +11,17 @@ class_name CharacterActor
 
 @export var is_talking: bool = false:
 	get():
-		return character_animation_tree.is_talking
+		if character_animation_tree:
+			return character_animation_tree.is_talking
+		return false
 	set(val):
 		if character_animation_tree: character_animation_tree.is_talking = val
 
 @export var is_blinking: bool = true:
 	get():
-		return character_animation_tree.is_blinking
+		if character_animation_tree:
+			return character_animation_tree.is_blinking
+		return false
 	set(val):
 		if character_animation_tree: character_animation_tree.is_blinking = val
 

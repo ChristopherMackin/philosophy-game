@@ -1,3 +1,4 @@
+@tool
 extends RichTextLabel
 
 class_name ScrollingText

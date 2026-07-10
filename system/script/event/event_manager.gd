@@ -1,15 +1,18 @@
+@tool
 extends Resource
 
 class_name EventManager
 
-var blackboard: Blackboard
+@export var blackboard: Blackboard
 
 var subscribers : Array[EventSubscriber]
 var current_task : Task
 var current_event : Event
 
 func subscribe(subscriber : EventSubscriber):
-	subscribers.append(subscriber)
+	var index = subscribers.find(subscriber)
+	if index <= 0:
+		subscribers.append(subscriber)
 func unsubscribe(subscriber : EventSubscriber):
 	var index = subscribers.find(subscriber)
 	
