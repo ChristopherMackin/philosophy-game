@@ -19,12 +19,18 @@ func unsubscribe(subscriber : EventSubscriber):
 	if index != -1:
 		subscribers.remove_at(index)
 
-func start_event(event : Event):	
-	if !event || (current_task && !event.can_interupt): return
-	
+func cancel_current_event():
 	if current_task:
 		current_task.cancel(self)
 		await _end_event(current_event)
+	
+	current_task = null
+	current_event = null
+
+func start_event(event : Event):	
+	if !event || (current_task && !event.can_interupt): return
+	
+	await cancel_current_event()
 	
 	current_event = event
 	current_task = event.start_task
@@ -35,6 +41,7 @@ func start_event(event : Event):
 		var index
 		if current_event.skip: index = await current_task.skip(blackboard, self)
 		else: index = await current_task.invoke(blackboard, self)
+		if !current_event: return
 		current_task = current_event.get_task(index)
 	
 	var expire = current_event.get_expiration_token()
@@ -50,7 +57,12 @@ func _end_event(event: Event):
 	for sub : EventSubscriber in subscribers: await sub._end_event(event)
 
 func display_dialogue(text : String, actor : String, await_input : bool, seconds_before_close : float):
-	for sub : EventSubscriber in subscribers: await sub.display_dialogue(text, actor, await_input, seconds_before_close)
+	var callables: Array[Callable]
+	callables.assign(subscribers.map(func(sub): return func(): await sub.display_dialogue(text, actor, await_input, seconds_before_close)))
+	
+	await Util.await_all(
+		callables
+	)
 
 func cancel_dialogue(actor : String):
 	for sub : EventSubscriber in subscribers: await sub.cancel_dialogue(actor)

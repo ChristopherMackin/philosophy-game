@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ujd6vl7brq4e" path="res://system/script/event_factory/event_payload_bucket.gd" id="1_65fn2"]
 [ext_resource type="Script" uid="uid://dftjqkpxopsus" path="res://system/script/event_factory/event_factory_payload.gd" id="2_b7gbn"]
 [ext_resource type="Script" uid="uid://bcbeuvdrhjbe6" path="res://system/script/event_factory/ordered_bucket_event_factory.gd" id="2_u550f"]
-[ext_resource type="Resource" uid="uid://dc0bbjmgfginy" path="res://debate/opal/db_02/event/ev_db_opal_02_play_basic_doubt.tres" id="5_5syok"]
+[ext_resource type="Resource" uid="uid://dc0bbjmgfginy" path="res://debate/opal/db_02/event/ev_db_opal_02_play_basic_doubt.tres" id="3_b7gbn"]
 [ext_resource type="Script" uid="uid://cgsr0p1sth0wy" path="res://system/script/rule/expression_rule.gd" id="5_b6dcq"]
 [ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="6_b6dcq"]
 
@@ -19,7 +19,7 @@ metadata/_custom_type_script = "uid://cgsr0p1sth0wy"
 [sub_resource type="Resource" id="Resource_b6dcq"]
 resource_name = "ev_db_opal_02_play_basic_doubt"
 script = ExtResource("2_b7gbn")
-event = ExtResource("5_5syok")
+event = ExtResource("3_b7gbn")
 rule = SubResource("Resource_b7gbn")
 
 [sub_resource type="Resource" id="Resource_lrybp"]

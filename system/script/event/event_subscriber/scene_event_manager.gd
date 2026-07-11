@@ -19,7 +19,6 @@ signal continue_dialogue
 signal skip
 
 func _ready():
-	super._ready()
 	if default_dialogue_area:
 		default_dialogue_area.visible = false
 	for actor in actors:
@@ -47,6 +46,8 @@ func _end_event(event: Event):
 	input_manager.active_handler = replaced_input_handler
 
 func display_dialogue(line : String, actor : String, await_input : bool, seconds_before_close : float):
+	dialogue_canceled = false
+	
 	var current_actor: Actor = null
 	
 	if actor != "":
@@ -74,7 +75,8 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 	
 	await Util.await_any([
 		func(): await dialogue_area.on_dialogue_finished,
-		func(): await skip
+		func(): await skip,
+		func(): await _on_dialogue_canceled
 	])
 	
 	dialogue_area.skip_to_the_end()
@@ -82,8 +84,17 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 	if current_actor:
 		current_actor.is_talking = false
 	
-	if await_event && await_input: await continue_dialogue
-	else: await GlobalTimer.wait_for_seconds(seconds_before_close)
+	var continue_trigger: Callable
+	
+	if await_event && await_input: continue_trigger = func(): await continue_dialogue
+	else: continue_trigger = func(): await GlobalTimer.wait_for_seconds(seconds_before_close)
+	
+	await Util.await_any([
+		continue_trigger,
+		func(): await _on_dialogue_canceled
+	])
+	
+	if dialogue_canceled: return
 	
 	dialogue_area.visible = false
 	
@@ -102,6 +113,9 @@ func cancel_dialogue(actor):
 		current_actor.focus_actor(false)
 	
 		dialogue_area.visible = false
+	
+	dialogue_canceled = true
+	_on_dialogue_canceled.emit()
 
 func play_animation(animation : String, actor : String, overwrite_animation: bool, await_animation : bool):
 	var parent

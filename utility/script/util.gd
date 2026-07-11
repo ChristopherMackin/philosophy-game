@@ -23,11 +23,13 @@ static func set_parent(node : Node, parent: Node):
 	else:
 		parent.add_child(node)
 
-static func await_all(functions : Array[Callable]):
+static func await_all(functions : Array[Callable], timeout: int = 100) -> bool:
 	await AwaitAll.new(functions).all_finished
+	return true
 
-static func await_any(functions : Array[Callable]):
+static func await_any(functions : Array[Callable], timeout: int = 100) -> bool:
 	await AwaitAny.new(functions).any_finished
+	return true
 
 static func build_query(queryables : Array) -> Dictionary:
 	var query : Dictionary = {}
@@ -99,6 +101,7 @@ static func deep_copy_resource_array(resource_array : Array):
 	return deep_copy
 
 static func get_resource_name(resource: Resource):
+	if !resource: return "invalid path"
 	var path = resource.get_path()
 	return get_file_name(path)
 

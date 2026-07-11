@@ -27,13 +27,13 @@ script = ExtResource("2_5iffc")
 [sub_resource type="Resource" id="Resource_vlshj"]
 script = ExtResource("2_rb7ru")
 outputs = Array[int]([7])
-inputs = ["Would it help if I got you water or something?", "opal", true, 0.0]
+inputs = ["Same! I just... needed some time to relax after work.", "opal", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_oikub"]
 script = ExtResource("2_rb7ru")
 outputs = Array[int]([0])
-inputs = ["I just needed to sit down is all.", "joy", true, 0.0]
+inputs = ["Test", "joy", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_kmqie"]
@@ -60,13 +60,13 @@ action = SubResource("Resource_1f63y")
 [sub_resource type="Resource" id="Resource_dbj4y"]
 script = ExtResource("2_rb7ru")
 outputs = Array[int]([9])
-inputs = ["Ummm... sure. Yeah. But I can get myself some later.", "joy", true, 0.0]
+inputs = ["Ummm... sure. Yeah.", "joy", true, 0.0]
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_2lm7j"]
 script = ExtResource("2_rb7ru")
 outputs = Array[int]([3])
-inputs = ["You don't have to stay here", "joy", true, 2.0]
+inputs = ["You don't have to stay here.", "joy", true, 2.0]
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_ico7r"]
@@ -77,5 +77,6 @@ action = SubResource("Resource_ml60a")
 [resource]
 script = ExtResource("1_a8mki")
 await_event = true
+frequency = 2
 start_task = SubResource("Resource_wud8u")
 tasks = Array[ExtResource("2_rb7ru")]([SubResource("Resource_a3e8l"), SubResource("Resource_vlshj"), SubResource("Resource_wud8u"), SubResource("Resource_oikub"), SubResource("Resource_kmqie"), SubResource("Resource_tbnbx"), SubResource("Resource_1fsr7"), SubResource("Resource_dbj4y"), SubResource("Resource_2lm7j"), SubResource("Resource_ico7r")])

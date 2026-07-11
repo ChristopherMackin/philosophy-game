@@ -11,15 +11,14 @@ class_name EventSubscriber
 		
 		if manager:
 			manager.subscribe(self)
-		
+
+signal _on_dialogue_canceled
+var dialogue_canceled: bool = false
 
 func _notification(what):
 	if (what == NOTIFICATION_PREDELETE):
 		if manager:
 			manager.unsubscribe(self)
-
-func _ready():
-	manager.subscribe(self)
 
 func _start_event(_event: Event):
 	pass

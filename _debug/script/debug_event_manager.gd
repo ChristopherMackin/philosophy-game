@@ -3,24 +3,44 @@ extends EventSubscriber
 
 class_name DebugEventManager
 
-@export var event: Event
-
-@export_tool_button("Start Event", "Play") var start_btn_action:
+@export_tool_button("Start Event", "Play") var btn_start:
 	get: return start_event
-@export_tool_button("Continue", "DebugContinue") var continue_btn_action:
+@export_tool_button("Continue", "DebugContinue") var btn_continue:
 	get: return _continue
-@export_tool_button("Skip", "PlayStart") var skip_btn_action: 
+@export_tool_button("Skip", "PlayStart") var btn_skip: 
 	get: return _skip
-@export_tool_button("Cancel Event", "Stop") var cancel_btn_action:
+@export_tool_button("Cancel Event", "Stop") var btn_cancel:
 	get: return cancel_event
 
+@export_category("Event")
+@export var event: Event
+@export var event_factory: EventFactory:
+	set(val):
+		event_factory = val
+		notify_property_list_changed()
+
+@export_group("Debate Data")
+@export var concept: Const.Concept
+@export var active_contestant: Const.Player
+@export var card_history: Array[CardBase]
+
+@export var blackboard: Blackboard:
+	get: return manager.blackboard if manager else null
+
+@export_group("")
+
+@export_tool_button("Get Factory Event", "Animation") var btn_event_factory:
+	get: return get_event_using_data
+
 func _validate_property(property: Dictionary):
-	if property.name == "start_btn_action" and (!manager or manager.current_task):
+	if property.name == "btn_start" and (!manager or manager.current_task):
 		property.usage = PROPERTY_USAGE_NO_EDITOR
-	if property.name in ["cancel_btn_action", "continue_btn_action", "skip_btn_action"] and (!manager or !manager.current_task):
+	if property.name in ["btn_cancel", "btn_continue", "btn_skip"] and (!manager or !manager.current_task):
+		property.usage = PROPERTY_USAGE_NO_EDITOR
+	if property.name == "btn_event_factory" and !event_factory:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 
-@export_group("Task Info")
+@export_category("Task")
 
 @export_custom(PROPERTY_HINT_NONE, "", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_READ_ONLY) var task_type: String:
 	get():
@@ -36,7 +56,6 @@ func _validate_property(property: Dictionary):
 		
 		manager.current_task.inputs = val
 		ResourceSaver.save(manager.current_task)
-
 
 @export_group("Dependencies")
 @export var debate_manager: DebateManager
@@ -69,7 +88,7 @@ func start_event():
 	notify_property_list_changed()
 
 func cancel_event():
-	await manager.cancel_event()
+	await manager.cancel_current_event()
 	notify_property_list_changed()
 
 func _continue(): 
@@ -89,6 +108,8 @@ func _end_event(event: Event):
 	if !await_event: return
 
 func display_dialogue(line : String, actor : String, await_input : bool, seconds_before_close : float):
+	dialogue_canceled = false
+	
 	var current_actor: Actor = null
 	
 	if actor != "":
@@ -116,7 +137,8 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 	
 	await Util.await_any([
 		func(): await dialogue_area.on_dialogue_finished,
-		func(): await skip
+		func(): await skip,
+		func(): await _on_dialogue_canceled
 	])
 	
 	dialogue_area.skip_to_the_end()
@@ -124,8 +146,17 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 	if current_actor:
 		current_actor.is_talking = false
 	
-	if await_event && await_input: await continue_dialogue
-	else: await GlobalTimer.wait_for_seconds(seconds_before_close)
+	var continue_trigger: Callable
+	
+	if await_event && await_input: continue_trigger = func(): await continue_dialogue
+	else: continue_trigger = func(): await GlobalTimer.wait_for_seconds(seconds_before_close)
+	
+	await Util.await_any([
+		continue_trigger,
+		func(): await _on_dialogue_canceled
+	])
+	
+	if dialogue_canceled: return
 	
 	dialogue_area.visible = false
 	
@@ -144,6 +175,9 @@ func cancel_dialogue(actor):
 		current_actor.focus_actor(false)
 	
 		dialogue_area.visible = false
+	
+	dialogue_canceled = true
+	_on_dialogue_canceled.emit()
 
 func play_animation(animation : String, actor : String, overwrite_animation: bool, await_animation : bool):
 	var parent
@@ -197,3 +231,19 @@ func add_status_effect(_effect: StatusEffect, _which_player: Const.Player):
 
 func remove_status_effect(_effect: StatusEffect, _which_player: Const.Player):
 	print("Status Effect Removed: " + _effect.name)
+
+func get_event_using_data():
+	var query : Dictionary
+	query["concept"] = concept
+	query["active_contestant"] = "player" if active_contestant == Const.Player.HUMAN else "computer"
+	
+	var card_history: Array[Card]
+	for base in self.card_history:
+		if !base: continue
+		card_history.append(Card.new(base, null))
+	
+	query["card_history"] = card_history
+	query.merge(GlobalBlackboard.blackboard.get_query())
+	query.merge(manager.blackboard.get_query())
+	
+	event = event_factory.get_event(query)

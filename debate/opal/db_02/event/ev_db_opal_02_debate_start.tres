@@ -36,7 +36,7 @@ action = SubResource("Resource_04j1f")
 [sub_resource type="Resource" id="Resource_yjx3e"]
 script = ExtResource("3_i2v8u")
 outputs = Array[int]([1])
-inputs = ["You do have the ability to change!", "joy", true, 2.0]
+inputs = ["My head is on a trash bag!", "joy", true, 2.0]
 action = SubResource("Resource_x7ur8")
 
 [resource]
