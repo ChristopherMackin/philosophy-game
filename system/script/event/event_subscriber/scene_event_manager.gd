@@ -79,6 +79,8 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 		func(): await _on_dialogue_canceled
 	])
 	
+	if dialogue_canceled: return
+	
 	dialogue_area.skip_to_the_end()
 	
 	if current_actor:

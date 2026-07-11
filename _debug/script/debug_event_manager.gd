@@ -141,10 +141,12 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 		func(): await _on_dialogue_canceled
 	])
 	
-	dialogue_area.skip_to_the_end()
-	
 	if current_actor:
 		current_actor.is_talking = false
+	
+	if dialogue_canceled: return
+	
+	dialogue_area.skip_to_the_end()
 	
 	var continue_trigger: Callable
 	
