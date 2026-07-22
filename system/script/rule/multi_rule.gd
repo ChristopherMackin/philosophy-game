@@ -1,5 +1,5 @@
 @tool
-extends Resource
+extends Rule
 
 class_name MultiRule
 

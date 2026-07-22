@@ -1,11 +1,19 @@
-extends Node
+@tool
+extends Rule
 
+class_name CardHistoryRule
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@export var card_history: Array[CardBase]
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func check(_query : Dictionary) -> bool:
+	if !_query.has("card_history"): return false
+	if card_history.size() > _query["card_history"].size(): return false
+	
+	var valid := true
+	
+	for i in card_history.size():
+		if card_history[i] != _query["card_history"][i].base:
+			valid = false
+			break
+	
+	return valid

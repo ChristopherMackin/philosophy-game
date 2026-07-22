@@ -3,20 +3,18 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_k3uvd"]
 [ext_resource type="Script" uid="uid://db6exlegr7inp" path="res://_debug/script/debug_event_manager.gd" id="1_sl1r7"]
 [ext_resource type="Resource" uid="uid://do4ijr1aixaqw" path="res://debate/opal/db_02/bb_db_opal_02.tres" id="2_kjk8x"]
-[ext_resource type="Resource" uid="uid://dc0bbjmgfginy" path="res://debate/opal/db_02/event/ev_db_opal_02_play_basic_doubt.tres" id="2_mqc32"]
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="2_p0rf5"]
+[ext_resource type="Resource" uid="uid://dc0bbjmgfginy" path="res://debate/opal/db_02/event/ev_db_opal_02_play_basic_doubt.tres" id="2_pwg14"]
 [ext_resource type="Resource" uid="uid://tlcoyw2fklgw" path="res://debate/opal/db_02/ef_db_opal_02.tres" id="3_m1df6"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="3_qnf5u"]
 [ext_resource type="Script" uid="uid://cxodlpgrmgtv7" path="res://system/script/blackboard/blackboard_entry.gd" id="3_w8igq"]
 [ext_resource type="Script" uid="uid://c1eaebx4srk2s" path="res://system/script/blackboard/blackboard.gd" id="4_1jelp"]
 [ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://system/debate_settings.tres" id="4_7sfnh"]
 [ext_resource type="Resource" uid="uid://bc7p0mjt75pco" path="res://debate/opal/db_02/char_db_opal_02.tres" id="5_bd10g"]
-[ext_resource type="Resource" uid="uid://dgsd4p0ynlqhk" path="res://system/card/self/basic_self.tres" id="6_3t4os"]
 [ext_resource type="Script" uid="uid://dtbnhujk3f31y" path="res://system/script/event/event_manager.gd" id="6_8sdlc"]
 [ext_resource type="Environment" uid="uid://en34lm5ch6gf" path="res://debate/opal/db_02/we_db_opal_02.tres" id="6_vypjq"]
 [ext_resource type="Script" uid="uid://bojj5s0o4f2s3" path="res://system/script/input/world_input_manager.gd" id="6_wjr7v"]
 [ext_resource type="Resource" uid="uid://coqtgijiyc02d" path="res://system/input/ih_selection_manager.tres" id="7_faur5"]
-[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/basic_faith.tres" id="7_ud0a1"]
 [ext_resource type="PackedScene" uid="uid://b6up1alpc3bbp" path="res://debate/opal/db_02/env_db_opal_02.tscn" id="7_wwxuk"]
 [ext_resource type="Script" uid="uid://dhulr5f133qcw" path="res://debate/_script/subscriber/node_based/debate_scene_manager.gd" id="8_75n12"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="8_p4nej"]
@@ -95,16 +93,16 @@ script = ExtResource("6_8sdlc")
 blackboard = SubResource("Resource_pwg14")
 metadata/_custom_type_script = "uid://dtbnhujk3f31y"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3t4os"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_mqc32"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ud0a1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3t4os"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dbiua"]
 viewport_path = NodePath("===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_p4nej"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ud0a1"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8igq"]
@@ -112,7 +110,7 @@ albedo_texture = ExtResource("30_dbiua")
 ao_enabled = true
 ao_texture = ExtResource("31_p0yir")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hkuxl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_p4nej"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jelp"]
@@ -120,7 +118,7 @@ albedo_texture = ExtResource("32_84k4r")
 ao_enabled = true
 ao_texture = ExtResource("33_3m87t")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_q6oii"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hkuxl"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ghiyr"]
@@ -325,13 +323,13 @@ metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 
 [node name="DebugEventManager" type="Node" parent="===DEBUG========" unique_id=1676246633 node_paths=PackedStringArray("scene_animator_handler", "actors", "default_dialogue_area")]
 script = ExtResource("1_sl1r7")
-btn_continue = Callable()
-btn_skip = Callable()
-btn_cancel = Callable()
-event = ExtResource("2_mqc32")
+btn_start = Callable()
+event = ExtResource("2_pwg14")
 event_factory = ExtResource("3_m1df6")
-card_history = Array[ExtResource("8_p4nej")]([ExtResource("9_hkuxl"), ExtResource("6_3t4os"), ExtResource("7_ud0a1")])
+card_history = Array[ExtResource("8_p4nej")]([ExtResource("9_hkuxl")])
 blackboard = SubResource("Resource_pwg14")
+task_type = "dialogue_task_action.gd"
+inputs = ["Hahahahahaha", "joy", true, 4.999999999672305]
 debate_manager = ExtResource("12_fev28")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
 actors = [NodePath("../../===ACTOR========/JoyActor"), NodePath("../../===ACTOR========/OpalActor")]
@@ -438,14 +436,14 @@ transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.989057
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter" unique_id=1817069595 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_3t4os")
+texture = SubResource("ViewportTexture_mqc32")
 
 [node name="PlayerDiscardCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1140548364 instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.9890571, -0.018066663, -0.12245832, -7.450581e-09, 0.99247366, -0.15000284, 0.0004506167, 0.13493468)
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" unique_id=1611050952 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_ud0a1")
+texture = SubResource("ViewportTexture_3t4os")
 
 [node name="PlayerEnergyCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1840847040 instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.577133, 0.07591381, 1.8900888, 0.29692417, 1.9479705, -0.16890348, -1.8681635, 0.33306077, 0.557061, -0.120429605, 0.0004506167, 0.20629291)
@@ -487,7 +485,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15324764, 0.00012001136, -0
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" unique_id=467383888 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26024163, -0.009793821, -0.076415636, 0.076465435, -1.1382936e-08, 0.26041123, -0.009397088, -0.27122876, 0.0027592867, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_p4nej")
+texture = SubResource("ViewportTexture_ud0a1")
 
 [node name="CpuDiscardCounter" parent="===GAMEPLAY========/CpiUi" unique_id=1590190797 instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.94619274, -0.32360363, 0, 0.32360363, 0.94619274, 0, 0, 0, 1, 0.15350369, 0, 0.013281487)
@@ -498,7 +496,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" unique_id=1511716073 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.2708025, 0.006386812, -0.016917214, 0.016962603, -0.0017474849, 0.27086934, 0.0062652696, -0.27132475, -0.002142772, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_hkuxl")
+texture = SubResource("ViewportTexture_p4nej")
 
 [node name="CpuEnergyCounter" parent="===GAMEPLAY========/CpiUi" unique_id=151891147 instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.9523734, -0.26442856, 0.15186363, 0.26112953, 0.9644053, 0.04163922, -0.15746869, -3.7252903e-09, 0.987524, 0.15333109, 2.9802322e-08, 0.071661524)
@@ -509,7 +507,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" unique_id=969618535 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26872277, 0.03799277, 0.0023667924, -0.00091665983, -0.010411309, 0.27120426, 0.038055386, -0.26853144, -0.010180076, -0.011028126, 0.015155774, 0.015328243)
-texture = SubResource("ViewportTexture_q6oii")
+texture = SubResource("ViewportTexture_hkuxl")
 
 [node name="GameBoardState" type="Node3D" parent="===GAMEPLAY========" unique_id=215128257]
 
@@ -739,8 +737,53 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 [node name="JoyActor" parent="===ACTOR========" unique_id=2066360241 node_paths=PackedStringArray("character_animation_tree") instance=ExtResource("8_w340p")]
 character_animation_tree = NodePath("CharacterAnimationTree")
 
+[node name="Joy_Base_Body" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="0" unique_id=1383156024]
+layers = 1048577
+
+[node name="Joy_Base_Face" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="1" unique_id=1019652094]
+layers = 1048577
+
+[node name="Joy_Base_Mouth" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="2" unique_id=1443948411]
+layers = 1048577
+
+[node name="Joy_Base_Pupils" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="3" unique_id=1977402618]
+layers = 1048577
+
+[node name="Joy_Base_Skull" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="4" unique_id=853670762]
+layers = 1048577
+
+[node name="Joy_Base_Sockets" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="5" unique_id=1790840942]
+layers = 1048577
+
+[node name="Joy_Hair_04a" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="6" unique_id=946662070]
+layers = 1048577
+
+[node name="Joy_Outfit_05_Hat" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="7" unique_id=1037515678]
+layers = 1048577
+
+[node name="Joy_Outfit_05_NameTag" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="8" unique_id=843495148]
+layers = 1048577
+
+[node name="Joy_Outfit_05_Shirt" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="9" unique_id=200945530]
+layers = 1048577
+
+[node name="Joy_Outfit_05_Shoes" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="10" unique_id=650872247]
+layers = 1048577
+
+[node name="Joy_Outfit_05_Shorts" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="11" unique_id=419595216]
+layers = 1048577
+
+[node name="Joy_Outfit_05_Socks" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="12" unique_id=1352703182]
+layers = 1048577
+
 [node name="AnimationHandler" parent="===ACTOR========/JoyActor" index="3" unique_id=1134272481 node_paths=PackedStringArray("animation_tree")]
 animation_tree = NodePath("../CharacterAnimationTree")
+
+[node name="DialogueCamera" parent="===ACTOR========/JoyActor" index="5" unique_id=1887443005]
+priority = 1
+
+[node name="LayerMask" parent="===ACTOR========/JoyActor" index="7" unique_id=1716574017]
+layers = 1048577
 
 [node name="CharacterAnimationTree" type="AnimationTree" parent="===ACTOR========/JoyActor" unique_id=1783163870]
 root_node = NodePath("../Skeleton")
@@ -1427,7 +1470,7 @@ tree_root = SubResource("AnimationNodeBlendTree_3t4os")
 anim_player = NodePath("../AnimationPlayer")
 script = ExtResource("50_3prre")
 triggers = Dictionary[String, bool]({
-"reset": true,
+"reset": false,
 "talk": false
 })
 
@@ -1637,7 +1680,6 @@ texture = ExtResource("57_q0c1o")
 metadata/focus_type = "submit"
 
 [node name="BasicDialogueBubble" parent="===UI========" unique_id=200150543 instance=ExtResource("65_nhoxv")]
-visible = false
 offset_left = 1120.0
 offset_top = 448.0
 offset_right = 1620.0

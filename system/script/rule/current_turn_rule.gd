@@ -1,6 +1,8 @@
 @tool
 extends Rule
 
+class_name CurrentTurnRule
+
 @export var current_turn: int = 0
 
 func check(query : Dictionary) -> bool:
