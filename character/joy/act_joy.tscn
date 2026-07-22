@@ -8,8 +8,8 @@
 [ext_resource type="Animation" uid="uid://dgq065bi8he28" path="res://character/joy/animation/anim_joy_blink.res" id="6_08ssm"]
 [ext_resource type="Animation" uid="uid://ccjb4o1qe2sfo" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_p1_idle_01.res" id="7_08ssm"]
 [ext_resource type="Animation" uid="uid://dm72blnj48nkj" path="res://character/joy/animation/anim_joy_talk.res" id="7_fejen"]
-[ext_resource type="Animation" uid="uid://cb8ibdf0p7rky" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_p1_talk_01a.res" id="9_08bh5"]
-[ext_resource type="Animation" uid="uid://n3aymt6rp8ti" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_p1_talk_01b.res" id="10_buo7x"]
+[ext_resource type="Animation" uid="uid://b46t8bdelgaaj" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_p1_talk_01a.res" id="9_08bh5"]
+[ext_resource type="Animation" uid="uid://cd6l0qwioh0rb" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_p1_talk_01b.res" id="10_buo7x"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yj5q6"]
 _data = {
@@ -25,9 +25,9 @@ _data = {
 &"anim_joy_db_opal_02_p1_talk_01b": ExtResource("10_buo7x")
 }
 
-[node name="JoyActor" unique_id=2066360241 node_paths=PackedStringArray("_layer_mask", "_facial_animator") instance=ExtResource("1_humdt")]
+[node name="JoyActor" unique_id=2066360241 node_paths=PackedStringArray("_layer_mask") instance=ExtResource("1_humdt")]
 _layer_mask = NodePath("LayerMask")
-_facial_animator = NodePath("FacialAnimator")
+is_blinking = false
 actor_name = "joy"
 display_name = "Joy"
 
@@ -458,6 +458,9 @@ bones/71/position = Vector3(0.70251924, 2.5755637, 0.023947109)
 bones/71/rotation = Quaternion(-4.8676796e-08, -1.1924875e-08, -6.8448004e-15, 1)
 bones/72/position = Vector3(0.832857, 2.5755637, 0.023947142)
 bones/72/rotation = Quaternion(-7.9535695e-08, -8.742278e-08, -1.2080115e-15, 1)
+
+[node name="Joy_Base_Face" parent="Outfit/JoyOutfit05a/root/Skeleton3D" index="1" unique_id=1019652094]
+sorting_offset = 0.5
 
 [node name="Joy_Base_Mouth" parent="Outfit/JoyOutfit05a/root/Skeleton3D" index="2" unique_id=1443948411]
 sorting_offset = 1.0
