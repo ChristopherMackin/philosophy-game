@@ -25,6 +25,7 @@
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/char_player.tres" id="10_sd1vu"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="11_ud0a1"]
 [ext_resource type="Resource" uid="uid://bxdnjlvt3iyth" path="res://system/debate_manager.tres" id="12_fev28"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="12_ud0a1"]
 [ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="13_cyh0q"]
 [ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="14_damgn"]
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="15_hklp8"]
@@ -85,6 +86,7 @@
 [ext_resource type="Script" uid="uid://i6q2q68f73y6" path="res://debate/_script/ui/card_selector.gd" id="56_fxmxk"]
 [ext_resource type="Texture2D" uid="uid://duwx1hkh07na8" path="res://_asset/debate/simon/_general/simon_confirm_button.png" id="57_q0c1o"]
 [ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/packed_scene/basic_dialogue_area.tscn" id="65_nhoxv"]
+[ext_resource type="Shader" uid="uid://372vl3dqemde" path="res://_general/shader/sh_simple_film_grain.gdshader" id="71_p4nej"]
 
 [sub_resource type="Resource" id="Resource_pwg14"]
 script = ExtResource("4_1jelp")
@@ -95,22 +97,46 @@ script = ExtResource("6_8sdlc")
 blackboard = SubResource("Resource_pwg14")
 metadata/_custom_type_script = "uid://dtbnhujk3f31y"
 
-[sub_resource type="Resource" id="Resource_p4nej"]
+[sub_resource type="Resource" id="Resource_3t4os"]
 script = ExtResource("11_ud0a1")
+
+[sub_resource type="Resource" id="Resource_p4nej"]
+script = ExtResource("12_ud0a1")
+cull_mask = 8
+fov = 40.0
+far = 100.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[sub_resource type="Environment" id="Environment_hkuxl"]
+background_mode = 2
+ambient_light_source = 2
+ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
+ambient_light_energy = 2.0
+ssao_enabled = true
+ssao_intensity = 1.32
+ssao_power = 3.446096
+ssao_sharpness = 0.5
 
 [sub_resource type="Resource" id="Resource_hkuxl"]
 script = ExtResource("11_ud0a1")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_q6oii"]
+[sub_resource type="Resource" id="Resource_q6oii"]
+script = ExtResource("12_ud0a1")
+cull_mask = 32768
+fov = 25.0
+far = 100.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_p4nej"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5xgcw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hkuxl"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dbiua"]
 viewport_path = NodePath("===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_463a1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_q6oii"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8igq"]
@@ -118,7 +144,7 @@ albedo_texture = ExtResource("30_dbiua")
 ao_enabled = true
 ao_texture = ExtResource("31_p0yir")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_kqhrk"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5xgcw"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jelp"]
@@ -126,7 +152,7 @@ albedo_texture = ExtResource("32_84k4r")
 ao_enabled = true
 ao_texture = ExtResource("33_3m87t")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hrfbg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_463a1"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ghiyr"]
@@ -159,42 +185,94 @@ uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vwmdg"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pwg14"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p4nej"]
 animation = &"db_opal_02/anim_joy_db_opal_02_p1_idle_01"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3m87t"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hkuxl"]
 animation = &"db_opal_02/anim_joy_db_opal_02_p1_talk_01a"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sl1r7"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q6oii"]
 animation = &"db_opal_02/anim_joy_db_opal_02_p1_talk_01b"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3t4os"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0c38c"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g2w6u"]
 advance_mode = 2
 advance_expression = "get_trigger(\"talk\")"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ghiyr"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ntdmx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dqw0w"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w8igq"]
-xfade_time = 0.4
-switch_mode = 1
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wt2fd"]
+xfade_time = 0.5
+advance_mode = 2
+advance_expression = "get_trigger(\"idle\")"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3t4os"]
+states/p1_idle_01/node = SubResource("AnimationNodeAnimation_p4nej")
+states/p1_idle_01/position = Vector2(377.5, 136)
+states/p1_talk_01/node = SubResource("AnimationNodeAnimation_hkuxl")
+states/p1_talk_01/position = Vector2(548, 66.5)
+states/p1_talk_02/node = SubResource("AnimationNodeAnimation_q6oii")
+states/p1_talk_02/position = Vector2(730.5, 127)
+transitions = ["p1_idle_01", "p1_talk_01", SubResource("AnimationNodeStateMachineTransition_g2w6u"), "Start", "p1_idle_01", SubResource("AnimationNodeStateMachineTransition_ntdmx"), "p1_talk_01", "p1_talk_02", SubResource("AnimationNodeStateMachineTransition_dqw0w"), "p1_talk_02", "p1_idle_01", SubResource("AnimationNodeStateMachineTransition_wt2fd")]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ud0a1"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hkuxl"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_q6oii"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_463a1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kqhrk"]
+advance_mode = 2
+advance_expression = "get_trigger(\"previous_phase\") || get_trigger(\"reset\")"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hrfbg"]
 advance_mode = 2
 advance_expression = "get_trigger(\"reset\")"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_knqga"]
+advance_mode = 2
+advance_expression = "get_trigger(\"reset\")"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f3ys7"]
+advance_mode = 2
+advance_expression = "get_trigger(\"next_phase\")"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7mnyw"]
+advance_mode = 2
+advance_expression = "get_trigger(\"next_phase\")"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nolis"]
+advance_mode = 2
+advance_expression = "get_trigger(\"next_phase\")"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_68gxc"]
+advance_mode = 2
+advance_expression = "get_trigger(\"previous_phase\")"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2moqn"]
+advance_mode = 2
+advance_expression = "get_trigger(\"previous_phase\")"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_p4nej"]
-states/Start/position = Vector2(199.5, 100)
-states/p1_idle_01/node = SubResource("AnimationNodeAnimation_pwg14")
-states/p1_idle_01/position = Vector2(402, 80.5)
-states/p1_talk_01a/node = SubResource("AnimationNodeAnimation_3m87t")
-states/p1_talk_01a/position = Vector2(576.07983, 12.046875)
-states/p1_talk_01b/node = SubResource("AnimationNodeAnimation_sl1r7")
-states/p1_talk_01b/position = Vector2(759.07983, 78.9375)
-transitions = ["Start", "p1_idle_01", SubResource("AnimationNodeStateMachineTransition_3t4os"), "p1_idle_01", "p1_talk_01a", SubResource("AnimationNodeStateMachineTransition_0c38c"), "p1_talk_01a", "p1_talk_01b", SubResource("AnimationNodeStateMachineTransition_ghiyr"), "p1_talk_01b", "p1_idle_01", SubResource("AnimationNodeStateMachineTransition_w8igq")]
-graph_offset = Vector2(158.62492, -48.262493)
+states/End/position = Vector2(967.5, 74.5)
+states/Start/position = Vector2(174, 74.5)
+states/phase_1/node = SubResource("AnimationNodeStateMachine_3t4os")
+states/phase_1/position = Vector2(342.12494, 74.51406)
+states/phase_2/node = SubResource("AnimationNodeStateMachine_ud0a1")
+states/phase_2/position = Vector2(501.88745, 190.00703)
+states/phase_3/node = SubResource("AnimationNodeStateMachine_hkuxl")
+states/phase_3/position = Vector2(663.88745, 74.160934)
+states/phase_4/node = SubResource("AnimationNodeStateMachine_q6oii")
+states/phase_4/position = Vector2(820.88745, 172.91524)
+transitions = ["Start", "phase_1", SubResource("AnimationNodeStateMachineTransition_463a1"), "phase_2", "phase_1", SubResource("AnimationNodeStateMachineTransition_kqhrk"), "phase_3", "phase_1", SubResource("AnimationNodeStateMachineTransition_hrfbg"), "phase_4", "phase_1", SubResource("AnimationNodeStateMachineTransition_knqga"), "phase_1", "phase_2", SubResource("AnimationNodeStateMachineTransition_f3ys7"), "phase_2", "phase_3", SubResource("AnimationNodeStateMachineTransition_7mnyw"), "phase_3", "phase_4", SubResource("AnimationNodeStateMachineTransition_nolis"), "phase_3", "phase_2", SubResource("AnimationNodeStateMachineTransition_68gxc"), "phase_4", "phase_3", SubResource("AnimationNodeStateMachineTransition_2moqn")]
+graph_offset = Vector2(47.45267, -53.62498)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0c38c"]
 animation = &"anim_joy_blink"
@@ -211,9 +289,10 @@ filter_enabled = true
 filters = ["root/Skeleton3D:mouth_selector"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_sl1r7"]
+graph_offset = Vector2(-1.9200001, -23.040003)
 nodes/output/position = Vector2(910, 480)
-nodes/Phase1/node = SubResource("AnimationNodeStateMachine_p4nej")
-nodes/Phase1/position = Vector2(90, 370)
+nodes/animation_state/node = SubResource("AnimationNodeStateMachine_p4nej")
+nodes/animation_state/position = Vector2(90, 370)
 nodes/blink/node = SubResource("AnimationNodeAnimation_0c38c")
 nodes/blink/position = Vector2(150, 580)
 nodes/blink_trigger/node = SubResource("AnimationNodeAdd2_3m87t")
@@ -222,7 +301,7 @@ nodes/talk_trigger/node = SubResource("AnimationNodeOneShot_3m87t")
 nodes/talk_trigger/position = Vector2(665.1798, 663.2404)
 nodes/talk/node = SubResource("AnimationNodeAnimation_ghiyr")
 nodes/talk/position = Vector2(440, 770)
-node_connections = [&"output", 0, &"talk_trigger", &"blink_trigger", 0, &"Phase1", &"blink_trigger", 1, &"blink", &"talk_trigger", 0, &"blink_trigger", &"talk_trigger", 1, &"talk"]
+node_connections = [&"output", 0, &"talk_trigger", &"blink_trigger", 0, &"animation_state", &"blink_trigger", 1, &"blink", &"talk_trigger", 0, &"blink_trigger", &"talk_trigger", 1, &"talk"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mqc32"]
 animation = &"db_opal_02/anim_opal_db_opal_02_p1_idle_01"
@@ -266,16 +345,34 @@ nodes/Phase_01/node = SubResource("AnimationNodeStateMachine_463a1")
 nodes/Phase_01/position = Vector2(70.8, 184.43999)
 node_connections = [&"output", 0, &"Phase_01"]
 
-[sub_resource type="Environment" id="Environment_vwmdg"]
-background_mode = 1
-background_color = Color(1, 1, 1, 1)
-background_energy_multiplier = 0.8
+[sub_resource type="Environment" id="Environment_hrfbg"]
+background_mode = 2
+ambient_light_source = 2
+ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
+ambient_light_energy = 2.0
 ssao_enabled = true
-ssao_radius = 6.0
+ssao_intensity = 1.32
+ssao_power = 3.446096
+ssao_sharpness = 0.5
+
+[sub_resource type="Environment" id="Environment_p4nej"]
+background_mode = 2
+ambient_light_source = 2
+ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
+ambient_light_energy = 2.0
+ssao_enabled = true
+ssao_intensity = 1.32
+ssao_power = 3.446096
+ssao_sharpness = 0.5
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_gaafv"]
 dof_blur_far_enabled = true
 dof_blur_far_distance = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f3ys7"]
+shader = ExtResource("71_p4nej")
+shader_parameter/amount = 0.249999994412
+shader_parameter/speed = 1.0
 
 [sub_resource type="Resource" id="Resource_x8g0f"]
 script = ExtResource("32_x0iaq")
@@ -346,17 +443,22 @@ manager = SubResource("Resource_mqc32")
 
 [node name="===CAMERA========" type="Node3D" parent="." unique_id=1860563192]
 
-[node name="Cinematic_01" type="Node3D" parent="===CAMERA========" unique_id=1993708707]
-transform = Transform3D(0.80656254, 0.114764534, -0.57990175, 0.062162302, 0.9590699, 0.27626234, 0.5878714, -0.25887087, 0.76641583, -0.87734514, 2.2113757, 4.932199)
+[node name="Cinematic_01" type="Node3D" parent="===CAMERA========" unique_id=322546767]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.67017937, 4.7759676)
 script = ExtResource("10_3t4os")
-tween_resource = SubResource("Resource_p4nej")
+tween_resource = SubResource("Resource_3t4os")
+tween_on_load = false
 host_layers = 2
+camera_3d_resource = SubResource("Resource_p4nej")
+environment = SubResource("Environment_hkuxl")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Gameplay_01" type="Node3D" parent="===CAMERA========" unique_id=915011589]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1155753, 0.009244392)
 script = ExtResource("10_3t4os")
 tween_resource = SubResource("Resource_hkuxl")
+tween_on_load = false
+camera_3d_resource = SubResource("Resource_q6oii")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="===MANAGER========" type="Node3D" parent="." unique_id=1441557243]
@@ -455,14 +557,14 @@ transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.989057
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter" unique_id=1817069595 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_q6oii")
+texture = SubResource("ViewportTexture_p4nej")
 
 [node name="PlayerDiscardCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1140548364 instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.9890571, -0.018066663, -0.12245832, -7.450581e-09, 0.99247366, -0.15000284, 0.0004506167, 0.13493468)
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" unique_id=1611050952 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_5xgcw")
+texture = SubResource("ViewportTexture_hkuxl")
 
 [node name="PlayerEnergyCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1840847040 instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.577133, 0.07591381, 1.8900888, 0.29692417, 1.9479705, -0.16890348, -1.8681635, 0.33306077, 0.557061, -0.120429605, 0.0004506167, 0.20629291)
@@ -504,7 +606,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15324764, 0.00012001136, -0
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" unique_id=467383888 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26024163, -0.009793821, -0.076415636, 0.076465435, -1.1382936e-08, 0.26041123, -0.009397088, -0.27122876, 0.0027592867, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_463a1")
+texture = SubResource("ViewportTexture_q6oii")
 
 [node name="CpuDiscardCounter" parent="===GAMEPLAY========/CpiUi" unique_id=1590190797 instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.94619274, -0.32360363, 0, 0.32360363, 0.94619274, 0, 0, 0, 1, 0.15350369, 0, 0.013281487)
@@ -515,7 +617,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" unique_id=1511716073 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.2708025, 0.006386812, -0.016917214, 0.016962603, -0.0017474849, 0.27086934, 0.0062652696, -0.27132475, -0.002142772, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_kqhrk")
+texture = SubResource("ViewportTexture_5xgcw")
 
 [node name="CpuEnergyCounter" parent="===GAMEPLAY========/CpiUi" unique_id=151891147 instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.9523734, -0.26442856, 0.15186363, 0.26112953, 0.9644053, 0.04163922, -0.15746869, -3.7252903e-09, 0.987524, 0.15333109, 2.9802322e-08, 0.071661524)
@@ -526,7 +628,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" unique_id=969618535 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26872277, 0.03799277, 0.0023667924, -0.00091665983, -0.010411309, 0.27120426, 0.038055386, -0.26853144, -0.010180076, -0.011028126, 0.015155774, 0.015328243)
-texture = SubResource("ViewportTexture_hrfbg")
+texture = SubResource("ViewportTexture_463a1")
 
 [node name="GameBoardState" type="Node3D" parent="===GAMEPLAY========" unique_id=215128257]
 
@@ -565,7 +667,7 @@ vertical_alignment = 1
 script = ExtResource("28_p0yir")
 
 [node name="LineClearCounter" parent="===GAMEPLAY========/GameBoardState" unique_id=1786900677 instance=ExtResource("29_udfsd")]
-transform = Transform3D(-0.35664776, -0.09443906, -0.92945343, -0.12529445, 0.9907249, -0.052586984, 0.92579895, 0.09770032, -0.3651725, 0.14176752, 0.03236382, -0.1766622)
+transform = Transform3D(-0.35664776, -0.09443906, -0.92945343, -0.12529445, 0.9907249, -0.052586984, 0.92579895, 0.09770032, -0.3651725, 0.13702412, 0.03236382, -0.1766622)
 
 [node name="LabelBg" type="Sprite3D" parent="===GAMEPLAY========/GameBoardState/LineClearCounter" unique_id=1884900820]
 transform = Transform3D(0.00440912, -0.010327152, -0.0018502881, 0.0011675193, -0.0010898331, 0.014630528, 0.011490525, 0.0040734457, -0.000776578, 0.008661449, -0.0040469337, 0.018178597)
@@ -744,11 +846,22 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 
 [node name="EnvDbOpal02" parent="===ENVIRONMENT========" unique_id=472548192 instance=ExtResource("7_wwxuk")]
 
-[node name="Ground" parent="===ENVIRONMENT========/EnvDbOpal02" index="0" unique_id=702444538]
+[node name="Ground" parent="===ENVIRONMENT========/EnvDbOpal02" index="0" unique_id=1471618096]
+transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 0, 0)
+layers = 9
+
+[node name="Newspaper" parent="===ENVIRONMENT========/EnvDbOpal02" index="2" unique_id=2021821052]
 transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Newspaper" parent="===ENVIRONMENT========/EnvDbOpal02" index="2" unique_id=1993805122]
-transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Streetlight_LightBulb" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 1509817917) index="0" unique_id=146776627]
+layers = 9
+
+[node name="Streetlight_Post" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 1509817917) index="1" unique_id=1712825141]
+layers = 9
+
+[node name="SpotLight3D" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 1509817917) index="2" unique_id=1944799545]
+layers = 9
+light_energy = 30.0
 
 [node name="===ACTOR========" type="Node3D" parent="." unique_id=1690436738]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -757,8 +870,50 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 character_animation_tree = NodePath("CharacterAnimationTree")
 is_blinking = true
 
+[node name="Joy_Base_Body" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="0" unique_id=1383156024]
+layers = 9
+
+[node name="Joy_Base_Face" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="1" unique_id=1019652094]
+layers = 9
+
+[node name="Joy_Base_Mouth" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="2" unique_id=1443948411]
+layers = 9
+
+[node name="Joy_Base_Pupils" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="3" unique_id=1977402618]
+layers = 9
+
+[node name="Joy_Base_Skull" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="4" unique_id=853670762]
+layers = 9
+
+[node name="Joy_Base_Sockets" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="5" unique_id=1790840942]
+layers = 9
+
+[node name="Joy_Hair_04a" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="6" unique_id=946662070]
+layers = 9
+
+[node name="Joy_Outfit_05_Hat" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="7" unique_id=1037515678]
+layers = 9
+
+[node name="Joy_Outfit_05_NameTag" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="8" unique_id=843495148]
+layers = 9
+
+[node name="Joy_Outfit_05_Shirt" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="9" unique_id=200945530]
+layers = 9
+
+[node name="Joy_Outfit_05_Shoes" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="10" unique_id=650872247]
+layers = 9
+
+[node name="Joy_Outfit_05_Shorts" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="11" unique_id=419595216]
+layers = 9
+
+[node name="Joy_Outfit_05_Socks" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="12" unique_id=1352703182]
+layers = 9
+
 [node name="AnimationHandler" parent="===ACTOR========/JoyActor" index="3" unique_id=1134272481 node_paths=PackedStringArray("animation_tree")]
 animation_tree = NodePath("../CharacterAnimationTree")
+
+[node name="LayerMask" parent="===ACTOR========/JoyActor" index="7" unique_id=1716574017]
+layers = 9
 
 [node name="CharacterAnimationTree" type="AnimationTree" parent="===ACTOR========/JoyActor" unique_id=1783163870]
 root_node = NodePath("../Skeleton")
@@ -770,6 +925,9 @@ parameters/talk_trigger/internal_active = false
 parameters/talk_trigger/request = 0
 script = ExtResource("50_3prre")
 triggers = Dictionary[String, bool]({
+"idle": false,
+"next_phase": false,
+"previous_phase": false,
 "reset": false,
 "talk": false
 })
@@ -1470,7 +1628,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1155753, 0.009244392)
 top_level = true
 cull_mask = 32768
-environment = SubResource("Environment_vwmdg")
+environment = SubResource("Environment_hrfbg")
 current = true
 fov = 25.0
 far = 100.0
@@ -1482,11 +1640,13 @@ script = ExtResource("1_k3uvd")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="ConversationContainer" type="SubViewportContainer" parent="===UI========" unique_id=1016540248]
-anchors_preset = 15
+anchors_preset = -1
+anchor_left = 0.41700003
+anchor_top = 0.002
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 800.0
-offset_top = 2.0
+offset_left = -0.6400757
+offset_top = -0.16000009
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -1497,12 +1657,13 @@ size = Vector2i(1120, 1080)
 render_target_update_mode = 4
 
 [node name="ConversationCamera" type="Camera3D" parent="===UI========/ConversationContainer/SubViewport" unique_id=796707449]
-transform = Transform3D(0.80656254, 0.114764534, -0.57990175, 0.062162302, 0.9590699, 0.27626234, 0.5878714, -0.25887087, 0.76641583, -0.87734514, 2.2113757, 4.932199)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.67017937, 4.7759676)
 top_level = true
-cull_mask = 524295
+cull_mask = 8
+environment = SubResource("Environment_p4nej")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
-fov = 45.0
+fov = 40.0
 far = 100.0
 
 [node name="PhantomCameraHost" type="Node" parent="===UI========/ConversationContainer/SubViewport/ConversationCamera" unique_id=1571934254]
@@ -1511,6 +1672,15 @@ process_physics_priority = 300
 script = ExtResource("1_k3uvd")
 host_layers = 2
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="FilmGrain" type="ColorRect" parent="===UI========" unique_id=1865834031]
+material = SubResource("ShaderMaterial_f3ys7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 800.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Hand" type="Control" parent="===UI========" unique_id=1121779610 node_paths=PackedStringArray("card_parent")]
 layout_mode = 3
@@ -1666,7 +1836,7 @@ offset_left = 91.0
 offset_right = 58.0
 text = "Ummm... sure. Yeah."
 visible_characters = 19
-normalized_dialogue_position = 0.20981894736842105
+normalized_dialogue_position = 0.2108778947368421
 
 [connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateSceneManager" method="start_debate" flags=7]
 

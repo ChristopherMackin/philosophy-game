@@ -45,7 +45,7 @@ action = SubResource("Resource_x7ur8")
 [sub_resource type="Resource" id="Resource_tbnbx"]
 script = ExtResource("2_rb7ru")
 outputs = Array[int]([1])
-inputs = ["reset", "joy", false, false]
+inputs = ["idle", "joy", false, false]
 action = SubResource("Resource_ml60a")
 
 [sub_resource type="Resource" id="Resource_1f63y"]
@@ -66,7 +66,7 @@ action = SubResource("Resource_x7ur8")
 [sub_resource type="Resource" id="Resource_2lm7j"]
 script = ExtResource("2_rb7ru")
 outputs = Array[int]([3])
-inputs = ["Hahahahahaha", "joy", true, 4.999999999672305]
+inputs = ["Hahahahahaha", "joy", true, 5.0]
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_ico7r"]
