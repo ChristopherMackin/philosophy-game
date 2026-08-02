@@ -26,7 +26,7 @@ func _start_event(_event: Event):
 func _end_event(_event: Event):
 	pass
 
-func display_dialogue(_line : String, _actor : String, _await_input : bool, _seconds_before_close : float):
+func display_dialogue(_dp: DialoguePayload):
 	pass
 
 func cancel_dialogue(_actor : String):

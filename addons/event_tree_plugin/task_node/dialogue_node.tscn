@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr37f2ebcj6kc"]
+[gd_scene format=3 uid="uid://cr37f2ebcj6kc"]
 
 [ext_resource type="Script" uid="uid://8qc3j4r3w1d4" path="res://addons/event_tree_plugin/task_node.gd" id="1_g3ufa"]
 [ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_50ymt"]
+[ext_resource type="Script" uid="uid://dhepl4pbwpvqx" path="res://addons/event_tree_plugin/task_node/task_node_field.gd" id="3_aeafh"]
 
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("2_50ymt")
 
-[node name="Dialogue" type="GraphNode"]
+[node name="Dialogue" type="GraphNode" unique_id=1011810394]
 offset_right = 400.0
 offset_bottom = 300.0
 theme_override_constants/separation = 10
@@ -48,31 +49,55 @@ slot/3/right_type = 0
 slot/3/right_color = Color(1, 1, 1, 1)
 slot/3/right_icon = null
 slot/3/draw_stylebox = true
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color(1, 1, 1, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color(1, 1, 1, 1)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
 script = ExtResource("1_g3ufa")
 task_action = SubResource("Resource_x7ur8")
 
-[node name="Text" type="TextEdit" parent="."]
+[node name="Text" type="TextEdit" parent="." unique_id=407044520]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_vertical = 3
 placeholder_text = "Dialogue Text"
 wrap_mode = 1
+script = ExtResource("3_aeafh")
+field_name = "text"
 
-[node name="Actor" type="TextEdit" parent="."]
+[node name="Actor" type="TextEdit" parent="." unique_id=741585098]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 3
 placeholder_text = "Actor Name"
+script = ExtResource("3_aeafh")
+field_name = "actor"
 
-[node name="CheckButton" type="CheckButton" parent="."]
+[node name="CheckButton" type="CheckButton" parent="." unique_id=1538457877]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Await Input"
+script = ExtResource("3_aeafh")
+field_name = "await_input"
 
-[node name="SpinBox" type="SpinBox" parent="."]
+[node name="CheckButton2" type="CheckButton" parent="." unique_id=1308936006]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Await Close"
+script = ExtResource("3_aeafh")
+field_name = "await_close"
+
+[node name="SpinBox" type="SpinBox" parent="." unique_id=717336612]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 3
 step = 0.01
-suffix = "Seconds Before Close"
+suffix = "sec close"
+script = ExtResource("3_aeafh")
+field_name = "close_timer"

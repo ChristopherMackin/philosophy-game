@@ -10,13 +10,12 @@ enum Frequency {
 }
 
 @export var skip:= false
-
-@export var can_interupt := false
+@export var is_major_event := false
 @export var await_event := false
 @export var frequency : Frequency
 
+@export_group("Task")
 @export var start_task : Task = null
-
 @export var tasks : Array[Task] = []
 
 func get_task(index : int):

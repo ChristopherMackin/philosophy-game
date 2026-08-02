@@ -5,7 +5,7 @@ class_name Task
 
 #List of task indexes to branch to
 @export var outputs : Array[int] = []
-@export var inputs : Array = []
+@export var inputs : Dictionary[String, Variant]
 @export var action : TaskAction
 
 var blackboard: Blackboard
@@ -23,13 +23,13 @@ func invoke(blackboard: Blackboard, manager : EventManager):
 func cancel(manager: EventManager):
 	action.cancel(self, manager)
 
-func set_event_connections(inputs : Array, outputs : Array[int]):
+func set_event_connections(inputs : Dictionary, outputs : Array[int]):
 	self.inputs = inputs
 	self.outputs = outputs
 
-func get_input(index : int):
-	if range(inputs.size()).has(index): 
-		return inputs[index]
+func get_input(key : String):
+	if inputs.has(key): 
+		return inputs[key]
 	else:
 		return null
 

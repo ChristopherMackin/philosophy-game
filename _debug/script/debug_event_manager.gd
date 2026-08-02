@@ -48,9 +48,9 @@ func _validate_property(property: Dictionary):
 		if !manager or !manager.current_task or !manager.current_task.action: return ""
 		return manager.current_task.action.get_script().resource_path.get_file()
 
-@export var inputs: Array:
+@export var inputs: Dictionary:
 	get:
-		if !manager or !manager.current_task or !manager.current_task.action: return []
+		if !manager or !manager.current_task or !manager.current_task.action: return {}
 		return manager.current_task.inputs
 	set(val):
 		if !manager or !manager.current_task or !manager.current_task.action: return
@@ -108,15 +108,15 @@ func _start_event(event: Event):
 func _end_event(event: Event):
 	if !await_event: return
 
-func display_dialogue(line : String, actor : String, await_input : bool, seconds_before_close : float):
+func display_dialogue(dp: DialoguePayload):
 	dialogue_canceled = false
 	
 	var current_actor: Actor = null
 	
-	if actor != "":
-		var index = get_actor_index(actor)
+	if dp.actor != "":
+		var index = get_actor_index(dp.actor)
 		if index < 0:
-			push_error("MISSING LINE \nACTOR: \"%s\"\n LINE: %s" % [actor, line])
+			push_error("MISSING LINE \nACTOR: \"%s\"\n LINE: %s" % [dp.actor, dp.line])
 			return
 		current_actor = actors[index]
 	
@@ -129,10 +129,10 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 			dialogue_area = current_actor.dialogue_area_override
 		current_actor.focus_actor(true)
 		current_actor.is_talking = true
-		dialogue_area.set_text(line, current_actor.display_name)
+		dialogue_area.set_text(dp.line, current_actor.display_name)
 	
 	else:
-		dialogue_area.set_text(line)
+		dialogue_area.set_text(dp.line)
 	
 	dialogue_area.visible = true
 	
@@ -151,8 +151,8 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 	
 	var continue_trigger: Callable
 	
-	if await_event && await_input: continue_trigger = func(): await continue_dialogue
-	else: continue_trigger = func(): await GlobalTimer.wait_for_seconds(seconds_before_close)
+	if await_event && dp.await_input: continue_trigger = func(): await continue_dialogue
+	else: continue_trigger = func(): await GlobalTimer.wait_for_seconds(dp.close_timer)
 	
 	await Util.await_any([
 		continue_trigger,

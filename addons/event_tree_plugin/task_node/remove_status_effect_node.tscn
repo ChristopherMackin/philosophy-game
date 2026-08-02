@@ -1,14 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://nhhgwmvbjjr4"]
+[gd_scene format=3 uid="uid://nhhgwmvbjjr4"]
 
 [ext_resource type="Script" uid="uid://8qc3j4r3w1d4" path="res://addons/event_tree_plugin/task_node.gd" id="1_q6yox"]
 [ext_resource type="Script" uid="uid://d0n4tc7hc1dfp" path="res://system/script/event/task_action/remove_status_effect_task_action.gd" id="2_q6yox"]
-[ext_resource type="Script" uid="uid://2qtryrr0st1u" path="res://addons/event_tree_plugin/custom_resource_loader.tres.gd" id="3_6n52y"]
+[ext_resource type="Script" uid="uid://dhepl4pbwpvqx" path="res://addons/event_tree_plugin/task_node/task_node_field.gd" id="3_q6yox"]
 
 [sub_resource type="Resource" id="Resource_mi8hg"]
 script = ExtResource("2_q6yox")
 metadata/_custom_type_script = "uid://d0n4tc7hc1dfp"
 
-[node name="RemoveStatusEffectNode" type="GraphNode"]
+[node name="RemoveStatusEffectNode" type="GraphNode" unique_id=789951526]
 offset_right = 354.0
 offset_bottom = 256.0
 size_flags_vertical = 0
@@ -35,17 +35,13 @@ slot/1/draw_stylebox = true
 script = ExtResource("1_q6yox")
 task_action = SubResource("Resource_mi8hg")
 
-[node name="CustomResourceLoader" type="MenuButton" parent="."]
-custom_minimum_size = Vector2(0, 60)
+[node name="EditorResourcePicker" type="EditorResourcePicker" parent="." unique_id=505770911]
 layout_mode = 2
-flat = false
-item_count = 1
-popup/item_0/text = "Load Status Effect"
-popup/item_0/id = 0
-script = ExtResource("3_6n52y")
-metadata/_custom_type_script = "uid://2qtryrr0st1u"
+base_type = "StatusEffect"
+script = ExtResource("3_q6yox")
+field_name = "status_effect"
 
-[node name="OptionButton" type="OptionButton" parent="."]
+[node name="OptionButton" type="OptionButton" parent="." unique_id=236951515]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 selected = 0
@@ -54,3 +50,5 @@ popup/item_0/text = "HUMAN"
 popup/item_0/id = 0
 popup/item_1/text = "COMPUTER"
 popup/item_1/id = 1
+script = ExtResource("3_q6yox")
+field_name = "player"

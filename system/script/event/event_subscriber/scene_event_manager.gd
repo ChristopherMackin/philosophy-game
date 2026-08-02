@@ -45,15 +45,15 @@ func _end_event(event: Event):
 	
 	input_manager.active_handler = replaced_input_handler
 
-func display_dialogue(line : String, actor : String, await_input : bool, seconds_before_close : float):
+func display_dialogue(dp: DialoguePayload):
 	dialogue_canceled = false
 	
 	var current_actor: Actor = null
 	
-	if actor != "":
-		var index = get_actor_index(actor)
+	if dp.actor != "":
+		var index = get_actor_index(dp.actor)
 		if index < 0:
-			push_error("MISSING LINE \nACTOR: \"%s\"\n LINE: %s" % [actor, line])
+			push_error("MISSING LINE \nACTOR: \"%s\"\n LINE: %s" % [dp.actor, dp.line])
 			return
 		current_actor = actors[index]
 	
@@ -66,10 +66,10 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 			dialogue_area = current_actor.dialogue_area_override
 		current_actor.focus_actor(true)
 		current_actor.is_talking = true
-		dialogue_area.set_text(line, current_actor.display_name)
+		dialogue_area.set_text(dp.line, current_actor.display_name)
 	
 	else:
-		dialogue_area.set_text(line)
+		dialogue_area.set_text(dp.line)
 	
 	dialogue_area.visible = true
 	
@@ -88,8 +88,8 @@ func display_dialogue(line : String, actor : String, await_input : bool, seconds
 	
 	var continue_trigger: Callable
 	
-	if await_event && await_input: continue_trigger = func(): await continue_dialogue
-	else: continue_trigger = func(): await GlobalTimer.wait_for_seconds(seconds_before_close)
+	if await_event && dp.await_input: continue_trigger = func(): await continue_dialogue
+	else: continue_trigger = func(): await GlobalTimer.wait_for_seconds(dp.seconds_before_close)
 	
 	await Util.await_any([
 		continue_trigger,

@@ -4,12 +4,12 @@ extends TaskAction
 class_name RandomDialogueTaskAction
 
 func invoke(task : Task, manager : EventManager):	
-	if(!task.get_input(0) is Array): return
+	if(!task.get_input("line_array") is Array): return
 	
 	canceled = false
 	
 	var dialogue_array: Array
-	dialogue_array.assign(task.get_input(0))
+	dialogue_array.assign(task.get_input("line_array"))
 	
 	var text = dialogue_array.pick_random()
 	
@@ -26,4 +26,4 @@ func invoke(task : Task, manager : EventManager):
 
 func cancel(task: Task, manager: EventManager):
 	super.cancel(task, manager)
-	manager.cancel_dialogue(task.get_input(1))
+	manager.cancel_dialogue(task.get_input("actor"))

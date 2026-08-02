@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhjaa2rvtsb4w"]
+[gd_scene format=3 uid="uid://dhjaa2rvtsb4w"]
 
 [ext_resource type="Script" uid="uid://8qc3j4r3w1d4" path="res://addons/event_tree_plugin/task_node.gd" id="1_14l8n"]
 [ext_resource type="Script" uid="uid://cnwb80jbsgd2s" path="res://system/script/event/task_action/console_task_action.gd" id="2_jy3ra"]
+[ext_resource type="Script" uid="uid://dhepl4pbwpvqx" path="res://addons/event_tree_plugin/task_node/task_node_field.gd" id="3_yn4n2"]
 
 [sub_resource type="Resource" id="Resource_kfrek"]
 script = ExtResource("2_jy3ra")
 
-[node name="ConsoleLog" type="GraphNode"]
+[node name="ConsoleLog" type="GraphNode" unique_id=691038116]
 offset_right = 354.0
 offset_bottom = 256.0
 resizable = true
@@ -23,6 +24,8 @@ slot/0/draw_stylebox = true
 script = ExtResource("1_14l8n")
 task_action = SubResource("Resource_kfrek")
 
-[node name="ConsoleText" type="TextEdit" parent="."]
+[node name="ConsoleText" type="TextEdit" parent="." unique_id=570105322]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("3_yn4n2")
+field_name = "text"

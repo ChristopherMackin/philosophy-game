@@ -9,7 +9,13 @@ script = ExtResource("2_p7adb")
 
 [sub_resource type="Resource" id="Resource_p7adb"]
 script = ExtResource("2_6twhh")
-inputs = ["Are you okay?", "opal", true, 1.0]
+inputs = Dictionary[String, Variant]({
+"actor": "opal",
+"await_close": false,
+"await_input": false,
+"close_timer": 2.0,
+"text": "Are you okay?"
+})
 action = SubResource("Resource_x7ur8")
 
 [resource]

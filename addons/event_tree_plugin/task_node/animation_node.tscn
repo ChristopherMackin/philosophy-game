@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8grwpsb8a8t5"]
+[gd_scene format=3 uid="uid://b8grwpsb8a8t5"]
 
 [ext_resource type="Script" uid="uid://8qc3j4r3w1d4" path="res://addons/event_tree_plugin/task_node.gd" id="1_s7ya0"]
 [ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="2_guf6r"]
+[ext_resource type="Script" uid="uid://dhepl4pbwpvqx" path="res://addons/event_tree_plugin/task_node/task_node_field.gd" id="3_ndmkb"]
 
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_guf6r")
 
-[node name="Animation" type="GraphNode"]
+[node name="Animation" type="GraphNode" unique_id=1637849758]
 offset_right = 352.0
 offset_bottom = 268.0
 title = "Animation"
@@ -49,26 +50,34 @@ slot/3/draw_stylebox = true
 script = ExtResource("1_s7ya0")
 task_action = SubResource("Resource_ml60a")
 
-[node name="AnimationName" type="TextEdit" parent="."]
+[node name="AnimationName" type="TextEdit" parent="." unique_id=1515200834]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 3
 placeholder_text = "Animation Name"
+script = ExtResource("3_ndmkb")
+field_name = "trigger"
 
-[node name="ActorName" type="TextEdit" parent="."]
+[node name="ActorName" type="TextEdit" parent="." unique_id=1125534926]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 3
 placeholder_text = "Actor Name"
+script = ExtResource("3_ndmkb")
+field_name = "actor"
 
-[node name="Overwrite" type="CheckButton" parent="."]
+[node name="Overwrite" type="CheckButton" parent="." unique_id=1628936888]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Overwrite"
+script = ExtResource("3_ndmkb")
+field_name = "overwrite"
 
-[node name="Await" type="CheckButton" parent="."]
+[node name="Await" type="CheckButton" parent="." unique_id=859831928]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Await"
+script = ExtResource("3_ndmkb")
+field_name = "await"

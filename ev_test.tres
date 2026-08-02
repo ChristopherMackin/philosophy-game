@@ -3,40 +3,45 @@
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_da8y3"]
 [ext_resource type="Script" uid="uid://cuvp6fqjy7jlu" path="res://system/script/event/task_action/rule_task_action.gd" id="2_56s6w"]
 [ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_sca5n"]
-[ext_resource type="Script" uid="uid://tkld5vp51fi1" path="res://system/script/rule/current_round_rule.gd" id="3_5a3ne"]
+[ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/rule/concept_rule.gd" id="3_56s6w"]
 [ext_resource type="Script" uid="uid://cnwb80jbsgd2s" path="res://system/script/event/task_action/console_task_action.gd" id="5_nlgfn"]
 
 [sub_resource type="Resource" id="Resource_05mw8"]
 script = ExtResource("2_56s6w")
 metadata/_custom_type_script = "uid://cuvp6fqjy7jlu"
 
-[sub_resource type="Resource" id="Resource_ws58v"]
-resource_name = "RU: CurrentRoundRule"
-script = ExtResource("3_5a3ne")
-current_round = 1
-metadata/_custom_type_script = "uid://tkld5vp51fi1"
+[sub_resource type="Resource" id="Resource_pnjvg"]
+resource_name = "RU: ConceptRule"
+script = ExtResource("3_56s6w")
+metadata/_custom_type_script = "uid://fnphjbccs4gy"
 
-[sub_resource type="Resource" id="Resource_56s6w"]
+[sub_resource type="Resource" id="Resource_5a3ne"]
 script = ExtResource("2_sca5n")
 outputs = Array[int]([0, 1])
-inputs = [SubResource("Resource_ws58v"), null]
+inputs = Dictionary[String, Variant]({
+"rule": SubResource("Resource_pnjvg")
+})
 action = SubResource("Resource_05mw8")
 
 [sub_resource type="Resource" id="Resource_kfrek"]
 script = ExtResource("5_nlgfn")
 
-[sub_resource type="Resource" id="Resource_5a3ne"]
-script = ExtResource("2_sca5n")
-inputs = ["true!"]
-action = SubResource("Resource_kfrek")
-
 [sub_resource type="Resource" id="Resource_nlgfn"]
 script = ExtResource("2_sca5n")
-inputs = ["false!"]
+inputs = Dictionary[String, Variant]({
+"text": "test"
+})
+action = SubResource("Resource_kfrek")
+
+[sub_resource type="Resource" id="Resource_xctip"]
+script = ExtResource("2_sca5n")
+inputs = Dictionary[String, Variant]({
+"text": "test"
+})
 action = SubResource("Resource_kfrek")
 
 [resource]
 script = ExtResource("1_da8y3")
 frequency = 2
-start_task = SubResource("Resource_56s6w")
-tasks = Array[ExtResource("2_sca5n")]([SubResource("Resource_5a3ne"), SubResource("Resource_nlgfn"), SubResource("Resource_56s6w")])
+start_task = SubResource("Resource_5a3ne")
+tasks = Array[ExtResource("2_sca5n")]([SubResource("Resource_nlgfn"), SubResource("Resource_xctip"), SubResource("Resource_5a3ne")])

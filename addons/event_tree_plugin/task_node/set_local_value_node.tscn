@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://du3ueixbb1wck"]
+[gd_scene format=3 uid="uid://du3ueixbb1wck"]
 
 [ext_resource type="Script" uid="uid://8qc3j4r3w1d4" path="res://addons/event_tree_plugin/task_node.gd" id="1_p8x60"]
 [ext_resource type="Script" uid="uid://bjjvg321qh1hk" path="res://system/script/event/task_action/set_local_value_task_action.gd" id="2_gvdej"]
+[ext_resource type="Script" uid="uid://dhepl4pbwpvqx" path="res://addons/event_tree_plugin/task_node/task_node_field.gd" id="3_p8x60"]
 
 [sub_resource type="Resource" id="Resource_04j1f"]
 script = ExtResource("2_gvdej")
 
-[node name="SetLocalValue" type="GraphNode"]
+[node name="SetLocalValue" type="GraphNode" unique_id=1359588094]
 offset_right = 283.0
 offset_bottom = 199.0
 size_flags_vertical = 0
@@ -32,12 +33,16 @@ slot/1/draw_stylebox = true
 script = ExtResource("1_p8x60")
 task_action = SubResource("Resource_04j1f")
 
-[node name="Key" type="TextEdit" parent="."]
+[node name="Key" type="TextEdit" parent="." unique_id=238419902]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 placeholder_text = "Key"
+script = ExtResource("3_p8x60")
+field_name = "key"
 
-[node name="Value" type="TextEdit" parent="."]
+[node name="Value" type="TextEdit" parent="." unique_id=819735167]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 placeholder_text = "Value"
+script = ExtResource("3_p8x60")
+field_name = "value"

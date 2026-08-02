@@ -4,7 +4,7 @@ extends TaskAction
 class_name WaitTaskAction
 
 func invoke(task : Task, manager : EventManager):
-	var time = task.get_input(0) if task.get_input(0) else 0
+	var time = task.get_input("seconds") if task.get_input("seconds") else 0
 	
 	await GlobalTimer.wait_for_seconds(time)
 	
