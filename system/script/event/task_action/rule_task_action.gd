@@ -11,8 +11,7 @@ func invoke(task : Task, manager : EventManager):
 	query.merge(GlobalBlackboard.blackboard.get_query())
 	query.merge(manager.blackboard.get_query())
 	
-	var rule := ExpressionRule.new()
-	rule.expression = task.get_input(0)
+	var rule = task.get_input(0)
 	
 	if rule.check(query):
 		on_action_complete.emit(task.get_output(0))

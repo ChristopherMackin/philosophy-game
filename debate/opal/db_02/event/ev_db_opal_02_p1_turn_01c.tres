@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://drcj7kcf8lgb6"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_8ogxb"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_2m54f"]
+
+[resource]
+script = ExtResource("1_8ogxb")
+frequency = 1
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

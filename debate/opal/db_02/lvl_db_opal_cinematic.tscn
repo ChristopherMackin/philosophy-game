@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_k3uvd"]
 [ext_resource type="Script" uid="uid://db6exlegr7inp" path="res://_debug/script/debug_event_manager.gd" id="1_sl1r7"]
+[ext_resource type="Resource" uid="uid://chqe2n2s0ukox" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_01a.tres" id="2_5xgcw"]
 [ext_resource type="Resource" uid="uid://do4ijr1aixaqw" path="res://debate/opal/db_02/bb_db_opal_02.tres" id="2_kjk8x"]
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="2_p0rf5"]
-[ext_resource type="Resource" uid="uid://dc0bbjmgfginy" path="res://debate/opal/db_02/event/ev_db_opal_02_play_basic_doubt.tres" id="2_pwg14"]
 [ext_resource type="Resource" uid="uid://tlcoyw2fklgw" path="res://debate/opal/db_02/ef_db_opal_02.tres" id="3_m1df6"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="3_qnf5u"]
 [ext_resource type="Script" uid="uid://cxodlpgrmgtv7" path="res://system/script/blackboard/blackboard_entry.gd" id="3_w8igq"]
@@ -85,11 +85,22 @@
 [ext_resource type="Texture2D" uid="uid://qiqjkvvjvbi4" path="res://_asset/debate/simon/_general/simon_dialogue.png" id="55_bhqhg"]
 [ext_resource type="Script" uid="uid://i6q2q68f73y6" path="res://debate/_script/ui/card_selector.gd" id="56_fxmxk"]
 [ext_resource type="Texture2D" uid="uid://duwx1hkh07na8" path="res://_asset/debate/simon/_general/simon_confirm_button.png" id="57_q0c1o"]
-[ext_resource type="PackedScene" uid="uid://x6gdbsfbnihf" path="res://debate/packed_scene/basic_dialogue_area.tscn" id="65_nhoxv"]
-[ext_resource type="Shader" uid="uid://372vl3dqemde" path="res://_general/shader/sh_simple_film_grain.gdshader" id="71_p4nej"]
+[ext_resource type="Texture2D" uid="uid://ug71ln5xn6t" path="res://_asset/debate/opal/db_opal_02/graphic/t_db_opal_02_p1_joy_dialogue.PNG" id="71_q6oii"]
+[ext_resource type="Texture2D" uid="uid://bd4dc4voljyql" path="res://_asset/debate/opal/db_opal_02/graphic/t_db_opal_02_p1_opal_dialogue.PNG" id="72_5xgcw"]
+[ext_resource type="Script" uid="uid://4bchriocygww" path="res://_general/script/dialogue/dialogue_area.gd" id="72_kqhrk"]
+[ext_resource type="FontFile" uid="uid://dm7kd3g4er8v2" path="res://_asset/_general/font/FriendlySans-Regular.ttf" id="73_hrfbg"]
+[ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://_general/script/ui/scrolling-text.gd" id="74_knqga"]
+
+[sub_resource type="Resource" id="Resource_463a1"]
+resource_name = "ev_db_opal_02_p1_turn_01a.tres"
+script = ExtResource("3_w8igq")
+key = "ev_db_opal_02_p1_turn_01a.tres"
+value = true
+expiration_token = 2
 
 [sub_resource type="Resource" id="Resource_pwg14"]
 script = ExtResource("4_1jelp")
+_entries = Array[ExtResource("3_w8igq")]([SubResource("Resource_463a1")])
 metadata/_custom_type_script = "uid://c1eaebx4srk2s"
 
 [sub_resource type="Resource" id="Resource_mqc32"]
@@ -127,16 +138,16 @@ fov = 25.0
 far = 100.0
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_p4nej"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_463a1"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hkuxl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_kqhrk"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dbiua"]
 viewport_path = NodePath("===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_q6oii"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hrfbg"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8igq"]
@@ -144,7 +155,7 @@ albedo_texture = ExtResource("30_dbiua")
 ao_enabled = true
 ao_texture = ExtResource("31_p0yir")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5xgcw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_knqga"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jelp"]
@@ -152,7 +163,7 @@ albedo_texture = ExtResource("32_84k4r")
 ao_enabled = true
 ao_texture = ExtResource("33_3m87t")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_463a1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_f3ys7"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ghiyr"]
@@ -188,36 +199,14 @@ uv1_scale = Vector3(10, 10, 10)
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p4nej"]
 animation = &"db_opal_02/anim_joy_db_opal_02_p1_idle_01"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hkuxl"]
-animation = &"db_opal_02/anim_joy_db_opal_02_p1_talk_01a"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q6oii"]
-animation = &"db_opal_02/anim_joy_db_opal_02_p1_talk_01b"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g2w6u"]
-advance_mode = 2
-advance_expression = "get_trigger(\"talk\")"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ntdmx"]
 advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dqw0w"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wt2fd"]
-xfade_time = 0.5
-advance_mode = 2
-advance_expression = "get_trigger(\"idle\")"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3t4os"]
 states/p1_idle_01/node = SubResource("AnimationNodeAnimation_p4nej")
 states/p1_idle_01/position = Vector2(377.5, 136)
-states/p1_talk_01/node = SubResource("AnimationNodeAnimation_hkuxl")
-states/p1_talk_01/position = Vector2(548, 66.5)
-states/p1_talk_02/node = SubResource("AnimationNodeAnimation_q6oii")
-states/p1_talk_02/position = Vector2(730.5, 127)
-transitions = ["p1_idle_01", "p1_talk_01", SubResource("AnimationNodeStateMachineTransition_g2w6u"), "Start", "p1_idle_01", SubResource("AnimationNodeStateMachineTransition_ntdmx"), "p1_talk_01", "p1_talk_02", SubResource("AnimationNodeStateMachineTransition_dqw0w"), "p1_talk_02", "p1_idle_01", SubResource("AnimationNodeStateMachineTransition_wt2fd")]
+transitions = ["Start", "p1_idle_01", SubResource("AnimationNodeStateMachineTransition_ntdmx")]
+graph_offset = Vector2(120.67498, -80.4375)
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ud0a1"]
 
@@ -264,7 +253,7 @@ advance_expression = "get_trigger(\"previous_phase\")"
 states/End/position = Vector2(967.5, 74.5)
 states/Start/position = Vector2(174, 74.5)
 states/phase_1/node = SubResource("AnimationNodeStateMachine_3t4os")
-states/phase_1/position = Vector2(342.12494, 74.51406)
+states/phase_1/position = Vector2(342.62494, 74.507034)
 states/phase_2/node = SubResource("AnimationNodeStateMachine_ud0a1")
 states/phase_2/position = Vector2(501.88745, 190.00703)
 states/phase_3/node = SubResource("AnimationNodeStateMachine_hkuxl")
@@ -272,7 +261,7 @@ states/phase_3/position = Vector2(663.88745, 74.160934)
 states/phase_4/node = SubResource("AnimationNodeStateMachine_q6oii")
 states/phase_4/position = Vector2(820.88745, 172.91524)
 transitions = ["Start", "phase_1", SubResource("AnimationNodeStateMachineTransition_463a1"), "phase_2", "phase_1", SubResource("AnimationNodeStateMachineTransition_kqhrk"), "phase_3", "phase_1", SubResource("AnimationNodeStateMachineTransition_hrfbg"), "phase_4", "phase_1", SubResource("AnimationNodeStateMachineTransition_knqga"), "phase_1", "phase_2", SubResource("AnimationNodeStateMachineTransition_f3ys7"), "phase_2", "phase_3", SubResource("AnimationNodeStateMachineTransition_7mnyw"), "phase_3", "phase_4", SubResource("AnimationNodeStateMachineTransition_nolis"), "phase_3", "phase_2", SubResource("AnimationNodeStateMachineTransition_68gxc"), "phase_4", "phase_3", SubResource("AnimationNodeStateMachineTransition_2moqn")]
-graph_offset = Vector2(47.45267, -53.62498)
+graph_offset = Vector2(252.6001, -10.7249975)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0c38c"]
 animation = &"anim_joy_blink"
@@ -289,7 +278,6 @@ filter_enabled = true
 filters = ["root/Skeleton3D:mouth_selector"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_sl1r7"]
-graph_offset = Vector2(-1.9200001, -23.040003)
 nodes/output/position = Vector2(910, 480)
 nodes/animation_state/node = SubResource("AnimationNodeStateMachine_p4nej")
 nodes/animation_state/position = Vector2(90, 370)
@@ -355,7 +343,7 @@ ssao_intensity = 1.32
 ssao_power = 3.446096
 ssao_sharpness = 0.5
 
-[sub_resource type="Environment" id="Environment_p4nej"]
+[sub_resource type="Environment" id="Environment_kqhrk"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -369,10 +357,17 @@ ssao_sharpness = 0.5
 dof_blur_far_enabled = true
 dof_blur_far_distance = 5.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f3ys7"]
-shader = ExtResource("71_p4nej")
-shader_parameter/amount = 0.249999994412
-shader_parameter/speed = 1.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2w6u"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [sub_resource type="Resource" id="Resource_x8g0f"]
 script = ExtResource("32_x0iaq")
@@ -426,25 +421,26 @@ metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 
 [node name="===DEBUG========" type="Node3D" parent="." unique_id=801987926]
 
-[node name="DebugEventManager" type="Node" parent="===DEBUG========" unique_id=1676246633 node_paths=PackedStringArray("scene_animator_handler", "actors", "default_dialogue_area")]
+[node name="DebugEventManager" type="Node" parent="===DEBUG========" unique_id=1676246633 node_paths=PackedStringArray("scene_animator_handler", "actors")]
 script = ExtResource("1_sl1r7")
 btn_continue = Callable()
 btn_skip = Callable()
 btn_cancel = Callable()
-event = ExtResource("2_pwg14")
+event = ExtResource("2_5xgcw")
 event_factory = ExtResource("3_m1df6")
+concept = 2
 card_history = Array[ExtResource("8_p4nej")]([ExtResource("9_hkuxl")])
+current_round = 1
 blackboard = SubResource("Resource_pwg14")
 debate_manager = ExtResource("12_fev28")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
 actors = [NodePath("../../===ACTOR========/JoyActor"), NodePath("../../===ACTOR========/OpalActor")]
-default_dialogue_area = NodePath("../../===UI========/BasicDialogueBubble")
 manager = SubResource("Resource_mqc32")
 
 [node name="===CAMERA========" type="Node3D" parent="." unique_id=1860563192]
 
 [node name="Cinematic_01" type="Node3D" parent="===CAMERA========" unique_id=322546767]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.67017937, 4.7759676)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 script = ExtResource("10_3t4os")
 tween_resource = SubResource("Resource_3t4os")
 tween_on_load = false
@@ -498,12 +494,11 @@ lines_cleared_ui = NodePath("../../===GAMEPLAY========/GameBoardState/LineClearC
 manager = ExtResource("12_fev28")
 metadata/_custom_type_script = "uid://dhulr5f133qcw"
 
-[node name="SceneEventManager" type="Node" parent="===MANAGER========" unique_id=1999759174 node_paths=PackedStringArray("scene_animator_handler", "actors", "default_dialogue_area", "input_manager")]
+[node name="SceneEventManager" type="Node" parent="===MANAGER========" unique_id=1999759174 node_paths=PackedStringArray("scene_animator_handler", "actors", "input_manager")]
 script = ExtResource("13_cyh0q")
 debate_manager = ExtResource("12_fev28")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
 actors = [NodePath("../../===ACTOR========/JoyActor"), NodePath("../../===ACTOR========/OpalActor")]
-default_dialogue_area = NodePath("../../===UI========/BasicDialogueBubble")
 input_manager = NodePath("../InputManager")
 dialogue_input_handler = ExtResource("14_damgn")
 manager = ExtResource("3_qnf5u")
@@ -557,14 +552,14 @@ transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.989057
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter" unique_id=1817069595 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_p4nej")
+texture = SubResource("ViewportTexture_463a1")
 
 [node name="PlayerDiscardCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1140548364 instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.9890571, -0.018066663, -0.12245832, -7.450581e-09, 0.99247366, -0.15000284, 0.0004506167, 0.13493468)
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" unique_id=1611050952 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_hkuxl")
+texture = SubResource("ViewportTexture_kqhrk")
 
 [node name="PlayerEnergyCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1840847040 instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.577133, 0.07591381, 1.8900888, 0.29692417, 1.9479705, -0.16890348, -1.8681635, 0.33306077, 0.557061, -0.120429605, 0.0004506167, 0.20629291)
@@ -606,7 +601,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15324764, 0.00012001136, -0
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" unique_id=467383888 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26024163, -0.009793821, -0.076415636, 0.076465435, -1.1382936e-08, 0.26041123, -0.009397088, -0.27122876, 0.0027592867, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_q6oii")
+texture = SubResource("ViewportTexture_hrfbg")
 
 [node name="CpuDiscardCounter" parent="===GAMEPLAY========/CpiUi" unique_id=1590190797 instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.94619274, -0.32360363, 0, 0.32360363, 0.94619274, 0, 0, 0, 1, 0.15350369, 0, 0.013281487)
@@ -617,7 +612,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" unique_id=1511716073 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.2708025, 0.006386812, -0.016917214, 0.016962603, -0.0017474849, 0.27086934, 0.0062652696, -0.27132475, -0.002142772, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_5xgcw")
+texture = SubResource("ViewportTexture_knqga")
 
 [node name="CpuEnergyCounter" parent="===GAMEPLAY========/CpiUi" unique_id=151891147 instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.9523734, -0.26442856, 0.15186363, 0.26112953, 0.9644053, 0.04163922, -0.15746869, -3.7252903e-09, 0.987524, 0.15333109, 2.9802322e-08, 0.071661524)
@@ -628,7 +623,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" unique_id=969618535 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26872277, 0.03799277, 0.0023667924, -0.00091665983, -0.010411309, 0.27120426, 0.038055386, -0.26853144, -0.010180076, -0.011028126, 0.015155774, 0.015328243)
-texture = SubResource("ViewportTexture_463a1")
+texture = SubResource("ViewportTexture_f3ys7")
 
 [node name="GameBoardState" type="Node3D" parent="===GAMEPLAY========" unique_id=215128257]
 
@@ -846,29 +841,37 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 
 [node name="EnvDbOpal02" parent="===ENVIRONMENT========" unique_id=472548192 instance=ExtResource("7_wwxuk")]
 
-[node name="Ground" parent="===ENVIRONMENT========/EnvDbOpal02" index="0" unique_id=1471618096]
-transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 0, 0)
-layers = 9
-
-[node name="Newspaper" parent="===ENVIRONMENT========/EnvDbOpal02" index="2" unique_id=2021821052]
+[node name="Ground" parent="===ENVIRONMENT========/EnvDbOpal02" index="0" unique_id=1537390400]
 transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Streetlight_LightBulb" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 1509817917) index="0" unique_id=146776627]
+[node name="Newspaper" parent="===ENVIRONMENT========/EnvDbOpal02" index="2" unique_id=1506451760]
+transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Streetlight_FloorShine" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 2035123243) index="0" unique_id=712825430]
+transform = Transform3D(1, 0, 0, 0, 1.5086151, 0, 0, 0, 1, -6.617445e-24, 1.5560758, 0.035877213)
+layers = 8
+
+[node name="Streetlight_LightBulb" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 2035123243) index="1" unique_id=1513567600]
 layers = 9
 
-[node name="Streetlight_Post" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 1509817917) index="1" unique_id=1712825141]
-layers = 9
-
-[node name="SpotLight3D" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 1509817917) index="2" unique_id=1944799545]
+[node name="SpotLight3D" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 2035123243) index="2" unique_id=1944799545]
 layers = 9
 light_energy = 30.0
+
+[node name="Streetlight_LightShine" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 2035123243) index="3" unique_id=10175687]
+transform = Transform3D(1, 0, 0, 0, 1.5086151, 0, 0, 0, 1, -6.617445e-24, 1.5560758, 0.035877213)
+layers = 8
+
+[node name="Streetlight_Post" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 2035123243) index="4" unique_id=608496615]
+layers = 9
 
 [node name="===ACTOR========" type="Node3D" parent="." unique_id=1690436738]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="JoyActor" parent="===ACTOR========" unique_id=2066360241 node_paths=PackedStringArray("character_animation_tree") instance=ExtResource("8_w340p")]
+[node name="JoyActor" parent="===ACTOR========" unique_id=2066360241 node_paths=PackedStringArray("character_animation_tree", "dialogue_area_override") instance=ExtResource("8_w340p")]
 character_animation_tree = NodePath("CharacterAnimationTree")
 is_blinking = true
+dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/JoyDialogueP1")
 
 [node name="Joy_Base_Body" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="0" unique_id=1383156024]
 layers = 9
@@ -925,17 +928,18 @@ parameters/talk_trigger/internal_active = false
 parameters/talk_trigger/request = 0
 script = ExtResource("50_3prre")
 triggers = Dictionary[String, bool]({
-"idle": false,
+"idle": true,
 "next_phase": false,
 "previous_phase": false,
 "reset": false,
-"talk": false
+"talk": true
 })
 
-[node name="OpalActor" parent="===ACTOR========" unique_id=1017530611 node_paths=PackedStringArray("_layer_mask", "character_animation_tree") instance=ExtResource("9_8fbt7")]
+[node name="OpalActor" parent="===ACTOR========" unique_id=1017530611 node_paths=PackedStringArray("_layer_mask", "character_animation_tree", "dialogue_area_override") instance=ExtResource("9_8fbt7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559022e-10, -3.0559022e-10, -3.0559022e-10)
 _layer_mask = NodePath("LayerMask")
 character_animation_tree = NodePath("CharacterAnimationTree")
+dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/OpalDialogueP1")
 
 [node name="Skeleton3D" parent="===ACTOR========/OpalActor/Skeleton/root" parent_id_path=PackedInt32Array(1017530611, 1276102160, 1692687571) index="0" unique_id=945318238]
 bones/0/position = Vector3(4.0519586, 1.2192, 0.5648039)
@@ -1646,8 +1650,7 @@ anchor_top = 0.002
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -0.6400757
-offset_top = -0.16000009
-offset_bottom = 2.0
+offset_top = -2.16
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1657,10 +1660,10 @@ size = Vector2i(1120, 1080)
 render_target_update_mode = 4
 
 [node name="ConversationCamera" type="Camera3D" parent="===UI========/ConversationContainer/SubViewport" unique_id=796707449]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.67017937, 4.7759676)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 8
-environment = SubResource("Environment_p4nej")
+environment = SubResource("Environment_kqhrk")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -1673,14 +1676,89 @@ script = ExtResource("1_k3uvd")
 host_layers = 2
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="FilmGrain" type="ColorRect" parent="===UI========" unique_id=1865834031]
-material = SubResource("ShaderMaterial_f3ys7")
+[node name="DialogueBubbles" type="Panel" parent="===UI========" unique_id=780530583]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 800.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g2w6u")
+
+[node name="JoyDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles" unique_id=811127118 node_paths=PackedStringArray("scrolling_text")]
+visible = false
+layout_mode = 0
+offset_left = 840.0
+offset_top = 300.0
+offset_right = 1268.7653
+offset_bottom = 571.0002
+texture = ExtResource("71_q6oii")
+expand_mode = 1
+script = ExtResource("72_kqhrk")
+scrolling_text = NodePath("ScrollingText")
+normal_characters_per_second = 20
+
+[node name="ScrollingText" type="RichTextLabel" parent="===UI========/DialogueBubbles/JoyDialogueP1" unique_id=58796839]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13000001
+anchor_top = 0.22500001
+anchor_right = 0.753
+anchor_bottom = 0.804
+offset_left = 0.025772095
+offset_top = 0.024997711
+offset_right = -0.09500122
+offset_bottom = 0.115997314
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.3647059, 0.3647059, 0.3647059, 1)
+theme_override_fonts/normal_font = ExtResource("73_hrfbg")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Hahahahahaha"
+scroll_active = false
+scroll_following = true
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 12
+visible_characters_behavior = 1
+script = ExtResource("74_knqga")
+characters_per_second = 20
+normalized_dialogue_position = 1
+metadata/_custom_type_script = "uid://vyqjymdwc8ae"
+
+[node name="OpalDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles" unique_id=39134231 node_paths=PackedStringArray("scrolling_text")]
+visible = false
+layout_mode = 0
+offset_left = 998.0
+offset_top = 20.0
+offset_right = 1736.7417
+offset_bottom = 311.0
+texture = ExtResource("72_5xgcw")
+expand_mode = 1
+script = ExtResource("72_kqhrk")
+scrolling_text = NodePath("ScrollingText")
+normal_characters_per_second = 6
+
+[node name="ScrollingText" type="RichTextLabel" parent="===UI========/DialogueBubbles/OpalDialogueP1" unique_id=717965]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.3647059, 0.3647059, 0.3647059, 1)
+theme_override_fonts/normal_font = ExtResource("73_hrfbg")
+theme_override_font_sizes/normal_font_size = 52
+bbcode_enabled = true
+text = "Are you okay?"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 13
+visible_characters_behavior = 1
+script = ExtResource("74_knqga")
+characters_per_second = 6
+normalized_dialogue_position = 1
+metadata/_custom_type_script = "uid://vyqjymdwc8ae"
 
 [node name="Hand" type="Control" parent="===UI========" unique_id=1121779610 node_paths=PackedStringArray("card_parent")]
 layout_mode = 3
@@ -1823,21 +1901,6 @@ focus_mode = 2
 texture = ExtResource("57_q0c1o")
 metadata/focus_type = "submit"
 
-[node name="BasicDialogueBubble" parent="===UI========" unique_id=200150543 instance=ExtResource("65_nhoxv")]
-visible = false
-offset_left = 1120.0
-offset_top = 448.0
-offset_right = 1620.0
-offset_bottom = 675.0
-flip_h = true
-
-[node name="ScrollingText" parent="===UI========/BasicDialogueBubble" index="0"]
-offset_left = 91.0
-offset_right = 58.0
-text = "Ummm... sure. Yeah."
-visible_characters = 19
-normalized_dialogue_position = 0.2108778947368421
-
 [connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateSceneManager" method="start_debate" flags=7]
 
 [editable path="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi"]
@@ -1858,4 +1921,3 @@ normalized_dialogue_position = 0.2108778947368421
 [editable path="===ACTOR========/OpalActor/Skeleton"]
 [editable path="===ACTOR========/OpalActor/Outfit/OpalUnknown"]
 [editable path="===ACTOR========/OpalActor/Outfit/OpalOutfit01"]
-[editable path="===UI========/BasicDialogueBubble"]

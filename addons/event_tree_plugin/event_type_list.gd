@@ -13,18 +13,20 @@ func _enter_tree():
 		add_item(child.name)
 
 func _on_item_activated(index):
-	var node = task_node_type_parent.get_child(index).duplicate()
-	event_graph.add_child(node, true) # Use a friendly node 
-	node.position_offset = (event_graph.scroll_offset + event_graph.size / 2) / event_graph.zoom - node.size / 2;
+	var scene_resource = load(task_node_type_parent.get_child(index).scene_file_path)
+	var scene_instance = scene_resource.instantiate()
+	event_graph.add_child(scene_instance, true) # Use a friendly node 
+	scene_instance.position_offset = (event_graph.scroll_offset + event_graph.size / 2) / event_graph.zoom - scene_instance.size / 2;
 
 func _on_empty_clicked(at_position, mouse_button_index):
 	deselect_all()
 	index = -1
 
 func _get_drag_data(position):
-	var task_node = task_node_type_parent.get_child(index)
-	set_drag_preview(task_node.duplicate())
-	return task_node
+	var scene_resource = load(task_node_type_parent.get_child(index).scene_file_path)
+	var scene_instance = scene_resource.instantiate()
+	set_drag_preview(scene_instance.duplicate())
+	return scene_instance
 
 func _on_item_selected(index):
 	self.index = index

@@ -2,48 +2,47 @@
 
 [ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="1_65fn2"]
 [ext_resource type="Script" uid="uid://bkpc76nqmkxc2" path="res://system/script/event_factory/bucket_event_factory.gd" id="2_65fn2"]
+[ext_resource type="Resource" uid="uid://chqe2n2s0ukox" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_01a.tres" id="2_b6dcq"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/rule/rule.gd" id="2_b7gbn"]
-[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="2_lrybp"]
 [ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/rule/concept_rule.gd" id="3_b6dcq"]
-[ext_resource type="Resource" uid="uid://dc0bbjmgfginy" path="res://debate/opal/db_02/event/ev_db_opal_02_play_basic_doubt.tres" id="3_b7gbn"]
 [ext_resource type="Script" uid="uid://csehxotj4ndvf" path="res://system/script/rule/multi_rule.gd" id="4_5syok"]
 [ext_resource type="Script" uid="uid://cilcb0gb3xu0g" path="res://system/script/rule/current_player_rule.gd" id="4_b6dcq"]
-[ext_resource type="Script" uid="uid://5ibfak62sbku" path="res://system/script/rule/card_history_rule.gd" id="4_b7gbn"]
 [ext_resource type="Script" uid="uid://c44gav4s6as63" path="res://system/script/event_factory/rule_bucket_event_factory.gd" id="5_vwrq4"]
 [ext_resource type="Script" uid="uid://c2ote8d3tq7pk" path="res://system/script/event_factory/rule_event_factory.gd" id="6_5syok"]
-[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="6_b6dcq"]
+[ext_resource type="Script" uid="uid://tkld5vp51fi1" path="res://system/script/rule/current_round_rule.gd" id="6_i0cw1"]
 
-[sub_resource type="Resource" id="Resource_13j1t"]
-resource_name = "RU: CardHistoryRule"
-script = ExtResource("4_b7gbn")
-card_history = Array[ExtResource("2_lrybp")]([ExtResource("6_b6dcq")])
-metadata/_custom_type_script = "uid://5ibfak62sbku"
+[sub_resource type="Resource" id="Resource_vwrq4"]
+resource_name = "RU: ON_TURN_START"
+script = ExtResource("3_b6dcq")
+concept = 2
+metadata/_custom_type_script = "uid://fnphjbccs4gy"
 
 [sub_resource type="Resource" id="Resource_x3isd"]
 script = ExtResource("6_5syok")
-rule = SubResource("Resource_13j1t")
-event = ExtResource("3_b7gbn")
+rule = SubResource("Resource_vwrq4")
+event = ExtResource("2_b6dcq")
 metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
 
 [sub_resource type="Resource" id="Resource_i0cw1"]
-resource_name = "RU: ConceptRule"
-script = ExtResource("3_b6dcq")
-metadata/_custom_type_script = "uid://fnphjbccs4gy"
+resource_name = "RU: CurrentRoundRule"
+script = ExtResource("6_i0cw1")
+current_round = 1
+metadata/_custom_type_script = "uid://tkld5vp51fi1"
 
-[sub_resource type="Resource" id="Resource_5syok"]
+[sub_resource type="Resource" id="Resource_8p8g2"]
 resource_name = "RU: CurrentPlayerRule"
 script = ExtResource("4_b6dcq")
 metadata/_custom_type_script = "uid://cilcb0gb3xu0g"
 
-[sub_resource type="Resource" id="Resource_8p8g2"]
+[sub_resource type="Resource" id="Resource_13j1t"]
 resource_name = "RU: MultiRule"
 script = ExtResource("4_5syok")
-rules = Array[ExtResource("2_b7gbn")]([SubResource("Resource_i0cw1"), SubResource("Resource_5syok")])
+rules = Array[ExtResource("2_b7gbn")]([SubResource("Resource_i0cw1"), SubResource("Resource_8p8g2")])
 metadata/_custom_type_script = "uid://csehxotj4ndvf"
 
 [sub_resource type="Resource" id="Resource_fayrp"]
 script = ExtResource("5_vwrq4")
-rule = SubResource("Resource_8p8g2")
+rule = SubResource("Resource_13j1t")
 buckets = Array[ExtResource("1_65fn2")]([SubResource("Resource_x3isd")])
 metadata/_custom_type_script = "uid://c44gav4s6as63"
 

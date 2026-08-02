@@ -93,14 +93,14 @@ func load_event_tree(event: Event):
 	var nodes = []
 	
 	for t in event.tasks:
-		var packed_scene
+		var node : TaskNode
 	
 		for p : TaskNode in task_node_type_parent.get_children():
 			if p.task_action.get_script() == t.action.get_script():
-				packed_scene = p
+				var scene_resource = load(p.scene_file_path)
+				node = scene_resource.instantiate()
 				break
 		
-		var node : TaskNode = packed_scene.duplicate()
 		node.set_node_field_values(t)
 		add_child(node)
 		nodes.append(node)
@@ -138,10 +138,9 @@ func get_task_nodes() -> Array[TaskNode]:
 	return ret
 
 func _can_drop_data(at_position, data):
-	if data is TaskNode:
-		return true
+	return true if data is TaskNode else false
 
 func _drop_data(at_position, data):
-	var node = data.duplicate()
+	var node = data
 	add_child(node, true)
 	node.position_offset = (scroll_offset + at_position) / zoom

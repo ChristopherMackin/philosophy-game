@@ -41,6 +41,8 @@ static func build_query(queryables : Array) -> Dictionary:
 	return query
 
 static func get_all_children(node) -> Array:
+	if !node: return []
+	
 	var nodes : Array = []
 	
 	for N in node.get_children():

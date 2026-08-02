@@ -23,6 +23,7 @@ class_name DebugEventManager
 @export var concept: Const.Concept
 @export var active_contestant: Const.Player
 @export var card_history: Array[CardBase]
+@export var current_round: int
 
 @export var blackboard: Blackboard:
 	get: return manager.blackboard if manager else null
@@ -238,6 +239,7 @@ func get_event_using_data():
 	var query : Dictionary
 	query["concept"] = concept
 	query["active_contestant"] = "player" if active_contestant == Const.Player.HUMAN else "computer"
+	query["current_round"] = current_round
 	
 	var card_history: Array[Card]
 	for base in self.card_history:

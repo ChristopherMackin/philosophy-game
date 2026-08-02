@@ -13,6 +13,8 @@ static func get_value(control : Control):
 		return control.path
 	if control is OptionButton:
 		return control.get_item_id(control.selected)
+	if control is EditorResourcePicker:
+		return control.edited_resource
 
 static func set_value(control : Control, value = null):
 	if !value:
@@ -20,11 +22,13 @@ static func set_value(control : Control, value = null):
 	
 	if control is TextEdit:
 		control.text = value 
-	if control is SpinBox:
+	elif control is SpinBox:
 		control.value = value
-	if control is CheckButton: 
+	elif control is CheckButton: 
 		control.button_pressed = value
-	if control is CustomResourceLoader:
+	elif control is CustomResourceLoader:
 		control.path = value
-	if control is OptionButton:
+	elif control is OptionButton:
 		control.select(control.get_item_index(value))
+	elif control is EditorResourcePicker:
+		control.edited_resource = value

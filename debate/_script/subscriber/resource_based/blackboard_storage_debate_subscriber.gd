@@ -8,6 +8,8 @@ var blackboard: Blackboard:
 func on_debate_start():
 	blackboard.add("player", manager.player, Blackboard.ExpirationToken.ON_DEBATE_START)
 	blackboard.add("computer", manager.computer, Blackboard.ExpirationToken.ON_DEBATE_START)
+	blackboard.add("current_turn", manager.current_turn, Blackboard.ExpirationToken.ON_DEBATE_START)
+	blackboard.add("current_round", manager.current_round, Blackboard.ExpirationToken.ON_DEBATE_START)
 
 func on_turn_start(contestant: Contestant):
 	var which_contestant = "player" if contestant == manager.player else "computer"
