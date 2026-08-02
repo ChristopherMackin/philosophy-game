@@ -33,6 +33,9 @@ func on_card_played(card: Card, _contestant : Contestant):
 	var turn_history = blackboard.get_value("turn_card_history")
 	turn_history.push_front(card)
 	blackboard.add("turn_card_history", turn_history, Blackboard.ExpirationToken.ON_DEBATE_START)
+	
+	#Update Current Suit
+	blackboard.add("current_suit", card.suit, Blackboard.ExpirationToken.ON_DEBATE_START)
 
 func on_token_played(token: Token, _suit: Suit, _contestant : Contestant):
 	#Update Token History

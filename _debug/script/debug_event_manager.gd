@@ -240,13 +240,15 @@ func get_event_using_data():
 	query["concept"] = concept
 	query["active_contestant"] = "player" if active_contestant == Const.Player.HUMAN else "computer"
 	query["current_round"] = current_round
-	
-	var card_history: Array[Card]
+	query["current_suit"] = card_history[0].suit if card_history.size() > 0 else null
+		
+	var history: Array[Card]
 	for base in self.card_history:
 		if !base: continue
-		card_history.append(Card.new(base, null))
+		history.append(Card.new(base, null))
 	
 	query["card_history"] = card_history
+	
 	query.merge(GlobalBlackboard.blackboard.get_query())
 	query.merge(manager.blackboard.get_query())
 	
