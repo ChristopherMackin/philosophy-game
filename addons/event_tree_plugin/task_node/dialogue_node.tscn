@@ -89,7 +89,6 @@ field_name = "await_input"
 [node name="CheckButton2" type="CheckButton" parent="." unique_id=1308936006]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-button_pressed = true
 text = "Await Close"
 script = ExtResource("3_aeafh")
 field_name = "await_close"

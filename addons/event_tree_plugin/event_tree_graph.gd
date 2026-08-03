@@ -100,12 +100,13 @@ func load_event_tree(event: Event):
 				node = scene_resource.instantiate()
 				break
 		
-		node.set_node_field_values(t)
 		add_child(node)
 		nodes.append(node)
 		
 		if t == event.start_task:
 			first_node = node
+		
+		node.set_node_field_values.call_deferred(t)
 	
 	var from_node_index = 0
 	

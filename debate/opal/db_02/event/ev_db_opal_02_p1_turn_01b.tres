@@ -65,7 +65,7 @@ script = ExtResource("2_tmbvf")
 outputs = Array[int]([10])
 inputs = Dictionary[String, Variant]({
 "actor": "joy",
-"await_close": true,
+"await_close": false,
 "await_input": false,
 "close_timer": 10.0,
 "text": "cynical"
@@ -77,7 +77,7 @@ script = ExtResource("2_tmbvf")
 outputs = Array[int]([13])
 inputs = Dictionary[String, Variant]({
 "actor": "joy",
-"await_close": true,
+"await_close": false,
 "await_input": false,
 "close_timer": 10.0,
 "text": "gullible"
@@ -89,7 +89,7 @@ script = ExtResource("2_tmbvf")
 outputs = Array[int]([12])
 inputs = Dictionary[String, Variant]({
 "actor": "joy",
-"await_close": true,
+"await_close": false,
 "await_input": false,
 "close_timer": 10.0,
 "text": "worthless"
@@ -101,7 +101,7 @@ script = ExtResource("2_tmbvf")
 outputs = Array[int]([11])
 inputs = Dictionary[String, Variant]({
 "actor": "joy",
-"await_close": true,
+"await_close": false,
 "await_input": false,
 "close_timer": 10.0,
 "text": "selfish"
@@ -127,7 +127,7 @@ script = ExtResource("2_tmbvf")
 outputs = Array[int]([9])
 inputs = Dictionary[String, Variant]({
 "actor": "joy",
-"await_close": true,
+"await_close": false,
 "await_input": false,
 "close_timer": 10.0,
 "text": "unholy"
@@ -140,35 +140,35 @@ script = ExtResource("10_mdnmq")
 [sub_resource type="Resource" id="Resource_r8fdc"]
 script = ExtResource("2_tmbvf")
 inputs = Dictionary[String, Variant]({
-"seconds": 2.0
+"seconds": 4.0
 })
 action = SubResource("Resource_1f63y")
 
 [sub_resource type="Resource" id="Resource_6tmew"]
 script = ExtResource("2_tmbvf")
 inputs = Dictionary[String, Variant]({
-"seconds": 2.0
+"seconds": 4.0
 })
 action = SubResource("Resource_1f63y")
 
 [sub_resource type="Resource" id="Resource_jqh31"]
 script = ExtResource("2_tmbvf")
 inputs = Dictionary[String, Variant]({
-"seconds": 2.0
+"seconds": 4.0
 })
 action = SubResource("Resource_1f63y")
 
 [sub_resource type="Resource" id="Resource_vcwjy"]
 script = ExtResource("2_tmbvf")
 inputs = Dictionary[String, Variant]({
-"seconds": 2.0
+"seconds": 4.0
 })
 action = SubResource("Resource_1f63y")
 
 [sub_resource type="Resource" id="Resource_6shfp"]
 script = ExtResource("2_tmbvf")
 inputs = Dictionary[String, Variant]({
-"seconds": 2.0
+"seconds": 4.0
 })
 action = SubResource("Resource_1f63y")
 

@@ -24,13 +24,14 @@ func open_event_tree(resource: Resource):
 	if resource == null:
 		event_graph.clear_graph()
 		event_graph.visible = false
-		event_node_list = false
+		event_node_list.visible = false
 		return
 	
 	event_graph.visible = true
-	event_node_list = true
+	event_node_list.visible = true
 	
 	event_graph.load_event_tree(selected_resource)
 
 func refresh_resource():
 	selected_resource = event_graph.update_event_from_graph(selected_resource)
+	ResourceSaver.save(selected_resource)

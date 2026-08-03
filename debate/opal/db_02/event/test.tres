@@ -1,7 +1,24 @@
 [gd_resource type="Resource" script_class="Event" format=3 uid="uid://dsq2eh1m7g5hq"]
 
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_kx5gc"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_266yn"]
 [ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_ill3c"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_266yn")
+
+[sub_resource type="Resource" id="Resource_266yn"]
+script = ExtResource("2_ill3c")
+inputs = Dictionary[String, Variant]({
+"actor": "test",
+"await_close": true,
+"await_input": true,
+"close_timer": 2.0,
+"text": "This is a test of the text"
+})
+action = SubResource("Resource_x7ur8")
 
 [resource]
 script = ExtResource("1_kx5gc")
+start_task = SubResource("Resource_266yn")
+tasks = Array[ExtResource("2_ill3c")]([SubResource("Resource_266yn")])
