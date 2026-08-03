@@ -6,10 +6,13 @@ class_name DialogueTaskAction
 func invoke(task : Task, manager : EventManager):	
 	canceled = false
 	
-	await Util.await_any([
-		func(): await manager.display_dialogue(DialoguePayload.from_task(task)),
-		func(): await on_action_canceled
-	])
+	if task.get_input("await_close"):
+		await Util.await_any([
+			func(): await manager.display_dialogue(DialoguePayload.from_task(task)),
+			func(): await on_action_canceled
+		])
+	else:
+		manager.display_dialogue(DialoguePayload.from_task(task))
 		
 	if canceled:
 		return

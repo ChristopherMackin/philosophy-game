@@ -874,49 +874,52 @@ is_blinking = true
 dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/JoyDialogueP1")
 
 [node name="Joy_Base_Body" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="0" unique_id=1383156024]
-layers = 9
+layers = 1048585
 
 [node name="Joy_Base_Face" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="1" unique_id=1019652094]
-layers = 9
+layers = 1048585
 
 [node name="Joy_Base_Mouth" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="2" unique_id=1443948411]
-layers = 9
+layers = 1048585
 
 [node name="Joy_Base_Pupils" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="3" unique_id=1977402618]
-layers = 9
+layers = 1048585
 
 [node name="Joy_Base_Skull" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="4" unique_id=853670762]
-layers = 9
+layers = 1048585
 
 [node name="Joy_Base_Sockets" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="5" unique_id=1790840942]
-layers = 9
+layers = 1048585
 
 [node name="Joy_Hair_04a" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="6" unique_id=946662070]
-layers = 9
+layers = 1048585
 
 [node name="Joy_Outfit_05_Hat" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="7" unique_id=1037515678]
-layers = 9
+layers = 1048585
 
 [node name="Joy_Outfit_05_NameTag" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="8" unique_id=843495148]
-layers = 9
+layers = 1048585
 
 [node name="Joy_Outfit_05_Shirt" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="9" unique_id=200945530]
-layers = 9
+layers = 1048585
 
 [node name="Joy_Outfit_05_Shoes" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="10" unique_id=650872247]
-layers = 9
+layers = 1048585
 
 [node name="Joy_Outfit_05_Shorts" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="11" unique_id=419595216]
-layers = 9
+layers = 1048585
 
 [node name="Joy_Outfit_05_Socks" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 1822254773) index="12" unique_id=1352703182]
-layers = 9
+layers = 1048585
 
 [node name="AnimationHandler" parent="===ACTOR========/JoyActor" index="3" unique_id=1134272481 node_paths=PackedStringArray("animation_tree")]
 animation_tree = NodePath("../CharacterAnimationTree")
 
+[node name="DialogueCamera" parent="===ACTOR========/JoyActor" index="5" unique_id=1887443005]
+priority = 1
+
 [node name="LayerMask" parent="===ACTOR========/JoyActor" index="7" unique_id=1716574017]
-layers = 9
+layers = 1048585
 
 [node name="CharacterAnimationTree" type="AnimationTree" parent="===ACTOR========/JoyActor" unique_id=1783163870]
 root_node = NodePath("../Skeleton")
@@ -1685,7 +1688,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_g2w6u")
 
 [node name="JoyDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles" unique_id=811127118 node_paths=PackedStringArray("scrolling_text")]
-visible = false
 layout_mode = 0
 offset_left = 840.0
 offset_top = 300.0
@@ -1714,12 +1716,12 @@ theme_override_colors/default_color = Color(0.3647059, 0.3647059, 0.3647059, 1)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Hahahahahaha"
+text = "I'm just so..."
 scroll_active = false
-scroll_following = true
+scroll_following_visible_characters = true
 horizontal_alignment = 1
 vertical_alignment = 1
-visible_characters = 12
+visible_characters = 14
 visible_characters_behavior = 1
 script = ExtResource("74_knqga")
 characters_per_second = 20
@@ -1750,14 +1752,14 @@ theme_override_colors/default_color = Color(0.3647059, 0.3647059, 0.3647059, 1)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
 theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
-text = "Are you okay?"
+text = "[pulse]Are you okay?[/pulse]"
 horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters = 13
 visible_characters_behavior = 1
 script = ExtResource("74_knqga")
 characters_per_second = 6
-normalized_dialogue_position = 1
+normalized_dialogue_position = 0.6620755384615383
 metadata/_custom_type_script = "uid://vyqjymdwc8ae"
 
 [node name="Hand" type="Control" parent="===UI========" unique_id=1121779610 node_paths=PackedStringArray("card_parent")]

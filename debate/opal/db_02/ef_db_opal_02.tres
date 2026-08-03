@@ -4,25 +4,29 @@
 [ext_resource type="Script" uid="uid://bkpc76nqmkxc2" path="res://system/script/event_factory/bucket_event_factory.gd" id="2_65fn2"]
 [ext_resource type="Resource" uid="uid://chqe2n2s0ukox" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_01a.tres" id="2_b6dcq"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/rule/rule.gd" id="2_b7gbn"]
-[ext_resource type="Script" uid="uid://h42nw8t6a6nq" path="res://system/script/rule/current_suit_rule.gd" id="3_8p8g2"]
+[ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/rule/concept_rule.gd" id="3_i0cw1"]
 [ext_resource type="Script" uid="uid://csehxotj4ndvf" path="res://system/script/rule/multi_rule.gd" id="4_5syok"]
 [ext_resource type="Script" uid="uid://cilcb0gb3xu0g" path="res://system/script/rule/current_player_rule.gd" id="4_b6dcq"]
-[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="4_fayrp"]
 [ext_resource type="Script" uid="uid://c44gav4s6as63" path="res://system/script/event_factory/rule_bucket_event_factory.gd" id="5_vwrq4"]
 [ext_resource type="Script" uid="uid://c2ote8d3tq7pk" path="res://system/script/event_factory/rule_event_factory.gd" id="6_5syok"]
 [ext_resource type="Script" uid="uid://tkld5vp51fi1" path="res://system/script/rule/current_round_rule.gd" id="6_i0cw1"]
 
-[sub_resource type="Resource" id="Resource_wifvs"]
-resource_name = "RU: Doubt"
-script = ExtResource("3_8p8g2")
-suit = ExtResource("4_fayrp")
-metadata/_custom_type_script = "uid://h42nw8t6a6nq"
+[sub_resource type="Resource" id="Resource_7gnuu"]
+resource_name = "RU: ON_TURN_START"
+script = ExtResource("3_i0cw1")
+concept = 2
+metadata/_custom_type_script = "uid://fnphjbccs4gy"
 
 [sub_resource type="Resource" id="Resource_x3isd"]
 script = ExtResource("6_5syok")
-rule = SubResource("Resource_wifvs")
+rule = SubResource("Resource_7gnuu")
 event = ExtResource("2_b6dcq")
 metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
+
+[sub_resource type="Resource" id="Resource_8p8g2"]
+resource_name = "RU: CurrentPlayerRule"
+script = ExtResource("4_b6dcq")
+metadata/_custom_type_script = "uid://cilcb0gb3xu0g"
 
 [sub_resource type="Resource" id="Resource_i0cw1"]
 resource_name = "RU: CurrentRoundRule"
@@ -30,15 +34,10 @@ script = ExtResource("6_i0cw1")
 current_round = 1
 metadata/_custom_type_script = "uid://tkld5vp51fi1"
 
-[sub_resource type="Resource" id="Resource_8p8g2"]
-resource_name = "RU: CurrentPlayerRule"
-script = ExtResource("4_b6dcq")
-metadata/_custom_type_script = "uid://cilcb0gb3xu0g"
-
 [sub_resource type="Resource" id="Resource_13j1t"]
 resource_name = "RU: MultiRule"
 script = ExtResource("4_5syok")
-rules = Array[ExtResource("2_b7gbn")]([SubResource("Resource_i0cw1"), SubResource("Resource_8p8g2")])
+rules = Array[ExtResource("2_b7gbn")]([SubResource("Resource_8p8g2"), SubResource("Resource_i0cw1")])
 metadata/_custom_type_script = "uid://csehxotj4ndvf"
 
 [sub_resource type="Resource" id="Resource_fayrp"]
