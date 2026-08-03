@@ -10,7 +10,7 @@ enum Frequency {
 }
 
 @export var skip:= false
-@export var is_major_event := false
+@export var can_interupt := false
 @export var await_queue := false
 @export var await_event := false
 @export var frequency : Frequency

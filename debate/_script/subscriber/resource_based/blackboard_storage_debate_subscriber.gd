@@ -12,6 +12,9 @@ func on_debate_start():
 	blackboard.add("current_round", manager.current_round, Blackboard.ExpirationToken.ON_DEBATE_START)
 
 func on_turn_start(contestant: Contestant):
+	blackboard.add("current_turn", manager.current_turn, Blackboard.ExpirationToken.ON_DEBATE_START)
+	blackboard.add("current_round", manager.current_round, Blackboard.ExpirationToken.ON_DEBATE_START)
+	
 	var which_contestant = "player" if contestant == manager.player else "computer"
 	blackboard.add("active_contestant", which_contestant, Blackboard.ExpirationToken.ON_DEBATE_START)
 	
@@ -19,8 +22,7 @@ func on_turn_start(contestant: Contestant):
 	blackboard.add("turn_token_history", [], Blackboard.ExpirationToken.ON_DEBATE_START)
 
 func on_turn_end(_contestant: Contestant):
-	blackboard.add("current_turn", manager.current_turn, Blackboard.ExpirationToken.ON_DEBATE_START)
-	blackboard.add("current_round", manager.current_round, Blackboard.ExpirationToken.ON_DEBATE_START)
+	pass
 
 func on_card_played(card: Card, _contestant : Contestant):
 	#Update Card History

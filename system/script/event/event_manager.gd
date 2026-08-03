@@ -32,7 +32,7 @@ func cancel_current_event():
 func start_event(event : Event):	
 	if !event: return
 	
-	if event.is_major_event:
+	if event.can_interupt:
 		await cancel_current_event()
 	elif current_task:
 		event_queue.push(event)

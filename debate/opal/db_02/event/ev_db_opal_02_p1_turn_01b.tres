@@ -1,9 +1,181 @@
 [gd_resource type="Resource" script_class="Event" format=3 uid="uid://cvft1wpun4y3v"]
 
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_nw5ki"]
+[ext_resource type="Script" uid="uid://cuvp6fqjy7jlu" path="res://system/script/event/task_action/rule_task_action.gd" id="2_exmh4"]
 [ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_tmbvf"]
+[ext_resource type="Script" uid="uid://h42nw8t6a6nq" path="res://system/script/rule/current_suit_rule.gd" id="3_vp6b8"]
+[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="4_uhkxn"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="5_vlcho"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="6_4qkc0"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="7_i7c0s"]
+[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="9_eqb17"]
+[ext_resource type="Script" uid="uid://ds8uqtnt2atb2" path="res://system/script/event/task_action/wait_task_action.gd" id="10_mdnmq"]
+
+[sub_resource type="Resource" id="Resource_05mw8"]
+script = ExtResource("2_exmh4")
+metadata/_custom_type_script = "uid://cuvp6fqjy7jlu"
+
+[sub_resource type="Resource" id="Resource_7gnuu"]
+resource_name = "RU: Self"
+script = ExtResource("3_vp6b8")
+suit = ExtResource("4_uhkxn")
+metadata/_custom_type_script = "uid://h42nw8t6a6nq"
+
+[sub_resource type="Resource" id="Resource_mdnmq"]
+script = ExtResource("2_tmbvf")
+outputs = Array[int]([8, 0])
+inputs = Dictionary[String, Variant]({
+"rule": SubResource("Resource_7gnuu")
+})
+action = SubResource("Resource_05mw8")
+
+[sub_resource type="Resource" id="Resource_ax6mp"]
+resource_name = "RU: Faith"
+script = ExtResource("3_vp6b8")
+suit = ExtResource("6_4qkc0")
+metadata/_custom_type_script = "uid://h42nw8t6a6nq"
+
+[sub_resource type="Resource" id="Resource_qxe7j"]
+script = ExtResource("2_tmbvf")
+outputs = Array[int]([2, 1])
+inputs = Dictionary[String, Variant]({
+"rule": SubResource("Resource_ax6mp")
+})
+action = SubResource("Resource_05mw8")
+
+[sub_resource type="Resource" id="Resource_u7nj6"]
+resource_name = "RU: Doubt"
+script = ExtResource("3_vp6b8")
+suit = ExtResource("7_i7c0s")
+metadata/_custom_type_script = "uid://h42nw8t6a6nq"
+
+[sub_resource type="Resource" id="Resource_o15uh"]
+script = ExtResource("2_tmbvf")
+outputs = Array[int]([5, 7])
+inputs = Dictionary[String, Variant]({
+"rule": SubResource("Resource_u7nj6")
+})
+action = SubResource("Resource_05mw8")
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("5_vlcho")
+
+[sub_resource type="Resource" id="Resource_m14y4"]
+script = ExtResource("2_tmbvf")
+outputs = Array[int]([10])
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": false,
+"await_input": false,
+"close_timer": 10.0,
+"text": "cynical"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_xdhh2"]
+script = ExtResource("2_tmbvf")
+outputs = Array[int]([13])
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": false,
+"await_input": false,
+"close_timer": 10.0,
+"text": "gullible"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_k3c1b"]
+script = ExtResource("2_tmbvf")
+outputs = Array[int]([12])
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": false,
+"await_input": false,
+"close_timer": 10.0,
+"text": "worthless"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_jk0an"]
+script = ExtResource("2_tmbvf")
+outputs = Array[int]([11])
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": false,
+"await_input": false,
+"close_timer": 10.0,
+"text": "selfish"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_c5enk"]
+resource_name = "RU: Others"
+script = ExtResource("3_vp6b8")
+suit = ExtResource("9_eqb17")
+metadata/_custom_type_script = "uid://h42nw8t6a6nq"
+
+[sub_resource type="Resource" id="Resource_llkfx"]
+script = ExtResource("2_tmbvf")
+outputs = Array[int]([4, 3])
+inputs = Dictionary[String, Variant]({
+"rule": SubResource("Resource_c5enk")
+})
+action = SubResource("Resource_05mw8")
+
+[sub_resource type="Resource" id="Resource_yxijs"]
+script = ExtResource("2_tmbvf")
+outputs = Array[int]([9])
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": false,
+"await_input": false,
+"close_timer": 10.0,
+"text": "unholy"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_1f63y"]
+script = ExtResource("10_mdnmq")
+
+[sub_resource type="Resource" id="Resource_ox4dp"]
+script = ExtResource("2_tmbvf")
+inputs = Dictionary[String, Variant]({
+"seconds": 2.0
+})
+action = SubResource("Resource_1f63y")
+
+[sub_resource type="Resource" id="Resource_m0ui1"]
+script = ExtResource("2_tmbvf")
+inputs = Dictionary[String, Variant]({
+"seconds": 2.0
+})
+action = SubResource("Resource_1f63y")
+
+[sub_resource type="Resource" id="Resource_lxtgi"]
+script = ExtResource("2_tmbvf")
+inputs = Dictionary[String, Variant]({
+"seconds": 2.0
+})
+action = SubResource("Resource_1f63y")
+
+[sub_resource type="Resource" id="Resource_0odl7"]
+script = ExtResource("2_tmbvf")
+inputs = Dictionary[String, Variant]({
+"seconds": 2.0
+})
+action = SubResource("Resource_1f63y")
+
+[sub_resource type="Resource" id="Resource_4ojer"]
+script = ExtResource("2_tmbvf")
+inputs = Dictionary[String, Variant]({
+"seconds": 2.0
+})
+action = SubResource("Resource_1f63y")
 
 [resource]
 script = ExtResource("1_nw5ki")
-frequency = 1
+can_interupt = true
+frequency = 2
+start_task = SubResource("Resource_mdnmq")
+tasks = Array[ExtResource("2_tmbvf")]([SubResource("Resource_qxe7j"), SubResource("Resource_o15uh"), SubResource("Resource_m14y4"), SubResource("Resource_xdhh2"), SubResource("Resource_k3c1b"), SubResource("Resource_jk0an"), SubResource("Resource_mdnmq"), SubResource("Resource_llkfx"), SubResource("Resource_yxijs"), SubResource("Resource_ox4dp"), SubResource("Resource_m0ui1"), SubResource("Resource_lxtgi"), SubResource("Resource_0odl7"), SubResource("Resource_4ojer")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"
