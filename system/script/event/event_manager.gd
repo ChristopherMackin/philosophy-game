@@ -3,6 +3,8 @@ extends Resource
 
 class_name EventManager
 
+signal queue_empty
+
 @export var blackboard: Blackboard
 
 var subscribers : Array[EventSubscriber]
@@ -32,6 +34,8 @@ func cancel_current_event():
 func start_event(event : Event):	
 	if !event: return
 	
+	if event.await_queue:
+		await queue_empty
 	if event.can_interupt:
 		await cancel_current_event()
 	elif current_task:
@@ -58,6 +62,8 @@ func start_event(event : Event):
 	
 	if event_queue.size() > 0:
 		start_event(event_queue.pop())
+	else:
+		queue_empty.emit()
 
 func _start_event(event: Event):
 	for sub : EventSubscriber in subscribers: await sub._start_event(event)

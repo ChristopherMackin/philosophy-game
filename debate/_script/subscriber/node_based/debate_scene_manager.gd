@@ -58,9 +58,8 @@ func on_turn_start(contestant: Contestant):
 
 func on_turn_end(contestant: Contestant):
 	await update_everything()
-	await query_event(Const.Concept.ON_TURN_END)
-	
 	if contestant.character_is(player): input_manager.active_handler = null
+	await query_event(Const.Concept.ON_TURN_END)
 
 func on_card_played(card: Card, contestant : Contestant):
 	await update_everything()
