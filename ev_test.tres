@@ -15,7 +15,7 @@ resource_name = "RU: ConceptRule"
 script = ExtResource("3_56s6w")
 metadata/_custom_type_script = "uid://fnphjbccs4gy"
 
-[sub_resource type="Resource" id="Resource_5a3ne"]
+[sub_resource type="Resource" id="Resource_u3d1j"]
 script = ExtResource("2_sca5n")
 outputs = Array[int]([0, 1])
 inputs = Dictionary[String, Variant]({
@@ -26,14 +26,14 @@ action = SubResource("Resource_05mw8")
 [sub_resource type="Resource" id="Resource_kfrek"]
 script = ExtResource("5_nlgfn")
 
-[sub_resource type="Resource" id="Resource_nlgfn"]
+[sub_resource type="Resource" id="Resource_epk72"]
 script = ExtResource("2_sca5n")
 inputs = Dictionary[String, Variant]({
 "text": "test"
 })
 action = SubResource("Resource_kfrek")
 
-[sub_resource type="Resource" id="Resource_xctip"]
+[sub_resource type="Resource" id="Resource_86kw5"]
 script = ExtResource("2_sca5n")
 inputs = Dictionary[String, Variant]({
 "text": "test"
@@ -43,5 +43,5 @@ action = SubResource("Resource_kfrek")
 [resource]
 script = ExtResource("1_da8y3")
 frequency = 2
-start_task = SubResource("Resource_5a3ne")
-tasks = Array[ExtResource("2_sca5n")]([SubResource("Resource_nlgfn"), SubResource("Resource_xctip"), SubResource("Resource_5a3ne")])
+start_task = SubResource("Resource_u3d1j")
+tasks = Array[ExtResource("2_sca5n")]([SubResource("Resource_epk72"), SubResource("Resource_86kw5"), SubResource("Resource_u3d1j")])

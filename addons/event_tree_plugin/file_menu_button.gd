@@ -4,7 +4,6 @@ extends MenuButton
 class_name FileMenuButton
 
 signal new_clicked
-signal open_clicked
 signal save_clicked
 signal save_as_clicked
 
@@ -18,8 +17,6 @@ func id_selected(id : int):
 	match id:
 		0:
 			new_clicked.emit()
-		1:
-			open_clicked.emit()
 		3:
 			save_clicked.emit()
 		4:

@@ -7,50 +7,14 @@
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("2_p7adb")
 
-[sub_resource type="Resource" id="Resource_p7adb"]
+[sub_resource type="Resource" id="Resource_6twhh"]
 script = ExtResource("2_6twhh")
-outputs = Array[int]([1])
 inputs = Dictionary[String, Variant]({
-"actor": "opal",
+"actor": "",
 "await_close": true,
 "await_input": false,
-"close_timer": 2.0,
-"text": "[pulse]Are you okay?[/pulse]"
-})
-action = SubResource("Resource_x7ur8")
-
-[sub_resource type="Resource" id="Resource_bm0rj"]
-script = ExtResource("2_6twhh")
-outputs = Array[int]([2])
-inputs = Dictionary[String, Variant]({
-"actor": "joy",
-"await_close": true,
-"await_input": true,
 "close_timer": 0.0,
-"text": "I don't know what I'm doing..."
-})
-action = SubResource("Resource_x7ur8")
-
-[sub_resource type="Resource" id="Resource_c8yrh"]
-script = ExtResource("2_6twhh")
-outputs = Array[int]([3])
-inputs = Dictionary[String, Variant]({
-"actor": "joy",
-"await_close": true,
-"await_input": true,
-"close_timer": 0.0,
-"text": "They were right. I can't make it out here on my own."
-})
-action = SubResource("Resource_x7ur8")
-
-[sub_resource type="Resource" id="Resource_pmv36"]
-script = ExtResource("2_6twhh")
-inputs = Dictionary[String, Variant]({
-"actor": "joy",
-"await_close": false,
-"await_input": false,
-"close_timer": 10.0,
-"text": "I'm just so..."
+"text": "Testing"
 })
 action = SubResource("Resource_x7ur8")
 
@@ -58,6 +22,6 @@ action = SubResource("Resource_x7ur8")
 script = ExtResource("1_eoal3")
 await_event = true
 frequency = 1
-start_task = SubResource("Resource_p7adb")
-tasks = Array[ExtResource("2_6twhh")]([SubResource("Resource_p7adb"), SubResource("Resource_bm0rj"), SubResource("Resource_c8yrh"), SubResource("Resource_pmv36")])
+start_task = SubResource("Resource_6twhh")
+tasks = Array[ExtResource("2_6twhh")]([SubResource("Resource_6twhh")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

@@ -3,7 +3,6 @@ extends GraphEdit
 
 class_name EventGraph
 
-@export var start_node_packed_scene : PackedScene
 @onready var task_node_type_parent = $"../../TaskNodeTypeParent"
 @onready var start_node = $StartNode
 
@@ -86,7 +85,7 @@ func update_event_from_graph(event : Event) -> Event:
 func load_event_tree(event: Event):
 	clear_graph()
 	
-	if event.tasks.size() <= 0:
+	if  !event || event.tasks.size() <= 0:
 		return
 	
 	var first_node = null;
