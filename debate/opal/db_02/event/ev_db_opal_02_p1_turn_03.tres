@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://b3jhi1ttp2e7x"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_ya4xl"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_eh8pi"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_xr13q"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_xr13q")
+
+[sub_resource type="Resource" id="Resource_eh8pi"]
+script = ExtResource("2_eh8pi")
+outputs = Array[int]([1])
+inputs = Dictionary[String, Variant]({
+"actor": "opal",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"text": "You need help"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_xr13q"]
+script = ExtResource("2_eh8pi")
+outputs = Array[int]([2])
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"text": "I’m not even sure I can be helped"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_1ee72"]
+script = ExtResource("2_eh8pi")
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": false,
+"await_input": false,
+"close_timer": 2.0,
+"text": "I just make everything worse for everyone"
+})
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_ya4xl")
+can_interupt = true
+await_event = true
+frequency = 1
+start_task = SubResource("Resource_eh8pi")
+tasks = Array[ExtResource("2_eh8pi")]([SubResource("Resource_eh8pi"), SubResource("Resource_xr13q"), SubResource("Resource_1ee72")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

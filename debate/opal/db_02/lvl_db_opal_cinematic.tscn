@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_k3uvd"]
 [ext_resource type="Script" uid="uid://db6exlegr7inp" path="res://_debug/script/debug_event_manager.gd" id="1_sl1r7"]
-[ext_resource type="Resource" uid="uid://chqe2n2s0ukox" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_01a.tres" id="2_5xgcw"]
+[ext_resource type="Resource" uid="uid://sa1c76vhskne" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_02.tres" id="2_5xgcw"]
 [ext_resource type="Resource" uid="uid://do4ijr1aixaqw" path="res://debate/opal/db_02/bb_db_opal_02.tres" id="2_kjk8x"]
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="2_p0rf5"]
 [ext_resource type="Resource" uid="uid://tlcoyw2fklgw" path="res://debate/opal/db_02/ef_db_opal_02.tres" id="3_m1df6"]
@@ -98,9 +98,35 @@ key = "ev_db_opal_02_p1_turn_01a.tres"
 value = true
 expiration_token = 2
 
+[sub_resource type="Resource" id="Resource_kqhrk"]
+resource_name = "ev_db_opal_02_p1_turn_02a.tres"
+script = ExtResource("3_w8igq")
+key = "ev_db_opal_02_p1_turn_02a.tres"
+value = true
+expiration_token = 2
+
+[sub_resource type="Resource" id="Resource_hrfbg"]
+resource_name = "ev_db_opal_02_p1_turn_02.tres"
+script = ExtResource("3_w8igq")
+key = "ev_db_opal_02_p1_turn_02.tres"
+value = true
+expiration_token = 2
+
+[sub_resource type="Resource" id="Resource_knqga"]
+resource_name = "ev_db_opal_02_p1_turn_03.tres"
+script = ExtResource("3_w8igq")
+key = "ev_db_opal_02_p1_turn_03.tres"
+value = true
+
+[sub_resource type="Resource" id="Resource_5xgcw"]
+resource_name = "ev_db_opal_02_p1_turn_04.tres"
+script = ExtResource("3_w8igq")
+key = "ev_db_opal_02_p1_turn_04.tres"
+value = true
+
 [sub_resource type="Resource" id="Resource_pwg14"]
 script = ExtResource("4_1jelp")
-_entries = Array[ExtResource("3_w8igq")]([SubResource("Resource_463a1")])
+_entries = Array[ExtResource("3_w8igq")]([SubResource("Resource_463a1"), SubResource("Resource_kqhrk"), SubResource("Resource_hrfbg"), SubResource("Resource_knqga"), SubResource("Resource_5xgcw")])
 metadata/_custom_type_script = "uid://c1eaebx4srk2s"
 
 [sub_resource type="Resource" id="Resource_mqc32"]
@@ -430,7 +456,7 @@ event = ExtResource("2_5xgcw")
 event_factory = ExtResource("3_m1df6")
 concept = 2
 card_history = Array[ExtResource("8_p4nej")]([ExtResource("9_hkuxl")])
-current_round = 1
+current_round = 2
 blackboard = SubResource("Resource_pwg14")
 debate_manager = ExtResource("12_fev28")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
@@ -1714,12 +1740,12 @@ theme_override_colors/default_color = Color(0.3647059, 0.3647059, 0.3647059, 1)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "I'm just..."
+text = "They’ll take me back"
 scroll_active = false
 scroll_following_visible_characters = true
 horizontal_alignment = 1
 vertical_alignment = 1
-visible_characters = 11
+visible_characters = 20
 visible_characters_behavior = 1
 script = ExtResource("74_knqga")
 characters_per_second = 20
@@ -1750,10 +1776,10 @@ theme_override_colors/default_color = Color(0.3647059, 0.3647059, 0.3647059, 1)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
 theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
-text = "Are you okay?"
+text = "..."
 horizontal_alignment = 1
 vertical_alignment = 1
-visible_characters = 13
+visible_characters = 3
 visible_characters_behavior = 1
 script = ExtResource("74_knqga")
 characters_per_second = 6

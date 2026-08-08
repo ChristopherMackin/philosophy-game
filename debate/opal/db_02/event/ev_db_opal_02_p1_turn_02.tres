@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://sa1c76vhskne"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_0yt52"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_paos6"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="3_5j3wd"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_paos6")
+
+[sub_resource type="Resource" id="Resource_0yt52"]
+script = ExtResource("3_5j3wd")
+outputs = Array[int]([2])
+inputs = Dictionary[String, Variant]({
+"actor": "opal",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"text": "You’ve been hurt"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_paos6"]
+script = ExtResource("3_5j3wd")
+outputs = Array[int]([3])
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"text": "I barely have enough money to eat,"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_5j3wd"]
+script = ExtResource("3_5j3wd")
+outputs = Array[int]([1])
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"text": "They don’t accept me out here,"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_nakq8"]
+script = ExtResource("3_5j3wd")
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": false,
+"await_input": false,
+"close_timer": 2.0,
+"text": "At least I had food and friends back then"
+})
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_0yt52")
+can_interupt = true
+await_event = true
+frequency = 1
+start_task = SubResource("Resource_0yt52")
+tasks = Array[ExtResource("3_5j3wd")]([SubResource("Resource_0yt52"), SubResource("Resource_paos6"), SubResource("Resource_5j3wd"), SubResource("Resource_nakq8")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

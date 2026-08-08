@@ -3,45 +3,27 @@
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_da8y3"]
 [ext_resource type="Script" uid="uid://cuvp6fqjy7jlu" path="res://system/script/event/task_action/rule_task_action.gd" id="2_56s6w"]
 [ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_sca5n"]
-[ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/rule/concept_rule.gd" id="3_56s6w"]
-[ext_resource type="Script" uid="uid://cnwb80jbsgd2s" path="res://system/script/event/task_action/console_task_action.gd" id="5_nlgfn"]
+[ext_resource type="Script" uid="uid://cgsr0p1sth0wy" path="res://system/script/rule/expression_rule.gd" id="3_kbbx5"]
 
 [sub_resource type="Resource" id="Resource_05mw8"]
 script = ExtResource("2_56s6w")
 metadata/_custom_type_script = "uid://cuvp6fqjy7jlu"
 
-[sub_resource type="Resource" id="Resource_pnjvg"]
-resource_name = "RU: ConceptRule"
-script = ExtResource("3_56s6w")
-metadata/_custom_type_script = "uid://fnphjbccs4gy"
+[sub_resource type="Resource" id="Resource_86kw5"]
+resource_name = "RU: Exp: This "
+script = ExtResource("3_kbbx5")
+expression = "This is a test of the expression editor"
+metadata/_custom_type_script = "uid://cgsr0p1sth0wy"
 
-[sub_resource type="Resource" id="Resource_u3d1j"]
+[sub_resource type="Resource" id="Resource_kbbx5"]
 script = ExtResource("2_sca5n")
-outputs = Array[int]([0, 1])
 inputs = Dictionary[String, Variant]({
-"rule": SubResource("Resource_pnjvg")
+"rule": SubResource("Resource_86kw5")
 })
 action = SubResource("Resource_05mw8")
-
-[sub_resource type="Resource" id="Resource_kfrek"]
-script = ExtResource("5_nlgfn")
-
-[sub_resource type="Resource" id="Resource_epk72"]
-script = ExtResource("2_sca5n")
-inputs = Dictionary[String, Variant]({
-"text": "test"
-})
-action = SubResource("Resource_kfrek")
-
-[sub_resource type="Resource" id="Resource_86kw5"]
-script = ExtResource("2_sca5n")
-inputs = Dictionary[String, Variant]({
-"text": "test"
-})
-action = SubResource("Resource_kfrek")
 
 [resource]
 script = ExtResource("1_da8y3")
 frequency = 2
-start_task = SubResource("Resource_u3d1j")
-tasks = Array[ExtResource("2_sca5n")]([SubResource("Resource_epk72"), SubResource("Resource_86kw5"), SubResource("Resource_u3d1j")])
+start_task = SubResource("Resource_kbbx5")
+tasks = Array[ExtResource("2_sca5n")]([SubResource("Resource_kbbx5")])

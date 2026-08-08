@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://8qc3j4r3w1d4" path="res://addons/event_tree_plugin/task_node.gd" id="1_6vbqa"]
 [ext_resource type="Script" uid="uid://cuvp6fqjy7jlu" path="res://system/script/event/task_action/rule_task_action.gd" id="2_pv206"]
 [ext_resource type="Script" uid="uid://dhepl4pbwpvqx" path="res://addons/event_tree_plugin/task_node/task_node_field.gd" id="3_6vbqa"]
+[ext_resource type="Script" uid="uid://dyw1il0rq01qe" path="res://addons/event_tree_plugin/task_node/resource_editor.gd" id="4_8blih"]
 
 [sub_resource type="Resource" id="Resource_05mw8"]
 script = ExtResource("2_pv206")
@@ -31,6 +32,15 @@ slot/1/right_type = 0
 slot/1/right_color = Color(1, 1, 1, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
 script = ExtResource("1_6vbqa")
 task_action = SubResource("Resource_05mw8")
 
@@ -46,3 +56,8 @@ layout_mode = 2
 text = "If False"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="ResourceEditor" type="VBoxContainer" parent="." unique_id=1668275726 node_paths=PackedStringArray("resource_picker")]
+layout_mode = 2
+script = ExtResource("4_8blih")
+resource_picker = NodePath("../EditorResourcePicker")

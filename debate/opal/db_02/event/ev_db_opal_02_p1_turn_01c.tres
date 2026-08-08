@@ -12,9 +12,9 @@ script = ExtResource("2_2m54f")
 inputs = Dictionary[String, Variant]({
 "actor": "joy",
 "await_close": true,
-"await_input": true,
+"await_input": false,
 "close_timer": 2.0,
-"text": "It's obvious I have no place here."
+"text": "I don’t know why I though I could make it on my own"
 })
 action = SubResource("Resource_x7ur8")
 

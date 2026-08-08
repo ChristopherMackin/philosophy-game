@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://h42nw8t6a6nq"
 
 [sub_resource type="Resource" id="Resource_4qkc0"]
 script = ExtResource("2_tmbvf")
-outputs = Array[int]([8, 0])
+outputs = Array[int]([7, 0])
 inputs = Dictionary[String, Variant]({
 "rule": SubResource("Resource_7gnuu")
 })
@@ -51,7 +51,7 @@ metadata/_custom_type_script = "uid://h42nw8t6a6nq"
 
 [sub_resource type="Resource" id="Resource_eqb17"]
 script = ExtResource("2_tmbvf")
-outputs = Array[int]([5, 7])
+outputs = Array[int]([5, 6])
 inputs = Dictionary[String, Variant]({
 "rule": SubResource("Resource_u7nj6")
 })
@@ -62,7 +62,7 @@ script = ExtResource("5_vlcho")
 
 [sub_resource type="Resource" id="Resource_rp08m"]
 script = ExtResource("2_tmbvf")
-outputs = Array[int]([10])
+outputs = Array[int]([9])
 inputs = Dictionary[String, Variant]({
 "actor": "joy",
 "await_close": false,
@@ -74,7 +74,7 @@ action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_qqxqk"]
 script = ExtResource("2_tmbvf")
-outputs = Array[int]([13])
+outputs = Array[int]([12])
 inputs = Dictionary[String, Variant]({
 "actor": "joy",
 "await_close": false,
@@ -86,7 +86,7 @@ action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_08ape"]
 script = ExtResource("2_tmbvf")
-outputs = Array[int]([12])
+outputs = Array[int]([11])
 inputs = Dictionary[String, Variant]({
 "actor": "joy",
 "await_close": false,
@@ -98,7 +98,7 @@ action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_dvjv3"]
 script = ExtResource("2_tmbvf")
-outputs = Array[int]([11])
+outputs = Array[int]([10])
 inputs = Dictionary[String, Variant]({
 "actor": "joy",
 "await_close": false,
@@ -124,7 +124,7 @@ action = SubResource("Resource_05mw8")
 
 [sub_resource type="Resource" id="Resource_x54jh"]
 script = ExtResource("2_tmbvf")
-outputs = Array[int]([9])
+outputs = Array[int]([8])
 inputs = Dictionary[String, Variant]({
 "actor": "joy",
 "await_close": false,
@@ -177,5 +177,5 @@ script = ExtResource("1_nw5ki")
 can_interupt = true
 frequency = 2
 start_task = SubResource("Resource_4qkc0")
-tasks = Array[ExtResource("2_tmbvf")]([SubResource("Resource_i7c0s"), SubResource("Resource_eqb17"), SubResource("Resource_rp08m"), SubResource("Resource_qqxqk"), SubResource("Resource_08ape"), SubResource("Resource_dvjv3"), SubResource("Resource_4qkc0"), SubResource("Resource_fde4s"), SubResource("Resource_x54jh"), SubResource("Resource_r8fdc"), SubResource("Resource_6tmew"), SubResource("Resource_jqh31"), SubResource("Resource_vcwjy"), SubResource("Resource_6shfp")])
+tasks = Array[ExtResource("2_tmbvf")]([SubResource("Resource_i7c0s"), SubResource("Resource_eqb17"), SubResource("Resource_rp08m"), SubResource("Resource_qqxqk"), SubResource("Resource_08ape"), SubResource("Resource_dvjv3"), SubResource("Resource_fde4s"), SubResource("Resource_x54jh"), SubResource("Resource_r8fdc"), SubResource("Resource_6tmew"), SubResource("Resource_jqh31"), SubResource("Resource_vcwjy"), SubResource("Resource_6shfp"), SubResource("Resource_4qkc0")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"
