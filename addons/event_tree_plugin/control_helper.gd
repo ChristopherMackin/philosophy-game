@@ -32,6 +32,7 @@ static func set_value(control : Control, value = null):
 		control.select(control.get_item_index(value))
 	elif control is EditorResourcePicker:
 		control.edited_resource = value
+		control.resource_changed.emit(value)
 
 static func instantiate_control_from_variant_type(prop, value_changed_callback: Callable = func(this_control: Control): pass) -> Control:
 	var type = prop["type"]

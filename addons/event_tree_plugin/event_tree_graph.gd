@@ -60,7 +60,7 @@ func update_event_from_graph(event : Event) -> Event:
 		
 		#Sort by port order
 		connections.sort_custom(func (a, b): 
-			return a.to_port > b.to_port
+			return a.from_port < b.from_port
 		)
 		
 		#Make an array of the events
@@ -71,6 +71,9 @@ func update_event_from_graph(event : Event) -> Event:
 		))
 		
 		var task = node.get_task(indexes)
+		
+		if connections.size() > 1:
+			print(indexes)
 		
 		tasks.append(task)
 		

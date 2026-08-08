@@ -10,8 +10,12 @@ extends VBoxContainer
 		
 		resource_picker = val
 		
-		if resource_picker and !resource_picker.resource_changed.is_connected(update_resource_editor):
-			resource_picker.resource_changed.connect(update_resource_editor)
+		if resource_picker:
+			if !resource_picker.resource_changed.is_connected(update_resource_editor):
+				resource_picker.resource_changed.connect(update_resource_editor)
+			
+			update_resource_editor.call_deferred(resource_picker.edited_resource)
+		
 
 func update_resource_editor(resource: Resource):
 	for child in get_children():
@@ -28,18 +32,20 @@ func update_resource_editor(resource: Resource):
 	for prop in resource.get_property_list():
 		var flags = PROPERTY_USAGE_EDITOR | PROPERTY_USAGE_SCRIPT_VARIABLE
 		if prop["usage"] & flags == flags and not prop["name"].begins_with("resource_"):
-			var control: Control 
+			var control: Control
+			var res_name = prop["name"]
 			
 			control = ControlHelper.instantiate_control_from_variant_type(
 				prop,
 				func(this_control: Control):
-					print(prop["name"])
 					if !resource: return
-					print(this_control == null)
-					resource.set(prop["name"], ControlHelper.get_value(this_control))
+					resource.set(res_name, ControlHelper.get_value(this_control))
 					ResourceSaver.save(resource)
 			)
-			if control: add_child(control)
+			
+			if control: 
+				add_child(control)
+				ControlHelper.set_value(control, resource.get(res_name))
 	
 	(func(): update_node_height()).call_deferred()
 
