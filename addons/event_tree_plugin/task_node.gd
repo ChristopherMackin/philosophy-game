@@ -24,4 +24,4 @@ func set_node_field_values(task : Task):
 	for c in Util.get_all_children(self):
 		if !c is TaskNodeField:
 			continue
-		ControlHelper.set_value(c, task.get_input(c.field_name))
+		ControlHelper.set_value.call_deferred(c, task.get_input(c.field_name))

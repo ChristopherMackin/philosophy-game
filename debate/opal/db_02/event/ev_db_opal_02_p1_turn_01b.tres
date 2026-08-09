@@ -50,6 +50,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": false,
 "await_input": false,
 "close_timer": 10.0,
+"talk": true,
 "text": "cynical"
 })
 action = SubResource("Resource_x7ur8")
@@ -62,6 +63,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": false,
 "await_input": false,
 "close_timer": 10.0,
+"talk": true,
 "text": "selfish"
 })
 action = SubResource("Resource_x7ur8")
@@ -105,6 +107,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": false,
 "await_input": false,
 "close_timer": 10.0,
+"talk": true,
 "text": "unholy"
 })
 action = SubResource("Resource_x7ur8")
@@ -138,6 +141,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": false,
 "await_input": false,
 "close_timer": 10.0,
+"talk": true,
 "text": "worthless"
 })
 action = SubResource("Resource_x7ur8")
@@ -150,6 +154,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": false,
 "await_input": false,
 "close_timer": 10.0,
+"talk": true,
 "text": "gullible"
 })
 action = SubResource("Resource_x7ur8")

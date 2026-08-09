@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://system/script/card/card_deck_config.gd" id="1_cx6ds"]
 [ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/basic_faith.tres" id="2_ckdb8"]
 [ext_resource type="Script" uid="uid://dlqqr4qxqi2ht" path="res://system/script/deck/infinite_deck.gd" id="2_svv0r"]
+[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="3_pqi5q"]
+[ext_resource type="Resource" uid="uid://dgsd4p0ynlqhk" path="res://system/card/self/basic_self.tres" id="4_tuo5f"]
+[ext_resource type="Resource" uid="uid://hn3fmi2k8xsl" path="res://system/card/others/basic_others.tres" id="5_cyock"]
 
 [sub_resource type="Resource" id="Resource_cx6ds"]
 resource_name = "1 Basic Faith"
@@ -10,7 +13,25 @@ script = ExtResource("1_cx6ds")
 base = ExtResource("2_ckdb8")
 count = 1
 
+[sub_resource type="Resource" id="Resource_pks5q"]
+resource_name = "1 Basic Doubt"
+script = ExtResource("1_cx6ds")
+base = ExtResource("3_pqi5q")
+count = 1
+
+[sub_resource type="Resource" id="Resource_48qao"]
+resource_name = "1 Basic Self"
+script = ExtResource("1_cx6ds")
+base = ExtResource("4_tuo5f")
+count = 1
+
+[sub_resource type="Resource" id="Resource_lcid6"]
+resource_name = "1 Basic Others"
+script = ExtResource("1_cx6ds")
+base = ExtResource("5_cyock")
+count = 1
+
 [resource]
 script = ExtResource("2_svv0r")
-composition_card_deck_config_array = Array[ExtResource("1_cx6ds")]([SubResource("Resource_cx6ds")])
+composition_card_deck_config_array = Array[ExtResource("1_cx6ds")]([SubResource("Resource_cx6ds"), SubResource("Resource_pks5q"), SubResource("Resource_48qao"), SubResource("Resource_lcid6")])
 metadata/_custom_type_script = "uid://dlqqr4qxqi2ht"

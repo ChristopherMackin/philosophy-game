@@ -45,7 +45,7 @@ func update_resource_editor(resource: Resource):
 			
 			if control: 
 				add_child(control)
-				ControlHelper.set_value(control, resource.get(res_name))
+				ControlHelper.set_value.call_deferred(control, resource.get(res_name))
 	
 	(func(): update_node_height()).call_deferred()
 

@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://dbvysemw11ei8" path="res://system/script/event_factory/single_event_factory.gd" id="6_13j1t"]
 [ext_resource type="Script" uid="uid://tkld5vp51fi1" path="res://system/script/rule/current_round_rule.gd" id="6_i0cw1"]
 [ext_resource type="Resource" uid="uid://sa1c76vhskne" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_02.tres" id="13_x3isd"]
+[ext_resource type="Resource" uid="uid://b3jhi1ttp2e7x" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_03.tres" id="14_07uhb"]
 
 [sub_resource type="Resource" id="Resource_7gnuu"]
 resource_name = "RU: ON_TURN_START"
@@ -96,7 +97,36 @@ rule = SubResource("Resource_jls5d")
 event = ExtResource("13_x3isd")
 metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
 
+[sub_resource type="Resource" id="Resource_k6vfy"]
+resource_name = "RU: CurrentPlayerRule"
+script = ExtResource("4_b6dcq")
+metadata/_custom_type_script = "uid://cilcb0gb3xu0g"
+
+[sub_resource type="Resource" id="Resource_wle2f"]
+resource_name = "RU: CurrentRoundRule"
+script = ExtResource("6_i0cw1")
+current_round = 3
+metadata/_custom_type_script = "uid://tkld5vp51fi1"
+
+[sub_resource type="Resource" id="Resource_dcwhc"]
+resource_name = "RU: ON_TURN_START"
+script = ExtResource("3_i0cw1")
+concept = 2
+metadata/_custom_type_script = "uid://fnphjbccs4gy"
+
+[sub_resource type="Resource" id="Resource_8yblm"]
+resource_name = "RU: MultiRule"
+script = ExtResource("4_5syok")
+rules = Array[ExtResource("2_b7gbn")]([SubResource("Resource_k6vfy"), SubResource("Resource_wle2f"), SubResource("Resource_dcwhc")])
+metadata/_custom_type_script = "uid://csehxotj4ndvf"
+
+[sub_resource type="Resource" id="Resource_v7724"]
+script = ExtResource("6_5syok")
+rule = SubResource("Resource_8yblm")
+event = ExtResource("14_07uhb")
+metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
+
 [resource]
 script = ExtResource("2_65fn2")
-buckets = Array[ExtResource("1_65fn2")]([SubResource("Resource_fayrp"), SubResource("Resource_mahk2")])
+buckets = Array[ExtResource("1_65fn2")]([SubResource("Resource_fayrp"), SubResource("Resource_mahk2"), SubResource("Resource_v7724")])
 metadata/_custom_type_script = "uid://bkpc76nqmkxc2"

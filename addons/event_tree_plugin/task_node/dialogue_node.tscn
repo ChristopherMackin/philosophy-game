@@ -58,6 +58,15 @@ slot/4/right_type = 0
 slot/4/right_color = Color(1, 1, 1, 1)
 slot/4/right_icon = null
 slot/4/draw_stylebox = true
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color(1, 1, 1, 1)
+slot/5/left_icon = null
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color(1, 1, 1, 1)
+slot/5/right_icon = null
+slot/5/draw_stylebox = true
 script = ExtResource("1_g3ufa")
 task_action = SubResource("Resource_x7ur8")
 
@@ -92,6 +101,14 @@ layout_mode = 2
 text = "Await Close"
 script = ExtResource("3_aeafh")
 field_name = "await_close"
+
+[node name="CheckButton3" type="CheckButton" parent="." unique_id=748961471]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+button_pressed = true
+text = "Talk"
+script = ExtResource("3_aeafh")
+field_name = "talk"
 
 [node name="SpinBox" type="SpinBox" parent="." unique_id=717336612]
 custom_minimum_size = Vector2(0, 60)

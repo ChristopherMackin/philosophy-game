@@ -14,6 +14,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": true,
 "await_input": true,
 "close_timer": 2.0,
+"talk": false,
 "text": "This is a test of the text"
 })
 action = SubResource("Resource_x7ur8")

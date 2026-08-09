@@ -22,7 +22,9 @@ class_name CharacterAnimationTree
 		set("parameters/blink_trigger/add_amount", blink_int)
 
 func set_trigger(_trigger: String):
+	print("TEST")
 	if triggers.has(_trigger):
+		print("SET")
 		triggers[_trigger] = true
 
 func get_trigger(_trigger: String):

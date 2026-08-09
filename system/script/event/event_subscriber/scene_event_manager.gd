@@ -65,7 +65,8 @@ func display_dialogue(dp: DialoguePayload):
 		if current_actor.dialogue_area_override:
 			dialogue_area = current_actor.dialogue_area_override
 		current_actor.focus_actor(true)
-		current_actor.is_talking = true
+		if current_actor is CharacterActor:
+			current_actor.is_talking = dp.talk
 		dialogue_area.skip_to_the_end()
 		dialogue_area.set_text(dp.line, current_actor.display_name)
 	
@@ -85,7 +86,7 @@ func display_dialogue(dp: DialoguePayload):
 	
 	dialogue_area.skip_to_the_end()
 	
-	if current_actor:
+	if current_actor && current_actor is CharacterActor:
 		current_actor.is_talking = false
 	
 	var continue_trigger: Callable

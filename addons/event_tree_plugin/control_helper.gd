@@ -17,14 +17,16 @@ static func get_value(control : Control):
 		return control.edited_resource
 
 static func set_value(control : Control, value = null):
-	if !value:
+	if !value && value != false:
 		return
+		
+	print(control is CheckButton)
 	
 	if control is TextEdit:
 		control.text = value 
 	elif control is SpinBox:
 		control.value = value
-	elif control is CheckButton: 
+	elif control is CheckButton:
 		control.button_pressed = value
 	elif control is CustomResourceLoader:
 		control.path = value
