@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_k3uvd"]
 [ext_resource type="Script" uid="uid://db6exlegr7inp" path="res://_debug/script/debug_event_manager.gd" id="1_sl1r7"]
+[ext_resource type="Resource" uid="uid://cmim4022rkeoq" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_04.tres" id="2_f3ys7"]
 [ext_resource type="Resource" uid="uid://do4ijr1aixaqw" path="res://debate/opal/db_02/bb_db_opal_02.tres" id="2_kjk8x"]
-[ext_resource type="Resource" uid="uid://chqe2n2s0ukox" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_01a.tres" id="2_knqga"]
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="2_p0rf5"]
 [ext_resource type="Resource" uid="uid://tlcoyw2fklgw" path="res://debate/opal/db_02/ef_db_opal_02.tres" id="3_m1df6"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="3_qnf5u"]
@@ -94,6 +94,7 @@
 [ext_resource type="Texture2D" uid="uid://dtr526tldc7dc" path="res://_asset/_general/texture/t_spiked_bubble_01.png" id="77_knqga"]
 [ext_resource type="Texture2D" uid="uid://cp4wiih01ktxp" path="res://_asset/_general/texture/t_spiked_bubble_02.png" id="78_f3ys7"]
 [ext_resource type="Texture2D" uid="uid://ketnefqmtrie" path="res://_asset/_general/texture/t_spiked_bubble_03.png" id="79_7mnyw"]
+[ext_resource type="Script" uid="uid://ccmy7q4sd7qkx" path="res://debate/opal/db_02/child_control_shake.gd" id="80_f3ys7"]
 
 [sub_resource type="Resource" id="Resource_463a1"]
 resource_name = "ev_db_opal_02_p1_turn_01a.tres"
@@ -236,16 +237,16 @@ _data = {
 &"p4_setup": SubResource("Animation_hrfbg")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_knqga"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_f3ys7"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_f3ys7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7mnyw"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dbiua"]
 viewport_path = NodePath("===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7mnyw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nolis"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8igq"]
@@ -253,7 +254,7 @@ albedo_texture = ExtResource("30_dbiua")
 ao_enabled = true
 ao_texture = ExtResource("31_p0yir")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nolis"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_68gxc"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jelp"]
@@ -261,7 +262,7 @@ albedo_texture = ExtResource("32_84k4r")
 ao_enabled = true
 ao_texture = ExtResource("33_3m87t")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_68gxc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2moqn"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ghiyr"]
@@ -442,7 +443,7 @@ ssao_intensity = 1.32
 ssao_power = 3.446096
 ssao_sharpness = 0.5
 
-[sub_resource type="Environment" id="Environment_knqga"]
+[sub_resource type="Environment" id="Environment_f3ys7"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -534,7 +535,7 @@ script = ExtResource("1_sl1r7")
 btn_continue = Callable()
 btn_skip = Callable()
 btn_cancel = Callable()
-event = ExtResource("2_knqga")
+event = ExtResource("2_f3ys7")
 event_factory = ExtResource("3_m1df6")
 concept = 2
 card_history = Array[ExtResource("8_p4nej")]([ExtResource("9_hkuxl")])
@@ -542,7 +543,7 @@ current_round = 3
 blackboard = SubResource("Resource_pwg14")
 debate_manager = ExtResource("12_fev28")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
-actors = [NodePath("../../===ACTOR========/JoyActor"), NodePath("../../===ACTOR========/OpalActor"), NodePath("../../===ACTOR========/Voice01"), NodePath("../../===ACTOR========/Voice02"), NodePath("../../===ACTOR========/Voice03")]
+actors = [NodePath("../../===ACTOR========/JoyActor"), NodePath("../../===ACTOR========/OpalActor"), NodePath("../../===ACTOR========/Voice01"), NodePath("../../===ACTOR========/Voice02"), NodePath("../../===ACTOR========/Voice03"), NodePath("../../===ACTOR========/VoiceOminous")]
 manager = SubResource("Resource_mqc32")
 
 [node name="===CAMERA========" type="Node3D" parent="." unique_id=1860563192]
@@ -606,7 +607,7 @@ metadata/_custom_type_script = "uid://dhulr5f133qcw"
 script = ExtResource("13_cyh0q")
 debate_manager = ExtResource("12_fev28")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
-actors = [NodePath("../../===ACTOR========/JoyActor"), NodePath("../../===ACTOR========/OpalActor"), NodePath("../../===ACTOR========/Voice01"), NodePath("../../===ACTOR========/Voice02"), NodePath("../../===ACTOR========/Voice03")]
+actors = [NodePath("../../===ACTOR========/JoyActor"), NodePath("../../===ACTOR========/OpalActor"), NodePath("../../===ACTOR========/Voice01"), NodePath("../../===ACTOR========/Voice02"), NodePath("../../===ACTOR========/Voice03"), NodePath("../../===ACTOR========/VoiceOminous")]
 input_manager = NodePath("../InputManager")
 dialogue_input_handler = ExtResource("14_damgn")
 manager = ExtResource("3_qnf5u")
@@ -661,14 +662,14 @@ transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.989057
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter" unique_id=1817069595 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_knqga")
+texture = SubResource("ViewportTexture_f3ys7")
 
 [node name="PlayerDiscardCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1140548364 instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.9890571, -0.018066663, -0.12245832, -7.450581e-09, 0.99247366, -0.15000284, 0.0004506167, 0.13493468)
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" unique_id=1611050952 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_f3ys7")
+texture = SubResource("ViewportTexture_7mnyw")
 
 [node name="PlayerEnergyCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1840847040 instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.577133, 0.07591381, 1.8900888, 0.29692417, 1.9479705, -0.16890348, -1.8681635, 0.33306077, 0.557061, -0.120429605, 0.0004506167, 0.20629291)
@@ -710,7 +711,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15324764, 0.00012001136, -0
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" unique_id=467383888 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26024163, -0.009793821, -0.076415636, 0.076465435, -1.1382936e-08, 0.26041123, -0.009397088, -0.27122876, 0.0027592867, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_7mnyw")
+texture = SubResource("ViewportTexture_nolis")
 
 [node name="CpuDiscardCounter" parent="===GAMEPLAY========/CpiUi" unique_id=1590190797 instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.94619274, -0.32360363, 0, 0.32360363, 0.94619274, 0, 0, 0, 1, 0.15350369, 0, 0.013281487)
@@ -721,7 +722,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" unique_id=1511716073 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.2708025, 0.006386812, -0.016917214, 0.016962603, -0.0017474849, 0.27086934, 0.0062652696, -0.27132475, -0.002142772, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_nolis")
+texture = SubResource("ViewportTexture_68gxc")
 
 [node name="CpuEnergyCounter" parent="===GAMEPLAY========/CpiUi" unique_id=151891147 instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.9523734, -0.26442856, 0.15186363, 0.26112953, 0.9644053, 0.04163922, -0.15746869, -3.7252903e-09, 0.987524, 0.15333109, 2.9802322e-08, 0.071661524)
@@ -732,7 +733,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" unique_id=969618535 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26872277, 0.03799277, 0.0023667924, -0.00091665983, -0.010411309, 0.27120426, 0.038055386, -0.26853144, -0.010180076, -0.011028126, 0.015155774, 0.015328243)
-texture = SubResource("ViewportTexture_68gxc")
+texture = SubResource("ViewportTexture_2moqn")
 
 [node name="GameBoardState" type="Node3D" parent="===GAMEPLAY========" unique_id=215128257]
 
@@ -1724,22 +1725,28 @@ triggers = Dictionary[String, bool]({
 script = ExtResource("70_463a1")
 actor_name = "voice_01"
 display_name = "Voice 01"
-dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/Voice01DialogueP1")
+dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/Voice01Shake/Voice01DialogueP1")
 metadata/_custom_type_script = "uid://dam0gyj0sl08f"
 
 [node name="Voice02" type="Node" parent="===ACTOR========" unique_id=1820725061 node_paths=PackedStringArray("dialogue_area_override")]
 script = ExtResource("70_463a1")
 actor_name = "voice_02"
 display_name = "Voice 02"
-dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/Voice02DialogueP1")
+dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/Voice02Shake/Voice02DialogueP1")
 metadata/_custom_type_script = "uid://dam0gyj0sl08f"
 
 [node name="Voice03" type="Node" parent="===ACTOR========" unique_id=2113787435 node_paths=PackedStringArray("dialogue_area_override")]
 script = ExtResource("70_463a1")
 actor_name = "voice_03"
 display_name = "Voice 03"
-dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/Voice03DialogueP1")
+dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/Voice03Shake/Voice03DialogueP1")
 metadata/_custom_type_script = "uid://dam0gyj0sl08f"
+
+[node name="VoiceOminous" type="Node" parent="===ACTOR========" unique_id=1660355235 node_paths=PackedStringArray("dialogue_area_override")]
+script = ExtResource("70_463a1")
+actor_name = "voice_ominous"
+display_name = "Voice Ominous"
+dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/VoiceOminousShake/VoiceOminousDialogueP1")
 
 [node name="===UI========" type="CanvasLayer" parent="." unique_id=701129504]
 
@@ -1793,7 +1800,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 8
-environment = SubResource("Environment_knqga")
+environment = SubResource("Environment_f3ys7")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -1849,12 +1856,13 @@ theme_override_colors/default_color = Color(0.3647059, 0.3647059, 0.3647059, 1)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "..."
+text = "[shake rate=20
+.0 level=10 connected=1]Is anyone there?[/shake]"
 scroll_active = false
 scroll_following_visible_characters = true
 horizontal_alignment = 1
 vertical_alignment = 1
-visible_characters = 3
+visible_characters = 16
 visible_characters_behavior = 1
 script = ExtResource("74_knqga")
 characters_per_second = 20
@@ -1885,23 +1893,34 @@ theme_override_colors/default_color = Color(0.3647059, 0.3647059, 0.3647059, 1)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
 theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
-text = "Are you okay?"
+text = "..."
 horizontal_alignment = 1
 vertical_alignment = 1
-visible_characters = 13
+visible_characters = 3
 visible_characters_behavior = 1
 script = ExtResource("74_knqga")
 characters_per_second = 8
-normalized_dialogue_position = 0.9642215384615387
+normalized_dialogue_position = 1
 metadata/_custom_type_script = "uid://vyqjymdwc8ae"
 
-[node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
-visible = false
-layout_mode = 0
+[node name="Voice01Shake" type="Control" parent="===UI========/DialogueBubbles/P1" unique_id=56231917]
+anchors_preset = 0
 offset_left = 957.9124
 offset_top = 336.7129
-offset_right = 1177.9124
-offset_bottom = 466.7129
+offset_right = 997.9124
+offset_bottom = 376.7129
+script = ExtResource("80_f3ys7")
+shake_strength = 1.4999999999999956
+shake_fade = 0.0
+metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
+
+[node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
+visible = false
+layout_mode = 0
+offset_left = -0.5641695
+offset_top = -1.3599145
+offset_right = 219.43578
+offset_bottom = 128.64009
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -1910,7 +1929,7 @@ script = ExtResource("72_kqhrk")
 scrolling_text = NodePath("ScrollingText")
 normal_characters_per_second = 12
 
-[node name="ScrollingText" type="RichTextLabel" parent="===UI========/DialogueBubbles/P1/Voice01DialogueP1" unique_id=1802036181]
+[node name="ScrollingText" type="RichTextLabel" parent="===UI========/DialogueBubbles/P1/Voice01Shake/Voice01DialogueP1" unique_id=1802036181]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.109000005
@@ -1925,28 +1944,39 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.36078432, 0.36078432, 0.36078432, 0.49803922)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
-theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "[shake rate=20
-.0 level=10 connected=1]You’re a failure.[/shake]"
+.0 level=10 connected=1]Your decisions are corrupt[/shake]"
 scroll_active = false
 scroll_following_visible_characters = true
 horizontal_alignment = 1
 vertical_alignment = 1
-visible_characters = 17
+visible_characters = 26
 visible_characters_behavior = 1
 script = ExtResource("74_knqga")
 characters_per_second = 12
 normalized_dialogue_position = 1
 metadata/_custom_type_script = "uid://vyqjymdwc8ae"
 
-[node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
-visible = false
-layout_mode = 0
+[node name="Voice02Shake" type="Control" parent="===UI========/DialogueBubbles/P1" unique_id=1138122257]
+anchors_preset = 0
 offset_left = 1488.0
 offset_top = 493.99997
-offset_right = 1708.0
-offset_bottom = 624.00006
+offset_right = 1528.0
+offset_bottom = 534.0
+script = ExtResource("80_f3ys7")
+shake_strength = 1.4999999999999956
+shake_fade = 0.0
+metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
+
+[node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
+visible = false
+layout_mode = 0
+offset_left = 1.0683162
+offset_top = 0.98898035
+offset_right = 221.06831
+offset_bottom = 130.98907
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -1955,7 +1985,7 @@ script = ExtResource("72_kqhrk")
 scrolling_text = NodePath("ScrollingText")
 normal_characters_per_second = 12
 
-[node name="ScrollingText" type="RichTextLabel" parent="===UI========/DialogueBubbles/P1/Voice02DialogueP1" unique_id=1688127750]
+[node name="ScrollingText" type="RichTextLabel" parent="===UI========/DialogueBubbles/P1/Voice02Shake/Voice02DialogueP1" unique_id=1688127750]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.109000005
@@ -1970,28 +2000,39 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.36, 0.36, 0.36, 0.49803922)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
-theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "[shake rate=20
-.0 level=10 connected=1]They were right about you[/shake]"
+.0 level=10 connected=1]You need to be renewed[/shake]"
 scroll_active = false
 scroll_following_visible_characters = true
 horizontal_alignment = 1
 vertical_alignment = 1
-visible_characters = 25
+visible_characters = 22
 visible_characters_behavior = 1
 script = ExtResource("74_knqga")
 characters_per_second = 12
 normalized_dialogue_position = 1
 metadata/_custom_type_script = "uid://vyqjymdwc8ae"
 
-[node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
+[node name="Voice03Shake" type="Control" parent="===UI========/DialogueBubbles/P1" unique_id=130390832]
+anchors_preset = 0
+offset_left = 1080.0
+offset_top = 758.0
+offset_right = 1120.0
+offset_bottom = 798.0
+script = ExtResource("80_f3ys7")
+shake_strength = 1.4999999999999956
+shake_fade = 0.0
+metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
+
+[node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 1075.0001
-offset_top = 746.0
-offset_right = 1295.0001
-offset_bottom = 876.0
+offset_left = -1.4583999
+offset_top = 0.028160553
+offset_right = 218.54166
+offset_bottom = 130.02817
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2000,7 +2041,7 @@ script = ExtResource("72_kqhrk")
 scrolling_text = NodePath("ScrollingText")
 normal_characters_per_second = 12
 
-[node name="ScrollingText" type="RichTextLabel" parent="===UI========/DialogueBubbles/P1/Voice03DialogueP1" unique_id=1257341759]
+[node name="ScrollingText" type="RichTextLabel" parent="===UI========/DialogueBubbles/P1/Voice03Shake/Voice03DialogueP1" unique_id=1257341759]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.109000005
@@ -2015,18 +2056,73 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.36, 0.36, 0.36, 0.49803922)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
-theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "[shake rate=20
-.0 level=10 connected=1]You can’t make it on your own[/shake]"
+.0 level=10 connected=1]Just submit to your station[/shake]"
 scroll_active = false
 scroll_following_visible_characters = true
 horizontal_alignment = 1
 vertical_alignment = 1
-visible_characters = 29
+visible_characters = 27
 visible_characters_behavior = 1
 script = ExtResource("74_knqga")
 characters_per_second = 12
+normalized_dialogue_position = 1
+metadata/_custom_type_script = "uid://vyqjymdwc8ae"
+
+[node name="VoiceOminousShake" type="Control" parent="===UI========/DialogueBubbles/P1" unique_id=1470833941]
+anchors_preset = 0
+offset_left = 1085.0
+offset_top = 47.0
+offset_right = 1125.0
+offset_bottom = 87.0
+script = ExtResource("80_f3ys7")
+shake_strength = 2.999999999672311
+shake_fade = 0.0
+metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
+
+[node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
+visible = false
+layout_mode = 0
+offset_left = -1.889544
+offset_top = -2.8524642
+offset_right = 536.94824
+offset_bottom = 335.84778
+pivot_offset = Vector2(110, 65)
+texture = SubResource("AnimatedTexture_4plkl")
+expand_mode = 1
+script = ExtResource("72_kqhrk")
+scrolling_text = NodePath("ScrollingText")
+normal_characters_per_second = 2
+
+[node name="ScrollingText" type="RichTextLabel" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake/VoiceOminousDialogueP1" unique_id=380270642]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.109000005
+anchor_top = 0.16900001
+anchor_right = 0.90000004
+anchor_bottom = 0.87700003
+offset_left = 0.01999855
+offset_top = 0.02999878
+offset_right = -1.5258789e-05
+offset_bottom = -0.010002136
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.36, 0.36, 0.36, 0.49803922)
+theme_override_fonts/normal_font = ExtResource("73_hrfbg")
+theme_override_font_sizes/normal_font_size = 68
+bbcode_enabled = true
+text = "[shake rate=20
+.0 level=15 connected=1]YOU'RE ALL ALONE...[/shake]"
+scroll_active = false
+scroll_following_visible_characters = true
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 19
+visible_characters_behavior = 1
+script = ExtResource("74_knqga")
+characters_per_second = 2
 normalized_dialogue_position = 1
 metadata/_custom_type_script = "uid://vyqjymdwc8ae"
 

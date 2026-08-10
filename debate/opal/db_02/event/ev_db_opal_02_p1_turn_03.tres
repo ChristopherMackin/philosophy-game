@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_ya4xl"]
 [ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_eh8pi"]
 [ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_xr13q"]
+[ext_resource type="Script" uid="uid://ds8uqtnt2atb2" path="res://system/script/event/task_action/wait_task_action.gd" id="4_xr13q"]
 
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("2_xr13q")
 
-[sub_resource type="Resource" id="Resource_eh8pi"]
+[sub_resource type="Resource" id="Resource_xr13q"]
 script = ExtResource("2_eh8pi")
 outputs = Array[int]([1])
 inputs = Dictionary[String, Variant]({
@@ -15,30 +16,90 @@ inputs = Dictionary[String, Variant]({
 "await_close": true,
 "await_input": false,
 "close_timer": 2.0,
+"talk": true,
 "text": "You need help"
 })
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_xr13q"]
+[sub_resource type="Resource" id="Resource_1ee72"]
 script = ExtResource("2_eh8pi")
-outputs = Array[int]([2])
+outputs = Array[int]([3])
 inputs = Dictionary[String, Variant]({
-"actor": "joy",
-"await_close": true,
+"actor": "voice_03",
+"await_close": false,
 "await_input": false,
-"close_timer": 2.0,
-"text": "I’m not even sure I can be helped"
+"close_timer": 1.5,
+"talk": true,
+"text": "[shake rate=20
+.0 level=10 connected=1]Just submit to your station[/shake]"
 })
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_1ee72"]
+[sub_resource type="Resource" id="Resource_34jmx"]
+script = ExtResource("2_eh8pi")
+outputs = Array[int]([4])
+inputs = Dictionary[String, Variant]({
+"actor": "voice_01",
+"await_close": false,
+"await_input": false,
+"close_timer": 1.5,
+"talk": true,
+"text": "[shake rate=20
+.0 level=10 connected=1]Your decisions are corrupt[/shake]"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_1f63y"]
+script = ExtResource("4_xr13q")
+
+[sub_resource type="Resource" id="Resource_y0kp5"]
+script = ExtResource("2_eh8pi")
+outputs = Array[int]([2])
+inputs = Dictionary[String, Variant]({
+"seconds": 0.6
+})
+action = SubResource("Resource_1f63y")
+
+[sub_resource type="Resource" id="Resource_micbh"]
+script = ExtResource("2_eh8pi")
+outputs = Array[int]([6])
+inputs = Dictionary[String, Variant]({
+"seconds": 0.6
+})
+action = SubResource("Resource_1f63y")
+
+[sub_resource type="Resource" id="Resource_u55tt"]
+script = ExtResource("2_eh8pi")
+outputs = Array[int]([7])
+inputs = Dictionary[String, Variant]({
+"seconds": 3.2
+})
+action = SubResource("Resource_1f63y")
+
+[sub_resource type="Resource" id="Resource_rfr72"]
+script = ExtResource("2_eh8pi")
+outputs = Array[int]([5])
+inputs = Dictionary[String, Variant]({
+"actor": "voice_02",
+"await_close": false,
+"await_input": false,
+"close_timer": 1.5,
+"talk": true,
+"text": "[shake rate=20
+.0 level=10 connected=1]You need to be renewed[/shake]"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_sdk0x"]
 script = ExtResource("2_eh8pi")
 inputs = Dictionary[String, Variant]({
 "actor": "joy",
 "await_close": false,
 "await_input": false,
 "close_timer": 2.0,
-"text": "I just make everything worse for everyone"
+"talk": true,
+"text": "[shake rate=20
+.0 level=10 connected=1]... I...[/shake]"
 })
 action = SubResource("Resource_x7ur8")
 
@@ -47,6 +108,6 @@ script = ExtResource("1_ya4xl")
 can_interupt = true
 await_event = true
 frequency = 1
-start_task = SubResource("Resource_eh8pi")
-tasks = Array[ExtResource("2_eh8pi")]([SubResource("Resource_eh8pi"), SubResource("Resource_xr13q"), SubResource("Resource_1ee72")])
+start_task = SubResource("Resource_xr13q")
+tasks = Array[ExtResource("2_eh8pi")]([SubResource("Resource_xr13q"), SubResource("Resource_1ee72"), SubResource("Resource_34jmx"), SubResource("Resource_y0kp5"), SubResource("Resource_micbh"), SubResource("Resource_u55tt"), SubResource("Resource_rfr72"), SubResource("Resource_sdk0x")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

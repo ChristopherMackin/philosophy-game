@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="Event" format=3 uid="uid://chqe2n2s0ukox"]
 
-[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_eoal3"]
-[ext_resource type="Script" uid="uid://ds8uqtnt2atb2" path="res://system/script/event/task_action/wait_task_action.gd" id="2_6cpgg"]
-[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_6twhh"]
-[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_p7adb"]
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_k5emj"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_dltyw"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="3_4ilmc"]
+[ext_resource type="Script" uid="uid://ds8uqtnt2atb2" path="res://system/script/event/task_action/wait_task_action.gd" id="4_727t4"]
 
 [sub_resource type="Resource" id="Resource_x7ur8"]
-script = ExtResource("2_p7adb")
+script = ExtResource("2_dltyw")
 
-[sub_resource type="Resource" id="Resource_6cpgg"]
-script = ExtResource("2_6twhh")
+[sub_resource type="Resource" id="Resource_k5emj"]
+script = ExtResource("3_4ilmc")
 outputs = Array[int]([0])
 inputs = Dictionary[String, Variant]({
 "actor": "opal",
@@ -21,8 +21,8 @@ inputs = Dictionary[String, Variant]({
 })
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_p0l4h"]
-script = ExtResource("2_6twhh")
+[sub_resource type="Resource" id="Resource_dltyw"]
+script = ExtResource("3_4ilmc")
 outputs = Array[int]([7])
 inputs = Dictionary[String, Variant]({
 "actor": "voice_01",
@@ -35,8 +35,8 @@ inputs = Dictionary[String, Variant]({
 })
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_qd3ai"]
-script = ExtResource("2_6twhh")
+[sub_resource type="Resource" id="Resource_4ilmc"]
+script = ExtResource("3_4ilmc")
 outputs = Array[int]([2])
 inputs = Dictionary[String, Variant]({
 "actor": "voice_02",
@@ -50,18 +50,18 @@ inputs = Dictionary[String, Variant]({
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_1f63y"]
-script = ExtResource("2_6cpgg")
+script = ExtResource("4_727t4")
 
-[sub_resource type="Resource" id="Resource_2trmo"]
-script = ExtResource("2_6twhh")
+[sub_resource type="Resource" id="Resource_727t4"]
+script = ExtResource("3_4ilmc")
 outputs = Array[int]([4])
 inputs = Dictionary[String, Variant]({
 "seconds": 0.6
 })
 action = SubResource("Resource_1f63y")
 
-[sub_resource type="Resource" id="Resource_c8veg"]
-script = ExtResource("2_6twhh")
+[sub_resource type="Resource" id="Resource_36w84"]
+script = ExtResource("3_4ilmc")
 outputs = Array[int]([6])
 inputs = Dictionary[String, Variant]({
 "actor": "voice_03",
@@ -74,8 +74,8 @@ inputs = Dictionary[String, Variant]({
 })
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_35vgl"]
-script = ExtResource("2_6twhh")
+[sub_resource type="Resource" id="Resource_ue1g7"]
+script = ExtResource("3_4ilmc")
 inputs = Dictionary[String, Variant]({
 "actor": "joy",
 "await_close": false,
@@ -86,16 +86,16 @@ inputs = Dictionary[String, Variant]({
 })
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_ky8yq"]
-script = ExtResource("2_6twhh")
+[sub_resource type="Resource" id="Resource_jctf6"]
+script = ExtResource("3_4ilmc")
 outputs = Array[int]([5])
 inputs = Dictionary[String, Variant]({
 "seconds": 3.0
 })
 action = SubResource("Resource_1f63y")
 
-[sub_resource type="Resource" id="Resource_jic8i"]
-script = ExtResource("2_6twhh")
+[sub_resource type="Resource" id="Resource_1w3to"]
+script = ExtResource("3_4ilmc")
 outputs = Array[int]([1])
 inputs = Dictionary[String, Variant]({
 "seconds": 0.6
@@ -103,9 +103,10 @@ inputs = Dictionary[String, Variant]({
 action = SubResource("Resource_1f63y")
 
 [resource]
-script = ExtResource("1_eoal3")
+script = ExtResource("1_k5emj")
+can_interupt = true
 await_event = true
 frequency = 1
-start_task = SubResource("Resource_6cpgg")
-tasks = Array[ExtResource("2_6twhh")]([SubResource("Resource_p0l4h"), SubResource("Resource_qd3ai"), SubResource("Resource_2trmo"), SubResource("Resource_6cpgg"), SubResource("Resource_c8veg"), SubResource("Resource_35vgl"), SubResource("Resource_ky8yq"), SubResource("Resource_jic8i")])
+start_task = SubResource("Resource_k5emj")
+tasks = Array[ExtResource("3_4ilmc")]([SubResource("Resource_dltyw"), SubResource("Resource_4ilmc"), SubResource("Resource_727t4"), SubResource("Resource_k5emj"), SubResource("Resource_36w84"), SubResource("Resource_ue1g7"), SubResource("Resource_jctf6"), SubResource("Resource_1w3to")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

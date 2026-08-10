@@ -1,0 +1,111 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://cmim4022rkeoq"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_ac6wq"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_pt6au"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_xcllj"]
+[ext_resource type="Script" uid="uid://ds8uqtnt2atb2" path="res://system/script/event/task_action/wait_task_action.gd" id="4_pt6au"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_pt6au")
+
+[sub_resource type="Resource" id="Resource_pt6au"]
+script = ExtResource("2_xcllj")
+outputs = Array[int]([3])
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": true,
+"await_input": false,
+"close_timer": 0.0,
+"talk": true,
+"text": "[shake rate=20
+.0 level=10 connected=1]I...[/shake]"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_d36w4"]
+script = ExtResource("2_xcllj")
+inputs = Dictionary[String, Variant]({
+"actor": "voice_ominous",
+"await_close": true,
+"await_input": false,
+"close_timer": 1.5,
+"talk": true,
+"text": "[shake rate=20
+.0 level=15 connected=1]YOU'RE ALL ALONE...[/shake]"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_eqdu8"]
+script = ExtResource("2_xcllj")
+outputs = Array[int]([6])
+inputs = Dictionary[String, Variant]({
+"actor": "opal",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"talk": true,
+"text": "..."
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_1f63y"]
+script = ExtResource("4_pt6au")
+
+[sub_resource type="Resource" id="Resource_mahk2"]
+script = ExtResource("2_xcllj")
+outputs = Array[int]([4])
+inputs = Dictionary[String, Variant]({
+"seconds": 2.0
+})
+action = SubResource("Resource_1f63y")
+
+[sub_resource type="Resource" id="Resource_jls5d"]
+script = ExtResource("2_xcllj")
+outputs = Array[int]([1])
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"talk": true,
+"text": "[shake rate=20
+.0 level=10 connected=1]I think I do need some help[/shake]"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_khn5d"]
+script = ExtResource("2_xcllj")
+outputs = Array[int]([0])
+inputs = Dictionary[String, Variant]({
+"actor": "voice_ominous",
+"await_close": true,
+"await_input": false,
+"close_timer": 1.5,
+"talk": true,
+"text": "[shake rate=20
+.0 level=15 connected=1]FOOL...[/shake]"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_81rs8"]
+script = ExtResource("2_xcllj")
+outputs = Array[int]([5])
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"talk": true,
+"text": "[shake rate=20
+.0 level=10 connected=1]Is anyone there?[/shake]"
+})
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_ac6wq")
+can_interupt = true
+await_event = true
+frequency = 1
+start_task = SubResource("Resource_pt6au")
+tasks = Array[ExtResource("2_xcllj")]([SubResource("Resource_d36w4"), SubResource("Resource_eqdu8"), SubResource("Resource_pt6au"), SubResource("Resource_mahk2"), SubResource("Resource_jls5d"), SubResource("Resource_khn5d"), SubResource("Resource_81rs8")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"
