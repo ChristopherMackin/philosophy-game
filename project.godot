@@ -19,6 +19,10 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 run/max_fps=30
 config/icon="res://_asset/debate/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://audio/default_bus_layout.tres"
+
 [autoload]
 
 GlobalTimer="*res://utility/script/timer.gd"

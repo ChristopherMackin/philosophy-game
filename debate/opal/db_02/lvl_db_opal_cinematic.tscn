@@ -65,6 +65,7 @@
 [ext_resource type="Texture2D" uid="uid://crmlj17ur3ikf" path="res://_asset/debate/_general/texture/suit/t_self_icon.png" id="36_bjofe"]
 [ext_resource type="Texture2D" uid="uid://bukbrbpvnoo6d" path="res://_asset/debate/_general/texture/t_others_token_box_col.png" id="37_3m87t"]
 [ext_resource type="Texture2D" uid="uid://8m5h442qngjv" path="res://_asset/debate/_general/texture/suit/t_others_icon.png" id="37_3prre"]
+[ext_resource type="Script" uid="uid://cw4ryesf5bd2b" path="res://scale_control.gd" id="37_68gxc"]
 [ext_resource type="Script" uid="uid://c3ft3tsh8oi43" path="res://debate/opal/db_02/game_board_3d.gd" id="39_3m87t"]
 [ext_resource type="Script" uid="uid://gqs40ms5uw6a" path="res://debate/_script/ui/token_track_3d.gd" id="40_84k4r"]
 [ext_resource type="Texture2D" uid="uid://cjj7unll4jg7p" path="res://_asset/debate/_general/texture/t_count_background.png" id="40_t0s88"]
@@ -129,6 +130,7 @@ resource_name = "ev_db_opal_02_p1_turn_04.tres"
 script = ExtResource("3_w8igq")
 key = "ev_db_opal_02_p1_turn_04.tres"
 value = true
+expiration_token = 2
 
 [sub_resource type="Resource" id="Resource_f3ys7"]
 resource_name = "ev_db_opal_02_p1_p2_transition.tres"
@@ -237,16 +239,21 @@ _data = {
 &"p4_setup": SubResource("Animation_hrfbg")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_f3ys7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7mnyw"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7mnyw"]
+[sub_resource type="Curve" id="Curve_wifvs"]
+_limits = [0.0, 1.8, 0.0, 1.0]
+_data = [Vector2(0, 1.8), 0.0, 0.0, 0, 0, Vector2(0.5503876, 1.8), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nolis"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dbiua"]
 viewport_path = NodePath("===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nolis"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_68gxc"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8igq"]
@@ -254,7 +261,7 @@ albedo_texture = ExtResource("30_dbiua")
 ao_enabled = true
 ao_texture = ExtResource("31_p0yir")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_68gxc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2moqn"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jelp"]
@@ -262,7 +269,7 @@ albedo_texture = ExtResource("32_84k4r")
 ao_enabled = true
 ao_texture = ExtResource("33_3m87t")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2moqn"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_g2w6u"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ghiyr"]
@@ -443,7 +450,7 @@ ssao_intensity = 1.32
 ssao_power = 3.446096
 ssao_sharpness = 0.5
 
-[sub_resource type="Environment" id="Environment_f3ys7"]
+[sub_resource type="Environment" id="Environment_ntdmx"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -539,7 +546,7 @@ event = ExtResource("2_f3ys7")
 event_factory = ExtResource("3_m1df6")
 concept = 2
 card_history = Array[ExtResource("8_p4nej")]([ExtResource("9_hkuxl")])
-current_round = 3
+current_round = 4
 blackboard = SubResource("Resource_pwg14")
 debate_manager = ExtResource("12_fev28")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
@@ -662,14 +669,32 @@ transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.989057
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter" unique_id=1817069595 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_f3ys7")
+texture = SubResource("ViewportTexture_7mnyw")
+
+[node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1817069595, 612248546) index="0" unique_id=245654660]
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=1804293334 node_paths=PackedStringArray("target")]
+script = ExtResource("37_68gxc")
+target = NodePath("..")
+curve = SubResource("Curve_wifvs")
+seconds = 0.3999999999999988
 
 [node name="PlayerDiscardCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1140548364 instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.9890571, -0.018066663, -0.12245832, -7.450581e-09, 0.99247366, -0.15000284, 0.0004506167, 0.13493468)
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" unique_id=1611050952 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_7mnyw")
+texture = SubResource("ViewportTexture_nolis")
+
+[node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1611050952, 612248546) index="0" unique_id=245654660]
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=182257150 node_paths=PackedStringArray("target")]
+script = ExtResource("37_68gxc")
+target = NodePath("..")
+curve = SubResource("Curve_wifvs")
+seconds = 0.3999999999999988
 
 [node name="PlayerEnergyCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1840847040 instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.577133, 0.07591381, 1.8900888, 0.29692417, 1.9479705, -0.16890348, -1.8681635, 0.33306077, 0.557061, -0.120429605, 0.0004506167, 0.20629291)
@@ -692,6 +717,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/default_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
 theme_override_colors/font_outline_color = Color(0.3529412, 0.3529412, 0.3529412, 1)
 theme_override_constants/outline_size = 14
@@ -700,6 +726,12 @@ text = "3/3"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("28_p0yir")
+
+[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport/Label" unique_id=259957374 node_paths=PackedStringArray("target")]
+script = ExtResource("37_68gxc")
+target = NodePath("..")
+curve = SubResource("Curve_wifvs")
+seconds = 0.3999999999999988
 
 [node name="PlayerHeldCard" parent="===GAMEPLAY========/PlayerUi" unique_id=856621973 instance=ExtResource("25_8wfbp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0058919787, 0, 0.18703443)
@@ -711,7 +743,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15324764, 0.00012001136, -0
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" unique_id=467383888 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26024163, -0.009793821, -0.076415636, 0.076465435, -1.1382936e-08, 0.26041123, -0.009397088, -0.27122876, 0.0027592867, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_nolis")
+texture = SubResource("ViewportTexture_68gxc")
+
+[node name="Label" parent="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(467383888, 612248546) index="0" unique_id=245654660]
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=1119974987 node_paths=PackedStringArray("target")]
+script = ExtResource("37_68gxc")
+target = NodePath("..")
+curve = SubResource("Curve_wifvs")
+seconds = 0.3999999999999988
 
 [node name="CpuDiscardCounter" parent="===GAMEPLAY========/CpiUi" unique_id=1590190797 instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.94619274, -0.32360363, 0, 0.32360363, 0.94619274, 0, 0, 0, 1, 0.15350369, 0, 0.013281487)
@@ -722,7 +763,16 @@ surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" unique_id=1511716073 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.2708025, 0.006386812, -0.016917214, 0.016962603, -0.0017474849, 0.27086934, 0.0062652696, -0.27132475, -0.002142772, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_68gxc")
+texture = SubResource("ViewportTexture_2moqn")
+
+[node name="Label" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1511716073, 612248546) index="0" unique_id=245654660]
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=1511373967 node_paths=PackedStringArray("target")]
+script = ExtResource("37_68gxc")
+target = NodePath("..")
+curve = SubResource("Curve_wifvs")
+seconds = 0.3999999999999988
 
 [node name="CpuEnergyCounter" parent="===GAMEPLAY========/CpiUi" unique_id=151891147 instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.9523734, -0.26442856, 0.15186363, 0.26112953, 0.9644053, 0.04163922, -0.15746869, -3.7252903e-09, 0.987524, 0.15333109, 2.9802322e-08, 0.071661524)
@@ -733,7 +783,16 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" unique_id=969618535 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26872277, 0.03799277, 0.0023667924, -0.00091665983, -0.010411309, 0.27120426, 0.038055386, -0.26853144, -0.010180076, -0.011028126, 0.015155774, 0.015328243)
-texture = SubResource("ViewportTexture_2moqn")
+texture = SubResource("ViewportTexture_g2w6u")
+
+[node name="Label" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(969618535, 612248546) index="0" unique_id=245654660]
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=911647333 node_paths=PackedStringArray("target")]
+script = ExtResource("37_68gxc")
+target = NodePath("..")
+curve = SubResource("Curve_wifvs")
+seconds = 0.3999999999999988
 
 [node name="GameBoardState" type="Node3D" parent="===GAMEPLAY========" unique_id=215128257]
 
@@ -764,12 +823,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/default_color = Color(0.36078432, 0.36078432, 0.36078432, 1)
 theme_override_font_sizes/normal_font_size = 64
 text = "15"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("28_p0yir")
+
+[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/GameBoardState/TurnCounter/CounterUi/SubViewport/Label" unique_id=1136955596 node_paths=PackedStringArray("target")]
+script = ExtResource("37_68gxc")
+target = NodePath("..")
+curve = SubResource("Curve_wifvs")
+seconds = 0.3999999999999988
 
 [node name="LineClearCounter" parent="===GAMEPLAY========/GameBoardState" unique_id=1786900677 instance=ExtResource("29_udfsd")]
 transform = Transform3D(-0.35664776, -0.09443906, -0.92945343, -0.12529445, 0.9907249, -0.052586984, 0.92579895, 0.09770032, -0.3651725, 0.13702412, 0.03236382, -0.1766622)
@@ -799,12 +865,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/default_color = Color(0.36078432, 0.36078432, 0.36078432, 1)
 theme_override_font_sizes/normal_font_size = 64
 text = "7"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("28_p0yir")
+
+[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/GameBoardState/LineClearCounter/CounterUi/SubViewport/Label" unique_id=1392602641 node_paths=PackedStringArray("target")]
+script = ExtResource("37_68gxc")
+target = NodePath("..")
+curve = SubResource("Curve_wifvs")
+seconds = 0.3999999999999988
 
 [node name="PlayStack" parent="===GAMEPLAY========/GameBoardState" unique_id=997526976 instance=ExtResource("25_8wfbp")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.16243683, -0.19654427)
@@ -833,7 +906,7 @@ modulate = Color(0.9122892, 0.91228884, 0.91228884, 1)
 pixel_size = 0.0004
 texture = ExtResource("34_336qk")
 
-[node name="Token3d" parent="===GAMEPLAY========/GameBoard/FaithTrack" unique_id=977084215 instance_placeholder="res://debate/_script/ui/token_3d.tscn"]
+[node name="Token3d" parent="===GAMEPLAY========/GameBoard/FaithTrack" unique_id=1918684495 instance_placeholder="res://debate/_script/ui/token_3d.tscn"]
 transform = Transform3D(3.8635232e-08, 0.9019531, 0.4318339, 3.9425622e-08, 0.4318339, -0.9019531, -0.9999999, 5.187249e-08, -1.8876058e-08, -0.066, 0.014999999, 0)
 
 [node name="DoubtTrack" parent="===GAMEPLAY========/GameBoard" unique_id=59374661 instance=ExtResource("25_cwy3g")]
@@ -1766,13 +1839,13 @@ size = Vector2i(800, 1080)
 render_target_update_mode = 4
 
 [node name="GameplayCamera" type="Camera3D" parent="===UI========/GameplayContainer/SubViewport" unique_id=282409628]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1155753, 0.009244392)
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 1.1155753, 0.009244392)
 top_level = true
 cull_mask = 32768
 environment = SubResource("Environment_hrfbg")
 current = true
-fov = 25.0
-far = 100.0
+fov = 35.60025
+far = 926.8196
 
 [node name="PhantomCameraHost" type="Node" parent="===UI========/GameplayContainer/SubViewport/GameplayCamera" unique_id=1846865450]
 process_priority = 300
@@ -1797,14 +1870,14 @@ size = Vector2i(1120, 1080)
 render_target_update_mode = 4
 
 [node name="ConversationCamera" type="Camera3D" parent="===UI========/ConversationContainer/SubViewport" unique_id=796707449]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 8
-environment = SubResource("Environment_f3ys7")
+environment = SubResource("Environment_ntdmx")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
-fov = 40.0
-far = 100.0
+fov = 47.420177
+far = 926.8196
 
 [node name="PhantomCameraHost" type="Node" parent="===UI========/ConversationContainer/SubViewport/ConversationCamera" unique_id=1571934254]
 process_priority = 300
@@ -1917,10 +1990,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.5641695
-offset_top = -1.3599145
-offset_right = 219.43578
-offset_bottom = 128.64009
+offset_left = 1.3689326
+offset_top = 1.3241342
+offset_right = 221.36887
+offset_bottom = 131.32413
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -1973,10 +2046,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 1.0683162
-offset_top = 0.98898035
-offset_right = 221.06831
-offset_bottom = 130.98907
+offset_left = -0.3908092
+offset_top = -1.2505672
+offset_right = 219.60919
+offset_bottom = 128.74953
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2029,10 +2102,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.4583999
-offset_top = 0.028160553
-offset_right = 218.54166
-offset_bottom = 130.02817
+offset_left = -1.0519965
+offset_top = -0.553879
+offset_right = 218.94806
+offset_bottom = 129.44612
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2085,10 +2158,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.889544
-offset_top = -2.8524642
-offset_right = 536.94824
-offset_bottom = 335.84778
+offset_left = 2.032115
+offset_top = 1.2784312
+offset_right = 540.8699
+offset_bottom = 339.9787
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
@@ -2114,12 +2187,12 @@ theme_override_fonts/normal_font = ExtResource("73_hrfbg")
 theme_override_font_sizes/normal_font_size = 68
 bbcode_enabled = true
 text = "[shake rate=20
-.0 level=15 connected=1]YOU'RE ALL ALONE...[/shake]"
+.0 level=15 connected=1]FOOL...[/shake]"
 scroll_active = false
 scroll_following_visible_characters = true
 horizontal_alignment = 1
 vertical_alignment = 1
-visible_characters = 19
+visible_characters = 7
 visible_characters_behavior = 1
 script = ExtResource("74_knqga")
 characters_per_second = 2
@@ -2160,6 +2233,21 @@ x_sep = 50
 y_min = 0
 y_max = -25
 card_size = Vector2(370, 320)
+
+[node name="CardGUI" parent="===UI========/Hand/CurveContainer" unique_id=796663575 instance_placeholder="res://debate/packed_scene/card_gui/card_gui.tscn"]
+layout_mode = 2
+
+[node name="CardGUI2" parent="===UI========/Hand/CurveContainer" unique_id=2052537898 instance_placeholder="res://debate/packed_scene/card_gui/card_gui.tscn"]
+layout_mode = 2
+
+[node name="CardGUI3" parent="===UI========/Hand/CurveContainer" unique_id=1690869400 instance_placeholder="res://debate/packed_scene/card_gui/card_gui.tscn"]
+layout_mode = 2
+
+[node name="CardGUI4" parent="===UI========/Hand/CurveContainer" unique_id=75943944 instance_placeholder="res://debate/packed_scene/card_gui/card_gui.tscn"]
+layout_mode = 2
+
+[node name="CardGUI5" parent="===UI========/Hand/CurveContainer" unique_id=421116664 instance_placeholder="res://debate/packed_scene/card_gui/card_gui.tscn"]
+layout_mode = 2
 
 [node name="SuitSelector" type="Panel" parent="===UI========" unique_id=1229257299 node_paths=PackedStringArray("card_container")]
 visible = false
@@ -2268,6 +2356,14 @@ texture = ExtResource("57_q0c1o")
 metadata/focus_type = "submit"
 
 [connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateSceneManager" method="start_debate" flags=7]
+[connection signal="on_label_updated" from="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label" to="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label/ScaleControl" method="animate_scale" unbinds=1]
+[connection signal="on_label_updated" from="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label" to="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label/ScaleControl" method="animate_scale" unbinds=1]
+[connection signal="on_label_updated" from="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport/Label" to="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport/Label/ScaleControl" method="animate_scale" unbinds=1]
+[connection signal="on_label_updated" from="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill/Label" to="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill/Label/ScaleControl" method="animate_scale" unbinds=1]
+[connection signal="on_label_updated" from="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label" to="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label/ScaleControl" method="animate_scale" unbinds=1]
+[connection signal="on_label_updated" from="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill/Label" to="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill/Label/ScaleControl" method="animate_scale" unbinds=1]
+[connection signal="on_label_updated" from="===GAMEPLAY========/GameBoardState/TurnCounter/CounterUi/SubViewport/Label" to="===GAMEPLAY========/GameBoardState/TurnCounter/CounterUi/SubViewport/Label/ScaleControl" method="animate_scale" unbinds=1]
+[connection signal="on_label_updated" from="===GAMEPLAY========/GameBoardState/LineClearCounter/CounterUi/SubViewport/Label" to="===GAMEPLAY========/GameBoardState/LineClearCounter/CounterUi/SubViewport/Label/ScaleControl" method="animate_scale" unbinds=1]
 
 [editable path="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi"]
 [editable path="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi"]

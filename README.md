@@ -31,20 +31,20 @@
 <br />
 <div align="center">
   <a href="https://github.com/ChristopherMackin/philosophy-game">
-    <img src="images/logo.svg" alt="Logo" width="80" height="80">
+	<img src="images/logo.svg" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Radical Shapes</h3>
 
   <p align="center">
-    <i>Radical Shapes</i> is a deck building card game about religious trauma and the ways we learn to undo our difficult past. Everything including art and code was designed by me! Right now it's still very early in prototyping but it's been a blast to work on! If you want to try the game in Godot you'll have to get the Assets folder that contains all graphics and models. You can email me bellow if you'd like to run the game!
-    <br />
-    <a href="https://github.com/ChristopherMackin/philosophy-game"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/ChristopherMackin/philosophy-game/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    &middot;
-    <a href="https://github.com/ChristopherMackin/philosophy-game/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+	<i>Radical Shapes</i> is a deck building card game about religious trauma and the ways we learn to undo our difficult past. Everything including art and code was designed by me! Right now it's still very early in prototyping but it's been a blast to work on! If you want to try the game in Godot you'll have to get the Assets folder that contains all graphics and models. You can email me bellow if you'd like to run the game!
+	<br />
+	<a href="https://github.com/ChristopherMackin/philosophy-game"><strong>Explore the docs »</strong></a>
+	<br />
+	<br />
+	<a href="https://github.com/ChristopherMackin/philosophy-game/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+	&middot;
+	<a href="https://github.com/ChristopherMackin/philosophy-game/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -54,16 +54,16 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+	<li>
+	  <a href="#about-the-project">About The Project</a>
+	  <ul>
+		<li><a href="#built-with">Built With</a></li>
+	  </ul>
+	</li>
+	<li><a href="#roadmap">Roadmap</a></li>
+	<li><a href="#license">License</a></li>
+	<li><a href="#contact">Contact</a></li>
+	<li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 

@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://y1pxhpa0jsew"]
+
+[ext_resource type="AudioStream" uid="uid://cmda0ribwt7ol" path="res://audio/token_thud.wav" id="1_bspli"]
+
+[resource]
+random_pitch = 1.2599211
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("1_bspli")
