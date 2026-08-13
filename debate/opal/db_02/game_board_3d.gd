@@ -25,7 +25,7 @@ func update_token_tracks(suit_track_dictionary: Dictionary):
 	
 	if current_dictionary.keys() == previous_dictionary.keys():
 		for key in current_dictionary:
-			if Util.array_difference(current_dictionary[key], previous_dictionary[key]).size() > 0:
+			if Util.array_difference(previous_dictionary[key], current_dictionary[key]).size() > 0 || Util.array_difference(current_dictionary[key], previous_dictionary[key]).size() > 0:
 				repeat = false
 				break
 	else: repeat = false
