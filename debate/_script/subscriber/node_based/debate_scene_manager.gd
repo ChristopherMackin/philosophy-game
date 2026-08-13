@@ -123,6 +123,6 @@ func update_computer_ui():
 	if computer_discard_ui: await computer_discard_ui.update_label(str(manager.computer.discard_pile.size()))
 
 func update_board_statue_ui():
-	if game_board: await game_board.update_token_tracks(manager.suit_track_dictionary)
+	if game_board: game_board.update_token_tracks(manager.suit_track_dictionary)
 	if turn_ui: await turn_ui.update_label(str(manager.current_round))
 	if lines_cleared_ui: lines_cleared_ui.update_label(str(manager.lines_cleared))
