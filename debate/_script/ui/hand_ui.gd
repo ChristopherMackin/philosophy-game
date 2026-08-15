@@ -110,8 +110,6 @@ func _add_card(card : Card):
 	card_slot.add_child(card_gui)	
 	card_parent.add_child(card_slot)
 	
-	card_gui.scale = Vector2(.81, .81)
-	
 	card_slots.append(card_slot)
 	cards_gui.append(card_gui)
 
@@ -148,8 +146,6 @@ func _update_card(card):
 	cards_gui[card_index] = card_gui
 	
 	card_slots[card_index].add_child(card_gui)
-	
-	card_gui.scale = Vector2(.81, .81)
 	
 	if focus_group.focused_node == old_card:
 		focus_group.focus(card_gui)

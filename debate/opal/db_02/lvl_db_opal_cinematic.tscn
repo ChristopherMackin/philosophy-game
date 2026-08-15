@@ -67,6 +67,7 @@
 [ext_resource type="Texture2D" uid="uid://8m5h442qngjv" path="res://_asset/debate/_general/texture/suit/t_others_icon.png" id="37_3prre"]
 [ext_resource type="Script" uid="uid://cw4ryesf5bd2b" path="res://scale_control.gd" id="37_68gxc"]
 [ext_resource type="Script" uid="uid://c3ft3tsh8oi43" path="res://debate/opal/db_02/game_board_3d.gd" id="39_3m87t"]
+[ext_resource type="Script" uid="uid://duts3e4cshe3t" path="res://debate/_script/ui/hold_area_ui.gd" id="40_2moqn"]
 [ext_resource type="Script" uid="uid://gqs40ms5uw6a" path="res://debate/_script/ui/token_track_3d.gd" id="40_84k4r"]
 [ext_resource type="Texture2D" uid="uid://cjj7unll4jg7p" path="res://_asset/debate/_general/texture/t_count_background.png" id="40_t0s88"]
 [ext_resource type="Texture2D" uid="uid://b7roh63xeclm" path="res://_asset/_general/texture/t_lined_paper.png" id="41_yt7fp"]
@@ -241,7 +242,7 @@ _data = {
 &"p4_setup": SubResource("Animation_hrfbg")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7mnyw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2moqn"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Curve" id="Curve_wifvs"]
@@ -249,13 +250,148 @@ _limits = [0.0, 1.8, 0.0, 1.0]
 _data = [Vector2(0, 1.8), 0.0, 0.0, 0, 0, Vector2(0.5503876, 1.8), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nolis"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_g2w6u"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dbiua"]
 viewport_path = NodePath("===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_68gxc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wifvs"]
+viewport_path = NodePath("===GAMEPLAY========/PlayerUi/PlayerHeldCard/SubViewport")
+
+[sub_resource type="Resource" id="Resource_wifvs"]
+script = ExtResource("32_x0iaq")
+suit = ExtResource("34_kdy34")
+packed_scene = ExtResource("33_k3amr")
+metadata/_custom_type_script = "uid://ct7j27rex1yjk"
+
+[sub_resource type="Animation" id="Animation_2moqn"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.0559022e-10, 0.0002599997, 0.35735977)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g2w6u"]
+resource_name = "card_enter"
+length = 0.41
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-3.0559022e-10, 0.0002599997, 0.35735977), Vector3(-3.0559022e-10, 0.0002599997, 0.1874), Vector3(-3.0559022e-10, 0.0002599997, 0.17388387), Vector3(-3.0559022e-10, 0.0002599997, 0.1874)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.299546, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0), Vector3(-2.0943952, 0, 0), Vector3(-1.0471976, 0, 0), Vector3(-1.5707964, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.060000002, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.5, 2, 0.5), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ntdmx"]
+resource_name = "card_exit"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.010386765, 0.051036533, 0.11841418, 0.18286939),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-3.0559022e-10, 0.0002599997, 0.1874), Vector3(-3.0559022e-10, 0.0002599997, 0.17388387), Vector3(-3.0559022e-10, 0.0002599997, 0.1874), Vector3(-3.0559022e-10, 0.0002599997, 0.35735977)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.010386765, 0.05134278, 0.11841418, 0.18286939),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0), Vector3(-1.0471976, 0, 0), Vector3(-2.0943952, 0, 0), Vector3(-1.5707964, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.037233166, 0.15923975),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.5, 2, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dqw0w"]
+_data = {
+&"RESET": SubResource("Animation_2moqn"),
+&"card_enter": SubResource("Animation_g2w6u"),
+&"card_exit": SubResource("Animation_ntdmx")
+}
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ntdmx"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8igq"]
@@ -263,7 +399,7 @@ albedo_texture = ExtResource("30_dbiua")
 ao_enabled = true
 ao_texture = ExtResource("31_p0yir")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2moqn"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_dqw0w"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jelp"]
@@ -271,7 +407,7 @@ albedo_texture = ExtResource("32_84k4r")
 ao_enabled = true
 ao_texture = ExtResource("33_3m87t")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_g2w6u"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wt2fd"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ghiyr"]
@@ -452,7 +588,7 @@ ssao_intensity = 1.32
 ssao_power = 3.446096
 ssao_sharpness = 0.5
 
-[sub_resource type="Environment" id="Environment_68gxc"]
+[sub_resource type="Environment" id="Environment_2moqn"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -589,7 +725,7 @@ scene_animator = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationPlay
 script = ExtResource("6_wjr7v")
 active_handler = ExtResource("7_faur5")
 
-[node name="DebateSceneManager" type="Node" parent="===MANAGER========" unique_id=1646962725 node_paths=PackedStringArray("input_manager", "hand_ui", "energy_ui", "draw_ui", "discard_ui", "computer_hand_ui", "computer_energy_ui", "computer_discard_ui", "game_board", "turn_ui", "lines_cleared_ui")]
+[node name="DebateSceneManager" type="Node" parent="===MANAGER========" unique_id=1646962725 node_paths=PackedStringArray("input_manager", "hand_ui", "hold_area_ui", "energy_ui", "draw_ui", "discard_ui", "computer_hand_ui", "computer_energy_ui", "computer_discard_ui", "game_board", "turn_ui", "lines_cleared_ui")]
 script = ExtResource("8_75n12")
 blackboard = ExtResource("2_kjk8x")
 event_factory = ExtResource("3_m1df6")
@@ -600,6 +736,7 @@ input_manager = NodePath("../InputManager")
 selection_handler = ExtResource("7_faur5")
 computer = ExtResource("5_bd10g")
 hand_ui = NodePath("../../===UI========/Hand")
+hold_area_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerHeldCard")
 energy_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport/Label")
 draw_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label")
 discard_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label")
@@ -672,7 +809,7 @@ transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.989057
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter" unique_id=1817069595 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_7mnyw")
+texture = SubResource("ViewportTexture_2moqn")
 
 [node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1817069595, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -688,7 +825,7 @@ transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.989057
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" unique_id=1611050952 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_nolis")
+texture = SubResource("ViewportTexture_g2w6u")
 
 [node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1611050952, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -736,8 +873,31 @@ target = NodePath("..")
 curve = SubResource("Curve_wifvs")
 seconds = 0.3999999999999988
 
-[node name="PlayerHeldCard" parent="===GAMEPLAY========/PlayerUi" unique_id=856621973 instance=ExtResource("25_8wfbp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0058919787, 0, 0.18703443)
+[node name="PlayerHeldCard" type="Sprite3D" parent="===GAMEPLAY========/PlayerUi" unique_id=713849163 node_paths=PackedStringArray("card_parent", "animation_player")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.0559022e-10, 0.0002599997, 0.35735977)
+layers = 32768
+pixel_size = 0.0003
+texture = SubResource("ViewportTexture_wifvs")
+script = ExtResource("40_2moqn")
+default_card_gui_packed_scene = ExtResource("30_y0dq0")
+default_tokenless_card_gui_packed_scene = ExtResource("31_5a0yb")
+tokenless_card_gui_suit_packed_scenes = Array[ExtResource("32_x0iaq")]([SubResource("Resource_wifvs")])
+card_parent = NodePath("SubViewport")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="===GAMEPLAY========/PlayerUi/PlayerHeldCard" unique_id=518159341]
+libraries/ = SubResource("AnimationLibrary_dqw0w")
+
+[node name="SubViewport" type="SubViewport" parent="===GAMEPLAY========/PlayerUi/PlayerHeldCard" unique_id=401780995]
+transparent_bg = true
+size = Vector2i(296, 256)
+
+[node name="CardGUI" parent="===GAMEPLAY========/PlayerUi/PlayerHeldCard/SubViewport" unique_id=370963301 instance_placeholder="res://debate/packed_scene/card_gui/card_gui.tscn"]
+offset_left = -148.0
+offset_top = -128.0
+offset_right = 222.0
+offset_bottom = 192.0
+pivot_offset = Vector2(0, 0)
 
 [node name="CpiUi" type="Node3D" parent="===GAMEPLAY========" unique_id=468448481]
 
@@ -746,7 +906,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15324764, 0.00012001136, -0
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" unique_id=467383888 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26024163, -0.009793821, -0.076415636, 0.076465435, -1.1382936e-08, 0.26041123, -0.009397088, -0.27122876, 0.0027592867, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_68gxc")
+texture = SubResource("ViewportTexture_ntdmx")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(467383888, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -766,7 +926,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" unique_id=1511716073 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.2708025, 0.006386812, -0.016917214, 0.016962603, -0.0017474849, 0.27086934, 0.0062652696, -0.27132475, -0.002142772, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_2moqn")
+texture = SubResource("ViewportTexture_dqw0w")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1511716073, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -786,7 +946,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" unique_id=969618535 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26872277, 0.03799277, 0.0023667924, -0.00091665983, -0.010411309, 0.27120426, 0.038055386, -0.26853144, -0.010180076, -0.011028126, 0.015155774, 0.015328243)
-texture = SubResource("ViewportTexture_g2w6u")
+texture = SubResource("ViewportTexture_wt2fd")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(969618535, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -801,6 +961,7 @@ seconds = 0.3999999999999988
 
 [node name="TokenLogoTracker" type="Sprite3D" parent="===GAMEPLAY========/GameBoardState" unique_id=1184763171]
 transform = Transform3D(0.03818557, 0, 0, 0, -1.6691443e-09, 0.03818557, 0, -0.03818557, -1.6691443e-09, -0.18360758, 0, -0.040270686)
+visible = false
 layers = 32768
 pixel_size = 0.0076923
 texture = ExtResource("41_yt7fp")
@@ -1025,6 +1186,7 @@ skeleton = NodePath("../..")
 
 [node name="===ENVIRONMENT========" type="Node3D" parent="." unique_id=1647520102]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+visible = false
 
 [node name="EnvDbOpal02" parent="===ENVIRONMENT========" unique_id=472548192 instance=ExtResource("7_wwxuk")]
 
@@ -1054,6 +1216,7 @@ layers = 9
 
 [node name="===ACTOR========" type="Node3D" parent="." unique_id=1690436738]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+visible = false
 
 [node name="JoyActor" parent="===ACTOR========" unique_id=2066360241 node_paths=PackedStringArray("character_animation_tree", "dialogue_area_override") instance=ExtResource("8_w340p")]
 character_animation_tree = NodePath("CharacterAnimationTree")
@@ -1877,7 +2040,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 8
-environment = SubResource("Environment_68gxc")
+environment = SubResource("Environment_2moqn")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -1994,10 +2157,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.031807397
-offset_top = -0.060319867
-offset_right = 219.96812
-offset_bottom = 129.93968
+offset_left = 0.508209
+offset_top = 0.9329238
+offset_right = 220.50815
+offset_bottom = 130.93292
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2050,10 +2213,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.08770194
-offset_top = -1.135412
-offset_right = 219.9123
-offset_bottom = 128.86469
+offset_left = 1.3723724
+offset_top = -0.60486007
+offset_right = 221.37238
+offset_bottom = 129.39523
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2106,10 +2269,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.7996595
-offset_top = -0.81102777
-offset_right = 219.20041
-offset_bottom = 129.18896
+offset_left = -1.1509842
+offset_top = 0.70153016
+offset_right = 218.84908
+offset_bottom = 130.70152
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2162,10 +2325,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 2.4677837
-offset_top = 2.1754763
-offset_right = 541.30554
-offset_bottom = 340.87573
+offset_left = -0.54971117
+offset_top = -0.69717073
+offset_right = 538.2881
+offset_bottom = 338.00308
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1

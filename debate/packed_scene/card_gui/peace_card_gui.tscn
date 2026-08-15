@@ -30,7 +30,7 @@ content_margin_top = 5.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
 
-[node name="TokenlessCardGUI" type="Control" node_paths=PackedStringArray("card_bg", "title", "description", "cost", "icon")]
+[node name="TokenlessCardGUI" type="Control" unique_id=743359882 node_paths=PackedStringArray("card_bg", "title", "description", "cost", "icon")]
 custom_minimum_size = Vector2(370, 320)
 layout_mode = 3
 anchors_preset = 8
@@ -44,6 +44,7 @@ offset_right = 185.0
 offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.8, 0.8)
 pivot_offset = Vector2(185, 320)
 script = ExtResource("1_bq4c2")
 card_bg = NodePath("CardBG")
@@ -53,7 +54,7 @@ cost = NodePath("CardBG/Cost")
 icon = NodePath("CardBG/SuitIcon")
 metadata/focus_property = "card"
 
-[node name="Shadow" type="TextureRect" parent="."]
+[node name="Shadow" type="TextureRect" parent="." unique_id=578678126]
 modulate = Color(0, 0, 0, 0.0745098)
 layout_mode = 1
 anchors_preset = 15
@@ -67,14 +68,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_vkr7h")
 
-[node name="CardBG" type="TextureRect" parent="."]
+[node name="CardBG" type="TextureRect" parent="." unique_id=755276418]
 material = SubResource("ShaderMaterial_3y6m8")
 layout_mode = 0
 offset_right = 370.0
 offset_bottom = 320.0
 texture = ExtResource("4_3y6m8")
 
-[node name="SuitIcon" type="TextureRect" parent="CardBG"]
+[node name="SuitIcon" type="TextureRect" parent="CardBG" unique_id=443842195]
 self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
 layout_mode = 1
 anchors_preset = 5
@@ -89,7 +90,7 @@ texture = ExtResource("5_yw3yo")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Title" type="Label" parent="CardBG"]
+[node name="Title" type="Label" parent="CardBG" unique_id=1781154273]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -102,7 +103,7 @@ text = "Structured Argument"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CardSetNumber" type="Label" parent="CardBG"]
+[node name="CardSetNumber" type="Label" parent="CardBG" unique_id=363554449]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -118,7 +119,7 @@ text = "12/78"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cost" type="Label" parent="CardBG"]
+[node name="Cost" type="Label" parent="CardBG" unique_id=1261707303]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.117
@@ -136,7 +137,7 @@ text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="RichTextLabel" parent="CardBG"]
+[node name="Description" type="RichTextLabel" parent="CardBG" unique_id=458637930]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.014
@@ -159,15 +160,15 @@ text = "Place 2 [b]Structured Conversation[/b] tops.
 Cost -1 for ever [b]pentagram[/b] top in play"
 scroll_active = false
 
-[node name="ExposedControlMethods" type="Node" parent="." node_paths=PackedStringArray("root")]
+[node name="ExposedControlMethods" type="Node" parent="." unique_id=2015462453 node_paths=PackedStringArray("root")]
 script = ExtResource("8_v3r2e")
 root = NodePath("..")
 
-[node name="FocusGroupSignalNode" type="Node" parent="."]
+[node name="FocusGroupSignalNode" type="Node" parent="." unique_id=1326167114]
 script = ExtResource("9_o5taa")
 metadata/_custom_type_script = "uid://dc8gq2l3o144t"
 
-[node name="CardFocusAnimation" type="Node" parent="." node_paths=PackedStringArray("exposed_control_methods")]
+[node name="CardFocusAnimation" type="Node" parent="." unique_id=677878142 node_paths=PackedStringArray("exposed_control_methods")]
 script = ExtResource("10_bt0b4")
 exposed_control_methods = NodePath("../ExposedControlMethods")
 metadata/_custom_type_script = "uid://cumbxctg3u56"

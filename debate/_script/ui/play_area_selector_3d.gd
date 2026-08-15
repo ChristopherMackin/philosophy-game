@@ -34,7 +34,6 @@ func open_selector(tokens : Array[Token]):
 		var selector : Control = selector_packed_scene.instantiate()
 		add_child(selector)
 		selector.position = gameplay_camera.unproject_position(token_3d.global_position)
-		print(gameplay_camera.unproject_position(token_3d.global_position))
 		selectors.append(selector)
 		selector.token = token_3d.token
 	
