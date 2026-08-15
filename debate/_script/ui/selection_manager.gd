@@ -68,13 +68,13 @@ func focus_card_selector(request : SelectionRequest):
 	if request.action == Const.SelectionAction.PLAY:
 		set_focus_group(hand_ui_focus_group)
 	elif request.type == Const.SelectionType.TOKEN:
-		play_area_selector.open_selector(request.options)
+		await play_area_selector.open_selector(request.options)
 		set_focus_group(play_area_selector_focus_group)
 	elif request.type == Const.SelectionType.SUIT:
-		suit_selector.open_selector(request.options, request.visible_to_player)
+		await suit_selector.open_selector(request.options, request.visible_to_player)
 		set_focus_group(suit_selector_focus_group)
 	else:
-		card_selector.open_selector(request.options, request.visible_to_player, request.action, request.amount, request.min_amount)
+		await card_selector.open_selector(request.options, request.visible_to_player, request.action, request.amount, request.min_amount)
 		set_focus_group(card_selector_focus_group)
 
 func set_focus_group(focus_group : FocusGroup):

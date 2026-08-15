@@ -12,6 +12,19 @@ var is_running:= false
 
 var previous_dictionary:= {}
 
+signal queue_empty
+
+func get_tokens_3d() -> Array[Token3d]:
+		if _update_queue.size() >= 0:
+			await queue_empty
+		
+		var return_tokens_3d: Array[Token3d] = []
+		var tokens_per_track = _token_tracks.map(func(x: TokenTrack3d): return x.tokens_3d)
+		for tokens in tokens_per_track:
+			return_tokens_3d += tokens
+		
+		return return_tokens_3d
+
 func get_token_tracks() -> Array[TokenTrack3d]:
 	var result: Array[TokenTrack3d] = []
 	for child in get_children():
@@ -59,5 +72,7 @@ func _process_suit_track_queue():
 				)
 		
 		await Util.await_all(callables)
+	
+	queue_empty.emit()
 	
 	is_running = false

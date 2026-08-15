@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=28 format=3 uid="uid://db07dth8iua8f"]
+[gd_resource type="Resource" script_class="CardBase" format=3 uid="uid://db07dth8iua8f"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://system/script/card/card_cost_modifier/card_cost_modifier.gd" id="1_q8tld"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_jue21"]
@@ -18,49 +18,41 @@
 
 [sub_resource type="Resource" id="Resource_q8tld"]
 script = ExtResource("5_5blab")
-selection_action = 1
 metadata/_custom_type_script = "uid://16samtkb1lb4"
 
 [sub_resource type="Resource" id="Resource_jue21"]
 script = ExtResource("3_ua8eq")
-which_contestant = 0
 collection_filters = Array[ExtResource("4_f3n6d")]([SubResource("Resource_q8tld")])
 metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
 
 [sub_resource type="Resource" id="Resource_rb8u6"]
 script = ExtResource("7_48i5a")
 collection_container = SubResource("Resource_jue21")
-key = "cards"
 metadata/_custom_type_script = "uid://3bcejrl3rpfw"
 
 [sub_resource type="Resource" id="Resource_xcxk3"]
 script = ExtResource("8_wrkh5")
 key = "cards"
-collection_filters = Array[ExtResource("4_f3n6d")]([])
 metadata/_custom_type_script = "uid://b8ux8avexlyhr"
 
 [sub_resource type="Resource" id="Resource_72no7"]
 script = ExtResource("9_c3nhx")
 collection_container = SubResource("Resource_xcxk3")
-key = "suits"
 metadata/_custom_type_script = "uid://cfrqeo27c4dgc"
 
 [sub_resource type="Resource" id="Resource_2v2ms"]
 script = ExtResource("8_wrkh5")
 key = "cards"
-collection_filters = Array[ExtResource("4_f3n6d")]([])
 metadata/_custom_type_script = "uid://b8ux8avexlyhr"
 
 [sub_resource type="Resource" id="Resource_ua8eq"]
 script = ExtResource("11_1vlsw")
 key = "suits"
-filter_mode = 0
 metadata/_custom_type_script = "uid://ba0lgn6ygtilc"
 
 [sub_resource type="Resource" id="Resource_f3n6d"]
 script = ExtResource("8_wrkh5")
 key = "cards"
-collection_filters = Array[ExtResource("4_f3n6d")]([])
 metadata/_custom_type_script = "uid://b8ux8avexlyhr"
 
 [sub_resource type="Resource" id="Resource_5blab"]
@@ -71,14 +63,11 @@ metadata/_custom_type_script = "uid://b1plf5m5kk3ib"
 
 [sub_resource type="Resource" id="Resource_7wu4x"]
 script = ExtResource("12_s0wu2")
-slice_direction = 0
 amount = 1
 metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
 
 [sub_resource type="Resource" id="Resource_jk8u0"]
 script = ExtResource("10_xknrn")
-which_contestant = 0
-insertion_point = 0
 collection_filters = Array[ExtResource("4_f3n6d")]([SubResource("Resource_ua8eq"), SubResource("Resource_5blab"), SubResource("Resource_7wu4x")])
 metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
@@ -96,12 +85,4 @@ base_cost = 3
 description = "Trade a card for the first different card of the same suit
 (If no other card is present, you redraw the same card)"
 on_play_card_actions = Array[ExtResource("2_jue21")]([SubResource("Resource_rb8u6"), SubResource("Resource_72no7"), SubResource("Resource_p1ccn")])
-on_discard_card_actions = Array[ExtResource("2_jue21")]([])
-on_banish_card_actions = Array[ExtResource("2_jue21")]([])
-on_turn_start_card_actions = Array[ExtResource("2_jue21")]([])
-on_turn_end_card_actions = Array[ExtResource("2_jue21")]([])
-on_hold_start_card_actions = Array[ExtResource("2_jue21")]([])
-on_hold_stay_card_actions = Array[ExtResource("2_jue21")]([])
-on_hold_end_card_actions = Array[ExtResource("2_jue21")]([])
-cost_modifiers = Array[ExtResource("1_q8tld")]([])
 metadata/_custom_type_script = "uid://dy4e7i5501yv5"

@@ -96,6 +96,8 @@
 [ext_resource type="Texture2D" uid="uid://cp4wiih01ktxp" path="res://_asset/_general/texture/t_spiked_bubble_02.png" id="78_f3ys7"]
 [ext_resource type="Texture2D" uid="uid://ketnefqmtrie" path="res://_asset/_general/texture/t_spiked_bubble_03.png" id="79_7mnyw"]
 [ext_resource type="Script" uid="uid://ccmy7q4sd7qkx" path="res://debate/opal/db_02/child_control_shake.gd" id="80_f3ys7"]
+[ext_resource type="Script" uid="uid://deyblpqc0v651" path="res://debate/_script/ui/play_area_selector_3d.gd" id="97_nolis"]
+[ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/token_selector_gui.tscn" id="98_68gxc"]
 
 [sub_resource type="Resource" id="Resource_463a1"]
 resource_name = "ev_db_opal_02_p1_turn_01a.tres"
@@ -450,7 +452,7 @@ ssao_intensity = 1.32
 ssao_power = 3.446096
 ssao_sharpness = 0.5
 
-[sub_resource type="Environment" id="Environment_7mnyw"]
+[sub_resource type="Environment" id="Environment_68gxc"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -623,7 +625,7 @@ manager = ExtResource("3_qnf5u")
 script = ExtResource("15_hklp8")
 metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
 
-[node name="SelectionManager" type="Node" parent="===MANAGER========" unique_id=1647373781 node_paths=PackedStringArray("card_selector", "suit_selector")]
+[node name="SelectionManager" type="Node" parent="===MANAGER========" unique_id=1647373781 node_paths=PackedStringArray("play_area_selector", "card_selector", "suit_selector")]
 script = ExtResource("16_huclo")
 input_handler = ExtResource("7_faur5")
 player_brain = ExtResource("17_uvud4")
@@ -631,6 +633,7 @@ hand_ui_focus_group = ExtResource("18_8rm3w")
 play_area_selector_focus_group = ExtResource("19_h1yg8")
 card_selector_focus_group = ExtResource("20_xvj30")
 suit_selector_focus_group = ExtResource("21_litdm")
+play_area_selector = NodePath("../../===UI========/PlayAreaSelectorGUI")
 card_selector = NodePath("../../===UI========/CardSelector")
 suit_selector = NodePath("../../===UI========/SuitSelector")
 metadata/_custom_type_script = "uid://syaosi1lkwul"
@@ -1874,7 +1877,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 8
-environment = SubResource("Environment_7mnyw")
+environment = SubResource("Environment_68gxc")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -1991,10 +1994,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 0.7146476
-offset_top = 0.4275262
-offset_right = 220.71458
-offset_bottom = 130.42752
+offset_left = -0.031807397
+offset_top = -0.060319867
+offset_right = 219.96812
+offset_bottom = 129.93968
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2047,10 +2050,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 0.7640049
-offset_top = 0.37697807
-offset_right = 220.764
-offset_bottom = 130.37708
+offset_left = -0.08770194
+offset_top = -1.135412
+offset_right = 219.9123
+offset_bottom = 128.86469
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2103,10 +2106,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 1.3714547
-offset_top = 1.3907027
-offset_right = 221.37152
-offset_bottom = 131.3907
+offset_left = -0.7996595
+offset_top = -0.81102777
+offset_right = 219.20041
+offset_bottom = 129.18896
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2159,10 +2162,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -2.888904
-offset_top = 2.4769456
-offset_right = 535.94885
-offset_bottom = 341.17722
+offset_left = 2.4677837
+offset_top = 2.1754763
+offset_right = 541.30554
+offset_bottom = 340.87573
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
@@ -2355,6 +2358,19 @@ grow_vertical = 0
 focus_mode = 2
 texture = ExtResource("57_q0c1o")
 metadata/focus_type = "submit"
+
+[node name="PlayAreaSelectorGUI" type="Control" parent="===UI========" unique_id=932388267 node_paths=PackedStringArray("board", "gameplay_camera")]
+layout_mode = 3
+anchor_right = 0.41700003
+anchor_bottom = 1.0
+offset_right = -0.6400757
+script = ExtResource("97_nolis")
+selector_packed_scene = ExtResource("98_68gxc")
+board = NodePath("../../===GAMEPLAY========/GameBoard")
+gameplay_camera = NodePath("../GameplayContainer/SubViewport/GameplayCamera")
+focus_group = ExtResource("19_h1yg8")
+player_brain = ExtResource("17_uvud4")
+metadata/_custom_type_script = "uid://deyblpqc0v651"
 
 [connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateSceneManager" method="start_debate" flags=7]
 [connection signal="on_label_updated" from="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label" to="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label/ScaleControl" method="animate_scale" unbinds=1]

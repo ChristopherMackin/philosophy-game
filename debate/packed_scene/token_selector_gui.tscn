@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cliclfm7gbavn"]
+
+[ext_resource type="Script" uid="uid://bap0173enyb56" path="res://debate/_script/ui/token_selector_gui.gd" id="1_m6nc3"]
+[ext_resource type="Texture2D" uid="uid://repj6csynu7c" path="res://_asset/_general/texture/t_selector.png" id="2_y7njb"]
+[ext_resource type="Script" uid="uid://dc8gq2l3o144t" path="res://system/script/focus_group/focus_group_signal_node.gd" id="3_trglx"]
+
+[node name="TokenSelectorGUI" type="Control" unique_id=225738919]
+layout_mode = 3
+anchors_preset = 0
+focus_mode = 2
+script = ExtResource("1_m6nc3")
+metadata/focus_property = "token"
+
+[node name="FocusGroupSignalNode" type="Node" parent="." unique_id=278707157]
+script = ExtResource("3_trglx")
+metadata/_custom_type_script = "uid://dc8gq2l3o144t"
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1574023316]
+visible = false
+layout_mode = 0
+offset_left = -64.0
+offset_top = -110.0
+offset_right = 64.0
+texture = ExtResource("2_y7njb")
+
+[connection signal="on_focus_entered" from="FocusGroupSignalNode" to="Icon" method="set_visible" binds= [true]]
+[connection signal="on_focus_exited" from="FocusGroupSignalNode" to="Icon" method="set_visible" binds= [false]]

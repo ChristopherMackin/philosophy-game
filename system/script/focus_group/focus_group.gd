@@ -10,7 +10,7 @@ var is_active_group: bool = false
 func on_group_selected():
 	is_active_group = true
 	
-	if ! focused_node: return
+	if !focused_node: return
 	
 	var signal_node = get_focus_group_signal_node(focused_node)
 	

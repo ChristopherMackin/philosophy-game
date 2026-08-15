@@ -7,7 +7,7 @@ class_name TokenTrack3d
 @export var token_count: int = 10
 @onready var placeholder_token: InstancePlaceholder = $Token3d
 
-var tokens_3d: Array[Token3d]
+var tokens_3d: Array[Token3d] = []
 var tokens: Array[Token]:
 	get(): return tokens_3d.map(func(x): return x.token) if tokens_3d.size() > 0 else []
 
