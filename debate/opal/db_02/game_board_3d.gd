@@ -43,11 +43,21 @@ func _process_suit_track_queue():
 		
 	while _update_queue.size() > 0:
 		var x = _update_queue.pop()
+		var callables: Array[Callable] = []
 		for suit in x:
 			var index = _token_tracks.find_custom(func(x: TokenTrack3d): return x.suit.name == suit)
 			if index != -1: 
-				var track = _token_tracks[index]
-				track.update_token_track(x[suit])
-		await GlobalTimer.wait_for_seconds(seconds_placement_delay)
+				callables.append(func():
+					var track = _token_tracks[index]
+					if track.remove_tokens(x[suit]):
+						await GlobalTimer.wait_for_seconds(seconds_placement_delay)
+					if track.add_tokens(x[suit]):
+						await GlobalTimer.wait_for_seconds(seconds_placement_delay)
+					if track.move_tokens(x[suit]):
+						await GlobalTimer.wait_for_seconds(seconds_placement_delay)
+
+				)
+		
+		await Util.await_all(callables)
 	
 	is_running = false

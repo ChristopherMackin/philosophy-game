@@ -75,12 +75,10 @@ tracks/2/keys = {
 "values": [Vector3(1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_wt2fd"]
-resource_name = "token_clear"
-
 [sub_resource type="Animation" id="Animation_26jun"]
 resource_local_to_scene = true
 resource_name = "token_set"
+length = 0.43333334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -133,11 +131,92 @@ tracks/3/keys = {
 }
 tracks/3/use_blend = true
 
+[sub_resource type="Animation" id="Animation_supr0"]
+resource_name = "token_move_01"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.44680429, 0, 0), Vector3(0.92851514, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.09963209),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 2), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.099619426),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-3.0559022e-10, -3.0559022e-10, -3.0559022e-10), Vector3(1.0801363e-08, 0.12165586, -0.25409743)]
+}
+
+[sub_resource type="Animation" id="Animation_wxsmg"]
+resource_name = "token_move_02"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.23333333, 0.4194821, 0.48614877),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(7.266115e-09, 0.05902055, -0.12327374), Vector3(7.863436e-09, 0.06556306, -0.1369388), Vector3(8.136097e-09, 0.068549536, -0.14317653), Vector3(7.450581e-09, 0.06045844, -0.126277), Vector3(-3.0559022e-10, -3.0559022e-10, -3.0559022e-10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.23333333, 0.48614877, 0.5861488),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.705113, 0, 0), Vector3(-0.9733161, 2.3148043e-08, -1.2188279e-08), Vector3(-1.1239921, 0, 0), Vector3(0.44851393, -2.2890381e-08, 3.3898637e-09), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.39090383, 0.45281544, 0.5861488),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1.2, 1.2, 0.8), Vector3(0.5, 0.5, 2), Vector3(1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_supr0"]
 _data = {
 &"RESET": SubResource("Animation_dqw0w"),
-&"token_clear": SubResource("Animation_wt2fd"),
-&"token_set": SubResource("Animation_26jun")
+&"token_on_enter": SubResource("Animation_26jun"),
+&"token_on_exit": SubResource("Animation_supr0"),
+&"token_on_reenter": SubResource("Animation_wxsmg")
 }
 
 [node name="Token3d" type="Node3D" unique_id=1918684495]
@@ -155,5 +234,3 @@ root_node = NodePath("../Token")
 libraries/ = SubResource("AnimationLibrary_supr0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=259144189]
-
-[connection signal="tree_entered" from="." to="AnimationPlayer" method="play" binds= ["token_set"]]
