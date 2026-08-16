@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://drcl6ot1amh17"]
+
+[ext_resource type="Script" uid="uid://hvhevcocubjx" path="res://debate/opal/db_02/card_3d.gd" id="1_yymxk"]
+[ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/card_gui/card_gui.tscn" id="2_g2vqb"]
+[ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_gui/tokenless_card_gui.tscn" id="3_kjbl7"]
+[ext_resource type="Script" uid="uid://ct7j27rex1yjk" path="res://system/script/card/suit_packed_scene.gd" id="4_8aq52"]
+[ext_resource type="PackedScene" uid="uid://bmxatnrtkqwmu" path="res://debate/packed_scene/card_gui/peace_card_gui.tscn" id="5_nnrdf"]
+[ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="6_ouw6a"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xtvt1"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Resource" id="Resource_u6bno"]
+script = ExtResource("4_8aq52")
+suit = ExtResource("6_ouw6a")
+packed_scene = ExtResource("5_nnrdf")
+metadata/_custom_type_script = "uid://ct7j27rex1yjk"
+
+[node name="Card3d" type="Sprite3D" unique_id=880513363 node_paths=PackedStringArray("card_parent")]
+layers = 32768
+pixel_size = 0.0002
+texture = SubResource("ViewportTexture_xtvt1")
+script = ExtResource("1_yymxk")
+default_card_gui_packed_scene = ExtResource("2_g2vqb")
+default_tokenless_card_gui_packed_scene = ExtResource("3_kjbl7")
+tokenless_card_gui_suit_packed_scenes = Array[ExtResource("4_8aq52")]([SubResource("Resource_u6bno")])
+card_parent = NodePath("SubViewport")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1916583745]
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1650235351]
+size = Vector2i(296, 256)
+
+[node name="CardGUI" parent="SubViewport" unique_id=370963301 instance_placeholder="res://debate/packed_scene/card_gui/card_gui.tscn"]
+offset_left = -148.0
+offset_top = -128.0
+offset_right = 222.0
+offset_bottom = 192.0
+pivot_offset = Vector2(0, 0)

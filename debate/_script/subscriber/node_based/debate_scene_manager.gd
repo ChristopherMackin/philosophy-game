@@ -35,6 +35,7 @@ class_name DebateSceneManager
 @export_group("Game State UI")
 @export var game_board: GameBoard3d
 @export var turn_ui: RichTextLableUpdateEmitter
+@export var play_stack: PlayStack
 @export var lines_cleared_ui: RichTextLableUpdateEmitter
 
 var is_animation_locked := false
@@ -63,6 +64,7 @@ func on_turn_end(contestant: Contestant):
 
 func on_card_played(card: Card, contestant : Contestant):
 	await update_everything()
+	await play_stack.add_card_to_play_stack(card)
 	
 	await query_event(Const.Concept.ON_PLAY)
 
