@@ -5,9 +5,12 @@ class_name FocusGroup
 signal on_select(data : Variant, what: String, type : String)
 signal on_focus_changed(focused_node : Node)
 
+signal on_group_selected
+signal on_group_deselected
+
 var is_active_group: bool = false
 
-func on_group_selected():
+func select_group():
 	is_active_group = true
 	
 	if !focused_node: return
@@ -17,8 +20,9 @@ func on_group_selected():
 	if !signal_node: return
 	
 	signal_node.on_focus_entered.emit()
+	on_group_selected.emit()
 
-func on_group_deselected():
+func deselect_group():
 	is_active_group = false
 	
 	if ! focused_node: return
@@ -28,6 +32,7 @@ func on_group_deselected():
 	if !signal_node: return
 	
 	signal_node.on_focus_exited.emit()
+	on_group_deselected.emit()
 
 var focused_node : Control
 

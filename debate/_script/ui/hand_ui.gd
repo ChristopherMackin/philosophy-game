@@ -19,6 +19,8 @@ class_name HandUi
 @export_group("Selection")
 @export var focus_group : FocusGroup
 @export var player_brain : PlayerBrain
+@export var selectable_color: Color = Color.WHITE
+@export var not_selectable_color: Color = Color.DARK_GRAY
 
 var cards_gui : Array[CardGUI]
 var card_slots : Array[Control]
@@ -26,12 +28,22 @@ var card_slots : Array[Control]
 var lock : Lock = Lock.new()
 
 func _ready():
+	on_group_deselected()
+	
 	for child in card_parent.get_children():
 		child.queue_free()
 	
 	card_parent.sort_children.connect(set_up_focus_connections, CONNECT_DEFERRED)
 	
 	focus_group.on_select.connect(on_select)
+	focus_group.on_group_selected.connect(on_group_selected)
+	focus_group.on_group_deselected.connect(on_group_deselected)
+
+func on_group_selected():
+	self.modulate = selectable_color
+
+func on_group_deselected():
+	self.modulate = not_selectable_color
 
 func on_select(data, what: String, _focus_type : String):
 	player_brain.make_selection(SelectionResponse.new(data, what))

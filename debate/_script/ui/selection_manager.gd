@@ -33,11 +33,11 @@ func _ready():
 
 func _on_handler_selected():
 	if active_focus_group:
-		active_focus_group.on_group_selected()
+		active_focus_group.select_group()
 
 func _on_handler_deselected():
 	if active_focus_group:
-		active_focus_group.on_group_deselected()
+		active_focus_group.deselect_group()
 
 func _handle_input(_delta, input):
 	if input.is_action_just_pressed("up"):
@@ -78,8 +78,8 @@ func focus_card_selector(request : SelectionRequest):
 		set_focus_group(card_selector_focus_group)
 
 func set_focus_group(focus_group : FocusGroup):
-	if active_focus_group: active_focus_group.on_group_deselected()
+	if active_focus_group: active_focus_group.deselect_group()
 	
 	active_focus_group = focus_group
 	
-	if active_focus_group: active_focus_group.on_group_selected()
+	if active_focus_group: active_focus_group.select_group()

@@ -424,7 +424,7 @@ suit = ExtResource("34_kdy34")
 packed_scene = ExtResource("33_k3amr")
 metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_g2w6u"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_mknjq"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sl1r7"]
@@ -1076,7 +1076,7 @@ text = "Play Stack"
 font_size = 128
 
 [node name="Card3d" parent="===GAMEPLAY========/GameBoardState/PlayStackHolder" unique_id=880513363 instance_placeholder="res://debate/packed_scene/card_gui/card_3d.tscn"]
-texture = SubResource("ViewportTexture_g2w6u")
+texture = SubResource("ViewportTexture_mknjq")
 
 [node name="GameBoard" type="Node3D" parent="===GAMEPLAY========" unique_id=505852231]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.021030277, 0.0037941113)
@@ -1211,7 +1211,6 @@ skeleton = NodePath("../..")
 
 [node name="===ENVIRONMENT========" type="Node3D" parent="." unique_id=1647520102]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
-visible = false
 
 [node name="EnvDbOpal02" parent="===ENVIRONMENT========" unique_id=472548192 instance=ExtResource("7_wwxuk")]
 
@@ -1241,7 +1240,6 @@ layers = 9
 
 [node name="===ACTOR========" type="Node3D" parent="." unique_id=1690436738]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
-visible = false
 
 [node name="JoyActor" parent="===ACTOR========" unique_id=2066360241 node_paths=PackedStringArray("character_animation_tree", "dialogue_area_override") instance=ExtResource("8_w340p")]
 character_animation_tree = NodePath("CharacterAnimationTree")
@@ -2182,10 +2180,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.432406
-offset_top = 0.12959835
-offset_right = 218.56754
-offset_bottom = 130.1296
+offset_left = -1.4641309
+offset_top = -1.0329732
+offset_right = 218.53581
+offset_bottom = 128.96703
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2238,10 +2236,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.80968696
-offset_top = -1.041573
-offset_right = 219.1903
-offset_bottom = 128.95851
+offset_left = -1.1821699
+offset_top = -0.11179572
+offset_right = 218.81783
+offset_bottom = 129.88829
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2294,10 +2292,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.1933305
-offset_top = -0.07212017
-offset_right = 218.80673
-offset_bottom = 129.92789
+offset_left = -0.9670666
+offset_top = -1.0430562
+offset_right = 219.03299
+offset_bottom = 128.95694
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2350,10 +2348,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 1.7220999
-offset_top = 2.4597814
-offset_right = 540.5599
-offset_bottom = 341.16003
+offset_left = -1.1137108
+offset_top = -1.7430229
+offset_right = 537.72406
+offset_bottom = 336.95724
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
@@ -2406,6 +2404,7 @@ tokenless_card_gui_suit_packed_scenes = Array[ExtResource("32_x0iaq")]([SubResou
 card_parent = NodePath("CurveContainer")
 focus_group = ExtResource("18_8rm3w")
 player_brain = ExtResource("17_uvud4")
+not_selectable_color = Color(0.48178923, 0.48178953, 0.48178947, 1)
 
 [node name="CurveContainer" type="Container" parent="===UI========/Hand" unique_id=1460115611]
 layout_mode = 1
