@@ -44,6 +44,9 @@ var _card_pivot: Vector2:
 	get():
 		return Vector2(card_size.x/2, card_size.y)
 
+var tween: Tween
+var tween_speed:= .4
+
 func _notification(what):
 	if what == NOTIFICATION_CHILD_ORDER_CHANGED:
 		queue_sort()
@@ -51,9 +54,17 @@ func _notification(what):
 		_sort_children()
 
 func _sort_children() -> void:
+	if tween: tween.kill()
+	
 	var cards := get_child_count()
 	if cards <= 0: return
-	elif cards == 1:
+	
+	tween = create_tween()
+	tween.set_parallel(true)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_SINE)
+	
+	if cards == 1:
 		var card := get_child(0)
 		var y_multiplier := hand_curve.sample(.5)
 		var rot_multiplier := rotation_curve.sample(.5)
@@ -62,8 +73,8 @@ func _sort_children() -> void:
 		var final_y: float = y_min + y_max * y_multiplier
 		
 		card.pivot_offset = _card_pivot
-		card.position = Vector2(final_x, final_y)
-		card.rotation_degrees = max_rotation_degrees * rot_multiplier
+		tween.tween_property(card, "position", Vector2(final_x, final_y), tween_speed)
+		tween.tween_property(card, "rotation_degrees", max_rotation_degrees * rot_multiplier, tween_speed)
 		
 		return
 	
@@ -85,5 +96,5 @@ func _sort_children() -> void:
 		var final_y: float = y_min + y_max * y_multiplier
 		
 		card.pivot_offset = _card_pivot
-		card.position = Vector2(final_x, final_y)
-		card.rotation_degrees = max_rotation_degrees * rot_multiplier
+		tween.tween_property(card, "position", Vector2(final_x, final_y), tween_speed)
+		tween.tween_property(card, "rotation_degrees", max_rotation_degrees * rot_multiplier, tween_speed)
