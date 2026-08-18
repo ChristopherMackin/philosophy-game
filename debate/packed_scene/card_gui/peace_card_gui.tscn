@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://_asset/debate/_general/texture/suit/t_faith_icon.png" id="5_yw3yo"]
 [ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://_asset/_general/font/TenorSans-Regular.ttf" id="6_78tlw"]
 [ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://_asset/_general/font/fahkwang/Fahkwang-Bold.ttf" id="7_vwcdj"]
-[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://_general/script/exposed_control_methods.gd" id="8_v3r2e"]
 [ext_resource type="Script" uid="uid://dc8gq2l3o144t" path="res://system/script/focus_group/focus_group_signal_node.gd" id="9_o5taa"]
 [ext_resource type="Script" uid="uid://cumbxctg3u56" path="res://debate/_script/ui/card_focus_animation.gd" id="10_bt0b4"]
 
@@ -160,17 +159,13 @@ text = "Place 2 [b]Structured Conversation[/b] tops.
 Cost -1 for ever [b]pentagram[/b] top in play"
 scroll_active = false
 
-[node name="ExposedControlMethods" type="Node" parent="." unique_id=2015462453 node_paths=PackedStringArray("root")]
-script = ExtResource("8_v3r2e")
-root = NodePath("..")
-
 [node name="FocusGroupSignalNode" type="Node" parent="." unique_id=1326167114]
 script = ExtResource("9_o5taa")
 metadata/_custom_type_script = "uid://dc8gq2l3o144t"
 
-[node name="CardFocusAnimation" type="Node" parent="." unique_id=677878142 node_paths=PackedStringArray("exposed_control_methods")]
+[node name="CardFocusAnimation" type="Node" parent="." unique_id=677878142 node_paths=PackedStringArray("card_base")]
 script = ExtResource("10_bt0b4")
-exposed_control_methods = NodePath("../ExposedControlMethods")
+card_base = NodePath("..")
 metadata/_custom_type_script = "uid://cumbxctg3u56"
 
 [connection signal="on_focus_entered" from="FocusGroupSignalNode" to="CardFocusAnimation" method="_on_focus_entered"]

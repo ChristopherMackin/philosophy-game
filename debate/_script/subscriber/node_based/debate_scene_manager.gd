@@ -56,7 +56,6 @@ func on_turn_start(contestant: Contestant):
 	
 	if contestant.character_is(player): input_manager.active_handler = selection_handler
 
-
 func on_turn_end(contestant: Contestant):
 	await update_everything()
 	if contestant.character_is(player): input_manager.active_handler = null
@@ -68,10 +67,7 @@ func on_card_played(card: Card, contestant : Contestant):
 	
 	await query_event(Const.Concept.ON_PLAY)
 
-func on_token_played(token: Token, suit: Suit, contestant : Contestant):	
-	if contestant.character_is(computer):
-		await GlobalTimer.wait_for_seconds(.5)
-	
+func on_token_played(token: Token, suit: Suit, contestant : Contestant):
 	await update_everything()
 
 func on_card_hold_updated(card : Card, active_contestant : Contestant):

@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bl81rf1rfjyuh" path="res://_asset/debate/_general/texture/card/t_card_token_location.png" id="9_k1f38"]
 [ext_resource type="Texture2D" uid="uid://cu6c40kdnmjcc" path="res://_asset/debate/_general/texture/token/t_test_token_col.png" id="10_hvx6j"]
 [ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://_asset/debate/_general/texture/token/t_faith_token_col.png" id="11_pex2d"]
-[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://_general/script/exposed_control_methods.gd" id="12_oyfk6"]
 [ext_resource type="Script" uid="uid://dc8gq2l3o144t" path="res://system/script/focus_group/focus_group_signal_node.gd" id="13_v7m6f"]
 [ext_resource type="Script" uid="uid://cumbxctg3u56" path="res://debate/_script/ui/card_focus_animation.gd" id="14_vo8an"]
 
@@ -223,16 +222,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("11_pex2d")
 
-[node name="ExposedControlMethods" type="Node" parent="." unique_id=1908794683 node_paths=PackedStringArray("root")]
-script = ExtResource("12_oyfk6")
-root = NodePath("..")
-
 [node name="FocusGroupSignalNode" type="Node" parent="." unique_id=2089907977]
 script = ExtResource("13_v7m6f")
 
-[node name="CardFocusAnimation" type="Node" parent="." unique_id=494077476 node_paths=PackedStringArray("exposed_control_methods")]
+[node name="CardFocusAnimation" type="Node" parent="." unique_id=494077476 node_paths=PackedStringArray("card_base")]
 script = ExtResource("14_vo8an")
-exposed_control_methods = NodePath("../ExposedControlMethods")
+card_base = NodePath("..")
 
 [connection signal="on_focus_entered" from="FocusGroupSignalNode" to="CardFocusAnimation" method="_on_focus_entered"]
 [connection signal="on_focus_exited" from="FocusGroupSignalNode" to="CardFocusAnimation" method="_on_focus_exited"]

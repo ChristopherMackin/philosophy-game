@@ -279,7 +279,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-3.0559022e-10, 0.0002599997, 0.35735977)]
+"values": [Vector3(0.05046, 0.0002599997, 0.35736)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -316,10 +316,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.4),
+"times": PackedFloat32Array(0, 0.16434099, 0.3023257, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-3.0559022e-10, 0.0002599997, 0.35735977), Vector3(-3.0559022e-10, 0.0002599997, 0.1874), Vector3(-3.0559022e-10, 0.0002599997, 0.17388387), Vector3(-3.0559022e-10, 0.0002599997, 0.1874)]
+"values": [Vector3(0.05046, 0.0002599997, 0.35736), Vector3(0.05046, 0.0002599997, 0.1874), Vector3(0.05046, 0.0002599997, 0.17388), Vector3(0.05046, 0.0002599997, 0.1874)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -348,7 +348,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_ntdmx"]
 resource_name = "card_exit"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -356,10 +356,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.010386765, 0.051036533, 0.11841418, 0.18286939),
+"times": PackedFloat32Array(0.005735406, 0.051036533, 0.1160885, 0.18286939),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-3.0559022e-10, 0.0002599997, 0.1874), Vector3(-3.0559022e-10, 0.0002599997, 0.17388387), Vector3(-3.0559022e-10, 0.0002599997, 0.1874), Vector3(-3.0559022e-10, 0.0002599997, 0.35735977)]
+"values": [Vector3(0.05046, 0.0002599997, 0.1874), Vector3(0.05046, 0.0002599997, 0.17388), Vector3(0.05046, 0.0002599997, 0.1874), Vector3(0.05046, 0.0002599997, 0.35736)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -825,6 +825,8 @@ texture = SubResource("ViewportTexture_ntdmx")
 
 [node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1817069595, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("73_hrfbg")
+theme_override_font_sizes/normal_font_size = 90
 
 [node name="ScaleControl" type="Node" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=1804293334 node_paths=PackedStringArray("target")]
 script = ExtResource("37_68gxc")
@@ -841,6 +843,8 @@ texture = SubResource("ViewportTexture_dqw0w")
 
 [node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1611050952, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("73_hrfbg")
+theme_override_font_sizes/normal_font_size = 90
 
 [node name="ScaleControl" type="Node" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=182257150 node_paths=PackedStringArray("target")]
 script = ExtResource("37_68gxc")
@@ -873,7 +877,8 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/default_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
 theme_override_colors/font_outline_color = Color(0.3529412, 0.3529412, 0.3529412, 1)
 theme_override_constants/outline_size = 14
-theme_override_font_sizes/normal_font_size = 64
+theme_override_fonts/normal_font = ExtResource("73_hrfbg")
+theme_override_font_sizes/normal_font_size = 80
 text = "3/3"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -886,7 +891,7 @@ curve = SubResource("Curve_wifvs")
 seconds = 0.3999999999999988
 
 [node name="PlayerHeldCard" type="Sprite3D" parent="===GAMEPLAY========/PlayerUi" unique_id=713849163 node_paths=PackedStringArray("card_parent", "animation_player")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.0559022e-10, 0.0002599997, 0.35735977)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.05046, 0.0002599997, 0.35736)
 layers = 32768
 pixel_size = 0.0003
 texture = SubResource("ViewportTexture_wifvs")
@@ -911,6 +916,22 @@ offset_right = 222.0
 offset_bottom = 192.0
 pivot_offset = Vector2(0, 0)
 
+[node name="HoldCardOutline" type="Sprite3D" parent="===GAMEPLAY========" unique_id=1667618651]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.050502777, 0, 0.1875763)
+layers = 32768
+pixel_size = 0.00025
+texture = ExtResource("55_2moqn")
+
+[node name="Label3D" type="Label3D" parent="===GAMEPLAY========/HoldCardOutline" unique_id=1403342799]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.05756569, 0.009819031, 4.2920156e-10)
+layers = 32768
+pixel_size = 0.0003
+outline_modulate = Color(0.3529412, 0.3529412, 0.3529412, 1)
+text = "HELD CARD"
+font = ExtResource("73_hrfbg")
+font_size = 50
+outline_size = 20
+
 [node name="CpiUi" type="Node3D" parent="===GAMEPLAY========" unique_id=468448481]
 
 [node name="CpuHandCounter" parent="===GAMEPLAY========/CpiUi" unique_id=1763425977 instance=ExtResource("24_78hq6")]
@@ -922,6 +943,8 @@ texture = SubResource("ViewportTexture_wt2fd")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(467383888, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("73_hrfbg")
+theme_override_font_sizes/normal_font_size = 90
 
 [node name="ScaleControl" type="Node" parent="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=1119974987 node_paths=PackedStringArray("target")]
 script = ExtResource("37_68gxc")
@@ -942,6 +965,8 @@ texture = SubResource("ViewportTexture_26jun")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1511716073, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("73_hrfbg")
+theme_override_font_sizes/normal_font_size = 90
 
 [node name="ScaleControl" type="Node" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=1511373967 node_paths=PackedStringArray("target")]
 script = ExtResource("37_68gxc")
@@ -962,6 +987,8 @@ texture = SubResource("ViewportTexture_quyfi")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(969618535, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("73_hrfbg")
+theme_override_font_sizes/normal_font_size = 90
 
 [node name="ScaleControl" type="Node" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=911647333 node_paths=PackedStringArray("target")]
 script = ExtResource("37_68gxc")
@@ -982,7 +1009,7 @@ texture = ExtResource("41_yt7fp")
 transform = Transform3D(0.97919446, 0.20292409, 0, -0.20292409, 0.97919446, 0, 0, 0, 1, -0.12706313, 0.02544824, -0.17663454)
 
 [node name="CounterUi" type="Sprite3D" parent="===GAMEPLAY========/GameBoardState/TurnCounter" unique_id=808771702]
-transform = Transform3D(0.62008154, 0.01752817, 0.04873137, -0.04960531, 0.032837845, 0.61939013, 0.014876191, -0.6211258, 0.034121267, -0.0018857867, 0.014972823, 0.0013057888)
+transform = Transform3D(0.6200816, 0.017528173, 0.04873137, -0.04960531, 0.032837845, 0.61939013, 0.014876191, -0.6211258, 0.034121267, -0.0006714016, 0.015224487, 0.0013057888)
 layers = 32768
 pixel_size = 0.0005
 shaded = true
@@ -1001,7 +1028,8 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/default_color = Color(0.36078432, 0.36078432, 0.36078432, 1)
-theme_override_font_sizes/normal_font_size = 64
+theme_override_fonts/normal_font = ExtResource("73_hrfbg")
+theme_override_font_sizes/normal_font_size = 90
 text = "15"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1043,7 +1071,8 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/default_color = Color(0.36078432, 0.36078432, 0.36078432, 1)
-theme_override_font_sizes/normal_font_size = 64
+theme_override_fonts/normal_font = ExtResource("73_hrfbg")
+theme_override_font_sizes/normal_font_size = 90
 text = "7"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1067,13 +1096,6 @@ default_card_gui_packed_scene = ExtResource("30_y0dq0")
 default_tokenless_card_gui_packed_scene = ExtResource("31_5a0yb")
 tokenless_card_gui_suit_packed_scenes = Array[ExtResource("32_x0iaq")]([SubResource("Resource_vpghu")])
 card_3d = ExtResource("57_ntdmx")
-
-[node name="Label" type="Label3D" parent="===GAMEPLAY========/GameBoardState/PlayStackHolder" unique_id=617281923]
-transform = Transform3D(0.7679931, 0, 0, 0, 0.76799303, 0, 0, -3.5527137e-15, 0.7679931, 0, 0.047416702, 0.00017668307)
-layers = 32768
-pixel_size = 0.0001
-text = "Play Stack"
-font_size = 128
 
 [node name="Card3d" parent="===GAMEPLAY========/GameBoardState/PlayStackHolder" unique_id=880513363 instance_placeholder="res://debate/packed_scene/card_gui/card_3d.tscn"]
 texture = SubResource("ViewportTexture_mknjq")
@@ -2180,10 +2202,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.4641309
-offset_top = -1.0329732
-offset_right = 218.53581
-offset_bottom = 128.96703
+offset_left = -0.9694597
+offset_top = 0.8605678
+offset_right = 219.03047
+offset_bottom = 130.86057
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2236,10 +2258,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.1821699
-offset_top = -0.11179572
-offset_right = 218.81783
-offset_bottom = 129.88829
+offset_left = -0.56657714
+offset_top = -1.2970393
+offset_right = 219.43343
+offset_bottom = 128.70305
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2292,10 +2314,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.9670666
-offset_top = -1.0430562
-offset_right = 219.03299
-offset_bottom = 128.95694
+offset_left = -0.6219662
+offset_top = -0.65835154
+offset_right = 219.3781
+offset_bottom = 129.34164
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2348,10 +2370,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.1137108
-offset_top = -1.7430229
-offset_right = 537.72406
-offset_bottom = 336.95724
+offset_left = 2.1445527
+offset_top = 2.9898112
+offset_right = 540.9823
+offset_bottom = 341.69006
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
@@ -2410,9 +2432,9 @@ not_selectable_color = Color(0.48178923, 0.48178953, 0.48178947, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-offset_left = 650.0
+offset_left = 700.0
 offset_top = -200.0
-offset_right = -270.00195
+offset_right = -220.00244
 offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -2424,21 +2446,6 @@ x_sep = 50
 y_min = 0
 y_max = -25
 card_size = Vector2(370, 320)
-
-[node name="CardGUI" parent="===UI========/Hand/CurveContainer" unique_id=796663575 instance_placeholder="res://debate/packed_scene/card_gui/card_gui.tscn"]
-layout_mode = 2
-
-[node name="CardGUI2" parent="===UI========/Hand/CurveContainer" unique_id=2052537898 instance_placeholder="res://debate/packed_scene/card_gui/card_gui.tscn"]
-layout_mode = 2
-
-[node name="CardGUI3" parent="===UI========/Hand/CurveContainer" unique_id=1690869400 instance_placeholder="res://debate/packed_scene/card_gui/card_gui.tscn"]
-layout_mode = 2
-
-[node name="CardGUI4" parent="===UI========/Hand/CurveContainer" unique_id=75943944 instance_placeholder="res://debate/packed_scene/card_gui/card_gui.tscn"]
-layout_mode = 2
-
-[node name="CardGUI5" parent="===UI========/Hand/CurveContainer" unique_id=421116664 instance_placeholder="res://debate/packed_scene/card_gui/card_gui.tscn"]
-layout_mode = 2
 
 [node name="SuitSelector" type="Panel" parent="===UI========" unique_id=1229257299 node_paths=PackedStringArray("card_container")]
 visible = false

@@ -34,3 +34,9 @@ func update_card(card : Card) :
 		if artwork: 
 			artwork.texture = card.token_artwork
 			shadow.visible = !artwork.texture == null
+
+func animate_hold():
+	queue_free()
+
+func animate_play():
+	queue_free()
