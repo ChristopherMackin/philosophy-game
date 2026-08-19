@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=6 format=3 uid="uid://hn3fmi2k8xsl"]
+[gd_resource type="Resource" script_class="CardBase" format=3 uid="uid://hn3fmi2k8xsl"]
 
 [ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://system/script/card/card_cost_modifier/card_cost_modifier.gd" id="1_fdhlw"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="1_jvfby"]
@@ -11,14 +11,6 @@ script = ExtResource("1_jvfby")
 suit = ExtResource("2_l6g5l")
 title = "Basic Others"
 base_cost = 1
-description = "Does Nothing"
+description = "[color=#8d8d8d]Only a life lived for others is a life worthwhile.
+- Albert Einstein"
 token_data = ExtResource("4_d7nwq")
-on_play_card_actions = Array[ExtResource("2_akm83")]([])
-on_discard_card_actions = Array[ExtResource("2_akm83")]([])
-on_banish_card_actions = Array[ExtResource("2_akm83")]([])
-on_turn_start_card_actions = Array[ExtResource("2_akm83")]([])
-on_turn_end_card_actions = Array[ExtResource("2_akm83")]([])
-on_hold_start_card_actions = Array[ExtResource("2_akm83")]([])
-on_hold_stay_card_actions = Array[ExtResource("2_akm83")]([])
-on_hold_end_card_actions = Array[ExtResource("2_akm83")]([])
-cost_modifiers = Array[ExtResource("1_fdhlw")]([])

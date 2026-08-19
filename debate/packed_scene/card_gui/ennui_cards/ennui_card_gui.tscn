@@ -1,0 +1,299 @@
+[gd_scene format=3 uid="uid://bcae3y6tw4me5"]
+
+[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://debate/_script/ui/card_gui.gd" id="1_h7uj8"]
+[ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://_asset/debate/_general/texture/card/t_card_base.png" id="2_kkjbd"]
+[ext_resource type="Texture2D" uid="uid://dgus730v33rk7" path="res://_asset/debate/_general/texture/card/t_card_description.png" id="3_eun6l"]
+[ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://_asset/_general/font/TenorSans-Regular.ttf" id="4_xsi5c"]
+[ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://_asset/_general/font/fahkwang/Fahkwang-Bold.ttf" id="5_84fus"]
+[ext_resource type="Texture2D" uid="uid://ddjknx5qqr87" path="res://_asset/debate/_general/texture/card/t_card_set_information.png" id="6_ddarf"]
+[ext_resource type="Texture2D" uid="uid://24qujypn223m" path="res://_asset/debate/_general/texture/card/t_clock_icon.png" id="7_4n4ba"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://_asset/debate/_general/texture/suit/t_faith_icon.png" id="8_lbini"]
+[ext_resource type="Texture2D" uid="uid://bfpxej2kvhobt" path="res://_asset/debate/_general/texture/card/t_masking_tape_title.png" id="9_3c4u6"]
+[ext_resource type="Texture2D" uid="uid://bl81rf1rfjyuh" path="res://_asset/debate/_general/texture/card/t_card_token_location.png" id="9_a1ylb"]
+[ext_resource type="Texture2D" uid="uid://cu6c40kdnmjcc" path="res://_asset/debate/_general/texture/token/t_test_token_col.png" id="10_0uvkp"]
+[ext_resource type="FontFile" uid="uid://bhrgkhn1hsnfo" path="res://_asset/_general/font/PermanentMarker.ttf" id="10_m1iel"]
+[ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://_asset/debate/_general/texture/token/t_faith_token_col.png" id="11_1w0tq"]
+[ext_resource type="Texture2D" uid="uid://dvuw4px2q6ili" path="res://_asset/debate/_general/texture/card/t_masking_tape_body.png" id="11_qe5ei"]
+[ext_resource type="Script" uid="uid://dc8gq2l3o144t" path="res://system/script/focus_group/focus_group_signal_node.gd" id="12_825hg"]
+[ext_resource type="Script" uid="uid://cumbxctg3u56" path="res://debate/_script/ui/card_focus_animation.gd" id="13_61lil"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ld4d5"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5xdp"]
+content_margin_left = 10.0
+content_margin_top = 0.0
+content_margin_right = 10.0
+content_margin_bottom = 0.0
+
+[node name="CardGUI" type="Control" unique_id=370963301 node_paths=PackedStringArray("card_bg", "title", "artwork", "shadow", "description", "cost", "icon")]
+custom_minimum_size = Vector2(370, 320)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -160.0
+offset_right = 185.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(185, 320)
+script = ExtResource("1_h7uj8")
+card_bg = NodePath("CardBG")
+title = NodePath("CardBG/Title")
+artwork = NodePath("CardBG/CardTokenLocation/Token")
+shadow = NodePath("CardBG/CardTokenLocation/Shadow")
+description = NodePath("CardBG/CardDescription/Description")
+cost = NodePath("CardBG/CostIcon/Cost")
+icon = NodePath("CardBG/SuitIcon")
+metadata/focus_property = "card"
+
+[node name="Shadow" type="TextureRect" parent="." unique_id=62878429]
+modulate = Color(0, 0, 0, 0.0745098)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 10.0
+offset_right = -9.99997
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kkjbd")
+
+[node name="CardBG" type="TextureRect" parent="." unique_id=1769168594]
+self_modulate = Color(1, 0.69411767, 0.26666668, 1)
+layout_mode = 0
+offset_right = 370.0
+offset_bottom = 320.0
+texture = ExtResource("2_kkjbd")
+
+[node name="CardDescription" type="TextureRect" parent="CardBG" unique_id=1547244308]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.125
+anchor_right = 0.595
+anchor_bottom = 1.0
+offset_right = -0.15000916
+texture = ExtResource("3_eun6l")
+
+[node name="Description" type="RichTextLabel" parent="CardBG/CardDescription" unique_id=1908881171]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_fonts/normal_font = ExtResource("4_xsi5c")
+theme_override_fonts/bold_font = ExtResource("5_84fus")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ld4d5")
+bbcode_enabled = true
+text = "Place 2 [b]Structured Conversation[/b] tops.
+
+Cost -1 for ever [b]pentagram[/b] top in play"
+scroll_active = false
+
+[node name="SetInfo" type="TextureRect" parent="CardBG" unique_id=287386870]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.814
+anchor_top = 0.87500006
+anchor_right = 1.001
+anchor_bottom = 1.0
+offset_left = 0.06997681
+offset_top = -6.1035156e-05
+offset_right = -0.12005615
+offset_bottom = -3.0517578e-05
+texture = ExtResource("6_ddarf")
+
+[node name="CardSetNumber" type="Label" parent="CardBG/SetInfo" unique_id=1268837036]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_fonts/font = ExtResource("4_xsi5c")
+theme_override_font_sizes/font_size = 16
+text = "12/78"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostIcon" type="TextureRect" parent="CardBG" unique_id=1711034036]
+self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
+layout_mode = 0
+offset_left = 232.0
+offset_top = 200.0
+offset_right = 292.0
+offset_bottom = 260.0
+texture = ExtResource("7_4n4ba")
+stretch_mode = 5
+
+[node name="Cost" type="Label" parent="CardBG/CostIcon" unique_id=2095905032]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.117
+anchor_top = 0.217
+anchor_right = 0.9
+anchor_bottom = 1.0
+offset_left = -0.0200005
+offset_top = -0.0200005
+theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_fonts/font = ExtResource("4_xsi5c")
+theme_override_font_sizes/font_size = 30
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SuitIcon" type="TextureRect" parent="CardBG" unique_id=399985266]
+self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
+layout_mode = 0
+offset_left = 298.0
+offset_top = 200.0
+offset_right = 358.0
+offset_bottom = 260.0
+texture = ExtResource("8_lbini")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="CardBG" unique_id=1351836744]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.125
+theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_fonts/font = ExtResource("4_xsi5c")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y5xdp")
+text = "Structured Argument"
+vertical_alignment = 1
+
+[node name="TapeCovering" type="Control" parent="CardBG" unique_id=1707773919]
+modulate = Color(1, 1, 1, 0.9411765)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HeaderTape01" type="TextureRect" parent="CardBG/TapeCovering" unique_id=403600251]
+layout_mode = 0
+offset_left = 15.821899
+offset_top = -35.0
+offset_right = 133.8219
+offset_bottom = 26.0
+rotation = 0.15937787
+scale = Vector2(1.5052052, 1.5052052)
+texture = ExtResource("9_3c4u6")
+
+[node name="HeaderTape02" type="TextureRect" parent="CardBG/TapeCovering" unique_id=1775839834]
+layout_mode = 0
+offset_left = 313.32178
+offset_top = 82.5
+offset_right = 431.32178
+offset_bottom = 143.5
+rotation = 3.2098732
+scale = Vector2(1.5052052, 1.5052052)
+texture = ExtResource("9_3c4u6")
+
+[node name="HeaderLabel" type="Label" parent="CardBG/TapeCovering" unique_id=678701913]
+layout_mode = 0
+offset_left = 80.0
+offset_top = -26.25
+offset_right = 306.0
+offset_bottom = 88.75
+rotation = 0.05614529
+theme_override_colors/font_color = Color(0.23, 0.23, 0.23, 0.9490196)
+theme_override_fonts/font = ExtResource("10_m1iel")
+theme_override_font_sizes/font_size = 62
+text = "Vapor"
+
+[node name="BodyTape" type="TextureRect" parent="CardBG/TapeCovering" unique_id=1545395285]
+layout_mode = 0
+offset_left = -12.173157
+offset_top = 55.0
+offset_right = 189.82684
+offset_bottom = 198.0
+rotation = 0.06574465
+scale = Vector2(1.3653247, 1.3653247)
+texture = ExtResource("11_qe5ei")
+
+[node name="BodyLabel" type="Label" parent="CardBG/TapeCovering" unique_id=1092639077]
+layout_mode = 0
+offset_left = -12.499996
+offset_top = 144.99998
+offset_right = 213.5
+offset_bottom = 264.0
+rotation = -0.20603636
+theme_override_colors/font_color = Color(0.23, 0.23, 0.23, 0.9490196)
+theme_override_constants/line_spacing = -35
+theme_override_fonts/font = ExtResource("10_m1iel")
+theme_override_font_sizes/font_size = 40
+text = "Does
+Nothing"
+horizontal_alignment = 1
+
+[node name="CardTokenLocation" type="TextureRect" parent="CardBG" unique_id=1237016836]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.616
+anchor_top = 0.144
+anchor_right = 0.981
+anchor_bottom = 0.566
+offset_left = 0.0799555
+offset_top = -0.0800018
+offset_right = 0.0299672
+offset_bottom = -0.120041
+texture = ExtResource("9_a1ylb")
+expand_mode = 1
+
+[node name="Shadow" type="TextureRect" parent="CardBG/CardTokenLocation" unique_id=1446546923]
+self_modulate = Color(0, 0, 0, 0.34902)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.026
+anchor_right = 0.974
+anchor_bottom = 0.974
+offset_left = -7.41739
+offset_top = 6.16284
+offset_right = -7.3974
+offset_bottom = 6.18283
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_0uvkp")
+
+[node name="Token" type="TextureRect" parent="CardBG/CardTokenLocation" unique_id=7661385]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.026
+anchor_right = 0.974
+anchor_bottom = 0.974
+offset_left = -0.00999999
+offset_top = -0.010022879
+offset_right = 0.010009766
+offset_bottom = 0.010009766
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_1w0tq")
+
+[node name="FocusGroupSignalNode" type="Node" parent="." unique_id=2089907977]
+script = ExtResource("12_825hg")
+
+[node name="CardFocusAnimation" type="Node" parent="." unique_id=494077476 node_paths=PackedStringArray("card_base")]
+script = ExtResource("13_61lil")
+card_base = NodePath("..")
+
+[connection signal="on_focus_entered" from="FocusGroupSignalNode" to="CardFocusAnimation" method="_on_focus_entered"]
+[connection signal="on_focus_exited" from="FocusGroupSignalNode" to="CardFocusAnimation" method="_on_focus_exited"]

@@ -18,6 +18,7 @@ script = ExtResource("1_7mdk1")
 suit = ExtResource("1_tj2a4")
 title = "Basic Doubt"
 base_cost = 1
-description = "Does Nothing"
+description = "[color=#8d8d8d]Doubt is the incentive to truth and inquiry leads the way.
+- Hosea Ballou"
 token_data = ExtResource("4_1bfdo")
 on_play_card_actions = Array[ExtResource("2_qitff")]([SubResource("Resource_wifvs")])
