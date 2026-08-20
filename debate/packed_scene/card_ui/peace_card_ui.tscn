@@ -2,20 +2,13 @@
 
 [ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://debate/_script/ui/card_ui.gd" id="1_bq4c2"]
 [ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://_asset/debate/_general/texture/card/t_card_base.png" id="2_vkr7h"]
-[ext_resource type="Shader" uid="uid://tnou2ig6rqyn" path="res://_general/style/color_swap.gdshader" id="3_aw4th"]
-[ext_resource type="Texture2D" uid="uid://dcddfgqbb0arx" path="res://_asset/debate/_general/texture/card/t_tokenless_card_bg.png" id="4_3y6m8"]
+[ext_resource type="Texture2D" uid="uid://bj7hke57dh5a5" path="res://_asset/debate/_general/texture/card/t_tokenless_description.png" id="3_bq4c2"]
 [ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://_asset/debate/_general/texture/suit/t_faith_icon.png" id="5_yw3yo"]
 [ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://_asset/_general/font/TenorSans-Regular.ttf" id="6_78tlw"]
+[ext_resource type="Texture2D" uid="uid://ccw84ml2464p1" path="res://_asset/debate/_general/texture/card/t_card_cost.png" id="6_vkr7h"]
 [ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://_asset/_general/font/fahkwang/Fahkwang-Bold.ttf" id="7_vwcdj"]
 [ext_resource type="Script" uid="uid://dc8gq2l3o144t" path="res://system/script/focus_group/focus_group_signal_node.gd" id="9_o5taa"]
 [ext_resource type="Script" uid="uid://cumbxctg3u56" path="res://debate/_script/ui/card_focus_animation.gd" id="10_bt0b4"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3y6m8"]
-resource_local_to_scene = true
-shader = ExtResource("3_aw4th")
-shader_parameter/target_color = Color(0.0117647, 1, 0, 1)
-shader_parameter/replace_color = Color(0.278431, 0.278431, 0.278431, 1)
-shader_parameter/tolerance = 0.8
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5xdp"]
 content_margin_left = 10.0
@@ -49,7 +42,7 @@ script = ExtResource("1_bq4c2")
 card_bg = NodePath("CardBG")
 title = NodePath("CardBG/Title")
 description = NodePath("CardBG/Description")
-cost = NodePath("CardBG/Cost")
+cost = NodePath("CardBG/CostIcon/Cost")
 icon = NodePath("CardBG/SuitIcon")
 metadata/focus_property = "card"
 
@@ -68,11 +61,26 @@ grow_vertical = 2
 texture = ExtResource("2_vkr7h")
 
 [node name="CardBG" type="TextureRect" parent="." unique_id=755276418]
-material = SubResource("ShaderMaterial_3y6m8")
+self_modulate = Color(0.2784314, 0.2784314, 0.2784314, 1)
 layout_mode = 0
 offset_right = 370.0
 offset_bottom = 320.0
-texture = ExtResource("4_3y6m8")
+texture = ExtResource("2_vkr7h")
+
+[node name="Body" type="TextureRect" parent="CardBG" unique_id=343982197]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -267.0
+offset_right = 185.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_bq4c2")
+stretch_mode = 2
 
 [node name="SuitIcon" type="TextureRect" parent="CardBG" unique_id=443842195]
 self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
@@ -118,17 +126,29 @@ text = "12/78"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cost" type="Label" parent="CardBG" unique_id=1261707303]
+[node name="CostIcon" type="TextureRect" parent="CardBG" unique_id=1961336983]
+self_modulate = Color(0.13725491, 0.08627451, 0.05882353, 1)
+layout_mode = 0
+offset_left = 315.0
+offset_top = 238.74997
+offset_right = 355.0
+offset_bottom = 287.75
+texture = ExtResource("6_vkr7h")
+stretch_mode = 3
+
+[node name="Cost" type="Label" parent="CardBG/CostIcon" unique_id=868883778]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.117
-anchor_top = 0.217
-anchor_right = 0.9
-anchor_bottom = 1.0
-offset_left = 267.821
-offset_top = 172.535
-offset_right = 25.1111
-offset_bottom = -32.0247
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.75
+offset_top = -18.0
+offset_right = 7.25
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.964706, 0.964706, 0.964706, 1)
 theme_override_fonts/font = ExtResource("6_78tlw")
 theme_override_font_sizes/font_size = 30

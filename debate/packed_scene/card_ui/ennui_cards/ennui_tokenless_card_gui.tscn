@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://vjako3fddmrg"]
+
+[ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_ui/tokenless_card_ui.tscn" id="1_2wj78"]
+[ext_resource type="Texture2D" uid="uid://bfpxej2kvhobt" path="res://_asset/debate/_general/texture/card/t_masking_tape_title.png" id="2_27n8y"]
+[ext_resource type="FontFile" uid="uid://bhrgkhn1hsnfo" path="res://_asset/_general/font/PermanentMarker.ttf" id="3_e1cmu"]
+[ext_resource type="Texture2D" uid="uid://dvuw4px2q6ili" path="res://_asset/debate/_general/texture/card/t_masking_tape_body.png" id="4_vn3bu"]
+
+[node name="TokenlessCardGUI" unique_id=1419343486 instance=ExtResource("1_2wj78")]
+
+[node name="TapeCovering" type="Control" parent="CardBG" parent_id_path=PackedInt32Array(1068024596) index="6" unique_id=1339406597]
+modulate = Color(1, 1, 1, 0.9411765)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HeaderTape01" type="TextureRect" parent="CardBG/TapeCovering" index="0" unique_id=328808867]
+layout_mode = 0
+offset_left = 38.321823
+offset_top = -31.25
+offset_right = 156.32182
+offset_bottom = 29.75
+rotation = 0.15937787
+scale = Vector2(1.5052052, 1.5052052)
+texture = ExtResource("2_27n8y")
+
+[node name="HeaderTape02" type="TextureRect" parent="CardBG/TapeCovering" index="1" unique_id=668010481]
+layout_mode = 0
+offset_left = 335.82172
+offset_top = 86.25
+offset_right = 453.82172
+offset_bottom = 147.25
+rotation = 3.2098732
+scale = Vector2(1.5052052, 1.5052052)
+texture = ExtResource("2_27n8y")
+
+[node name="HeaderLabel" type="Label" parent="CardBG/TapeCovering" index="2" unique_id=126702336]
+layout_mode = 0
+offset_left = 102.49992
+offset_top = -22.5
+offset_right = 328.49994
+offset_bottom = 92.5
+rotation = 0.05614529
+theme_override_colors/font_color = Color(0.23, 0.23, 0.23, 0.9490196)
+theme_override_fonts/font = ExtResource("3_e1cmu")
+theme_override_font_sizes/font_size = 62
+text = "Empty"
+
+[node name="BodyTape" type="TextureRect" parent="CardBG/TapeCovering" index="3" unique_id=1595975968]
+layout_mode = 0
+offset_left = 56.576843
+offset_top = 66.25
+offset_right = 258.57684
+offset_bottom = 209.25
+rotation = 0.06574465
+scale = Vector2(1.3653247, 1.3653247)
+texture = ExtResource("4_vn3bu")
+
+[node name="BodyLabel" type="Label" parent="CardBG/TapeCovering" index="4" unique_id=582331401]
+layout_mode = 0
+offset_left = 56.25001
+offset_top = 156.24998
+offset_right = 282.25
+offset_bottom = 275.25
+rotation = -0.20603636
+theme_override_colors/font_color = Color(0.23, 0.23, 0.23, 0.9490196)
+theme_override_constants/line_spacing = -35
+theme_override_fonts/font = ExtResource("3_e1cmu")
+theme_override_font_sizes/font_size = 40
+text = "Does
+Nothing"
+horizontal_alignment = 1

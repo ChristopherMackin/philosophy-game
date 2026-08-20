@@ -8,12 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_ui/tokenless_card_ui.tscn" id="3_32kqh"]
 [ext_resource type="PackedScene" uid="uid://bmxatnrtkqwmu" path="res://debate/packed_scene/card_ui/peace_card_ui.tscn" id="3_v6n17"]
 [ext_resource type="Script" uid="uid://du0wp68cutphq" path="res://debate/_script/ui/card_ui_factory/suit_card_ui_factory.gd" id="4_awldg"]
-[ext_resource type="PackedScene" uid="uid://bvnvovyqn5v4w" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_peace_card_ui.tscn" id="4_xbwqh"]
+[ext_resource type="PackedScene" uid="uid://13is8xrc6y7q" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_peace_card_ui.tscn" id="4_xbwqh"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="5_rc8ig"]
 [ext_resource type="Script" uid="uid://3ajnh5fdykvx" path="res://debate/_script/ui/card_ui_factory/bucket_card_ui_factory.gd" id="6_fl5vf"]
-[ext_resource type="PackedScene" uid="uid://bcae3y6tw4me5" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_card_ui.tscn" id="7_bjoli"]
-[ext_resource type="PackedScene" uid="uid://b2j3lbtgeqx3m" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_tokenless_card_ui.tscn" id="8_stjoh"]
-[ext_resource type="Script" uid="uid://tkld5vp51fi1" path="res://system/script/rule/current_round_rule.gd" id="10_c3q3r"]
+[ext_resource type="PackedScene" uid="uid://xyt4gxt1st16" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_card_ui.tscn" id="7_bjoli"]
+[ext_resource type="PackedScene" uid="uid://vjako3fddmrg" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_tokenless_card_gui.tscn" id="8_5aiml"]
+[ext_resource type="Script" uid="uid://cgsr0p1sth0wy" path="res://system/script/rule/expression_rule.gd" id="10_5aiml"]
 [ext_resource type="Script" uid="uid://ck2rt2uwm6814" path="res://debate/_script/ui/card_ui_factory/rule_card_ui_factory.gd" id="11_hqpx2"]
 
 [sub_resource type="Resource" id="Resource_otymd"]
@@ -30,7 +30,7 @@ metadata/_custom_type_script = "uid://du0wp68cutphq"
 [sub_resource type="Resource" id="Resource_xhuwd"]
 script = ExtResource("1_sss4s")
 token_card_gui = ExtResource("7_bjoli")
-tokenless_card_gui = ExtResource("8_stjoh")
+tokenless_card_gui = ExtResource("8_5aiml")
 metadata/_custom_type_script = "uid://d4fneioflw7dl"
 
 [sub_resource type="Resource" id="Resource_k30nx"]
@@ -38,15 +38,15 @@ script = ExtResource("6_fl5vf")
 buckets = Array[ExtResource("1_kif7v")]([SubResource("Resource_8lmsu"), SubResource("Resource_xhuwd")])
 metadata/_custom_type_script = "uid://3ajnh5fdykvx"
 
-[sub_resource type="Resource" id="Resource_qhnih"]
-resource_name = "RU: CurrentRoundRule"
-script = ExtResource("10_c3q3r")
-current_round = 1
-metadata/_custom_type_script = "uid://tkld5vp51fi1"
-
 [sub_resource type="Resource" id="Resource_xl775"]
+resource_name = "RU: Exp: curre"
+script = ExtResource("10_5aiml")
+expression = "current_round <= 4"
+metadata/_custom_type_script = "uid://cgsr0p1sth0wy"
+
+[sub_resource type="Resource" id="Resource_xbwqh"]
 script = ExtResource("11_hqpx2")
-rule = SubResource("Resource_qhnih")
+rule = SubResource("Resource_xl775")
 bb = ExtResource("2_5aiml")
 card_ui_factory = SubResource("Resource_k30nx")
 metadata/_custom_type_script = "uid://ck2rt2uwm6814"
@@ -64,7 +64,7 @@ metadata/_custom_type_script = "uid://du0wp68cutphq"
 
 [sub_resource type="Resource" id="Resource_vpghu"]
 script = ExtResource("6_fl5vf")
-buckets = Array[ExtResource("1_kif7v")]([SubResource("Resource_xl775"), SubResource("Resource_u6bno")])
+buckets = Array[ExtResource("1_kif7v")]([SubResource("Resource_xbwqh"), SubResource("Resource_u6bno")])
 metadata/_custom_type_script = "uid://3ajnh5fdykvx"
 
 [sub_resource type="Resource" id="Resource_wifvs"]
