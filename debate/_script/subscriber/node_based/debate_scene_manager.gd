@@ -57,8 +57,8 @@ func on_turn_start(contestant: Contestant):
 	if contestant.character_is(player): input_manager.active_handler = selection_handler
 
 func on_turn_end(contestant: Contestant):
-	await update_everything()
 	if contestant.character_is(player): input_manager.active_handler = null
+	await update_everything()
 	await query_event(Const.Concept.ON_TURN_END)
 
 func on_card_played(card: Card, contestant : Contestant):
@@ -108,7 +108,7 @@ func update_everything():
 	await update_board_statue_ui()
 
 func update_player_ui():
-	if hand_ui: await hand_ui.update_hand(manager.player.hand)
+	if hand_ui: hand_ui.update_hand(manager.player.hand)
 	if hold_area_ui: await hold_area_ui.set_hold_card(manager.player.held_card.get_card_at_index(0))
 	if energy_ui: await energy_ui.update_label(str(manager.player.current_energy) + "/" + str(manager.player.energy_level))
 	if draw_ui: await draw_ui.update_label(str(manager.player.draw_pile.size()))

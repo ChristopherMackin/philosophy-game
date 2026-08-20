@@ -2,11 +2,16 @@ extends Node
 
 class_name CardFocusAnimation
 
-@export var card_base: CardUi
+var initial_position: Vector2
+
+@export var card_base: Control
 @export var tween_speed: float = .2
 @export var gyro:= false
 
 var pos_tween: Tween
+
+func _ready():
+	initial_position = card_base.position
 
 func _process(delta):
 	if !gyro: card_base.rotation_degrees = 0
@@ -16,7 +21,7 @@ func _on_focus_entered():
 	gyro = true
 	if pos_tween: pos_tween.kill()
 	pos_tween = _get_tween()
-	pos_tween.tween_property(card_base, "position", Vector2(0, -100), tween_speed)
+	pos_tween.tween_property(card_base, "position", initial_position + Vector2(0, -100), tween_speed)
 	
 	card_base.set_z_index(1)
 
@@ -24,7 +29,7 @@ func _on_focus_exited():
 	gyro = false
 	if pos_tween: pos_tween.kill()
 	pos_tween = _get_tween()
-	pos_tween.tween_property(card_base, "position", (Vector2.ZERO), tween_speed)
+	pos_tween.tween_property(card_base, "position", initial_position, tween_speed)
 	
 	card_base.set_z_index(0)
 

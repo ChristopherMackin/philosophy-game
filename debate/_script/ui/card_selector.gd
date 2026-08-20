@@ -7,7 +7,6 @@ class_name CardSelector
 
 @export_group("Layout")
 @export var card_container : Container
-@export var card_slot_size : Vector2 = Vector2(370, 320)
 
 @export_group("Selection")
 @export var focus_group : FocusGroup
@@ -15,7 +14,6 @@ class_name CardSelector
 @export var submit_button : Control
 
 var cards_ui : Array[CardUi]
-var card_slots : Array[Control]
 var selection_array : Array
 var selection_callable : Callable
 
@@ -30,26 +28,18 @@ func _clear_card_container():
 	for child in card_container.get_children():
 		child.queue_free()
 	
-	card_slots.clear()
 	cards_ui.clear()
 	selection_array.clear()
 
-func _add_card(card : Card):
-	var card_slot : Control = Control.new()
-	card_slot.custom_minimum_size = card_slot_size
-	
+func _add_card(card : Card):	
 	var card_ui_packed_scene = card_ui_factory_base.get_card_ui(card)
 	
 	var card_ui : CardUi = card_ui_packed_scene.instantiate() as CardUi
 	card_ui.card = card
 	
-	card_slot.add_child(card_ui)	
-	card_container.add_child(card_slot)
-	
-	card_ui.scale = Vector2(.81, .81)
+	card_container.add_child(card_ui)
 	
 	cards_ui.append(card_ui)
-	card_slots.append(card_slot)
 
 func open_selector(cards : Array[Card], visible_to_player : bool, mode: Const.SelectionAction, amount: int = -1, min_amount: int = -1):
 	for card in cards:

@@ -40,9 +40,9 @@ class_name CurveContainer
 		queue_sort()
 
 @export var card_size: Vector2
-var _card_pivot: Vector2:
+var _card_pivot_ratio: Vector2:
 	get():
-		return Vector2(card_size.x/2, card_size.y)
+		return Vector2(.5, 1)
 
 var tween: Tween
 var tween_speed:= .4
@@ -72,7 +72,7 @@ func _sort_children() -> void:
 		var final_x: float = size.x/2 -card_size.x / 2
 		var final_y: float = y_min + y_max * y_multiplier
 		
-		card.pivot_offset = _card_pivot
+		card.pivot_offset_ratio = _card_pivot_ratio
 		tween.tween_property(card, "position", Vector2(final_x, final_y), tween_speed)
 		tween.tween_property(card, "rotation_degrees", max_rotation_degrees * rot_multiplier, tween_speed)
 		
@@ -95,6 +95,6 @@ func _sort_children() -> void:
 		var final_x: float = offset + card_size.x * i + final_x_sep * i
 		var final_y: float = y_min + y_max * y_multiplier
 		
-		card.pivot_offset = _card_pivot
+		card.pivot_offset_ratio = _card_pivot_ratio
 		tween.tween_property(card, "position", Vector2(final_x, final_y), tween_speed)
 		tween.tween_property(card, "rotation_degrees", max_rotation_degrees * rot_multiplier, tween_speed)

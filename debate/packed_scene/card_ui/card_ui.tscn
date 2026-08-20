@@ -26,7 +26,7 @@ content_margin_top = 0.0
 content_margin_right = 10.0
 content_margin_bottom = 0.0
 
-[node name="CardGUI" type="Control" unique_id=370963301 node_paths=PackedStringArray("card_bg", "title", "artwork", "shadow", "description", "cost", "icon")]
+[node name="Card" type="Control" unique_id=370963301 node_paths=PackedStringArray("card_bg", "title", "artwork", "shadow", "description", "cost", "icon")]
 custom_minimum_size = Vector2(370, 320)
 layout_mode = 3
 anchors_preset = 8

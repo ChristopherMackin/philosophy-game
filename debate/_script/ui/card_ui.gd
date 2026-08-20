@@ -14,7 +14,7 @@ class_name CardUi
 var card : Card:
 	set(val):
 		card = val
-		update_card.call_deferred(card)
+		refresh_card.call_deferred()
 
 func _process(_delta):
 	if !card:
@@ -22,7 +22,7 @@ func _process(_delta):
 		
 	if cost: cost.text = str(card.cost)
 
-func update_card(card : Card) :
+func refresh_card():
 		if !card:
 			return
 		
