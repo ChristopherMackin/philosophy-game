@@ -2069,12 +2069,12 @@ theme_override_fonts/normal_font = ExtResource("73_hrfbg")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[shake rate=20
-.0 level=10 connected=1]Is anyone there?[/shake]"
+.0 level=10 connected=1]I...[/shake]"
 scroll_active = false
 scroll_following_visible_characters = true
 horizontal_alignment = 1
 vertical_alignment = 1
-visible_characters = 16
+visible_characters = 4
 visible_characters_behavior = 1
 script = ExtResource("74_knqga")
 characters_per_second = 20
@@ -2129,10 +2129,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.022183513
-offset_top = 0.97624356
-offset_right = 219.97775
-offset_bottom = 130.97624
+offset_left = -0.5291241
+offset_top = 0.8091761
+offset_right = 219.47081
+offset_bottom = 130.80917
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2185,10 +2185,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.31163698
-offset_top = -0.98776877
-offset_right = 219.68837
-offset_bottom = 129.01233
+offset_left = -0.77503306
+offset_top = 1.4697522
+offset_right = 219.22496
+offset_bottom = 131.46985
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2241,10 +2241,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.2814459
-offset_top = 0.75234085
-offset_right = 218.71861
-offset_bottom = 130.75233
+offset_left = 0.5552198
+offset_top = 0.17598498
+offset_right = 220.55528
+offset_bottom = 130.17598
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2297,10 +2297,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.56192565
-offset_top = 0.05385171
-offset_right = 538.2758
-offset_bottom = 338.75412
+offset_left = -1.9530293
+offset_top = 0.109309554
+offset_right = 536.88477
+offset_bottom = 338.80957
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
