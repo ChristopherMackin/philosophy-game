@@ -1,6 +1,6 @@
 extends PlayAreaSelector
 
-class_name PlayAreaSelectorGUI
+class_name PlayAreaSelectorUi
 
 @export_group("Packed Scene")
 @export var selector_packed_scene : PackedScene
@@ -13,7 +13,7 @@ class_name PlayAreaSelectorGUI
 @export var focus_group : FocusGroup
 @export var player_brain : PlayerBrain
 
-var selectors : Array[TokenSelectorGUI]
+var selectors : Array[TokenSelectorUi]
 
 func _ready():
 	focus_group.on_select.connect(on_select)

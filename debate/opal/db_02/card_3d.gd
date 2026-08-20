@@ -5,13 +5,13 @@ class_name Card3d
 @export var card_parent: Node
 @export var animation_player: AnimationPlayer
 
-func init(card: Card, card_gui_packed_scene: PackedScene):	
-	var card_gui : CardGUI = card_gui_packed_scene.instantiate() as CardGUI
-	card_parent.add_child(card_gui)
+func init(card: Card, card_ui_packed_scene: PackedScene):	
+	var card_ui : CardUi = card_ui_packed_scene.instantiate() as CardUi
+	card_parent.add_child(card_ui)
 	
-	card_gui.card = card
-	card_gui.pivot_offset = Vector2.ZERO
-	card_gui.position = Vector2.ZERO
+	card_ui.card = card
+	card_ui.pivot_offset = Vector2.ZERO
+	card_ui.position = Vector2.ZERO
 		
 	#animation_player.play("card_enter")
 	#await animation_player.animation_finished

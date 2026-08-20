@@ -1,7 +1,7 @@
 @tool
-extends Resource
-
+@abstract
 class_name TaskAction
+extends Resource
 
 signal on_action_complete(next_index : int)
 signal on_action_canceled()

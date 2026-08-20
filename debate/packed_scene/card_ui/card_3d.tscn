@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://drcl6ot1amh17"]
 
 [ext_resource type="Script" uid="uid://hvhevcocubjx" path="res://debate/opal/db_02/card_3d.gd" id="1_yymxk"]
-[ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/card_gui/card_gui.tscn" id="2_g2vqb"]
-[ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_gui/tokenless_card_gui.tscn" id="3_kjbl7"]
+[ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/card_ui/card_ui.tscn" id="2_g2vqb"]
+[ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_ui/tokenless_card_ui.tscn" id="3_kjbl7"]
 [ext_resource type="Script" uid="uid://ct7j27rex1yjk" path="res://system/script/card/suit_packed_scene.gd" id="4_8aq52"]
-[ext_resource type="PackedScene" uid="uid://bmxatnrtkqwmu" path="res://debate/packed_scene/card_gui/peace_card_gui.tscn" id="5_nnrdf"]
+[ext_resource type="PackedScene" uid="uid://bmxatnrtkqwmu" path="res://debate/packed_scene/card_ui/peace_card_ui.tscn" id="5_nnrdf"]
 [ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="6_ouw6a"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_xtvt1"]

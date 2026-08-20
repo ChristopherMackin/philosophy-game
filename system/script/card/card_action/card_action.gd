@@ -1,6 +1,6 @@
-extends Resource
-
+@abstract
 class_name CardAction
+extends Resource
 
 enum Type {
 	ON_PLAY,

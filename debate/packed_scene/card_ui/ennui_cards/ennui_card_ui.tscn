@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bcae3y6tw4me5"]
 
-[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://debate/_script/ui/card_gui.gd" id="1_h7uj8"]
+[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://debate/_script/ui/card_ui.gd" id="1_h7uj8"]
 [ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://_asset/debate/_general/texture/card/t_card_base.png" id="2_kkjbd"]
 [ext_resource type="Texture2D" uid="uid://dgus730v33rk7" path="res://_asset/debate/_general/texture/card/t_card_description.png" id="3_eun6l"]
 [ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://_asset/_general/font/TenorSans-Regular.ttf" id="4_xsi5c"]
@@ -216,7 +216,7 @@ rotation = 0.05614529
 theme_override_colors/font_color = Color(0.23, 0.23, 0.23, 0.9490196)
 theme_override_fonts/font = ExtResource("10_m1iel")
 theme_override_font_sizes/font_size = 62
-text = "Vapor"
+text = "Empty"
 
 [node name="BodyTape" type="TextureRect" parent="CardBG/TapeCovering" unique_id=1545395285]
 layout_mode = 0

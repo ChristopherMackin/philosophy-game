@@ -2,7 +2,7 @@ extends Node
 
 class_name CardFocusAnimation
 
-@export var card_base: CardGUI
+@export var card_base: CardUi
 @export var tween_speed: float = .2
 @export var gyro:= false
 

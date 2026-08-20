@@ -1,24 +1,15 @@
-[gd_scene format=3 uid="uid://bvnvovyqn5v4w"]
+[gd_scene format=3 uid="uid://b2j3lbtgeqx3m"]
 
-[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://debate/_script/ui/card_gui.gd" id="1_ku5p0"]
-[ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://_asset/debate/_general/texture/card/t_card_base.png" id="2_fd563"]
-[ext_resource type="Shader" uid="uid://tnou2ig6rqyn" path="res://_general/style/color_swap.gdshader" id="3_w1llm"]
-[ext_resource type="Texture2D" uid="uid://dcddfgqbb0arx" path="res://_asset/debate/_general/texture/card/t_tokenless_card_bg.png" id="4_k1mpn"]
-[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://_asset/debate/_general/texture/suit/t_faith_icon.png" id="5_mk1v2"]
-[ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://_asset/_general/font/TenorSans-Regular.ttf" id="6_ylc4x"]
-[ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://_asset/_general/font/fahkwang/Fahkwang-Bold.ttf" id="7_mw2q0"]
-[ext_resource type="Script" uid="uid://dc8gq2l3o144t" path="res://system/script/focus_group/focus_group_signal_node.gd" id="8_w7mgl"]
-[ext_resource type="Script" uid="uid://cumbxctg3u56" path="res://debate/_script/ui/card_focus_animation.gd" id="9_kq30e"]
-[ext_resource type="Texture2D" uid="uid://bfpxej2kvhobt" path="res://_asset/debate/_general/texture/card/t_masking_tape_title.png" id="10_oemc2"]
-[ext_resource type="FontFile" uid="uid://bhrgkhn1hsnfo" path="res://_asset/_general/font/PermanentMarker.ttf" id="11_su0g6"]
-[ext_resource type="Texture2D" uid="uid://dvuw4px2q6ili" path="res://_asset/debate/_general/texture/card/t_masking_tape_body.png" id="12_w4bou"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3y6m8"]
-resource_local_to_scene = true
-shader = ExtResource("3_w1llm")
-shader_parameter/target_color = Color(0.0117647, 1, 0, 1)
-shader_parameter/replace_color = Color(0.278431, 0.278431, 0.278431, 1)
-shader_parameter/tolerance = 0.8
+[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://debate/_script/ui/card_ui.gd" id="1_lfrtd"]
+[ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://_asset/debate/_general/texture/card/t_card_base.png" id="2_j2p6q"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://_asset/debate/_general/texture/suit/t_faith_icon.png" id="3_08ho4"]
+[ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://_asset/_general/font/TenorSans-Regular.ttf" id="4_ny2g7"]
+[ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://_asset/_general/font/fahkwang/Fahkwang-Bold.ttf" id="5_78yk0"]
+[ext_resource type="Script" uid="uid://dc8gq2l3o144t" path="res://system/script/focus_group/focus_group_signal_node.gd" id="6_7k2k1"]
+[ext_resource type="Script" uid="uid://cumbxctg3u56" path="res://debate/_script/ui/card_focus_animation.gd" id="7_w1saq"]
+[ext_resource type="Texture2D" uid="uid://bfpxej2kvhobt" path="res://_asset/debate/_general/texture/card/t_masking_tape_title.png" id="8_xbnw4"]
+[ext_resource type="FontFile" uid="uid://bhrgkhn1hsnfo" path="res://_asset/_general/font/PermanentMarker.ttf" id="9_sewm6"]
+[ext_resource type="Texture2D" uid="uid://dvuw4px2q6ili" path="res://_asset/debate/_general/texture/card/t_masking_tape_body.png" id="10_5j8u2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5xdp"]
 content_margin_left = 10.0
@@ -32,7 +23,7 @@ content_margin_top = 5.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
 
-[node name="TokenlessCardGUI" type="Control" unique_id=743359882 node_paths=PackedStringArray("card_bg", "title", "description", "cost", "icon")]
+[node name="TokenlessCardGUI" type="Control" unique_id=1419343486 node_paths=PackedStringArray("card_bg", "title", "description", "cost", "icon")]
 custom_minimum_size = Vector2(370, 320)
 layout_mode = 3
 anchors_preset = 8
@@ -48,7 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 pivot_offset = Vector2(185, 320)
-script = ExtResource("1_ku5p0")
+script = ExtResource("1_lfrtd")
 card_bg = NodePath("CardBG")
 title = NodePath("CardBG/Title")
 description = NodePath("CardBG/Description")
@@ -56,7 +47,7 @@ cost = NodePath("CardBG/Cost")
 icon = NodePath("CardBG/SuitIcon")
 metadata/focus_property = "card"
 
-[node name="Shadow" type="TextureRect" parent="." unique_id=578678126]
+[node name="Shadow" type="TextureRect" parent="." unique_id=252172199]
 modulate = Color(0, 0, 0, 0.0745098)
 layout_mode = 1
 anchors_preset = 15
@@ -68,16 +59,16 @@ offset_right = -9.99997
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_fd563")
+texture = ExtResource("2_j2p6q")
 
-[node name="CardBG" type="TextureRect" parent="." unique_id=755276418]
-material = SubResource("ShaderMaterial_3y6m8")
+[node name="CardBG" type="TextureRect" parent="." unique_id=1068024596]
+self_modulate = Color(0.99607843, 0.69411767, 0.26666668, 1)
 layout_mode = 0
 offset_right = 370.0
 offset_bottom = 320.0
-texture = ExtResource("4_k1mpn")
+texture = ExtResource("2_j2p6q")
 
-[node name="SuitIcon" type="TextureRect" parent="CardBG" unique_id=443842195]
+[node name="SuitIcon" type="TextureRect" parent="CardBG" unique_id=106833453]
 self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
 layout_mode = 1
 anchors_preset = 5
@@ -88,24 +79,24 @@ offset_top = 42.0
 offset_right = 16.0
 offset_bottom = 73.0
 grow_horizontal = 2
-texture = ExtResource("5_mk1v2")
+texture = ExtResource("3_08ho4")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Title" type="Label" parent="CardBG" unique_id=1781154273]
+[node name="Title" type="Label" parent="CardBG" unique_id=1365948389]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.125
-theme_override_colors/font_color = Color(0.964706, 0.964706, 0.964706, 1)
-theme_override_fonts/font = ExtResource("6_ylc4x")
+theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
+theme_override_fonts/font = ExtResource("4_ny2g7")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_y5xdp")
 text = "Structured Argument"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CardSetNumber" type="Label" parent="CardBG" unique_id=363554449]
+[node name="CardSetNumber" type="Label" parent="CardBG" unique_id=1523141112]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -115,13 +106,13 @@ offset_top = 294.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
-theme_override_fonts/font = ExtResource("6_ylc4x")
+theme_override_fonts/font = ExtResource("4_ny2g7")
 theme_override_font_sizes/font_size = 16
 text = "12/78"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cost" type="Label" parent="CardBG" unique_id=1261707303]
+[node name="Cost" type="Label" parent="CardBG" unique_id=1607924416]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.117
@@ -133,13 +124,13 @@ offset_top = 172.535
 offset_right = 25.1111
 offset_bottom = -32.0247
 theme_override_colors/font_color = Color(0.964706, 0.964706, 0.964706, 1)
-theme_override_fonts/font = ExtResource("6_ylc4x")
+theme_override_fonts/font = ExtResource("4_ny2g7")
 theme_override_font_sizes/font_size = 30
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="RichTextLabel" parent="CardBG" unique_id=458637930]
+[node name="Description" type="RichTextLabel" parent="CardBG" unique_id=894219718]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.014
@@ -151,8 +142,8 @@ offset_top = 0.0799942
 offset_right = -0.0800101
 offset_bottom = 0.0799789
 theme_override_colors/default_color = Color(0.137255, 0.0862745, 0.0588235, 1)
-theme_override_fonts/normal_font = ExtResource("6_ylc4x")
-theme_override_fonts/bold_font = ExtResource("7_mw2q0")
+theme_override_fonts/normal_font = ExtResource("4_ny2g7")
+theme_override_fonts/bold_font = ExtResource("5_78yk0")
 theme_override_font_sizes/normal_font_size = 22
 theme_override_font_sizes/bold_font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ld4d5")
@@ -162,22 +153,22 @@ text = "Place 2 [b]Structured Conversation[/b] tops.
 Cost -1 for ever [b]pentagram[/b] top in play"
 scroll_active = false
 
-[node name="FocusGroupSignalNode" type="Node" parent="." unique_id=1326167114]
-script = ExtResource("8_w7mgl")
+[node name="FocusGroupSignalNode" type="Node" parent="." unique_id=548114207]
+script = ExtResource("6_7k2k1")
 metadata/_custom_type_script = "uid://dc8gq2l3o144t"
 
-[node name="CardFocusAnimation" type="Node" parent="." unique_id=677878142 node_paths=PackedStringArray("card_base")]
-script = ExtResource("9_kq30e")
+[node name="CardFocusAnimation" type="Node" parent="." unique_id=1001622876 node_paths=PackedStringArray("card_base")]
+script = ExtResource("7_w1saq")
 card_base = NodePath("..")
 metadata/_custom_type_script = "uid://cumbxctg3u56"
 
-[node name="TapeCovering" type="Control" parent="." unique_id=1140515996]
+[node name="TapeCovering" type="Control" parent="." unique_id=1934756370]
 modulate = Color(1, 1, 1, 0.9411765)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HeaderTape01" type="TextureRect" parent="TapeCovering" unique_id=1418207698]
+[node name="HeaderTape01" type="TextureRect" parent="TapeCovering" unique_id=1064154486]
 layout_mode = 0
 offset_left = 38.321823
 offset_top = -31.25
@@ -185,9 +176,9 @@ offset_right = 156.32182
 offset_bottom = 29.75
 rotation = 0.15937787
 scale = Vector2(1.5052052, 1.5052052)
-texture = ExtResource("10_oemc2")
+texture = ExtResource("8_xbnw4")
 
-[node name="HeaderTape02" type="TextureRect" parent="TapeCovering" unique_id=1041776364]
+[node name="HeaderTape02" type="TextureRect" parent="TapeCovering" unique_id=1734622488]
 layout_mode = 0
 offset_left = 335.82172
 offset_top = 86.25
@@ -195,9 +186,9 @@ offset_right = 453.82172
 offset_bottom = 147.25
 rotation = 3.2098732
 scale = Vector2(1.5052052, 1.5052052)
-texture = ExtResource("10_oemc2")
+texture = ExtResource("8_xbnw4")
 
-[node name="HeaderLabel" type="Label" parent="TapeCovering" unique_id=13607148]
+[node name="HeaderLabel" type="Label" parent="TapeCovering" unique_id=1860533145]
 layout_mode = 0
 offset_left = 102.49992
 offset_top = -22.5
@@ -205,11 +196,11 @@ offset_right = 328.49994
 offset_bottom = 92.5
 rotation = 0.05614529
 theme_override_colors/font_color = Color(0.23, 0.23, 0.23, 0.9490196)
-theme_override_fonts/font = ExtResource("11_su0g6")
+theme_override_fonts/font = ExtResource("9_sewm6")
 theme_override_font_sizes/font_size = 62
 text = "Vapor"
 
-[node name="BodyTape" type="TextureRect" parent="TapeCovering" unique_id=297938658]
+[node name="BodyTape" type="TextureRect" parent="TapeCovering" unique_id=1415531418]
 layout_mode = 0
 offset_left = 56.576843
 offset_top = 66.25
@@ -217,9 +208,9 @@ offset_right = 258.57684
 offset_bottom = 209.25
 rotation = 0.06574465
 scale = Vector2(1.3653247, 1.3653247)
-texture = ExtResource("12_w4bou")
+texture = ExtResource("10_5j8u2")
 
-[node name="BodyLabel" type="Label" parent="TapeCovering" unique_id=138298162]
+[node name="BodyLabel" type="Label" parent="TapeCovering" unique_id=1382372301]
 layout_mode = 0
 offset_left = 56.25001
 offset_top = 156.24998
@@ -228,7 +219,7 @@ offset_bottom = 275.25
 rotation = -0.20603636
 theme_override_colors/font_color = Color(0.23, 0.23, 0.23, 0.9490196)
 theme_override_constants/line_spacing = -35
-theme_override_fonts/font = ExtResource("11_su0g6")
+theme_override_fonts/font = ExtResource("9_sewm6")
 theme_override_font_sizes/font_size = 40
 text = "Does
 Nothing"

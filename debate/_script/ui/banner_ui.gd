@@ -1,5 +1,5 @@
 extends Control
 
-class_name BannerGUI
+class_name BannerUi
 
 @export var suit : Suit

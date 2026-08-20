@@ -1,5 +1,5 @@
 extends Control
 
-class_name TokenSelectorGUI
+class_name TokenSelectorUi
 
 var token : Token

@@ -1,7 +1,7 @@
 @tool
 extends Control
 
-class_name CardGUI
+class_name CardUi
 
 @export var card_bg : Node
 @export var title : Node
