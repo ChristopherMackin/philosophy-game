@@ -36,7 +36,6 @@
 [ext_resource type="Resource" uid="uid://gxn0k63lex4l" path="res://system/focus_group/play_area_focus_group.tres" id="19_h1yg8"]
 [ext_resource type="Resource" uid="uid://bo5lyi4q2kuag" path="res://system/focus_group/card_selector_focus_group.tres" id="20_xvj30"]
 [ext_resource type="Resource" uid="uid://8fi1d2l5sq45" path="res://system/focus_group/suit_focus_group.tres" id="21_litdm"]
-[ext_resource type="Script" uid="uid://csow7w8d3n2ux" path="res://debate/_script/camera/debate_background_camera_manager.gd" id="22_qed17"]
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="23_yd2un"]
 [ext_resource type="PackedScene" uid="uid://bmg4wkpbnpqj3" path="res://_asset/debate/_general/model/mod_hand_counter.glb" id="24_78hq6"]
 [ext_resource type="PackedScene" uid="uid://bbt7jajj4myt4" path="res://_asset/debate/_general/model/mod_draw_pile_counter.glb" id="24_sqn6e"]
@@ -578,7 +577,7 @@ ssao_intensity = 1.32
 ssao_power = 3.446096
 ssao_sharpness = 0.5
 
-[sub_resource type="Environment" id="Environment_f3ys7"]
+[sub_resource type="Environment" id="Environment_knqga"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -683,10 +682,6 @@ debate_settings = ExtResource("4_7sfnh")
 player = ExtResource("10_sd1vu")
 computer = ExtResource("5_bd10g")
 
-[node name="InputManager" type="Node" parent="===MANAGER========" unique_id=233808309]
-script = ExtResource("6_wjr7v")
-active_handler = ExtResource("7_faur5")
-
 [node name="EventQueryManager" type="Node" parent="===MANAGER========" unique_id=1646962725]
 script = ExtResource("8_75n12")
 event_factory = ExtResource("3_m1df6")
@@ -703,9 +698,9 @@ input_manager = NodePath("../InputManager")
 dialogue_input_handler = ExtResource("14_damgn")
 manager = ExtResource("3_qnf5u")
 
-[node name="SaveManager" type="Node" parent="===MANAGER========" unique_id=982282546]
-script = ExtResource("15_hklp8")
-metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
+[node name="InputManager" type="Node" parent="===MANAGER========" unique_id=233808309]
+script = ExtResource("6_wjr7v")
+active_handler = ExtResource("7_faur5")
 
 [node name="SelectionManager" type="Node" parent="===MANAGER========" unique_id=1647373781 node_paths=PackedStringArray("play_area_selector", "card_selector", "suit_selector")]
 script = ExtResource("16_huclo")
@@ -720,10 +715,11 @@ card_selector = NodePath("../../===UI========/CardSelector")
 suit_selector = NodePath("../../===UI========/SuitSelector")
 metadata/_custom_type_script = "uid://syaosi1lkwul"
 
-[node name="DebateBackgroundCameraManager" type="Node" parent="===MANAGER========" unique_id=730746972]
-script = ExtResource("22_qed17")
-
 [node name="SfxManager" type="Node" parent="===MANAGER========" unique_id=1162564134]
+
+[node name="SaveManager" type="Node" parent="===MANAGER========" unique_id=982282546]
+script = ExtResource("15_hklp8")
+metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
 
 [node name="===CUTSCENE========" type="Node3D" parent="." unique_id=1244565895]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -2056,7 +2052,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 8
-environment = SubResource("Environment_f3ys7")
+environment = SubResource("Environment_knqga")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -2173,10 +2169,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.4054487
-offset_top = 1.3052595
-offset_right = 218.5945
-offset_bottom = 131.30525
+offset_left = 1.4809699
+offset_top = -0.48069197
+offset_right = 221.48091
+offset_bottom = 129.5193
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2229,10 +2225,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.4982145
-offset_top = 0.19747403
-offset_right = 218.50179
-offset_bottom = 130.19757
+offset_left = -1.2090491
+offset_top = -1.402071
+offset_right = 218.79095
+offset_bottom = 128.59802
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2285,10 +2281,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.4176507
-offset_top = -0.17784607
-offset_right = 218.58241
-offset_bottom = 129.82216
+offset_left = 1.2919596
+offset_top = 1.0620154
+offset_right = 221.29202
+offset_bottom = 131.06201
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2341,10 +2337,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -2.2531805
-offset_top = 1.1182028
-offset_right = 536.5846
-offset_bottom = 339.81845
+offset_left = 1.7312744
+offset_top = -1.2052454
+offset_right = 540.56903
+offset_bottom = 337.49503
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
@@ -2401,6 +2397,7 @@ input_handler = ExtResource("7_faur5")
 selectable_color = null
 not_selectable_color = Color(0.48178923, 0.48178953, 0.48178947, 1)
 manager = ExtResource("12_fev28")
+order = 2
 
 [node name="CurveContainer" type="Container" parent="===UI========/Hand" unique_id=1460115611]
 layout_mode = 1

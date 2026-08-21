@@ -12,6 +12,8 @@ var is_active_group: bool = false
 
 func select_group():
 	is_active_group = true
+
+	on_group_selected.emit()
 	
 	if !focused_node: return
 	
@@ -20,7 +22,6 @@ func select_group():
 	if !signal_node: return
 	
 	signal_node.on_focus_entered.emit()
-	on_group_selected.emit()
 
 func deselect_group():
 	is_active_group = false

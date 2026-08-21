@@ -22,7 +22,7 @@ class_name SelectionManager
 var active_focus_group : FocusGroup
 
 var focused_node : Control:
-	get: return active_focus_group.focused_node
+	get: return active_focus_group.focused_node if active_focus_group && active_focus_group.focused_node else null
 
 func _ready():
 	player_brain.on_selection_requested.connect(on_selection_requested)

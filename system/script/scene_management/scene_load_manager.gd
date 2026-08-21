@@ -28,6 +28,7 @@ func _ready():
 		await _event_finished
 	
 	on_scene_load.emit()
+	queue_free()
 
 func query_event():
 	var query : Dictionary

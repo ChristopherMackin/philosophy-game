@@ -10,3 +10,4 @@ class_name DebateInitiator
 
 func start_debate():
 	manager.start_debate(blackboard, player, computer, debate_settings)
+	queue_free()
