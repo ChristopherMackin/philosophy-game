@@ -3,6 +3,7 @@ extends Resource
 class_name ResourceBasedDebateSubscriber
 
 var manager : DebateManager
+var order: int = 0
 
 func on_debate_start():
 	pass

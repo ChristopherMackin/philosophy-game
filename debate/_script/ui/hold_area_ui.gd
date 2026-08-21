@@ -1,4 +1,4 @@
-extends Node
+extends NodeBasedDebateSubscriber
 
 class_name HoldAreaUi
 
@@ -38,3 +38,7 @@ func add_card(card):
 	
 	animation_player.play("card_enter")
 	await animation_player.animation_finished
+
+func on_card_hold_updated(card : Card, active_contestant : Contestant):
+	if active_contestant == manager.player:
+		set_hold_card(card)

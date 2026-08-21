@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="13_cyh0q"]
 [ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="14_damgn"]
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="15_hklp8"]
+[ext_resource type="Script" uid="uid://dkdsd0gpfl4lq" path="res://debate/opal/db_02/debate_initiator_debate_subscriber.gd" id="16_f3ys7"]
 [ext_resource type="Script" uid="uid://syaosi1lkwul" path="res://debate/_script/ui/selection_manager.gd" id="16_huclo"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/br_player.tres" id="17_uvud4"]
 [ext_resource type="Resource" uid="uid://vxjneadxt621" path="res://system/focus_group/hand_focus_group.tres" id="18_8rm3w"]
@@ -63,6 +64,7 @@
 [ext_resource type="Script" uid="uid://c3ft3tsh8oi43" path="res://debate/opal/db_02/game_board_3d.gd" id="39_3m87t"]
 [ext_resource type="Script" uid="uid://duts3e4cshe3t" path="res://debate/_script/ui/hold_area_ui.gd" id="40_2moqn"]
 [ext_resource type="Script" uid="uid://gqs40ms5uw6a" path="res://debate/_script/ui/token_track_3d.gd" id="40_84k4r"]
+[ext_resource type="Script" uid="uid://cqgfusr1s4v8i" path="res://rich_text_label_update_emitter_debate_subscriber.gd" id="40_knqga"]
 [ext_resource type="Texture2D" uid="uid://cjj7unll4jg7p" path="res://_asset/debate/_general/texture/t_count_background.png" id="40_t0s88"]
 [ext_resource type="Texture2D" uid="uid://b7roh63xeclm" path="res://_asset/_general/texture/t_lined_paper.png" id="41_yt7fp"]
 [ext_resource type="Resource" uid="uid://v2fc6p1vb5xq" path="res://debate/opal/db_02/cfb_db_opal_02.tres" id="42_hrfbg"]
@@ -236,7 +238,7 @@ _data = {
 &"p4_setup": SubResource("Animation_hrfbg")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hrfbg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_f3ys7"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Curve" id="Curve_wifvs"]
@@ -244,7 +246,7 @@ _limits = [0.0, 1.8, 0.0, 1.0]
 _data = [Vector2(0, 1.8), 0.0, 0.0, 0, 0, Vector2(0.5503876, 1.8), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_knqga"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7mnyw"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dbiua"]
@@ -379,7 +381,7 @@ _data = {
 &"card_exit": SubResource("Animation_ntdmx")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_f3ys7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nolis"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8igq"]
@@ -387,7 +389,7 @@ albedo_texture = ExtResource("30_dbiua")
 ao_enabled = true
 ao_texture = ExtResource("31_p0yir")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7mnyw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_68gxc"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jelp"]
@@ -395,7 +397,7 @@ albedo_texture = ExtResource("32_84k4r")
 ao_enabled = true
 ao_texture = ExtResource("33_3m87t")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nolis"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2moqn"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ghiyr"]
@@ -576,7 +578,7 @@ ssao_intensity = 1.32
 ssao_power = 3.446096
 ssao_sharpness = 0.5
 
-[sub_resource type="Environment" id="Environment_knqga"]
+[sub_resource type="Environment" id="Environment_f3ys7"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -673,32 +675,22 @@ blackboard = ExtResource("2_kjk8x")
 event_factory = ExtResource("3_m1df6")
 scene_animator = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationPlayer")
 
+[node name="DebateInitiator" type="Node" parent="===MANAGER========" unique_id=267756503]
+script = ExtResource("16_f3ys7")
+manager = ExtResource("12_fev28")
+blackboard = ExtResource("2_kjk8x")
+debate_settings = ExtResource("4_7sfnh")
+player = ExtResource("10_sd1vu")
+computer = ExtResource("5_bd10g")
+
 [node name="InputManager" type="Node" parent="===MANAGER========" unique_id=233808309]
 script = ExtResource("6_wjr7v")
 active_handler = ExtResource("7_faur5")
 
-[node name="DebateSceneManager" type="Node" parent="===MANAGER========" unique_id=1646962725 node_paths=PackedStringArray("input_manager", "hand_ui", "hold_area_ui", "energy_ui", "draw_ui", "discard_ui", "computer_hand_ui", "computer_energy_ui", "computer_discard_ui", "game_board", "turn_ui", "play_stack", "lines_cleared_ui")]
+[node name="EventQueryManager" type="Node" parent="===MANAGER========" unique_id=1646962725]
 script = ExtResource("8_75n12")
-blackboard = ExtResource("2_kjk8x")
 event_factory = ExtResource("3_m1df6")
 event_manager = ExtResource("3_qnf5u")
-debate_settings = ExtResource("4_7sfnh")
-player = ExtResource("10_sd1vu")
-input_manager = NodePath("../InputManager")
-selection_handler = ExtResource("7_faur5")
-computer = ExtResource("5_bd10g")
-hand_ui = NodePath("../../===UI========/Hand")
-hold_area_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerHeldCard")
-energy_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport/Label")
-draw_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label")
-discard_ui = NodePath("../../===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label")
-computer_hand_ui = NodePath("../../===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill/Label")
-computer_energy_ui = NodePath("../../===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill/Label")
-computer_discard_ui = NodePath("../../===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label")
-game_board = NodePath("../../===GAMEPLAY========/GameBoard")
-turn_ui = NodePath("../../===GAMEPLAY========/GameBoardState/TurnCounter/CounterUi/SubViewport/Label")
-play_stack = NodePath("../../===GAMEPLAY========/GameBoardState/PlayStackHolder")
-lines_cleared_ui = NodePath("../../===GAMEPLAY========/GameBoardState/LineClearCounter/CounterUi/SubViewport/Label")
 manager = ExtResource("12_fev28")
 metadata/_custom_type_script = "uid://dhulr5f133qcw"
 
@@ -757,12 +749,18 @@ environment = ExtResource("6_vypjq")
 
 [node name="PlayerUi" type="Node3D" parent="===GAMEPLAY========" unique_id=1067092224]
 
-[node name="PlayerDrawPileCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1292719538 instance=ExtResource("24_sqn6e")]
+[node name="PlayerDrawPileCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1292719538 node_paths=PackedStringArray("label") instance=ExtResource("24_sqn6e")]
 transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.9890571, -0.018066663, -0.12245832, -7.450581e-09, 0.99247366, -0.1516307, 0.0004506167, 0.08272594)
+script = ExtResource("40_knqga")
+label = NodePath("MiniCounterUi/SubViewport/Border/Fill/Label")
+properties = Array[String](["player:draw_pile:size"])
+format = "%s"
+manager = ExtResource("12_fev28")
+order = 1
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter" unique_id=1817069595 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_hrfbg")
+texture = SubResource("ViewportTexture_f3ys7")
 
 [node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1817069595, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -775,12 +773,18 @@ target = NodePath("..")
 curve = SubResource("Curve_wifvs")
 seconds = 0.3999999999999988
 
-[node name="PlayerDiscardCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1140548364 instance=ExtResource("25_78hq6")]
+[node name="PlayerDiscardCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1140548364 node_paths=PackedStringArray("label") instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.9890571, -0.018066663, -0.12245832, -7.450581e-09, 0.99247366, -0.15000284, 0.0004506167, 0.13493468)
+script = ExtResource("40_knqga")
+label = NodePath("MiniCounterUi/SubViewport/Border/Fill/Label")
+properties = Array[String](["player:discard_pile:size"])
+format = "%s"
+manager = ExtResource("12_fev28")
+order = 1
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" unique_id=1611050952 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_knqga")
+texture = SubResource("ViewportTexture_7mnyw")
 
 [node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1611050952, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -793,8 +797,14 @@ target = NodePath("..")
 curve = SubResource("Curve_wifvs")
 seconds = 0.3999999999999988
 
-[node name="PlayerEnergyCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1840847040 instance=ExtResource("26_7g2ac")]
+[node name="PlayerEnergyCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1840847040 node_paths=PackedStringArray("label") instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.577133, 0.07591381, 1.8900888, 0.29692417, 1.9479705, -0.16890348, -1.8681635, 0.33306077, 0.557061, -0.120429605, 0.0004506167, 0.20629291)
+script = ExtResource("40_knqga")
+label = NodePath("CounterUi/SubViewport/Label")
+properties = Array[String](["player:current_energy", "player:energy_level"])
+format = "%s/%s"
+manager = ExtResource("12_fev28")
+order = 1
 
 [node name="CounterUi" type="Sprite3D" parent="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter" unique_id=496586397]
 transform = Transform3D(0.0637292, 0.3659591, 0.0063736998, -0.010203889, -0.0046906397, 0.37135154, 0.3658722, -0.06387509, 0.009246513, 0.0054180995, 0.016486436, 0.0013057943)
@@ -840,6 +850,8 @@ script = ExtResource("40_2moqn")
 card_ui_factory_base = ExtResource("42_hrfbg")
 card_parent = NodePath("SubViewport")
 animation_player = NodePath("AnimationPlayer")
+manager = ExtResource("12_fev28")
+order = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="===GAMEPLAY========/PlayerUi/PlayerHeldCard" unique_id=518159341]
 libraries/ = SubResource("AnimationLibrary_dqw0w")
@@ -866,12 +878,18 @@ outline_size = 20
 
 [node name="CpiUi" type="Node3D" parent="===GAMEPLAY========" unique_id=468448481]
 
-[node name="CpuHandCounter" parent="===GAMEPLAY========/CpiUi" unique_id=1763425977 instance=ExtResource("24_78hq6")]
+[node name="CpuHandCounter" parent="===GAMEPLAY========/CpiUi" unique_id=1763425977 node_paths=PackedStringArray("label") instance=ExtResource("24_78hq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15324764, 0.00012001136, -0.039170876)
+script = ExtResource("40_knqga")
+label = NodePath("MiniCounterUi/SubViewport/Border/Fill/Label")
+properties = Array[String](["computer:hand:size"])
+format = "%s"
+manager = ExtResource("12_fev28")
+order = 1
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" unique_id=467383888 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26024163, -0.009793821, -0.076415636, 0.076465435, -1.1382936e-08, 0.26041123, -0.009397088, -0.27122876, 0.0027592867, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_f3ys7")
+texture = SubResource("ViewportTexture_nolis")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(467383888, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -884,8 +902,14 @@ target = NodePath("..")
 curve = SubResource("Curve_wifvs")
 seconds = 0.3999999999999988
 
-[node name="CpuDiscardCounter" parent="===GAMEPLAY========/CpiUi" unique_id=1590190797 instance=ExtResource("25_78hq6")]
+[node name="CpuDiscardCounter" parent="===GAMEPLAY========/CpiUi" unique_id=1590190797 node_paths=PackedStringArray("label") instance=ExtResource("25_78hq6")]
 transform = Transform3D(0.94619274, -0.32360363, 0, 0.32360363, 0.94619274, 0, 0, 0, 1, 0.15350369, 0, 0.013281487)
+script = ExtResource("40_knqga")
+label = NodePath("MiniCounterUi/SubViewport/Border/Fill/Label")
+properties = Array[String](["computer:discard_pile:size"])
+format = "%s"
+manager = ExtResource("12_fev28")
+order = 1
 
 [node name="DiscardCounter" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" index="0" unique_id=1427313704]
 layers = 32768
@@ -893,7 +917,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" unique_id=1511716073 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.2708025, 0.006386812, -0.016917214, 0.016962603, -0.0017474849, 0.27086934, 0.0062652696, -0.27132475, -0.002142772, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_7mnyw")
+texture = SubResource("ViewportTexture_68gxc")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1511716073, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -906,8 +930,14 @@ target = NodePath("..")
 curve = SubResource("Curve_wifvs")
 seconds = 0.3999999999999988
 
-[node name="CpuEnergyCounter" parent="===GAMEPLAY========/CpiUi" unique_id=151891147 instance=ExtResource("26_7g2ac")]
+[node name="CpuEnergyCounter" parent="===GAMEPLAY========/CpiUi" unique_id=151891147 node_paths=PackedStringArray("label") instance=ExtResource("26_7g2ac")]
 transform = Transform3D(0.9523734, -0.26442856, 0.15186363, 0.26112953, 0.9644053, 0.04163922, -0.15746869, -3.7252903e-09, 0.987524, 0.15333109, 2.9802322e-08, 0.071661524)
+script = ExtResource("40_knqga")
+label = NodePath("MiniCounterUi/SubViewport/Border/Fill/Label")
+properties = Array[String](["computer:current_energy"])
+format = "%s"
+manager = ExtResource("12_fev28")
+order = 1
 
 [node name="EnergyCounter" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" index="0" unique_id=939435994]
 layers = 32768
@@ -915,7 +945,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" unique_id=969618535 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26872277, 0.03799277, 0.0023667924, -0.00091665983, -0.010411309, 0.27120426, 0.038055386, -0.26853144, -0.010180076, -0.011028126, 0.015155774, 0.015328243)
-texture = SubResource("ViewportTexture_nolis")
+texture = SubResource("ViewportTexture_2moqn")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(969618535, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -937,8 +967,14 @@ layers = 32768
 pixel_size = 0.0076923
 texture = ExtResource("41_yt7fp")
 
-[node name="TurnCounter" parent="===GAMEPLAY========/GameBoardState" unique_id=1123270235 instance=ExtResource("26_8wfbp")]
+[node name="TurnCounter" parent="===GAMEPLAY========/GameBoardState" unique_id=1123270235 node_paths=PackedStringArray("label") instance=ExtResource("26_8wfbp")]
 transform = Transform3D(0.97919446, 0.20292409, 0, -0.20292409, 0.97919446, 0, 0, 0, 1, -0.12706313, 0.02544824, -0.17663454)
+script = ExtResource("40_knqga")
+label = NodePath("CounterUi/SubViewport/Label")
+properties = Array[String](["current_round"])
+format = "%s"
+manager = ExtResource("12_fev28")
+order = 1
 
 [node name="CounterUi" type="Sprite3D" parent="===GAMEPLAY========/GameBoardState/TurnCounter" unique_id=808771702]
 transform = Transform3D(0.6200816, 0.017528173, 0.04873137, -0.04960531, 0.032837845, 0.61939013, 0.014876191, -0.6211258, 0.034121267, -0.0006714016, 0.015224487, 0.0013057888)
@@ -973,8 +1009,14 @@ target = NodePath("..")
 curve = SubResource("Curve_wifvs")
 seconds = 0.3999999999999988
 
-[node name="LineClearCounter" parent="===GAMEPLAY========/GameBoardState" unique_id=1786900677 instance=ExtResource("29_udfsd")]
+[node name="LineClearCounter" parent="===GAMEPLAY========/GameBoardState" unique_id=1786900677 node_paths=PackedStringArray("label") instance=ExtResource("29_udfsd")]
 transform = Transform3D(-0.35664776, -0.09443906, -0.92945343, -0.12529445, 0.9907249, -0.052586984, 0.92579895, 0.09770032, -0.3651725, 0.13702412, 0.03236382, -0.1766622)
+script = ExtResource("40_knqga")
+label = NodePath("CounterUi/SubViewport/Label")
+properties = Array[String](["lines_cleared"])
+format = "%s"
+manager = ExtResource("12_fev28")
+order = 1
 
 [node name="LabelBg" type="Sprite3D" parent="===GAMEPLAY========/GameBoardState/LineClearCounter" unique_id=1884900820]
 transform = Transform3D(0.00440912, -0.010327152, -0.0018502881, 0.0011675193, -0.0010898331, 0.014630528, 0.011490525, 0.0040734457, -0.000776578, 0.008661449, -0.0040469337, 0.018178597)
@@ -1016,7 +1058,7 @@ target = NodePath("..")
 curve = SubResource("Curve_wifvs")
 seconds = 0.3999999999999988
 
-[node name="PlayStackHolder" type="Sprite3D" parent="===GAMEPLAY========/GameBoardState" unique_id=1524692991]
+[node name="PlayStack" type="Sprite3D" parent="===GAMEPLAY========/GameBoardState" unique_id=1524692991]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.007186869, -0.1638608)
 layers = 32768
 offset = Vector3(0, 0, 0.001)
@@ -1026,11 +1068,13 @@ script = ExtResource("56_g2w6u")
 offset = Vector3(0, 0, 0.001)
 card_ui_factory_base = ExtResource("42_hrfbg")
 card_3d = ExtResource("57_ntdmx")
+manager = ExtResource("12_fev28")
 
 [node name="GameBoard" type="Node3D" parent="===GAMEPLAY========" unique_id=505852231]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.021030277, 0.0037941113)
 script = ExtResource("39_3m87t")
 seconds_placement_delay = 0.24999999999999925
+manager = ExtResource("12_fev28")
 
 [node name="FaithTrack" parent="===GAMEPLAY========/GameBoard" unique_id=168836037 instance=ExtResource("25_cwy3g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01, 0.03, -0.092)
@@ -2012,7 +2056,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 8
-environment = SubResource("Environment_knqga")
+environment = SubResource("Environment_f3ys7")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -2129,10 +2173,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.545674
-offset_top = -0.4739274
-offset_right = 219.45427
-offset_bottom = 129.52608
+offset_left = -1.4054487
+offset_top = 1.3052595
+offset_right = 218.5945
+offset_bottom = 131.30525
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2185,10 +2229,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 0.69745064
-offset_top = 1.2384121
-offset_right = 220.69745
-offset_bottom = 131.23851
+offset_left = -1.4982145
+offset_top = 0.19747403
+offset_right = 218.50179
+offset_bottom = 130.19757
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2241,10 +2285,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.4178752
-offset_top = 1.2549919
-offset_right = 218.58218
-offset_bottom = 131.25499
+offset_left = -1.4176507
+offset_top = -0.17784607
+offset_right = 218.58241
+offset_bottom = 129.82216
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2297,10 +2341,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 0.038347352
-offset_top = -1.2745235
-offset_right = 538.8761
-offset_bottom = 337.42572
+offset_left = -2.2531805
+offset_top = 1.1182028
+offset_right = 536.5846
+offset_bottom = 339.81845
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
@@ -2338,7 +2382,7 @@ characters_per_second = 2
 normalized_dialogue_position = 1
 metadata/_custom_type_script = "uid://vyqjymdwc8ae"
 
-[node name="Hand" type="Control" parent="===UI========" unique_id=1121779610 node_paths=PackedStringArray("card_spawn_location", "card_parent")]
+[node name="Hand" type="Control" parent="===UI========" unique_id=1121779610 node_paths=PackedStringArray("card_spawn_location", "card_parent", "input_manager")]
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
@@ -2352,7 +2396,11 @@ card_spawn_location = NodePath("CardSpawnLocation")
 card_parent = NodePath("CurveContainer")
 focus_group = ExtResource("18_8rm3w")
 player_brain = ExtResource("17_uvud4")
+input_manager = NodePath("../../===MANAGER========/InputManager")
+input_handler = ExtResource("7_faur5")
+selectable_color = null
 not_selectable_color = Color(0.48178923, 0.48178953, 0.48178947, 1)
+manager = ExtResource("12_fev28")
 
 [node name="CurveContainer" type="Container" parent="===UI========/Hand" unique_id=1460115611]
 layout_mode = 1
@@ -2507,7 +2555,7 @@ focus_group = ExtResource("19_h1yg8")
 player_brain = ExtResource("17_uvud4")
 metadata/_custom_type_script = "uid://deyblpqc0v651"
 
-[connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateSceneManager" method="start_debate" flags=7]
+[connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateInitiator" method="start_debate"]
 [connection signal="on_label_updated" from="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label" to="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label/ScaleControl" method="animate_scale" unbinds=1]
 [connection signal="on_label_updated" from="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label" to="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label/ScaleControl" method="animate_scale" unbinds=1]
 [connection signal="on_label_updated" from="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport/Label" to="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport/Label/ScaleControl" method="animate_scale" unbinds=1]

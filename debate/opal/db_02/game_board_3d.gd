@@ -1,4 +1,4 @@
-extends Node3D
+extends NodeBasedDebateSubscriber
 
 class_name GameBoard3d
 
@@ -13,6 +13,9 @@ var is_running:= false
 var previous_dictionary:= {}
 
 signal queue_empty
+
+func _ready():
+	super._ready()
 
 func get_tokens_3d() -> Array[Token3d]:
 		if _update_queue.size() >= 0:
@@ -32,7 +35,7 @@ func get_token_tracks() -> Array[TokenTrack3d]:
 			result.append(child)
 	return result
 
-func update_token_tracks(suit_track_dictionary: Dictionary):	
+func _update_token_tracks(suit_track_dictionary: Dictionary):
 	var current_dictionary = suit_track_dictionary.duplicate(true)
 	var repeat = true
 	
@@ -76,3 +79,9 @@ func _process_suit_track_queue():
 	queue_empty.emit()
 	
 	is_running = false
+
+func on_token_played(token: Token, suit: Suit, contestant : Contestant): _update_from_suit_track_dictionary()
+
+func on_actions_invoked(card : Card, action_type: CardAction.Type, contestant : Contestant): _update_from_suit_track_dictionary()
+
+func _update_from_suit_track_dictionary(): _update_token_tracks(manager.suit_track_dictionary)

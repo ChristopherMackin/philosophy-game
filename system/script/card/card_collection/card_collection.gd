@@ -6,6 +6,9 @@ var _cards : Array[Card] = []
 
 var on_added: CardCallableList = CardCallableList.new()
 var on_removed: CardCallableList = CardCallableList.new()
+var size: int:
+	get(): return _get_size()
+
 
 func _init(cards: Array[Card] = []):
 	for card in cards:
@@ -67,5 +70,5 @@ func get_card_at_index(index: int):
 func get_card_index(card: Card):
 	return _cards.find(card)
 
-func size():
+func _get_size():
 	return _cards.size()

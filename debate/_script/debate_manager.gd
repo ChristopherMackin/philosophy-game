@@ -42,6 +42,7 @@ var play_stack : CardCollection = CardCollection.new()
 
 func subscribe(subscriber):
 	subscribers.append(subscriber)
+	subscribers.sort_custom(func(x, y): return x.order < y.order)
 
 func unsubscribe(subscriber):
 	var index = subscribers.find(subscriber)

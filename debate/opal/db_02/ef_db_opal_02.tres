@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://cilcb0gb3xu0g"
 [sub_resource type="Resource" id="Resource_qhnih"]
 resource_name = "RU: ON_TURN_START"
 script = ExtResource("3_i0cw1")
-concept = 2
+concept = 6
 metadata/_custom_type_script = "uid://fnphjbccs4gy"
 
 [sub_resource type="Resource" id="Resource_u6bno"]
@@ -56,7 +56,7 @@ metadata/_custom_type_script = "uid://tkld5vp51fi1"
 [sub_resource type="Resource" id="Resource_apmig"]
 resource_name = "RU: ON_TURN_START"
 script = ExtResource("3_i0cw1")
-concept = 2
+concept = 6
 metadata/_custom_type_script = "uid://fnphjbccs4gy"
 
 [sub_resource type="Resource" id="Resource_jls5d"]
@@ -85,7 +85,7 @@ metadata/_custom_type_script = "uid://tkld5vp51fi1"
 [sub_resource type="Resource" id="Resource_dcwhc"]
 resource_name = "RU: ON_TURN_START"
 script = ExtResource("3_i0cw1")
-concept = 2
+concept = 6
 metadata/_custom_type_script = "uid://fnphjbccs4gy"
 
 [sub_resource type="Resource" id="Resource_8yblm"]
@@ -114,7 +114,7 @@ metadata/_custom_type_script = "uid://tkld5vp51fi1"
 [sub_resource type="Resource" id="Resource_0khc4"]
 resource_name = "RU: ON_TURN_START"
 script = ExtResource("3_i0cw1")
-concept = 2
+concept = 6
 metadata/_custom_type_script = "uid://fnphjbccs4gy"
 
 [sub_resource type="Resource" id="Resource_x3isd"]

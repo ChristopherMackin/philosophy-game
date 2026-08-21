@@ -61,7 +61,7 @@ var can_draw:
 	get:
 		for condition in can_draw_condition_effects.values:
 			if !condition.check(): return false  
-		return hand.size() < hand_limit && draw_pile.size() > 0
+		return hand.size < hand_limit && draw_pile.size > 0
 
 func character_is(character : Character):
 	return self.character == character
@@ -91,14 +91,14 @@ func _draw_card():
 	await hand.push_back(card)
 
 func draw_specified_card(card : Card) -> bool:
-	if hand.size() >= hand_limit || draw_pile.size() <= 0: return false
+	if hand.size >= hand_limit || draw_pile.size <= 0: return false
 	
 	await hand.push_back(draw_pile.get_card(card))	
 	
 	return true
 
 func draw_at_index(index : int) -> bool:
-	if hand.size() >= hand_limit || draw_pile.size() <= 0: return false
+	if hand.size >= hand_limit || draw_pile.size <= 0: return false
 	
 	await hand.push_back(draw_pile.get_card_at_index(index))	
 	
@@ -110,7 +110,7 @@ func draw_number_of_cards(amount : int):
 		amount -= 1
 
 func draw_full_hand():
-	while hand.size() < draw_limit && can_draw:
+	while hand.size < draw_limit && can_draw:
 		await _draw_card()
 
 func start_turn():
@@ -121,7 +121,7 @@ func end_turn():
 	for card : Card in hand.get_cards():
 		await card.on_turn_end(self, manager)
 	
-	if held_card.size() > 0:
+	if held_card.size > 0:
 		for card in held_card.get_cards():
 			await card.on_hold_stay(self, manager)
 	
@@ -145,7 +145,7 @@ func end_turn():
 	can_hold = true
 
 func phase_end():
-	if manager.debate_settings.redraw_on_hand_depleted && hand.size() <= 0:
+	if manager.debate_settings.redraw_on_hand_depleted && hand.size <= 0:
 		await draw_full_hand()
 
 func take_turn() -> SelectionResponse:
@@ -171,7 +171,7 @@ func select(request : SelectionRequest) -> SelectionResponse:
 	return await _brain.select(request)
 
 func hold_card(card : Card):
-	if held_card.size() > 0:
+	if held_card.size > 0:
 		var index = hand.get_card_index(card)
 		var old_held_card = held_card.get_card_at_index(0)
 		await held_card.push_back(card)
@@ -185,7 +185,7 @@ func hold_card(card : Card):
 	for sub in manager.subscribers: await sub.on_card_hold_updated(held_card.get_card_at_index(0), self)
 
 func remove_held_card():
-	if held_card.size() > 0:
+	if held_card.size > 0:
 		var card = held_card.get_card_at_index(0)
 		held_card.remove(card)
 

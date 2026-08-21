@@ -3,6 +3,7 @@ extends Node
 class_name NodeBasedDebateSubscriber
 
 @export var manager : DebateManager
+@export var order : int = 999
 
 func _ready():
 	manager.subscribe(self)

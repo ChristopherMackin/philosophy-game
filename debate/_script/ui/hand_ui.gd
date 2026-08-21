@@ -1,4 +1,4 @@
-extends Node
+extends NodeBasedDebateSubscriber
 
 class_name HandUi
 
@@ -10,8 +10,10 @@ class_name HandUi
 @export var card_parent : Control
 
 @export_group("Selection")
-@export var focus_group : FocusGroup
-@export var player_brain : PlayerBrain
+@export var focus_group: FocusGroup
+@export var player_brain: PlayerBrain
+@export var input_manager: InputManager
+@export var input_handler: InputHandler
 @export var selectable_color: Color = Color.WHITE
 @export var not_selectable_color: Color = Color.DARK_GRAY
 
@@ -20,6 +22,7 @@ var cards_ui : Array[CardUi]
 var lock : Lock = Lock.new()
 
 func _ready():
+	super._ready()
 	on_group_deselected()
 	
 	for child in card_parent.get_children():
@@ -82,8 +85,6 @@ func set_up_focus_connections():
 			card_ui.focus_next = next_path
 			card_ui.focus_neighbor_right = next_path
 		i += 1
-	
-	print(focus_group.focused_node)
 	
 	if focus_group.focused_node == null && cards_ui.size() > 0:
 		focus_group.focus(cards_ui[0])
@@ -156,3 +157,29 @@ func _update_card(card):
 		focus_group.focus(card_ui)
 	
 	old_card.queue_free()
+
+func on_card_drawn(card : Card, contestant: Contestant):
+	if contestant == manager.player:
+		_add_card(card)
+	
+func on_card_hold_updated(card : Card, contestant : Contestant):
+	if contestant == manager.player:
+		_remove_card(card)
+
+func on_actions_invoked(card : Card, action_type: CardAction.Type, _contestant : Contestant):
+	update_hand(manager.player.hand)
+
+func on_card_played(card: Card, contestant : Contestant):
+	if contestant == manager.player:
+		_remove_card(card)
+
+func on_debate_start():
+	update_hand(manager.player.hand)
+
+func on_turn_start(contestant: Contestant):
+	if contestant == manager.player: input_manager.active_handler = input_handler
+	update_hand(manager.player.hand)
+
+func on_turn_end(contestant: Contestant):
+	if contestant == manager.player: input_manager.active_handler = null
+	update_hand(manager.player.hand)
