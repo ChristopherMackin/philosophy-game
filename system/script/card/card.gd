@@ -42,6 +42,7 @@ var sort_func = func(a, b):
 
 var status_effects:= SortedArray.new(sort_func)
 var cost_status_effects:= SortedArray.new(sort_func)
+var condition_status_effects:= SortedArray.new(sort_func)
 
 var manager : DebateManager
 
@@ -68,6 +69,13 @@ func _invoke_actions(actions: Array[CardAction], action_type: CardAction.Type, c
 	if actions.size() <= 0: return
 	
 	for action : CardAction in actions:
+		var can_act := true
+		for condition_effect in condition_status_effects.values:
+			if ! condition_effect.check(action):
+				can_act = false
+				break
+		if !can_act: continue
+		
 		if !await action.invoke(self, contestant, manager): break
 	
 	for sub in manager.subscribers: await sub.on_actions_invoked(self, action_type, contestant)
@@ -128,7 +136,7 @@ func duplicate():
 func equals(card: Card) -> bool:
 	if card.status_effects.size() == status_effects.size():
 		for i in status_effects.size():
-			if card.status_effects[i] != status_effects[i]: return false
+			if card.status_effects.values[i] != status_effects.values[i]: return false
 	else:
 		return false
 	

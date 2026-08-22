@@ -1,7 +1,7 @@
 @tool
 extends ConditionEffect
 
-class_name TokensPlayedEffect
+class_name TokensPlayedStatusEffect
 
 @export var amount: int = 0
 

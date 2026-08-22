@@ -1,7 +1,7 @@
 @tool
 extends ConditionEffect
 
-class_name RuleConditionEffect
+class_name RuleConditionStatusEffect
 
 @export var rule: Rule
 

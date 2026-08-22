@@ -1,6 +1,6 @@
+@abstract
+class_name ConditionStatusEffect
 extends StatusEffect
-
-class_name ConditionEffect
 
 enum Application{
 	CAN_DRAW,
