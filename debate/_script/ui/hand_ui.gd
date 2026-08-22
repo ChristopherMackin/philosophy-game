@@ -61,12 +61,6 @@ func update_hand(hand : CardCollection):
 	
 	await Util.await_all(remove_funcs)
 	
-	var update_funcs : Array[Callable] = []
-	for card in remaining_cards:
-		update_funcs.append(func(): await _update_card(card))
-	
-	await Util.await_all(update_funcs)
-	
 	sort_hand(hand)
 	
 	card_parent.queue_sort()
@@ -113,6 +107,9 @@ func _add_card(card : Card):
 	
 	cards_ui.append(card_ui)
 	
+	if !card.card_updated.is_connected(_update_card):
+		card.card_updated.connect(_update_card)
+	
 	await GlobalTimer.wait_for_seconds(.175)
 
 func _remove_card(card : Card):	
@@ -130,6 +127,9 @@ func _remove_card(card : Card):
 	
 	cards_ui[card_index].queue_free()
 	cards_ui.remove_at(card_index)
+	
+	if card.card_updated.is_connected(_update_card):
+		card.card_updated.disconnect(_update_card)
 
 func _update_card(card):
 	var matching = cards_ui.filter(func (card_ui): return card == card_ui.card)

@@ -1,6 +1,6 @@
-extends Resource
-
+@abstract
 class_name CardCollectionContainer
+extends Resource
 
 var caller: Card
 var player: Contestant

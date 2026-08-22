@@ -2,6 +2,8 @@ extends Object
 
 class_name Card
 
+signal card_updated(card: Card)
+
 var collection : CardCollection
 
 var _base : CardBase
@@ -96,6 +98,8 @@ func _init(base: CardBase, manager : DebateManager):
 	
 	for effect: CardStatusEffect in Util.deep_copy_resource_array(base.card_status_effects):
 		effect.apply(self)
+	
+	status_effects.array_updated.connect(func(): card_updated.emit(self))
 	
 	self.manager = manager
 

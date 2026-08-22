@@ -81,6 +81,10 @@ func _init(character : Character, manager : DebateManager):
 	draw_pile.on_removed.add_listener(func(card: Card): await card.generate_token())
 	
 	discard_pile.on_added.add_listener(func(card: Card): card.on_discard(self, manager))
+	
+	held_card.on_added.add_listener(func(card: Card): await card.on_hold_start(self, manager))
+	held_card.on_removed.add_listener(func(card: Card): await card.on_hold_end(self, manager))
+
 
 func ready_up():
 	await draw_full_hand()

@@ -2,6 +2,8 @@ extends Object
 
 class_name SortedArray
 
+signal array_updated
+
 var _values: Array
 var _sort_function: Callable
 
@@ -11,20 +13,26 @@ var values: Array:
 func _init(sort_function: Callable, initial_values: Array = []):
 	_sort_function = sort_function
 	_values = initial_values
+	_values.sort()
 
 func add(value):
 	_values.append(value)
 	_values.sort_custom(_sort_function)
+	
+	array_updated.emit()
 
 func remove(value):
 	var index = _values.find(value)
 	if index >= 0:
 		_values.remove_at(index)
+	
+	array_updated.emit()
 
 func find(value): return _values.find(value)
 
 func remove_at(index):
 	_values.remove_at(index)
+	array_updated.emit()
 
 func get_value(index: int): return _values.get(index)
 

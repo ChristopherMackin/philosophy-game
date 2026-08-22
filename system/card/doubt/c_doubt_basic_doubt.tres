@@ -4,12 +4,7 @@
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="1_tj2a4"]
 [ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="1_wa7np"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_qitff"]
-[ext_resource type="Script" uid="uid://dyif3nbemyr0d" path="res://system/script/card/card_status_effect/cost_card_status_effect/set_cost_card_status_effect.gd" id="2_xaja4"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="4_1bfdo"]
-
-[sub_resource type="Resource" id="Resource_wifvs"]
-script = ExtResource("2_xaja4")
-metadata/_custom_type_script = "uid://dyif3nbemyr0d"
 
 [resource]
 script = ExtResource("1_7mdk1")
@@ -19,4 +14,3 @@ base_cost = 1
 description = "[color=#8d8d8d]Doubt is the incentive to truth and inquiry leads the way.
 - Hosea Ballou"
 token_data = ExtResource("4_1bfdo")
-card_status_effects = Array[ExtResource("1_wa7np")]([SubResource("Resource_wifvs")])
