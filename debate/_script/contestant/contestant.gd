@@ -126,11 +126,10 @@ func end_turn():
 			await card.on_hold_stay(self, manager)
 	
 	for card in hand.get_cards():
-		for modifier : CardCostModifier in card.cost_modifiers.filter(func(x): return x.can_expire).duplicate():
-			modifier.turn_lifetime -= 1
-			if modifier.turn_lifetime <= 0:
-				var index = card.cost_modifiers.find(modifier)
-				card.cost_modifiers.remove_at(index)
+		for status_effect : CardStatusEffect  in card.status_effects.values.filter(func(x): return x.can_expire).duplicate():
+			status_effect.turn_lifetime -= 1
+			if status_effect.turn_lifetime <= 0:
+				card.status_effects.remove(card)
 	
 	for status_effect: StatusEffect in status_effects.values.filter(func(x): return x.can_expire).duplicate():
 		status_effect.turn_lifetime -= 1

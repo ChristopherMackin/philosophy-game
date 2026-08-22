@@ -1,6 +1,6 @@
+@abstract
+class_name CardFilterStatusEffect
 extends StatusEffect
-
-class_name CardFilterEffect
 
 @export_enum("Playable", "Holdable", "Selectable") var card_collection := 0
 

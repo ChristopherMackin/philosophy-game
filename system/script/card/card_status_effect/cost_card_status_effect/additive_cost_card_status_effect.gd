@@ -1,7 +1,7 @@
 @tool
-extends CardCostModifier
+extends CostCardStatusEffect
 
-class_name AdditiveCardCostModifier
+class_name AdditiveCostCardStatusEffect
 
 @export var amount : int = 1
 

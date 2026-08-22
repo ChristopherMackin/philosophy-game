@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Deck" format=3 uid="uid://dv86ada6flar5"]
 
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://system/script/card/card_deck_config.gd" id="1_dpatv"]
-[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="2_m0bdr"]
-[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/basic_faith.tres" id="3_n7vtf"]
-[ext_resource type="Resource" uid="uid://hn3fmi2k8xsl" path="res://system/card/others/basic_others.tres" id="4_t63th"]
-[ext_resource type="Resource" uid="uid://dgsd4p0ynlqhk" path="res://system/card/self/basic_self.tres" id="5_0p4h1"]
-[ext_resource type="Resource" uid="uid://ylhvgo4gct1r" path="res://system/card/_peace/overthink.tres" id="6_8yblm"]
+[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/c_doubt_basic_doubt.tres" id="2_m0bdr"]
+[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/c_faith_basic_faith.tres" id="3_8yblm"]
+[ext_resource type="Resource" uid="uid://hn3fmi2k8xsl" path="res://system/card/others/c_others_basic_others.tres" id="4_k6vfy"]
+[ext_resource type="Resource" uid="uid://dgsd4p0ynlqhk" path="res://system/card/self/c_self_basic_self.tres" id="5_wle2f"]
+[ext_resource type="Resource" uid="uid://ylhvgo4gct1r" path="res://system/card/_peace/c_peace_overthink.tres" id="6_8yblm"]
 [ext_resource type="Script" uid="uid://dhdtv0v6h0rkq" path="res://system/script/deck/deck.gd" id="11_wv4ln"]
 
 [sub_resource type="Resource" id="Resource_3dpgd"]
@@ -17,19 +17,19 @@ count = 4
 [sub_resource type="Resource" id="Resource_knmrv"]
 resource_name = "4 Basic Faith"
 script = ExtResource("1_dpatv")
-base = ExtResource("3_n7vtf")
+base = ExtResource("3_8yblm")
 count = 4
 
 [sub_resource type="Resource" id="Resource_43cn6"]
 resource_name = "4 Basic Others"
 script = ExtResource("1_dpatv")
-base = ExtResource("4_t63th")
+base = ExtResource("4_k6vfy")
 count = 4
 
 [sub_resource type="Resource" id="Resource_pn2ol"]
 resource_name = "4 Basic Self"
 script = ExtResource("1_dpatv")
-base = ExtResource("5_0p4h1")
+base = ExtResource("5_wle2f")
 count = 4
 
 [sub_resource type="Resource" id="Resource_k6vfy"]

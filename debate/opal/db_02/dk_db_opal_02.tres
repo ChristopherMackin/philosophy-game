@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="InfiniteDeck" format=3 uid="uid://2ck3c4aeaqbv"]
 
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://system/script/card/card_deck_config.gd" id="1_cx6ds"]
-[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/basic_faith.tres" id="2_ckdb8"]
+[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/c_faith_basic_faith.tres" id="2_pqi5q"]
 [ext_resource type="Script" uid="uid://dlqqr4qxqi2ht" path="res://system/script/deck/infinite_deck.gd" id="2_svv0r"]
-[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="3_pqi5q"]
-[ext_resource type="Resource" uid="uid://dgsd4p0ynlqhk" path="res://system/card/self/basic_self.tres" id="4_tuo5f"]
-[ext_resource type="Resource" uid="uid://hn3fmi2k8xsl" path="res://system/card/others/basic_others.tres" id="5_cyock"]
+[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/c_doubt_basic_doubt.tres" id="3_pqi5q"]
+[ext_resource type="Resource" uid="uid://dgsd4p0ynlqhk" path="res://system/card/self/c_self_basic_self.tres" id="4_tuo5f"]
+[ext_resource type="Resource" uid="uid://hn3fmi2k8xsl" path="res://system/card/others/c_others_basic_others.tres" id="5_cyock"]
 
 [sub_resource type="Resource" id="Resource_cx6ds"]
 resource_name = "1 Basic Faith"
 script = ExtResource("1_cx6ds")
-base = ExtResource("2_ckdb8")
+base = ExtResource("2_pqi5q")
 count = 1
 
 [sub_resource type="Resource" id="Resource_pks5q"]

@@ -11,7 +11,7 @@ func filter(card_array: Array[Card], caller: Card, contestant: Contestant, manag
 	
 	var cards : Array[Card]
 	
-	for filter: CardFilterEffect in contestant.selectable_card_filter_effects.values:
+	for filter: CardFilterStatusEffect in contestant.selectable_card_filter_effects.values:
 		card_array = filter.filter(card_array)
 	
 	var response : SelectionResponse = await contestant.select(SelectionRequest.new(

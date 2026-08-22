@@ -35,7 +35,12 @@ var _on_hold_start_card_actions: Array[CardAction] = []
 var _on_hold_stay_card_actions: Array[CardAction] = []
 var _on_hold_end_card_actions: Array[CardAction] = []
 
-var cost_modifiers : Array[CardCostModifier] = []
+var sort_func = func(a, b):
+	return a.priority < b.priority
+
+var status_effects:= SortedArray.new(sort_func)
+var cost_status_effects:= SortedArray.new(sort_func)
+
 var manager : DebateManager
 
 func on_play(contestant: Contestant, manager: DebateManager):
@@ -69,11 +74,9 @@ func _invoke_actions(actions: Array[CardAction], action_type: CardAction.Type, c
 var cost : int :
 	get:
 		var ret = base_cost
-	
-		cost_modifiers.sort_custom(func(a, b): return a.priority > b.priority)
-	
-		for modifier in cost_modifiers:
-			ret = modifier.modify_cost(ret, manager)
+		
+		for effect in cost_status_effects.values:
+			ret = effect.modify_cost(ret, manager)
 	
 		return ret if ret >= 0 else 0
 
@@ -90,7 +93,9 @@ func _init(base: CardBase, manager : DebateManager):
 	_on_hold_start_card_actions.assign(Util.deep_copy_resource_array(base.on_hold_start_card_actions))
 	_on_hold_stay_card_actions.assign(Util.deep_copy_resource_array(base.on_hold_stay_card_actions))
 	_on_hold_end_card_actions.assign(Util.deep_copy_resource_array(base.on_hold_end_card_actions))
-	cost_modifiers.assign(Util.deep_copy_resource_array(base.cost_modifiers))
+	
+	for effect: CardStatusEffect in Util.deep_copy_resource_array(base.card_status_effects):
+		effect.apply(self)
 	
 	self.manager = manager
 
@@ -117,9 +122,9 @@ func duplicate():
 	return Card.new(_base, manager)
 
 func equals(card: Card) -> bool:
-	if card.cost_modifiers.size() == cost_modifiers.size():
-		for i in cost_modifiers.size():
-			if card.cost_modifiers[i] != cost_modifiers[i]: return false
+	if card.status_effects.size() == status_effects.size():
+		for i in status_effects.size():
+			if card.status_effects[i] != status_effects[i]: return false
 	else:
 		return false
 	

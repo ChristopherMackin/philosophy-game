@@ -3,7 +3,7 @@ extends CardAction
 class_name AddCostModifierToCardCollectionCardAction
 
 @export var collection_container: CardCollectionContainer 
-@export var cost_modifier : CardCostModifier
+@export var cost_modifier : CostCardStatusEffect
 
 func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool:
 	collection_container.init(caller, player, manager)

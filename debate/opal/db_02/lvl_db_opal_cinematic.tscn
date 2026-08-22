@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="8_p4nej"]
 [ext_resource type="PackedScene" uid="uid://dnalajbqwpcg2" path="res://character/joy/act_joy.tscn" id="8_w340p"]
 [ext_resource type="PackedScene" uid="uid://dgjj6ix2mlftp" path="res://character/opal/act_opal.tscn" id="9_8fbt7"]
-[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/basic_doubt.tres" id="9_hkuxl"]
+[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/c_doubt_basic_doubt.tres" id="9_hkuxl"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="10_3t4os"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/char_player.tres" id="10_sd1vu"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="11_ud0a1"]
@@ -237,7 +237,7 @@ _data = {
 &"p4_setup": SubResource("Animation_hrfbg")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_f3ys7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_knqga"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Curve" id="Curve_wifvs"]
@@ -245,7 +245,7 @@ _limits = [0.0, 1.8, 0.0, 1.0]
 _data = [Vector2(0, 1.8), 0.0, 0.0, 0, 0, Vector2(0.5503876, 1.8), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7mnyw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_f3ys7"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dbiua"]
@@ -380,7 +380,7 @@ _data = {
 &"card_exit": SubResource("Animation_ntdmx")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nolis"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7mnyw"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8igq"]
@@ -388,7 +388,7 @@ albedo_texture = ExtResource("30_dbiua")
 ao_enabled = true
 ao_texture = ExtResource("31_p0yir")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_68gxc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nolis"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jelp"]
@@ -396,7 +396,7 @@ albedo_texture = ExtResource("32_84k4r")
 ao_enabled = true
 ao_texture = ExtResource("33_3m87t")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2moqn"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_68gxc"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ghiyr"]
@@ -756,12 +756,13 @@ order = 1
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter" unique_id=1817069595 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_f3ys7")
+texture = SubResource("ViewportTexture_knqga")
 
 [node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1817069595, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
 theme_override_font_sizes/normal_font_size = 90
+text = "0"
 
 [node name="ScaleControl" type="Node" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=1804293334 node_paths=PackedStringArray("target")]
 script = ExtResource("37_68gxc")
@@ -780,12 +781,13 @@ order = 1
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" unique_id=1611050952 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_7mnyw")
+texture = SubResource("ViewportTexture_f3ys7")
 
 [node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1611050952, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
 theme_override_font_sizes/normal_font_size = 90
+text = "0"
 
 [node name="ScaleControl" type="Node" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=182257150 node_paths=PackedStringArray("target")]
 script = ExtResource("37_68gxc")
@@ -885,12 +887,13 @@ order = 1
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" unique_id=467383888 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26024163, -0.009793821, -0.076415636, 0.076465435, -1.1382936e-08, 0.26041123, -0.009397088, -0.27122876, 0.0027592867, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_nolis")
+texture = SubResource("ViewportTexture_7mnyw")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(467383888, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
 theme_override_font_sizes/normal_font_size = 90
+text = "0"
 
 [node name="ScaleControl" type="Node" parent="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=1119974987 node_paths=PackedStringArray("target")]
 script = ExtResource("37_68gxc")
@@ -913,12 +916,13 @@ surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" unique_id=1511716073 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.2708025, 0.006386812, -0.016917214, 0.016962603, -0.0017474849, 0.27086934, 0.0062652696, -0.27132475, -0.002142772, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_68gxc")
+texture = SubResource("ViewportTexture_nolis")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1511716073, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
 theme_override_font_sizes/normal_font_size = 90
+text = "0"
 
 [node name="ScaleControl" type="Node" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=1511373967 node_paths=PackedStringArray("target")]
 script = ExtResource("37_68gxc")
@@ -941,12 +945,13 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" unique_id=969618535 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26872277, 0.03799277, 0.0023667924, -0.00091665983, -0.010411309, 0.27120426, 0.038055386, -0.26853144, -0.010180076, -0.011028126, 0.015155774, 0.015328243)
-texture = SubResource("ViewportTexture_2moqn")
+texture = SubResource("ViewportTexture_68gxc")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(969618535, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
 theme_override_font_sizes/normal_font_size = 90
+text = "0"
 
 [node name="ScaleControl" type="Node" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=911647333 node_paths=PackedStringArray("target")]
 script = ExtResource("37_68gxc")
@@ -994,7 +999,7 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/default_color = Color(0.36078432, 0.36078432, 0.36078432, 1)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
 theme_override_font_sizes/normal_font_size = 90
-text = "15"
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("28_p0yir")
@@ -1043,7 +1048,7 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/default_color = Color(0.36078432, 0.36078432, 0.36078432, 1)
 theme_override_fonts/normal_font = ExtResource("73_hrfbg")
 theme_override_font_sizes/normal_font_size = 90
-text = "7"
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("28_p0yir")
@@ -2169,10 +2174,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 1.4809699
-offset_top = -0.48069197
-offset_right = 221.48091
-offset_bottom = 129.5193
+offset_left = -1.4613168
+offset_top = 1.2819715
+offset_right = 218.53862
+offset_bottom = 131.28197
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2225,10 +2230,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.2090491
-offset_top = -1.402071
-offset_right = 218.79095
-offset_bottom = 128.59802
+offset_left = -0.9988216
+offset_top = -1.3166461
+offset_right = 219.00117
+offset_bottom = 128.68344
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2281,10 +2286,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 1.2919596
-offset_top = 1.0620154
-offset_right = 221.29202
-offset_bottom = 131.06201
+offset_left = -0.96203554
+offset_top = -1.2036873
+offset_right = 219.03802
+offset_bottom = 128.79631
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2337,10 +2342,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 1.7312744
-offset_top = -1.2052454
-offset_right = 540.56903
-offset_bottom = 337.49503
+offset_left = -0.502236
+offset_top = -1.367842
+offset_right = 538.3355
+offset_bottom = 337.33243
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
@@ -2394,7 +2399,6 @@ focus_group = ExtResource("18_8rm3w")
 player_brain = ExtResource("17_uvud4")
 input_manager = NodePath("../../===MANAGER========/InputManager")
 input_handler = ExtResource("7_faur5")
-selectable_color = null
 not_selectable_color = Color(0.48178923, 0.48178953, 0.48178947, 1)
 manager = ExtResource("12_fev28")
 order = 2

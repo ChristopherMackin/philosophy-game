@@ -14,9 +14,9 @@
 [ext_resource type="Resource" uid="uid://b3jhi1ttp2e7x" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_03.tres" id="14_07uhb"]
 
 [sub_resource type="Resource" id="Resource_wifvs"]
-resource_name = "RU: ON_SCENE_ENTER"
+resource_name = "RU: ON_DEBATE_START"
 script = ExtResource("3_i0cw1")
-concept = 10
+concept = 8
 metadata/_custom_type_script = "uid://fnphjbccs4gy"
 
 [sub_resource type="Resource" id="Resource_vpghu"]

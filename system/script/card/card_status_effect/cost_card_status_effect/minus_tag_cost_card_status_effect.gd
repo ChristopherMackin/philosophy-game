@@ -1,7 +1,7 @@
 @tool
-extends CardCostModifier
+extends CostCardStatusEffect
 
-class_name MinusTagCardCostModifier
+class_name MinusTagCostCardStatusEffect
 
 @export var tag : Const.Tag
 

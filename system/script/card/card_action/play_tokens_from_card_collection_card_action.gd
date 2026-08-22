@@ -36,3 +36,5 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager):
 			for card in cards:
 				if !card.has_token: continue
 				manager.play_token(card.pop_token(), card.suit, player)
+	
+	return true

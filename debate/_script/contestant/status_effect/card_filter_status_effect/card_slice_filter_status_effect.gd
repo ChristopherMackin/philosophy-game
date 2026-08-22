@@ -1,6 +1,6 @@
-extends CardFilterEffect
+extends CardFilterStatusEffect
 
-class_name CardSliceFilterEffect
+class_name CardSliceFilterStatusEffect
 
 @export_enum("Forwards", "Backwards") var slice_direction := 0
 @export var amount: int = 1

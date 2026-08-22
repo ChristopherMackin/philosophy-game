@@ -19,7 +19,7 @@ class_name CardBase
 @export var on_hold_start_card_actions : Array[CardAction]
 @export var on_hold_stay_card_actions : Array[CardAction]
 @export var on_hold_end_card_actions : Array[CardAction]
-@export var cost_modifiers : Array[CardCostModifier]
+@export var card_status_effects : Array[CardStatusEffect]
 
 @export_group("FX")
 @export var sfx: Array[Const.SFX] = []

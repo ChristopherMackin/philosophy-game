@@ -1,6 +1,6 @@
-extends CardFilterEffect
+extends CardFilterStatusEffect
 
-class_name CardBaseListFilterEffect
+class_name CardBaseListFilterStatusEffect
 
 @export_enum("Include", "Exclude") var slice_direction := 0
 @export var card_bases: Array[CardBase]
