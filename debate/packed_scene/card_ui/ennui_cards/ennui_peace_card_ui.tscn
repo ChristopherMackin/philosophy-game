@@ -35,15 +35,17 @@ texture = ExtResource("2_sol35")
 
 [node name="HeaderLabel" type="Label" parent="Card/CardBG/TapeCovering" index="2" unique_id=1163959343]
 layout_mode = 0
-offset_left = 90.0
-offset_top = -23.75
-offset_right = 316.0
-offset_bottom = 91.25
+offset_left = 66.25
+offset_top = -38.75
+offset_right = 292.25
+offset_bottom = 76.25
 rotation = -0.03313008
 theme_override_colors/font_color = Color(0.23, 0.23, 0.23, 0.9490196)
 theme_override_fonts/font = ExtResource("3_qmf5x")
 theme_override_font_sizes/font_size = 62
-text = "Empty"
+text = "Void"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BodyTape" type="TextureRect" parent="Card/CardBG/TapeCovering" index="3" unique_id=862114333]
 layout_mode = 0
