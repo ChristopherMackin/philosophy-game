@@ -1,5 +1,5 @@
 @tool
-extends ConditionEffect
+extends ConditionStatusEffect
 
 class_name TokensPlayedStatusEffect
 

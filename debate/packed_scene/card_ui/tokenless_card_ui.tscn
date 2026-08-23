@@ -1,30 +1,49 @@
-[gd_scene format=3 uid="uid://bd8ykdcrcff7f"]
+[gd_scene format=3 uid="uid://c4op54o5l5tf"]
 
-[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://debate/_script/ui/card_ui.gd" id="1_ikumh"]
-[ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://_asset/debate/_general/texture/card/t_card_base.png" id="2_2i2ja"]
-[ext_resource type="Texture2D" uid="uid://bj7hke57dh5a5" path="res://_asset/debate/_general/texture/card/t_tokenless_description.png" id="3_bpko4"]
-[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://_asset/debate/_general/texture/suit/t_faith_icon.png" id="5_7a47j"]
-[ext_resource type="Texture2D" uid="uid://ccw84ml2464p1" path="res://_asset/debate/_general/texture/card/t_card_cost.png" id="6_4gk4d"]
-[ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://_asset/_general/font/TenorSans-Regular.ttf" id="6_kr228"]
-[ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://_asset/_general/font/fahkwang/Fahkwang-Bold.ttf" id="7_b30a2"]
-[ext_resource type="Script" uid="uid://dc8gq2l3o144t" path="res://system/script/focus_group/focus_group_signal_node.gd" id="9_ry72i"]
-[ext_resource type="Script" uid="uid://cumbxctg3u56" path="res://debate/_script/ui/card_focus_animation.gd" id="10_7yo4m"]
+[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://debate/_script/ui/card_ui.gd" id="1_ssmgy"]
+[ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://_asset/debate/_general/texture/card/t_card_base.png" id="2_67g0w"]
+[ext_resource type="Texture2D" uid="uid://bj7hke57dh5a5" path="res://_asset/debate/_general/texture/card/t_tokenless_description.png" id="3_j3n4e"]
+[ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://_asset/_general/font/TenorSans-Regular.ttf" id="4_wo2p8"]
+[ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://_asset/_general/font/fahkwang/Fahkwang-Bold.ttf" id="5_rak5y"]
+[ext_resource type="Texture2D" uid="uid://ccw84ml2464p1" path="res://_asset/debate/_general/texture/card/t_card_cost.png" id="7_geb2a"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://_asset/debate/_general/texture/suit/t_faith_icon.png" id="8_fsvqh"]
+[ext_resource type="Script" uid="uid://dc8gq2l3o144t" path="res://system/script/focus_group/focus_group_signal_node.gd" id="12_lspcr"]
+[ext_resource type="Script" uid="uid://cumbxctg3u56" path="res://debate/_script/ui/card_focus_animation.gd" id="13_j83ky"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5xdp"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mnhj4"]
 content_margin_left = 10.0
 content_margin_top = 0.0
 content_margin_right = 10.0
 content_margin_bottom = 0.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ld4d5"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dsxx5"]
 content_margin_left = 10.0
 content_margin_top = 5.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
 
-[node name="TokenlessCardGUI" type="Control" unique_id=1419343486 node_paths=PackedStringArray("card_bg", "title", "description", "cost", "icon")]
-custom_minimum_size = Vector2(370, 320)
+[node name="CardUi" type="Control" unique_id=147735438 node_paths=PackedStringArray("card_bg", "title", "description", "cost", "icon")]
+custom_minimum_size = Vector2(296, 256)
 layout_mode = 3
+anchors_preset = 0
+offset_left = -148.0
+offset_top = -128.0
+offset_right = 148.0
+offset_bottom = 128.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_ssmgy")
+card_bg = NodePath("Card/CardBG")
+title = NodePath("Card/CardBG/Title")
+description = NodePath("Card/CardBG/Description")
+cost = NodePath("Card/CardBG/CostIcon/Cost")
+icon = NodePath("Card/CardBG/SuitIcon")
+metadata/focus_property = "card"
+
+[node name="Card" type="Control" parent="." unique_id=370963301]
+custom_minimum_size = Vector2(370, 320)
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -37,16 +56,9 @@ offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
-pivot_offset = Vector2(185, 320)
-script = ExtResource("1_ikumh")
-card_bg = NodePath("CardBG")
-title = NodePath("CardBG/Title")
-description = NodePath("CardBG/Description")
-cost = NodePath("CardBG/CostIcon/Cost")
-icon = NodePath("CardBG/SuitIcon")
-metadata/focus_property = "card"
+pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="Shadow" type="TextureRect" parent="." unique_id=252172199]
+[node name="Shadow" type="TextureRect" parent="Card" unique_id=62878429]
 modulate = Color(0, 0, 0, 0.0745098)
 layout_mode = 1
 anchors_preset = 15
@@ -58,16 +70,16 @@ offset_right = -9.99997
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_2i2ja")
+texture = ExtResource("2_67g0w")
 
-[node name="CardBG" type="TextureRect" parent="." unique_id=1068024596]
+[node name="CardBG" type="TextureRect" parent="Card" unique_id=1814425711]
 self_modulate = Color(0.99607843, 0.69411767, 0.26666668, 1)
 layout_mode = 0
 offset_right = 370.0
 offset_bottom = 320.0
-texture = ExtResource("2_2i2ja")
+texture = ExtResource("2_67g0w")
 
-[node name="Body" type="TextureRect" parent="CardBG" unique_id=787047997]
+[node name="Body" type="TextureRect" parent="Card/CardBG" unique_id=2101696327]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -79,10 +91,10 @@ offset_top = -267.0
 offset_right = 185.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("3_bpko4")
+texture = ExtResource("3_j3n4e")
 stretch_mode = 2
 
-[node name="SuitIcon" type="TextureRect" parent="CardBG" unique_id=106833453]
+[node name="SuitIcon" type="TextureRect" parent="Card/CardBG" unique_id=800869109]
 self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
 layout_mode = 1
 anchors_preset = 5
@@ -93,24 +105,24 @@ offset_top = 42.0
 offset_right = 16.0
 offset_bottom = 73.0
 grow_horizontal = 2
-texture = ExtResource("5_7a47j")
+texture = ExtResource("8_fsvqh")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Title" type="Label" parent="CardBG" unique_id=1365948389]
+[node name="Title" type="Label" parent="Card/CardBG" unique_id=496953509]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.125
 theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
-theme_override_fonts/font = ExtResource("6_kr228")
+theme_override_fonts/font = ExtResource("4_wo2p8")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxEmpty_y5xdp")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mnhj4")
 text = "Structured Argument"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CardSetNumber" type="Label" parent="CardBG" unique_id=1523141112]
+[node name="CardSetNumber" type="Label" parent="Card/CardBG" unique_id=1265073152]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -120,23 +132,23 @@ offset_top = 294.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.137255, 0.0862745, 0.0588235, 1)
-theme_override_fonts/font = ExtResource("6_kr228")
+theme_override_fonts/font = ExtResource("4_wo2p8")
 theme_override_font_sizes/font_size = 16
 text = "12/78"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CostIcon" type="TextureRect" parent="CardBG" unique_id=1257865057]
+[node name="CostIcon" type="TextureRect" parent="Card/CardBG" unique_id=1059795595]
 self_modulate = Color(0.13725491, 0.08627451, 0.05882353, 1)
 layout_mode = 0
 offset_left = 315.0
 offset_top = 238.74997
 offset_right = 355.0
 offset_bottom = 287.74997
-texture = ExtResource("6_4gk4d")
+texture = ExtResource("7_geb2a")
 stretch_mode = 5
 
-[node name="Cost" type="Label" parent="CardBG/CostIcon" unique_id=1607924416]
+[node name="Cost" type="Label" parent="Card/CardBG/CostIcon" unique_id=1263806695]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -150,13 +162,13 @@ offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.964706, 0.964706, 0.964706, 1)
-theme_override_fonts/font = ExtResource("6_kr228")
+theme_override_fonts/font = ExtResource("4_wo2p8")
 theme_override_font_sizes/font_size = 30
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="RichTextLabel" parent="CardBG" unique_id=894219718]
+[node name="Description" type="RichTextLabel" parent="Card/CardBG" unique_id=601563015]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.014
@@ -168,25 +180,25 @@ offset_top = 0.0799942
 offset_right = -0.0800101
 offset_bottom = 0.0799789
 theme_override_colors/default_color = Color(0.137255, 0.0862745, 0.0588235, 1)
-theme_override_fonts/normal_font = ExtResource("6_kr228")
-theme_override_fonts/bold_font = ExtResource("7_b30a2")
+theme_override_fonts/normal_font = ExtResource("4_wo2p8")
+theme_override_fonts/bold_font = ExtResource("5_rak5y")
 theme_override_font_sizes/normal_font_size = 22
 theme_override_font_sizes/bold_font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ld4d5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dsxx5")
 bbcode_enabled = true
 text = "Place 2 [b]Structured Conversation[/b] tops.
 
 Cost -1 for ever [b]pentagram[/b] top in play"
 scroll_active = false
 
-[node name="FocusGroupSignalNode" type="Node" parent="." unique_id=548114207]
-script = ExtResource("9_ry72i")
+[node name="FocusGroupSignalNode" type="Node" parent="Card" unique_id=1789262596]
+script = ExtResource("12_lspcr")
 metadata/_custom_type_script = "uid://dc8gq2l3o144t"
 
-[node name="CardFocusAnimation" type="Node" parent="." unique_id=1001622876 node_paths=PackedStringArray("card_base")]
-script = ExtResource("10_7yo4m")
+[node name="CardFocusAnimation" type="Node" parent="Card" unique_id=329119269 node_paths=PackedStringArray("card_base")]
+script = ExtResource("13_j83ky")
 card_base = NodePath("..")
 metadata/_custom_type_script = "uid://cumbxctg3u56"
 
-[connection signal="on_focus_entered" from="FocusGroupSignalNode" to="CardFocusAnimation" method="_on_focus_entered"]
-[connection signal="on_focus_exited" from="FocusGroupSignalNode" to="CardFocusAnimation" method="_on_focus_exited"]
+[connection signal="on_focus_entered" from="Card/FocusGroupSignalNode" to="Card/CardFocusAnimation" method="_on_focus_entered"]
+[connection signal="on_focus_exited" from="Card/FocusGroupSignalNode" to="Card/CardFocusAnimation" method="_on_focus_exited"]

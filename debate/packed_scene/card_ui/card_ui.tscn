@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bc773b0nxnftk"]
+[gd_scene format=3 uid="uid://7f3cslp40a4q"]
 
 [ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://debate/_script/ui/card_ui.gd" id="1_4n5p8"]
 [ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://_asset/debate/_general/texture/card/t_card_base.png" id="2_v7m6f"]
@@ -26,9 +26,30 @@ content_margin_top = 0.0
 content_margin_right = 10.0
 content_margin_bottom = 0.0
 
-[node name="Card" type="Control" unique_id=370963301 node_paths=PackedStringArray("card_bg", "title", "artwork", "shadow", "description", "cost", "icon")]
-custom_minimum_size = Vector2(370, 320)
+[node name="CardUi" type="Control" unique_id=147735438 node_paths=PackedStringArray("card_bg", "title", "artwork", "shadow", "description", "cost", "icon")]
+custom_minimum_size = Vector2(296, 256)
 layout_mode = 3
+anchors_preset = 0
+offset_left = -148.0
+offset_top = -128.0
+offset_right = 148.0
+offset_bottom = 128.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_4n5p8")
+card_bg = NodePath("Card/CardBG")
+title = NodePath("Card/CardBG/Title")
+artwork = NodePath("Card/CardBG/CardTokenLocation/Token")
+shadow = NodePath("Card/CardBG/CardTokenLocation/Shadow")
+description = NodePath("Card/CardBG/CardDescription/Description")
+cost = NodePath("Card/CardBG/CostIcon/Cost")
+icon = NodePath("Card/CardBG/SuitIcon")
+metadata/focus_property = "card"
+
+[node name="Card" type="Control" parent="." unique_id=370963301]
+custom_minimum_size = Vector2(370, 320)
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -41,18 +62,9 @@ offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
-pivot_offset = Vector2(185, 320)
-script = ExtResource("1_4n5p8")
-card_bg = NodePath("CardBG")
-title = NodePath("CardBG/Title")
-artwork = NodePath("CardBG/CardTokenLocation/Token")
-shadow = NodePath("CardBG/CardTokenLocation/Shadow")
-description = NodePath("CardBG/CardDescription/Description")
-cost = NodePath("CardBG/CostIcon/Cost")
-icon = NodePath("CardBG/SuitIcon")
-metadata/focus_property = "card"
+pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="Shadow" type="TextureRect" parent="." unique_id=62878429]
+[node name="Shadow" type="TextureRect" parent="Card" unique_id=62878429]
 modulate = Color(0, 0, 0, 0.0745098)
 layout_mode = 1
 anchors_preset = 15
@@ -66,14 +78,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_v7m6f")
 
-[node name="CardBG" type="TextureRect" parent="." unique_id=1769168594]
+[node name="CardBG" type="TextureRect" parent="Card" unique_id=1769168594]
 self_modulate = Color(1, 0.69411767, 0.26666668, 1)
 layout_mode = 0
 offset_right = 370.0
 offset_bottom = 320.0
 texture = ExtResource("2_v7m6f")
 
-[node name="CardDescription" type="TextureRect" parent="CardBG" unique_id=1547244308]
+[node name="CardDescription" type="TextureRect" parent="Card/CardBG" unique_id=1547244308]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.125
@@ -82,7 +94,7 @@ anchor_bottom = 1.0
 offset_right = -0.15000916
 texture = ExtResource("3_v7m6f")
 
-[node name="Description" type="RichTextLabel" parent="CardBG/CardDescription" unique_id=1908881171]
+[node name="Description" type="RichTextLabel" parent="Card/CardBG/CardDescription" unique_id=1908881171]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,7 +113,7 @@ text = "Place 2 [b]Structured Conversation[/b] tops.
 Cost -1 for ever [b]pentagram[/b] top in play"
 scroll_active = false
 
-[node name="SetInfo" type="TextureRect" parent="CardBG" unique_id=287386870]
+[node name="SetInfo" type="TextureRect" parent="Card/CardBG" unique_id=287386870]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.814
@@ -114,7 +126,7 @@ offset_right = -0.12005615
 offset_bottom = -3.0517578e-05
 texture = ExtResource("6_vo8an")
 
-[node name="CardSetNumber" type="Label" parent="CardBG/SetInfo" unique_id=1268837036]
+[node name="CardSetNumber" type="Label" parent="Card/CardBG/SetInfo" unique_id=1268837036]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -128,7 +140,7 @@ text = "12/78"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CostIcon" type="TextureRect" parent="CardBG" unique_id=1711034036]
+[node name="CostIcon" type="TextureRect" parent="Card/CardBG" unique_id=1711034036]
 self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
 layout_mode = 0
 offset_left = 232.0
@@ -138,7 +150,7 @@ offset_bottom = 260.0
 texture = ExtResource("7_pwlx3")
 stretch_mode = 5
 
-[node name="Cost" type="Label" parent="CardBG/CostIcon" unique_id=2095905032]
+[node name="Cost" type="Label" parent="Card/CardBG/CostIcon" unique_id=2095905032]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.117
@@ -156,7 +168,7 @@ text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SuitIcon" type="TextureRect" parent="CardBG" unique_id=399985266]
+[node name="SuitIcon" type="TextureRect" parent="Card/CardBG" unique_id=399985266]
 self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
 layout_mode = 0
 offset_left = 298.0
@@ -167,7 +179,7 @@ texture = ExtResource("7_cu46k")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Title" type="Label" parent="CardBG" unique_id=1351836744]
+[node name="Title" type="Label" parent="Card/CardBG" unique_id=1351836744]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -179,7 +191,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_y5xdp")
 text = "Structured Argument"
 vertical_alignment = 1
 
-[node name="CardTokenLocation" type="TextureRect" parent="CardBG" unique_id=1237016836]
+[node name="CardTokenLocation" type="TextureRect" parent="Card/CardBG" unique_id=1237016836]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.616
@@ -193,7 +205,7 @@ offset_bottom = -0.120041
 texture = ExtResource("9_k1f38")
 expand_mode = 1
 
-[node name="Shadow" type="TextureRect" parent="CardBG/CardTokenLocation" unique_id=1446546923]
+[node name="Shadow" type="TextureRect" parent="Card/CardBG/CardTokenLocation" unique_id=1446546923]
 self_modulate = Color(0, 0, 0, 0.34902)
 layout_mode = 1
 anchors_preset = -1
@@ -209,7 +221,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_hvx6j")
 
-[node name="Token" type="TextureRect" parent="CardBG/CardTokenLocation" unique_id=7661385]
+[node name="Token" type="TextureRect" parent="Card/CardBG/CardTokenLocation" unique_id=7661385]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.026
@@ -224,12 +236,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("11_pex2d")
 
-[node name="FocusGroupSignalNode" type="Node" parent="." unique_id=2089907977]
+[node name="FocusGroupSignalNode" type="Node" parent="Card" unique_id=2089907977]
 script = ExtResource("13_v7m6f")
 
-[node name="CardFocusAnimation" type="Node" parent="." unique_id=494077476 node_paths=PackedStringArray("card_base")]
+[node name="CardFocusAnimation" type="Node" parent="Card" unique_id=494077476 node_paths=PackedStringArray("card_base")]
 script = ExtResource("14_vo8an")
 card_base = NodePath("..")
 
-[connection signal="on_focus_entered" from="FocusGroupSignalNode" to="CardFocusAnimation" method="_on_focus_entered"]
-[connection signal="on_focus_exited" from="FocusGroupSignalNode" to="CardFocusAnimation" method="_on_focus_exited"]
+[connection signal="on_focus_entered" from="Card/FocusGroupSignalNode" to="Card/CardFocusAnimation" method="_on_focus_entered"]
+[connection signal="on_focus_exited" from="Card/FocusGroupSignalNode" to="Card/CardFocusAnimation" method="_on_focus_exited"]

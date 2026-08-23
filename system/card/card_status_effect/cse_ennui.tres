@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FalseConditionCardStatusEffect" format=3 uid="uid://cvf702xa275od"]
+
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="1_ajm2e"]
+[ext_resource type="Script" uid="uid://c12n22vq5ljj1" path="res://system/script/card/card_status_effect/condition_card_status_effect/false_condition_card_status_effect.gd" id="2_naguw"]
+
+[resource]
+script = ExtResource("2_naguw")
+name = "Ennui"
+description = "Does Nothing"
+metadata/_custom_type_script = "uid://c12n22vq5ljj1"

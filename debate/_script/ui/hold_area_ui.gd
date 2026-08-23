@@ -31,8 +31,7 @@ func add_card(card):
 	card_parent.add_child(card_ui)
 	
 	card_ui.card = card
-	card_ui.pivot_offset = Vector2.ZERO
-	card_ui.position = Vector2.ZERO
+	card_ui.set_anchors_preset(Control.PRESET_CENTER, true)
 	
 	held_card = card_ui
 	

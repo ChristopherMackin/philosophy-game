@@ -1,70 +1,69 @@
 [gd_scene format=3 uid="uid://13is8xrc6y7q"]
 
-[ext_resource type="PackedScene" uid="uid://bmxatnrtkqwmu" path="res://debate/packed_scene/card_ui/peace_card_ui.tscn" id="1_ofwwv"]
-[ext_resource type="Texture2D" uid="uid://bfpxej2kvhobt" path="res://_asset/debate/_general/texture/card/t_masking_tape_title.png" id="2_c6kuw"]
-[ext_resource type="FontFile" uid="uid://bhrgkhn1hsnfo" path="res://_asset/_general/font/PermanentMarker.ttf" id="3_gx0d8"]
-[ext_resource type="Texture2D" uid="uid://dvuw4px2q6ili" path="res://_asset/debate/_general/texture/card/t_masking_tape_body.png" id="4_sx5ct"]
+[ext_resource type="PackedScene" uid="uid://bmo1kna3igdun" path="res://debate/packed_scene/card_ui/peace_card_ui.tscn" id="1_qu80e"]
+[ext_resource type="Texture2D" uid="uid://bfpxej2kvhobt" path="res://_asset/debate/_general/texture/card/t_masking_tape_title.png" id="2_sol35"]
+[ext_resource type="FontFile" uid="uid://bhrgkhn1hsnfo" path="res://_asset/_general/font/PermanentMarker.ttf" id="3_qmf5x"]
+[ext_resource type="Texture2D" uid="uid://dvuw4px2q6ili" path="res://_asset/debate/_general/texture/card/t_masking_tape_body.png" id="4_fbu8o"]
 
-[node name="TokenlessCardGUI" unique_id=743359882 instance=ExtResource("1_ofwwv")]
+[node name="TokenlessCardGUI" unique_id=743359882 instance=ExtResource("1_qu80e")]
 
-[node name="TapeCovering" type="Control" parent="CardBG" parent_id_path=PackedInt32Array(755276418) index="6" unique_id=1299737339]
+[node name="TapeCovering" type="Control" parent="Card/CardBG" parent_id_path=PackedInt32Array(1814425711) index="6" unique_id=1299737339]
 modulate = Color(1, 1, 1, 0.9411765)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HeaderTape01" type="TextureRect" parent="CardBG/TapeCovering" index="0" unique_id=865025299]
+[node name="HeaderTape01" type="TextureRect" parent="Card/CardBG/TapeCovering" index="0" unique_id=865025299]
 layout_mode = 0
-offset_left = 38.321823
-offset_top = -31.25
-offset_right = 156.32182
-offset_bottom = 29.75
+offset_left = 19.999994
+offset_top = -37.5
+offset_right = 138.0
+offset_bottom = 23.5
 rotation = 0.15937787
 scale = Vector2(1.5052052, 1.5052052)
-texture = ExtResource("2_c6kuw")
+texture = ExtResource("2_sol35")
 
-[node name="HeaderTape02" type="TextureRect" parent="CardBG/TapeCovering" index="1" unique_id=1513085443]
+[node name="HeaderTape02" type="TextureRect" parent="Card/CardBG/TapeCovering" index="1" unique_id=1513085443]
 layout_mode = 0
-offset_left = 335.82172
-offset_top = 86.25
-offset_right = 453.82172
-offset_bottom = 147.25
-rotation = 3.2098732
+offset_left = 318.74997
+offset_top = 93.750015
+offset_right = 436.74997
+offset_bottom = 154.75003
+rotation = 3.4495108
 scale = Vector2(1.5052052, 1.5052052)
-texture = ExtResource("2_c6kuw")
+texture = ExtResource("2_sol35")
 
-[node name="HeaderLabel" type="Label" parent="CardBG/TapeCovering" index="2" unique_id=1163959343]
+[node name="HeaderLabel" type="Label" parent="Card/CardBG/TapeCovering" index="2" unique_id=1163959343]
 layout_mode = 0
-offset_left = 102.49992
-offset_top = -22.5
-offset_right = 328.49994
-offset_bottom = 92.5
-rotation = 0.05614529
+offset_left = 90.0
+offset_top = -23.75
+offset_right = 316.0
+offset_bottom = 91.25
+rotation = -0.03313008
 theme_override_colors/font_color = Color(0.23, 0.23, 0.23, 0.9490196)
-theme_override_fonts/font = ExtResource("3_gx0d8")
+theme_override_fonts/font = ExtResource("3_qmf5x")
 theme_override_font_sizes/font_size = 62
 text = "Empty"
 
-[node name="BodyTape" type="TextureRect" parent="CardBG/TapeCovering" index="3" unique_id=862114333]
+[node name="BodyTape" type="TextureRect" parent="Card/CardBG/TapeCovering" index="3" unique_id=862114333]
 layout_mode = 0
-offset_left = 56.576843
-offset_top = 66.25
-offset_right = 258.57684
-offset_bottom = 209.25
+offset_left = 22.500002
+offset_top = 68.75
+offset_right = 325.5
+offset_bottom = 283.25
 rotation = 0.06574465
-scale = Vector2(1.3653247, 1.3653247)
-texture = ExtResource("4_sx5ct")
+texture = ExtResource("4_fbu8o")
 
-[node name="BodyLabel" type="Label" parent="CardBG/TapeCovering" index="4" unique_id=1380172066]
+[node name="BodyLabel" type="Label" parent="Card/CardBG/TapeCovering" index="4" unique_id=1380172066]
 layout_mode = 0
-offset_left = 56.25001
-offset_top = 156.24998
-offset_right = 282.25
-offset_bottom = 275.25
+offset_left = 43.749992
+offset_top = 173.74998
+offset_right = 269.74997
+offset_bottom = 292.75
 rotation = -0.20603636
 theme_override_colors/font_color = Color(0.23, 0.23, 0.23, 0.9490196)
 theme_override_constants/line_spacing = -35
-theme_override_fonts/font = ExtResource("3_gx0d8")
+theme_override_fonts/font = ExtResource("3_qmf5x")
 theme_override_font_sizes/font_size = 40
 text = "Does
 Nothing"

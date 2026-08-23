@@ -10,8 +10,7 @@ func init(card: Card, card_ui_packed_scene: PackedScene):
 	card_parent.add_child(card_ui)
 	
 	card_ui.card = card
-	card_ui.pivot_offset = Vector2.ZERO
-	card_ui.position = Vector2.ZERO
-		
+	card_ui.set_anchors_preset(Control.PRESET_CENTER, true)
+	
 	#animation_player.play("card_enter")
 	#await animation_player.animation_finished

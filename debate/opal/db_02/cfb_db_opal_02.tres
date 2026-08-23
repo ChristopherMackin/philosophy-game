@@ -1,16 +1,25 @@
 [gd_resource type="Resource" script_class="CardUiFactoryBase" format=3 uid="uid://v2fc6p1vb5xq"]
 
+[ext_resource type="Script" uid="uid://dke2uxx0r453j" path="res://debate/_script/ui/card_ui_factory/has_cse_card_ui_factory.gd" id="1_32kqh"]
 [ext_resource type="Script" uid="uid://b8uvgvpddrpfw" path="res://debate/_script/ui/card_ui_factory/card_ui_factory_base.gd" id="1_pu5dv"]
 [ext_resource type="Script" uid="uid://d4fneioflw7dl" path="res://debate/_script/ui/card_ui_factory/card_ui_pair_factory.gd" id="1_sss4s"]
-[ext_resource type="PackedScene" uid="uid://7f3cslp40a4q" path="res://debate/packed_scene/card_ui/new_card_ui.tscn" id="2_32kqh"]
-[ext_resource type="PackedScene" uid="uid://bc773b0nxnftk" path="res://debate/packed_scene/card_ui/card_ui.tscn" id="2_payeq"]
-[ext_resource type="PackedScene" uid="uid://bd8ykdcrcff7f" path="res://debate/packed_scene/card_ui/tokenless_card_ui.tscn" id="3_32kqh"]
+[ext_resource type="Resource" uid="uid://cvf702xa275od" path="res://system/card/card_status_effect/cse_ennui.tres" id="1_umtmv"]
+[ext_resource type="PackedScene" uid="uid://7f3cslp40a4q" path="res://debate/packed_scene/card_ui/card_ui.tscn" id="2_payeq"]
+[ext_resource type="PackedScene" uid="uid://c4op54o5l5tf" path="res://debate/packed_scene/card_ui/tokenless_card_ui.tscn" id="3_32kqh"]
+[ext_resource type="PackedScene" uid="uid://xyt4gxt1st16" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_card_ui.tscn" id="3_kif7v"]
+[ext_resource type="PackedScene" uid="uid://vjako3fddmrg" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_tokenless_card_gui.tscn" id="4_v6n17"]
 
-[sub_resource type="Resource" id="Resource_jkwif"]
+[sub_resource type="Resource" id="Resource_u6bno"]
 script = ExtResource("1_sss4s")
-token_card_gui = ExtResource("2_32kqh")
-tokenless_card_gui = ExtResource("2_32kqh")
+token_card_gui = ExtResource("3_kif7v")
+tokenless_card_gui = ExtResource("4_v6n17")
 metadata/_custom_type_script = "uid://d4fneioflw7dl"
+
+[sub_resource type="Resource" id="Resource_vpghu"]
+script = ExtResource("1_32kqh")
+card_status_effect = ExtResource("1_umtmv")
+card_ui_factory = SubResource("Resource_u6bno")
+metadata/_custom_type_script = "uid://dke2uxx0r453j"
 
 [sub_resource type="Resource" id="Resource_wifvs"]
 script = ExtResource("1_sss4s")
@@ -20,6 +29,6 @@ metadata/_custom_type_script = "uid://d4fneioflw7dl"
 
 [resource]
 script = ExtResource("1_pu5dv")
-card_ui_factory = SubResource("Resource_jkwif")
+card_ui_factory = SubResource("Resource_vpghu")
 default_card_pair = SubResource("Resource_wifvs")
 metadata/_custom_type_script = "uid://b8uvgvpddrpfw"

@@ -93,6 +93,8 @@ func start_debate(blackboard: Blackboard, player_character : Character, computer
 		for cse: ContestantStatusEffect in contestant.character.starting_effects:
 			var recipient = Const.GetContestant(contestant, get_opponent(contestant), cse.which_contestant)
 			cse.status_effect.apply(recipient)
+	
+	for contestant in contestants:
 		await contestant.ready_up()
 	
 	for sub in subscribers: await sub.on_debate_start()
