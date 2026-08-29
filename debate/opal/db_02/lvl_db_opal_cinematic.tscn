@@ -88,6 +88,7 @@
 [ext_resource type="Script" uid="uid://4bchriocygww" path="res://_general/script/dialogue/dialogue_area.gd" id="72_kqhrk"]
 [ext_resource type="FontFile" uid="uid://dm7kd3g4er8v2" path="res://_asset/_general/font/FriendlySans-Regular.ttf" id="73_hrfbg"]
 [ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://_general/script/ui/scrolling-text.gd" id="74_knqga"]
+[ext_resource type="Script" uid="uid://4lmkf6b3mly" path="res://system/script/animation/character_tree_animation_handler.gd" id="76_f3ys7"]
 [ext_resource type="Texture2D" uid="uid://dtr526tldc7dc" path="res://_asset/_general/texture/t_spiked_bubble_01.png" id="77_knqga"]
 [ext_resource type="Texture2D" uid="uid://cp4wiih01ktxp" path="res://_asset/_general/texture/t_spiked_bubble_02.png" id="78_f3ys7"]
 [ext_resource type="Texture2D" uid="uid://ketnefqmtrie" path="res://_asset/_general/texture/t_spiked_bubble_03.png" id="79_7mnyw"]
@@ -186,24 +187,6 @@ metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="Animation" id="Animation_knqga"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../===ACTOR========/JoyActor/CharacterAnimationTree:triggers")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Dictionary[String, bool]({
-"idle": true,
-"next_phase": false,
-"previous_phase": false,
-"reset": false,
-"talk": true
-})]
-}
 
 [sub_resource type="Animation" id="Animation_5xgcw"]
 resource_name = "p1_setup"
@@ -244,7 +227,7 @@ _data = {
 &"p4_setup": SubResource("Animation_hrfbg")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_knqga"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7mnyw"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Curve" id="Curve_wifvs"]
@@ -252,7 +235,7 @@ _limits = [0.0, 1.8, 0.0, 1.0]
 _data = [Vector2(0, 1.8), 0.0, 0.0, 0, 0, Vector2(0.5503876, 1.8), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_f3ys7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nolis"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dbiua"]
@@ -387,7 +370,7 @@ _data = {
 &"card_exit": SubResource("Animation_ntdmx")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7mnyw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_68gxc"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8igq"]
@@ -395,7 +378,7 @@ albedo_texture = ExtResource("30_dbiua")
 ao_enabled = true
 ao_texture = ExtResource("31_p0yir")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nolis"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2moqn"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jelp"]
@@ -403,7 +386,7 @@ albedo_texture = ExtResource("32_84k4r")
 ao_enabled = true
 ao_texture = ExtResource("33_3m87t")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_68gxc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_g2w6u"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ghiyr"]
@@ -467,7 +450,6 @@ filter_enabled = true
 filters = ["root/Skeleton3D:mouth_selector"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_sl1r7"]
-graph_offset = Vector2(-159.37274, 127.21326)
 nodes/output/position = Vector2(910, 480)
 nodes/animation_state/node = SubResource("AnimationNodeStateMachine_p4nej")
 nodes/animation_state/position = Vector2(280, 440)
@@ -497,7 +479,7 @@ ssao_intensity = 1.32
 ssao_power = 3.446096
 ssao_sharpness = 0.5
 
-[sub_resource type="Environment" id="Environment_2moqn"]
+[sub_resource type="Environment" id="Environment_f3ys7"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -511,7 +493,7 @@ ssao_sharpness = 0.5
 dof_blur_far_enabled = true
 dof_blur_far_distance = 5.0
 
-[sub_resource type="Environment" id="Environment_g2w6u"]
+[sub_resource type="Environment" id="Environment_7mnyw"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -672,7 +654,9 @@ animation_player = NodePath("../AnimationPlayer")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator" unique_id=1148660164]
 libraries/ = SubResource("AnimationLibrary_knqga")
 
-[node name="JoyActor" parent="===CUTSCENE========" unique_id=2066360241 instance=ExtResource("8_w340p")]
+[node name="JoyCinematicActor" parent="===CUTSCENE========" unique_id=2066360241 instance=ExtResource("8_w340p")]
+
+[node name="OpalCinematicActor" parent="===CUTSCENE========" unique_id=1017530611 instance=ExtResource("9_8fbt7")]
 
 [node name="===AUDIO========" type="Node3D" parent="." unique_id=1313241417]
 
@@ -697,7 +681,7 @@ order = 1
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter" unique_id=1817069595 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_knqga")
+texture = SubResource("ViewportTexture_7mnyw")
 
 [node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1817069595, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -722,7 +706,7 @@ order = 1
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" unique_id=1611050952 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_f3ys7")
+texture = SubResource("ViewportTexture_nolis")
 
 [node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1611050952, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -827,7 +811,7 @@ order = 1
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" unique_id=467383888 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26024163, -0.009793821, -0.076415636, 0.076465435, -1.1382936e-08, 0.26041123, -0.009397088, -0.27122876, 0.0027592867, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_7mnyw")
+texture = SubResource("ViewportTexture_68gxc")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(467383888, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -856,7 +840,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" unique_id=1511716073 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.2708025, 0.006386812, -0.016917214, 0.016962603, -0.0017474849, 0.27086934, 0.0062652696, -0.27132475, -0.002142772, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_nolis")
+texture = SubResource("ViewportTexture_2moqn")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1511716073, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -885,7 +869,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" unique_id=969618535 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26872277, 0.03799277, 0.0023667924, -0.00091665983, -0.010411309, 0.27120426, 0.038055386, -0.26853144, -0.010180076, -0.011028126, 0.015155774, 0.015328243)
-texture = SubResource("ViewportTexture_68gxc")
+texture = SubResource("ViewportTexture_g2w6u")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(969618535, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -1180,83 +1164,46 @@ character_animation_tree = NodePath("CharacterAnimationTree")
 is_talking = true
 dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/JoyDialogueP1")
 
-[node name="Skeleton3D" parent="===ACTOR========/JoyActor/Skeleton/root" parent_id_path=PackedInt32Array(603105275, 1298630328, 1006879066) index="0" unique_id=1569458232]
-bones/3/rotation = Quaternion(0.1331312, -1.6940657e-21, -3.2835577e-21, 0.9910984)
-bones/11/rotation = Quaternion(-6.456143e-08, -0.05908831, -6.978218e-08, 0.99825275)
-bones/31/rotation = Quaternion(-0.27426317, -0.008139465, 0.00507895, 0.96160686)
-bones/49/rotation = Quaternion(-0.012557805, -0.00092000427, 0.07306968, 0.99724734)
-bones/50/rotation = Quaternion(-0.07225581, 0.0019594086, -0.0054421425, 0.99736935)
-bones/51/rotation = Quaternion(-0.22415462, 0.01825145, -0.026424216, 0.9740243)
-bones/61/rotation = Quaternion(-1.1467175e-07, 0.9882835, 0.15262946, 1.0306827e-06)
-bones/70/position = Vector3(0.13033777, 3.1382633e-08, 1.9676946e-08)
-bones/70/rotation = Quaternion(7.2326923e-34, -7.54979e-08, 3.4278365e-21, 1)
-
-[node name="Skeleton3D" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root" parent_id_path=PackedInt32Array(603105275, 19173196, 1600017606) index="0" unique_id=724015997]
-bones/3/rotation = Quaternion(0.13313124, -4.4947162e-13, 7.051613e-14, 0.9910984)
-bones/4/position = Vector3(1.6792515e-15, 0.08635616, 0)
-bones/4/rotation = Quaternion(-0.13805869, 2.118468e-14, -2.4726234e-15, 0.99042404)
-bones/5/rotation = Quaternion(1.4901161e-08, 1.4199498e-29, -1.0587912e-21, 1)
-bones/6/rotation = Quaternion(1.4901161e-08, 1.4199498e-29, -1.0587912e-21, 1)
-bones/49/rotation = Quaternion(-0.012557811, -0.0009200086, 0.073069684, 0.99724734)
-bones/49/scale = Vector3(0.9999998, 1.0000002, 1.0000001)
-bones/50/position = Vector3(-7.450581e-09, 0.083144486, -1.1920929e-07)
-bones/50/rotation = Quaternion(-0.07225581, 0.0019594417, -0.0054421457, 0.99736935)
-bones/50/scale = Vector3(1, 0.9999997, 0.9999997)
-bones/51/position = Vector3(7.450581e-09, 0.036394656, 1.4901161e-08)
-bones/51/rotation = Quaternion(-0.22415465, 0.018251462, -0.026424209, 0.9740243)
-bones/51/scale = Vector3(1.0000004, 0.9999999, 1)
-bones/52/position = Vector3(2.2351742e-08, 0.033680797, 0)
-bones/52/rotation = Quaternion(-0.15083478, 0.006077801, 0.003027821, 0.98853564)
-bones/52/scale = Vector3(1, 0.99999994, 0.9999999)
-bones/70/position = Vector3(0.832857, 1.3903611, 0.023947222)
-bones/70/rotation = Quaternion(2.6519547e-07, -8.742278e-08, 2.3870928e-14, 1)
-bones/70/scale = Vector3(1, 1, 1)
-
-[node name="Joy_Base_Body" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="0" unique_id=1214535765]
+[node name="Joy_Base_Body" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(603105275, 19173196, 724015997) index="0" unique_id=1214535765]
 layers = 9
 
-[node name="Joy_Base_Face" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="1" unique_id=2063680796]
-layers = 9
-instance_shader_parameters/uv_offset = Vector2(0, 0)
-
-[node name="Joy_Base_Mouth" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="2" unique_id=416483565]
-layers = 9
-instance_shader_parameters/uv_offset = Vector3(0, 0, 0)
-
-[node name="Joy_Base_Pupils" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="3" unique_id=1008312247]
+[node name="Joy_Base_Face" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(603105275, 19173196, 724015997) index="1" unique_id=2063680796]
 layers = 9
 
-[node name="Joy_Base_Skull" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="4" unique_id=598294874]
+[node name="Joy_Base_Mouth" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(603105275, 19173196, 724015997) index="2" unique_id=416483565]
 layers = 9
 
-[node name="Joy_Base_Sockets" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="5" unique_id=1181024894]
+[node name="Joy_Base_Pupils" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(603105275, 19173196, 724015997) index="3" unique_id=1008312247]
 layers = 9
 
-[node name="Joy_Hair_04a" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="6" unique_id=1654029757]
+[node name="Joy_Base_Skull" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(603105275, 19173196, 724015997) index="4" unique_id=598294874]
 layers = 9
 
-[node name="Joy_Outfit_05_Hat" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="7" unique_id=644633281]
+[node name="Joy_Base_Sockets" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(603105275, 19173196, 724015997) index="5" unique_id=1181024894]
 layers = 9
 
-[node name="Joy_Outfit_05_NameTag" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="8" unique_id=249647226]
+[node name="Joy_Hair_04a" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(603105275, 19173196, 724015997) index="6" unique_id=1654029757]
 layers = 9
 
-[node name="Joy_Outfit_05_Shirt" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="9" unique_id=1481734502]
+[node name="Joy_Outfit_05_Hat" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(603105275, 19173196, 724015997) index="7" unique_id=644633281]
 layers = 9
 
-[node name="Joy_Outfit_05_Shoes" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="10" unique_id=1052264512]
+[node name="Joy_Outfit_05_NameTag" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(603105275, 19173196, 724015997) index="8" unique_id=249647226]
 layers = 9
 
-[node name="Joy_Outfit_05_Shorts" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="11" unique_id=114734656]
+[node name="Joy_Outfit_05_Shirt" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(603105275, 19173196, 724015997) index="9" unique_id=1481734502]
 layers = 9
 
-[node name="Joy_Outfit_05_Socks" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="12" unique_id=166769249]
+[node name="Joy_Outfit_05_Shoes" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(603105275, 19173196, 724015997) index="10" unique_id=1052264512]
 layers = 9
 
-[node name="AnimationHandler" parent="===ACTOR========/JoyActor" index="3" unique_id=1134272481 node_paths=PackedStringArray("animation_tree")]
-animation_tree = NodePath("../CharacterAnimationTree")
+[node name="Joy_Outfit_05_Shorts" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(603105275, 19173196, 724015997) index="11" unique_id=114734656]
+layers = 9
 
-[node name="LayerMask" parent="===ACTOR========/JoyActor" index="7" unique_id=1716574017]
+[node name="Joy_Outfit_05_Socks" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(603105275, 19173196, 724015997) index="12" unique_id=166769249]
+layers = 9
+
+[node name="LayerMask" parent="===ACTOR========/JoyActor" index="6" unique_id=1716574017]
 layers = 9
 
 [node name="CharacterAnimationTree" type="AnimationTree" parent="===ACTOR========/JoyActor" unique_id=1783163870]
@@ -1277,13 +1224,18 @@ triggers = Dictionary[String, bool]({
 is_talking = true
 is_blinking = false
 
-[node name="OpalActor" parent="===ACTOR========" unique_id=1017530611 node_paths=PackedStringArray("_layer_mask", "character_animation_tree", "dialogue_area_override") instance=ExtResource("9_8fbt7")]
+[node name="AnimationHandler" type="Node" parent="===ACTOR========/JoyActor" unique_id=1543352421 node_paths=PackedStringArray("animation_tree")]
+script = ExtResource("76_f3ys7")
+animation_tree = NodePath("../CharacterAnimationTree")
+metadata/_custom_type_script = "uid://4lmkf6b3mly"
+
+[node name="OpalActor" parent="===ACTOR========" unique_id=1704392175 node_paths=PackedStringArray("_layer_mask", "character_animation_tree", "dialogue_area_override") instance=ExtResource("9_8fbt7")]
 _layer_mask = NodePath("LayerMask")
 character_animation_tree = NodePath("CharacterAnimationTree")
 is_blinking = true
 dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/OpalDialogueP1")
 
-[node name="Skeleton3D" parent="===ACTOR========/OpalActor/Skeleton/root" parent_id_path=PackedInt32Array(1017530611, 1276102160, 1692687571) index="0" unique_id=945318238]
+[node name="Skeleton3D" parent="===ACTOR========/OpalActor/Skeleton/root" parent_id_path=PackedInt32Array(1704392175, 1276102160, 1692687571) index="0" unique_id=945318238]
 bones/0/position = Vector3(-0.9141067, -2.7939686e-09, 0.08161321)
 bones/0/rotation = Quaternion(2.3202771e-08, 0.7887923, -4.3630013e-08, 0.61465985)
 bones/0/scale = Vector3(0.99999994, 1, 0.99999994)
@@ -1504,7 +1456,7 @@ bones/72/position = Vector3(0.13033782, 1.7359104e-08, -5.0683262e-08)
 bones/72/rotation = Quaternion(-3.0858896e-08, -8.195638e-08, 3.057363e-15, 1)
 bones/72/scale = Vector3(1.0000001, 1, 1.0000001)
 
-[node name="Skeleton3D" parent="===ACTOR========/OpalActor/Outfit/OpalUnknown/root" parent_id_path=PackedInt32Array(1017530611, 1527281418, 1921647070) index="0" unique_id=950482853]
+[node name="Skeleton3D" parent="===ACTOR========/OpalActor/Outfit/OpalUnknown/root" parent_id_path=PackedInt32Array(1704392175, 1527281418, 1921647070) index="0" unique_id=950482853]
 bones/0/position = Vector3(-0.9141067, -2.7939686e-09, 0.08161321)
 bones/0/rotation = Quaternion(2.3202773e-08, 0.7887924, -4.3630017e-08, 0.6146598)
 bones/1/position = Vector3(0.066880524, 0.27279666, 0.18894362)
@@ -1722,7 +1674,7 @@ bones/71/scale = Vector3(0.99999994, 1, 0.99999994)
 bones/72/position = Vector3(0.13033772, 0, 0)
 bones/72/rotation = Quaternion(-3.0858885e-08, -8.940697e-08, 7.9371434e-16, 1)
 
-[node name="Skeleton3D" parent="===ACTOR========/OpalActor/Outfit/OpalOutfit01/root" parent_id_path=PackedInt32Array(1017530611, 1166874626, 1921647070) index="0" unique_id=950482853]
+[node name="Skeleton3D" parent="===ACTOR========/OpalActor/Outfit/OpalOutfit01/root" parent_id_path=PackedInt32Array(1704392175, 1166874626, 1921647070) index="0" unique_id=950482853]
 bones/0/position = Vector3(-0.9141067, -2.7939686e-09, 0.08161321)
 bones/0/rotation = Quaternion(2.3202773e-08, 0.7887924, -4.3630017e-08, 0.6146598)
 bones/1/position = Vector3(0.066880524, 0.27279666, 0.18894362)
@@ -1939,9 +1891,6 @@ bones/71/rotation = Quaternion(-4.8676803e-08, -5.960465e-08, -6.4540777e-15, 1)
 bones/71/scale = Vector3(0.99999994, 1, 0.99999994)
 bones/72/position = Vector3(0.13033772, 0, 0)
 bones/72/rotation = Quaternion(-3.0858885e-08, -8.940697e-08, 7.9371434e-16, 1)
-
-[node name="AnimationHandler" parent="===ACTOR========/OpalActor" index="3" unique_id=1134272481 node_paths=PackedStringArray("animation_tree")]
-animation_tree = NodePath("../CharacterAnimationTree")
 
 [node name="CharacterAnimationTree" type="AnimationTree" parent="===ACTOR========/OpalActor" unique_id=1564447835]
 root_node = NodePath("../Skeleton")
@@ -1952,6 +1901,11 @@ triggers = Dictionary[String, bool]({
 "reset": false,
 "talk": false
 })
+
+[node name="AnimationHandler" type="Node" parent="===ACTOR========/OpalActor" unique_id=1914194302 node_paths=PackedStringArray("animation_tree")]
+script = ExtResource("76_f3ys7")
+animation_tree = NodePath("../CharacterAnimationTree")
+metadata/_custom_type_script = "uid://4lmkf6b3mly"
 
 [node name="Voice01" type="Node" parent="===ACTOR========" unique_id=74255915 node_paths=PackedStringArray("dialogue_area_override")]
 script = ExtResource("70_463a1")
@@ -2032,7 +1986,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 1
-environment = SubResource("Environment_2moqn")
+environment = SubResource("Environment_f3ys7")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -2065,7 +2019,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 8
-environment = SubResource("Environment_g2w6u")
+environment = SubResource("Environment_7mnyw")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -2182,10 +2136,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.0170287
-offset_top = 0.90266633
-offset_right = 218.98291
-offset_bottom = 130.90266
+offset_left = 0.15130709
+offset_top = 0.016154155
+offset_right = 220.15125
+offset_bottom = 130.01616
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2238,10 +2192,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.17896561
-offset_top = 0.92078114
-offset_right = 219.82103
-offset_bottom = 130.92087
+offset_left = 1.0976591
+offset_top = 0.08167078
+offset_right = 221.09766
+offset_bottom = 130.08176
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2294,10 +2248,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.67329276
-offset_top = -0.91419524
-offset_right = 219.32677
-offset_bottom = 129.0858
+offset_left = 1.0343274
+offset_top = 0.18844323
+offset_right = 221.0344
+offset_bottom = 130.18845
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2350,10 +2304,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 1.9621564
-offset_top = 1.4527845
-offset_right = 540.7999
-offset_bottom = 340.15305
+offset_left = -0.8565475
+offset_top = -2.510736
+offset_right = 537.9812
+offset_bottom = 336.1895
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
@@ -2574,6 +2528,9 @@ metadata/_custom_type_script = "uid://deyblpqc0v651"
 [connection signal="on_label_updated" from="===GAMEPLAY========/GameBoardState/TurnCounter/CounterUi/SubViewport/Label" to="===GAMEPLAY========/GameBoardState/TurnCounter/CounterUi/SubViewport/Label/ScaleControl" method="animate_scale" unbinds=1]
 [connection signal="on_label_updated" from="===GAMEPLAY========/GameBoardState/LineClearCounter/CounterUi/SubViewport/Label" to="===GAMEPLAY========/GameBoardState/LineClearCounter/CounterUi/SubViewport/Label/ScaleControl" method="animate_scale" unbinds=1]
 
+[editable path="===CUTSCENE========/JoyCinematicActor"]
+[editable path="===CUTSCENE========/JoyCinematicActor/Skeleton"]
+[editable path="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a"]
 [editable path="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi"]
 [editable path="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi"]
 [editable path="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi"]
