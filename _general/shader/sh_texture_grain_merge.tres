@@ -100,6 +100,7 @@ op_type = 5
 
 [sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_cad7v"]
 parameter_name = "uv_offset"
+qualifier = 2
 default_value_enabled = true
 
 [sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_eslwo"]
@@ -112,6 +113,7 @@ function = 1
 
 [sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_fayuu"]
 parameter_name = "uv_scale"
+qualifier = 2
 default_value_enabled = true
 default_value = Vector2(1, 1)
 
@@ -120,6 +122,7 @@ default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
 op_type = 2
 
 [resource]
+resource_local_to_scene = true
 modes/depth_draw = 1
 modes/cull = 2
 flags/depth_prepass_alpha = true

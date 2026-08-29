@@ -4,24 +4,85 @@
 [ext_resource type="Script" uid="uid://b8uvgvpddrpfw" path="res://debate/_script/ui/card_ui_factory/card_ui_factory_base.gd" id="1_pu5dv"]
 [ext_resource type="Script" uid="uid://d4fneioflw7dl" path="res://debate/_script/ui/card_ui_factory/card_ui_pair_factory.gd" id="1_sss4s"]
 [ext_resource type="Resource" uid="uid://cvf702xa275od" path="res://system/card/card_status_effect/cse_ennui.tres" id="1_umtmv"]
+[ext_resource type="Script" uid="uid://btqgs63pqh23v" path="res://debate/_script/ui/card_ui_factory/card_ui_factory.gd" id="1_v6n17"]
+[ext_resource type="Resource" uid="uid://do4ijr1aixaqw" path="res://debate/opal/db_02/bb_db_opal_02.tres" id="2_awldg"]
 [ext_resource type="PackedScene" uid="uid://7f3cslp40a4q" path="res://debate/packed_scene/card_ui/card_ui.tscn" id="2_payeq"]
 [ext_resource type="PackedScene" uid="uid://c4op54o5l5tf" path="res://debate/packed_scene/card_ui/tokenless_card_ui.tscn" id="3_32kqh"]
 [ext_resource type="PackedScene" uid="uid://xyt4gxt1st16" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_card_ui.tscn" id="3_kif7v"]
+[ext_resource type="PackedScene" uid="uid://bpv177ggn6fms" path="res://debate/packed_scene/card_ui/unknown_card_ui.tscn" id="4_rc8ig"]
 [ext_resource type="PackedScene" uid="uid://vjako3fddmrg" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_tokenless_card_gui.tscn" id="4_v6n17"]
+[ext_resource type="Script" uid="uid://cilcb0gb3xu0g" path="res://system/script/rule/current_player_rule.gd" id="5_fl5vf"]
+[ext_resource type="Script" uid="uid://ck2rt2uwm6814" path="res://debate/_script/ui/card_ui_factory/rule_card_ui_factory.gd" id="6_f3xu3"]
+[ext_resource type="Script" uid="uid://3ajnh5fdykvx" path="res://debate/_script/ui/card_ui_factory/bucket_card_ui_factory.gd" id="7_5aiml"]
+[ext_resource type="PackedScene" uid="uid://13is8xrc6y7q" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_peace_card_ui.tscn" id="8_bjoli"]
+[ext_resource type="Script" uid="uid://du0wp68cutphq" path="res://debate/_script/ui/card_ui_factory/suit_card_ui_factory.gd" id="9_stjoh"]
+[ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="10_c3q3r"]
+[ext_resource type="PackedScene" uid="uid://bmo1kna3igdun" path="res://debate/packed_scene/card_ui/peace_card_ui.tscn" id="15_stjoh"]
 
-[sub_resource type="Resource" id="Resource_u6bno"]
+[sub_resource type="Resource" id="Resource_38imp"]
+script = ExtResource("1_sss4s")
+token_card_gui = ExtResource("4_rc8ig")
+tokenless_card_gui = ExtResource("4_rc8ig")
+metadata/_custom_type_script = "uid://d4fneioflw7dl"
+
+[sub_resource type="Resource" id="Resource_vegwv"]
+resource_name = "RU: CurrentPlayerRule"
+script = ExtResource("5_fl5vf")
+which_contestant = 1
+metadata/_custom_type_script = "uid://cilcb0gb3xu0g"
+
+[sub_resource type="Resource" id="Resource_ono1w"]
+script = ExtResource("6_f3xu3")
+rule = SubResource("Resource_vegwv")
+bb = ExtResource("2_awldg")
+card_ui_factory = SubResource("Resource_38imp")
+metadata/_custom_type_script = "uid://ck2rt2uwm6814"
+
+[sub_resource type="Resource" id="Resource_c3q3r"]
+script = ExtResource("1_sss4s")
+tokenless_card_gui = ExtResource("8_bjoli")
+metadata/_custom_type_script = "uid://d4fneioflw7dl"
+
+[sub_resource type="Resource" id="Resource_stjoh"]
+script = ExtResource("9_stjoh")
+suit = ExtResource("10_c3q3r")
+card_ui_factory = SubResource("Resource_c3q3r")
+metadata/_custom_type_script = "uid://du0wp68cutphq"
+
+[sub_resource type="Resource" id="Resource_hqpx2"]
 script = ExtResource("1_sss4s")
 token_card_gui = ExtResource("3_kif7v")
 tokenless_card_gui = ExtResource("4_v6n17")
 metadata/_custom_type_script = "uid://d4fneioflw7dl"
 
-[sub_resource type="Resource" id="Resource_vpghu"]
+[sub_resource type="Resource" id="Resource_bjoli"]
+script = ExtResource("7_5aiml")
+buckets = Array[ExtResource("1_v6n17")]([SubResource("Resource_stjoh"), SubResource("Resource_hqpx2")])
+metadata/_custom_type_script = "uid://3ajnh5fdykvx"
+
+[sub_resource type="Resource" id="Resource_f3xu3"]
 script = ExtResource("1_32kqh")
 card_status_effect = ExtResource("1_umtmv")
-card_ui_factory = SubResource("Resource_u6bno")
+card_ui_factory = SubResource("Resource_bjoli")
 metadata/_custom_type_script = "uid://dke2uxx0r453j"
 
+[sub_resource type="Resource" id="Resource_vpghu"]
+script = ExtResource("1_sss4s")
+tokenless_card_gui = ExtResource("15_stjoh")
+metadata/_custom_type_script = "uid://d4fneioflw7dl"
+
 [sub_resource type="Resource" id="Resource_wifvs"]
+script = ExtResource("9_stjoh")
+suit = ExtResource("10_c3q3r")
+card_ui_factory = SubResource("Resource_vpghu")
+metadata/_custom_type_script = "uid://du0wp68cutphq"
+
+[sub_resource type="Resource" id="Resource_gke8c"]
+script = ExtResource("7_5aiml")
+buckets = Array[ExtResource("1_v6n17")]([SubResource("Resource_ono1w"), SubResource("Resource_f3xu3"), SubResource("Resource_wifvs")])
+metadata/_custom_type_script = "uid://3ajnh5fdykvx"
+
+[sub_resource type="Resource" id="Resource_m2dpe"]
 script = ExtResource("1_sss4s")
 token_card_gui = ExtResource("2_payeq")
 tokenless_card_gui = ExtResource("3_32kqh")
@@ -29,6 +90,6 @@ metadata/_custom_type_script = "uid://d4fneioflw7dl"
 
 [resource]
 script = ExtResource("1_pu5dv")
-card_ui_factory = SubResource("Resource_vpghu")
-default_card_pair = SubResource("Resource_wifvs")
+card_ui_factory = SubResource("Resource_gke8c")
+default_card_pair = SubResource("Resource_m2dpe")
 metadata/_custom_type_script = "uid://b8uvgvpddrpfw"

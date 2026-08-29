@@ -136,12 +136,6 @@ func _update_card(card):
 	var old_card = matching[0] if not matching.is_empty() else null
 	var card_index = cards_ui.find(old_card)
 	
-	old_card.refresh_card()
-	return
-	
-	if card_index <0:
-		return
-	
 	var card_ui_packed_scene = card_ui_factory_base.get_card_ui(card)
 	
 	var card_ui = card_ui_packed_scene.instantiate() as CardUi

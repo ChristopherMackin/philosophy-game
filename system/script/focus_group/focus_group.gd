@@ -40,13 +40,13 @@ var focused_node : Control
 func focus(node : Control):
 	if focused_node == node: return
 	
-	if is_active_group:
+	if is_active_group && focused_node:
 		var signal_node = get_focus_group_signal_node(focused_node)
 		if signal_node: signal_node.on_focus_exited.emit()
 	
 	focused_node = node
 	
-	if is_active_group:
+	if is_active_group && focused_node:
 		var signal_node = get_focus_group_signal_node(focused_node)
 		if signal_node: signal_node.on_focus_entered.emit()
 		

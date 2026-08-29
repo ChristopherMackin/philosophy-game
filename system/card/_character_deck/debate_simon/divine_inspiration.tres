@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="8_cufm7"]
 [ext_resource type="Script" uid="uid://dv3r8bflihqwc" path="res://system/script/card/card_action/rule_card_action.gd" id="9_8c28q"]
 [ext_resource type="Script" uid="uid://dyif3nbemyr0d" path="res://system/script/card/card_status_effect/cost_card_status_effect/set_cost_card_status_effect.gd" id="10_alxfo"]
-[ext_resource type="Script" uid="uid://cli7rttnpf5db" path="res://system/script/card/card_action/add_cost_card_status_effect_to_card_collection_card_action.gd" id="11_21k74"]
+[ext_resource type="Script" uid="uid://cli7rttnpf5db" path="res://system/script/card/card_action/add_card_status_effect_to_card_collection_card_action.gd" id="11_21k74"]
 [ext_resource type="Script" uid="uid://cm5qf41iurdc3" path="res://system/script/card/card_action/move_card_collection_to_card_collection_card_action.gd" id="12_tenqs"]
 [ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://system/script/card/card_action/card_collection_container/hand_collection_container.gd" id="13_1y706"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="14_g8k5p"]

@@ -36,7 +36,7 @@ func update_eyes():
 	for m in eyes_meshes:
 		var material = m.mesh.surface_get_material(0)
 		if material is ShaderMaterial:
-			material.set_shader_parameter("uv_offset", offset)
+			m.set_instance_shader_parameter("uv_offset", offset)
 		else:
 			material.uv1_offset = offset
 
@@ -56,6 +56,6 @@ func update_mouth():
 	for m in mouth_meshes:
 		var material = m.mesh.surface_get_material(0)
 		if material is ShaderMaterial:
-			material.set_shader_parameter("uv_offset", offset)
+			m.set_instance_shader_parameter("uv_offset", offset)
 		else:
 			material.uv1_offset = offset

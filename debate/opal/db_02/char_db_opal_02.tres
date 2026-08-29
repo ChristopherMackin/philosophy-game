@@ -5,28 +5,14 @@
 [ext_resource type="Script" uid="uid://2hwgbl7c4ebq" path="res://character/script/brain/simple_ai_brain.gd" id="2_2f8yc"]
 [ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="2_pj6hy"]
 [ext_resource type="Resource" uid="uid://2ck3c4aeaqbv" path="res://debate/opal/db_02/dk_db_opal_02.tres" id="3_vpxqi"]
-[ext_resource type="Resource" uid="uid://cvf702xa275od" path="res://system/card/card_status_effect/cse_ennui.tres" id="6_vpxqi"]
-[ext_resource type="Script" uid="uid://cok0oihb4vqgh" path="res://debate/_script/contestant/status_effect/apply_card_status_effect/apply_card_status_effect.gd" id="7_sam5s"]
 
 [sub_resource type="Resource" id="Resource_pj6hy"]
 script = ExtResource("2_2f8yc")
 metadata/_custom_type_script = "uid://2hwgbl7c4ebq"
 
-[sub_resource type="Resource" id="Resource_xl775"]
-script = ExtResource("7_sam5s")
-card_status_effect = ExtResource("6_vpxqi")
-metadata/_custom_type_script = "uid://cok0oihb4vqgh"
-
-[sub_resource type="Resource" id="Resource_u6bno"]
-script = ExtResource("2_pj6hy")
-which_contestant = 1
-status_effect = SubResource("Resource_xl775")
-metadata/_custom_type_script = "uid://bkr7ctg24gqrv"
-
 [resource]
 script = ExtResource("1_dgeyy")
 brain = SubResource("Resource_pj6hy")
 deck = ExtResource("3_vpxqi")
-starting_effects = Array[ExtResource("2_pj6hy")]([SubResource("Resource_u6bno")])
 blackboard = ExtResource("1_oespp")
 metadata/_custom_type_script = "uid://b0gx18dmx3sv3"

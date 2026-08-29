@@ -11,7 +11,8 @@ class_name CharacterAnimationTree
 	set(val):
 		is_talking = val
 		var state = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE if val else AnimationNodeOneShot.ONE_SHOT_REQUEST_ABORT
-		set("parameters/talk_trigger/request", state)
+		if get("parameters/talk_trigger/request") != null:
+			set("parameters/talk_trigger/request", state)
 
 @export var is_blinking: bool = true:
 	get():
@@ -19,12 +20,11 @@ class_name CharacterAnimationTree
 	set(val):
 		is_blinking = val
 		var blink_int = 1 if val else 0
-		set("parameters/blink_trigger/add_amount", blink_int)
+		if get("parameters/blink_trigger/add_amount")  != null:
+			set("parameters/blink_trigger/add_amount", blink_int)
 
 func set_trigger(_trigger: String):
-	print("TEST")
 	if triggers.has(_trigger):
-		print("SET")
 		triggers[_trigger] = true
 
 func get_trigger(_trigger: String):

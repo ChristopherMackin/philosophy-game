@@ -15,7 +15,7 @@ inputs = Dictionary[String, Variant]({
 "actor": "joy",
 "await_close": true,
 "await_input": false,
-"close_timer": 0.0,
+"close_timer": 0.5,
 "talk": true,
 "text": "[shake rate=20
 .0 level=10 connected=1]I...[/shake]"
