@@ -167,6 +167,15 @@ fov = 40.0
 far = 100.0
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
+[sub_resource type="Resource" id="Resource_68gxc"]
+script = ExtResource("11_ud0a1")
+
+[sub_resource type="Resource" id="Resource_g2w6u"]
+script = ExtResource("12_ud0a1")
+cull_mask = 1
+fov = 40.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
 [sub_resource type="Resource" id="Resource_7mnyw"]
 script = ExtResource("12_ud0a1")
 cull_mask = 8
@@ -316,6 +325,42 @@ tracks/9/keys = {
 "update": 1,
 "values": ["I was worried when I saw you hurt. What happened?"]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1:seconds_before_close")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.999999999672314]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1:text")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../../===CAMERA========/SceneCamera_T1:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.1794775, 0.31653523, 0.48320687)]
+}
 
 [sub_resource type="Animation" id="Animation_f3ys7"]
 resource_name = "t1"
@@ -455,10 +500,52 @@ tracks/11/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1:text")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(7.7651415, 11.932968),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(4.471606, 8.319507, 12.572119, 16.34868),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": ["I was worried when I saw you hurt. What happened?", "I was worried when I saw you hurt. What happened?"]
+"values": ["Thank goodness! The bleeding stopped!
+", "Thank goodness! The bleeding stopped!
+", "I was worried when I saw you hurt. What happened?", "I was worried when I saw you hurt. What happened?"]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1:seconds_before_close")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(4.471582, 12.5721),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1.999999999672314, 0.999999999672317]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1:text")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(17.439262, 18.72485, 19.785328, 22.421942),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": ["[shake rate=20
+.0 level=10 connected=1]I...[/shake]", "[shake rate=20
+.0 level=10 connected=1]I...[/shake]", "[shake rate=20
+.0 level=10 connected=1]I just fell is all...[/shake]", "[shake rate=20
+.0 level=10 connected=1]I just fell is all...[/shake]"]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../../===CAMERA========/SceneCamera_T1:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(2.6366148),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.1794775, 0.31653523, 0.48320687)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_knqga"]
@@ -709,6 +796,10 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_2moqn")
 nodes/Animation/position = Vector2(140, 160)
 node_connections = [&"output", 0, &"Animation"]
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_gaafv"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 5.0
+
 [sub_resource type="Environment" id="Environment_hrfbg"]
 background_mode = 2
 ambient_light_source = 2
@@ -718,10 +809,6 @@ ssao_enabled = true
 ssao_intensity = 1.32
 ssao_power = 3.446096
 ssao_sharpness = 0.5
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_gaafv"]
-dof_blur_far_enabled = true
-dof_blur_far_distance = 5.0
 
 [sub_resource type="Environment" id="Environment_nolis"]
 background_mode = 2
@@ -795,6 +882,14 @@ tween_resource = SubResource("Resource_3t4os")
 tween_on_load = false
 host_layers = 2
 camera_3d_resource = SubResource("Resource_p4nej")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="SceneCamera_T1" type="Node3D" parent="===CAMERA========" unique_id=971082066]
+transform = Transform3D(0.40592748, 0.0015116911, 0.9139042, -0.003538623, 0.99999386, -8.2342725e-05, -0.9138986, -0.0032005352, 0.4059303, 1.1794775, 0.31653523, 0.48320687)
+script = ExtResource("10_3t4os")
+tween_resource = SubResource("Resource_68gxc")
+host_layers = 8
+camera_3d_resource = SubResource("Resource_g2w6u")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Dialogue_P1" type="Node3D" parent="===CAMERA========" unique_id=871964040]
@@ -2020,8 +2115,8 @@ offset_bottom = 505.00018
 flip_h = true
 script = ExtResource("36_nolis")
 text = "I was worried when I saw you hurt. What happened?"
+seconds_before_close = 1.999999999672314
 animation_player = NodePath("../../../SceneAnimator/AnimationPlayer")
-seconds_before_close = 2.0
 
 [node name="ScrollingText" parent="===CUTSCENE========/CutsceneCanvas/T1/OpalDialogueT1" index="0" unique_id=1486329532]
 offset_left = 45.260513
@@ -2032,22 +2127,24 @@ text = "I was worried when I saw you hurt. What happened?"
 visible_characters = -1
 normalized_dialogue_position = 1.0
 
-[node name="JoyDialogueT1" parent="===CUTSCENE========/CutsceneCanvas/T1" unique_id=289762930 instance=ExtResource("35_nolis")]
+[node name="JoyDialogueT1" parent="===CUTSCENE========/CutsceneCanvas/T1" unique_id=289762930 node_paths=PackedStringArray("animation_player") instance=ExtResource("35_nolis")]
 visible = false
 layout_mode = 0
 offset_left = 953.0
 offset_top = 203.0
 offset_right = 1381.7653
 offset_bottom = 474.00018
-script = null
+script = ExtResource("36_nolis")
+text = ""
+seconds_before_close = 0.4999999999999985
+animation_player = NodePath("../../../SceneAnimator/AnimationPlayer")
 
 [node name="ScrollingText" parent="===CUTSCENE========/CutsceneCanvas/T1/JoyDialogueT1" index="0" unique_id=1486329532]
 offset_left = 1.2605133
 offset_top = 0.024967194
 offset_right = 1.13974
 offset_bottom = 0.1159668
-text = "[shake rate=20
-.0 level=10 connected=1]I tripped is all.[/shake]"
+text = ""
 visible_characters = -1
 normalized_dialogue_position = 1.0
 
@@ -3368,6 +3465,32 @@ dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/VoiceO
 
 [node name="===UI========" type="CanvasLayer" parent="." unique_id=701129504]
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="===UI========" unique_id=1783123078]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="SubViewport" type="SubViewport" parent="===UI========/SubViewportContainer" unique_id=155030559]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 0
+
+[node name="SceneCamera" type="Camera3D" parent="===UI========/SubViewportContainer/SubViewport" unique_id=1039536451]
+transform = Transform3D(0.40592748, 0.0015116911, 0.9139042, -0.003538623, 0.99999386, -8.2342725e-05, -0.9138986, -0.0032005352, 0.4059303, 1.1794775, 0.31653523, 0.48320687)
+top_level = true
+cull_mask = 1
+environment = SubResource("Environment_hkuxl")
+attributes = SubResource("CameraAttributesPractical_gaafv")
+current = true
+fov = 40.0
+
+[node name="SceneCameraHost" type="Node" parent="===UI========/SubViewportContainer/SubViewport/SceneCamera" unique_id=1027647636]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_k3uvd")
+host_layers = 8
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
 [node name="GameplayContainer" type="SubViewportContainer" parent="===UI========" unique_id=1355026926]
 anchors_preset = -1
 anchor_right = 0.41700003
@@ -3392,7 +3515,7 @@ current = true
 fov = 25.0
 far = 100.0
 
-[node name="PhantomCameraHost" type="Node" parent="===UI========/GameplayContainer/SubViewport/GameplayCamera" unique_id=1846865450]
+[node name="GameplayCameraHost" type="Node" parent="===UI========/GameplayContainer/SubViewport/GameplayCamera" unique_id=1846865450]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("1_k3uvd")
@@ -3423,7 +3546,7 @@ current = true
 fov = 40.0
 far = 100.0
 
-[node name="PhantomCameraHost" type="Node" parent="===UI========/CinematicContainer/SubViewport/CinematicCamera" unique_id=1571934254]
+[node name="CinematicCameraHost" type="Node" parent="===UI========/CinematicContainer/SubViewport/CinematicCamera" unique_id=1571934254]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("1_k3uvd")
@@ -3456,7 +3579,7 @@ current = true
 fov = 40.0
 far = 100.0
 
-[node name="PhantomCameraHost" type="Node" parent="===UI========/DialogueContainer/SubViewport/DialogueCamera" unique_id=896746493]
+[node name="DialogueCameraHost" type="Node" parent="===UI========/DialogueContainer/SubViewport/DialogueCamera" unique_id=896746493]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("1_k3uvd")
@@ -3531,10 +3654,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 0.6187593
-offset_top = -0.64315575
-offset_right = 220.6187
-offset_bottom = 129.35684
+offset_left = 0.1186983
+offset_top = 1.4888958
+offset_right = 220.11864
+offset_bottom = 131.48889
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -3586,10 +3709,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 1.0946764
-offset_top = 0.546126
-offset_right = 221.09468
-offset_bottom = 130.54622
+offset_left = -0.07584882
+offset_top = -0.06950213
+offset_right = 219.92415
+offset_bottom = 129.93059
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -3641,10 +3764,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 1.4816564
-offset_top = -0.0411492
-offset_right = 221.48172
-offset_bottom = 129.95885
+offset_left = -0.97215885
+offset_top = -0.280334
+offset_right = 219.02791
+offset_bottom = 129.71967
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -3696,10 +3819,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.2453458
-offset_top = -0.6190234
-offset_right = 537.5924
-offset_bottom = 338.08124
+offset_left = -2.1296601
+offset_top = 1.9039932
+offset_right = 536.7081
+offset_bottom = 340.60425
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
@@ -3911,7 +4034,6 @@ player_brain = ExtResource("17_uvud4")
 metadata/_custom_type_script = "uid://deyblpqc0v651"
 
 [connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateInitiator" method="start_debate"]
-[connection signal="current_animation_changed" from="===CUTSCENE========/SceneAnimator/AnimationPlayer" to="===CUTSCENE========/CutsceneCanvas/T1/OpalDialogueT1" method="_on_current_animation_changed"]
 [connection signal="on_label_updated" from="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label" to="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label/ScaleControl" method="animate_scale" unbinds=1]
 [connection signal="on_label_updated" from="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label" to="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label/ScaleControl" method="animate_scale" unbinds=1]
 [connection signal="on_label_updated" from="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport/Label" to="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport/Label/ScaleControl" method="animate_scale" unbinds=1]

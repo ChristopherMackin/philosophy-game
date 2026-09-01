@@ -8,15 +8,22 @@ extends Control
 	set(val):
 		if !scrolling_text: return
 		scrolling_text.text = val
-		
-@export var scrolling_text: ScrollingText
-
-@export var animation_player: AnimationPlayer
-
 @export var seconds_before_close: float = 2
 
-var anim_name: StringName = ""
+@export_group("Dependencies")
+@export var scrolling_text: ScrollingText
+@export var animation_player: AnimationPlayer:
+	get(): return animation_player
+	set(val):
+		if animation_player && animation_player.current_animation_changed.is_connected(_on_current_animation_changed):
+			animation_player.current_animation_changed.disconnect(_on_current_animation_changed)
+		
+		animation_player = val
+		
+		if animation_player && !animation_player.current_animation_changed.is_connected(_on_current_animation_changed):
+			animation_player.current_animation_changed.connect(_on_current_animation_changed)
 
+var anim_name: StringName = ""
 var anim: Animation:
 	get(): 
 		if !animation_player: return
@@ -32,9 +39,13 @@ var node_path: NodePath:
 		return NodePath(str(node_path) + ":text")
 
 func _process(delta):
-	if !animation_player || !anim: 
+	if !animation_player: 
 		visible = false
 		return
+	
+	if !anim:
+		anim_name = animation_player.current_animation
+		if !anim: return
 	
 	var track_index = anim.find_track(node_path, Animation.TYPE_VALUE)
 	
@@ -63,6 +74,7 @@ func _process(delta):
 	
 	var dialogue_length = dialogue_end - dialogue_start
 	var normalized_dialogue_position = dialogue_current_pos / (dialogue_length - seconds_before_close)
+	normalized_dialogue_position = normalized_dialogue_position if sign(normalized_dialogue_position) != -1 else 1.0
 	
 	if !visible: visible = true
 	if scrolling_text.text != key_val: scrolling_text.text = key_val
