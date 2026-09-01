@@ -34,7 +34,7 @@ func set_text(text: String, speaker_name: String = ""):
 		speaker_label.text = speaker_name
 	else:
 		if speaker_control: speaker_control.visible = false
-	
+		
 	scrolling_text.set_scrolling_text(text)
 
 func stop_scrolling():

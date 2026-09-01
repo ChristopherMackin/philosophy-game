@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cwpqvf5adqse"]
+
+[ext_resource type="Texture2D" uid="uid://ug71ln5xn6t" path="res://_asset/debate/opal/db_opal_02/graphic/t_db_opal_02_p1_joy_dialogue.PNG" id="1_onvgr"]
+[ext_resource type="Script" uid="uid://4bchriocygww" path="res://_general/script/dialogue/dialogue_area.gd" id="2_btaws"]
+[ext_resource type="FontFile" uid="uid://dm7kd3g4er8v2" path="res://_asset/_general/font/FriendlySans-Regular.ttf" id="3_6p0xd"]
+[ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://_general/script/ui/scrolling-text.gd" id="4_dvn0n"]
+
+[node name="DefaultDialogue" type="TextureRect" unique_id=868207192 node_paths=PackedStringArray("scrolling_text")]
+offset_left = 840.0
+offset_top = 300.0
+offset_right = 1268.7653
+offset_bottom = 571.0002
+texture = ExtResource("1_onvgr")
+expand_mode = 1
+script = ExtResource("2_btaws")
+scrolling_text = NodePath("ScrollingText")
+normal_characters_per_second = 20
+
+[node name="ScrollingText" type="RichTextLabel" parent="." unique_id=1486329532]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13000001
+anchor_top = 0.22500001
+anchor_right = 0.753
+anchor_bottom = 0.804
+offset_left = 0.025772095
+offset_top = 0.024997711
+offset_right = -0.09500122
+offset_bottom = 0.115997314
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.3647059, 0.3647059, 0.3647059, 1)
+theme_override_fonts/normal_font = ExtResource("3_6p0xd")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[shake rate=20
+.0 level=10 connected=1]I...[/shake]"
+scroll_active = false
+scroll_following_visible_characters = true
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 4
+visible_characters_behavior = 1
+script = ExtResource("4_dvn0n")
+characters_per_second = 20
+normalized_dialogue_position = 1
+metadata/_custom_type_script = "uid://vyqjymdwc8ae"
