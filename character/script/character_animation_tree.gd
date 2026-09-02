@@ -5,23 +5,25 @@ class_name CharacterAnimationTree
 
 @export var triggers: Dictionary[String, bool]
 
-@export var is_talking: bool = false:
+@export var talk_override: bool = false:
 	get():
-		return is_talking
+		return talk_override
 	set(val):
-		is_talking = val
+		talk_override = val
 		var state = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE if val else AnimationNodeOneShot.ONE_SHOT_REQUEST_ABORT
-		if get("parameters/talk_trigger/request") != null:
-			set("parameters/talk_trigger/request", state)
+		if get("parameters/talk_override/request") != null:
+			set("parameters/talk_override/request", state)
 
-@export var is_blinking: bool = true:
+@export var blink_override: bool = false:
 	get():
-		return is_blinking
+		return blink_override
 	set(val):
-		is_blinking = val
-		var blink_int = 1 if val else 0
-		if get("parameters/blink_trigger/add_amount")  != null:
-			set("parameters/blink_trigger/add_amount", blink_int)
+		blink_override = val
+		var state = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE if val else AnimationNodeOneShot.ONE_SHOT_REQUEST_ABORT
+		if get("parameters/blink_override/request") != null:
+			set("parameters/blink_override/request", state)
+
+@export var blink_override_emotion: Const.Emotion
 
 func set_trigger(_trigger: String):
 	if triggers.has(_trigger):

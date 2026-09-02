@@ -1,0 +1,11 @@
+[gd_resource type="Environment" format=3 uid="uid://cwph8248hck51"]
+
+[resource]
+background_mode = 2
+ambient_light_source = 2
+ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
+ambient_light_energy = 2.0
+ssao_enabled = true
+ssao_intensity = 1.32
+ssao_power = 3.446096
+ssao_sharpness = 0.5

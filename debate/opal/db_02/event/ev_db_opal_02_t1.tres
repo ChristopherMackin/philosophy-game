@@ -8,7 +8,7 @@
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("2_rs8eb")
 
-[sub_resource type="Resource" id="Resource_rs8eb"]
+[sub_resource type="Resource" id="Resource_1cpn7"]
 script = ExtResource("3_gm0ne")
 outputs = Array[int]([1])
 inputs = Dictionary[String, Variant]({
@@ -16,11 +16,12 @@ inputs = Dictionary[String, Variant]({
 "await_close": true,
 "await_input": false,
 "close_timer": 2.0,
+"talk": true,
 "text": "..."
 })
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_gm0ne"]
+[sub_resource type="Resource" id="Resource_j3lgx"]
 script = ExtResource("3_gm0ne")
 outputs = Array[int]([2])
 inputs = Dictionary[String, Variant]({
@@ -28,11 +29,12 @@ inputs = Dictionary[String, Variant]({
 "await_close": true,
 "await_input": false,
 "close_timer": 2.0,
+"talk": true,
 "text": "I’m alone"
 })
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_wynq3"]
+[sub_resource type="Resource" id="Resource_u7bfm"]
 script = ExtResource("3_gm0ne")
 outputs = Array[int]([3])
 inputs = Dictionary[String, Variant]({
@@ -40,11 +42,12 @@ inputs = Dictionary[String, Variant]({
 "await_close": true,
 "await_input": false,
 "close_timer": 2.0,
+"talk": true,
 "text": "Maybe if I bend just a little bit"
 })
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_i3jf2"]
+[sub_resource type="Resource" id="Resource_aph4q"]
 script = ExtResource("3_gm0ne")
 outputs = Array[int]([4])
 inputs = Dictionary[String, Variant]({
@@ -52,6 +55,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": true,
 "await_input": false,
 "close_timer": 2.0,
+"talk": true,
 "text": "They’ll take me back"
 })
 action = SubResource("Resource_x7ur8")
@@ -59,13 +63,13 @@ action = SubResource("Resource_x7ur8")
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("4_rs8eb")
 
-[sub_resource type="Resource" id="Resource_fe38s"]
+[sub_resource type="Resource" id="Resource_hxj15"]
 script = ExtResource("3_gm0ne")
 inputs = Dictionary[String, Variant]({
 "actor": "",
 "await": true,
 "overwrite": true,
-"trigger": "p1_setup"
+"trigger": "t1"
 })
 action = SubResource("Resource_ml60a")
 
@@ -74,6 +78,6 @@ script = ExtResource("1_a8wkq")
 can_interupt = true
 await_event = true
 frequency = 1
-start_task = SubResource("Resource_rs8eb")
-tasks = Array[ExtResource("3_gm0ne")]([SubResource("Resource_rs8eb"), SubResource("Resource_gm0ne"), SubResource("Resource_wynq3"), SubResource("Resource_i3jf2"), SubResource("Resource_fe38s")])
+start_task = SubResource("Resource_1cpn7")
+tasks = Array[ExtResource("3_gm0ne")]([SubResource("Resource_1cpn7"), SubResource("Resource_j3lgx"), SubResource("Resource_u7bfm"), SubResource("Resource_aph4q"), SubResource("Resource_hxj15")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

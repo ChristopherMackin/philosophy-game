@@ -6,12 +6,12 @@
 [ext_resource type="Script" uid="uid://uof5fhcqdag3" path="res://character/script/follow_skeleton.gd" id="4_c8hue"]
 [ext_resource type="Animation" uid="uid://cwcoji1l7away" path="res://character/opal/animation/anim_opal_RESET.res" id="5_c8hue"]
 [ext_resource type="Material" uid="uid://0rwlfq5iuit6" path="res://_asset/character/opal/material/m_unknown_base.tres" id="5_un4f6"]
-[ext_resource type="Animation" uid="uid://d23b7y4itcxjg" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_p2_idle_01.res" id="7_ub0kd"]
-[ext_resource type="Animation" uid="uid://vegq6tuekidj" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_p3_idle_01.res" id="8_u7b7d"]
-[ext_resource type="Animation" uid="uid://pyfm4ju5moa8" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_p4_idle_01.res" id="9_oqe67"]
-[ext_resource type="Animation" uid="uid://db4qc7gi4g2g0" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_t1.res" id="10_t7n0b"]
-[ext_resource type="Animation" uid="uid://dqgh3thvxdpxf" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_t2.res" id="11_fwl6l"]
-[ext_resource type="Animation" uid="uid://b8vht151eeqss" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_t3.res" id="12_b2adw"]
+[ext_resource type="Animation" uid="uid://b7nedads1wiwu" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_p2_idle_01.res" id="7_ub0kd"]
+[ext_resource type="Animation" uid="uid://l4slmx3rd23t" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_p3_idle_01.res" id="8_u7b7d"]
+[ext_resource type="Animation" uid="uid://bpek20ablsi3n" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_p4_idle_01.res" id="9_oqe67"]
+[ext_resource type="Animation" uid="uid://1okrfu2805mf" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_t1.res" id="10_t7n0b"]
+[ext_resource type="Animation" uid="uid://ccttc3yhafsjm" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_t2.res" id="11_fwl6l"]
+[ext_resource type="Animation" uid="uid://3aurwemgqadm" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_t3.res" id="12_b2adw"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ewib"]
 _data = {
@@ -28,8 +28,8 @@ _data = {
 &"anim_opal_db_opal_02_t3": ExtResource("12_b2adw")
 }
 
-[node name="OpalActor" unique_id=1017530611 instance=ExtResource("1_mp54a")]
-is_blinking = false
+[node name="OpalActor" unique_id=1017530611 node_paths=PackedStringArray("_layer_mask") instance=ExtResource("1_mp54a")]
+_layer_mask = NodePath("LayerMask")
 actor_name = "opal"
 display_name = "Opal"
 
@@ -736,7 +736,7 @@ bones/72/rotation = Quaternion(-3.2518602e-29, -7.54979e-08, 4.6322114e-22, 1)
 [node name="Opal_Base_Face_001" parent="Outfit/OpalOutfit01/root/Skeleton3D" index="2" unique_id=1272425223]
 sorting_offset = 1.0
 
-[node name="AnimationPlayer" parent="." index="4" unique_id=99323753]
+[node name="AnimationPlayer" parent="." index="3" unique_id=99323753]
 root_node = NodePath("../Skeleton")
 libraries/ = SubResource("AnimationLibrary_5ewib")
 libraries/db_opal_02 = SubResource("AnimationLibrary_os5fy")

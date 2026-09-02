@@ -1,0 +1,34 @@
+[gd_resource type="AnimationNodeBlendTree" format=3 uid="uid://bhn3rrw3pkprn"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ntdmx"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g2w6u"]
+animation = &"blink"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ntdmx"]
+filter_enabled = true
+filters = ["root/Skeleton3D:eye_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ghiyr"]
+animation = &"talk"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_3m87t"]
+filter_enabled = true
+filters = ["root/Skeleton3D:mouth_selector"]
+
+[resource]
+resource_local_to_scene = true
+graph_offset = Vector2(-192.31934, 122.803406)
+nodes/output/position = Vector2(910, 480)
+nodes/talk/node = SubResource("AnimationNodeAnimation_ghiyr")
+nodes/talk/position = Vector2(400, 770)
+nodes/talk_override/node = SubResource("AnimationNodeOneShot_3m87t")
+nodes/talk_override/position = Vector2(665.1798, 663.2404)
+nodes/blink_override/node = SubResource("AnimationNodeOneShot_ntdmx")
+nodes/blink_override/position = Vector2(480, 410)
+nodes/blink/node = SubResource("AnimationNodeAnimation_g2w6u")
+nodes/blink/position = Vector2(230, 610)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_ntdmx")
+nodes/Animation/position = Vector2(180, 390)
+node_connections = [&"output", 0, &"talk_override", &"talk_override", 0, &"blink_override", &"talk_override", 1, &"talk", &"blink_override", 0, &"Animation", &"blink_override", 1, &"blink"]

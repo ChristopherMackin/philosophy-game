@@ -18,8 +18,8 @@
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yj5q6"]
 _data = {
 &"RESET": ExtResource("5_f5idp"),
-&"anim_joy_blink": ExtResource("6_08ssm"),
-&"anim_joy_talk": ExtResource("7_fejen")
+&"blink": ExtResource("6_08ssm"),
+&"talk": ExtResource("7_fejen")
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eslb0"]

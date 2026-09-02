@@ -9,7 +9,9 @@
 [ext_resource type="Script" uid="uid://cilcb0gb3xu0g" path="res://system/script/rule/current_player_rule.gd" id="4_b6dcq"]
 [ext_resource type="Script" uid="uid://c2ote8d3tq7pk" path="res://system/script/event_factory/rule_event_factory.gd" id="6_5syok"]
 [ext_resource type="Script" uid="uid://tkld5vp51fi1" path="res://system/script/rule/current_round_rule.gd" id="6_i0cw1"]
+[ext_resource type="Resource" uid="uid://k0tubj80ux4o" path="res://debate/opal/db_02/event/ev_db_opal_02_t1.tres" id="9_x3isd"]
 [ext_resource type="Resource" uid="uid://cmim4022rkeoq" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_04.tres" id="11_13j1t"]
+[ext_resource type="Script" uid="uid://c44gav4s6as63" path="res://system/script/event_factory/rule_bucket_event_factory.gd" id="13_07uhb"]
 [ext_resource type="Resource" uid="uid://sa1c76vhskne" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_02.tres" id="13_x3isd"]
 [ext_resource type="Resource" uid="uid://b3jhi1ttp2e7x" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_03.tres" id="14_07uhb"]
 
@@ -25,94 +27,78 @@ rule = SubResource("Resource_wifvs")
 event = ExtResource("2_fayrp")
 metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
 
-[sub_resource type="Resource" id="Resource_khn5d"]
-resource_name = "RU: CurrentPlayerRule"
-script = ExtResource("4_b6dcq")
-metadata/_custom_type_script = "uid://cilcb0gb3xu0g"
-
-[sub_resource type="Resource" id="Resource_ugtup"]
+[sub_resource type="Resource" id="Resource_fxpvu"]
 resource_name = "RU: CurrentRoundRule"
 script = ExtResource("6_i0cw1")
 current_round = 2
 metadata/_custom_type_script = "uid://tkld5vp51fi1"
 
-[sub_resource type="Resource" id="Resource_apmig"]
-resource_name = "RU: ON_TURN_START"
-script = ExtResource("3_i0cw1")
-concept = 6
-metadata/_custom_type_script = "uid://fnphjbccs4gy"
-
-[sub_resource type="Resource" id="Resource_jls5d"]
-resource_name = "RU: MultiRule"
-script = ExtResource("4_5syok")
-rules = Array[ExtResource("2_b7gbn")]([SubResource("Resource_khn5d"), SubResource("Resource_ugtup"), SubResource("Resource_apmig")])
-metadata/_custom_type_script = "uid://csehxotj4ndvf"
-
-[sub_resource type="Resource" id="Resource_mahk2"]
+[sub_resource type="Resource" id="Resource_5awii"]
 script = ExtResource("6_5syok")
-rule = SubResource("Resource_jls5d")
+rule = SubResource("Resource_fxpvu")
 event = ExtResource("13_x3isd")
 metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
 
-[sub_resource type="Resource" id="Resource_k6vfy"]
-resource_name = "RU: CurrentPlayerRule"
-script = ExtResource("4_b6dcq")
-metadata/_custom_type_script = "uid://cilcb0gb3xu0g"
-
-[sub_resource type="Resource" id="Resource_wle2f"]
+[sub_resource type="Resource" id="Resource_0ruxp"]
 resource_name = "RU: CurrentRoundRule"
 script = ExtResource("6_i0cw1")
 current_round = 3
 metadata/_custom_type_script = "uid://tkld5vp51fi1"
 
-[sub_resource type="Resource" id="Resource_dcwhc"]
-resource_name = "RU: ON_TURN_START"
-script = ExtResource("3_i0cw1")
-concept = 6
-metadata/_custom_type_script = "uid://fnphjbccs4gy"
-
-[sub_resource type="Resource" id="Resource_8yblm"]
-resource_name = "RU: MultiRule"
-script = ExtResource("4_5syok")
-rules = Array[ExtResource("2_b7gbn")]([SubResource("Resource_k6vfy"), SubResource("Resource_wle2f"), SubResource("Resource_dcwhc")])
-metadata/_custom_type_script = "uid://csehxotj4ndvf"
-
-[sub_resource type="Resource" id="Resource_v7724"]
+[sub_resource type="Resource" id="Resource_piywt"]
 script = ExtResource("6_5syok")
-rule = SubResource("Resource_8yblm")
+rule = SubResource("Resource_0ruxp")
 event = ExtResource("14_07uhb")
 metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
 
-[sub_resource type="Resource" id="Resource_6rddc"]
-resource_name = "RU: CurrentPlayerRule"
-script = ExtResource("4_b6dcq")
-metadata/_custom_type_script = "uid://cilcb0gb3xu0g"
-
-[sub_resource type="Resource" id="Resource_y6gn2"]
+[sub_resource type="Resource" id="Resource_b5duy"]
 resource_name = "RU: CurrentRoundRule"
 script = ExtResource("6_i0cw1")
 current_round = 4
 metadata/_custom_type_script = "uid://tkld5vp51fi1"
 
-[sub_resource type="Resource" id="Resource_0khc4"]
+[sub_resource type="Resource" id="Resource_clen3"]
+script = ExtResource("6_5syok")
+rule = SubResource("Resource_b5duy")
+event = ExtResource("11_13j1t")
+metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
+
+[sub_resource type="Resource" id="Resource_wuxyr"]
+resource_name = "RU: CurrentRoundRule"
+script = ExtResource("6_i0cw1")
+current_round = 5
+metadata/_custom_type_script = "uid://tkld5vp51fi1"
+
+[sub_resource type="Resource" id="Resource_kwvd2"]
+script = ExtResource("6_5syok")
+rule = SubResource("Resource_wuxyr")
+event = ExtResource("9_x3isd")
+metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
+
+[sub_resource type="Resource" id="Resource_012t7"]
 resource_name = "RU: ON_TURN_START"
 script = ExtResource("3_i0cw1")
 concept = 6
 metadata/_custom_type_script = "uid://fnphjbccs4gy"
 
-[sub_resource type="Resource" id="Resource_x3isd"]
+[sub_resource type="Resource" id="Resource_wibeb"]
+resource_name = "RU: CurrentPlayerRule"
+script = ExtResource("4_b6dcq")
+metadata/_custom_type_script = "uid://cilcb0gb3xu0g"
+
+[sub_resource type="Resource" id="Resource_ek5gu"]
 resource_name = "RU: MultiRule"
 script = ExtResource("4_5syok")
-rules = Array[ExtResource("2_b7gbn")]([SubResource("Resource_6rddc"), SubResource("Resource_y6gn2"), SubResource("Resource_0khc4")])
+rules = Array[ExtResource("2_b7gbn")]([SubResource("Resource_012t7"), SubResource("Resource_wibeb")])
 metadata/_custom_type_script = "uid://csehxotj4ndvf"
 
-[sub_resource type="Resource" id="Resource_07uhb"]
-script = ExtResource("6_5syok")
-rule = SubResource("Resource_x3isd")
-event = ExtResource("11_13j1t")
-metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
+[sub_resource type="Resource" id="Resource_eqrqm"]
+script = ExtResource("13_07uhb")
+rule = SubResource("Resource_ek5gu")
+buckets = Array[ExtResource("1_65fn2")]([SubResource("Resource_5awii"), SubResource("Resource_piywt"), SubResource("Resource_clen3"), SubResource("Resource_kwvd2")])
+metadata/_custom_type_script = "uid://c44gav4s6as63"
 
 [resource]
 script = ExtResource("2_65fn2")
-buckets = Array[ExtResource("1_65fn2")]([SubResource("Resource_vpghu"), SubResource("Resource_mahk2"), SubResource("Resource_v7724"), SubResource("Resource_07uhb")])
+buckets = Array[ExtResource("1_65fn2")]([SubResource("Resource_vpghu"), SubResource("Resource_eqrqm")])
 metadata/_custom_type_script = "uid://bkpc76nqmkxc2"

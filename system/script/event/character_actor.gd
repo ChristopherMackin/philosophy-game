@@ -3,27 +3,29 @@ extends Actor
 
 class_name CharacterActor
 
+signal on_set_talking(val: bool)
+
 @export var _layer_mask: LayerMask
 @export var _dialgoue_camera: PhantomCamera3D
 @export var _look_at_modifier: LookAtModifier3D
 
 @export var character_animation_tree: CharacterAnimationTree
 
-@export var is_talking: bool = false:
+@export var talk_override: bool = false:
 	get():
 		if character_animation_tree:
-			return character_animation_tree.is_talking
+			return character_animation_tree.talk_override
 		return false
 	set(val):
-		if character_animation_tree: character_animation_tree.is_talking = val
+		if character_animation_tree: character_animation_tree.talk_override = val
 
-@export var is_blinking: bool = true:
+@export var blink_override: bool = false:
 	get():
 		if character_animation_tree:
-			return character_animation_tree.is_blinking
+			return character_animation_tree.blink_override
 		return false
 	set(val):
-		if character_animation_tree: character_animation_tree.is_blinking = val
+		if character_animation_tree: character_animation_tree.blink_override = val
 
 func focus_actor(val: bool):
 	if val:

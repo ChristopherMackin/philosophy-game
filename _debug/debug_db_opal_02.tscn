@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ct0kolk8vaisf"]
 
 [ext_resource type="PackedScene" uid="uid://b6up1alpc3bbp" path="res://debate/opal/db_02/env_db_opal_02.tscn" id="1_meyfg"]
-[ext_resource type="Environment" uid="uid://en34lm5ch6gf" path="res://debate/opal/db_02/we_db_opal_02.tres" id="2_lx1ym"]
+[ext_resource type="Environment" uid="uid://en34lm5ch6gf" path="res://debate/opal/db_02/world_environment/we_db_opal_02.tres" id="2_lx1ym"]
 [ext_resource type="Shader" uid="uid://372vl3dqemde" path="res://_general/shader/sh_simple_film_grain.gdshader" id="4_h2afu"]
 [ext_resource type="PackedScene" uid="uid://dgjj6ix2mlftp" path="res://character/opal/act_opal.tscn" id="5_gyrkl"]
 [ext_resource type="PackedScene" uid="uid://dnalajbqwpcg2" path="res://character/joy/act_joy.tscn" id="5_lx1ym"]
