@@ -1,6 +1,7 @@
 [gd_resource type="AnimationNodeBlendTree" format=3 uid="uid://bhn3rrw3pkprn"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ntdmx"]
+resource_local_to_scene = true
 animation = &"RESET"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g2w6u"]
@@ -19,7 +20,7 @@ filters = ["root/Skeleton3D:mouth_selector"]
 
 [resource]
 resource_local_to_scene = true
-graph_offset = Vector2(-192.31934, 122.803406)
+graph_offset = Vector2(-149.32162, 168.27747)
 nodes/output/position = Vector2(910, 480)
 nodes/talk/node = SubResource("AnimationNodeAnimation_ghiyr")
 nodes/talk/position = Vector2(400, 770)
@@ -30,5 +31,5 @@ nodes/blink_override/position = Vector2(480, 410)
 nodes/blink/node = SubResource("AnimationNodeAnimation_g2w6u")
 nodes/blink/position = Vector2(230, 610)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_ntdmx")
-nodes/Animation/position = Vector2(180, 390)
+nodes/Animation/position = Vector2(0, 280)
 node_connections = [&"output", 0, &"talk_override", &"talk_override", 0, &"blink_override", &"talk_override", 1, &"talk", &"blink_override", 0, &"Animation", &"blink_override", 1, &"blink"]

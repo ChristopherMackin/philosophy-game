@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://uof5fhcqdag3" path="res://character/script/follow_skeleton.gd" id="4_c8hue"]
 [ext_resource type="Animation" uid="uid://cwcoji1l7away" path="res://character/opal/animation/anim_opal_RESET.res" id="5_c8hue"]
 [ext_resource type="Material" uid="uid://0rwlfq5iuit6" path="res://_asset/character/opal/material/m_unknown_base.tres" id="5_un4f6"]
+[ext_resource type="Animation" uid="uid://b6oucb7d3rqsj" path="res://character/opal/animation/db_opal_02/anim_opal_blink.res" id="7_oqe67"]
 [ext_resource type="Animation" uid="uid://b7nedads1wiwu" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_p2_idle_01.res" id="7_ub0kd"]
+[ext_resource type="Animation" uid="uid://dq8ggs8eileqt" path="res://character/opal/animation/db_opal_02/anim_opal_talk.res" id="8_t7n0b"]
 [ext_resource type="Animation" uid="uid://l4slmx3rd23t" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_p3_idle_01.res" id="8_u7b7d"]
 [ext_resource type="Animation" uid="uid://bpek20ablsi3n" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_p4_idle_01.res" id="9_oqe67"]
 [ext_resource type="Animation" uid="uid://1okrfu2805mf" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_t1.res" id="10_t7n0b"]
@@ -15,7 +17,9 @@
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ewib"]
 _data = {
-&"anim_opal_RESET": ExtResource("5_c8hue")
+&"RESET": ExtResource("5_c8hue"),
+&"blink": ExtResource("7_oqe67"),
+&"talk": ExtResource("8_t7n0b")
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_os5fy"]
