@@ -19,10 +19,23 @@ class_name LayerMask
 		_update_layers.call_deferred(layers)
 
 func _update_layers(val):
-	for child in Util.get_all_children(parent):
-			if "layers" in child and child != self:
-				child.layers = val
+	for child in parent.get_children():
+		if child != self && not child is LayerMask:
+			_update_layers_recursive(child)
 	
+	if "layers" in parent:
+		parent.layers = layers
+
+func _update_layers_recursive(node: Node):
+	var children = node.get_children()
+	
+	if children.any(func(x): return x is LayerMask): return
+		
+	for child in children:
+		_update_layers_recursive(child)
+	
+	if "layers" in node:
+		node.layers = layers
 
 func set_layer(layer: int, value: bool):
 	var flag = 1 << layer

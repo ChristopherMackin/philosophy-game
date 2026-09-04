@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="1_65fn2"]
 [ext_resource type="Script" uid="uid://bkpc76nqmkxc2" path="res://system/script/event_factory/bucket_event_factory.gd" id="2_65fn2"]
 [ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/rule/rule.gd" id="2_b7gbn"]
-[ext_resource type="Resource" uid="uid://chqe2n2s0ukox" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_01.tres" id="2_fayrp"]
 [ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/rule/concept_rule.gd" id="3_i0cw1"]
 [ext_resource type="Script" uid="uid://csehxotj4ndvf" path="res://system/script/rule/multi_rule.gd" id="4_5syok"]
 [ext_resource type="Script" uid="uid://cilcb0gb3xu0g" path="res://system/script/rule/current_player_rule.gd" id="4_b6dcq"]
@@ -24,7 +23,7 @@ metadata/_custom_type_script = "uid://fnphjbccs4gy"
 [sub_resource type="Resource" id="Resource_vpghu"]
 script = ExtResource("6_5syok")
 rule = SubResource("Resource_wifvs")
-event = ExtResource("2_fayrp")
+event = ExtResource("9_x3isd")
 metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
 
 [sub_resource type="Resource" id="Resource_fxpvu"]

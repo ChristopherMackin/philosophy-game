@@ -15,7 +15,7 @@ func invoke(task : Task, manager : EventManager):
 	
 	
 	await Util.await_any([
-		func(): await manager.display_dialogue(text, task.get_input(1), task.get_input(2), task.get_input(3)),
+		#func(): await manager.display_dialogue(text, task.get_input(1), task.get_input(2), task.get_input(3)),
 		func(): await on_action_canceled
 	])
 		
