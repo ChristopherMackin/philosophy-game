@@ -119,3 +119,11 @@ static func auto_populate_resource_array(old_array: Array, new_array: Array, res
 			old_array[i].resource_name = resource_name
 	
 	return old_array
+
+static func optional_connect(node: Node, signal_name: String, callable: Callable, flags: int = 0):
+	if node.has_signal(signal_name) && !node.is_connected(signal_name, callable):
+		node.connect(signal_name, callable, flags)
+
+static func optional_disconnect(node: Node, signal_name: String, callable: Callable):
+	if node.has_signal(signal_name) && node.is_connected(signal_name, callable):
+		node.disconnect(signal_name, callable)
