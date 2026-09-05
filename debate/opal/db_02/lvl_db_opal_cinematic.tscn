@@ -97,6 +97,7 @@
 [ext_resource type="Texture2D" uid="uid://cp4wiih01ktxp" path="res://_asset/_general/texture/t_spiked_bubble_02.png" id="78_f3ys7"]
 [ext_resource type="Texture2D" uid="uid://ketnefqmtrie" path="res://_asset/_general/texture/t_spiked_bubble_03.png" id="79_7mnyw"]
 [ext_resource type="Script" uid="uid://ccmy7q4sd7qkx" path="res://debate/opal/db_02/child_control_shake.gd" id="80_f3ys7"]
+[ext_resource type="PackedScene" uid="uid://bgxyjg7p6d1iu" path="res://simple_dynamic_speech_bubble.tscn" id="85_g2w6u"]
 [ext_resource type="Script" uid="uid://deyblpqc0v651" path="res://debate/_script/ui/play_area_selector_3d.gd" id="97_nolis"]
 [ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/token_selector_ui.tscn" id="98_68gxc"]
 
@@ -877,7 +878,7 @@ _data = {
 dof_blur_far_enabled = true
 dof_blur_far_distance = 5.0
 
-[sub_resource type="Environment" id="Environment_2moqn"]
+[sub_resource type="Environment" id="Environment_g2w6u"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -887,7 +888,7 @@ ssao_intensity = 1.32
 ssao_power = 3.446096
 ssao_sharpness = 0.5
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_g2w6u"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ntdmx"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Curve" id="Curve_wifvs"]
@@ -895,7 +896,7 @@ _limits = [0.0, 1.8, 0.0, 1.0]
 _data = [Vector2(0, 1.8), 0.0, 0.0, 0, 0, Vector2(0.5503876, 1.8), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ntdmx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_dqw0w"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dbiua"]
@@ -1030,7 +1031,7 @@ _data = {
 &"card_exit": SubResource("Animation_ntdmx")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dqw0w"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wt2fd"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8igq"]
@@ -1038,7 +1039,7 @@ albedo_texture = ExtResource("30_dbiua")
 ao_enabled = true
 ao_texture = ExtResource("31_p0yir")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wt2fd"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_26jun"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jelp"]
@@ -1046,7 +1047,7 @@ albedo_texture = ExtResource("32_84k4r")
 ao_enabled = true
 ao_texture = ExtResource("33_3m87t")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_26jun"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_quyfi"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ghiyr"]
@@ -1132,7 +1133,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_dqw0w")
 nodes/Animation/position = Vector2(50, 320)
 node_connections = [&"output", 0, &"talk_override", &"talk_override", 0, &"blink_override", &"talk_override", 1, &"talk", &"blink_override", 0, &"Animation", &"blink_override", 1, &"blink"]
 
-[sub_resource type="Environment" id="Environment_quyfi"]
+[sub_resource type="Environment" id="Environment_ntdmx"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -1152,7 +1153,7 @@ ssao_intensity = 1.32
 ssao_power = 3.446096
 ssao_sharpness = 0.5
 
-[sub_resource type="Environment" id="Environment_mknjq"]
+[sub_resource type="Environment" id="Environment_dqw0w"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -1359,7 +1360,7 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="SceneCamera" type="Camera3D" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerA/SubViewport" unique_id=1039536451]
-transform = Transform3D(0.40592754, 0.0015116911, 0.9139041, -0.0035386235, 0.99999386, -8.2347244e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
+transform = Transform3D(0.40592754, 0.0015116907, 0.9139041, -0.0035386235, 0.99999386, -8.234678e-05, -0.9138987, -0.0032005352, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
 top_level = true
 cull_mask = 1
 attributes = SubResource("CameraAttributesPractical_gaafv")
@@ -1387,10 +1388,10 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="SceneCamera" type="Camera3D" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerB/SubViewport" unique_id=1232389164]
-transform = Transform3D(0.40592754, 0.001511691, 0.9139041, -0.0035386235, 0.99999386, -8.234713e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
+transform = Transform3D(0.40592754, 0.0015116906, 0.9139041, -0.0035386235, 0.99999386, -8.234666e-05, -0.9138987, -0.0032005352, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
 top_level = true
 cull_mask = 4
-environment = SubResource("Environment_2moqn")
+environment = SubResource("Environment_g2w6u")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -2078,7 +2079,7 @@ order = 1
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter" unique_id=1817069595 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_g2w6u")
+texture = SubResource("ViewportTexture_ntdmx")
 
 [node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1817069595, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -2103,7 +2104,7 @@ order = 1
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" unique_id=1611050952 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_ntdmx")
+texture = SubResource("ViewportTexture_dqw0w")
 
 [node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1611050952, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -2208,7 +2209,7 @@ order = 1
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" unique_id=467383888 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26024163, -0.009793821, -0.076415636, 0.076465435, -1.1382936e-08, 0.26041123, -0.009397088, -0.27122876, 0.0027592867, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_dqw0w")
+texture = SubResource("ViewportTexture_wt2fd")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(467383888, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -2237,7 +2238,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" unique_id=1511716073 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.2708025, 0.006386812, -0.016917214, 0.016962603, -0.0017474849, 0.27086934, 0.0062652696, -0.27132475, -0.002142772, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_wt2fd")
+texture = SubResource("ViewportTexture_26jun")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1511716073, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -2266,7 +2267,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" unique_id=969618535 instance=ExtResource("44_336qk")]
 transform = Transform3D(0.26872277, 0.03799277, 0.0023667924, -0.00091665983, -0.010411309, 0.27120426, 0.038055386, -0.26853144, -0.010180076, -0.011028126, 0.015155774, 0.015328243)
-texture = SubResource("ViewportTexture_26jun")
+texture = SubResource("ViewportTexture_quyfi")
 
 [node name="Label" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(969618535, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -2774,7 +2775,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 4
-environment = SubResource("Environment_quyfi")
+environment = SubResource("Environment_ntdmx")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -2837,7 +2838,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 2
-environment = SubResource("Environment_mknjq")
+environment = SubResource("Environment_dqw0w")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -2863,13 +2864,47 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="JoyDialogueP1" parent="===UI========/DialogueBubbles/P1" unique_id=2037972277 instance=ExtResource("35_nolis")]
-visible = false
-layout_mode = 0
-offset_left = 828.0
-offset_top = 351.0
-offset_right = 1256.7653
-offset_bottom = 622.0002
+[node name="JoyDialogueP1" parent="===UI========/DialogueBubbles/P1" unique_id=1196501776 instance=ExtResource("85_g2w6u")]
+layout_mode = 1
+offset_left = 1000.0
+offset_top = 469.0
+offset_right = 1000.0
+offset_bottom = 469.0
+
+[node name="BubbleBody" parent="===UI========/DialogueBubbles/P1/JoyDialogueP1" index="0" unique_id=1492291815]
+height = 179.99999999999946
+corner_radius = 9.99999999999997
+
+[node name="Points" parent="===UI========/DialogueBubbles/P1/JoyDialogueP1/BubbleBody" index="0" unique_id=1741830826]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Control" parent="===UI========/DialogueBubbles/P1/JoyDialogueP1/BubbleBody/Points" index="0" unique_id=1382720398]
+offset_left = 129.0
+offset_top = 15.0
+offset_right = 169.0
+offset_bottom = 55.0
+
+[node name="Control2" parent="===UI========/DialogueBubbles/P1/JoyDialogueP1/BubbleBody/Points" index="1" unique_id=106544719]
+offset_left = 239.0
+offset_top = 68.0
+offset_right = 279.0
+offset_bottom = 108.0
+
+[node name="Background" parent="===UI========/DialogueBubbles/P1/JoyDialogueP1/BubbleBody" index="1" unique_id=418647870]
+polygon = PackedVector2Array(141.9509, -89.80785, 143.82683, -89.23879, 145.5557, -88.3147, 147.07108, -87.07107, 148.3147, -85.5557, 149.2388, -83.826836, 149.80785, -81.950905, 150, -80, 150, -17.29425, 150.27518, -17.068825, 152.35909, -15.0241165, 154.88611, -12.7659, 157.81596, -10.313591, 161.10837, -7.6866074, 164.72305, -4.9043427, 168.6197, -1.9862213, 170.45772, -0.0599823, 172.35112, 1.8929367, 174.29489, 3.8701248, 176.2839, 5.8691177, 178.3134, 7.8876038, 180.37793, 9.922981, 182.47276, 11.972954, 184.59276, 14.035057, 186.7329, 16.106857, 188.8882, 18.185966, 191.0534, 20.269852, 193.22377, 22.356216, 195.39423, 24.44262, 197.55948, 26.526535, 199.71474, 28.605614, 201.85487, 30.677422, 203.97487, 32.739517, 206.06973, 34.789505, 208.13425, 36.824883, 210.16364, 38.843315, 212.15279, 40.84236, 214.0965, 42.819534, 215.98991, 44.772453, 217.82793, 46.698692, 221.72458, 49.616814, 225.33925, 52.39908, 228.63165, 55.026062, 231.56152, 57.47837, 234.08855, 59.73658, 236.17245, 61.781296, 239.25673, 64.308, 240.08516, 65.747795, 237.91484, 70.252205, 236.27257, 70.50157, 232.37442, 69.66402, 229.47664, 69.308464, 226.13574, 68.7394, 222.39203, 67.97626, 218.28575, 67.03842, 213.85721, 65.94532, 209.14668, 64.716354, 206.4948, 64.47927, 203.78754, 64.2155, 201.02989, 63.92746, 198.22699, 63.61763, 195.38376, 63.288353, 192.50522, 62.94207, 189.59657, 62.58127, 186.6627, 62.20833, 183.7087, 61.825676, 180.7396, 61.435753, 177.76038, 61.040955, 174.77623, 60.64379, 171.79199, 60.246582, 168.81273, 59.85176, 165.84367, 59.461853, 162.88966, 59.07921, 159.9558, 58.70626, 157.04712, 58.34545, 154.1686, 57.99916, 151.32547, 57.669952, 150, 57.523407, 150, 80, 149.80785, 81.950905, 149.2388, 83.826836, 148.3147, 85.5557, 147.07108, 87.07107, 145.5557, 88.3147, 143.82683, 89.23879, 141.9509, 89.80785, 140, 90, -140, 90, -141.9509, 89.80785, -143.82683, 89.23879, -145.5557, 88.3147, -147.07108, 87.07107, -148.3147, 85.5557, -149.2388, 83.826836, -149.80785, 81.950905, -150, 80, -150, -80, -149.80785, -81.950905, -149.2388, -83.826836, -148.3147, -85.5557, -147.07108, -87.07107, -145.5557, -88.3147, -143.82683, -89.23879, -141.9509, -89.80785, -140, -90, 140, -90)
+
+[node name="Line" parent="===UI========/DialogueBubbles/P1/JoyDialogueP1/BubbleBody" index="2" unique_id=59601008]
+points = PackedVector2Array(141.9509, -89.80785, 143.82683, -89.23879, 145.5557, -88.3147, 147.07108, -87.07107, 148.3147, -85.5557, 149.2388, -83.826836, 149.80785, -81.950905, 150, -80, 150, -17.29425, 150.27518, -17.068825, 152.35909, -15.0241165, 154.88611, -12.7659, 157.81596, -10.313591, 161.10837, -7.6866074, 164.72305, -4.9043427, 168.6197, -1.9862213, 170.45772, -0.0599823, 172.35112, 1.8929367, 174.29489, 3.8701248, 176.2839, 5.8691177, 178.3134, 7.8876038, 180.37793, 9.922981, 182.47276, 11.972954, 184.59276, 14.035057, 186.7329, 16.106857, 188.8882, 18.185966, 191.0534, 20.269852, 193.22377, 22.356216, 195.39423, 24.44262, 197.55948, 26.526535, 199.71474, 28.605614, 201.85487, 30.677422, 203.97487, 32.739517, 206.06973, 34.789505, 208.13425, 36.824883, 210.16364, 38.843315, 212.15279, 40.84236, 214.0965, 42.819534, 215.98991, 44.772453, 217.82793, 46.698692, 221.72458, 49.616814, 225.33925, 52.39908, 228.63165, 55.026062, 231.56152, 57.47837, 234.08855, 59.73658, 236.17245, 61.781296, 239.25673, 64.308, 240.08516, 65.747795, 237.91484, 70.252205, 236.27257, 70.50157, 232.37442, 69.66402, 229.47664, 69.308464, 226.13574, 68.7394, 222.39203, 67.97626, 218.28575, 67.03842, 213.85721, 65.94532, 209.14668, 64.716354, 206.4948, 64.47927, 203.78754, 64.2155, 201.02989, 63.92746, 198.22699, 63.61763, 195.38376, 63.288353, 192.50522, 62.94207, 189.59657, 62.58127, 186.6627, 62.20833, 183.7087, 61.825676, 180.7396, 61.435753, 177.76038, 61.040955, 174.77623, 60.64379, 171.79199, 60.246582, 168.81273, 59.85176, 165.84367, 59.461853, 162.88966, 59.07921, 159.9558, 58.70626, 157.04712, 58.34545, 154.1686, 57.99916, 151.32547, 57.669952, 150, 57.523407, 150, 80, 149.80785, 81.950905, 149.2388, 83.826836, 148.3147, 85.5557, 147.07108, 87.07107, 145.5557, 88.3147, 143.82683, 89.23879, 141.9509, 89.80785, 140, 90, -140, 90, -141.9509, 89.80785, -143.82683, 89.23879, -145.5557, 88.3147, -147.07108, 87.07107, -148.3147, 85.5557, -149.2388, 83.826836, -149.80785, 81.950905, -150, 80, -150, -80, -149.80785, -81.950905, -149.2388, -83.826836, -148.3147, -85.5557, -147.07108, -87.07107, -145.5557, -88.3147, -143.82683, -89.23879, -141.9509, -89.80785, -140, -90, 140, -90)
+width = 15.0
+
+[node name="ScrollingText" parent="===UI========/DialogueBubbles/P1/JoyDialogueP1" index="1" unique_id=644170502]
+offset_left = -131.0
+offset_top = -70.0
+offset_right = 129.0
+offset_bottom = 70.0
 
 [node name="OpalDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1" unique_id=39134231 node_paths=PackedStringArray("scrolling_text")]
 visible = false
@@ -2918,10 +2953,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.0203748
-offset_top = -0.8051356
-offset_right = 218.97957
-offset_bottom = 129.19487
+offset_left = -0.08084064
+offset_top = 0.70523345
+offset_right = 219.9191
+offset_bottom = 130.70523
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2973,10 +3008,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.72935164
-offset_top = 0.1181159
-offset_right = 219.27065
-offset_bottom = 130.11821
+offset_left = 1.3170304
+offset_top = 1.2684987
+offset_right = 221.31703
+offset_bottom = 131.26859
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -3028,10 +3063,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.9220244
-offset_top = -0.7734908
-offset_right = 219.07803
-offset_bottom = 129.22652
+offset_left = -0.10924644
+offset_top = 1.1439832
+offset_right = 219.89081
+offset_bottom = 131.14398
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -3083,10 +3118,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -2.3661926
-offset_top = -0.46031037
-offset_right = 536.47156
-offset_bottom = 338.23996
+offset_left = -2.3672812
+offset_top = -2.8091192
+offset_right = 536.47046
+offset_bottom = 335.89114
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
@@ -3334,3 +3369,4 @@ metadata/_custom_type_script = "uid://deyblpqc0v651"
 [editable path="===ACTOR========/OpalActor/Skeleton"]
 [editable path="===ACTOR========/OpalActor/Outfit/OpalUnknown"]
 [editable path="===ACTOR========/OpalActor/Outfit/OpalOutfit01"]
+[editable path="===UI========/DialogueBubbles/P1/JoyDialogueP1"]

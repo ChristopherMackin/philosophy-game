@@ -73,7 +73,7 @@ func _draw_tail() -> void:
 	if !background || !outline || !point_parent: return
 	
 	var points: Array[Vector2]
-	points.assign(point_parent.get_children().map(func(x): return x.global_position))
+	points.assign(point_parent.get_children().map(func(x): return x.position))
 	var curve = generate_curve(points)
 	
 	var tail_shape = generate_tapered_shape(curve)
