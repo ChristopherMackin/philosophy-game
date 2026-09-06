@@ -47,9 +47,10 @@ extends Control
 		if point_parent:
 			for child in point_parent.get_children():
 				Util.optional_disconnect(child, "item_rect_changed", _draw_bubble)
+				Util.optional_disconnect(child, "visibility_changed", _draw_bubble)
 			Util.optional_disconnect(point_parent, "child_entered_tree", _set_up_redraw)
 			Util.optional_disconnect(point_parent, "item_rect_changed", _draw_bubble)
-			Util.optional_disconnect(point_parent, "child_exiting_tree", _draw_bubble.unbind(1))
+			Util.optional_disconnect(point_parent, "child_exiting_tree", _on_child_exiting)
 		
 		point_parent = val
 		
@@ -58,7 +59,7 @@ extends Control
 				_set_up_redraw(child)
 			Util.optional_connect(point_parent, "child_entered_tree", _set_up_redraw)
 			Util.optional_connect(point_parent, "item_rect_changed", _draw_bubble)
-			Util.optional_connect(point_parent, "child_exiting_tree", _draw_bubble.unbind(1))
+			Util.optional_connect(point_parent, "child_exiting_tree", _on_child_exiting)
 
 @export_category("Border")
 @export var thickness: float = 20.0:
@@ -66,27 +67,27 @@ extends Control
 		thickness = val
 		_draw_bubble()
 
-func _draw_bubble():
-	_draw_tail()
+func _on_child_exiting(node: Node):
+	node.tree_exited.connect(_draw_bubble, CONNECT_ONE_SHOT)
 
-func _draw_tail() -> void:
+func _draw_bubble():
 	if !background || !outline || !point_parent: return
 	
 	var points: Array[Vector2]
-	points.assign(point_parent.get_children().map(func(x): return x.position))
+	points.assign(point_parent.get_children().filter(func(x): return x.visible).map(func(x: Control): return x.position + point_parent.position))
 	var curve = generate_curve(points)
 	
 	var tail_shape = generate_tapered_shape(curve)
 	var body_shape = _generate_body_shape()
 	
 	var union = Geometry2D.merge_polygons(body_shape, tail_shape)
-	print(union)
 	
 	background.polygon = union[0] # Fills the inner shape
 	outline.points = union[0]
 
 func _set_up_redraw(node: Node):
 	Util.optional_connect(node, "item_rect_changed", _draw_bubble)
+	Util.optional_connect(node, "visibility_changed", _draw_bubble)
 
 func generate_curve(points: Array[Vector2]) -> Curve2D:
 	var curve:= Curve2D.new()
