@@ -97,6 +97,8 @@
 [ext_resource type="Texture2D" uid="uid://ketnefqmtrie" path="res://_asset/_general/texture/t_spiked_bubble_03.png" id="79_7mnyw"]
 [ext_resource type="Script" uid="uid://ccmy7q4sd7qkx" path="res://debate/opal/db_02/child_control_shake.gd" id="80_f3ys7"]
 [ext_resource type="PackedScene" uid="uid://bgxyjg7p6d1iu" path="res://simple_dynamic_speech_bubble.tscn" id="85_g2w6u"]
+[ext_resource type="Shader" uid="uid://ccsxi8xvcgfe2" path="res://_general/shader/sh_nighttime_sky.tres" id="85_ntdmx"]
+[ext_resource type="Texture2D" uid="uid://64uo8ucmg2va" path="res://_asset/_general/texture/t_stary_sky_col.jpg" id="86_dqw0w"]
 [ext_resource type="Script" uid="uid://deyblpqc0v651" path="res://debate/_script/ui/play_area_selector_3d.gd" id="97_nolis"]
 [ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/token_selector_ui.tscn" id="98_68gxc"]
 
@@ -194,6 +196,7 @@ metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="Resource" id="Resource_dqw0w"]
 script = ExtResource("11_ud0a1")
+duration = 0.0
 
 [sub_resource type="Resource" id="Resource_7mnyw"]
 script = ExtResource("12_ud0a1")
@@ -312,31 +315,31 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../../===UI========:visible")
+tracks/7/path = NodePath("../CutsceneCanvas/T1/OpalNameTag:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../CutsceneCanvas/T1/OpalNameTag:modulate")
+tracks/8/path = NodePath("../../===ACTOR========/JoyActor:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../../===ACTOR========/JoyActor:visible")
+tracks/9/path = NodePath("../../===ACTOR========/OpalActor:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -348,19 +351,19 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../../===ACTOR========/OpalActor:visible")
+tracks/10/path = NodePath("../JoyCinematicActor:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../JoyCinematicActor:visible")
+tracks/11/path = NodePath("../OpalCinematicActor:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -372,7 +375,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../OpalCinematicActor:visible")
+tracks/12/path = NodePath("../CutsceneCanvas/SceneContainerA:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -384,7 +387,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../CutsceneCanvas/SceneContainerA:visible")
+tracks/13/path = NodePath("../CutsceneCanvas/SceneContainerB:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -396,194 +399,194 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../CutsceneCanvas/SceneContainerB:visible")
+tracks/14/path = NodePath("../../===CAMERA========/SceneCamera_T1b:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector3(1.1794775, 0.31653523, 0.48320687)]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("../../===CAMERA========/SceneCamera_T1b:position")
+tracks/15/path = NodePath("../../===CAMERA========/SceneCamera_T1b:rotation")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.1794775, 0.31653523, 0.48320687)]
+"values": [Vector3(8.234713e-05, 1.1527998, -0.00353863)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("../../===CAMERA========/SceneCamera_T1b:rotation")
+tracks/16/path = NodePath("../CutsceneCanvas/SceneContainerB:modulate")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(8.234713e-05, 1.1527998, -0.00353863)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("../CutsceneCanvas/SceneContainerB:modulate")
+tracks/17/path = NodePath("../../===CAMERA========/Dialogue_P1:priority")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"update": 1,
+"values": [1]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("../../===CAMERA========/Dialogue_P1:priority")
+tracks/18/path = NodePath("../../===CAMERA========/Dialogue_P2:priority")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [0]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("../../===CAMERA========/Dialogue_P2:priority")
+tracks/19/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1/BubbleBody/Points/Tail1:position")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"update": 0,
+"values": [Vector2(-116, 5)]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1/BubbleBody/Points/Tail1:position")
+tracks/20/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1/BubbleBody/Points/Tail2:position")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-116, 5)]
+"values": [Vector2(-232, 74)]
 }
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1/BubbleBody/Points/Tail2:position")
+tracks/21/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1/BubbleBody/Points/Tail3:position")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-232, 74)]
+"values": [Vector2(-218, 156)]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1/BubbleBody/Points/Tail3:position")
+tracks/22/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1/BubbleBody/Points/Tail3:position")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-218, 156)]
+"values": [Vector2(-23, 301)]
 }
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1/BubbleBody/Points/Tail3:position")
+tracks/23/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1/BubbleBody/Points/Tail1:position")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-23, 301)]
+"values": [Vector2(72, 56)]
 }
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1/BubbleBody/Points/Tail1:position")
+tracks/24/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1/BubbleBody/Points/Tail2:position")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(72, 56)]
+"values": [Vector2(-21, 289)]
 }
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1/BubbleBody/Points/Tail2:position")
+tracks/25/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1:scale")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-21, 289)]
+"values": [Vector2(1, 1)]
 }
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1:scale")
+tracks/26/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1:position")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(1420, 178)]
 }
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1:position")
+tracks/27/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1:scale")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1420, 178)]
+"values": [Vector2(1, 1)]
 }
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1:scale")
+tracks/28/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1:seconds_before_close")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [2.0]
 }
 tracks/29/type = "value"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1:seconds_before_close")
+tracks/29/path = NodePath("../../===WORLD========/WorldEnvironment:environment")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.0]
+"update": 1,
+"values": [ExtResource("13_68gxc")]
 }
 
 [sub_resource type="Animation" id="Animation_f3ys7"]
@@ -620,7 +623,7 @@ tracks/2/path = NodePath("../../===CAMERA========/Dialogue_P1:priority")
 tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 42),
+"times": PackedFloat32Array(0, 4.1461),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 0]
@@ -632,7 +635,7 @@ tracks/3/path = NodePath("../../===CAMERA========/Dialogue_P2:priority")
 tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 42),
+"times": PackedFloat32Array(0, 4.1461),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -772,7 +775,7 @@ tracks/15/path = NodePath("../CutsceneCanvas/SceneContainerA:visible")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 19.2529, 42),
+"times": PackedFloat32Array(0, 21.794909, 42),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -818,70 +821,82 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1:position")
+tracks/19/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1:seconds_before_close")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
+"times": PackedFloat32Array(0, 11.7683, 16.7918),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2.0, 0.999999999672317, 1.999999999672314]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
 "times": PackedFloat32Array(0, 25.781, 32.3993),
 "transitions": PackedFloat32Array(0, 0, 1),
 "update": 0,
 "values": [Vector2(1420, 178), Vector2(256, 176), Vector2(1603, 229)]
 }
-tracks/20/type = "value"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1:scale")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = {
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1:scale")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
 "times": PackedFloat32Array(0, 32.3993),
 "transitions": PackedFloat32Array(0, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.5, 1.5)]
 }
-tracks/21/type = "value"
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1/BubbleBody/Points/Tail1:position")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/keys = {
-"times": PackedFloat32Array(0, 25.781, 32.3993),
-"transitions": PackedFloat32Array(0, 0, 1),
-"update": 0,
-"values": [Vector2(-116, 5), Vector2(-63, 40), Vector2(-60.66665, 73.333336)]
-}
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1/BubbleBody/Points/Tail2:position")
+tracks/22/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1/BubbleBody/Points/Tail1:position")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
 "times": PackedFloat32Array(0, 25.781, 32.3993),
 "transitions": PackedFloat32Array(0, 0, 1),
 "update": 0,
-"values": [Vector2(-232, 74), Vector2(-25, 185), Vector2(-121.33332, 183.33333)]
+"values": [Vector2(-116, 5), Vector2(-63, 40), Vector2(-60.66665, 73.333336)]
 }
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1/BubbleBody/Points/Tail3:position")
+tracks/23/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1/BubbleBody/Points/Tail2:position")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
-"times": PackedFloat32Array(0, 12.2624, 25.781, 32.3993),
-"transitions": PackedFloat32Array(0, 0, 0, 1),
+"times": PackedFloat32Array(0, 25.781, 32.3993),
+"transitions": PackedFloat32Array(0, 0, 1),
 "update": 0,
-"values": [Vector2(-218, 156), Vector2(-226, 189), Vector2(177, 263), Vector2(-225.33334, 217.33333)]
+"values": [Vector2(-232, 74), Vector2(-25, 185), Vector2(-121.33332, 183.33333)]
 }
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1:text")
+tracks/24/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1/BubbleBody/Points/Tail3:position")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
+"times": PackedFloat32Array(0, 11.7683, 25.781, 32.3993),
+"transitions": PackedFloat32Array(0, 0, 0, 1),
+"update": 0,
+"values": [Vector2(-218, 156), Vector2(-226, 189), Vector2(177, 263), Vector2(-225.33334, 217.33333)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1:text")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
 "times": PackedFloat32Array(17.439262, 18.72485, 21.117998, 23.754612),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
@@ -891,137 +906,149 @@ tracks/24/keys = {
 .0 level=10 connected=1]I just fell is all...[/shake]", "[shake rate=20
 .0 level=10 connected=1]I just fell is all...[/shake]"]
 }
-tracks/25/type = "value"
-tracks/25/imported = false
-tracks/25/enabled = true
-tracks/25/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1:scale")
-tracks/25/interp = 0
-tracks/25/loop_wrap = true
-tracks/25/keys = {
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1:scale")
+tracks/26/interp = 0
+tracks/26/loop_wrap = true
+tracks/26/keys = {
 "times": PackedFloat32Array(0, 21.118),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector2(1, 1), Vector2(1.5, 1.5)]
 }
-tracks/26/type = "value"
-tracks/26/imported = false
-tracks/26/enabled = true
-tracks/26/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1/BubbleBody/Points/Tail1:position")
-tracks/26/interp = 1
-tracks/26/loop_wrap = true
-tracks/26/keys = {
-"times": PackedFloat32Array(17.4393, 21.118),
-"transitions": PackedFloat32Array(0, 1),
-"update": 0,
-"values": [Vector2(72, 56), Vector2(-65.33334, 63.333332)]
-}
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1/BubbleBody/Points/Tail2:position")
+tracks/27/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1/BubbleBody/Points/Tail1:position")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
 "times": PackedFloat32Array(17.4393, 21.118),
 "transitions": PackedFloat32Array(0, 1),
 "update": 0,
-"values": [Vector2(-21, 289), Vector2(-148.66667, 192.66667)]
+"values": [Vector2(72, 56), Vector2(-65.33334, 63.333332)]
 }
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1/BubbleBody/Points/Tail3:position")
+tracks/28/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1/BubbleBody/Points/Tail2:position")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
+"times": PackedFloat32Array(17.4393, 21.118),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Vector2(-21, 289), Vector2(-148.66667, 192.66667)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("../CutsceneCanvas/T1/JoyDialogueT1/BubbleBody/Points/Tail3:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
 "times": PackedFloat32Array(17.4393),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-23, 301)]
 }
-tracks/29/type = "value"
-tracks/29/imported = false
-tracks/29/enabled = true
-tracks/29/path = NodePath("../CutsceneCanvas/T1/OpalNameTag:modulate")
-tracks/29/interp = 1
-tracks/29/loop_wrap = true
-tracks/29/keys = {
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("../CutsceneCanvas/T1/OpalNameTag:modulate")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
 "times": PackedFloat32Array(31.917059, 33.894413, 37.27888, 38.25776),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/30/type = "value"
-tracks/30/imported = false
-tracks/30/enabled = true
-tracks/30/path = NodePath("../../===ACTOR========:visible")
-tracks/30/interp = 1
-tracks/30/loop_wrap = true
-tracks/30/keys = {
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("../../===WORLD========:visible")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
 "times": PackedFloat32Array(),
 "transitions": PackedFloat32Array(),
 "update": 1,
 "values": []
 }
-tracks/31/type = "value"
-tracks/31/imported = false
-tracks/31/enabled = true
-tracks/31/path = NodePath("../../===ACTOR========/JoyActor:visible")
-tracks/31/interp = 1
-tracks/31/loop_wrap = true
-tracks/31/keys = {
-"times": PackedFloat32Array(0.01, 42),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
 tracks/32/type = "value"
 tracks/32/imported = false
 tracks/32/enabled = true
-tracks/32/path = NodePath("../../===ACTOR========/OpalActor:visible")
+tracks/32/path = NodePath("../../===WORLD========/WorldEnvironment:environment")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
-"times": PackedFloat32Array(0.01, 42),
+"times": PackedFloat32Array(0, 4.1461),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true]
+"values": [ExtResource("13_68gxc"), ExtResource("6_vypjq")]
 }
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("../../===UI========:visible")
-tracks/33/interp = 0
+tracks/33/path = NodePath("../../===ACTOR========:visible")
+tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
-"times": PackedFloat32Array(0, 19.2529, 42),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 1,
-"values": [true, false, true]
+"values": []
 }
 tracks/34/type = "value"
 tracks/34/imported = false
 tracks/34/enabled = true
-tracks/34/path = NodePath("../../===UI========/DialogueContainer:modulate")
+tracks/34/path = NodePath("../../===ACTOR========/JoyActor:visible")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
-"times": PackedFloat32Array(3.2956514, 4.146085, 40, 42),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"times": PackedFloat32Array(0.01, 42),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 tracks/35/type = "value"
 tracks/35/imported = false
 tracks/35/enabled = true
-tracks/35/path = NodePath("../CutsceneCanvas/T1/OpalDialogueT1:seconds_before_close")
+tracks/35/path = NodePath("../../===ACTOR========/OpalActor:visible")
 tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/keys = {
-"times": PackedFloat32Array(0, 11.7683, 16.7918),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.01, 42),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("../../===UI========:visible")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("../../===UI========/DialogueContainer:modulate")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(3.2956514, 4.146085, 19.2429),
+"transitions": PackedFloat32Array(1, 0, 1),
 "update": 0,
-"values": [2.0, 0.999999999672317, 1.9999999996723141]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_knqga"]
@@ -1034,7 +1061,7 @@ _data = {
 dof_blur_far_enabled = true
 dof_blur_far_distance = 5.0
 
-[sub_resource type="Environment" id="Environment_2moqn"]
+[sub_resource type="Environment" id="Environment_ntdmx"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -1289,7 +1316,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_dqw0w")
 nodes/Animation/position = Vector2(50, 320)
 node_connections = [&"output", 0, &"talk_override", &"talk_override", 0, &"blink_override", &"talk_override", 1, &"talk", &"blink_override", 0, &"Animation", &"blink_override", 1, &"blink"]
 
-[sub_resource type="Environment" id="Environment_g2w6u"]
+[sub_resource type="Environment" id="Environment_dqw0w"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -1299,18 +1326,25 @@ ssao_intensity = 1.32
 ssao_power = 3.446096
 ssao_sharpness = 0.5
 
-[sub_resource type="Environment" id="Environment_hrfbg"]
-background_mode = 2
-ambient_light_source = 2
-ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
-ambient_light_energy = 2.0
-ssao_enabled = true
-ssao_intensity = 1.32
-ssao_power = 3.446096
-ssao_sharpness = 0.5
+[sub_resource type="Gradient" id="Gradient_lx1ym"]
+offsets = PackedFloat32Array(0.50564975, 0.64689267, 0.70487803)
+colors = PackedColorArray(0, 0, 0, 1, 0.2139, 0.26151007, 0.69, 1, 0, 0, 0, 1)
 
-[sub_resource type="Environment" id="Environment_ntdmx"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gyrkl"]
+gradient = SubResource("Gradient_lx1ym")
+fill_to = Vector2(0.0064102565, 0.77991456)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8crt"]
+shader = ExtResource("85_ntdmx")
+shader_parameter/sky_texture = ExtResource("86_dqw0w")
+shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_gyrkl")
+
+[sub_resource type="Sky" id="Sky_bqpnl"]
+sky_material = SubResource("ShaderMaterial_o8crt")
+
+[sub_resource type="Environment" id="Environment_wt2fd"]
 background_mode = 2
+sky = SubResource("Sky_bqpnl")
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
 ambient_light_energy = 2.0
@@ -1409,7 +1443,6 @@ tween_resource = SubResource("Resource_dqw0w")
 tween_on_load = false
 host_layers = 2
 camera_3d_resource = SubResource("Resource_7mnyw")
-environment = ExtResource("13_68gxc")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Dialogue_P2" type="Node3D" parent="===CAMERA========" unique_id=1239599008]
@@ -1419,7 +1452,6 @@ tween_resource = SubResource("Resource_wt2fd")
 tween_on_load = false
 host_layers = 2
 camera_3d_resource = SubResource("Resource_4plkl")
-environment = ExtResource("6_vypjq")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Gameplay" type="Node3D" parent="===CAMERA========" unique_id=915011589]
@@ -1428,6 +1460,7 @@ script = ExtResource("10_3t4os")
 tween_resource = SubResource("Resource_hkuxl")
 tween_on_load = false
 camera_3d_resource = SubResource("Resource_q6oii")
+environment = ExtResource("6_vypjq")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="===MANAGER========" type="Node3D" parent="." unique_id=1441557243]
@@ -1547,7 +1580,7 @@ render_target_update_mode = 0
 transform = Transform3D(0.40592754, 0.0015116911, 0.9139041, -0.0035386235, 0.99999386, -8.2347244e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
 top_level = true
 cull_mask = 4
-environment = SubResource("Environment_2moqn")
+environment = SubResource("Environment_ntdmx")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -1575,7 +1608,8 @@ offset_top = -362.0
 offset_right = 460.0
 offset_bottom = -362.0
 script = ExtResource("36_nolis")
-text = "I really appreciated you sharing your faith with me."
+text = "Thank goodness! The bleeding stopped!
+"
 seconds_before_close = 2.0
 animation_player = NodePath("../../../SceneAnimator/AnimationPlayer")
 
@@ -1614,9 +1648,14 @@ polygon = PackedVector2Array(151.9509, -99.80785, 153.82683, -99.23879, 155.5557
 
 [node name="Line" parent="===CUTSCENE========/CutsceneCanvas/T1/OpalDialogueT1/BubbleBody" index="2" unique_id=59601008]
 points = PackedVector2Array(151.9509, -99.80785, 153.82683, -99.23879, 155.5557, -98.3147, 157.07108, -97.07107, 158.3147, -95.5557, 159.2388, -93.826836, 159.80785, -91.950905, 160, -90, 160, 90, 159.80785, 91.950905, 159.2388, 93.826836, 158.3147, 95.5557, 157.07108, 97.07107, 155.5557, 98.3147, 153.82683, 99.23879, 151.9509, 99.80785, 150, 100, -150, 100, -151.9509, 99.80785, -153.82683, 99.23879, -155.5557, 98.3147, -157.07108, 97.07107, -158.3147, 95.5557, -159.2388, 93.826836, -159.80785, 91.950905, -160, 90, -160, 57.22281, -161.71313, 57.71261, -164.28957, 58.46823, -166.86264, 59.24198, -169.42847, 60.03277, -171.9832, 60.839554, -174.52287, 61.661148, -177.0441, 62.496735, -179.54256, 63.34485, -182.0148, 64.20462, -184.4569, 65.07474, -186.86487, 65.95387, -189.23518, 66.840965, -191.56389, 67.73456, -193.84724, 68.633286, -196.08148, 69.535736, -198.26294, 70.4404, -200.3877, 71.345535, -202.4525, 72.249756, -204.30508, 73.026306, -207.72285, 75.19071, -210.80591, 77.27495, -213.52544, 79.24387, -215.85934, 81.054054, -217.09842, 81.38336, -218.72493, 82.91325, -219.63579, 83.83598, -220.51318, 85.224556, -221.30557, 87.02257, -221.98248, 89.17143, -222.52852, 91.61671, -222.9386, 94.309, -223.21426, 97.20473, -223.36145, 100.26465, -223.3887, 103.45412, -223.30649, 106.74111, -223.1262, 110.09654, -222.86003, 113.49321, -222.52055, 116.90553, -222.12065, 120.30917, -221.67332, 123.68076, -221.19164, 126.99786, -220.68881, 130.23846, -220.17796, 133.38127, -219.67227, 136.40529, -219.18489, 139.28993, -218.72893, 142.01488, -218.3231, 144.54619, -217.1835, 148.81204, -216.3878, 152.10129, -215.7109, 154.995, -220.2891, 157.005, -221.96126, 154.54825, -223.79462, 151.59744, -225.98073, 147.64503, -227.43501, 145.41872, -228.93651, 143.00352, -230.47833, 140.40276, -232.04799, 137.63356, -233.63306, 134.71259, -235.22108, 131.65622, -236.79964, 128.48053, -238.35628, 125.20079, -239.8785, 121.83194, -241.35368, 118.38794, -242.76912, 114.88179, -244.11179, 111.32525, -245.36826, 107.728455, -246.52438, 104.099655, -247.56494, 100.44417, -248.47296, 96.7647, -249.22871, 93.05935, -249.80817, 89.32182, -250.1806, 85.54013, -250.30508, 81.697136, -250.1255, 77.77159, -249.56474, 73.744446, -246.90158, 66.61664, -243.48688, 60.645897, -240.39888, 56.147507, -236.9885, 51.81302, -233.29366, 47.61268, -229.34561, 43.525024, -227.31355, 41.19201, -225.36932, 38.99991, -223.36804, 36.8237, -221.31403, 34.66368, -219.21086, 32.519836, -217.0624, 30.392372, -214.87236, 28.281563, -212.64453, 26.18776, -210.38243, 24.111237, -208.09006, 22.052612, -205.77098, 20.012283, -203.42868, 17.990646, -201.06734, 15.988541, -198.69002, 14.006203, -196.3009, 12.044533, -193.90356, 10.104057, -191.50163, 8.185432, -189.0987, 6.2892838, -186.69862, 4.416374, -184.3051, 2.5674057, -181.92177, 0.74308777, -179.55232, -1.05587, -177.2005, -2.8287048, -174.86995, -4.574684, -172.56444, -6.293022, -170.28783, -7.982895, -168.04353, -9.6436615, -165.83545, -11.274437, -161.38118, -13.919167, -160, -14.731415, -160, -90, -159.80785, -91.950905, -159.2388, -93.826836, -158.3147, -95.5557, -157.07108, -97.07107, -155.5557, -98.3147, -153.82683, -99.23879, -151.9509, -99.80785, -150, -100, 150, -100)
+default_color = Color(0.5294118, 0.8352941, 0.972549, 1)
 
 [node name="ScrollingText" parent="===CUTSCENE========/CutsceneCanvas/T1/OpalDialogueT1" index="1" unique_id=644170502]
-text = "I really appreciated you sharing your faith with me."
+text = "Thank goodness! The bleeding stopped!
+"
+visible_characters = 10
+visible_ratio = 0.29784137
+normalized_dialogue_position = 0.29784137
 
 [node name="JoyDialogueT1" parent="===CUTSCENE========/CutsceneCanvas/T1" unique_id=1372855044 node_paths=PackedStringArray("animation_player") instance=ExtResource("85_g2w6u")]
 visible = false
@@ -2919,7 +2958,7 @@ layers = 7
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="===WORLD========" unique_id=1681757404]
-environment = ExtResource("6_vypjq")
+environment = ExtResource("13_68gxc")
 
 [node name="===GAMEPLAY========" type="Node3D" parent="." unique_id=913391186]
 
@@ -3632,7 +3671,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 4
-environment = SubResource("Environment_g2w6u")
+environment = SubResource("Environment_dqw0w")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -3664,7 +3703,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1155753, 0.009244392)
 top_level = true
 cull_mask = 32768
-environment = SubResource("Environment_hrfbg")
+environment = SubResource("Environment_wt2fd")
 current = true
 fov = 25.0
 far = 100.0
@@ -3695,7 +3734,6 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 2
-environment = SubResource("Environment_ntdmx")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -3812,10 +3850,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 0.20886527
-offset_top = -0.558891
-offset_right = 220.2088
-offset_bottom = 129.44112
+offset_left = 1.2530173
+offset_top = -1.1461511
+offset_right = 221.25296
+offset_bottom = 128.85385
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -3867,10 +3905,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.0197252
-offset_top = -0.026822487
-offset_right = 218.98027
-offset_bottom = 129.97327
+offset_left = -0.5271397
+offset_top = -0.04283328
+offset_right = 219.47285
+offset_bottom = 129.95726
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -3922,10 +3960,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.54659325
-offset_top = -0.37213874
-offset_right = 219.45346
-offset_bottom = 129.62787
+offset_left = 1.4592443
+offset_top = 0.4884874
+offset_right = 221.4593
+offset_bottom = 130.4885
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -3977,10 +4015,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -2.31151
-offset_top = -0.53939664
-offset_right = 536.52625
-offset_bottom = 338.16086
+offset_left = -1.8115071
+offset_top = 0.15665509
+offset_right = 537.02625
+offset_bottom = 338.8569
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
