@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bgxyjg7p6d1iu"]
 
 [ext_resource type="Script" uid="uid://4bchriocygww" path="res://_general/script/dialogue/dialogue_area.gd" id="1_0ovlf"]
-[ext_resource type="Script" uid="uid://be7cf323sop52" path="res://dynamic_speech_bubble_tail.gd" id="1_puers"]
+[ext_resource type="Script" uid="uid://be7cf323sop52" path="res://_general/script/dialogue/dynamic_speech_bubble_tail.gd" id="1_puers"]
 [ext_resource type="FontFile" uid="uid://dm7kd3g4er8v2" path="res://_asset/_general/font/FriendlySans-Regular.ttf" id="3_uu3p6"]
 [ext_resource type="Texture2D" uid="uid://davvi6dypeb1h" path="res://_asset/_general/texture/t_speech_bubble_outline.png" id="3_xje5t"]
 [ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://_general/script/ui/scrolling-text.gd" id="4_0ovlf"]

@@ -5,7 +5,7 @@ class_name SceneEventManager
 @export var debate_manager: DebateManager
 
 @export var scene_animator_handler: AnimationHandler
-@export var actors: Array[Actor]
+var actors: Array[Actor]
 
 @export var default_dialogue_area: DialogueArea
 
@@ -19,12 +19,22 @@ signal continue_dialogue
 signal skip
 
 func _ready():
+	_dialogue_setup()
+
+func _dialogue_setup():
+	actors.assign(get_tree().root.find_children("*", "Actor", true, false))
+	
+	for actor in actors:
+		if actors.filter(func(x): return actor.actor_name == x.actor_name).size() > 1:
+			push_error("ERROR: Two actors share a name -> \n Node: %s \n Actor Name: %s" % [actor.name, actor.actor_name])
+	
 	if default_dialogue_area:
 		default_dialogue_area.visible = false
+	
 	for actor in actors:
 		if actor.dialogue_area_override: actor.dialogue_area_override.visible = false
 	
-	dialogue_input_handler.on_handle_input.connect(_handle_input)
+	if dialogue_input_handler: dialogue_input_handler.on_handle_input.connect(_handle_input)
 
 func _handle_input(_delta, input):
 	if input.is_action_just_pressed("action_1"):

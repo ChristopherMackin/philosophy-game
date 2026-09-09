@@ -72,6 +72,7 @@ func _process(delta) -> void:
 	_previous_task = manager.current_task
 
 func start_event():
+	_dialogue_setup()
 	manager.start_event(event)
 	notify_property_list_changed()
 
