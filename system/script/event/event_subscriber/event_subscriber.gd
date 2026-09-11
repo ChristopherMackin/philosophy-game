@@ -38,8 +38,13 @@ func play_animation(_animation : String, _actor : String, _overwrite_animation: 
 func cancel_animation(_actor : String):
 	pass
 
-func add_status_effect(_effect: StatusEffect, _which_player: Const.Player):
-	pass
+signal _on_timer_canceled
 
-func remove_status_effect(_effect: StatusEffect, _which_player: Const.Player):
-	pass
+func start_timer(seconds: float):
+	await Util.await_any([
+		func(): await GlobalTimer.wait_for_seconds(seconds),
+		func(): await _on_timer_canceled
+	])
+
+func cancel_timer():
+	_on_timer_canceled.emit()

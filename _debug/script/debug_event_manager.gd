@@ -96,12 +96,6 @@ func _start_event(event: Event):
 func _end_event(event: Event):
 	if !await_event: return
 
-func add_status_effect(_effect: StatusEffect, _which_player: Const.Player):
-	print("Status Effect Added: " + _effect.name)
-
-func remove_status_effect(_effect: StatusEffect, _which_player: Const.Player):
-	print("Status Effect Removed: " + _effect.name)
-
 func get_event_using_data():
 	var query : Dictionary
 	query["concept"] = concept

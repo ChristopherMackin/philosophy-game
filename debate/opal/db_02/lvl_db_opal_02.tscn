@@ -21,6 +21,7 @@
 [ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="19_6xexp"]
 [ext_resource type="Script" uid="uid://bojj5s0o4f2s3" path="res://system/script/input/world_input_manager.gd" id="20_7hyc5"]
 [ext_resource type="Resource" uid="uid://coqtgijiyc02d" path="res://system/input/ih_selection_manager.tres" id="21_y3pqf"]
+[ext_resource type="Script" uid="uid://bnrc1wni3x3h8" path="res://_debug/debate_input_control_manager.gd" id="22_87k4b"]
 [ext_resource type="Script" uid="uid://syaosi1lkwul" path="res://debate/_script/ui/selection_manager.gd" id="22_atsrn"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/br_player.tres" id="23_frype"]
 [ext_resource type="Resource" uid="uid://vxjneadxt621" path="res://system/focus_group/hand_focus_group.tres" id="24_gkb4e"]
@@ -28,59 +29,13 @@
 [ext_resource type="Resource" uid="uid://bo5lyi4q2kuag" path="res://system/focus_group/card_selector_focus_group.tres" id="26_sliii"]
 [ext_resource type="Resource" uid="uid://8fi1d2l5sq45" path="res://system/focus_group/suit_focus_group.tres" id="27_8vdcn"]
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="28_p6hge"]
-[ext_resource type="PackedScene" uid="uid://bbt7jajj4myt4" path="res://_asset/debate/_general/model/mod_draw_pile_counter.glb" id="29_yyfph"]
-[ext_resource type="Script" uid="uid://cqgfusr1s4v8i" path="res://debate/_script/subscriber/node_based/rich_text_label_update_emitter_debate_subscriber.gd" id="30_yqurc"]
-[ext_resource type="PackedScene" uid="uid://cgco4lvdxl1wf" path="res://debate/packed_scene/ui/mini_counter_ui.tscn" id="31_mlbij"]
+[ext_resource type="PackedScene" uid="uid://p4631cdfk80n" path="res://debate/packed_scene/game_board.tscn" id="30_1kwum"]
 [ext_resource type="FontFile" uid="uid://dm7kd3g4er8v2" path="res://_asset/_general/font/FriendlySans-Regular.ttf" id="32_mjg3m"]
-[ext_resource type="Script" uid="uid://cw4ryesf5bd2b" path="res://_general/script/ui/scale_control.gd" id="33_yqurc"]
-[ext_resource type="PackedScene" uid="uid://bctncdoyoajwy" path="res://_asset/debate/_general/model/mod_discard_counter.glb" id="34_1ic2c"]
-[ext_resource type="PackedScene" uid="uid://bufq4a3okdy40" path="res://_asset/debate/_general/model/mod_energy_counter.glb" id="35_dbxpt"]
-[ext_resource type="Script" uid="uid://b1k76fw3jnei6" path="res://debate/_script/ui/rich_text_label_update_emitter.gd" id="36_wxltn"]
-[ext_resource type="Script" uid="uid://duts3e4cshe3t" path="res://debate/_script/ui/hold_area_ui.gd" id="37_dwq61"]
-[ext_resource type="Resource" uid="uid://v2fc6p1vb5xq" path="res://debate/opal/db_02/cfb_db_opal_02.tres" id="38_o7mqh"]
-[ext_resource type="Texture2D" uid="uid://5qh255d0ud11" path="res://_asset/debate/_general/texture/play_stack.png" id="39_yvpb1"]
-[ext_resource type="PackedScene" uid="uid://bmg4wkpbnpqj3" path="res://_asset/debate/_general/model/mod_hand_counter.glb" id="40_gd0lk"]
-[ext_resource type="Texture2D" uid="uid://0xx8gpn3m2io" path="res://_asset/debate/_general/texture/t_computer_discard_counter_col.png" id="41_huu3l"]
-[ext_resource type="Texture2D" uid="uid://cwnyj54n846jx" path="res://_asset/debate/_general/texture/t_discard_counter_ao.png" id="42_5nl8h"]
-[ext_resource type="Texture2D" uid="uid://dnphaeqd0w0xa" path="res://_asset/debate/_general/texture/t_computer_energy_counter_col.png" id="43_m5bs5"]
-[ext_resource type="Texture2D" uid="uid://d1xa8k3f7vgji" path="res://_asset/debate/_general/texture/t_energy_counter_ao.png" id="44_rjmkw"]
-[ext_resource type="Texture2D" uid="uid://b7roh63xeclm" path="res://_asset/_general/texture/t_lined_paper.png" id="45_odwxb"]
-[ext_resource type="PackedScene" uid="uid://4pw7ywqa3y3l" path="res://_asset/debate/_general/model/mod_turn_counter.glb" id="46_wga6c"]
-[ext_resource type="PackedScene" uid="uid://bk4ich5jfslat" path="res://_asset/debate/_general/model/mod_line_clear_counter.glb" id="47_pxdx3"]
-[ext_resource type="Texture2D" uid="uid://cjj7unll4jg7p" path="res://_asset/debate/_general/texture/t_count_background.png" id="48_o0678"]
-[ext_resource type="Script" uid="uid://bnqt27v031bdu" path="res://debate/opal/db_02/play_stack.gd" id="49_ppo45"]
-[ext_resource type="PackedScene" uid="uid://drcl6ot1amh17" path="res://debate/packed_scene/card_ui/card_3d.tscn" id="50_n18sl"]
-[ext_resource type="Script" uid="uid://c3ft3tsh8oi43" path="res://debate/opal/db_02/game_board_3d.gd" id="51_ok7ok"]
-[ext_resource type="PackedScene" uid="uid://kcku858e7kpb" path="res://_asset/debate/_general/model/mod_token_tray.glb" id="52_ykk58"]
-[ext_resource type="Script" uid="uid://gqs40ms5uw6a" path="res://debate/_script/ui/token_track_3d.gd" id="53_213b4"]
-[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="54_h6s2h"]
-[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://_asset/debate/_general/texture/suit/t_faith_icon.png" id="55_bgkc1"]
-[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="56_t3uxd"]
-[ext_resource type="Texture2D" uid="uid://bnr31kwk7jglt" path="res://_asset/debate/_general/texture/t_doubt_token_box_col.png" id="57_vdy22"]
-[ext_resource type="Texture2D" uid="uid://cjdgy1yr5wo6q" path="res://_asset/debate/_general/texture/t_token_box_ao.png" id="58_35kj8"]
-[ext_resource type="Texture2D" uid="uid://c3y4fyen3ymom" path="res://_asset/debate/_general/texture/suit/t_doubt_icon.png" id="59_go5jy"]
-[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="60_12wrh"]
-[ext_resource type="Texture2D" uid="uid://ceydstvj7fefl" path="res://_asset/debate/_general/texture/t_self_token_box_col.png" id="61_pwsd8"]
-[ext_resource type="Texture2D" uid="uid://crmlj17ur3ikf" path="res://_asset/debate/_general/texture/suit/t_self_icon.png" id="62_03efu"]
-[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="63_0w231"]
-[ext_resource type="Texture2D" uid="uid://bukbrbpvnoo6d" path="res://_asset/debate/_general/texture/t_others_token_box_col.png" id="64_qynls"]
-[ext_resource type="Texture2D" uid="uid://8m5h442qngjv" path="res://_asset/debate/_general/texture/suit/t_others_icon.png" id="65_2ef0e"]
-[ext_resource type="Texture2D" uid="uid://cjibu358pdc3s" path="res://_asset/_general/texture/t_colorable_checkerboard.png" id="66_ncra1"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="67_ihr3v"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="68_224fs"]
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="69_ii4gy"]
 [ext_resource type="Environment" uid="uid://en34lm5ch6gf" path="res://debate/opal/db_02/world_environment/we_db_opal_02.tres" id="70_wogjj"]
-[ext_resource type="Shader" uid="uid://ccsxi8xvcgfe2" path="res://_general/shader/sh_nighttime_sky.tres" id="71_s2msu"]
-[ext_resource type="Texture2D" uid="uid://64uo8ucmg2va" path="res://_asset/_general/texture/t_stary_sky_col.jpg" id="72_yfq7o"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="73_hdr7f"]
-[ext_resource type="Script" uid="uid://dur1nyt0adfmo" path="res://debate/_script/ui/hand_ui.gd" id="74_orq0h"]
-[ext_resource type="Script" uid="uid://vgpd0x8mfpi" path="res://_general/script/ui/curve_container.gd" id="75_2pfy0"]
-[ext_resource type="Script" uid="uid://dh6wdv1jmcd8j" path="res://debate/_script/ui/suit_selector.gd" id="76_ivdui"]
-[ext_resource type="Texture2D" uid="uid://qiqjkvvjvbi4" path="res://_asset/debate/simon/_general/simon_dialogue.png" id="77_tphl5"]
-[ext_resource type="Script" uid="uid://i6q2q68f73y6" path="res://debate/_script/ui/card_selector.gd" id="78_8gi8a"]
-[ext_resource type="Texture2D" uid="uid://duwx1hkh07na8" path="res://_asset/debate/simon/_general/simon_confirm_button.png" id="79_xa2d8"]
-[ext_resource type="Script" uid="uid://deyblpqc0v651" path="res://debate/_script/ui/play_area_selector_3d.gd" id="80_qa1lb"]
-[ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/token_selector_ui.tscn" id="81_wag87"]
 [ext_resource type="Script" uid="uid://br5kxd06vsn3n" path="res://utility/script/set_layer_mask.gd" id="82_4i14n"]
 [ext_resource type="Environment" uid="uid://cwph8248hck51" path="res://debate/opal/db_02/world_environment/we_db_opal_02_darkness.tres" id="83_633u8"]
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="84_1qf87"]
@@ -168,246 +123,39 @@ script = ExtResource("9_0urku")
 blackboard = SubResource("Resource_pwg14")
 metadata/_custom_type_script = "uid://dtbnhujk3f31y"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_yqurc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1kwum"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="Curve" id="Curve_wifvs"]
-_limits = [0.0, 1.8, 0.0, 1.0]
-_data = [Vector2(0, 1.8), 0.0, 0.0, 0, 0, Vector2(0.5503876, 1.8), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_87k4b"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_14ksg"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dbiua"]
-viewport_path = NodePath("===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_kxl61"]
+viewport_path = NodePath("PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wifvs"]
-viewport_path = NodePath("===GAMEPLAY========/PlayerUi/PlayerHeldCard/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_yha5w"]
+viewport_path = NodePath("PlayerUi/PlayerHeldCard/SubViewport")
 
-[sub_resource type="Animation" id="Animation_2moqn"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.05046, 0.0002599997, 0.35736)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-1.5707964, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_g2w6u"]
-resource_name = "card_enter"
-length = 0.41
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16434099, 0.3023257, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.05046, 0.0002599997, 0.35736), Vector3(0.05046, 0.0002599997, 0.1874), Vector3(0.05046, 0.0002599997, 0.17388), Vector3(0.05046, 0.0002599997, 0.1874)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.299546, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-1.5707964, 0, 0), Vector3(-2.0943952, 0, 0), Vector3(-1.0471976, 0, 0), Vector3(-1.5707964, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.060000002, 0.33333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.5, 2, 0.5), Vector3(1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_ntdmx"]
-resource_name = "card_exit"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.005735406, 0.051036533, 0.1160885, 0.18286939),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.05046, 0.0002599997, 0.1874), Vector3(0.05046, 0.0002599997, 0.17388), Vector3(0.05046, 0.0002599997, 0.1874), Vector3(0.05046, 0.0002599997, 0.35736)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.010386765, 0.05134278, 0.11841418, 0.18286939),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-1.5707964, 0, 0), Vector3(-1.0471976, 0, 0), Vector3(-2.0943952, 0, 0), Vector3(-1.5707964, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.037233166, 0.15923975),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(0.5, 2, 0.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dqw0w"]
-_data = {
-&"RESET": SubResource("Animation_2moqn"),
-&"card_enter": SubResource("Animation_g2w6u"),
-&"card_exit": SubResource("Animation_ntdmx")
-}
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_afl77"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_dghl5"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8igq"]
-albedo_texture = ExtResource("41_huu3l")
-ao_enabled = true
-ao_texture = ExtResource("42_5nl8h")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_do73n"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_72b1j"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jelp"]
-albedo_texture = ExtResource("43_m5bs5")
-ao_enabled = true
-ao_texture = ExtResource("44_rjmkw")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_x4q7t"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_sna7n"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ghiyr"]
-viewport_path = NodePath("===GAMEPLAY========/GameBoardState/TurnCounter/CounterUi/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_xmtap"]
+viewport_path = NodePath("GameBoardState/TurnCounter/CounterUi/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_w8igq"]
-viewport_path = NodePath("===GAMEPLAY========/GameBoardState/LineClearCounter/CounterUi/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_11wh6"]
+viewport_path = NodePath("GameBoardState/LineClearCounter/CounterUi/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sl1r7"]
-albedo_texture = ExtResource("57_vdy22")
-ao_enabled = true
-ao_texture = ExtResource("58_35kj8")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0c38c"]
-albedo_texture = ExtResource("61_pwsd8")
-ao_enabled = true
-ao_texture = ExtResource("58_35kj8")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghiyr"]
-albedo_texture = ExtResource("64_qynls")
-ao_enabled = true
-ao_texture = ExtResource("58_35kj8")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_cwy3g"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vwmdg"]
-albedo_color = Color(0.3315, 0.39695, 0.51, 1)
-albedo_texture = ExtResource("66_ncra1")
-uv1_scale = Vector3(10, 10, 10)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_vwmdg"]
-
-[sub_resource type="Resource" id="Resource_hkuxl"]
-script = ExtResource("68_224fs")
-
-[sub_resource type="Resource" id="Resource_q6oii"]
-script = ExtResource("69_ii4gy")
-cull_mask = 32768
-fov = 25.0
-far = 100.0
-metadata/_custom_type_script = "uid://b8hhnqsugykly"
-
-[sub_resource type="Gradient" id="Gradient_lx1ym"]
-offsets = PackedFloat32Array(0.50564975, 0.64689267, 0.70487803)
-colors = PackedColorArray(0, 0, 0, 1, 0.2139, 0.26151007, 0.69, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gyrkl"]
-gradient = SubResource("Gradient_lx1ym")
-fill_to = Vector2(0.0064102565, 0.77991456)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8crt"]
-shader = ExtResource("71_s2msu")
-shader_parameter/sky_texture = ExtResource("72_yfq7o")
-shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_gyrkl")
-
-[sub_resource type="Sky" id="Sky_bqpnl"]
-sky_material = SubResource("ShaderMaterial_o8crt")
-
-[sub_resource type="Environment" id="Environment_yqurc"]
-background_mode = 2
-sky = SubResource("Sky_bqpnl")
+[sub_resource type="Environment" id="Environment_bpp2p"]
 ambient_light_source = 2
-ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
-ambient_light_energy = 2.0
-ssao_enabled = true
+ambient_light_color = Color(0.94, 0.94, 0.94, 1)
 ssao_intensity = 1.32
 ssao_power = 3.446096
 ssao_sharpness = 0.5
-
-[sub_resource type="Curve" id="Curve_6t1my"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.495223, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Curve" id="Curve_1343t"]
-_limits = [-1.0, 1.0, 0.0, 1.0]
-_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7dnp"]
-bg_color = Color(0.137255, 0.0862745, 0.0588235, 0.596078)
 
 [sub_resource type="Resource" id="Resource_3t4os"]
 script = ExtResource("68_224fs")
@@ -1292,7 +1040,7 @@ _data = {
 dof_blur_far_enabled = true
 dof_blur_far_distance = 5.0
 
-[sub_resource type="Environment" id="Environment_87k4b"]
+[sub_resource type="Environment" id="Environment_c1q84"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -1355,7 +1103,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_dqw0w")
 nodes/Animation/position = Vector2(50, 320)
 node_connections = [&"output", 0, &"talk_override", &"talk_override", 0, &"blink_override", &"talk_override", 1, &"talk", &"blink_override", 0, &"Animation", &"blink_override", 1, &"blink"]
 
-[sub_resource type="Environment" id="Environment_afl77"]
+[sub_resource type="Environment" id="Environment_bmfl7"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -1442,6 +1190,13 @@ manager = ExtResource("11_h172o")
 script = ExtResource("20_7hyc5")
 active_handler = ExtResource("21_y3pqf")
 
+[node name="DebateInputControlManager" type="Node" parent="===MANAGER========" unique_id=102570387 node_paths=PackedStringArray("input_manager")]
+script = ExtResource("22_87k4b")
+input_manager = NodePath("../InputManager")
+player_selection_input_handler = ExtResource("21_y3pqf")
+manager = ExtResource("8_lkhof")
+metadata/_custom_type_script = "uid://bnrc1wni3x3h8"
+
 [node name="SelectionManager" type="Node" parent="===MANAGER========" unique_id=1647373781 node_paths=PackedStringArray("play_area_selector", "card_selector", "suit_selector")]
 script = ExtResource("22_atsrn")
 input_handler = ExtResource("21_y3pqf")
@@ -1461,686 +1216,37 @@ metadata/_custom_type_script = "uid://syaosi1lkwul"
 script = ExtResource("28_p6hge")
 metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
 
-[node name="===GAMEPLAY========" type="Node3D" parent="." unique_id=913391186]
+[node name="===GAMEPLAY========" parent="." unique_id=552190790 instance=ExtResource("30_1kwum")]
 
-[node name="PlayerUi" type="Node3D" parent="===GAMEPLAY========" unique_id=1067092224]
+[node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter" parent_id_path=PackedInt32Array(552190790, 1292719538) index="1" unique_id=1817069595]
+texture = SubResource("ViewportTexture_1kwum")
 
-[node name="PlayerDrawPileCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1292719538 node_paths=PackedStringArray("label") instance=ExtResource("29_yyfph")]
-transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.9890571, -0.018066663, -0.12245832, -7.450581e-09, 0.99247366, -0.1516307, 0.0004506167, 0.08272594)
-script = ExtResource("30_yqurc")
-label = NodePath("MiniCounterUi/SubViewport/Border/Fill/Label")
-properties = Array[String](["player:draw_pile:size"])
-format = "%s"
-manager = ExtResource("8_lkhof")
-order = 1
+[node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" parent_id_path=PackedInt32Array(552190790, 1140548364) index="1" unique_id=1891820841]
+texture = SubResource("ViewportTexture_14ksg")
 
-[node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter" unique_id=1817069595 instance=ExtResource("31_mlbij")]
-transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_yqurc")
+[node name="CounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter" parent_id_path=PackedInt32Array(552190790, 1840847040) index="1" unique_id=89424]
+texture = SubResource("ViewportTexture_kxl61")
 
-[node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1817069595, 612248546) index="0" unique_id=245654660]
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_fonts/normal_font = ExtResource("32_mjg3m")
-theme_override_font_sizes/normal_font_size = 90
-text = "0"
+[node name="PlayerHeldCard" parent="===GAMEPLAY========/PlayerUi" parent_id_path=PackedInt32Array(552190790, 1421476521) index="3" unique_id=1705489298]
+texture = SubResource("ViewportTexture_yha5w")
 
-[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=1804293334 node_paths=PackedStringArray("target")]
-script = ExtResource("33_yqurc")
-target = NodePath("..")
-curve = SubResource("Curve_wifvs")
-seconds = 0.3999999999999988
+[node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" parent_id_path=PackedInt32Array(552190790, 1763425977) index="1" unique_id=203899939]
+texture = SubResource("ViewportTexture_dghl5")
 
-[node name="PlayerDiscardCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1140548364 node_paths=PackedStringArray("label") instance=ExtResource("34_1ic2c")]
-transform = Transform3D(0.9816131, 0.14753322, 0.12111827, -0.14642285, 0.9890571, -0.018066663, -0.12245832, -7.450581e-09, 0.99247366, -0.15000284, 0.0004506167, 0.13493468)
-script = ExtResource("30_yqurc")
-label = NodePath("MiniCounterUi/SubViewport/Border/Fill/Label")
-properties = Array[String](["player:discard_pile:size"])
-format = "%s"
-manager = ExtResource("8_lkhof")
-order = 1
+[node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" parent_id_path=PackedInt32Array(552190790, 1658857809) index="1" unique_id=680078832]
+texture = SubResource("ViewportTexture_72b1j")
 
-[node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" unique_id=1611050952 instance=ExtResource("31_mlbij")]
-transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_87k4b")
+[node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" parent_id_path=PackedInt32Array(552190790, 333569903) index="1" unique_id=822662507]
+texture = SubResource("ViewportTexture_sna7n")
 
-[node name="Label" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1611050952, 612248546) index="0" unique_id=245654660]
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_fonts/normal_font = ExtResource("32_mjg3m")
-theme_override_font_sizes/normal_font_size = 90
-text = "0"
+[node name="CounterUi" parent="===GAMEPLAY========/GameBoardState/TurnCounter" parent_id_path=PackedInt32Array(552190790, 1123270235) index="1" unique_id=1361296080]
+texture = SubResource("ViewportTexture_xmtap")
 
-[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=182257150 node_paths=PackedStringArray("target")]
-script = ExtResource("33_yqurc")
-target = NodePath("..")
-curve = SubResource("Curve_wifvs")
-seconds = 0.3999999999999988
+[node name="CounterUi" parent="===GAMEPLAY========/GameBoardState/LineClearCounter" parent_id_path=PackedInt32Array(552190790, 1786900677) index="2" unique_id=135036996]
+texture = SubResource("ViewportTexture_11wh6")
 
-[node name="PlayerEnergyCounter" parent="===GAMEPLAY========/PlayerUi" unique_id=1840847040 node_paths=PackedStringArray("label") instance=ExtResource("35_dbxpt")]
-transform = Transform3D(0.577133, 0.07591381, 1.8900888, 0.29692417, 1.9479705, -0.16890348, -1.8681635, 0.33306077, 0.557061, -0.120429605, 0.0004506167, 0.20629291)
-script = ExtResource("30_yqurc")
-label = NodePath("CounterUi/SubViewport/Label")
-properties = Array[String](["player:current_energy", "player:energy_level"])
-format = "%s/%s"
-manager = ExtResource("8_lkhof")
-order = 1
-
-[node name="CounterUi" type="Sprite3D" parent="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter" unique_id=496586397]
-transform = Transform3D(0.0637292, 0.3659591, 0.0063736998, -0.010203889, -0.0046906397, 0.37135154, 0.3658722, -0.06387509, 0.009246513, 0.0054180995, 0.016486436, 0.0013057943)
-layers = 32768
-pixel_size = 0.0005
-shaded = true
-alpha_cut = 2
-texture = SubResource("ViewportTexture_dbiua")
-
-[node name="SubViewport" type="SubViewport" parent="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi" unique_id=519236677]
-transparent_bg = true
-size = Vector2i(256, 256)
-
-[node name="Label" type="RichTextLabel" parent="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport" unique_id=197936095]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_colors/default_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
-theme_override_colors/font_outline_color = Color(0.3529412, 0.3529412, 0.3529412, 1)
-theme_override_constants/outline_size = 14
-theme_override_fonts/normal_font = ExtResource("32_mjg3m")
-theme_override_font_sizes/normal_font_size = 80
-text = "3/3"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("36_wxltn")
-
-[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport/Label" unique_id=259957374 node_paths=PackedStringArray("target")]
-script = ExtResource("33_yqurc")
-target = NodePath("..")
-curve = SubResource("Curve_wifvs")
-seconds = 0.3999999999999988
-
-[node name="PlayerHeldCard" type="Sprite3D" parent="===GAMEPLAY========/PlayerUi" unique_id=713849163 node_paths=PackedStringArray("card_parent", "animation_player")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.05046, 0.0002599997, 0.35736)
-layers = 32768
-pixel_size = 0.0003
-texture = SubResource("ViewportTexture_wifvs")
-script = ExtResource("37_dwq61")
-card_ui_factory_base = ExtResource("38_o7mqh")
-card_parent = NodePath("SubViewport")
-animation_player = NodePath("AnimationPlayer")
-manager = ExtResource("8_lkhof")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="===GAMEPLAY========/PlayerUi/PlayerHeldCard" unique_id=518159341]
-libraries/ = SubResource("AnimationLibrary_dqw0w")
-
-[node name="SubViewport" type="SubViewport" parent="===GAMEPLAY========/PlayerUi/PlayerHeldCard" unique_id=401780995]
-transparent_bg = true
-size = Vector2i(360, 320)
-
-[node name="HoldCardOutline" type="Sprite3D" parent="===GAMEPLAY========/PlayerUi" unique_id=1667618651]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.050502777, 0, 0.1875763)
-layers = 32768
-pixel_size = 0.00025
-texture = ExtResource("39_yvpb1")
-
-[node name="Label3D" type="Label3D" parent="===GAMEPLAY========/PlayerUi/HoldCardOutline" unique_id=1403342799]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.05756569, 0.009819031, 4.2920156e-10)
-layers = 32768
-pixel_size = 0.0003
-outline_modulate = Color(0.3529412, 0.3529412, 0.3529412, 1)
-text = "HELD CARD"
-font = ExtResource("32_mjg3m")
-font_size = 50
-outline_size = 20
-
-[node name="CpiUi" type="Node3D" parent="===GAMEPLAY========" unique_id=468448481]
-
-[node name="CpuHandCounter" parent="===GAMEPLAY========/CpiUi" unique_id=1763425977 node_paths=PackedStringArray("label") instance=ExtResource("40_gd0lk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15324764, 0.00012001136, -0.039170876)
-script = ExtResource("30_yqurc")
-label = NodePath("MiniCounterUi/SubViewport/Border/Fill/Label")
-properties = Array[String](["computer:hand:size"])
-format = "%s"
-manager = ExtResource("8_lkhof")
-order = 1
-
-[node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" unique_id=467383888 instance=ExtResource("31_mlbij")]
-transform = Transform3D(0.26024163, -0.009793821, -0.076415636, 0.076465435, -1.1382936e-08, 0.26041123, -0.009397088, -0.27122876, 0.0027592867, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_afl77")
-
-[node name="Label" parent="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(467383888, 612248546) index="0" unique_id=245654660]
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_fonts/normal_font = ExtResource("32_mjg3m")
-theme_override_font_sizes/normal_font_size = 90
-text = "0"
-
-[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=1119974987 node_paths=PackedStringArray("target")]
-script = ExtResource("33_yqurc")
-target = NodePath("..")
-curve = SubResource("Curve_wifvs")
-seconds = 0.3999999999999988
-
-[node name="CpuDiscardCounter" parent="===GAMEPLAY========/CpiUi" unique_id=1590190797 node_paths=PackedStringArray("label") instance=ExtResource("34_1ic2c")]
-transform = Transform3D(0.94619274, -0.32360363, 0, 0.32360363, 0.94619274, 0, 0, 0, 1, 0.15350369, 0, 0.013281487)
-script = ExtResource("30_yqurc")
-label = NodePath("MiniCounterUi/SubViewport/Border/Fill/Label")
-properties = Array[String](["computer:discard_pile:size"])
-format = "%s"
-manager = ExtResource("8_lkhof")
-order = 1
-
-[node name="DiscardCounter" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" index="0" unique_id=1427313704]
-layers = 32768
-surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
-
-[node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" unique_id=1511716073 instance=ExtResource("31_mlbij")]
-transform = Transform3D(0.2708025, 0.006386812, -0.016917214, 0.016962603, -0.0017474849, 0.27086934, 0.0062652696, -0.27132475, -0.002142772, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_do73n")
-
-[node name="Label" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1511716073, 612248546) index="0" unique_id=245654660]
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_fonts/normal_font = ExtResource("32_mjg3m")
-theme_override_font_sizes/normal_font_size = 90
-text = "0"
-
-[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=1511373967 node_paths=PackedStringArray("target")]
-script = ExtResource("33_yqurc")
-target = NodePath("..")
-curve = SubResource("Curve_wifvs")
-seconds = 0.3999999999999988
-
-[node name="CpuEnergyCounter" parent="===GAMEPLAY========/CpiUi" unique_id=151891147 node_paths=PackedStringArray("label") instance=ExtResource("35_dbxpt")]
-transform = Transform3D(0.9523734, -0.26442856, 0.15186363, 0.26112953, 0.9644053, 0.04163922, -0.15746869, -3.7252903e-09, 0.987524, 0.15333109, 2.9802322e-08, 0.071661524)
-script = ExtResource("30_yqurc")
-label = NodePath("MiniCounterUi/SubViewport/Border/Fill/Label")
-properties = Array[String](["computer:current_energy"])
-format = "%s"
-manager = ExtResource("8_lkhof")
-order = 1
-
-[node name="EnergyCounter" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" index="0" unique_id=939435994]
-layers = 32768
-surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
-
-[node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" unique_id=969618535 instance=ExtResource("31_mlbij")]
-transform = Transform3D(0.26872277, 0.03799277, 0.0023667924, -0.00091665983, -0.010411309, 0.27120426, 0.038055386, -0.26853144, -0.010180076, -0.011028126, 0.015155774, 0.015328243)
-texture = SubResource("ViewportTexture_x4q7t")
-
-[node name="Label" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(969618535, 612248546) index="0" unique_id=245654660]
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_fonts/normal_font = ExtResource("32_mjg3m")
-theme_override_font_sizes/normal_font_size = 90
-text = "0"
-
-[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill/Label" index="2" unique_id=911647333 node_paths=PackedStringArray("target")]
-script = ExtResource("33_yqurc")
-target = NodePath("..")
-curve = SubResource("Curve_wifvs")
-seconds = 0.3999999999999988
-
-[node name="GameBoardState" type="Node3D" parent="===GAMEPLAY========" unique_id=215128257]
-
-[node name="TokenLogoTracker" type="Sprite3D" parent="===GAMEPLAY========/GameBoardState" unique_id=1184763171]
-transform = Transform3D(0.03818557, 0, 0, 0, -1.6691443e-09, 0.03818557, 0, -0.03818557, -1.6691443e-09, -0.18360758, 0, -0.040270686)
-visible = false
-layers = 32768
-pixel_size = 0.0076923
-texture = ExtResource("45_odwxb")
-
-[node name="TurnCounter" parent="===GAMEPLAY========/GameBoardState" unique_id=1123270235 node_paths=PackedStringArray("label") instance=ExtResource("46_wga6c")]
-transform = Transform3D(0.97919446, 0.20292409, 0, -0.20292409, 0.97919446, 0, 0, 0, 1, -0.12706313, 0.02544824, -0.17663454)
-script = ExtResource("30_yqurc")
-label = NodePath("CounterUi/SubViewport/Label")
-properties = Array[String](["current_round"])
-format = "%s"
-manager = ExtResource("8_lkhof")
-order = 1
-
-[node name="CounterUi" type="Sprite3D" parent="===GAMEPLAY========/GameBoardState/TurnCounter" unique_id=808771702]
-transform = Transform3D(0.6200816, 0.017528173, 0.04873137, -0.04960531, 0.032837845, 0.61939013, 0.014876191, -0.6211258, 0.034121267, -0.0006714016, 0.015224487, 0.0013057888)
-layers = 32768
-pixel_size = 0.0005
-shaded = true
-alpha_cut = 2
-texture = SubResource("ViewportTexture_ghiyr")
-
-[node name="SubViewport" type="SubViewport" parent="===GAMEPLAY========/GameBoardState/TurnCounter/CounterUi" unique_id=2076908321]
-transparent_bg = true
-size = Vector2i(256, 256)
-
-[node name="Label" type="RichTextLabel" parent="===GAMEPLAY========/GameBoardState/TurnCounter/CounterUi/SubViewport" unique_id=774028320]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_colors/default_color = Color(0.36078432, 0.36078432, 0.36078432, 1)
-theme_override_fonts/normal_font = ExtResource("32_mjg3m")
-theme_override_font_sizes/normal_font_size = 90
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("36_wxltn")
-
-[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/GameBoardState/TurnCounter/CounterUi/SubViewport/Label" unique_id=1136955596 node_paths=PackedStringArray("target")]
-script = ExtResource("33_yqurc")
-target = NodePath("..")
-curve = SubResource("Curve_wifvs")
-seconds = 0.3999999999999988
-
-[node name="LineClearCounter" parent="===GAMEPLAY========/GameBoardState" unique_id=1786900677 node_paths=PackedStringArray("label") instance=ExtResource("47_pxdx3")]
-transform = Transform3D(-0.35664776, -0.09443906, -0.92945343, -0.12529445, 0.9907249, -0.052586984, 0.92579895, 0.09770032, -0.3651725, 0.13702412, 0.03236382, -0.1766622)
-script = ExtResource("30_yqurc")
-label = NodePath("CounterUi/SubViewport/Label")
-properties = Array[String](["lines_cleared"])
-format = "%s"
-manager = ExtResource("8_lkhof")
-order = 1
-
-[node name="LabelBg" type="Sprite3D" parent="===GAMEPLAY========/GameBoardState/LineClearCounter" unique_id=1884900820]
-transform = Transform3D(0.00440912, -0.010327152, -0.0018502881, 0.0011675193, -0.0010898331, 0.014630528, 0.011490525, 0.0040734457, -0.000776578, 0.008661449, -0.0040469337, 0.018178597)
-layers = 32768
-modulate = Color(0.90576947, 0.90576947, 0.90576947, 1)
-alpha_cut = 2
-texture = ExtResource("48_o0678")
-
-[node name="CounterUi" type="Sprite3D" parent="===GAMEPLAY========/GameBoardState/LineClearCounter" unique_id=1718275863]
-transform = Transform3D(-0.2549714, -0.56796217, 0.055077575, 0.13022842, 0.00081586064, 0.61128134, -0.5555674, 0.2608511, 0.11801086, 0.009613737, 0.0037656464, 0.020678349)
-layers = 32768
-pixel_size = 0.0005
-shaded = true
-alpha_cut = 2
-texture = SubResource("ViewportTexture_w8igq")
-
-[node name="SubViewport" type="SubViewport" parent="===GAMEPLAY========/GameBoardState/LineClearCounter/CounterUi" unique_id=1413652586]
-transparent_bg = true
-size = Vector2i(256, 256)
-
-[node name="Label" type="RichTextLabel" parent="===GAMEPLAY========/GameBoardState/LineClearCounter/CounterUi/SubViewport" unique_id=799113620]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_colors/default_color = Color(0.36078432, 0.36078432, 0.36078432, 1)
-theme_override_fonts/normal_font = ExtResource("32_mjg3m")
-theme_override_font_sizes/normal_font_size = 90
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("36_wxltn")
-
-[node name="ScaleControl" type="Node" parent="===GAMEPLAY========/GameBoardState/LineClearCounter/CounterUi/SubViewport/Label" unique_id=1392602641 node_paths=PackedStringArray("target")]
-script = ExtResource("33_yqurc")
-target = NodePath("..")
-curve = SubResource("Curve_wifvs")
-seconds = 0.3999999999999988
-
-[node name="PlayStack" type="Sprite3D" parent="===GAMEPLAY========/GameBoardState" unique_id=1524692991]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.007186869, -0.1638608)
-layers = 32768
-offset = Vector3(0, 0, 0.001)
-pixel_size = 0.000175
-texture = ExtResource("39_yvpb1")
-script = ExtResource("49_ppo45")
-offset = Vector3(0, 0, 0.001)
-card_ui_factory_base = ExtResource("38_o7mqh")
-card_3d = ExtResource("50_n18sl")
-manager = ExtResource("8_lkhof")
-
-[node name="GameBoard" type="Node3D" parent="===GAMEPLAY========" unique_id=505852231]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.021030277, 0.0037941113)
-script = ExtResource("51_ok7ok")
-seconds_placement_delay = 0.24999999999999925
-manager = ExtResource("8_lkhof")
-
-[node name="FaithTrack" parent="===GAMEPLAY========/GameBoard" unique_id=168836037 instance=ExtResource("52_ykk58")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01, 0.03, -0.092)
-script = ExtResource("53_213b4")
-suit = ExtResource("54_h6s2h")
-token_offset = Vector3(0.01577, 0, 0)
-
-[node name="FaithIcon" type="Sprite3D" parent="===GAMEPLAY========/GameBoard/FaithTrack" unique_id=368519315]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.09007993, 0.024844581, 0.00017540902)
-layers = 32768
-modulate = Color(0.9122892, 0.91228884, 0.91228884, 1)
-pixel_size = 0.0004
-texture = ExtResource("55_bgkc1")
-
-[node name="Token3d" parent="===GAMEPLAY========/GameBoard/FaithTrack" unique_id=1918684495 instance_placeholder="res://debate/_script/ui/token_3d.tscn"]
-transform = Transform3D(3.8635232e-08, 0.9019531, 0.4318339, 3.9425622e-08, 0.4318339, -0.9019531, -0.9999999, 5.187249e-08, -1.8876058e-08, -0.066, 0.014999999, 0)
-
-[node name="DoubtTrack" parent="===GAMEPLAY========/GameBoard" unique_id=59374661 instance=ExtResource("52_ykk58")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01, 0.03, -0.031)
-script = ExtResource("53_213b4")
-suit = ExtResource("56_t3uxd")
-token_offset = Vector3(0.01577, 0, 0)
-
-[node name="TokenBox" parent="===GAMEPLAY========/GameBoard/DoubtTrack" index="0" unique_id=1081594715]
-layers = 32768
-surface_material_override/0 = SubResource("StandardMaterial3D_sl1r7")
-
-[node name="DoubtIcon" type="Sprite3D" parent="===GAMEPLAY========/GameBoard/DoubtTrack" unique_id=118977640]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.09007993, 0.024844581, 0.00017540902)
-layers = 32768
-modulate = Color(0.9122892, 0.91228884, 0.91228884, 1)
-pixel_size = 0.0004
-texture = ExtResource("59_go5jy")
-
-[node name="Token3d" parent="===GAMEPLAY========/GameBoard/DoubtTrack" unique_id=1658467145 instance_placeholder="res://debate/_script/ui/token_3d.tscn"]
-transform = Transform3D(3.8635232e-08, 0.9019531, 0.4318339, 3.9425622e-08, 0.4318339, -0.9019531, -0.9999999, 5.187249e-08, -1.8876058e-08, -0.066, 0.014999999, 0)
-
-[node name="SelfTrack" parent="===GAMEPLAY========/GameBoard" unique_id=1089058822 instance=ExtResource("52_ykk58")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01, 0.03, 0.031)
-script = ExtResource("53_213b4")
-suit = ExtResource("60_12wrh")
-token_offset = Vector3(0.01577, 0, 0)
-
-[node name="TokenBox" parent="===GAMEPLAY========/GameBoard/SelfTrack" index="0" unique_id=1081594715]
-layers = 32768
-surface_material_override/0 = SubResource("StandardMaterial3D_0c38c")
-
-[node name="SelfIcon" type="Sprite3D" parent="===GAMEPLAY========/GameBoard/SelfTrack" unique_id=645002807]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.09007993, 0.024844581, 0.00017540902)
-layers = 32768
-modulate = Color(0.9122892, 0.91228884, 0.91228884, 1)
-pixel_size = 0.0004
-texture = ExtResource("62_03efu")
-
-[node name="Token3d" parent="===GAMEPLAY========/GameBoard/SelfTrack" unique_id=1716355466 instance_placeholder="res://debate/_script/ui/token_3d.tscn"]
-transform = Transform3D(3.8635232e-08, 0.9019531, 0.4318339, 3.9425622e-08, 0.4318339, -0.9019531, -0.9999999, 5.187249e-08, -1.8876058e-08, -0.066, 0.014999999, 0)
-
-[node name="OtherTrack" parent="===GAMEPLAY========/GameBoard" unique_id=913095350 instance=ExtResource("52_ykk58")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01, 0.03, 0.092)
-script = ExtResource("53_213b4")
-suit = ExtResource("63_0w231")
-token_offset = Vector3(0.01577, 0, 0)
-
-[node name="TokenBox" parent="===GAMEPLAY========/GameBoard/OtherTrack" index="0" unique_id=1081594715]
-layers = 32768
-surface_material_override/0 = SubResource("StandardMaterial3D_ghiyr")
-
-[node name="OthersIcon" type="Sprite3D" parent="===GAMEPLAY========/GameBoard/OtherTrack" unique_id=1302047064]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.09007993, 0.024844581, 0.00017540902)
-layers = 32768
-modulate = Color(0.9122892, 0.91228884, 0.91228884, 1)
-pixel_size = 0.0004
-texture = ExtResource("65_2ef0e")
-
-[node name="Token3d" parent="===GAMEPLAY========/GameBoard/OtherTrack" unique_id=339600652 instance_placeholder="res://debate/_script/ui/token_3d.tscn"]
-transform = Transform3D(3.8635232e-08, 0.9019531, 0.4318339, 3.9425622e-08, 0.4318339, -0.9019531, -0.9999999, 5.187249e-08, -1.8876058e-08, -0.066, 0.014999999, 0)
-
-[node name="Background" type="Node3D" parent="===GAMEPLAY========" unique_id=352798361]
-
-[node name="GameplayBackground" type="MeshInstance3D" parent="===GAMEPLAY========/Background" unique_id=1241543170]
-transform = Transform3D(0.9995941, -0.0013779202, 0.0046014437, 0.0013788468, 0.9996046, -0.00019801427, -0.0046011666, 0.00020436196, 0.99959505, -2.5264919e-05, -0.16677018, -0.0006297976)
-layers = 32768
-cast_shadow = 0
-mesh = SubResource("PlaneMesh_cwy3g")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_vwmdg")
-
-[node name="ShadowCaster" type="DirectionalLight3D" parent="===GAMEPLAY========/Background" unique_id=72488287]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.570785, 0)
-layers = 32768
-shadow_enabled = true
-shadow_opacity = 0.3
-
-[node name="NegativeShadowCaster" type="DirectionalLight3D" parent="===GAMEPLAY========/Background" unique_id=1565159360]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.570785, 0)
-layers = 32768
-light_negative = true
-light_specular = 0.0
-
-[node name="Border" type="Node3D" parent="===GAMEPLAY========/Background" unique_id=2102325277]
-
-[node name="Right" type="MeshInstance3D" parent="===GAMEPLAY========/Background/Border" unique_id=359978982]
-transform = Transform3D(0.051216353, 0, 0, 0, 0.935058, 0, 0, 0, 0.59511906, 0.235, 0, 0)
-layers = 32768
-mesh = SubResource("PlaneMesh_vwmdg")
-skeleton = NodePath("../../..")
-
-[node name="Left" type="MeshInstance3D" parent="===GAMEPLAY========/Background/Border" unique_id=135213815]
-transform = Transform3D(0.051216353, 0, 0, 0, 0.935058, 0, 0, 0, 0.59511906, -0.235, 0, 0)
-layers = 32768
-mesh = SubResource("PlaneMesh_vwmdg")
-skeleton = NodePath("../../..")
-
-[node name="Bottom" type="MeshInstance3D" parent="===GAMEPLAY========/Background/Border" unique_id=902272067]
-transform = Transform3D(-2.2387376e-09, 0, -0.595119, 0, 0.935058, 0, 0.05121635, 0, -2.601348e-08, -1.240674e-08, 0, 0.3152452)
-layers = 32768
-mesh = SubResource("PlaneMesh_vwmdg")
-skeleton = NodePath("../../..")
-
-[node name="Top" type="MeshInstance3D" parent="===GAMEPLAY========/Background/Border" unique_id=1760009329]
-transform = Transform3D(-2.2387376e-09, 0, -0.595119, 0, 0.935058, 0, 0.05121635, 0, -2.601348e-08, 0, 0, -0.309)
-layers = 32768
-mesh = SubResource("PlaneMesh_vwmdg")
-skeleton = NodePath("../../..")
-
-[node name="Gameplay" type="Node3D" parent="===GAMEPLAY========" unique_id=915011589]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1155753, 0.009244392)
-script = ExtResource("67_ihr3v")
-tween_resource = SubResource("Resource_hkuxl")
-tween_on_load = false
-camera_3d_resource = SubResource("Resource_q6oii")
-environment = ExtResource("70_wogjj")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="LayerMask" type="Node" parent="===GAMEPLAY========" unique_id=73591090]
-script = ExtResource("82_4i14n")
-layers = 32768
-metadata/_custom_type_script = "uid://br5kxd06vsn3n"
-
-[node name="===UI========" type="CanvasLayer" parent="===GAMEPLAY========" unique_id=1717230562]
-layer = 2
-
-[node name="GameplayContainer" type="SubViewportContainer" parent="===GAMEPLAY========/===UI========" unique_id=1355026926]
-anchors_preset = -1
-anchor_right = 0.41700003
-anchor_bottom = 1.0
-offset_right = -0.6400757
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SubViewport" type="SubViewport" parent="===GAMEPLAY========/===UI========/GameplayContainer" unique_id=1066437751]
-transparent_bg = true
-handle_input_locally = false
-msaa_3d = 2
-size = Vector2i(800, 1080)
-render_target_update_mode = 4
-
-[node name="GameplayCamera" type="Camera3D" parent="===GAMEPLAY========/===UI========/GameplayContainer/SubViewport" unique_id=282409628]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1155753, 0.009244392)
-top_level = true
-cull_mask = 32768
-environment = SubResource("Environment_yqurc")
-current = true
-fov = 25.0
-far = 100.0
-
-[node name="GameplayCameraHost" type="Node" parent="===GAMEPLAY========/===UI========/GameplayContainer/SubViewport/GameplayCamera" unique_id=1846865450]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("73_hdr7f")
-metadata/_custom_type_script = "uid://bd046eokvcnu2"
-
-[node name="Hand" type="Control" parent="===GAMEPLAY========/===UI========" unique_id=1121779610 node_paths=PackedStringArray("card_spawn_location", "card_parent", "input_manager")]
-layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("74_orq0h")
-card_ui_factory_base = ExtResource("38_o7mqh")
-card_spawn_location = NodePath("CardSpawnLocation")
-card_parent = NodePath("CurveContainer")
-focus_group = ExtResource("24_gkb4e")
-player_brain = ExtResource("23_frype")
-input_manager = NodePath("../../../===MANAGER========/InputManager")
-input_handler = ExtResource("21_y3pqf")
-not_selectable_color = Color(0.48178923, 0.48178953, 0.48178947, 1)
-manager = ExtResource("8_lkhof")
-order = 2
-
-[node name="CurveContainer" type="Container" parent="===GAMEPLAY========/===UI========/Hand" unique_id=1460115611]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-offset_left = 700.0
-offset_top = -150.0
-offset_right = -220.0
-offset_bottom = -150.0
-grow_horizontal = 2
-grow_vertical = 0
-pivot_offset_ratio = Vector2(0.5, 0)
-script = ExtResource("75_2pfy0")
-hand_curve = SubResource("Curve_6t1my")
-rotation_curve = SubResource("Curve_1343t")
-max_rotation_degrees = 15
-x_sep = 50
-y_min = 0
-y_max = -25
-card_size = Vector2(296, 256)
-
-[node name="CardSpawnLocation" type="Control" parent="===GAMEPLAY========/===UI========/Hand" unique_id=1381970396]
-layout_mode = 1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.625
-anchor_bottom = 0.5
-offset_left = 240.0
-offset_top = 150.0
-offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SuitSelector" type="Panel" parent="===GAMEPLAY========/===UI========" unique_id=1229257299 node_paths=PackedStringArray("card_container")]
-visible = false
-z_index = 10
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_w7dnp")
-script = ExtResource("76_ivdui")
-card_container = NodePath("Dialogue/HBoxContainer")
-focus_group = ExtResource("27_8vdcn")
-player_brain = ExtResource("23_frype")
-
-[node name="Dialogue" type="TextureRect" parent="===GAMEPLAY========/===UI========/SuitSelector" unique_id=357923874]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -700.0
-offset_top = -449.0
-offset_right = 700.0
-offset_bottom = 351.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("77_tphl5")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="===GAMEPLAY========/===UI========/SuitSelector/Dialogue" unique_id=286734443]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 236.0
-offset_top = 135.0
-offset_right = -236.0
-offset_bottom = -135.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="CardSelector" type="Panel" parent="===GAMEPLAY========/===UI========" unique_id=1146716570 node_paths=PackedStringArray("card_container", "submit_button")]
-visible = false
-z_index = 10
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_w7dnp")
-script = ExtResource("78_8gi8a")
-card_ui_factory_base = ExtResource("38_o7mqh")
-card_container = NodePath("Dialogue/HFlowContainer")
-focus_group = ExtResource("26_sliii")
-player_brain = ExtResource("23_frype")
-submit_button = NodePath("Dialogue/SubmitButton")
-
-[node name="Dialogue" type="TextureRect" parent="===GAMEPLAY========/===UI========/CardSelector" unique_id=955392771]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -700.0
-offset_top = -449.0
-offset_right = 700.0
-offset_bottom = 351.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("77_tphl5")
-
-[node name="HFlowContainer" type="HFlowContainer" parent="===GAMEPLAY========/===UI========/CardSelector/Dialogue" unique_id=741552996]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -464.0
-offset_top = -289.0
-offset_right = 464.0
-offset_bottom = 243.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 4
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 20
-alignment = 1
-
-[node name="SubmitButton" type="TextureRect" parent="===GAMEPLAY========/===UI========/CardSelector/Dialogue" unique_id=1900097605]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -168.0
-offset_top = 18.0
-offset_bottom = 102.0
-grow_horizontal = 0
-grow_vertical = 0
-focus_mode = 2
-texture = ExtResource("79_xa2d8")
-metadata/focus_type = "submit"
-
-[node name="PlayAreaSelectorGUI" type="Control" parent="===GAMEPLAY========/===UI========" unique_id=932388267 node_paths=PackedStringArray("board", "gameplay_camera")]
-layout_mode = 3
-anchor_right = 0.41700003
-anchor_bottom = 1.0
-offset_right = -0.6400757
-script = ExtResource("80_qa1lb")
-selector_packed_scene = ExtResource("81_wag87")
-board = NodePath("../../GameBoard")
-gameplay_camera = NodePath("../GameplayContainer/SubViewport/GameplayCamera")
-focus_group = ExtResource("25_em6an")
-player_brain = ExtResource("23_frype")
-metadata/_custom_type_script = "uid://deyblpqc0v651"
-
-[node name="===AUDIO========" type="Node3D" parent="===GAMEPLAY========" unique_id=961291820]
+[node name="GameplayCamera" parent="===GAMEPLAY========/===UI========/GameplayContainer/SubViewport" parent_id_path=PackedInt32Array(552190790, 1331556263) index="0" unique_id=1341371874]
+environment = SubResource("Environment_bpp2p")
 
 [node name="===CAMERA========" type="Node3D" parent="." unique_id=1860563192]
 
@@ -2776,7 +1882,7 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="SceneCamera" type="Camera3D" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerA/SubViewport" unique_id=1039536451]
-transform = Transform3D(0.40592754, 0.001511691, 0.9139041, -0.0035386235, 0.99999386, -8.234713e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
+transform = Transform3D(0.40592754, 0.0015116911, 0.9139041, -0.0035386235, 0.99999386, -8.2347244e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
 top_level = true
 cull_mask = 1
 attributes = SubResource("CameraAttributesPractical_gaafv")
@@ -2804,10 +1910,10 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="SceneCamera" type="Camera3D" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerB/SubViewport" unique_id=1232389164]
-transform = Transform3D(0.40592754, 0.0015116909, 0.9139041, -0.0035386235, 0.99999386, -8.234701e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
+transform = Transform3D(0.40592754, 0.001511691, 0.9139041, -0.0035386235, 0.99999386, -8.234713e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
 top_level = true
 cull_mask = 4
-environment = SubResource("Environment_87k4b")
+environment = SubResource("Environment_c1q84")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -3241,7 +2347,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 4
-environment = SubResource("Environment_afl77")
+environment = SubResource("Environment_bmfl7")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -3390,10 +2496,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.27814698
-offset_top = -0.01870386
-offset_right = 219.72179
-offset_bottom = 129.9813
+offset_left = 0.005503859
+offset_top = -0.26413473
+offset_right = 220.00545
+offset_bottom = 129.73587
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -3445,10 +2551,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.07541285
-offset_top = 0.05972259
-offset_right = 219.92459
-offset_bottom = 130.05981
+offset_left = 0.7445715
+offset_top = 0.8151341
+offset_right = 220.74457
+offset_bottom = 130.81523
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -3500,10 +2606,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 0.92790455
-offset_top = 0.89489436
-offset_right = 220.92796
-offset_bottom = 130.8949
+offset_left = 0.3595668
+offset_top = -0.28989312
+offset_right = 220.35963
+offset_bottom = 129.71011
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -3555,10 +2661,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.8637209
-offset_top = 2.1257937
-offset_right = 537.97406
-offset_bottom = 340.82605
+offset_left = 2.2975457
+offset_top = 1.6639102
+offset_right = 541.1353
+offset_bottom = 340.36417
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
@@ -3597,15 +2703,8 @@ normalized_dialogue_position = 1.0
 metadata/_custom_type_script = "uid://vyqjymdwc8ae"
 
 [connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateInitiator" method="start_debate"]
-[connection signal="on_label_updated" from="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label" to="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill/Label/ScaleControl" method="animate_scale" unbinds=1]
-[connection signal="on_label_updated" from="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label" to="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label/ScaleControl" method="animate_scale" unbinds=1]
-[connection signal="on_label_updated" from="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport/Label" to="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport/Label/ScaleControl" method="animate_scale" unbinds=1]
-[connection signal="on_label_updated" from="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill/Label" to="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill/Label/ScaleControl" method="animate_scale" unbinds=1]
-[connection signal="on_label_updated" from="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label" to="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill/Label/ScaleControl" method="animate_scale" unbinds=1]
-[connection signal="on_label_updated" from="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill/Label" to="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill/Label/ScaleControl" method="animate_scale" unbinds=1]
-[connection signal="on_label_updated" from="===GAMEPLAY========/GameBoardState/TurnCounter/CounterUi/SubViewport/Label" to="===GAMEPLAY========/GameBoardState/TurnCounter/CounterUi/SubViewport/Label/ScaleControl" method="animate_scale" unbinds=1]
-[connection signal="on_label_updated" from="===GAMEPLAY========/GameBoardState/LineClearCounter/CounterUi/SubViewport/Label" to="===GAMEPLAY========/GameBoardState/LineClearCounter/CounterUi/SubViewport/Label/ScaleControl" method="animate_scale" unbinds=1]
 
+[editable path="===GAMEPLAY========"]
 [editable path="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi"]
 [editable path="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi"]
 [editable path="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi"]

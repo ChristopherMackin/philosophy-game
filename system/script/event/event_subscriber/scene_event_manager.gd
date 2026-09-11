@@ -178,11 +178,3 @@ func cancel_animation(actor):
 
 func get_actor_index(actor_name : String) -> int:
 	return actors.map(func(x): return x.actor_name.to_snake_case()).find(actor_name.to_snake_case())
-
-func add_status_effect(_effect: StatusEffect, _which_player: Const.Player):
-	var contestant = debate_manager.player if _which_player == Const.Player.HUMAN else debate_manager.computer
-	_effect.apply(contestant)
-
-func remove_status_effect(_effect: StatusEffect, _which_player: Const.Player):
-	var contestant = debate_manager.player if _which_player == Const.Player.HUMAN else debate_manager.computer
-	_effect.remove(contestant)

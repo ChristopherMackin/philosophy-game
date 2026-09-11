@@ -102,12 +102,12 @@ static func deep_copy_resource_array(resource_array : Array):
 	
 	return deep_copy
 
-static func get_resource_name(resource: Resource):
+static func get_resource_name(resource: Resource) -> String:
 	if !resource: return "invalid path"
 	var path = resource.get_path()
 	return get_file_name(path)
 
-static func get_file_name(path: String):
+static func get_file_name(path: String) -> String:
 	return path.right(-path.rfind("/") - 1).left(-5)
 
 static func auto_populate_resource_array(old_array: Array, new_array: Array, resource_type, resource_name: String = "New Resource") -> Array:

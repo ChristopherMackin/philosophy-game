@@ -171,9 +171,7 @@ func on_debate_start():
 	update_hand(manager.player.hand)
 
 func on_turn_start(contestant: Contestant):
-	if contestant == manager.player: input_manager.active_handler = input_handler
 	update_hand(manager.player.hand)
 
 func on_turn_end(contestant: Contestant):
-	if contestant == manager.player: input_manager.active_handler = null
 	update_hand(manager.player.hand)

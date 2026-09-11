@@ -73,26 +73,51 @@ func _end_event(event: Event):
 
 func display_dialogue(dp: DialoguePayload):
 	var callables: Array[Callable]
-	callables.assign(subscribers.map(func(sub): return func(): await sub.display_dialogue(dp)))
+	callables.assign(subscribers.map(func(sub: EventSubscriber): return func(): await sub.display_dialogue(dp)))
 	
 	await Util.await_all(
 		callables
 	)
 
 func cancel_dialogue(actor : String):
-	for sub : EventSubscriber in subscribers: await sub.cancel_dialogue(actor)
+	var callables: Array[Callable]
+	callables.assign(subscribers.map(func(sub: EventSubscriber): return func(): await sub.cancel_dialogue(actor)))
+	
+	await Util.await_all(
+		callables
+	)
 
 func play_animation(animation : String, actor : String, overwrite_animation: bool, await_animation : bool):
-	for sub : EventSubscriber in subscribers: await sub.play_animation(animation, actor, overwrite_animation, await_animation)
+	var callables: Array[Callable]
+	callables.assign(subscribers.map(func(sub: EventSubscriber): return func(): await sub.play_animation(animation, actor, overwrite_animation, await_animation)))
+	
+	await Util.await_all(
+		callables
+	)
 
 func cancel_animation(actor : String):
-	for sub : EventSubscriber in subscribers: await sub.cancel_animation(actor)
-
-func add_status_effect(effect: StatusEffect, which_player: Const.Player = Const.Player.HUMAN):
-	for sub : EventSubscriber in subscribers: await sub.add_status_effect(effect, which_player)
-
-func remove_status_effect(effect: StatusEffect, which_player: Const.Player = Const.Player.HUMAN):
-	for sub : EventSubscriber in subscribers: await sub.remove_status_effect(effect, which_player)
+	var callables: Array[Callable]
+	callables.assign(subscribers.map(func(sub: EventSubscriber): return func(): await sub.cancel_animation(actor)))
 	
+	await Util.await_all(
+		callables
+	)
+
+func start_timer(seconds: float):
+	var callables: Array[Callable]
+	callables.assign(subscribers.map(func(sub: EventSubscriber): return func(): await sub.start_timer(seconds)))
+	
+	await Util.await_all(
+		callables
+	)
+
+func cancel_timer():
+	var callables: Array[Callable]
+	callables.assign(subscribers.map(func(sub: EventSubscriber): return func(): await sub.cancel_timer()))
+	
+	await Util.await_all(
+		callables
+	)
+
 func queue_event(event: Event):
 	pass

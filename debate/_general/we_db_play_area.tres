@@ -1,0 +1,8 @@
+[gd_resource type="Environment" format=3 uid="uid://dym07yrsqoiwp"]
+
+[resource]
+ambient_light_source = 2
+ambient_light_color = Color(0.94, 0.94, 0.94, 1)
+ssao_intensity = 1.32
+ssao_power = 3.446096
+ssao_sharpness = 0.5
