@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://drcl6ot1amh17"]
 
-[ext_resource type="Script" uid="uid://hvhevcocubjx" path="res://debate/opal/db_02/card_3d.gd" id="1_yymxk"]
+[ext_resource type="Script" uid="uid://hvhevcocubjx" path="res://debate/_script/ui/card_3d.gd" id="1_yymxk"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_xtvt1"]
 viewport_path = NodePath("SubViewport")

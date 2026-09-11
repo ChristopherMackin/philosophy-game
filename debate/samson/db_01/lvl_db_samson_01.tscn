@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bi8ntyxb64qs6"]
+
+[ext_resource type="PackedScene" uid="uid://da4quimbac65g" path="res://_debug/lvl_db_debug_base.tscn" id="1_4t7fs"]
+
+[node name="LvlDbSamson01" unique_id=1140928789 instance=ExtResource("1_4t7fs")]
+
+[node name="DebugEventManager" parent="===DEBUG========" parent_id_path=PackedInt32Array(801987926) index="0" unique_id=1676246633]
+btn_continue = Callable()
+btn_skip = Callable()
+btn_cancel = Callable()

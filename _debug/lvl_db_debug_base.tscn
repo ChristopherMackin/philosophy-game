@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="10_unvun"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="11_a6qb7"]
 [ext_resource type="Resource" uid="uid://do4ijr1aixaqw" path="res://debate/opal/db_02/bb_db_opal_02.tres" id="12_3bppr"]
-[ext_resource type="Script" uid="uid://dkdsd0gpfl4lq" path="res://debate/opal/db_02/debate_initiator_debate_subscriber.gd" id="13_xhdbe"]
+[ext_resource type="Script" uid="uid://dkdsd0gpfl4lq" path="res://debate/_script/subscriber/node_based/debate_initiator_debate_subscriber.gd" id="13_xhdbe"]
 [ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://system/debate_settings.tres" id="14_k7s7c"]
 [ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/char_player.tres" id="15_568vc"]
 [ext_resource type="Resource" uid="uid://bc7p0mjt75pco" path="res://debate/opal/db_02/char_db_opal_02.tres" id="16_4gieg"]
