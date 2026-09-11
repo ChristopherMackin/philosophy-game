@@ -4,8 +4,8 @@ class_name TextBasedEventSubscriber
 
 @export var label: RichTextLabel
 
-@export var header_font_size: int = 42
-@export var body_font_size: int = 28
+@export var title_font_size: int = 42
+@export var dialogue_font_size: int = 28
 @export var seconds_between_events: float = .1
 
 @export_flags(
@@ -38,7 +38,7 @@ func _run_queue():
 func _start_event(event: Event):
 	callable_queue.push(func():
 		await _append_action_event(
-			BBCode.font_size("\nStart %s[hr]" % Util.get_resource_name(event), header_font_size),
+			BBCode.font_size("\nStart %s[hr]" % Util.get_resource_name(event), title_font_size),
 			ActionLogActionType.ActionType.EVENT_START
 		)
 	)
@@ -46,7 +46,7 @@ func _start_event(event: Event):
 func _end_event(event: Event):
 	callable_queue.push(func():
 		await _append_action_event(
-			BBCode.font_size("End %s" % Util.get_resource_name(event), header_font_size),
+			BBCode.font_size("End %s" % Util.get_resource_name(event), title_font_size),
 			ActionLogActionType.ActionType.EVENT_END
 		)
 	)
@@ -56,10 +56,10 @@ func display_dialogue(dp: DialoguePayload):
 		var actor_name =  dp.actor.to_upper()
 		
 		if current_title != actor_name:
-			await _append_action_event(BBCode.font_size("\n" + actor_name + ":",header_font_size), ActionLogActionType.ActionType.TITLE)
+			await _append_action_event(BBCode.font_size("\n" + actor_name + ":",title_font_size), ActionLogActionType.ActionType.TITLE)
 		
 		await _append_action_event(
-			BBCode.font_size(dp.line, body_font_size), 
+			BBCode.font_size(dp.line, dialogue_font_size), 
 			ActionLogActionType.ActionType.DIALOGUE,
 			true
 		)
@@ -71,7 +71,7 @@ func play_animation(animation : String, actor : String, _overwrite_animation: bo
 		actor_name = actor_name if actor_name else BBCode.center("Action Sequence")
 		
 		if current_title != actor_name:
-			await _append_action_event(BBCode.font_size("\n" + actor_name + ":",header_font_size), ActionLogActionType.ActionType.TITLE)
+			await _append_action_event(BBCode.font_size("\n" + actor_name + ":",title_font_size), ActionLogActionType.ActionType.TITLE)
 		
 		await _append_action_event(
 			"Take Action: %s" % animation, 

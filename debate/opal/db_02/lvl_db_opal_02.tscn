@@ -150,7 +150,7 @@ viewport_path = NodePath("GameBoardState/TurnCounter/CounterUi/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_11wh6"]
 viewport_path = NodePath("GameBoardState/LineClearCounter/CounterUi/SubViewport")
 
-[sub_resource type="Environment" id="Environment_bpp2p"]
+[sub_resource type="Environment" id="Environment_1kwum"]
 ambient_light_source = 2
 ambient_light_color = Color(0.94, 0.94, 0.94, 1)
 ssao_intensity = 1.32
@@ -1040,7 +1040,7 @@ _data = {
 dof_blur_far_enabled = true
 dof_blur_far_distance = 5.0
 
-[sub_resource type="Environment" id="Environment_c1q84"]
+[sub_resource type="Environment" id="Environment_14ksg"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -1103,7 +1103,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_dqw0w")
 nodes/Animation/position = Vector2(50, 320)
 node_connections = [&"output", 0, &"talk_override", &"talk_override", 0, &"blink_override", &"talk_override", 1, &"talk", &"blink_override", 0, &"Animation", &"blink_override", 1, &"blink"]
 
-[sub_resource type="Environment" id="Environment_bmfl7"]
+[sub_resource type="Environment" id="Environment_kxl61"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -1246,7 +1246,7 @@ texture = SubResource("ViewportTexture_xmtap")
 texture = SubResource("ViewportTexture_11wh6")
 
 [node name="GameplayCamera" parent="===GAMEPLAY========/===UI========/GameplayContainer/SubViewport" parent_id_path=PackedInt32Array(552190790, 1331556263) index="0" unique_id=1341371874]
-environment = SubResource("Environment_bpp2p")
+environment = SubResource("Environment_1kwum")
 
 [node name="===CAMERA========" type="Node3D" parent="." unique_id=1860563192]
 
@@ -1882,12 +1882,12 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="SceneCamera" type="Camera3D" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerA/SubViewport" unique_id=1039536451]
-transform = Transform3D(0.40592754, 0.0015116911, 0.9139041, -0.0035386235, 0.99999386, -8.2347244e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
+transform = Transform3D(0.40592736, 0.0015116907, 0.91390413, -0.0035386225, 0.99999374, -8.234731e-05, -0.9138985, -0.0032005347, 0.40593016, 1.1794775, 0.31653523, 0.48320687)
 top_level = true
 cull_mask = 1
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
-fov = 40.0
+fov = 48.449722
 
 [node name="SceneCameraHost" type="Node" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerA/SubViewport/SceneCamera" unique_id=1027647636]
 process_priority = 300
@@ -1910,13 +1910,13 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="SceneCamera" type="Camera3D" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerB/SubViewport" unique_id=1232389164]
-transform = Transform3D(0.40592754, 0.001511691, 0.9139041, -0.0035386235, 0.99999386, -8.234713e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
+transform = Transform3D(0.40592736, 0.0015116906, 0.91390413, -0.0035386225, 0.99999374, -8.234708e-05, -0.9138985, -0.003200535, 0.40593016, 1.1794775, 0.31653523, 0.48320687)
 top_level = true
 cull_mask = 4
-environment = SubResource("Environment_c1q84")
+environment = SubResource("Environment_14ksg")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
-fov = 40.0
+fov = 48.449722
 
 [node name="SceneCameraHost" type="Node" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerB/SubViewport/SceneCamera" unique_id=863293468]
 process_priority = 300
@@ -2347,7 +2347,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 4
-environment = SubResource("Environment_bmfl7")
+environment = SubResource("Environment_kxl61")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -2496,10 +2496,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 0.005503859
-offset_top = -0.26413473
-offset_right = 220.00545
-offset_bottom = 129.73587
+offset_left = -0.43789878
+offset_top = 0.60072744
+offset_right = 219.56204
+offset_bottom = 130.60072
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2551,10 +2551,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 0.7445715
-offset_top = 0.8151341
-offset_right = 220.74457
-offset_bottom = 130.81523
+offset_left = -1.1587583
+offset_top = -1.3717357
+offset_right = 218.84125
+offset_bottom = 128.62836
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2606,10 +2606,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 0.3595668
-offset_top = -0.28989312
-offset_right = 220.35963
-offset_bottom = 129.71011
+offset_left = 1.2458367
+offset_top = 0.46491584
+offset_right = 221.2459
+offset_bottom = 130.46492
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2661,10 +2661,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 2.2975457
-offset_top = 1.6639102
-offset_right = 541.1353
-offset_bottom = 340.36417
+offset_left = -2.2702463
+offset_top = -2.078986
+offset_right = 536.5675
+offset_bottom = 336.62128
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
