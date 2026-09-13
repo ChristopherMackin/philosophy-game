@@ -23,6 +23,9 @@ func filter(card_array: Array[Card], caller: Card, contestant: Contestant, manag
 		min_amount
 	))
 	
-	cards.assign(response.data)
+	if response.data is Array:
+		cards.assign(response.data)
+	elif response.data is Card:
+		cards.append(response.data)
 	
 	return cards

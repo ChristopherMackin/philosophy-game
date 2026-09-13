@@ -2,36 +2,7 @@
 
 [ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="1_6qset"]
 [ext_resource type="Script" uid="uid://bkpc76nqmkxc2" path="res://system/script/event_factory/bucket_event_factory.gd" id="2_8ekio"]
-[ext_resource type="Resource" uid="uid://dsq2eh1m7g5hq" path="res://debate/opal/db_02/event/test.tres" id="2_i6qth"]
-[ext_resource type="Resource" uid="uid://k0tubj80ux4o" path="res://debate/opal/db_02/event/ev_db_opal_02_t1.tres" id="2_ykw5y"]
-[ext_resource type="Script" uid="uid://c2ote8d3tq7pk" path="res://system/script/event_factory/rule_event_factory.gd" id="4_btxm4"]
-[ext_resource type="Script" uid="uid://tkld5vp51fi1" path="res://system/script/rule/current_round_rule.gd" id="5_btxm4"]
-
-[sub_resource type="Resource" id="Resource_xfqe2"]
-resource_name = "RU: CurrentRoundRule"
-script = ExtResource("5_btxm4")
-current_round = 1
-metadata/_custom_type_script = "uid://tkld5vp51fi1"
-
-[sub_resource type="Resource" id="Resource_ykw5y"]
-script = ExtResource("4_btxm4")
-rule = SubResource("Resource_xfqe2")
-event = ExtResource("2_i6qth")
-metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
-
-[sub_resource type="Resource" id="Resource_tcs5s"]
-resource_name = "RU: CurrentRoundRule"
-script = ExtResource("5_btxm4")
-current_round = 2
-metadata/_custom_type_script = "uid://tkld5vp51fi1"
-
-[sub_resource type="Resource" id="Resource_qdepx"]
-script = ExtResource("4_btxm4")
-rule = SubResource("Resource_tcs5s")
-event = ExtResource("2_ykw5y")
-metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
 
 [resource]
 script = ExtResource("2_8ekio")
-buckets = Array[ExtResource("1_6qset")]([SubResource("Resource_ykw5y"), SubResource("Resource_qdepx")])
 metadata/_custom_type_script = "uid://bkpc76nqmkxc2"

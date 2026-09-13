@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://d3dquywfgatxc"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_6hpgg"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_1l3g1"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_xttgi"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_xttgi")
+
+[sub_resource type="Resource" id="Resource_1l3g1"]
+script = ExtResource("2_1l3g1")
+inputs = Dictionary[String, Variant]({
+"actor": "samson",
+"await_close": false,
+"await_input": false,
+"close_timer": 0.0,
+"talk": true,
+"text": "Okay, I can't play any more cards. Show me what you can do!"
+})
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_6hpgg")
+start_task = SubResource("Resource_1l3g1")
+tasks = Array[ExtResource("2_1l3g1")]([SubResource("Resource_1l3g1")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

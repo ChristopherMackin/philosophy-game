@@ -1,6 +1,6 @@
 extends CardAction
 
-class_name CheckBlackboardRuleCardAction
+class_name RuleCardAction
 
 @export var rule : Rule
 

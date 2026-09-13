@@ -1,13 +1,12 @@
 [gd_resource type="Resource" script_class="CardBase" format=3 uid="uid://bi4b6yrbrei1b"]
 
-[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://system/script/card/card_cost_modifier/card_cost_modifier.gd" id="1_qbxxr"]
+[ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="1_tysni"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_ihtgu"]
 [ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://system/script/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_23net"]
 [ext_resource type="Script" uid="uid://16samtkb1lb4" path="res://system/script/card/card_action/card_collection_container/container_filter/selection_collection_filter.gd" id="4_pu1gw"]
 [ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://system/script/card/card_action/card_collection_container/hand_collection_container.gd" id="5_8apdp"]
+[ext_resource type="Script" uid="uid://cgsr0p1sth0wy" path="res://system/script/rule/expression_rule.gd" id="7_xfhwe"]
 [ext_resource type="Script" uid="uid://4v61ulpu2ysv" path="res://system/script/card/card_action/discard_card_collection_card_action.gd" id="8_jet7g"]
-[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/rule/rule.gd" id="9_qbxxr"]
-[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="10_ihtgu"]
 [ext_resource type="Script" uid="uid://dv3r8bflihqwc" path="res://system/script/card/card_action/rule_card_action.gd" id="10_ulfb1"]
 [ext_resource type="Script" uid="uid://ry8dl84ft1kn" path="res://system/script/card/card_action/modify_energy_card_action.gd" id="11_aj5k0"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="12_87kmm"]
@@ -28,17 +27,15 @@ script = ExtResource("8_jet7g")
 collection_container = SubResource("Resource_qbxxr")
 metadata/_custom_type_script = "uid://4v61ulpu2ysv"
 
-[sub_resource type="Resource" id="Resource_23net"]
-script = ExtResource("9_qbxxr")
-expression = "action_discarded_cards[0].suit == doubt"
-variables = Dictionary[String, Variant]({
-"doubt": ExtResource("10_ihtgu")
-})
-metadata/_custom_type_script = "uid://b3gc77q7whheh"
+[sub_resource type="Resource" id="Resource_qdepx"]
+resource_name = "RU: Exp: actio"
+script = ExtResource("7_xfhwe")
+expression = "action_discarded_cards[0].suit.name == \"Doubt\""
+metadata/_custom_type_script = "uid://cgsr0p1sth0wy"
 
 [sub_resource type="Resource" id="Resource_pu1gw"]
 script = ExtResource("10_ulfb1")
-criterion = SubResource("Resource_23net")
+rule = SubResource("Resource_qdepx")
 metadata/_custom_type_script = "uid://dv3r8bflihqwc"
 
 [sub_resource type="Resource" id="Resource_8apdp"]

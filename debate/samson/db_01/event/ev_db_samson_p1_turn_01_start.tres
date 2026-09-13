@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://r67oc2j8mkr0"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_y7rtr"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_au5dw"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="3_8vrha"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_au5dw")
+
+[sub_resource type="Resource" id="Resource_y7rtr"]
+script = ExtResource("3_8vrha")
+outputs = Array[int]([0])
+inputs = Dictionary[String, Variant]({
+"actor": "samson",
+"await_close": false,
+"await_input": false,
+"close_timer": 0.0,
+"talk": true,
+"text": "Let's see if we can put that new card to good use!"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_au5dw"]
+script = ExtResource("3_8vrha")
+inputs = Dictionary[String, Variant]({
+"actor": "samson",
+"await_close": false,
+"await_input": false,
+"close_timer": 0.0,
+"talk": true,
+"text": "We'll work together to make faith the shape of this debate!"
+})
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_y7rtr")
+start_task = SubResource("Resource_y7rtr")
+tasks = Array[ExtResource("3_8vrha")]([SubResource("Resource_au5dw"), SubResource("Resource_y7rtr")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

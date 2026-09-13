@@ -28,7 +28,13 @@ func evaluate(command, variable_names = [], variable_values = []) -> bool:
 	
 	var result = expression.execute(variable_values, self, false)
 	
+	var max_try: int = 10
+	var i: int = 0
 	while expression.has_execute_failed():
+		if i > max_try: 
+			push_error("ERROR: Max try amount exceeded.\nExpression: " + command)
+			return false
+		
 		#PLEASE NOTE: I KNOW THIS SUCKS BUT I DIDN'T WANNA DO A REWRITE OF GODOT FOR THIS, SO SHUT UP
 		var error_text = expression.get_error_text()
 		if !error_text.contains("Invalid named index"):
@@ -38,7 +44,9 @@ func evaluate(command, variable_names = [], variable_values = []) -> bool:
 		variable_values.append(false)
 		
 		error = expression.parse(command, variable_names)
-	
+		
 		result = expression.execute(variable_values, self, false)
+		
+		i += 1
 
 	return result

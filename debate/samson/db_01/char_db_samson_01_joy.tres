@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://b60sww3o8d3g7"]
+
+[ext_resource type="Resource" uid="uid://dkhcnlgk5pvl0" path="res://character/samson/bb_samson.tres" id="1_exvjs"]
+[ext_resource type="Script" uid="uid://6rwh8gnmiwiw" path="res://character/script/brain/in_order_brain.gd" id="1_qf8no"]
+[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/dk_default.tres" id="2_exvjs"]
+[ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="3_wjk3n"]
+[ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="4_rt6jg"]
+
+[sub_resource type="Resource" id="Resource_lvaq3"]
+script = ExtResource("1_qf8no")
+metadata/_custom_type_script = "uid://6rwh8gnmiwiw"
+
+[resource]
+script = ExtResource("3_wjk3n")
+name = "Joy"
+brain = SubResource("Resource_lvaq3")
+deck = ExtResource("2_exvjs")
+blackboard = ExtResource("1_exvjs")
+metadata/_custom_type_script = "uid://b0gx18dmx3sv3"

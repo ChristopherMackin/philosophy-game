@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://c5wf0i7el2cq3" path="res://debate/samson/db_01/bb_db_samson_01.tres" id="2_n83yx"]
 [ext_resource type="Resource" uid="uid://clb2bpkwmdhhu" path="res://debate/samson/db_01/ef_db_samson_01.tres" id="3_xubtb"]
 [ext_resource type="Resource" uid="uid://b6qml2f7rxk48" path="res://debate/samson/db_01/char_db_samson_01.tres" id="4_xubtb"]
+[ext_resource type="Resource" uid="uid://b60sww3o8d3g7" path="res://debate/samson/db_01/char_db_samson_01_joy.tres" id="5_ws8u2"]
 [ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="6_ws8u2"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ws8u2"]
@@ -33,7 +34,7 @@ viewport_path = NodePath("GameBoardState/TurnCounter/CounterUi/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_egtsl"]
 viewport_path = NodePath("GameBoardState/LineClearCounter/CounterUi/SubViewport")
 
-[sub_resource type="Environment" id="Environment_htg24"]
+[sub_resource type="Environment" id="Environment_ws8u2"]
 ambient_light_source = 2
 ambient_light_color = Color(0.94, 0.94, 0.94, 1)
 ssao_intensity = 1.32
@@ -57,7 +58,8 @@ event_factory = ExtResource("3_xubtb")
 
 [node name="DebateInitiator" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="1" unique_id=267756503]
 blackboard = ExtResource("2_n83yx")
-computer = ExtResource("4_xubtb")
+player = ExtResource("4_xubtb")
+computer = ExtResource("5_ws8u2")
 
 [node name="EventQueryManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="2" unique_id=1646962725]
 event_factory = ExtResource("3_xubtb")
@@ -91,7 +93,7 @@ texture = SubResource("ViewportTexture_0jj63")
 texture = SubResource("ViewportTexture_egtsl")
 
 [node name="GameplayCamera" parent="===GAMEPLAY========/===UI========/GameplayContainer/SubViewport" parent_id_path=PackedInt32Array(552190790, 1331556263) index="0" unique_id=1341371874]
-environment = SubResource("Environment_htg24")
+environment = SubResource("Environment_ws8u2")
 
 [node name="TextBasedEventSubscriber" parent="===UI========" parent_id_path=PackedInt32Array(701129504) index="0" unique_id=1549059667 node_paths=PackedStringArray("input_manager")]
 input_manager = NodePath("../../===MANAGER========/InputManager")

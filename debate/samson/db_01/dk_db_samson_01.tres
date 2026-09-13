@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="OrderedDeck" format=3 uid="uid://cw5nebx8b23a4"]
 
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://system/script/card/card_deck_config.gd" id="1_fgdpi"]
-[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/c_doubt_basic_doubt.tres" id="2_5odtu"]
+[ext_resource type="Resource" uid="uid://bi4b6yrbrei1b" path="res://system/card/faith/c_faith_cleansing_light.tres" id="2_5odtu"]
 [ext_resource type="Script" uid="uid://qxw0hsqa58ko" path="res://system/script/deck/ordered_deck.gd" id="2_klb5u"]
 
-[sub_resource type="Resource" id="Resource_ejk2c"]
-resource_name = "10 Basic Doubt"
+[sub_resource type="Resource" id="Resource_fgdpi"]
+resource_name = "20 Cleansing Light"
 script = ExtResource("1_fgdpi")
 base = ExtResource("2_5odtu")
-count = 10
+count = 20
 
 [resource]
 script = ExtResource("2_klb5u")
-composition_card_deck_config_array = Array[ExtResource("1_fgdpi")]([SubResource("Resource_ejk2c")])
+composition_card_deck_config_array = Array[ExtResource("1_fgdpi")]([SubResource("Resource_fgdpi")])
 metadata/_custom_type_script = "uid://qxw0hsqa58ko"
