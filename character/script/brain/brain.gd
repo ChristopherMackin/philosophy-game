@@ -1,6 +1,6 @@
-extends Resource
-
+@abstract
 class_name Brain
+extends Resource
 
 var contestant : Contestant
 var active_request : SelectionRequest

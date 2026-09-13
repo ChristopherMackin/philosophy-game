@@ -27,7 +27,6 @@ func start_animation(name : String):
 	if _animation_player.has_animation(name):
 		var anim_node: AnimationNode = animation_tree.tree_root.get_node("Animation")
 		if anim_node.animation != name:
-			print(name)
 			anim_node.animation = name
 
 func cancel_animation():

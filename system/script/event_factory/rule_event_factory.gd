@@ -7,7 +7,7 @@ class_name RuleEventFactory
 @export var event: Event
 
 func get_event(_query: Dictionary) -> Event:
-	if rule.check(_query):
+	if !rule || rule.check(_query):
 		return event
 	
 	return null

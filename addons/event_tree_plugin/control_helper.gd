@@ -19,8 +19,6 @@ static func get_value(control : Control):
 static func set_value(control : Control, value = null):
 	if !value && value != false:
 		return
-		
-	print(control is CheckButton)
 	
 	if control is TextEdit:
 		control.text = value 

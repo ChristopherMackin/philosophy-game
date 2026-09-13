@@ -5,8 +5,6 @@ class_name EventManager
 
 signal queue_empty
 
-@export var blackboard: Blackboard
-
 var subscribers : Array[EventSubscriber]
 var current_task : Task
 var current_event : Event
@@ -31,7 +29,7 @@ func cancel_current_event():
 	current_task = null
 	current_event = null
 
-func start_event(event : Event):	
+func start_event(event : Event, blackboard: Blackboard):
 	if !event: return
 	
 	if event.await_queue:
@@ -39,7 +37,7 @@ func start_event(event : Event):
 	if event.can_interupt:
 		await cancel_current_event()
 	elif current_task:
-		event_queue.push(event)
+		event_queue.push(Tuple.new(event, blackboard))
 		return
 	
 	current_event = event
@@ -61,7 +59,8 @@ func start_event(event : Event):
 	await _end_event(current_event)
 	
 	if event_queue.size() > 0:
-		start_event(event_queue.pop())
+		var tuple: Tuple = event_queue.pop()
+		start_event(tuple.val1, tuple.val2)
 	else:
 		queue_empty.emit()
 

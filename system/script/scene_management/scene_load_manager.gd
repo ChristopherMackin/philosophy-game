@@ -34,15 +34,15 @@ func query_event():
 	var query : Dictionary
 	query["concept"] = Const.Concept.ON_SCENE_ENTER
 	query.merge(GlobalBlackboard.blackboard.get_query())
-	query.merge(event_manager.blackboard.get_query())
+	query.merge(blackboard.get_query())
 	
 	var event = event_factory.get_event(query)
 	
 	if event:
 		if event.await_event:
-			await event_manager.start_event(event)
+			await event_manager.start_event(event, blackboard)
 		else:
-			event_manager.start_event(event)
+			event_manager.start_event(event, blackboard)
 	
 	_event_finished.emit.call_deferred()
 

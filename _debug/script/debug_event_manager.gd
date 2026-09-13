@@ -1,5 +1,5 @@
 @tool
-extends SceneEventManager
+extends Node
 
 class_name DebugEventManager
 
@@ -24,9 +24,7 @@ class_name DebugEventManager
 @export var active_contestant: Const.Player
 @export var card_history: Array[CardBase]
 @export var current_round: int
-
-@export var blackboard: Blackboard:
-	get: return manager.blackboard if manager else null
+@export var blackboard: Blackboard
 
 @export_group("")
 
@@ -58,6 +56,12 @@ func _validate_property(property: Dictionary):
 		manager.current_task.inputs = val
 		ResourceSaver.save(manager.current_task)
 
+@export_category("Dependency")
+@export var event_subscriber: EventSubscriber
+var manager: EventManager:
+	get():
+		return event_subscriber.manager if event_subscriber else null
+
 var _previous_task: Task
 
 func _ready() -> void:
@@ -72,8 +76,7 @@ func _process(delta) -> void:
 	_previous_task = manager.current_task
 
 func start_event():
-	_dialogue_setup()
-	manager.start_event(event)
+	manager.start_event(event, blackboard)
 	notify_property_list_changed()
 
 func cancel_event():
@@ -81,20 +84,20 @@ func cancel_event():
 	notify_property_list_changed()
 
 func _continue(): 
-	continue_dialogue.emit()
+	event_subscriber.continue_dialogue.emit()
 	notify_property_list_changed()
 
 func _skip(): 
-	continue_dialogue.emit() 
-	skip.emit()
+	event_subscriber.continue_dialogue.emit() 
+	event_subscriber.skip.emit()
 	notify_property_list_changed()
 	
 func _start_event(event: Event):
-	await_event = event.await_event
-	if !await_event: return
+	event_subscriber.await_event = event.await_event
+	if !event_subscriber.await_event: return
 
 func _end_event(event: Event):
-	if !await_event: return
+	if !event_subscriber.await_event: return
 
 func get_event_using_data():
 	var query : Dictionary

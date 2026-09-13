@@ -72,9 +72,6 @@ func update_event_from_graph(event : Event) -> Event:
 		
 		var task = node.get_task(indexes)
 		
-		if connections.size() > 1:
-			print(indexes)
-		
 		tasks.append(task)
 		
 		if node.name == first_node_name:

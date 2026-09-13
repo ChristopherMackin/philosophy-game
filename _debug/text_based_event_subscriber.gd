@@ -1,3 +1,4 @@
+@tool
 extends EventSubscriber
 
 class_name TextBasedEventSubscriber
@@ -7,6 +8,10 @@ class_name TextBasedEventSubscriber
 @export var title_font_size: int = 42
 @export var dialogue_font_size: int = 28
 @export var seconds_between_events: float = .1
+
+@export var input_manager: InputManager
+@export var dialogue_input_handler: InputHandler
+var replaced_input_handler: InputHandler
 
 @export_flags(
 	"EVENT_START",
@@ -36,11 +41,17 @@ func _run_queue():
 	queue_is_running = false
 
 func _start_event(event: Event):
+	if Engine.is_editor_hint():
+		label.text = ""
+	
 	callable_queue.push(func():
 		await _append_action_event(
 			BBCode.font_size("\nStart %s[hr]" % Util.get_resource_name(event), title_font_size),
 			ActionLogActionType.ActionType.EVENT_START
 		)
+		
+		replaced_input_handler = input_manager.active_handler
+		input_manager.active_handler = dialogue_input_handler
 	)
 
 func _end_event(event: Event):
@@ -49,6 +60,8 @@ func _end_event(event: Event):
 			BBCode.font_size("End %s" % Util.get_resource_name(event), title_font_size),
 			ActionLogActionType.ActionType.EVENT_END
 		)
+		
+		input_manager.active_handler = replaced_input_handler
 	)
 
 func display_dialogue(dp: DialoguePayload):

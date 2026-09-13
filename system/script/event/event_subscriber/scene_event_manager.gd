@@ -1,3 +1,4 @@
+@tool
 extends EventSubscriber
 
 class_name SceneEventManager
@@ -44,6 +45,9 @@ func _handle_input(_delta, input):
 		skip.emit()
 
 func _start_event(event: Event):
+	if Engine.is_editor_hint():
+		_dialogue_setup()
+	
 	await_event = event.await_event
 	if !await_event: return
 	

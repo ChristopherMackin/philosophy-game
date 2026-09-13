@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://b6qml2f7rxk48"]
+
+[ext_resource type="Resource" uid="uid://dkhcnlgk5pvl0" path="res://character/samson/bb_samson.tres" id="1_70oxh"]
+[ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="1_hwtwa"]
+[ext_resource type="Script" uid="uid://6rwh8gnmiwiw" path="res://character/script/brain/in_order_brain.gd" id="2_ceiph"]
+[ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="2_ikavp"]
+[ext_resource type="Resource" uid="uid://cw5nebx8b23a4" path="res://debate/samson/db_01/dk_db_samson_01.tres" id="3_jcmi4"]
+
+[sub_resource type="Resource" id="Resource_n83yx"]
+script = ExtResource("2_ceiph")
+metadata/_custom_type_script = "uid://6rwh8gnmiwiw"
+
+[resource]
+script = ExtResource("1_hwtwa")
+name = "Samson"
+brain = SubResource("Resource_n83yx")
+deck = ExtResource("3_jcmi4")
+blackboard = ExtResource("1_70oxh")
+metadata/_custom_type_script = "uid://b0gx18dmx3sv3"

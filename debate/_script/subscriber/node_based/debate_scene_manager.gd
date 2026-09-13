@@ -8,6 +8,7 @@ class_name EventQueryDebateSubscriber
 			event_factory = EventFactory.new()
 		return event_factory
 @export var event_manager : EventManager
+@export var blackboard: Blackboard
 
 func _ready():
 	super._ready()
@@ -38,13 +39,13 @@ func query_event(concept : Const.Concept):
 	var query : Dictionary
 	query["concept"] = concept
 	query.merge(GlobalBlackboard.blackboard.get_query())
-	query.merge(event_manager.blackboard.get_query())
+	query.merge(blackboard.get_query())
 	
 	var event = event_factory.get_event(query)
 	
 	if !event: return
 	
 	if event.await_event:
-		await event_manager.start_event(event)
+		await event_manager.start_event(event, blackboard)
 	else:
-		event_manager.start_event(event)
+		event_manager.start_event(event, blackboard)

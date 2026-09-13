@@ -1,0 +1,301 @@
+[gd_resource type="Resource" script_class="CardUiFactoryBase" format=3 uid="uid://blh1qdw7pholg"]
+
+[ext_resource type="Script" uid="uid://btqgs63pqh23v" path="res://debate/_script/ui/card_ui_factory/card_ui_factory.gd" id="1_fw8ul"]
+[ext_resource type="Script" uid="uid://cxodlpgrmgtv7" path="res://system/script/blackboard/blackboard_entry.gd" id="2_mpm7y"]
+[ext_resource type="Script" uid="uid://d4fneioflw7dl" path="res://debate/_script/ui/card_ui_factory/card_ui_pair_factory.gd" id="3_38yiq"]
+[ext_resource type="Script" uid="uid://c1eaebx4srk2s" path="res://system/script/blackboard/blackboard.gd" id="3_ttwij"]
+[ext_resource type="Script" uid="uid://sn0urmcbi7k8" path="res://debate/_script/ui/card_ui.gd" id="5_1cw0q"]
+[ext_resource type="Script" uid="uid://cilcb0gb3xu0g" path="res://system/script/rule/current_player_rule.gd" id="5_pk5fl"]
+[ext_resource type="Texture2D" uid="uid://bks3574mtwiio" path="res://_asset/debate/_general/texture/card/t_card_base.png" id="6_ec1lf"]
+[ext_resource type="Script" uid="uid://ck2rt2uwm6814" path="res://debate/_script/ui/card_ui_factory/rule_card_ui_factory.gd" id="6_qd0uu"]
+[ext_resource type="Script" uid="uid://dc8gq2l3o144t" path="res://system/script/focus_group/focus_group_signal_node.gd" id="7_5dyvy"]
+[ext_resource type="Script" uid="uid://cumbxctg3u56" path="res://debate/_script/ui/card_focus_animation.gd" id="8_jh52v"]
+[ext_resource type="Script" uid="uid://du0wp68cutphq" path="res://debate/_script/ui/card_ui_factory/suit_card_ui_factory.gd" id="9_5p33g"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="11_riu4g"]
+[ext_resource type="Script" uid="uid://c12n22vq5ljj1" path="res://system/script/card/card_status_effect/condition_card_status_effect/false_condition_card_status_effect.gd" id="12_0r3g2"]
+[ext_resource type="Script" uid="uid://3ajnh5fdykvx" path="res://debate/_script/ui/card_ui_factory/bucket_card_ui_factory.gd" id="13_onsk2"]
+[ext_resource type="Script" uid="uid://dke2uxx0r453j" path="res://debate/_script/ui/card_ui_factory/has_cse_card_ui_factory.gd" id="14_7wv1c"]
+[ext_resource type="Texture2D" uid="uid://bfpxej2kvhobt" path="res://_asset/debate/_general/texture/card/t_masking_tape_title.png" id="14_78b6q"]
+[ext_resource type="PackedScene" uid="uid://bmo1kna3igdun" path="res://debate/packed_scene/card_ui/peace_card_ui.tscn" id="15_5ydu8"]
+[ext_resource type="FontFile" uid="uid://bhrgkhn1hsnfo" path="res://_asset/_general/font/PermanentMarker.ttf" id="15_51bmt"]
+[ext_resource type="Texture2D" uid="uid://dvuw4px2q6ili" path="res://_asset/debate/_general/texture/card/t_masking_tape_body.png" id="16_5a8c2"]
+[ext_resource type="PackedScene" uid="uid://7f3cslp40a4q" path="res://debate/packed_scene/card_ui/card_ui.tscn" id="16_tr2xg"]
+[ext_resource type="PackedScene" uid="uid://c4op54o5l5tf" path="res://debate/packed_scene/card_ui/tokenless_card_ui.tscn" id="17_tmsot"]
+[ext_resource type="Script" uid="uid://b8uvgvpddrpfw" path="res://debate/_script/ui/card_ui_factory/card_ui_factory_base.gd" id="18_8jdak"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://system/script/suit/suit.gd" id="18_yc2u1"]
+[ext_resource type="Texture2D" uid="uid://dgus730v33rk7" path="res://_asset/debate/_general/texture/card/t_card_description.png" id="23_mowv0"]
+[ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://_asset/_general/font/TenorSans-Regular.ttf" id="24_4enhq"]
+[ext_resource type="FontFile" uid="uid://bb8u2oie5sqet" path="res://_asset/_general/font/fahkwang/Fahkwang-Bold.ttf" id="25_3dfqr"]
+[ext_resource type="Texture2D" uid="uid://ddjknx5qqr87" path="res://_asset/debate/_general/texture/card/t_card_set_information.png" id="26_iwinr"]
+[ext_resource type="Texture2D" uid="uid://ccw84ml2464p1" path="res://_asset/debate/_general/texture/card/t_card_cost.png" id="27_t1np0"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://_asset/debate/_general/texture/suit/t_faith_icon.png" id="28_tk0yv"]
+[ext_resource type="Texture2D" uid="uid://bl81rf1rfjyuh" path="res://_asset/debate/_general/texture/card/t_card_token_location.png" id="29_ug0n5"]
+[ext_resource type="Texture2D" uid="uid://cu6c40kdnmjcc" path="res://_asset/debate/_general/texture/token/t_test_token_col.png" id="30_8novq"]
+[ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://_asset/debate/_general/texture/token/t_faith_token_col.png" id="31_r0sn3"]
+[ext_resource type="Texture2D" uid="uid://bj7hke57dh5a5" path="res://_asset/debate/_general/texture/card/t_tokenless_description.png" id="32_rg8ay"]
+
+[sub_resource type="Resource" id="Resource_o7rw7"]
+script = ExtResource("3_ttwij")
+metadata/_custom_type_script = "uid://c1eaebx4srk2s"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vc60s"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7oins"]
+width = 360
+height = 320
+noise = SubResource("FastNoiseLite_vc60s")
+seamless = true
+
+[sub_resource type="PackedScene" id="PackedScene_0w6nr"]
+_bundled = {
+"conn_count": 2,
+"conns": PackedInt32Array(1073741830, 1073741829, 67, 66, 2, 0, 0, 1073741832, 1073741831, 69, 68, 2, 0, 0),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("CardUi", "Control", "custom_minimum_size", "layout_mode", "anchors_preset", "offset_left", "offset_top", "offset_right", "offset_bottom", "pivot_offset_ratio", "size_flags_horizontal", "size_flags_vertical", "script", "card_bg", "title", "artwork", "shadow", "description", "cost", "icon", "metadata/focus_property", "Card", "Control", "custom_minimum_size", "layout_mode", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "scale", "pivot_offset_ratio", "Shadow", "TextureRect", "modulate", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "texture", "CardBG", "TextureRect", "self_modulate", "layout_mode", "offset_right", "offset_bottom", "texture", "FocusGroupSignalNode", "Node", "script", "CardFocusAnimation", "Node", "script", "card_base", "_on_focus_entered", "on_focus_entered", "_on_focus_exited", "on_focus_exited"),
+"node_count": 6,
+"node_ids": PackedInt32Array(147735438, 370963301, 62878429, 1769168594, 2089907977, 494077476),
+"node_paths": [NodePath("."), NodePath("./Card"), NodePath("./Card"), NodePath("./Card"), NodePath("./Card"), NodePath("Card/CardFocusAnimation"), NodePath("Card/FocusGroupSignalNode"), NodePath("Card/CardFocusAnimation"), NodePath("Card/FocusGroupSignalNode")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 19, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 9, 12, 10, 1073741837, 11, 1073741838, 12, 1073741839, 13, 1073741840, 14, 1073741841, 15, 1073741842, 16, 1073741843, 17, 20, 18, 0, 1073741824, 0, 22, 21, -1, 15, 23, 19, 24, 20, 25, 21, 26, 22, 27, 23, 28, 24, 29, 25, 30, 26, 31, 27, 32, 28, 33, 29, 34, 30, 35, 31, 36, 32, 37, 33, 0, 1073741825, 0, 39, 38, -1, 12, 40, 34, 41, 35, 42, 36, 43, 37, 44, 38, 45, 39, 46, 40, 47, 41, 48, 42, 49, 43, 50, 44, 51, 45, 0, 1073741826, 0, 53, 52, -1, 5, 54, 46, 55, 47, 56, 48, 57, 49, 58, 50, 0, 1073741827, 0, 60, 59, -1, 1, 61, 51, 0, 1073741828, 0, 63, 62, -1, 2, 64, 52, 1073741889, 53, 0),
+"variants": [Vector2(296, 256), 3, 0, -148.0, -128.0, 148.0, 128.0, Vector2(0.5, 0.5), 4, 4, ExtResource("5_1cw0q"), NodePath("Card/CardBG"), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), "card", Vector2(370, 320), 1, 8, 0.5, 0.5, 0.5, 0.5, -185.0, -160.0, 185.0, 160.0, 2, 2, Vector2(0.8, 0.8), Vector2(0.5, 0.5), Color(0, 0, 0, 0.0745098), 1, 15, 1.0, 1.0, -10.0, 10.0, -9.99997, 10.0, 2, 2, ExtResource("6_ec1lf"), Color(1, 0.69411767, 0.26666668, 1), 0, 370.0, 320.0, SubResource("NoiseTexture2D_7oins"), ExtResource("7_5dyvy"), ExtResource("8_jh52v"), NodePath("..")],
+"version": 3
+}
+
+[sub_resource type="PackedScene" id="PackedScene_x7q7o"]
+_bundled = {
+"conn_count": 2,
+"conns": PackedInt32Array(1073741830, 1073741829, 67, 66, 2, 0, 0, 1073741832, 1073741831, 69, 68, 2, 0, 0),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("CardUi", "Control", "custom_minimum_size", "layout_mode", "anchors_preset", "offset_left", "offset_top", "offset_right", "offset_bottom", "pivot_offset_ratio", "size_flags_horizontal", "size_flags_vertical", "script", "card_bg", "title", "artwork", "shadow", "description", "cost", "icon", "metadata/focus_property", "Card", "Control", "custom_minimum_size", "layout_mode", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "scale", "pivot_offset_ratio", "Shadow", "TextureRect", "modulate", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "texture", "CardBG", "TextureRect", "self_modulate", "layout_mode", "offset_right", "offset_bottom", "texture", "FocusGroupSignalNode", "Node", "script", "CardFocusAnimation", "Node", "script", "card_base", "_on_focus_entered", "on_focus_entered", "_on_focus_exited", "on_focus_exited"),
+"node_count": 6,
+"node_ids": PackedInt32Array(147735438, 370963301, 62878429, 1769168594, 2089907977, 494077476),
+"node_paths": [NodePath("."), NodePath("./Card"), NodePath("./Card"), NodePath("./Card"), NodePath("./Card"), NodePath("Card/CardFocusAnimation"), NodePath("Card/FocusGroupSignalNode"), NodePath("Card/CardFocusAnimation"), NodePath("Card/FocusGroupSignalNode")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 19, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 9, 12, 10, 1073741837, 11, 1073741838, 12, 1073741839, 13, 1073741840, 14, 1073741841, 15, 1073741842, 16, 1073741843, 17, 20, 18, 0, 1073741824, 0, 22, 21, -1, 15, 23, 19, 24, 20, 25, 21, 26, 22, 27, 23, 28, 24, 29, 25, 30, 26, 31, 27, 32, 28, 33, 29, 34, 30, 35, 31, 36, 32, 37, 33, 0, 1073741825, 0, 39, 38, -1, 12, 40, 34, 41, 35, 42, 36, 43, 37, 44, 38, 45, 39, 46, 40, 47, 41, 48, 42, 49, 43, 50, 44, 51, 45, 0, 1073741826, 0, 53, 52, -1, 5, 54, 46, 55, 47, 56, 48, 57, 49, 58, 50, 0, 1073741827, 0, 60, 59, -1, 1, 61, 51, 0, 1073741828, 0, 63, 62, -1, 2, 64, 52, 1073741889, 53, 0),
+"variants": [Vector2(296, 256), 3, 0, -148.0, -128.0, 148.0, 128.0, Vector2(0.5, 0.5), 4, 4, ExtResource("5_1cw0q"), NodePath("Card/CardBG"), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), "card", Vector2(370, 320), 1, 8, 0.5, 0.5, 0.5, 0.5, -185.0, -160.0, 185.0, 160.0, 2, 2, Vector2(0.8, 0.8), Vector2(0.5, 0.5), Color(0, 0, 0, 0.0745098), 1, 15, 1.0, 1.0, -10.0, 10.0, -9.99997, 10.0, 2, 2, ExtResource("6_ec1lf"), Color(1, 0.69411767, 0.26666668, 1), 0, 370.0, 320.0, SubResource("NoiseTexture2D_7oins"), ExtResource("7_5dyvy"), ExtResource("8_jh52v"), NodePath("..")],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_4pp30"]
+script = ExtResource("3_38yiq")
+token_card_gui = SubResource("PackedScene_0w6nr")
+tokenless_card_gui = SubResource("PackedScene_x7q7o")
+metadata/_custom_type_script = "uid://d4fneioflw7dl"
+
+[sub_resource type="Resource" id="Resource_gn3di"]
+resource_name = "RU: CurrentPlayerRule"
+script = ExtResource("5_pk5fl")
+which_contestant = 1
+metadata/_custom_type_script = "uid://cilcb0gb3xu0g"
+
+[sub_resource type="Resource" id="Resource_vmc3c"]
+script = ExtResource("6_qd0uu")
+rule = SubResource("Resource_gn3di")
+bb = SubResource("Resource_o7rw7")
+card_ui_factory = SubResource("Resource_4pp30")
+metadata/_custom_type_script = "uid://ck2rt2uwm6814"
+
+[sub_resource type="Resource" id="Resource_p61bt"]
+script = ExtResource("12_0r3g2")
+name = "Ennui"
+description = "Does Nothing"
+metadata/_custom_type_script = "uid://c12n22vq5ljj1"
+
+[sub_resource type="PackedScene" id="PackedScene_w538n"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(1814425711), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("TokenlessCardGUI", "TapeCovering", "Control", "modulate", "anchors_preset", "offset_right", "offset_bottom", "HeaderTape01", "TextureRect", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "scale", "texture", "HeaderTape02", "TextureRect", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "scale", "texture", "HeaderLabel", "Label", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "horizontal_alignment", "vertical_alignment", "BodyTape", "TextureRect", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "texture", "BodyLabel", "Label", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "theme_override_colors/font_color", "theme_override_constants/line_spacing", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "horizontal_alignment"),
+"node_count": 7,
+"node_ids": PackedInt32Array(743359882, 1299737339, 865025299, 1513085443, 1163959343, 862114333, 1380172066),
+"node_paths": [NodePath("./Card/CardBG"), NodePath("./Card/CardBG/TapeCovering"), NodePath("./Card/CardBG/TapeCovering"), NodePath("./Card/CardBG/TapeCovering"), NodePath("./Card/CardBG/TapeCovering"), NodePath("./Card/CardBG/TapeCovering")],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 0, 0, 1073741824, 0, 2, 1835009, -1, 4, 3, 1, 4, 2, 5, 3, 6, 4, 0, 1073741825, 0, 8, 262151, -1, 8, 9, 5, 10, 6, 11, 7, 12, 8, 13, 9, 14, 10, 15, 11, 16, 12, 0, 1073741826, 0, 18, 524305, -1, 8, 19, 13, 20, 14, 21, 15, 22, 16, 23, 17, 24, 18, 25, 19, 26, 20, 0, 1073741827, 0, 28, 786459, -1, 12, 29, 21, 30, 22, 31, 23, 32, 24, 33, 25, 34, 26, 35, 27, 36, 28, 37, 29, 38, 30, 39, 31, 40, 32, 0, 1073741828, 0, 42, 1048617, -1, 7, 43, 33, 44, 34, 45, 35, 46, 36, 47, 37, 48, 38, 49, 39, 0, 1073741829, 0, 51, 1310770, -1, 12, 52, 40, 53, 41, 54, 42, 55, 43, 56, 44, 57, 45, 58, 46, 59, 47, 60, 48, 61, 49, 62, 50, 63, 51, 0),
+"variants": [ExtResource("15_5ydu8"), Color(1, 1, 1, 0.9411765), 0, 40.0, 40.0, 0, 19.999994, -37.5, 138.0, 23.5, 0.15937787, Vector2(1.5052052, 1.5052052), ExtResource("14_78b6q"), 0, 318.74997, 93.750015, 436.74997, 154.75003, 3.4495108, Vector2(1.5052052, 1.5052052), ExtResource("14_78b6q"), 0, 66.25, -38.75, 292.25, 76.25, -0.03313008, Color(0.23, 0.23, 0.23, 0.9490196), ExtResource("15_51bmt"), 62, "Void", 1, 1, 0, 22.500002, 68.75, 325.5, 283.25, 0.06574465, ExtResource("16_5a8c2"), 0, 43.749992, 173.74998, 269.74997, 292.75, -0.20603636, Color(0.23, 0.23, 0.23, 0.9490196), -35, ExtResource("15_51bmt"), 40, "Does
+Nothing", 1],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_6f3hq"]
+script = ExtResource("3_38yiq")
+tokenless_card_gui = SubResource("PackedScene_w538n")
+metadata/_custom_type_script = "uid://d4fneioflw7dl"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8jxrr"]
+load_path = "res://.godot/imported/t_peace_icon.png-8991a3dd0b68b1e1496ed2f3c6d17741.s3tc.ctex"
+
+[sub_resource type="Resource" id="Resource_2nbdp"]
+script = ExtResource("18_yc2u1")
+name = "Peace"
+color = Color(0.278431, 0.278431, 0.278431, 1)
+icon = SubResource("CompressedTexture2D_8jxrr")
+
+[sub_resource type="Resource" id="Resource_5uomw"]
+script = ExtResource("9_5p33g")
+suit = SubResource("Resource_2nbdp")
+card_ui_factory = SubResource("Resource_6f3hq")
+metadata/_custom_type_script = "uid://du0wp68cutphq"
+
+[sub_resource type="PackedScene" id="PackedScene_4py03"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(1769168594), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("CardGUI", "TapeCovering", "Control", "modulate", "anchors_preset", "offset_right", "offset_bottom", "HeaderTape01", "TextureRect", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "scale", "texture", "HeaderTape02", "TextureRect", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "scale", "texture", "HeaderLabel", "Label", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "horizontal_alignment", "vertical_alignment", "BodyTape", "TextureRect", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "scale", "texture", "BodyLabel", "Label", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "theme_override_colors/font_color", "theme_override_constants/line_spacing", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "horizontal_alignment"),
+"node_count": 7,
+"node_ids": PackedInt32Array(370963301, 1212204553, 611910832, 1243796993, 1492227756, 255991222, 1758951577),
+"node_paths": [NodePath("./Card/CardBG"), NodePath("./Card/CardBG/TapeCovering"), NodePath("./Card/CardBG/TapeCovering"), NodePath("./Card/CardBG/TapeCovering"), NodePath("./Card/CardBG/TapeCovering"), NodePath("./Card/CardBG/TapeCovering")],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 0, 0, 1073741824, 0, 2, 1572865, -1, 4, 3, 1, 4, 2, 5, 3, 6, 4, 0, 1073741825, 0, 8, 262151, -1, 8, 9, 5, 10, 6, 11, 7, 12, 8, 13, 9, 14, 10, 15, 11, 16, 12, 0, 1073741826, 0, 18, 524305, -1, 8, 19, 13, 20, 14, 21, 15, 22, 16, 23, 17, 24, 18, 25, 19, 26, 20, 0, 1073741827, 0, 28, 786459, -1, 12, 29, 21, 30, 22, 31, 23, 32, 24, 33, 25, 34, 26, 35, 27, 36, 28, 37, 29, 38, 30, 39, 31, 40, 32, 0, 1073741828, 0, 42, 1048617, -1, 8, 43, 33, 44, 34, 45, 35, 46, 36, 47, 37, 48, 38, 49, 39, 50, 40, 0, 1073741829, 0, 52, 1310771, -1, 12, 53, 41, 54, 42, 55, 43, 56, 44, 57, 45, 58, 46, 59, 47, 60, 48, 61, 49, 62, 50, 63, 51, 64, 52, 0),
+"variants": [ExtResource("16_tr2xg"), Color(1, 1, 1, 0.9411765), 0, 40.0, 40.0, 0, 21.25, -45.0, 139.25, 16.0, 0.15937787, Vector2(1.5052052, 1.5052052), ExtResource("14_78b6q"), 0, 323.74997, 86.25001, 441.74997, 147.25, 3.30786, Vector2(1.5052052, 1.5052052), ExtResource("14_78b6q"), 0, 65.0, -46.25, 291.0, 68.75, 0.05614529, Color(0.23, 0.23, 0.23, 0.9490196), ExtResource("15_51bmt"), 62, "Void", 1, 1, 0, -15.216446, 68.74999, 186.78355, 211.75, 0.06574465, Vector2(1.3653247, 1.3653247), ExtResource("16_5a8c2"), 0, -13.75, 159.99997, 212.25, 279.0, -0.20603636, Color(0.23, 0.23, 0.23, 0.9490196), -35, ExtResource("15_51bmt"), 40, "Does
+Nothing", 1],
+"version": 3
+}
+
+[sub_resource type="PackedScene" id="PackedScene_r4o2r"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(1814425711), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("TokenlessCardGUI", "TapeCovering", "Control", "modulate", "anchors_preset", "offset_right", "offset_bottom", "HeaderTape01", "TextureRect", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "scale", "texture", "HeaderTape02", "TextureRect", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "scale", "texture", "HeaderLabel", "Label", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "horizontal_alignment", "vertical_alignment", "BodyTape", "TextureRect", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "texture", "BodyLabel", "Label", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "rotation", "theme_override_colors/font_color", "theme_override_constants/line_spacing", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "horizontal_alignment"),
+"node_count": 7,
+"node_ids": PackedInt32Array(1419343486, 2038464677, 954886043, 69509964, 1439188558, 1873225016, 37219496),
+"node_paths": [NodePath("./Card/CardBG"), NodePath("./Card/CardBG/TapeCovering"), NodePath("./Card/CardBG/TapeCovering"), NodePath("./Card/CardBG/TapeCovering"), NodePath("./Card/CardBG/TapeCovering"), NodePath("./Card/CardBG/TapeCovering")],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 0, 0, 1073741824, 0, 2, 1835009, -1, 4, 3, 1, 4, 2, 5, 3, 6, 4, 0, 1073741825, 0, 8, 262151, -1, 8, 9, 5, 10, 6, 11, 7, 12, 8, 13, 9, 14, 10, 15, 11, 16, 12, 0, 1073741826, 0, 18, 524305, -1, 8, 19, 13, 20, 14, 21, 15, 22, 16, 23, 17, 24, 18, 25, 19, 26, 20, 0, 1073741827, 0, 28, 786459, -1, 12, 29, 21, 30, 22, 31, 23, 32, 24, 33, 25, 34, 26, 35, 27, 36, 28, 37, 29, 38, 30, 39, 31, 40, 32, 0, 1073741828, 0, 42, 1048617, -1, 7, 43, 33, 44, 34, 45, 35, 46, 36, 47, 37, 48, 38, 49, 39, 0, 1073741829, 0, 51, 1310770, -1, 12, 52, 40, 53, 41, 54, 42, 55, 43, 56, 44, 57, 45, 58, 46, 59, 47, 60, 48, 61, 49, 62, 50, 63, 51, 0),
+"variants": [ExtResource("17_tmsot"), Color(1, 1, 1, 0.9411765), 0, 40.0, 40.0, 0, 19.999994, -37.5, 138.0, 23.5, 0.15937787, Vector2(1.5052052, 1.5052052), ExtResource("14_78b6q"), 0, 318.74997, 93.750015, 436.74997, 154.75003, 3.4495108, Vector2(1.5052052, 1.5052052), ExtResource("14_78b6q"), 0, 66.25, -38.75, 292.25, 76.25, -0.03313008, Color(0.23, 0.23, 0.23, 0.9490196), ExtResource("15_51bmt"), 62, "Void", 1, 1, 0, 22.500002, 68.75, 325.5, 283.25, 0.06574465, ExtResource("16_5a8c2"), 0, 43.749992, 173.74998, 269.74997, 292.75, -0.20603636, Color(0.23, 0.23, 0.23, 0.9490196), -35, ExtResource("15_51bmt"), 40, "Does
+Nothing", 1],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_va6rv"]
+script = ExtResource("3_38yiq")
+token_card_gui = SubResource("PackedScene_4py03")
+tokenless_card_gui = SubResource("PackedScene_r4o2r")
+metadata/_custom_type_script = "uid://d4fneioflw7dl"
+
+[sub_resource type="Resource" id="Resource_8w3co"]
+script = ExtResource("13_onsk2")
+buckets = Array[ExtResource("1_fw8ul")]([SubResource("Resource_5uomw"), SubResource("Resource_va6rv")])
+metadata/_custom_type_script = "uid://3ajnh5fdykvx"
+
+[sub_resource type="Resource" id="Resource_38dd7"]
+script = ExtResource("14_7wv1c")
+card_status_effect = SubResource("Resource_p61bt")
+card_ui_factory = SubResource("Resource_8w3co")
+metadata/_custom_type_script = "uid://dke2uxx0r453j"
+
+[sub_resource type="PackedScene" id="PackedScene_op83i"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(1814425711)],
+"names": PackedStringArray("CardUi", "Title", "theme_override_colors/font_color"),
+"node_count": 2,
+"node_ids": PackedInt32Array(147735438, 496953509),
+"node_paths": [NodePath("./Card/CardBG")],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 0, 0, 1073741824, -1, 2147483647, 786433, -1, 1, 2, 1, 0),
+"variants": [ExtResource("17_tmsot"), Color(0.9647059, 0.9647059, 0.9647059, 1)],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_dnvuo"]
+script = ExtResource("3_38yiq")
+tokenless_card_gui = SubResource("PackedScene_op83i")
+metadata/_custom_type_script = "uid://d4fneioflw7dl"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6kira"]
+load_path = "res://.godot/imported/t_peace_icon.png-8991a3dd0b68b1e1496ed2f3c6d17741.s3tc.ctex"
+
+[sub_resource type="Resource" id="Resource_brrsg"]
+script = ExtResource("18_yc2u1")
+name = "Peace"
+color = Color(0.278431, 0.278431, 0.278431, 1)
+icon = SubResource("CompressedTexture2D_6kira")
+
+[sub_resource type="Resource" id="Resource_y8l5i"]
+script = ExtResource("9_5p33g")
+suit = SubResource("Resource_brrsg")
+card_ui_factory = SubResource("Resource_dnvuo")
+metadata/_custom_type_script = "uid://du0wp68cutphq"
+
+[sub_resource type="Resource" id="Resource_0yhru"]
+script = ExtResource("13_onsk2")
+buckets = Array[ExtResource("1_fw8ul")]([SubResource("Resource_vmc3c"), SubResource("Resource_38dd7"), SubResource("Resource_y8l5i")])
+metadata/_custom_type_script = "uid://3ajnh5fdykvx"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ld4d5"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5xdp"]
+content_margin_left = 10.0
+content_margin_top = 0.0
+content_margin_right = 10.0
+content_margin_bottom = 0.0
+
+[sub_resource type="PackedScene" id="PackedScene_iyhn2"]
+_bundled = {
+"conn_count": 2,
+"conns": PackedInt32Array(1073741841, 1073741840, 216, 215, 2, 0, 0, 1073741843, 1073741842, 218, 217, 2, 0, 0),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("CardUi", "Control", "custom_minimum_size", "layout_mode", "anchors_preset", "offset_left", "offset_top", "offset_right", "offset_bottom", "pivot_offset_ratio", "size_flags_horizontal", "size_flags_vertical", "script", "card_bg", "title", "artwork", "shadow", "description", "cost", "icon", "metadata/focus_property", "Card", "Control", "custom_minimum_size", "layout_mode", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "scale", "pivot_offset_ratio", "Shadow", "TextureRect", "modulate", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "texture", "CardBG", "TextureRect", "self_modulate", "layout_mode", "offset_right", "offset_bottom", "texture", "CardDescription", "TextureRect", "layout_mode", "anchors_preset", "anchor_top", "anchor_right", "anchor_bottom", "offset_right", "texture", "Description", "RichTextLabel", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "theme_override_colors/default_color", "theme_override_fonts/normal_font", "theme_override_fonts/bold_font", "theme_override_font_sizes/normal_font_size", "theme_override_font_sizes/bold_font_size", "theme_override_styles/normal", "bbcode_enabled", "text", "scroll_active", "SetInfo", "TextureRect", "layout_mode", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "texture", "CardSetNumber", "Label", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "horizontal_alignment", "vertical_alignment", "CostIcon", "TextureRect", "self_modulate", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "texture", "stretch_mode", "Cost", "Label", "layout_mode", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "horizontal_alignment", "vertical_alignment", "SuitIcon", "TextureRect", "self_modulate", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "texture", "expand_mode", "stretch_mode", "Title", "Label", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "theme_override_styles/normal", "text", "vertical_alignment", "CardTokenLocation", "TextureRect", "layout_mode", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "texture", "expand_mode", "Shadow", "TextureRect", "self_modulate", "layout_mode", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "texture", "Token", "TextureRect", "layout_mode", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "texture", "FocusGroupSignalNode", "Node", "script", "CardFocusAnimation", "Node", "script", "card_base", "_on_focus_entered", "on_focus_entered", "_on_focus_exited", "on_focus_exited"),
+"node_count": 17,
+"node_ids": PackedInt32Array(147735438, 370963301, 62878429, 1769168594, 1547244308, 1908881171, 287386870, 1268837036, 1711034036, 2095905032, 399985266, 1351836744, 1237016836, 1446546923, 7661385, 2089907977, 494077476),
+"node_paths": [NodePath("."), NodePath("./Card"), NodePath("./Card"), NodePath("./Card/CardBG"), NodePath("./Card/CardBG/CardDescription"), NodePath("./Card/CardBG"), NodePath("./Card/CardBG/SetInfo"), NodePath("./Card/CardBG"), NodePath("./Card/CardBG/CostIcon"), NodePath("./Card/CardBG"), NodePath("./Card/CardBG"), NodePath("./Card/CardBG"), NodePath("./Card/CardBG/CardTokenLocation"), NodePath("./Card/CardBG/CardTokenLocation"), NodePath("./Card"), NodePath("./Card"), NodePath("Card/CardFocusAnimation"), NodePath("Card/FocusGroupSignalNode"), NodePath("Card/CardFocusAnimation"), NodePath("Card/FocusGroupSignalNode")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 19, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 9, 12, 10, 1073741837, 11, 1073741838, 12, 1073741839, 13, 1073741840, 14, 1073741841, 15, 1073741842, 16, 1073741843, 17, 20, 18, 0, 1073741824, 0, 22, 21, -1, 15, 23, 19, 24, 20, 25, 21, 26, 22, 27, 23, 28, 24, 29, 25, 30, 26, 31, 27, 32, 28, 33, 29, 34, 30, 35, 31, 36, 32, 37, 33, 0, 1073741825, 0, 39, 38, -1, 12, 40, 34, 41, 35, 42, 36, 43, 37, 44, 38, 45, 39, 46, 40, 47, 41, 48, 42, 49, 43, 50, 44, 51, 45, 0, 1073741826, 0, 53, 52, -1, 5, 54, 46, 55, 47, 56, 48, 57, 49, 58, 50, 0, 1073741827, 0, 60, 59, -1, 7, 61, 51, 62, 52, 63, 53, 64, 54, 65, 55, 66, 56, 67, 57, 0, 1073741828, 0, 69, 68, -1, 15, 70, 58, 71, 59, 72, 60, 73, 61, 74, 62, 75, 63, 76, 64, 77, 65, 78, 66, 79, 67, 80, 68, 81, 69, 82, 70, 83, 71, 84, 72, 0, 1073741829, 0, 86, 85, -1, 11, 87, 73, 88, 74, 89, 75, 90, 76, 91, 77, 92, 78, 93, 79, 94, 80, 95, 81, 96, 82, 97, 83, 0, 1073741830, 0, 99, 98, -1, 12, 100, 84, 101, 85, 102, 86, 103, 87, 104, 88, 105, 89, 106, 90, 107, 91, 108, 92, 109, 93, 110, 94, 111, 95, 0, 1073741831, 0, 113, 112, -1, 8, 114, 96, 115, 97, 116, 98, 117, 99, 118, 100, 119, 101, 120, 102, 121, 103, 0, 1073741832, 0, 123, 122, -1, 16, 124, 104, 125, 105, 126, 106, 127, 107, 128, 108, 129, 109, 130, 110, 131, 111, 132, 112, 133, 113, 134, 114, 135, 115, 136, 116, 137, 117, 138, 118, 139, 119, 0, 1073741833, 0, 141, 140, -1, 9, 142, 120, 143, 121, 144, 122, 145, 123, 146, 124, 147, 125, 148, 126, 149, 127, 150, 128, 0, 1073741834, 0, 152, 151, -1, 10, 153, 129, 154, 130, 155, 131, 156, 132, 157, 133, 158, 134, 159, 135, 160, 136, 161, 137, 162, 138, 0, 1073741835, 0, 164, 163, -1, 12, 165, 139, 166, 140, 167, 141, 168, 142, 169, 143, 170, 144, 171, 145, 172, 146, 173, 147, 174, 148, 175, 149, 176, 150, 0, 1073741836, 0, 178, 177, -1, 14, 179, 151, 180, 152, 181, 153, 182, 154, 183, 155, 184, 156, 185, 157, 186, 158, 187, 159, 188, 160, 189, 161, 190, 162, 191, 163, 192, 164, 0, 1073741837, 0, 194, 193, -1, 13, 195, 165, 196, 166, 197, 167, 198, 168, 199, 169, 200, 170, 201, 171, 202, 172, 203, 173, 204, 174, 205, 175, 206, 176, 207, 177, 0, 1073741838, 0, 209, 208, -1, 1, 210, 178, 0, 1073741839, 0, 212, 211, -1, 2, 213, 179, 1073742038, 180, 0),
+"variants": [Vector2(296, 256), 3, 0, -148.0, -128.0, 148.0, 128.0, Vector2(0.5, 0.5), 4, 4, ExtResource("5_1cw0q"), NodePath("Card/CardBG"), NodePath("Card/CardBG/Title"), NodePath("Card/CardBG/CardTokenLocation/Token"), NodePath("Card/CardBG/CardTokenLocation/Shadow"), NodePath("Card/CardBG/CardDescription/Description"), NodePath("Card/CardBG/CostIcon/Cost"), NodePath("Card/CardBG/SuitIcon"), "card", Vector2(370, 320), 1, 8, 0.5, 0.5, 0.5, 0.5, -185.0, -160.0, 185.0, 160.0, 2, 2, Vector2(0.8, 0.8), Vector2(0.5, 0.5), Color(0, 0, 0, 0.0745098), 1, 15, 1.0, 1.0, -10.0, 10.0, -9.99997, 10.0, 2, 2, ExtResource("6_ec1lf"), Color(1, 0.69411767, 0.26666668, 1), 0, 370.0, 320.0, ExtResource("6_ec1lf"), 1, -1, 0.125, 0.595, 1.0, -0.15000916, ExtResource("23_mowv0"), 1, 15, 1.0, 1.0, 2, 2, Color(0.137255, 0.0862745, 0.0588235, 1), ExtResource("24_4enhq"), ExtResource("25_3dfqr"), 24, 22, SubResource("StyleBoxEmpty_ld4d5"), true, "Place 2 [b]Structured Conversation[/b] tops.
+
+Cost -1 for ever [b]pentagram[/b] top in play", false, 1, -1, 0.814, 0.87500006, 1.001, 1.0, 0.06997681, -6.1035156e-05, -0.12005615, -3.0517578e-05, ExtResource("26_iwinr"), 1, 15, 1.0, 1.0, 2, 2, Color(0.137255, 0.0862745, 0.0588235, 1), ExtResource("24_4enhq"), 16, "12/78", 1, 1, Color(0.964706, 0.964706, 0.964706, 1), 0, 232.0, 200.0, 292.0, 260.0, ExtResource("27_t1np0"), 5, 1, -1, 0.117, 0.217, 0.9, 1.0, -1.5199394, -4.27003, -1.499939, -4.2500305, Color(0.137255, 0.0862745, 0.0588235, 1), ExtResource("24_4enhq"), 30, "5", 1, 1, Color(0.964706, 0.964706, 0.964706, 1), 0, 298.0, 200.0, 358.0, 260.0, ExtResource("28_tk0yv"), 1, 5, 1, -1, 1.0, 0.125, Color(0.137255, 0.0862745, 0.0588235, 1), ExtResource("24_4enhq"), 30, SubResource("StyleBoxEmpty_y5xdp"), "Structured Argument", 1, 1, -1, 0.616, 0.144, 0.981, 0.566, 0.0799555, -0.0800018, 0.0299672, -0.120041, ExtResource("29_ug0n5"), 1, Color(0, 0, 0, 0.34902), 1, -1, 0.026, 0.026, 0.974, 0.974, -7.41739, 6.16284, -7.3974, 6.18283, 2, 2, ExtResource("30_8novq"), 1, -1, 0.026, 0.026, 0.974, 0.974, -0.00999999, -0.00999999, 0.00999451, 0.00999451, 2, 2, ExtResource("31_r0sn3"), ExtResource("7_5dyvy"), ExtResource("8_jh52v"), NodePath("..")],
+"version": 3
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mnhj4"]
+content_margin_left = 10.0
+content_margin_top = 0.0
+content_margin_right = 10.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dsxx5"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="PackedScene" id="PackedScene_c15iq"]
+_bundled = {
+"conn_count": 2,
+"conns": PackedInt32Array(1073741837, 1073741836, 177, 176, 2, 0, 0, 1073741839, 1073741838, 179, 178, 2, 0, 0),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("CardUi", "Control", "custom_minimum_size", "layout_mode", "anchors_preset", "offset_left", "offset_top", "offset_right", "offset_bottom", "pivot_offset_ratio", "size_flags_horizontal", "size_flags_vertical", "script", "card_bg", "title", "description", "cost", "icon", "metadata/focus_property", "Card", "Control", "custom_minimum_size", "layout_mode", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "scale", "pivot_offset_ratio", "Shadow", "TextureRect", "modulate", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "texture", "CardBG", "TextureRect", "self_modulate", "layout_mode", "offset_right", "offset_bottom", "texture", "Body", "TextureRect", "layout_mode", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "grow_horizontal", "grow_vertical", "texture", "stretch_mode", "SuitIcon", "TextureRect", "self_modulate", "layout_mode", "anchors_preset", "anchor_left", "anchor_right", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "texture", "expand_mode", "stretch_mode", "Title", "Label", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "theme_override_styles/normal", "text", "horizontal_alignment", "vertical_alignment", "CardSetNumber", "Label", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "grow_horizontal", "grow_vertical", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "horizontal_alignment", "vertical_alignment", "CostIcon", "TextureRect", "self_modulate", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "texture", "stretch_mode", "Cost", "Label", "layout_mode", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "theme_override_colors/font_color", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "horizontal_alignment", "vertical_alignment", "Description", "RichTextLabel", "layout_mode", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "theme_override_colors/default_color", "theme_override_fonts/normal_font", "theme_override_fonts/bold_font", "theme_override_font_sizes/normal_font_size", "theme_override_font_sizes/bold_font_size", "theme_override_styles/normal", "bbcode_enabled", "text", "scroll_active", "FocusGroupSignalNode", "Node", "script", "metadata/_custom_type_script", "CardFocusAnimation", "Node", "script", "card_base", "metadata/_custom_type_script", "_on_focus_entered", "on_focus_entered", "_on_focus_exited", "on_focus_exited"),
+"node_count": 13,
+"node_ids": PackedInt32Array(147735438, 370963301, 62878429, 1814425711, 2101696327, 800869109, 496953509, 1265073152, 1059795595, 1263806695, 601563015, 1789262596, 329119269),
+"node_paths": [NodePath("."), NodePath("./Card"), NodePath("./Card"), NodePath("./Card/CardBG"), NodePath("./Card/CardBG"), NodePath("./Card/CardBG"), NodePath("./Card/CardBG"), NodePath("./Card/CardBG"), NodePath("./Card/CardBG/CostIcon"), NodePath("./Card/CardBG"), NodePath("./Card"), NodePath("./Card"), NodePath("Card/CardFocusAnimation"), NodePath("Card/FocusGroupSignalNode"), NodePath("Card/CardFocusAnimation"), NodePath("Card/FocusGroupSignalNode")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 17, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 9, 12, 10, 1073741837, 11, 1073741838, 12, 1073741839, 13, 1073741840, 14, 1073741841, 15, 18, 16, 0, 1073741824, 0, 20, 19, -1, 15, 21, 17, 22, 18, 23, 19, 24, 20, 25, 21, 26, 22, 27, 23, 28, 24, 29, 25, 30, 26, 31, 27, 32, 28, 33, 29, 34, 30, 35, 31, 0, 1073741825, 0, 37, 36, -1, 12, 38, 32, 39, 33, 40, 34, 41, 35, 42, 36, 43, 37, 44, 38, 45, 39, 46, 40, 47, 41, 48, 42, 49, 43, 0, 1073741826, 0, 51, 50, -1, 5, 52, 44, 53, 45, 54, 46, 55, 47, 56, 48, 0, 1073741827, 0, 58, 57, -1, 13, 59, 49, 60, 50, 61, 51, 62, 52, 63, 53, 64, 54, 65, 55, 66, 56, 67, 57, 68, 58, 69, 59, 70, 60, 71, 61, 0, 1073741828, 0, 73, 72, -1, 13, 74, 62, 75, 63, 76, 64, 77, 65, 78, 66, 79, 67, 80, 68, 81, 69, 82, 70, 83, 71, 84, 72, 85, 73, 86, 74, 0, 1073741829, 0, 88, 87, -1, 11, 89, 75, 90, 76, 91, 77, 92, 78, 93, 79, 94, 80, 95, 81, 96, 82, 97, 83, 98, 84, 99, 85, 0, 1073741830, 0, 101, 100, -1, 14, 102, 86, 103, 87, 104, 88, 105, 89, 106, 90, 107, 91, 108, 92, 109, 93, 110, 94, 111, 95, 112, 96, 113, 97, 114, 98, 115, 99, 0, 1073741831, 0, 117, 116, -1, 8, 118, 100, 119, 101, 120, 102, 121, 103, 122, 104, 123, 105, 124, 106, 125, 107, 0, 1073741832, 0, 127, 126, -1, 18, 128, 108, 129, 109, 130, 110, 131, 111, 132, 112, 133, 113, 134, 114, 135, 115, 136, 116, 137, 117, 138, 118, 139, 119, 140, 120, 141, 121, 142, 122, 143, 123, 144, 124, 145, 125, 0, 1073741833, 0, 147, 146, -1, 19, 148, 126, 149, 127, 150, 128, 151, 129, 152, 130, 153, 131, 154, 132, 155, 133, 156, 134, 157, 135, 158, 136, 159, 137, 160, 138, 161, 139, 162, 140, 163, 141, 164, 142, 165, 143, 166, 144, 0, 1073741834, 0, 168, 167, -1, 2, 169, 145, 170, 146, 0, 1073741835, 0, 172, 171, -1, 3, 173, 147, 1073741998, 148, 175, 149, 0),
+"variants": [Vector2(296, 256), 3, 0, -148.0, -128.0, 148.0, 128.0, Vector2(0.5, 0.5), 4, 4, ExtResource("5_1cw0q"), NodePath("Card/CardBG"), NodePath("Card/CardBG/Title"), NodePath("Card/CardBG/Description"), NodePath("Card/CardBG/CostIcon/Cost"), NodePath("Card/CardBG/SuitIcon"), "card", Vector2(370, 320), 1, 8, 0.5, 0.5, 0.5, 0.5, -185.0, -160.0, 185.0, 160.0, 2, 2, Vector2(0.8, 0.8), Vector2(0.5, 0.5), Color(0, 0, 0, 0.0745098), 1, 15, 1.0, 1.0, -10.0, 10.0, -9.99997, 10.0, 2, 2, ExtResource("6_ec1lf"), Color(0.99607843, 0.69411767, 0.26666668, 1), 0, 370.0, 320.0, ExtResource("6_ec1lf"), 1, 7, 0.5, 1.0, 0.5, 1.0, -185.0, -267.0, 185.0, 2, 0, ExtResource("32_rg8ay"), 2, Color(0.964706, 0.964706, 0.964706, 1), 1, 5, 0.5, 0.5, -15.0, 42.0, 16.0, 73.0, 2, ExtResource("28_tk0yv"), 1, 5, 1, -1, 1.0, 0.125, Color(0.137255, 0.0862745, 0.0588235, 1), ExtResource("24_4enhq"), 30, SubResource("StyleBoxEmpty_mnhj4"), "Structured Argument", 1, 1, 1, 15, 1.0, 1.0, 304.0, 294.0, 2, 2, Color(0.137255, 0.0862745, 0.0588235, 1), ExtResource("24_4enhq"), 16, "12/78", 1, 1, Color(0.13725491, 0.08627451, 0.05882353, 1), 0, 315.0, 238.74997, 355.0, 287.74997, ExtResource("27_t1np0"), 5, 1, 8, 0.5, 0.5, 0.5, 0.5, -9.75, -18.0, 7.25, 18.0, 2, 2, Color(0.964706, 0.964706, 0.964706, 1), ExtResource("24_4enhq"), 30, "5", 1, 1, 1, -1, 0.014, 0.281, 0.984, 0.981, -0.18, 0.0799942, -0.0800101, 0.0799789, Color(0.137255, 0.0862745, 0.0588235, 1), ExtResource("24_4enhq"), ExtResource("25_3dfqr"), 22, 20, SubResource("StyleBoxEmpty_dsxx5"), true, "Place 2 [b]Structured Conversation[/b] tops.
+
+Cost -1 for ever [b]pentagram[/b] top in play", false, ExtResource("7_5dyvy"), "uid://dc8gq2l3o144t", ExtResource("8_jh52v"), NodePath(".."), "uid://cumbxctg3u56"],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_bgoif"]
+script = ExtResource("3_38yiq")
+token_card_gui = SubResource("PackedScene_iyhn2")
+tokenless_card_gui = SubResource("PackedScene_c15iq")
+metadata/_custom_type_script = "uid://d4fneioflw7dl"
+
+[resource]
+script = ExtResource("18_8jdak")
+card_ui_factory = SubResource("Resource_0yhru")
+default_card_pair = SubResource("Resource_bgoif")
+metadata/_custom_type_script = "uid://b8uvgvpddrpfw"

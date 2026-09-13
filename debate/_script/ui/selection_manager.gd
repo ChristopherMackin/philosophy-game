@@ -40,6 +40,8 @@ func _on_handler_deselected():
 		active_focus_group.deselect_group()
 
 func _handle_input(_delta, input):
+	if !active_focus_group: return
+	
 	if input.is_action_just_pressed("up"):
 		active_focus_group.focus_top()
 	elif input.is_action_just_pressed("down"):

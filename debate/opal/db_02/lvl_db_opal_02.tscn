@@ -5,10 +5,7 @@
 [ext_resource type="Resource" uid="uid://tlcoyw2fklgw" path="res://debate/opal/db_02/ef_db_opal_02.tres" id="3_afl77"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="4_do73n"]
 [ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/c_doubt_basic_doubt.tres" id="5_x4q7t"]
-[ext_resource type="Script" uid="uid://cxodlpgrmgtv7" path="res://system/script/blackboard/blackboard_entry.gd" id="6_lqq7m"]
-[ext_resource type="Script" uid="uid://c1eaebx4srk2s" path="res://system/script/blackboard/blackboard.gd" id="7_ooec2"]
 [ext_resource type="Resource" uid="uid://bxdnjlvt3iyth" path="res://system/debate_manager.tres" id="8_lkhof"]
-[ext_resource type="Script" uid="uid://dtbnhujk3f31y" path="res://system/script/event/event_manager.gd" id="9_0urku"]
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="10_mtxak"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="11_h172o"]
 [ext_resource type="Resource" uid="uid://do4ijr1aixaqw" path="res://debate/opal/db_02/bb_db_opal_02.tres" id="12_a5gm7"]
@@ -21,7 +18,6 @@
 [ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="19_6xexp"]
 [ext_resource type="Script" uid="uid://bojj5s0o4f2s3" path="res://system/script/input/world_input_manager.gd" id="20_7hyc5"]
 [ext_resource type="Resource" uid="uid://coqtgijiyc02d" path="res://system/input/ih_selection_manager.tres" id="21_y3pqf"]
-[ext_resource type="Script" uid="uid://bnrc1wni3x3h8" path="res://_debug/debate_input_control_manager.gd" id="22_87k4b"]
 [ext_resource type="Script" uid="uid://syaosi1lkwul" path="res://debate/_script/ui/selection_manager.gd" id="22_atsrn"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/br_player.tres" id="23_frype"]
 [ext_resource type="Resource" uid="uid://vxjneadxt621" path="res://system/focus_group/hand_focus_group.tres" id="24_gkb4e"]
@@ -57,71 +53,17 @@
 [ext_resource type="Texture2D" uid="uid://cp4wiih01ktxp" path="res://_asset/_general/texture/t_spiked_bubble_02.png" id="100_0ndkd"]
 [ext_resource type="Texture2D" uid="uid://ketnefqmtrie" path="res://_asset/_general/texture/t_spiked_bubble_03.png" id="101_5q7bm"]
 
-[sub_resource type="Resource" id="Resource_463a1"]
-resource_name = "ev_db_opal_02_p1_turn_01a.tres"
-script = ExtResource("6_lqq7m")
-key = "ev_db_opal_02_p1_turn_01a.tres"
-value = true
-expiration_token = 2
+[sub_resource type="ViewportTexture" id="ViewportTexture_8ur0d"]
+viewport_path = NodePath("SubViewport")
 
-[sub_resource type="Resource" id="Resource_kqhrk"]
-resource_name = "ev_db_opal_02_p1_turn_02a.tres"
-script = ExtResource("6_lqq7m")
-key = "ev_db_opal_02_p1_turn_02a.tres"
-value = true
-expiration_token = 2
+[sub_resource type="ViewportTexture" id="ViewportTexture_p12bn"]
+viewport_path = NodePath("SubViewport")
 
-[sub_resource type="Resource" id="Resource_hrfbg"]
-resource_name = "ev_db_opal_02_p1_turn_02.tres"
-script = ExtResource("6_lqq7m")
-key = "ev_db_opal_02_p1_turn_02.tres"
-value = true
-expiration_token = 2
+[sub_resource type="ViewportTexture" id="ViewportTexture_ocrdf"]
+viewport_path = NodePath("PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport")
 
-[sub_resource type="Resource" id="Resource_knqga"]
-resource_name = "ev_db_opal_02_p1_turn_03.tres"
-script = ExtResource("6_lqq7m")
-key = "ev_db_opal_02_p1_turn_03.tres"
-value = true
-expiration_token = 2
-
-[sub_resource type="Resource" id="Resource_5xgcw"]
-resource_name = "ev_db_opal_02_p1_turn_04.tres"
-script = ExtResource("6_lqq7m")
-key = "ev_db_opal_02_p1_turn_04.tres"
-value = true
-expiration_token = 2
-
-[sub_resource type="Resource" id="Resource_f3ys7"]
-resource_name = "ev_db_opal_02_p1_p2_transition.tres"
-script = ExtResource("6_lqq7m")
-key = "ev_db_opal_02_p1_p2_transition.tres"
-value = true
-expiration_token = 2
-
-[sub_resource type="Resource" id="Resource_nolis"]
-resource_name = "ev_db_opal_02_p1_turn_01.tres"
-script = ExtResource("6_lqq7m")
-key = "ev_db_opal_02_p1_turn_01.tres"
-value = true
-expiration_token = 2
-
-[sub_resource type="Resource" id="Resource_2moqn"]
-resource_name = "ev_db_opal_02_t1.tres"
-script = ExtResource("6_lqq7m")
-key = "ev_db_opal_02_t1.tres"
-value = true
-expiration_token = 2
-
-[sub_resource type="Resource" id="Resource_pwg14"]
-script = ExtResource("7_ooec2")
-_entries = Array[ExtResource("6_lqq7m")]([SubResource("Resource_463a1"), SubResource("Resource_kqhrk"), SubResource("Resource_hrfbg"), SubResource("Resource_knqga"), SubResource("Resource_5xgcw"), SubResource("Resource_f3ys7"), SubResource("Resource_nolis"), SubResource("Resource_2moqn")])
-metadata/_custom_type_script = "uid://c1eaebx4srk2s"
-
-[sub_resource type="Resource" id="Resource_mqc32"]
-script = ExtResource("9_0urku")
-blackboard = SubResource("Resource_pwg14")
-metadata/_custom_type_script = "uid://dtbnhujk3f31y"
+[sub_resource type="ViewportTexture" id="ViewportTexture_d1ad8"]
+viewport_path = NodePath("PlayerUi/PlayerHeldCard/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1kwum"]
 viewport_path = NodePath("SubViewport")
@@ -130,27 +72,15 @@ viewport_path = NodePath("SubViewport")
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_kxl61"]
-viewport_path = NodePath("PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport")
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_yha5w"]
-viewport_path = NodePath("PlayerUi/PlayerHeldCard/SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_dghl5"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_72b1j"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_sna7n"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_xmtap"]
 viewport_path = NodePath("GameBoardState/TurnCounter/CounterUi/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_11wh6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_dghl5"]
 viewport_path = NodePath("GameBoardState/LineClearCounter/CounterUi/SubViewport")
 
-[sub_resource type="Environment" id="Environment_1kwum"]
+[sub_resource type="Environment" id="Environment_8ur0d"]
 ambient_light_source = 2
 ambient_light_color = Color(0.94, 0.94, 0.94, 1)
 ssao_intensity = 1.32
@@ -1040,7 +970,7 @@ _data = {
 dof_blur_far_enabled = true
 dof_blur_far_distance = 5.0
 
-[sub_resource type="Environment" id="Environment_14ksg"]
+[sub_resource type="Environment" id="Environment_p12bn"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -1103,7 +1033,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_dqw0w")
 nodes/Animation/position = Vector2(50, 320)
 node_connections = [&"output", 0, &"talk_override", &"talk_override", 0, &"blink_override", &"talk_override", 1, &"talk", &"blink_override", 0, &"Animation", &"blink_override", 1, &"blink"]
 
-[sub_resource type="Environment" id="Environment_kxl61"]
+[sub_resource type="Environment" id="Environment_ocrdf"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -1138,7 +1068,7 @@ frame_2/duration = 1.0
 
 [node name="===DEBUG========" type="Node3D" parent="." unique_id=801987926]
 
-[node name="DebugEventManager" type="Node" parent="===DEBUG========" unique_id=1676246633 node_paths=PackedStringArray("scene_animator_handler")]
+[node name="DebugEventManager" type="Node" parent="===DEBUG========" unique_id=1676246633 node_paths=PackedStringArray("event_subscriber")]
 script = ExtResource("1_yqurc")
 btn_continue = Callable()
 btn_skip = Callable()
@@ -1148,10 +1078,8 @@ event_factory = ExtResource("3_afl77")
 concept = 6
 card_history = Array[ExtResource("4_do73n")]([ExtResource("5_x4q7t")])
 current_round = 5
-blackboard = SubResource("Resource_pwg14")
-debate_manager = ExtResource("8_lkhof")
-scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
-manager = SubResource("Resource_mqc32")
+blackboard = ExtResource("12_a5gm7")
+event_subscriber = NodePath("../../===MANAGER========/SceneEventManager")
 
 [node name="===MANAGER========" type="Node3D" parent="." unique_id=1441557243]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -1175,6 +1103,7 @@ computer = ExtResource("16_5nt2c")
 script = ExtResource("17_b4lum")
 event_factory = ExtResource("3_afl77")
 event_manager = ExtResource("11_h172o")
+blackboard = ExtResource("12_a5gm7")
 manager = ExtResource("8_lkhof")
 metadata/_custom_type_script = "uid://dhulr5f133qcw"
 
@@ -1189,13 +1118,6 @@ manager = ExtResource("11_h172o")
 [node name="InputManager" type="Node" parent="===MANAGER========" unique_id=233808309]
 script = ExtResource("20_7hyc5")
 active_handler = ExtResource("21_y3pqf")
-
-[node name="DebateInputControlManager" type="Node" parent="===MANAGER========" unique_id=102570387 node_paths=PackedStringArray("input_manager")]
-script = ExtResource("22_87k4b")
-input_manager = NodePath("../InputManager")
-player_selection_input_handler = ExtResource("21_y3pqf")
-manager = ExtResource("8_lkhof")
-metadata/_custom_type_script = "uid://bnrc1wni3x3h8"
 
 [node name="SelectionManager" type="Node" parent="===MANAGER========" unique_id=1647373781 node_paths=PackedStringArray("play_area_selector", "card_selector", "suit_selector")]
 script = ExtResource("22_atsrn")
@@ -1219,34 +1141,34 @@ metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
 [node name="===GAMEPLAY========" parent="." unique_id=552190790 instance=ExtResource("30_1kwum")]
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter" parent_id_path=PackedInt32Array(552190790, 1292719538) index="1" unique_id=1817069595]
-texture = SubResource("ViewportTexture_1kwum")
+texture = SubResource("ViewportTexture_8ur0d")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" parent_id_path=PackedInt32Array(552190790, 1140548364) index="1" unique_id=1891820841]
-texture = SubResource("ViewportTexture_14ksg")
+texture = SubResource("ViewportTexture_p12bn")
 
 [node name="CounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter" parent_id_path=PackedInt32Array(552190790, 1840847040) index="1" unique_id=89424]
-texture = SubResource("ViewportTexture_kxl61")
+texture = SubResource("ViewportTexture_ocrdf")
 
 [node name="PlayerHeldCard" parent="===GAMEPLAY========/PlayerUi" parent_id_path=PackedInt32Array(552190790, 1421476521) index="3" unique_id=1705489298]
-texture = SubResource("ViewportTexture_yha5w")
+texture = SubResource("ViewportTexture_d1ad8")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" parent_id_path=PackedInt32Array(552190790, 1763425977) index="1" unique_id=203899939]
-texture = SubResource("ViewportTexture_dghl5")
+texture = SubResource("ViewportTexture_1kwum")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" parent_id_path=PackedInt32Array(552190790, 1658857809) index="1" unique_id=680078832]
-texture = SubResource("ViewportTexture_72b1j")
+texture = SubResource("ViewportTexture_14ksg")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" parent_id_path=PackedInt32Array(552190790, 333569903) index="1" unique_id=822662507]
-texture = SubResource("ViewportTexture_sna7n")
+texture = SubResource("ViewportTexture_kxl61")
 
 [node name="CounterUi" parent="===GAMEPLAY========/GameBoardState/TurnCounter" parent_id_path=PackedInt32Array(552190790, 1123270235) index="1" unique_id=1361296080]
-texture = SubResource("ViewportTexture_xmtap")
+texture = SubResource("ViewportTexture_yha5w")
 
 [node name="CounterUi" parent="===GAMEPLAY========/GameBoardState/LineClearCounter" parent_id_path=PackedInt32Array(552190790, 1786900677) index="2" unique_id=135036996]
-texture = SubResource("ViewportTexture_11wh6")
+texture = SubResource("ViewportTexture_dghl5")
 
 [node name="GameplayCamera" parent="===GAMEPLAY========/===UI========/GameplayContainer/SubViewport" parent_id_path=PackedInt32Array(552190790, 1331556263) index="0" unique_id=1341371874]
-environment = SubResource("Environment_1kwum")
+environment = SubResource("Environment_8ur0d")
 
 [node name="===CAMERA========" type="Node3D" parent="." unique_id=1860563192]
 
@@ -1329,7 +1251,7 @@ texture = ExtResource("85_7j30g")
 visible = false
 actor_name = "opal_cinematic"
 
-[node name="Skeleton3D" parent="===CUTSCENE========/OpalCinematicActor/Skeleton/root" parent_id_path=PackedInt32Array(1017530611, 1276102160, 1692687571) index="0" unique_id=945318238]
+[node name="Skeleton3D" parent="===CUTSCENE========/OpalCinematicActor/Skeleton/root" parent_id_path=PackedInt32Array(1017530611, 1276102160, 596109324) index="0" unique_id=674613312]
 bones/0/position = Vector3(-0.9141067, -2.7939686e-09, 0.08161321)
 bones/0/rotation = Quaternion(2.3202771e-08, 0.7887923, -4.3630013e-08, 0.61465985)
 bones/0/scale = Vector3(0.99999994, 1, 0.99999994)
@@ -1550,46 +1472,46 @@ bones/72/position = Vector3(0.13033782, 1.7359104e-08, -5.0683262e-08)
 bones/72/rotation = Quaternion(-3.0858896e-08, -8.195638e-08, 3.057363e-15, 1)
 bones/72/scale = Vector3(1.0000001, 1, 1.0000001)
 
-[node name="Opal_Base_Body" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 950482853) index="0" unique_id=1126795325]
+[node name="Opal_Base_Body" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 526336037) index="0" unique_id=634949868]
 layers = 4
 
-[node name="Opal_Base_Face" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 950482853) index="1" unique_id=1818982162]
+[node name="Opal_Base_Face" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 526336037) index="1" unique_id=1253843568]
 layers = 4
 
-[node name="Opal_Base_Face_001" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 950482853) index="2" unique_id=1272425223]
+[node name="Opal_Base_Face_001" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 526336037) index="2" unique_id=163223304]
 layers = 4
 
-[node name="Opal_Base_Hair" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 950482853) index="3" unique_id=1401490568]
+[node name="Opal_Base_Hair" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 526336037) index="3" unique_id=1282236383]
 layers = 4
 
-[node name="Opal_Base_Pupil" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 950482853) index="4" unique_id=1511912411]
+[node name="Opal_Base_Pupil" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 526336037) index="4" unique_id=865328841]
 layers = 4
 
-[node name="Opal_Base_Skull" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 950482853) index="5" unique_id=1322625692]
+[node name="Opal_Base_Skull" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 526336037) index="5" unique_id=1220378562]
 layers = 4
 
-[node name="Opal_Base_Sokets" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 950482853) index="6" unique_id=682252803]
+[node name="Opal_Base_Sokets" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 526336037) index="6" unique_id=477318842]
 layers = 4
 
-[node name="Opal_Outfit_01_Braclet" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 950482853) index="7" unique_id=643542247]
+[node name="Opal_Outfit_01_Braclet" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 526336037) index="7" unique_id=177041902]
 layers = 4
 
-[node name="Opal_Outfit_01_Earings" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 950482853) index="8" unique_id=1370046702]
+[node name="Opal_Outfit_01_Earings" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 526336037) index="8" unique_id=76291571]
 layers = 4
 
-[node name="Opal_Outfit_01_NameTag" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 950482853) index="9" unique_id=433211227]
+[node name="Opal_Outfit_01_NameTag" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 526336037) index="9" unique_id=623036638]
 layers = 4
 
-[node name="Opal_Outfit_01_Pants" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 950482853) index="10" unique_id=2053016438]
+[node name="Opal_Outfit_01_Pants" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 526336037) index="10" unique_id=1570188197]
 layers = 4
 
-[node name="Opal_Outfit_01_Shirt" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 950482853) index="11" unique_id=578552020]
+[node name="Opal_Outfit_01_Shirt" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 526336037) index="11" unique_id=1262339138]
 layers = 4
 
-[node name="Opal_Outfit_01_Shoes" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 950482853) index="12" unique_id=44714901]
+[node name="Opal_Outfit_01_Shoes" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 526336037) index="12" unique_id=925385033]
 layers = 4
 
-[node name="Opal_Outfit_01_Sweater" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 950482853) index="13" unique_id=97945338]
+[node name="Opal_Outfit_01_Sweater" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown/root/Skeleton3D" parent_id_path=PackedInt32Array(1017530611, 1527281418, 526336037) index="13" unique_id=1295331113]
 layers = 4
 
 [node name="LayerMask" type="Node" parent="===CUTSCENE========/OpalCinematicActor/Outfit/OpalUnknown" parent_id_path=PackedInt32Array(1017530611, 1527281418) index="1" unique_id=2055108883]
@@ -1615,7 +1537,7 @@ layers = 0
 visible = false
 actor_name = "joy_cinematic"
 
-[node name="Skeleton3D" parent="===CUTSCENE========/JoyCinematicActor/Skeleton/root" parent_id_path=PackedInt32Array(2066360241, 1298630328, 1006879066) index="0" unique_id=1569458232]
+[node name="Skeleton3D" parent="===CUTSCENE========/JoyCinematicActor/Skeleton/root" parent_id_path=PackedInt32Array(2066360241, 1298630328, 1085297764) index="0" unique_id=330718569]
 bones/1/position = Vector3(-0.028003627, 0.04269421, -0.32869142)
 bones/1/rotation = Quaternion(-0.33452722, 0.053836554, -0.0588019, 0.93900776)
 bones/1/scale = Vector3(1, 1, 1.0000001)
@@ -1819,44 +1741,44 @@ bones/68/rotation = Quaternion(2.2217312e-08, -0.016535219, -2.9899923e-08, 0.99
 bones/68/scale = Vector3(0.99999994, 0.99999994, 1)
 bones/72/position = Vector3(0.9906519, -0.14895749, 1.6404384e-07)
 
-[node name="Joy_Base_Body" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 724015997) index="0" unique_id=1214535765]
+[node name="Joy_Base_Body" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="0" unique_id=267586307]
 layers = 7
 
-[node name="Joy_Base_Face" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 724015997) index="1" unique_id=2063680796]
+[node name="Joy_Base_Face" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="1" unique_id=517453162]
 layers = 7
 instance_shader_parameters/uv_offset = Vector2(0.75, 0)
 
-[node name="Joy_Base_Mouth" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 724015997) index="2" unique_id=416483565]
+[node name="Joy_Base_Mouth" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="2" unique_id=1378670721]
 layers = 7
 
-[node name="Joy_Base_Pupils" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 724015997) index="3" unique_id=1008312247]
+[node name="Joy_Base_Pupils" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="3" unique_id=2038468354]
 layers = 7
 
-[node name="Joy_Base_Skull" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 724015997) index="4" unique_id=598294874]
+[node name="Joy_Base_Skull" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="4" unique_id=282972724]
 layers = 7
 
-[node name="Joy_Base_Sockets" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 724015997) index="5" unique_id=1181024894]
+[node name="Joy_Base_Sockets" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="5" unique_id=461313027]
 layers = 7
 
-[node name="Joy_Hair_04a" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 724015997) index="6" unique_id=1654029757]
+[node name="Joy_Hair_04a" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="6" unique_id=1439567277]
 layers = 7
 
-[node name="Joy_Outfit_05_Hat" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 724015997) index="7" unique_id=644633281]
+[node name="Joy_Outfit_05_Hat" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="7" unique_id=542023719]
 layers = 7
 
-[node name="Joy_Outfit_05_NameTag" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 724015997) index="8" unique_id=249647226]
+[node name="Joy_Outfit_05_NameTag" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="8" unique_id=1434279918]
 layers = 7
 
-[node name="Joy_Outfit_05_Shirt" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 724015997) index="9" unique_id=1481734502]
+[node name="Joy_Outfit_05_Shirt" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="9" unique_id=69534027]
 layers = 7
 
-[node name="Joy_Outfit_05_Shoes" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 724015997) index="10" unique_id=1052264512]
+[node name="Joy_Outfit_05_Shoes" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="10" unique_id=1312543841]
 layers = 7
 
-[node name="Joy_Outfit_05_Shorts" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 724015997) index="11" unique_id=114734656]
+[node name="Joy_Outfit_05_Shorts" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="11" unique_id=74431937]
 layers = 7
 
-[node name="Joy_Outfit_05_Socks" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 724015997) index="12" unique_id=166769249]
+[node name="Joy_Outfit_05_Socks" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="12" unique_id=1826489471]
 layers = 7
 
 [node name="AnimationPlayer" parent="===CUTSCENE========/JoyCinematicActor" index="3" unique_id=99323753]
@@ -1882,12 +1804,12 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="SceneCamera" type="Camera3D" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerA/SubViewport" unique_id=1039536451]
-transform = Transform3D(0.40592736, 0.0015116907, 0.91390413, -0.0035386225, 0.99999374, -8.234731e-05, -0.9138985, -0.0032005347, 0.40593016, 1.1794775, 0.31653523, 0.48320687)
+transform = Transform3D(0.40592754, 0.001511691, 0.9139041, -0.0035386235, 0.99999386, -8.234713e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
 top_level = true
 cull_mask = 1
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
-fov = 48.449722
+fov = 40.0
 
 [node name="SceneCameraHost" type="Node" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerA/SubViewport/SceneCamera" unique_id=1027647636]
 process_priority = 300
@@ -1910,13 +1832,13 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="SceneCamera" type="Camera3D" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerB/SubViewport" unique_id=1232389164]
-transform = Transform3D(0.40592736, 0.0015116906, 0.91390413, -0.0035386225, 0.99999374, -8.234708e-05, -0.9138985, -0.003200535, 0.40593016, 1.1794775, 0.31653523, 0.48320687)
+transform = Transform3D(0.40592754, 0.0015116909, 0.9139041, -0.0035386235, 0.99999386, -8.234701e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
 top_level = true
 cull_mask = 4
-environment = SubResource("Environment_14ksg")
+environment = SubResource("Environment_p12bn")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
-fov = 48.449722
+fov = 40.0
 
 [node name="SceneCameraHost" type="Node" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerB/SubViewport/SceneCamera" unique_id=863293468]
 process_priority = 300
@@ -2102,107 +2024,107 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 
 [node name="EnvDbOpal02" parent="===ENVIRONMENT========" unique_id=472548192 instance=ExtResource("91_xotbv")]
 
-[node name="Ground" parent="===ENVIRONMENT========/EnvDbOpal02" index="0" unique_id=1537390400]
+[node name="Ground" parent="===ENVIRONMENT========/EnvDbOpal02" index="0" unique_id=1827551423]
 transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 0, 0)
 layers = 5
 
-[node name="Bottle_01" parent="===ENVIRONMENT========/EnvDbOpal02/Bottles" parent_id_path=PackedInt32Array(472548192, 55857431) index="0" unique_id=318313319]
+[node name="Bottle_01" parent="===ENVIRONMENT========/EnvDbOpal02/Bottles" parent_id_path=PackedInt32Array(472548192, 591706174) index="0" unique_id=964879415]
 layers = 5
 
-[node name="Bottle_02" parent="===ENVIRONMENT========/EnvDbOpal02/Bottles" parent_id_path=PackedInt32Array(472548192, 55857431) index="1" unique_id=1695715469]
+[node name="Bottle_02" parent="===ENVIRONMENT========/EnvDbOpal02/Bottles" parent_id_path=PackedInt32Array(472548192, 591706174) index="1" unique_id=642291568]
 layers = 5
 
-[node name="Newspaper" parent="===ENVIRONMENT========/EnvDbOpal02" index="2" unique_id=1506451760]
+[node name="Newspaper" parent="===ENVIRONMENT========/EnvDbOpal02" index="2" unique_id=376844037]
 transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Newspaper_01" parent="===ENVIRONMENT========/EnvDbOpal02/Newspaper" index="0" unique_id=411353121]
+[node name="Newspaper_01" parent="===ENVIRONMENT========/EnvDbOpal02/Newspaper" index="0" unique_id=1791476908]
 layers = 5
 
-[node name="Newspaper_02" parent="===ENVIRONMENT========/EnvDbOpal02/Newspaper" index="1" unique_id=1821214818]
+[node name="Newspaper_02" parent="===ENVIRONMENT========/EnvDbOpal02/Newspaper" index="1" unique_id=1803476616]
 layers = 5
 
-[node name="Newspaper_03" parent="===ENVIRONMENT========/EnvDbOpal02/Newspaper" index="2" unique_id=1885021683]
+[node name="Newspaper_03" parent="===ENVIRONMENT========/EnvDbOpal02/Newspaper" index="2" unique_id=1772148919]
 layers = 5
 
-[node name="Newspaper_04" parent="===ENVIRONMENT========/EnvDbOpal02/Newspaper" index="3" unique_id=803444181]
+[node name="Newspaper_04" parent="===ENVIRONMENT========/EnvDbOpal02/Newspaper" index="3" unique_id=1172990621]
 layers = 5
 
-[node name="Newspaper_05" parent="===ENVIRONMENT========/EnvDbOpal02/Newspaper" index="4" unique_id=2032348625]
+[node name="Newspaper_05" parent="===ENVIRONMENT========/EnvDbOpal02/Newspaper" index="4" unique_id=855149074]
 layers = 5
 
-[node name="TrashBag_01" parent="===ENVIRONMENT========/EnvDbOpal02/TrashBags" parent_id_path=PackedInt32Array(472548192, 1704128307) index="0" unique_id=1890108677]
+[node name="TrashBag_01" parent="===ENVIRONMENT========/EnvDbOpal02/TrashBags" parent_id_path=PackedInt32Array(472548192, 938881132) index="0" unique_id=1323127228]
 layers = 5
 
-[node name="TrashBag_02" parent="===ENVIRONMENT========/EnvDbOpal02/TrashBags" parent_id_path=PackedInt32Array(472548192, 1704128307) index="1" unique_id=1579295113]
+[node name="TrashBag_02" parent="===ENVIRONMENT========/EnvDbOpal02/TrashBags" parent_id_path=PackedInt32Array(472548192, 938881132) index="1" unique_id=634630867]
 layers = 5
 
-[node name="TrashBag_03" parent="===ENVIRONMENT========/EnvDbOpal02/TrashBags" parent_id_path=PackedInt32Array(472548192, 1704128307) index="2" unique_id=913278621]
+[node name="TrashBag_03" parent="===ENVIRONMENT========/EnvDbOpal02/TrashBags" parent_id_path=PackedInt32Array(472548192, 938881132) index="2" unique_id=807474575]
 layers = 5
 
-[node name="Exterior_Door" parent="===ENVIRONMENT========/EnvDbOpal02/Exterior" parent_id_path=PackedInt32Array(472548192, 87518021) index="0" unique_id=1447114071]
+[node name="Exterior_Door" parent="===ENVIRONMENT========/EnvDbOpal02/Exterior" parent_id_path=PackedInt32Array(472548192, 1722626566) index="0" unique_id=1365180499]
 layers = 5
 
-[node name="Exterior_DoorHandle" parent="===ENVIRONMENT========/EnvDbOpal02/Exterior/Exterior_Door" index="0" unique_id=1566020172]
+[node name="Exterior_DoorHandle" parent="===ENVIRONMENT========/EnvDbOpal02/Exterior/Exterior_Door" index="0" unique_id=2071993649]
 layers = 5
 
-[node name="Exterior_Stairs" parent="===ENVIRONMENT========/EnvDbOpal02/Exterior" parent_id_path=PackedInt32Array(472548192, 87518021) index="1" unique_id=1508980137]
+[node name="Exterior_Stairs" parent="===ENVIRONMENT========/EnvDbOpal02/Exterior" parent_id_path=PackedInt32Array(472548192, 1722626566) index="1" unique_id=1321016337]
 layers = 5
 
-[node name="Exterior_Wall" parent="===ENVIRONMENT========/EnvDbOpal02/Exterior" parent_id_path=PackedInt32Array(472548192, 87518021) index="2" unique_id=1660807410]
+[node name="Exterior_Wall" parent="===ENVIRONMENT========/EnvDbOpal02/Exterior" parent_id_path=PackedInt32Array(472548192, 1722626566) index="2" unique_id=2082658774]
 layers = 5
 
-[node name="Exterior_WallTrim" parent="===ENVIRONMENT========/EnvDbOpal02/Exterior" parent_id_path=PackedInt32Array(472548192, 87518021) index="3" unique_id=2095616118]
+[node name="Exterior_WallTrim" parent="===ENVIRONMENT========/EnvDbOpal02/Exterior" parent_id_path=PackedInt32Array(472548192, 1722626566) index="3" unique_id=231826342]
 layers = 5
 
-[node name="Exterior_WarningSign" parent="===ENVIRONMENT========/EnvDbOpal02/Exterior" parent_id_path=PackedInt32Array(472548192, 87518021) index="4" unique_id=1742395979]
+[node name="Exterior_WarningSign" parent="===ENVIRONMENT========/EnvDbOpal02/Exterior" parent_id_path=PackedInt32Array(472548192, 1722626566) index="4" unique_id=654046917]
 layers = 5
 
-[node name="CardboardBox_01" parent="===ENVIRONMENT========/EnvDbOpal02/CardboardBoxes" parent_id_path=PackedInt32Array(472548192, 1640305425) index="0" unique_id=1832612691]
+[node name="CardboardBox_01" parent="===ENVIRONMENT========/EnvDbOpal02/CardboardBoxes" parent_id_path=PackedInt32Array(472548192, 134744412) index="0" unique_id=1429861722]
 layers = 5
 
-[node name="CardboardBox_02" parent="===ENVIRONMENT========/EnvDbOpal02/CardboardBoxes" parent_id_path=PackedInt32Array(472548192, 1640305425) index="1" unique_id=947781811]
+[node name="CardboardBox_02" parent="===ENVIRONMENT========/EnvDbOpal02/CardboardBoxes" parent_id_path=PackedInt32Array(472548192, 134744412) index="1" unique_id=490160025]
 layers = 5
 
-[node name="CardboardBox_03" parent="===ENVIRONMENT========/EnvDbOpal02/CardboardBoxes" parent_id_path=PackedInt32Array(472548192, 1640305425) index="2" unique_id=1688028143]
+[node name="CardboardBox_03" parent="===ENVIRONMENT========/EnvDbOpal02/CardboardBoxes" parent_id_path=PackedInt32Array(472548192, 134744412) index="2" unique_id=1651627039]
 layers = 5
 
-[node name="CardboardBox_04" parent="===ENVIRONMENT========/EnvDbOpal02/CardboardBoxes" parent_id_path=PackedInt32Array(472548192, 1640305425) index="3" unique_id=1690913929]
+[node name="CardboardBox_04" parent="===ENVIRONMENT========/EnvDbOpal02/CardboardBoxes" parent_id_path=PackedInt32Array(472548192, 134744412) index="3" unique_id=2110401398]
 layers = 5
 
-[node name="Dumpster_Body" parent="===ENVIRONMENT========/EnvDbOpal02/Dumpster" parent_id_path=PackedInt32Array(472548192, 239212419) index="0" unique_id=1466028007]
+[node name="Dumpster_Body" parent="===ENVIRONMENT========/EnvDbOpal02/Dumpster" parent_id_path=PackedInt32Array(472548192, 280707579) index="0" unique_id=2087596916]
 layers = 5
 
-[node name="Dumpster_Decal_01" parent="===ENVIRONMENT========/EnvDbOpal02/Dumpster" parent_id_path=PackedInt32Array(472548192, 239212419) index="1" unique_id=1510345153]
+[node name="Dumpster_Decal_01" parent="===ENVIRONMENT========/EnvDbOpal02/Dumpster" parent_id_path=PackedInt32Array(472548192, 280707579) index="1" unique_id=91815807]
 layers = 5
 
-[node name="Dumpster_Decal_02" parent="===ENVIRONMENT========/EnvDbOpal02/Dumpster" parent_id_path=PackedInt32Array(472548192, 239212419) index="2" unique_id=513332293]
+[node name="Dumpster_Decal_02" parent="===ENVIRONMENT========/EnvDbOpal02/Dumpster" parent_id_path=PackedInt32Array(472548192, 280707579) index="2" unique_id=1397649632]
 layers = 5
 
-[node name="Dumpster_Decal_03" parent="===ENVIRONMENT========/EnvDbOpal02/Dumpster" parent_id_path=PackedInt32Array(472548192, 239212419) index="3" unique_id=290502200]
+[node name="Dumpster_Decal_03" parent="===ENVIRONMENT========/EnvDbOpal02/Dumpster" parent_id_path=PackedInt32Array(472548192, 280707579) index="3" unique_id=1921656584]
 layers = 5
 
-[node name="Dumpster_Lid" parent="===ENVIRONMENT========/EnvDbOpal02/Dumpster" parent_id_path=PackedInt32Array(472548192, 239212419) index="4" unique_id=1290648573]
+[node name="Dumpster_Lid" parent="===ENVIRONMENT========/EnvDbOpal02/Dumpster" parent_id_path=PackedInt32Array(472548192, 280707579) index="4" unique_id=485460563]
 layers = 5
 
-[node name="Dumpster_Wheels" parent="===ENVIRONMENT========/EnvDbOpal02/Dumpster" parent_id_path=PackedInt32Array(472548192, 239212419) index="5" unique_id=1200601060]
+[node name="Dumpster_Wheels" parent="===ENVIRONMENT========/EnvDbOpal02/Dumpster" parent_id_path=PackedInt32Array(472548192, 280707579) index="5" unique_id=328578801]
 layers = 5
 
-[node name="Streetlight_FloorShine" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 2035123243) index="0" unique_id=712825430]
+[node name="Streetlight_FloorShine" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 337305678) index="0" unique_id=39930750]
 transform = Transform3D(1, 0, 0, 0, 1.5086151, 0, 0, 0, 1, -6.617445e-24, 1.5560758, 0.035877213)
 layers = 2
 
-[node name="Streetlight_LightBulb" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 2035123243) index="1" unique_id=1513567600]
+[node name="Streetlight_LightBulb" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 337305678) index="1" unique_id=859868445]
 layers = 7
 
-[node name="SpotLight3D" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 2035123243) index="2" unique_id=1944799545]
+[node name="SpotLight3D" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 337305678) index="2" unique_id=1944799545]
 layers = 7
 light_energy = 30.0
 
-[node name="Streetlight_LightShine" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 2035123243) index="3" unique_id=10175687]
+[node name="Streetlight_LightShine" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 337305678) index="3" unique_id=586283572]
 transform = Transform3D(1, 0, 0, 0, 1.5086151, 0, 0, 0, 1, -6.617445e-24, 1.5560758, 0.035877213)
 layers = 2
 
-[node name="Streetlight_Post" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 2035123243) index="4" unique_id=608496615]
+[node name="Streetlight_Post" parent="===ENVIRONMENT========/EnvDbOpal02/Streetlight" parent_id_path=PackedInt32Array(472548192, 337305678) index="4" unique_id=315996374]
 layers = 7
 
 [node name="===ACTOR========" type="Node3D" parent="." unique_id=1690436738]
@@ -2238,43 +2160,43 @@ dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/VoiceO
 [node name="JoyActor" parent="===ACTOR========" unique_id=117127004 node_paths=PackedStringArray("dialogue_area_override") instance=ExtResource("87_3kbji")]
 dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/JoyDialogueP1")
 
-[node name="Joy_Base_Body" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 724015997) index="0" unique_id=1214535765]
+[node name="Joy_Base_Body" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="0" unique_id=267586307]
 layers = 3
 
-[node name="Joy_Base_Face" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 724015997) index="1" unique_id=2063680796]
+[node name="Joy_Base_Face" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="1" unique_id=517453162]
 layers = 3
 
-[node name="Joy_Base_Mouth" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 724015997) index="2" unique_id=416483565]
+[node name="Joy_Base_Mouth" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="2" unique_id=1378670721]
 layers = 3
 
-[node name="Joy_Base_Pupils" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 724015997) index="3" unique_id=1008312247]
+[node name="Joy_Base_Pupils" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="3" unique_id=2038468354]
 layers = 3
 
-[node name="Joy_Base_Skull" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 724015997) index="4" unique_id=598294874]
+[node name="Joy_Base_Skull" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="4" unique_id=282972724]
 layers = 3
 
-[node name="Joy_Base_Sockets" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 724015997) index="5" unique_id=1181024894]
+[node name="Joy_Base_Sockets" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="5" unique_id=461313027]
 layers = 3
 
-[node name="Joy_Hair_04a" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 724015997) index="6" unique_id=1654029757]
+[node name="Joy_Hair_04a" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="6" unique_id=1439567277]
 layers = 3
 
-[node name="Joy_Outfit_05_Hat" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 724015997) index="7" unique_id=644633281]
+[node name="Joy_Outfit_05_Hat" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="7" unique_id=542023719]
 layers = 3
 
-[node name="Joy_Outfit_05_NameTag" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 724015997) index="8" unique_id=249647226]
+[node name="Joy_Outfit_05_NameTag" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="8" unique_id=1434279918]
 layers = 3
 
-[node name="Joy_Outfit_05_Shirt" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 724015997) index="9" unique_id=1481734502]
+[node name="Joy_Outfit_05_Shirt" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="9" unique_id=69534027]
 layers = 3
 
-[node name="Joy_Outfit_05_Shoes" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 724015997) index="10" unique_id=1052264512]
+[node name="Joy_Outfit_05_Shoes" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="10" unique_id=1312543841]
 layers = 3
 
-[node name="Joy_Outfit_05_Shorts" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 724015997) index="11" unique_id=114734656]
+[node name="Joy_Outfit_05_Shorts" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="11" unique_id=74431937]
 layers = 3
 
-[node name="Joy_Outfit_05_Socks" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 724015997) index="12" unique_id=166769249]
+[node name="Joy_Outfit_05_Socks" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="12" unique_id=1826489471]
 layers = 3
 
 [node name="LayerMask" parent="===ACTOR========/JoyActor" index="6" unique_id=1716574017]
@@ -2347,7 +2269,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 4
-environment = SubResource("Environment_kxl61")
+environment = SubResource("Environment_ocrdf")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -2496,10 +2418,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.43789878
-offset_top = 0.60072744
-offset_right = 219.56204
-offset_bottom = 130.60072
+offset_left = -0.9673936
+offset_top = -1.0902425
+offset_right = 219.03255
+offset_bottom = 128.90976
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2551,10 +2473,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.1587583
-offset_top = -1.3717357
-offset_right = 218.84125
-offset_bottom = 128.62836
+offset_left = 0.9841021
+offset_top = -0.40111458
+offset_right = 220.9841
+offset_bottom = 129.59898
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2606,10 +2528,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 1.2458367
-offset_top = 0.46491584
-offset_right = 221.2459
-offset_bottom = 130.46492
+offset_left = 1.4795372
+offset_top = 0.20173436
+offset_right = 221.4796
+offset_bottom = 130.20174
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2661,10 +2583,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -2.2702463
-offset_top = -2.078986
-offset_right = 536.5675
-offset_bottom = 336.62128
+offset_left = -1.9656397
+offset_top = -0.79914266
+offset_right = 536.87213
+offset_bottom = 337.90112
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
