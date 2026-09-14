@@ -53,28 +53,30 @@ func focus(node : Control):
 	on_focus_changed.emit(focused_node)
 
 func focus_top():
+	if focused_node:
+		var node = focused_node.get_node(focused_node.focus_neighbor_left)
+		if node: focus(node)
 	if focused_node and focused_node.focus_neighbor_top != NodePath():
 		focus(focused_node.get_node(focused_node.focus_neighbor_top))
 
 func focus_bottom():
-	if focused_node and focused_node.focus_neighbor_bottom != NodePath():
-		focus(focused_node.get_node(focused_node.focus_neighbor_bottom))
-		
+	if focused_node: _set_focus(focused_node.focus_neighbor_bottom)
+
 func focus_left():
-	if focused_node and focused_node.focus_neighbor_left != NodePath():
-		focus(focused_node.get_node(focused_node.focus_neighbor_left))
-		
+	if focused_node: _set_focus(focused_node.focus_neighbor_left)
+
 func focus_right():
-	if focused_node and focused_node.focus_neighbor_right != NodePath():
-		focus(focused_node.get_node(focused_node.focus_neighbor_right))
-		
+	if focused_node: _set_focus(focused_node.focus_neighbor_right)
+
 func focus_next():
-	if focused_node and focused_node.focus_next != NodePath():
-		focus(focused_node.get_node(focused_node.focus_next))
-		
+	if focused_node: _set_focus(focused_node.focus_next)
+
 func focus_previous():
-	if focused_node and focused_node.focus_previous != NodePath():
-		focus(focused_node.get_node(focused_node.focus_previous))
+	if focused_node: _set_focus(focused_node.focus_previous)
+
+func _set_focus(node_path: NodePath):
+	var node = focused_node.get_node(node_path)
+	if node: focus(node)
 
 func select(what: String = "play"):
 	if !focused_node: return

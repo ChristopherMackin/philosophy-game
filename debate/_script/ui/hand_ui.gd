@@ -130,6 +130,8 @@ func _remove_card(card : Card):
 	
 	if card.card_updated.is_connected(_update_card):
 		card.card_updated.disconnect(_update_card)
+		
+	set_up_focus_connections.call_deferred()
 
 func _update_card(card):
 	var matching = cards_ui.filter(func (card_ui): return card == card_ui.card)
