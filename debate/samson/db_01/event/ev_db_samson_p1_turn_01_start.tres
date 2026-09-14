@@ -9,11 +9,11 @@ script = ExtResource("2_au5dw")
 
 [sub_resource type="Resource" id="Resource_y7rtr"]
 script = ExtResource("3_8vrha")
-outputs = Array[int]([0])
+outputs = Array[int]([1])
 inputs = Dictionary[String, Variant]({
 "actor": "samson",
 "await_close": true,
-"await_input": true,
+"await_input": false,
 "close_timer": 2.0,
 "talk": true,
 "text": "Test"
@@ -25,7 +25,7 @@ script = ExtResource("3_8vrha")
 inputs = Dictionary[String, Variant]({
 "actor": "samson",
 "await_close": true,
-"await_input": true,
+"await_input": false,
 "close_timer": 2.0,
 "talk": true,
 "text": "test2"
@@ -36,5 +36,5 @@ action = SubResource("Resource_x7ur8")
 script = ExtResource("1_y7rtr")
 await_event = true
 start_task = SubResource("Resource_y7rtr")
-tasks = Array[ExtResource("3_8vrha")]([SubResource("Resource_au5dw"), SubResource("Resource_y7rtr")])
+tasks = Array[ExtResource("3_8vrha")]([SubResource("Resource_y7rtr"), SubResource("Resource_au5dw")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"
