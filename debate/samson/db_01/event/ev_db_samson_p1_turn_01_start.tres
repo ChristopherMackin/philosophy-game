@@ -12,11 +12,11 @@ script = ExtResource("3_8vrha")
 outputs = Array[int]([0])
 inputs = Dictionary[String, Variant]({
 "actor": "samson",
-"await_close": false,
-"await_input": false,
-"close_timer": 0.0,
+"await_close": true,
+"await_input": true,
+"close_timer": 2.0,
 "talk": true,
-"text": "Let's see if we can put that new card to good use!"
+"text": "Test"
 })
 action = SubResource("Resource_x7ur8")
 
@@ -24,16 +24,17 @@ action = SubResource("Resource_x7ur8")
 script = ExtResource("3_8vrha")
 inputs = Dictionary[String, Variant]({
 "actor": "samson",
-"await_close": false,
-"await_input": false,
-"close_timer": 0.0,
+"await_close": true,
+"await_input": true,
+"close_timer": 2.0,
 "talk": true,
-"text": "We'll work together to make faith the shape of this debate!"
+"text": "test2"
 })
 action = SubResource("Resource_x7ur8")
 
 [resource]
 script = ExtResource("1_y7rtr")
+await_event = true
 start_task = SubResource("Resource_y7rtr")
 tasks = Array[ExtResource("3_8vrha")]([SubResource("Resource_au5dw"), SubResource("Resource_y7rtr")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

@@ -2,7 +2,73 @@
 
 [ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="1_6qset"]
 [ext_resource type="Script" uid="uid://bkpc76nqmkxc2" path="res://system/script/event_factory/bucket_event_factory.gd" id="2_8ekio"]
+[ext_resource type="Resource" uid="uid://r67oc2j8mkr0" path="res://debate/samson/db_01/event/ev_db_samson_p1_turn_01_start.tres" id="2_f4usn"]
+[ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/rule/concept_rule.gd" id="3_qebq7"]
+[ext_resource type="Script" uid="uid://c2ote8d3tq7pk" path="res://system/script/event_factory/rule_event_factory.gd" id="4_6573c"]
+[ext_resource type="Resource" uid="uid://d3dquywfgatxc" path="res://debate/samson/db_01/event/ev_db_samson_p1_turn_01_end.tres" id="5_mwl7v"]
+[ext_resource type="Script" uid="uid://cilcb0gb3xu0g" path="res://system/script/rule/current_player_rule.gd" id="6_joqnh"]
+[ext_resource type="Script" uid="uid://c44gav4s6as63" path="res://system/script/event_factory/rule_bucket_event_factory.gd" id="7_yty0p"]
+[ext_resource type="Script" uid="uid://tkld5vp51fi1" path="res://system/script/rule/current_round_rule.gd" id="8_j4e0r"]
+
+[sub_resource type="Resource" id="Resource_skqnf"]
+resource_name = "RU: ON_TURN_START"
+script = ExtResource("3_qebq7")
+concept = 6
+metadata/_custom_type_script = "uid://fnphjbccs4gy"
+
+[sub_resource type="Resource" id="Resource_wppkd"]
+script = ExtResource("4_6573c")
+rule = SubResource("Resource_skqnf")
+event = ExtResource("2_f4usn")
+metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
+
+[sub_resource type="Resource" id="Resource_ukwab"]
+resource_name = "RU: ON_TURN_END"
+script = ExtResource("3_qebq7")
+concept = 7
+metadata/_custom_type_script = "uid://fnphjbccs4gy"
+
+[sub_resource type="Resource" id="Resource_ekhui"]
+script = ExtResource("4_6573c")
+rule = SubResource("Resource_ukwab")
+event = ExtResource("5_mwl7v")
+metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
+
+[sub_resource type="Resource" id="Resource_ju4at"]
+resource_name = "RU: CurrentPlayerRule"
+script = ExtResource("6_joqnh")
+metadata/_custom_type_script = "uid://cilcb0gb3xu0g"
+
+[sub_resource type="Resource" id="Resource_sf1od"]
+script = ExtResource("7_yty0p")
+rule = SubResource("Resource_ju4at")
+buckets = Array[ExtResource("1_6qset")]([SubResource("Resource_wppkd"), SubResource("Resource_ekhui")])
+metadata/_custom_type_script = "uid://c44gav4s6as63"
+
+[sub_resource type="Resource" id="Resource_dq551"]
+resource_name = "RU: CurrentPlayerRule"
+script = ExtResource("6_joqnh")
+which_contestant = 1
+metadata/_custom_type_script = "uid://cilcb0gb3xu0g"
+
+[sub_resource type="Resource" id="Resource_w6yg0"]
+script = ExtResource("7_yty0p")
+rule = SubResource("Resource_dq551")
+metadata/_custom_type_script = "uid://c44gav4s6as63"
+
+[sub_resource type="Resource" id="Resource_lrxxq"]
+resource_name = "RU: CurrentRoundRule"
+script = ExtResource("8_j4e0r")
+current_round = 1
+metadata/_custom_type_script = "uid://tkld5vp51fi1"
+
+[sub_resource type="Resource" id="Resource_8nfpa"]
+script = ExtResource("7_yty0p")
+rule = SubResource("Resource_lrxxq")
+buckets = Array[ExtResource("1_6qset")]([SubResource("Resource_sf1od"), SubResource("Resource_w6yg0")])
+metadata/_custom_type_script = "uid://c44gav4s6as63"
 
 [resource]
 script = ExtResource("2_8ekio")
+buckets = Array[ExtResource("1_6qset")]([SubResource("Resource_8nfpa")])
 metadata/_custom_type_script = "uid://bkpc76nqmkxc2"

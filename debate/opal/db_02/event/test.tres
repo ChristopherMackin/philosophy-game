@@ -21,6 +21,7 @@ action = SubResource("Resource_x7ur8")
 
 [resource]
 script = ExtResource("1_kx5gc")
+await_event = true
 frequency = 2
 start_task = SubResource("Resource_266yn")
 tasks = Array[ExtResource("2_ill3c")]([SubResource("Resource_266yn")])

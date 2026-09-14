@@ -18,6 +18,8 @@ metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
 
 [sub_resource type="Resource" id="Resource_mbo3g"]
 script = ExtResource("5_7ml3h")
+amount = 3
+min_amount = -1
 metadata/_custom_type_script = "uid://16samtkb1lb4"
 
 [sub_resource type="Resource" id="Resource_1x2hj"]

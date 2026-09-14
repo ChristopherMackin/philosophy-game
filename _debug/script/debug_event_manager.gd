@@ -91,13 +91,6 @@ func _skip():
 	event_subscriber.continue_dialogue.emit() 
 	event_subscriber.skip.emit()
 	notify_property_list_changed()
-	
-func _start_event(event: Event):
-	event_subscriber.await_event = event.await_event
-	if !event_subscriber.await_event: return
-
-func _end_event(event: Event):
-	if !event_subscriber.await_event: return
 
 func get_event_using_data():
 	var query : Dictionary

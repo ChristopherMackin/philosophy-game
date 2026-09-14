@@ -17,7 +17,7 @@ static func get_value(control : Control):
 		return control.edited_resource
 
 static func set_value(control : Control, value = null):
-	if !value && value != false:
+	if !value && !value is bool:
 		return
 	
 	if control is TextEdit:

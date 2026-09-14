@@ -11,9 +11,9 @@ script = ExtResource("2_xttgi")
 script = ExtResource("2_1l3g1")
 inputs = Dictionary[String, Variant]({
 "actor": "samson",
-"await_close": false,
+"await_close": true,
 "await_input": false,
-"close_timer": 0.0,
+"close_timer": 2.0,
 "talk": true,
 "text": "Okay, I can't play any more cards. Show me what you can do!"
 })
