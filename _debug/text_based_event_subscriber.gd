@@ -41,6 +41,7 @@ func _handle_input(_delta, input):
 func _start_event(event: Event):
 	if Engine.is_editor_hint():
 		label.text = ""
+		current_title = ""
 	
 	_append_action_event(
 		BBCode.font_size("\nStart %s[hr]" % Util.get_resource_name(event), title_font_size),
@@ -63,6 +64,13 @@ func _end_event(event: Event):
 
 func display_dialogue(dp: DialoguePayload):
 	dialogue_canceled = false
+	
+	if current_title != dp.actor.to_upper():
+		current_title = dp.actor.to_upper()
+		_append_action_event(
+			BBCode.font_size(dp.actor.to_upper() + ":", title_font_size),
+			ActionLogActionType.ActionType.TITLE
+		)
 	
 	_append_action_event(
 		BBCode.font_size(dp.line, dialogue_font_size),

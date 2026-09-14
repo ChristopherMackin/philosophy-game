@@ -4,24 +4,25 @@
 [ext_resource type="Script" uid="uid://bsgp8gq0j6wbn" path="res://debate/_script/debate_settings.gd" id="1_cdwd0"]
 [ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://system/script/suit/suit.gd" id="2_4blar"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_p7u10"]
-[ext_resource type="Script" uid="uid://bla5l1dnib1db" path="res://debate/_script/game_end_condition/suit_track_filled_end_condition.gd" id="2_sm8jn"]
-[ext_resource type="Script" uid="uid://dyvi3tsnsuye5" path="res://debate/_script/game_end_condition/empty_hand_end_condition.gd" id="3_0g3v2"]
+[ext_resource type="Script" uid="uid://dyvi3tsnsuye5" path="res://debate/_script/game_end_condition/empty_hand_end_condition.gd" id="2_y2doo"]
+[ext_resource type="Script" uid="uid://bla5l1dnib1db" path="res://debate/_script/game_end_condition/suit_track_filled_end_condition.gd" id="3_dq8ec"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="3_oowsw"]
 [ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="4_tit4q"]
 [ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="5_t3pf5"]
 
-[sub_resource type="Resource" id="Resource_po6lf"]
-script = ExtResource("2_sm8jn")
+[sub_resource type="Resource" id="Resource_57hao"]
+script = ExtResource("2_y2doo")
+metadata/_custom_type_script = "uid://dyvi3tsnsuye5"
 
-[sub_resource type="Resource" id="Resource_o0xxy"]
-script = ExtResource("3_0g3v2")
+[sub_resource type="Resource" id="Resource_kn0p4"]
+script = ExtResource("3_dq8ec")
+metadata/_custom_type_script = "uid://bla5l1dnib1db"
 
 [resource]
 script = ExtResource("1_cdwd0")
-starting_player = 1
 redraw_on_hand_depleted = false
 retain_excess_energy = false
 suits = Array[ExtResource("2_4blar")]([ExtResource("3_oowsw"), ExtResource("2_p7u10"), ExtResource("5_t3pf5"), ExtResource("4_tit4q")])
 slots = 10
 line_clear_direction = 1
-game_end_conditions = Array[ExtResource("1_86ws4")]([SubResource("Resource_po6lf"), SubResource("Resource_o0xxy")])
+game_end_conditions = Array[ExtResource("1_86ws4")]([SubResource("Resource_57hao"), SubResource("Resource_kn0p4")])

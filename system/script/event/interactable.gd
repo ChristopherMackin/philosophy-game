@@ -4,6 +4,7 @@ class_name Interactable
 
 @export var event_factory: EventFactory
 @export var event_manager: EventManager
+@export var blackboard: Blackboard
 
 func invoke():
 	var query : Dictionary
@@ -16,6 +17,6 @@ func invoke():
 	if !event: return
 	
 	if event.await_event:
-		await event_manager.start_event(event)
+		await event_manager.start_event(event, blackboard)
 	else:
-		event_manager.start_event(event)
+		event_manager.start_event(event, blackboard)

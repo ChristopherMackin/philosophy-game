@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="OrderedDeck" format=3 uid="uid://dhfodh27xujbi"]
+
+[ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://system/script/card/card_deck_config.gd" id="1_0lopx"]
+[ext_resource type="Script" uid="uid://qxw0hsqa58ko" path="res://system/script/deck/ordered_deck.gd" id="2_2636o"]
+
+[resource]
+script = ExtResource("2_2636o")
+metadata/_custom_type_script = "uid://qxw0hsqa58ko"

@@ -9,26 +9,5 @@ var suit_action: Const.SelectionAction:
 	get(): return suit_selection_action as Const.SelectionAction
 
 func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool:
-	#Select Suit =====================================
-	var suits: Array[Suit]
-	
-	if suit_options.size() == 1 && suit_action == Const.SelectionAction.SINGLE || suit_selection_action == 3:
-		suits = suit_options
-	elif suit_selection_action == 4:
-		suits = [suit_options[0]]
-	
-	else:
-		var response : SelectionResponse = await player.select(SelectionRequest.new(
-			suit_options,
-			suit_action,
-			Const.SelectionType.SUIT
-		))
-		
-		if suit_action == Const.SelectionAction.SINGLE:
-			suits = [response.data]
-		elif suit_action == Const.SelectionAction.MULTI:
-			suits = response.data
-	
-	manager.blackboard.add("action_%s" % key, suits, Blackboard.ExpirationToken.ON_ACTION_END)
-	
+	#TODO: Flesh this sucker out
 	return true

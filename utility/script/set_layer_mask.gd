@@ -19,6 +19,7 @@ class_name LayerMask
 		_update_layers.call_deferred(layers)
 
 func _update_layers(val):
+	if !parent: return
 	for child in parent.get_children():
 		if child != self && not child is LayerMask:
 			_update_layers_recursive(child)

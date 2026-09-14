@@ -115,7 +115,8 @@ func game_loop():
 
 func get_is_debate_over() -> bool:
 	for condition in debate_settings.game_end_conditions:
-		if condition.check_condition(self): return true
+		if condition.check_condition(self): 
+			return true
 	
 	return false
 

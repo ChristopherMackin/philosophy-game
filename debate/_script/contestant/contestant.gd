@@ -84,7 +84,9 @@ func _init(character : Character, manager : DebateManager):
 	
 	held_card.on_added.add_listener(func(card: Card): await card.on_hold_start(self, manager))
 	held_card.on_removed.add_listener(func(card: Card): await card.on_hold_end(self, manager))
-
+	
+	held_card.on_added.add_listener(func(card: Card): for sub in manager.subscribers: await sub.on_card_hold_updated(held_card.get_card_at_index(0), self))
+	held_card.on_removed.add_listener(func(card: Card): for sub in manager.subscribers: await sub.on_card_hold_updated(held_card.get_card_at_index(0), self))
 
 func ready_up():
 	await draw_full_hand()
@@ -156,7 +158,9 @@ func take_turn() -> SelectionResponse:
 	var response = null
 	
 	while(!valid_response):
-		response = await select(SelectionRequest.new(hand.get_cards()))
+		response = await select(SelectionRequest.new(
+			Util.get_unique_elements(playable_cards + holdable_cards)
+		))
 		valid_response = true
 		var card = response.data
 		
@@ -184,8 +188,6 @@ func hold_card(card : Card):
 		await held_card.push_back(card)
 	
 	can_hold = false
-	
-	for sub in manager.subscribers: await sub.on_card_hold_updated(held_card.get_card_at_index(0), self)
 
 func remove_held_card():
 	if held_card.size > 0:

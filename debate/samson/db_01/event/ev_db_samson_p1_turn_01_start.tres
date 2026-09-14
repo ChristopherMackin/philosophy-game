@@ -16,7 +16,7 @@ inputs = Dictionary[String, Variant]({
 "await_input": false,
 "close_timer": 2.0,
 "talk": true,
-"text": "Test"
+"text": "Let's try out that new card!"
 })
 action = SubResource("Resource_x7ur8")
 
@@ -28,7 +28,7 @@ inputs = Dictionary[String, Variant]({
 "await_input": false,
 "close_timer": 2.0,
 "talk": true,
-"text": "test2"
+"text": "If we work together, I'm sure our dialogue will take the shape of faith!"
 })
 action = SubResource("Resource_x7ur8")
 

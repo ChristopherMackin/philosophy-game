@@ -151,6 +151,8 @@ func _update_card(card):
 		focus_group.focus(card_ui)
 	
 	old_card.queue_free()
+	
+	set_up_focus_connections.call_deferred()
 
 func on_card_drawn(card : Card, contestant: Contestant):
 	if contestant == manager.player:

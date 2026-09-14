@@ -74,8 +74,6 @@ func display_dialogue(dp: DialoguePayload):
 	var callables: Array[Callable]
 	callables.assign(subscribers.map(func(sub: EventSubscriber): return func(): await sub.display_dialogue(dp)))
 	
-	print(dp.await_close)
-	
 	if dp.await_close:
 		await Util.await_all(
 			callables
@@ -83,8 +81,6 @@ func display_dialogue(dp: DialoguePayload):
 	else:
 		for call in callables:
 			call.call()
-	
-	print("HERE")
 
 func cancel_dialogue(actor : String):
 	var callables: Array[Callable]

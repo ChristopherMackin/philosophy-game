@@ -127,3 +127,9 @@ static func optional_connect(node: Node, signal_name: String, callable: Callable
 static func optional_disconnect(node: Node, signal_name: String, callable: Callable):
 	if node.has_signal(signal_name) && node.is_connected(signal_name, callable):
 		node.disconnect(signal_name, callable)
+
+static func get_unique_elements(arr: Array) -> Array:
+	var dict := {}
+	for item in arr:
+		dict[item] = true # Keys automatically overwrite duplicates
+	return dict.keys()
