@@ -3,14 +3,24 @@
 [ext_resource type="PackedScene" uid="uid://da4quimbac65g" path="res://_debug/lvl_db_debug_base.tscn" id="1_pncn6"]
 [ext_resource type="Resource" uid="uid://hhr05iw7w226" path="res://_debug/bb_debug.tres" id="2_kjq1s"]
 [ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="3_kjq1s"]
+[ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="4_ew0wg"]
 [ext_resource type="Script" uid="uid://6rwh8gnmiwiw" path="res://character/script/brain/in_order_brain.gd" id="4_h4mx5"]
-[ext_resource type="Resource" uid="uid://cw5nebx8b23a4" path="res://debate/samson/db_01/dk_db_samson_01.tres" id="5_konyf"]
+[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/br_player.tres" id="5_vl5uf"]
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="6_gjvsf"]
+[ext_resource type="Resource" uid="uid://byb2ixogukv6b" path="res://_debug/dk_debug.tres" id="6_p8hb5"]
 [ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="7_ew0wg"]
+[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/dk_default.tres" id="10_67ixi"]
 
 [sub_resource type="Resource" id="Resource_pncn6"]
 script = ExtResource("3_kjq1s")
 metadata/_custom_type_script = "uid://18i051ifv5h0"
+
+[sub_resource type="Resource" id="Resource_c2etq"]
+script = ExtResource("6_gjvsf")
+name = "Joy"
+brain = ExtResource("5_vl5uf")
+deck = ExtResource("6_p8hb5")
+blackboard = ExtResource("4_ew0wg")
 
 [sub_resource type="Resource" id="Resource_r0buf"]
 script = ExtResource("4_h4mx5")
@@ -20,7 +30,7 @@ metadata/_custom_type_script = "uid://6rwh8gnmiwiw"
 script = ExtResource("6_gjvsf")
 name = "Debug"
 brain = SubResource("Resource_r0buf")
-deck = ExtResource("5_konyf")
+deck = ExtResource("10_67ixi")
 blackboard = ExtResource("2_kjq1s")
 metadata/_custom_type_script = "uid://b0gx18dmx3sv3"
 
@@ -42,6 +52,7 @@ event_factory = SubResource("Resource_pncn6")
 
 [node name="DebateInitiator" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="1" unique_id=267756503]
 blackboard = ExtResource("2_kjq1s")
+player = SubResource("Resource_c2etq")
 computer = SubResource("Resource_kjq1s")
 
 [node name="EventQueryManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="2" unique_id=1646962725]

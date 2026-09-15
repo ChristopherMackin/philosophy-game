@@ -53,14 +53,14 @@
 [ext_resource type="Script" uid="uid://dh6wdv1jmcd8j" path="res://debate/_script/ui/suit_selector.gd" id="51_c3toa"]
 [ext_resource type="Script" uid="uid://ct7j27rex1yjk" path="res://system/script/card/suit_packed_scene.gd" id="52_gtye4"]
 [ext_resource type="Resource" uid="uid://8fi1d2l5sq45" path="res://system/focus_group/suit_focus_group.tres" id="52_vk163"]
-[ext_resource type="PackedScene" uid="uid://cfr37mhe3tadq" path="res://debate/packed_scene/suit_banner_gui/faith_banner.tscn" id="53_al2vl"]
 [ext_resource type="Texture2D" uid="uid://qiqjkvvjvbi4" path="res://_asset/debate/simon/_general/simon_dialogue.png" id="53_dsrl4"]
-[ext_resource type="PackedScene" uid="uid://p7gbun4jgavh" path="res://debate/packed_scene/suit_banner_gui/doubt_banner.tscn" id="54_dxrs5"]
+[ext_resource type="PackedScene" uid="uid://peso3u0h1nis" path="res://debate/packed_scene/suit_banner_gui/faith_banner.tscn" id="53_gtye4"]
+[ext_resource type="PackedScene" uid="uid://cq7x7og3kbocm" path="res://debate/packed_scene/suit_banner_gui/doubt_banner.tscn" id="54_dxrs5"]
 [ext_resource type="Script" uid="uid://i6q2q68f73y6" path="res://debate/_script/ui/card_selector.gd" id="54_mkt58"]
 [ext_resource type="Resource" uid="uid://bo5lyi4q2kuag" path="res://system/focus_group/card_selector_focus_group.tres" id="55_23d7j"]
-[ext_resource type="PackedScene" uid="uid://d32w30jhpgu6v" path="res://debate/packed_scene/suit_banner_gui/self_banner.tscn" id="55_kq0jy"]
+[ext_resource type="PackedScene" uid="uid://di2vtcnqfvpx3" path="res://debate/packed_scene/suit_banner_gui/self_banner.tscn" id="55_kq0jy"]
 [ext_resource type="Texture2D" uid="uid://duwx1hkh07na8" path="res://_asset/debate/simon/_general/simon_confirm_button.png" id="56_r4cei"]
-[ext_resource type="PackedScene" uid="uid://b5x4pryb3x8hp" path="res://debate/packed_scene/suit_banner_gui/others_banner.tscn" id="56_v6cv3"]
+[ext_resource type="PackedScene" uid="uid://cm6i1mx7hc5go" path="res://debate/packed_scene/suit_banner_gui/others_banner.tscn" id="56_v6cv3"]
 [ext_resource type="Script" uid="uid://deyblpqc0v651" path="res://debate/_script/ui/play_area_selector_3d.gd" id="57_tybec"]
 [ext_resource type="PackedScene" uid="uid://cliclfm7gbavn" path="res://debate/packed_scene/token_selector_ui.tscn" id="58_26fb4"]
 [ext_resource type="Resource" uid="uid://gxn0k63lex4l" path="res://system/focus_group/play_area_focus_group.tres" id="59_23jd8"]
@@ -268,7 +268,7 @@ fov = 25.0
 far = 100.0
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
-[sub_resource type="Environment" id="Environment_gtye4"]
+[sub_resource type="Environment" id="Environment_5bli3"]
 ambient_light_source = 2
 ambient_light_color = Color(0.94, 0.94, 0.94, 1)
 ssao_intensity = 1.32
@@ -290,7 +290,7 @@ bg_color = Color(0.137255, 0.0862745, 0.0588235, 0.596078)
 [sub_resource type="Resource" id="Resource_5ylcx"]
 script = ExtResource("52_gtye4")
 suit = ExtResource("27_3hfva")
-packed_scene = ExtResource("53_al2vl")
+packed_scene = ExtResource("53_gtye4")
 metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 
 [sub_resource type="Resource" id="Resource_bn3ud"]
@@ -806,7 +806,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1155753, 0.009244392)
 top_level = true
 cull_mask = 32768
-environment = SubResource("Environment_gtye4")
+environment = SubResource("Environment_5bli3")
 current = true
 fov = 25.0
 far = 100.0

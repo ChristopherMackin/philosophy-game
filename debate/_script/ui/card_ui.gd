@@ -26,7 +26,7 @@ func refresh_card():
 		if !card:
 			return
 		
-		if card_bg : card_bg.self_modulate = card.base.suit.color;
+		if card_bg : card_bg.self_modulate = card.suit.color;
 		if cost: cost.text = str(card.cost)
 		if icon: icon.texture = card.suit.icon
 		if title: title.text = card.title

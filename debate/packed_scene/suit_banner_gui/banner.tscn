@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cfr37mhe3tadq"]
+
+[ext_resource type="Script" uid="uid://0f7kri64cayx" path="res://debate/_script/ui/banner_ui.gd" id="1_ha4v2"]
+[ext_resource type="Script" uid="uid://raivwgmnlm38" path="res://_general/script/exposed_control_methods.gd" id="2_36m63"]
+[ext_resource type="Script" uid="uid://dc8gq2l3o144t" path="res://system/script/focus_group/focus_group_signal_node.gd" id="5_a0y70"]
+
+[node name="Banner" type="ColorRect" unique_id=260254109]
+modulate = Color(0.489622, 0.489622, 0.489622, 1)
+size_flags_horizontal = 3
+focus_mode = 2
+script = ExtResource("1_ha4v2")
+metadata/focus_property = "suit"
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1112037039]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="ExposedControlMethods" type="Node" parent="." unique_id=197896668 node_paths=PackedStringArray("root")]
+script = ExtResource("2_36m63")
+root = NodePath("..")
+
+[node name="FocusGroupSignalNode" type="Node" parent="." unique_id=1727214893]
+script = ExtResource("5_a0y70")
+metadata/_custom_type_script = "uid://dc8gq2l3o144t"
+
+[connection signal="on_focus_entered" from="FocusGroupSignalNode" to="ExposedControlMethods" method="set_modulate" binds= [Color(1, 1, 1, 1)]]
+[connection signal="on_focus_exited" from="FocusGroupSignalNode" to="ExposedControlMethods" method="set_modulate" binds= [Color(0.49019608, 0.49019608, 0.49019608, 1)]]

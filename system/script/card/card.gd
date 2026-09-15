@@ -12,7 +12,11 @@ var base : CardBase:
 
 var _token : Token
 
-var suit : Suit
+var suit : Suit:
+	set(val):
+		if val == suit: return
+		suit = val
+		card_updated.emit(self)
 
 var base_cost : int:
 	get: return _base.base_cost
