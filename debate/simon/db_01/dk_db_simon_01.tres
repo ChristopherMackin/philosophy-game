@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="InfiniteDeck" format=3 uid="uid://jy8316qpljpn"]
+
+[ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://system/script/card/card_deck_config.gd" id="1_0n3uh"]
+[ext_resource type="Script" uid="uid://dlqqr4qxqi2ht" path="res://system/script/deck/infinite_deck.gd" id="2_txx76"]
+[ext_resource type="Resource" uid="uid://cctfndo77icgu" path="res://system/card/faith/simon/c_faith_sanctify.tres" id="2_w1r2r"]
+[ext_resource type="Resource" uid="uid://hrtymdr66lo1" path="res://system/card/faith/simon/c_faith_weigh_the_heart.tres" id="3_r4pnu"]
+[ext_resource type="Resource" uid="uid://dht78rb5r7ai4" path="res://system/card/faith/simon/c_faith_remove_temptation.tres" id="4_oq62h"]
+[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/c_faith_basic_faith.tres" id="5_r4pnu"]
+
+[sub_resource type="Resource" id="Resource_d6cuq"]
+resource_name = "2 Sanctify"
+script = ExtResource("1_0n3uh")
+base = ExtResource("2_w1r2r")
+count = 2
+
+[sub_resource type="Resource" id="Resource_5ngq8"]
+resource_name = "2 Weigh the Heart"
+script = ExtResource("1_0n3uh")
+base = ExtResource("3_r4pnu")
+count = 2
+
+[sub_resource type="Resource" id="Resource_24t25"]
+resource_name = "2 Remove Temptation"
+script = ExtResource("1_0n3uh")
+base = ExtResource("4_oq62h")
+count = 2
+
+[sub_resource type="Resource" id="Resource_oq62h"]
+resource_name = "3 Basic Faith"
+script = ExtResource("1_0n3uh")
+base = ExtResource("5_r4pnu")
+count = 3
+
+[resource]
+script = ExtResource("2_txx76")
+composition_card_deck_config_array = Array[ExtResource("1_0n3uh")]([SubResource("Resource_d6cuq"), SubResource("Resource_5ngq8"), SubResource("Resource_24t25"), SubResource("Resource_oq62h")])
+metadata/_custom_type_script = "uid://dlqqr4qxqi2ht"

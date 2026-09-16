@@ -50,6 +50,15 @@ var condition_status_effects:= SortedArray.new(sort_func)
 
 var manager : DebateManager
 
+enum CardTag {
+	SUPPORT,
+	ATTACK,
+	SELF,
+	OPPONENT
+}
+
+var tags: Array[CardTag]
+
 func on_play(contestant: Contestant, manager: DebateManager):
 	await _invoke_actions(_on_play_card_actions, CardAction.Type.ON_PLAY, contestant, manager)
 func on_draw(contestant: Contestant, manager: DebateManager):
@@ -114,6 +123,8 @@ func _init(base: CardBase, manager : DebateManager):
 	status_effects.array_updated.connect(func(): card_updated.emit(self))
 	
 	self.manager = manager
+	
+	tags = base.tags
 
 func generate_token():
 	_token = Token.new(_base.token_data) if _base.token_data else null
