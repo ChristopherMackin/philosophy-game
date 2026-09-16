@@ -4,6 +4,14 @@ class_name Card
 
 signal card_updated(card: Card)
 
+enum CardTag {
+	SUPPORT,
+	ATTACK,
+	SELF,
+	OPPONENT,
+	ALTER
+}
+
 var collection : CardCollection
 
 var _base : CardBase
@@ -49,13 +57,6 @@ var cost_status_effects:= SortedArray.new(sort_func)
 var condition_status_effects:= SortedArray.new(sort_func)
 
 var manager : DebateManager
-
-enum CardTag {
-	SUPPORT,
-	ATTACK,
-	SELF,
-	OPPONENT
-}
 
 var tags: Array[CardTag]
 

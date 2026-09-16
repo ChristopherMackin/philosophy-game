@@ -31,6 +31,9 @@ func get_expiration_token(key: String) -> ExpirationToken:
 	return _entries[index].expiration_token if index != -1 else null
 
 func add(key: String, value, expiration_token : Blackboard.ExpirationToken = Blackboard.ExpirationToken.NEVER):
+	if !Flag.has_value(key):
+		push_warning("% is not part of the flags enumeration and is liable to get lost.")
+	
 	if typeof(value) == TYPE_STRING:
 		value = value.to_snake_case()
 	
@@ -65,3 +68,21 @@ func get_query():
 
 func find_key_index(key: String):
 	return _entries.find_custom(func(x: BlackboardEntry): return x.key == key)
+
+func has_flag(flag: int):
+	return has(Flag.name(flag))
+
+func get_flag_value(flag: int):
+	return get_value(Flag.name(flag))
+
+func get_flag_expiration_token(flag: int) -> ExpirationToken:
+	return get_expiration_token(Flag.name(flag))
+
+func add_flag(flag: int, value, expiration_token : Blackboard.ExpirationToken = Blackboard.ExpirationToken.NEVER):
+	add(Flag.name(flag), value, expiration_token)
+
+func erase_flag(flag: int):
+	erase(Flag.name(flag))
+
+func find_flag_index(flag: int):
+	return find_key_index(Flag.name(flag))

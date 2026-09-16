@@ -5,6 +5,10 @@ extends Resource
 var contestant : Contestant
 var active_request : SelectionRequest
 
+var debate_blackboard: Blackboard:
+	get():
+		return contestant.manager.blackboard
+
 func select(_request : SelectionRequest) -> SelectionResponse:
 	return SelectionResponse.new()
 

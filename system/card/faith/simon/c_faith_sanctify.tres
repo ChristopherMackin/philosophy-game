@@ -35,4 +35,5 @@ base_cost = 1
 description = "Make a card in your opponent's hand a Faith card"
 token_data = ExtResource("10_b21nm")
 on_play_card_actions = Array[ExtResource("2_2f1u2")]([SubResource("Resource_kfl4h")])
+tags = Array[int]([4, 3])
 metadata/_custom_type_script = "uid://dy4e7i5501yv5"

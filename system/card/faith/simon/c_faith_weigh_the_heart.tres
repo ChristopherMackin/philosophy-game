@@ -55,4 +55,5 @@ base_cost = 1
 description = "Your opponent gains an energy for every faith card in their hand
 Your opponent loses and energy for every doubt card in their hand"
 on_play_card_actions = Array[ExtResource("2_vbink")]([SubResource("Resource_oyhtu"), SubResource("Resource_vbo2b")])
+tags = Array[int]([3, 0, 1])
 metadata/_custom_type_script = "uid://dy4e7i5501yv5"

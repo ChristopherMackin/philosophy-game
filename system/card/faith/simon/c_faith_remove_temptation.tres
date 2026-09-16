@@ -43,4 +43,5 @@ suit = ExtResource("4_qoioo")
 title = "Remove Temptation"
 description = "Choose a doubt card from your opponent's hand and remove it's token"
 on_play_card_actions = Array[ExtResource("2_qoioo")]([SubResource("Resource_qoioo")])
+tags = Array[int]([4, 3])
 metadata/_custom_type_script = "uid://dy4e7i5501yv5"

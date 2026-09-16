@@ -28,3 +28,12 @@ func can_recall(key : String):
 func recall(key : String):
 	var char_key = "%s_%s" % [name.to_snake_case(), key]
 	return blackboard.get_value(char_key)
+
+func remember_flag(flag : int, value, expiration_token : Blackboard.ExpirationToken = Blackboard.ExpirationToken.NEVER):
+	remember(Flag.name(flag), value, expiration_token)
+
+func can_recall_flag(flag : int):
+	can_recall(Flag.name(flag))
+
+func recall_flag(flag : int):
+	recall(Flag.name(flag))
