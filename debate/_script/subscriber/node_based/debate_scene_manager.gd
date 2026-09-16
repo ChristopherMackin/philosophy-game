@@ -37,7 +37,7 @@ func on_debate_finished():
 
 func query_event(concept : Const.Concept):
 	var query : Dictionary
-	query["concept"] = concept
+	query[Flag.name(Flag.CONCEPT)] = concept
 	query.merge(GlobalBlackboard.blackboard.get_query())
 	query.merge(blackboard.get_query())
 	

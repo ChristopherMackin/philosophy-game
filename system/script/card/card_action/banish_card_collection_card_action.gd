@@ -15,6 +15,6 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool
 		await card.collection.remove(card)
 		contestant.remove_from_deck(card)
 	
-	manager.blackboard.add("action_banished_cards", cards, Blackboard.ExpirationToken.ON_ACTION_END)
+	manager.blackboard.add_flag(Flag.ACTION_BANISHED_CARDS, cards, Blackboard.ExpirationToken.ON_ACTION_END)
 	
 	return true

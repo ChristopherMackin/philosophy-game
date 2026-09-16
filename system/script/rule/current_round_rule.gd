@@ -6,6 +6,7 @@ class_name CurrentRoundRule
 @export var current_round: int = 0
 
 func check(query : Dictionary) -> bool:
-	if !query.has("current_round"): return false
+	var key = Flag.name(Flag.CURRENT_ROUND)
+	if !query.has(key): return false
 	
-	return query["current_round"] == current_round
+	return query[key] == current_round

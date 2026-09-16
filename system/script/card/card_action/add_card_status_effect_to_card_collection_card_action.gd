@@ -12,6 +12,6 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool
 	for card: Card in cards:
 		status_effect.apply(card)
 	
-	manager.blackboard.add("action_added_card_status_effect", status_effect, Blackboard.ExpirationToken.ON_ACTION_END)
+	manager.blackboard.add_flag(Flag.ACTION_ADDED_CARD_STATUS_EFFECT, status_effect, Blackboard.ExpirationToken.ON_ACTION_END)
 	
 	return true

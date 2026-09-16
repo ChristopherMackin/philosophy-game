@@ -8,7 +8,7 @@ class_name Interactable
 
 func invoke():
 	var query : Dictionary
-	query["concept"] = Const.Concept.ON_EVENT_TRIGGER_INVOKED
+	query[Flag.name(Flag.CONCEPT)] = Const.Concept.ON_EVENT_TRIGGER_INVOKED
 	query.merge(GlobalBlackboard.blackboard.get_query())
 	query.merge(event_manager.blackboard.get_query())
 	

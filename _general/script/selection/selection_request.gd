@@ -9,6 +9,10 @@ var visible_to_player: bool
 var amount: int
 var min_amount: int
 
+var is_card_play_request:
+	get():
+		return action == Const.SelectionAction.PLAY and type == Const.SelectionType.CARD
+
 func _init(options: Array = [], \
 	action: Const.SelectionAction = Const.SelectionAction.PLAY, \
 	type: Const.SelectionType = Const.SelectionType.CARD, \

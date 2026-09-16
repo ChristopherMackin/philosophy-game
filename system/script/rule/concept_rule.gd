@@ -9,5 +9,6 @@ class_name ConceptRule
 		_update_rule_in_editor(Const.Concept.keys()[concept])
 
 func check(query: Dictionary):
-	if ! query.has("concept"): return false
-	return query["concept"] == concept
+	var key = Flag.name(Flag.CONCEPT)
+	if ! query.has(key): return false
+	return query[key] == concept

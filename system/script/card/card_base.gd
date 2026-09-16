@@ -26,4 +26,4 @@ class_name CardBase
 @export var vfx: Array[Const.VFX] = []
 
 @export_group("Tags")
-@export var tags: Array[Card.CardTag]
+@export var tags: Array[Card.Tag]

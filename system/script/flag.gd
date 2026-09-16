@@ -2,6 +2,7 @@ class_name Flag
 extends Object
 
 enum {
+	CONCEPT,
 	PLAYER,
 	COMPUTER,
 	CURRENT_TURN,
@@ -15,6 +16,8 @@ enum {
 	LINES_CLEARED,
 	DEBATES_FINISHED,
 	SPAWN_INDEX,
+	CARDS_PLAYED_THIS_TURN,
+	TOKENS_PLAYED_THIS_TURN,
 	
 	#Action Flags
 	ACTION_ADDED_CARD_BASE,

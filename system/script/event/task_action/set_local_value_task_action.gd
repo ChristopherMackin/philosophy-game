@@ -9,6 +9,7 @@ func skip(task: Task, manager : EventManager):
 func invoke(task : Task, manager : EventManager):
 	var bb : Blackboard = manager.blackboard
 	
+	#TODO: Make this a searchable flag list
 	bb.add(task.get_input("key"), str_to_var(task.get_input("val")))
 		
 	on_action_complete.emit(task.get_output(0))

@@ -94,7 +94,7 @@ func _skip():
 
 func get_event_using_data():
 	var query : Dictionary
-	query["concept"] = concept
+	query[Flag.name(Flag.CONCEPT)] = concept
 	query["active_contestant"] = "player" if active_contestant == Const.Player.HUMAN else "computer"
 	query["current_round"] = current_round
 	query["current_suit"] = card_history[0].suit if card_history.size() > 0 else null

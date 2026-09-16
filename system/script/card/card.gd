@@ -4,7 +4,7 @@ class_name Card
 
 signal card_updated(card: Card)
 
-enum CardTag {
+enum Tag {
 	SUPPORT,
 	ATTACK,
 	SELF,
@@ -58,7 +58,7 @@ var condition_status_effects:= SortedArray.new(sort_func)
 
 var manager : DebateManager
 
-var tags: Array[CardTag]
+var tags: Array[Tag]
 
 func on_play(contestant: Contestant, manager: DebateManager):
 	await _invoke_actions(_on_play_card_actions, CardAction.Type.ON_PLAY, contestant, manager)
@@ -93,7 +93,6 @@ func _invoke_actions(actions: Array[CardAction], action_type: CardAction.Type, c
 		if !await action.invoke(self, contestant, manager): break
 	
 	for sub in manager.subscribers: await sub.on_actions_invoked(self, action_type, contestant)
-	manager.blackboard.expire(Blackboard.ExpirationToken.ON_ACTION_END)
 
 var cost : int :
 	get:

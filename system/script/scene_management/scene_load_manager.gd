@@ -32,7 +32,7 @@ func _ready():
 
 func query_event():
 	var query : Dictionary
-	query["concept"] = Const.Concept.ON_SCENE_ENTER
+	query[Flag.name(Flag.CONCEPT)] = Const.Concept.ON_SCENE_ENTER
 	query.merge(GlobalBlackboard.blackboard.get_query())
 	query.merge(blackboard.get_query())
 	

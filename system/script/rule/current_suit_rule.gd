@@ -10,5 +10,6 @@ class_name CurrentSuitRule
 		_update_rule_in_editor(suit.name)
 
 func check(query: Dictionary):
-	if ! query.has("current_suit"): return false
-	return query["current_suit"] == suit
+	var key = Flag.name(Flag.CURRENT_SUIT)
+	if ! query.has(key): return false
+	return query[key] == suit
