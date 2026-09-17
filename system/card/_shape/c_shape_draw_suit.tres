@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="CardBase" format=3 uid="uid://c614582y5sixk"]
+
+[ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="1_ygy34"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_t6ld0"]
+[ext_resource type="Script" uid="uid://bkcitaxix1ncs" path="res://system/script/card/card_action/select_and_store_suits_in_blackboard_card_action.gd" id="3_n4xdx"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://system/script/suit/suit.gd" id="4_dc50b"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="5_dq4h7"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="6_f7fg1"]
+[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="7_j5b1y"]
+[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="8_1ual5"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://system/script/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="9_78qog"]
+[ext_resource type="Script" uid="uid://ba0lgn6ygtilc" path="res://system/script/card/card_action/card_collection_container/container_filter/blackboard_suits_collection_filter.gd" id="10_ajqb2"]
+[ext_resource type="Script" uid="uid://bwc82j6d8fvd4" path="res://system/script/card/card_action/card_collection_container/container_filter/slice_collection_filter.gd" id="11_sj4ao"]
+[ext_resource type="Script" uid="uid://c2f31cka87uk4" path="res://system/script/card/card_action/card_collection_container/draw_pile_collection_container.gd" id="12_tljbn"]
+[ext_resource type="Script" uid="uid://cm5qf41iurdc3" path="res://system/script/card/card_action/move_card_collection_to_card_collection_card_action.gd" id="13_w6n61"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://system/script/card/card_action/card_collection_container/hand_collection_container.gd" id="14_bqvfp"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="15_o8o5m"]
+[ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/shape.tres" id="16_ly8dj"]
+
+[sub_resource type="Resource" id="Resource_lnlrq"]
+script = ExtResource("3_n4xdx")
+suit_options = Array[ExtResource("4_dc50b")]([ExtResource("5_dq4h7"), ExtResource("6_f7fg1"), ExtResource("7_j5b1y"), ExtResource("8_1ual5")])
+suit_selection_action = 1
+metadata/_custom_type_script = "uid://bkcitaxix1ncs"
+
+[sub_resource type="Resource" id="Resource_u1sng"]
+script = ExtResource("10_ajqb2")
+metadata/_custom_type_script = "uid://ba0lgn6ygtilc"
+
+[sub_resource type="Resource" id="Resource_gjkwf"]
+script = ExtResource("11_sj4ao")
+amount = 1
+metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
+
+[sub_resource type="Resource" id="Resource_w4ypc"]
+script = ExtResource("12_tljbn")
+collection_filters = Array[ExtResource("9_78qog")]([SubResource("Resource_u1sng"), SubResource("Resource_gjkwf")])
+metadata/_custom_type_script = "uid://c2f31cka87uk4"
+
+[sub_resource type="Resource" id="Resource_jsiak"]
+script = ExtResource("14_bqvfp")
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_t371b"]
+script = ExtResource("13_w6n61")
+from_collection = SubResource("Resource_w4ypc")
+to_collection = SubResource("Resource_jsiak")
+metadata/_custom_type_script = "uid://cm5qf41iurdc3"
+
+[resource]
+script = ExtResource("15_o8o5m")
+suit = ExtResource("16_ly8dj")
+title = "Recollect"
+base_cost = 2
+description = "Draw a card of a specified suit"
+on_play_card_actions = Array[ExtResource("2_t6ld0")]([SubResource("Resource_lnlrq"), SubResource("Resource_t371b")])

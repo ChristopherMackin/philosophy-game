@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CardBase" format=3 uid="uid://hn3fmi2k8xsl"]
+
+[ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="1_me5q3"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_1wy30"]
+[ext_resource type="Script" uid="uid://ry8dl84ft1kn" path="res://system/script/card/card_action/modify_energy_card_action.gd" id="3_1wy30"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="3_7xuec"]
+[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="4_xbsas"]
+[ext_resource type="Resource" uid="uid://dqi64apd2c507" path="res://system/token/others/basic_others_token.tres" id="5_cmyg5"]
+
+[sub_resource type="Resource" id="Resource_me5q3"]
+script = ExtResource("3_1wy30")
+amount = 1
+metadata/_custom_type_script = "uid://ry8dl84ft1kn"
+
+[resource]
+script = ExtResource("3_7xuec")
+suit = ExtResource("4_xbsas")
+title = "Basic Others"
+base_cost = 2
+description = "+1 Energy"
+token_data = ExtResource("5_cmyg5")
+on_play_card_actions = Array[ExtResource("2_1wy30")]([SubResource("Resource_me5q3")])

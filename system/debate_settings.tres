@@ -15,7 +15,7 @@ metadata/_custom_type_script = "uid://bla5l1dnib1db"
 
 [resource]
 script = ExtResource("1_cdwd0")
-redraw_on_hand_depleted = false
+starting_player = 1
 retain_excess_energy = false
 suits = Array[ExtResource("2_4blar")]([ExtResource("3_oowsw"), ExtResource("2_p7u10"), ExtResource("5_t3pf5"), ExtResource("4_tit4q")])
 slots = 10

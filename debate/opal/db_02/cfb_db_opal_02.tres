@@ -14,10 +14,10 @@
 [ext_resource type="Script" uid="uid://cilcb0gb3xu0g" path="res://system/script/rule/current_player_rule.gd" id="5_fl5vf"]
 [ext_resource type="Script" uid="uid://ck2rt2uwm6814" path="res://debate/_script/ui/card_ui_factory/rule_card_ui_factory.gd" id="6_f3xu3"]
 [ext_resource type="Script" uid="uid://3ajnh5fdykvx" path="res://debate/_script/ui/card_ui_factory/bucket_card_ui_factory.gd" id="7_5aiml"]
-[ext_resource type="PackedScene" uid="uid://13is8xrc6y7q" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_peace_card_ui.tscn" id="8_bjoli"]
+[ext_resource type="PackedScene" uid="uid://13is8xrc6y7q" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_shape_card_ui.tscn" id="8_bjoli"]
 [ext_resource type="Script" uid="uid://du0wp68cutphq" path="res://debate/_script/ui/card_ui_factory/suit_card_ui_factory.gd" id="9_stjoh"]
-[ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/peace.tres" id="10_c3q3r"]
-[ext_resource type="PackedScene" uid="uid://bmo1kna3igdun" path="res://debate/packed_scene/card_ui/peace_card_ui.tscn" id="15_stjoh"]
+[ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/shape.tres" id="10_c3q3r"]
+[ext_resource type="PackedScene" uid="uid://bmo1kna3igdun" path="res://debate/packed_scene/card_ui/shape_card_ui.tscn" id="15_stjoh"]
 
 [sub_resource type="Resource" id="Resource_38imp"]
 script = ExtResource("1_sss4s")

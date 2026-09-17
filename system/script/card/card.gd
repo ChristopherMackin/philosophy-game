@@ -145,8 +145,12 @@ func destroy_token():
 func replace_token(token: Token):
 	_token = token
 
-func duplicate():
-	return Card.new(_base, manager)
+func duplicate(keep_status_effects: bool = false):
+	var card = Card.new(_base, manager)
+	if keep_status_effects:
+		for effect: CardStatusEffect in status_effects.values:
+			effect.duplicate().apply(card)
+	return card
 
 func equals(card: Card) -> bool:
 	if card.status_effects.size() == status_effects.size():

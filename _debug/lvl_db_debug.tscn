@@ -5,11 +5,11 @@
 [ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="3_kjq1s"]
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="4_ew0wg"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/br_player.tres" id="5_vl5uf"]
+[ext_resource type="Resource" uid="uid://dv86ada6flar5" path="res://player/dk_default.tres" id="6_67ixi"]
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="6_gjvsf"]
 [ext_resource type="Resource" uid="uid://byb2ixogukv6b" path="res://_debug/dk_debug.tres" id="6_p8hb5"]
 [ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="7_ew0wg"]
 [ext_resource type="Script" uid="uid://c1usdvnuwduui" path="res://character/script/brain/simon/br_simon_db_01.gd" id="9_ew0wg"]
-[ext_resource type="Resource" uid="uid://jy8316qpljpn" path="res://debate/simon/db_01/dk_db_simon_01.tres" id="10_ew0wg"]
 [ext_resource type="Script" uid="uid://bcmq2op4vw7ja" path="res://_debug/computer_played_cards.gd" id="11_vl5uf"]
 [ext_resource type="Resource" uid="uid://blh1qdw7pholg" path="res://debate/_general/cfb_general.tres" id="12_67ixi"]
 [ext_resource type="Resource" uid="uid://bxdnjlvt3iyth" path="res://system/debate_manager.tres" id="12_p8hb5"]
@@ -22,7 +22,7 @@ metadata/_custom_type_script = "uid://18i051ifv5h0"
 script = ExtResource("6_gjvsf")
 name = "Joy"
 brain = ExtResource("5_vl5uf")
-deck = ExtResource("6_p8hb5")
+deck = ExtResource("6_67ixi")
 blackboard = ExtResource("4_ew0wg")
 
 [sub_resource type="Resource" id="Resource_tnxy5"]
@@ -33,7 +33,7 @@ metadata/_custom_type_script = "uid://c1usdvnuwduui"
 script = ExtResource("6_gjvsf")
 name = "Debug"
 brain = SubResource("Resource_tnxy5")
-deck = ExtResource("10_ew0wg")
+deck = ExtResource("6_p8hb5")
 blackboard = ExtResource("2_kjq1s")
 metadata/_custom_type_script = "uid://b0gx18dmx3sv3"
 

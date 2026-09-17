@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CardBase" format=3 uid="uid://baetekhn1h76x"]
+
+[ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="1_gxcdg"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_2h7tr"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="3_migmf"]
+[ext_resource type="Script" uid="uid://ry8dl84ft1kn" path="res://system/script/card/card_action/modify_energy_card_action.gd" id="3_ym520"]
+[ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/shape.tres" id="4_2h7tr"]
+
+[sub_resource type="Resource" id="Resource_migmf"]
+script = ExtResource("3_ym520")
+amount = 1
+metadata/_custom_type_script = "uid://ry8dl84ft1kn"
+
+[resource]
+script = ExtResource("3_migmf")
+suit = ExtResource("4_2h7tr")
+title = "Energize"
+description = "+1 Energy"
+on_play_card_actions = Array[ExtResource("2_2h7tr")]([SubResource("Resource_migmf")])
+tags = Array[int]([0, 2])
+metadata/_custom_type_script = "uid://dy4e7i5501yv5"
