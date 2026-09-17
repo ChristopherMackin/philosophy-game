@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="CardBase" load_steps=15 format=3 uid="uid://183t81u40bp0"]
+[gd_resource type="Resource" script_class="CardBase" format=3 uid="uid://183t81u40bp0"]
 
+[ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="1_37nx8"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="1_aw5is"]
-[ext_resource type="Script" uid="uid://bai2lqfqjgvhy" path="res://system/script/card/card_cost_modifier/card_cost_modifier.gd" id="1_km71s"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_s37dr"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="3_17d0o"]
 [ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://system/script/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_hnfvr"]
@@ -13,22 +13,17 @@
 
 [sub_resource type="Resource" id="Resource_jvy4m"]
 script = ExtResource("4_k08em")
-slice_direction = 0
 amount_per_tag = 0.5
 tag = 1
 metadata/_custom_type_script = "uid://can8uq8rvfaws"
 
 [sub_resource type="Resource" id="Resource_hnfvr"]
 script = ExtResource("5_rdb0g")
-which_contestant = 0
-insertion_point = 0
 collection_filters = Array[ExtResource("3_hnfvr")]([SubResource("Resource_jvy4m")])
 metadata/_custom_type_script = "uid://c2f31cka87uk4"
 
 [sub_resource type="Resource" id="Resource_48fmq"]
 script = ExtResource("8_yb77p")
-which_contestant = 0
-collection_filters = Array[ExtResource("3_hnfvr")]([])
 metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
 
 [sub_resource type="Resource" id="Resource_xwheo"]
@@ -45,11 +40,3 @@ base_cost = 2
 description = "Draw 1 card for every 2 [color=red]evidence[/color] tokens on the board"
 token_data = ExtResource("4_jjdmp")
 on_play_card_actions = Array[ExtResource("2_s37dr")]([SubResource("Resource_xwheo")])
-on_discard_card_actions = Array[ExtResource("2_s37dr")]([])
-on_banish_card_actions = Array[ExtResource("2_s37dr")]([])
-on_turn_start_card_actions = Array[ExtResource("2_s37dr")]([])
-on_turn_end_card_actions = Array[ExtResource("2_s37dr")]([])
-on_hold_start_card_actions = Array[ExtResource("2_s37dr")]([])
-on_hold_stay_card_actions = Array[ExtResource("2_s37dr")]([])
-on_hold_end_card_actions = Array[ExtResource("2_s37dr")]([])
-cost_modifiers = Array[ExtResource("1_km71s")]([])

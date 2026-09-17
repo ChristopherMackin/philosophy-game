@@ -80,7 +80,7 @@ viewport_path = NodePath("GameBoardState/TurnCounter/CounterUi/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_dghl5"]
 viewport_path = NodePath("GameBoardState/LineClearCounter/CounterUi/SubViewport")
 
-[sub_resource type="Environment" id="Environment_72b1j"]
+[sub_resource type="Environment" id="Environment_8ur0d"]
 ambient_light_source = 2
 ambient_light_color = Color(0.94, 0.94, 0.94, 1)
 ssao_intensity = 1.32
@@ -970,7 +970,7 @@ _data = {
 dof_blur_far_enabled = true
 dof_blur_far_distance = 5.0
 
-[sub_resource type="Environment" id="Environment_sna7n"]
+[sub_resource type="Environment" id="Environment_p12bn"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -1033,7 +1033,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_dqw0w")
 nodes/Animation/position = Vector2(50, 320)
 node_connections = [&"output", 0, &"talk_override", &"talk_override", 0, &"blink_override", &"talk_override", 1, &"talk", &"blink_override", 0, &"Animation", &"blink_override", 1, &"blink"]
 
-[sub_resource type="Environment" id="Environment_xmtap"]
+[sub_resource type="Environment" id="Environment_ocrdf"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -1168,7 +1168,7 @@ texture = SubResource("ViewportTexture_yha5w")
 texture = SubResource("ViewportTexture_dghl5")
 
 [node name="GameplayCamera" parent="===GAMEPLAY========/===UI========/GameplayContainer/SubViewport" parent_id_path=PackedInt32Array(552190790, 1331556263) index="0" unique_id=1341371874]
-environment = SubResource("Environment_72b1j")
+environment = SubResource("Environment_8ur0d")
 
 [node name="===CAMERA========" type="Node3D" parent="." unique_id=1860563192]
 
@@ -1804,7 +1804,7 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="SceneCamera" type="Camera3D" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerA/SubViewport" unique_id=1039536451]
-transform = Transform3D(0.40592754, 0.0015116911, 0.9139041, -0.0035386235, 0.99999386, -8.2347244e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
+transform = Transform3D(0.40592754, 0.001511691, 0.9139041, -0.0035386235, 0.99999386, -8.234713e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
 top_level = true
 cull_mask = 1
 attributes = SubResource("CameraAttributesPractical_gaafv")
@@ -1832,10 +1832,10 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="SceneCamera" type="Camera3D" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerB/SubViewport" unique_id=1232389164]
-transform = Transform3D(0.40592754, 0.001511691, 0.9139041, -0.0035386235, 0.99999386, -8.234713e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
+transform = Transform3D(0.40592754, 0.0015116909, 0.9139041, -0.0035386235, 0.99999386, -8.234701e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
 top_level = true
 cull_mask = 4
-environment = SubResource("Environment_sna7n")
+environment = SubResource("Environment_p12bn")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -2269,7 +2269,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 4
-environment = SubResource("Environment_xmtap")
+environment = SubResource("Environment_ocrdf")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -2418,10 +2418,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.4207953
-offset_top = 0.12023083
-offset_right = 218.57915
-offset_bottom = 130.12022
+offset_left = 1.0567672
+offset_top = -1.087534
+offset_right = 221.0567
+offset_bottom = 128.91246
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2473,10 +2473,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.3257719
-offset_top = 1.2331599
-offset_right = 218.67422
-offset_bottom = 131.23325
+offset_left = 1.3687903
+offset_top = 1.3853227
+offset_right = 221.36879
+offset_bottom = 131.38542
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2528,10 +2528,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.27905786
-offset_top = -0.4581668
-offset_right = 219.72101
-offset_bottom = 129.54184
+offset_left = -0.83268875
+offset_top = 0.7885409
+offset_right = 219.16737
+offset_bottom = 130.78854
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2583,10 +2583,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.004639148
-offset_top = 1.1196901
-offset_right = 538.8331
-offset_bottom = 339.81995
+offset_left = 1.7021201
+offset_top = 0.0023664772
+offset_right = 540.5399
+offset_bottom = 338.70264
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
