@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="1_ow7e4"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_x22cc"]
-[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://system/script/card/card_action/card_collection_container/container_filter/collection_filter.gd" id="3_2kpma"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://system/script/card/card_array_filter/card_array_filter.gd" id="3_2kpma"]
 [ext_resource type="Script" uid="uid://rqidt26nwrc8" path="res://system/script/card/card_action/card_collection_container/hold_collection_container.gd" id="3_guljh"]
 [ext_resource type="Script" uid="uid://cm5qf41iurdc3" path="res://system/script/card/card_action/move_card_collection_to_card_collection_card_action.gd" id="3_ngntv"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="4_2kpma"]

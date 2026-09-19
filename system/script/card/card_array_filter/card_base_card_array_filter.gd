@@ -1,6 +1,6 @@
-extends CollectionFilter
+extends CardArrayFilter
 
-class_name CardBaseCollectionFilter
+class_name CardBaseCardArrayFilter
 
 @export var collection: CardCollectionContainer
 @export_enum("Include", "Exclude") var filter_mode := 0

@@ -4,16 +4,11 @@ extends Resource
 
 const max_try_count: int = 10
 var current_try: int = 0
-var contestant : Contestant
 var active_request : SelectionRequest
 
-var debate_blackboard: Blackboard:
-	get():
-		return contestant.manager.blackboard
-
-func request_selection(request : SelectionRequest) -> SelectionResponse:
+func request_selection(contestant: Contestant, request : SelectionRequest) -> SelectionResponse:
 	active_request = request
-	var selection: SelectionResponse = await select(request)
+	var selection: SelectionResponse = await select(contestant, request)
 	
 	while !check_validity(request, selection):
 		if current_try >= max_try_count:
@@ -22,14 +17,14 @@ func request_selection(request : SelectionRequest) -> SelectionResponse:
 			if !check_validity(request, selection): Engine.get_main_loop().quit()
 			break
 		current_try += 1
-		selection = await select(request)
+		selection = await select(contestant, request)
 	
 	current_try = 0
 	active_request = null
 	
 	return selection
 
-func select(_request: SelectionRequest) -> SelectionResponse:
+func select(_contestant: Contestant, _request: SelectionRequest) -> SelectionResponse:
 	return SelectionResponse.new()
 
 func check_validity(request : SelectionRequest, response : SelectionResponse) -> bool:

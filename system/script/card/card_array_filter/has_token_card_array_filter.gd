@@ -1,6 +1,6 @@
-extends CollectionFilter
+extends CardArrayFilter
 
-class_name HasTokenCollectionFilter
+class_name HasTokenCardArrayFilter
 
 @export_enum("On Card", "On Base") var token_location: int
 @export var has_token: bool = true

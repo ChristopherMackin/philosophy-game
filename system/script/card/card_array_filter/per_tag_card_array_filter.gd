@@ -1,6 +1,6 @@
-extends CollectionFilter
+extends CardArrayFilter
 
-class_name PerTagCollectionFilter
+class_name PerTagCardArrayFilter
 
 @export_enum("Forwards", "Backwards") var slice_direction := 0
 @export var amount_per_tag: float

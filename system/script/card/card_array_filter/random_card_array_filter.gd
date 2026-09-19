@@ -1,6 +1,6 @@
-extends CollectionFilter
+extends CardArrayFilter
 
-class_name RandomCollectionFilter
+class_name RandomCardArrayFilter
 
 @export var amount : int
 

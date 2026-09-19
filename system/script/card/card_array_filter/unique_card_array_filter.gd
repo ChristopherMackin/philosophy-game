@@ -1,6 +1,6 @@
-extends CollectionFilter
+extends CardArrayFilter
 
-class_name UniqueDuplicatesCollectionFilter
+class_name UniqueDuplicatesCardArrayFilter
 
 func filter(card_array: Array[Card], caller: Card, contestant: Contestant, manager: DebateManager) -> Array[Card]:
 	var saved_cards : Array[Card] = []

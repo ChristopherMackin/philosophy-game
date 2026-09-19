@@ -69,7 +69,6 @@ func character_is(character : Character):
 func _init(character : Character, manager : DebateManager):
 	self.manager = manager
 	self.character = character
-	self.character.brain.contestant = self
 	
 	hand.on_added.add_listener(func(card: Card): await card.on_draw(self, manager))
 	hand.on_added.add_listener(func(card: Card):
@@ -175,7 +174,7 @@ func take_turn() -> SelectionResponse:
 	return response
 
 func select(request : SelectionRequest) -> SelectionResponse:
-	return await _brain.request_selection(request)
+	return await _brain.request_selection(self, request)
 
 func hold_card(card : Card):
 	if held_card.size > 0:

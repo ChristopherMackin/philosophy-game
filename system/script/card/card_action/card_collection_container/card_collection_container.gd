@@ -7,7 +7,7 @@ var player: Contestant
 var manager: DebateManager
 var card_collection : CardCollection
 
-@export var collection_filters: Array[CollectionFilter]
+@export var collection_filters: Array[CardArrayFilter]
 
 func init(caller: Card, player: Contestant, manager : DebateManager):
 	self.caller = caller

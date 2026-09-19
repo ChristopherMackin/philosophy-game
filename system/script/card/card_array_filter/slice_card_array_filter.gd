@@ -1,6 +1,6 @@
-extends CollectionFilter
+extends CardArrayFilter
 
-class_name SliceCollectionFilter
+class_name SliceCardArrayFilter
 
 @export_enum("Forwards", "Backwards") var slice_direction := 0
 @export var amount : int

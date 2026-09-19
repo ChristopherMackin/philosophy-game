@@ -1,6 +1,6 @@
-extends CollectionFilter
+extends CardArrayFilter
 
-class_name SelectionCollectionFilter
+class_name SelectionCardArrayFilter
 
 @export var visible_to_player := true
 @export var amount := 1

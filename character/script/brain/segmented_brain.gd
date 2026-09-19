@@ -7,15 +7,21 @@ extends Brain
 @export var select_suit_brain: Brain
 @export var default_brain: Brain
 
-func select(request: SelectionRequest) -> SelectionResponse:
+func select(contestant: Contestant, request: SelectionRequest) -> SelectionResponse:
+	var selection: SelectionResponse
+	
 	match request.type:
 		Const.SelectionType.CARD:
 			if request.action == Const.SelectionAction.PLAY:
-				return await play_card_brain.request_selection(request)
-			else: return await select_card_brain.request_selection(request)
+				selection =  await play_card_brain.request_selection(contestant, request)
+			else: selection = await select_card_brain.request_selection(contestant, request)
 		Const.SelectionType.TOKEN:
-			return await select_token_brain.request_selection(request)
+			selection =  await select_token_brain.request_selection(contestant, request)
 		Const.SelectionType.SUIT:
-			return await select_suit_brain.request_selection(request)
+			selection = await select_suit_brain.request_selection(contestant, request)
 		_:
-			return await default_brain.request_selection(request)
+			selection = await default_brain.request_selection(contestant, request)
+	
+	if !selection: return SelectionResponse.new(request.options[0])
+	
+	return selection
