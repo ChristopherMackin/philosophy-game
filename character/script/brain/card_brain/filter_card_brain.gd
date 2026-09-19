@@ -8,8 +8,6 @@ func select(contestant: Contestant, _request: SelectionRequest) -> SelectionResp
 	var card_array: Array[Card]
 	card_array.assign(_request.options)
 	
-	print(card_array)
-	
 	for filter in filters:
 		card_array = await filter.filter(card_array, _request.caller, contestant, contestant.manager)
 	
