@@ -9,10 +9,14 @@
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="6_gjvsf"]
 [ext_resource type="Resource" uid="uid://byb2ixogukv6b" path="res://_debug/dk_debug.tres" id="6_p8hb5"]
 [ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="7_ew0wg"]
-[ext_resource type="Script" uid="uid://c1usdvnuwduui" path="res://character/script/brain/simon/br_simon_db_01.gd" id="9_ew0wg"]
+[ext_resource type="Script" uid="uid://bd0ju0w2rhsap" path="res://character/script/brain/card_brain/card_brain.gd" id="9_h52et"]
+[ext_resource type="Script" uid="uid://bq4chre6xpwmq" path="res://character/script/brain/card_brain/zero_cost_card_brain.gd" id="10_lhkuc"]
+[ext_resource type="Script" uid="uid://cq6rn24jqrj1l" path="res://character/script/brain/card_brain/high_cost_card_brain.gd" id="11_kteli"]
 [ext_resource type="Script" uid="uid://bcmq2op4vw7ja" path="res://_debug/computer_played_cards.gd" id="11_vl5uf"]
 [ext_resource type="Resource" uid="uid://blh1qdw7pholg" path="res://debate/_general/cfb_general.tres" id="12_67ixi"]
+[ext_resource type="Script" uid="uid://boqox7i13fuhd" path="res://character/script/brain/card_brain/bucket_card_brain.gd" id="12_ncwtg"]
 [ext_resource type="Resource" uid="uid://bxdnjlvt3iyth" path="res://system/debate_manager.tres" id="12_p8hb5"]
+[ext_resource type="Script" uid="uid://dvf2hykscm20g" path="res://character/script/brain/segmented_brain.gd" id="13_8hael"]
 
 [sub_resource type="Resource" id="Resource_pncn6"]
 script = ExtResource("3_kjq1s")
@@ -25,14 +29,28 @@ brain = ExtResource("5_vl5uf")
 deck = ExtResource("6_67ixi")
 blackboard = ExtResource("4_ew0wg")
 
-[sub_resource type="Resource" id="Resource_tnxy5"]
-script = ExtResource("9_ew0wg")
-metadata/_custom_type_script = "uid://c1usdvnuwduui"
+[sub_resource type="Resource" id="Resource_62oe0"]
+script = ExtResource("10_lhkuc")
+metadata/_custom_type_script = "uid://bq4chre6xpwmq"
+
+[sub_resource type="Resource" id="Resource_x2hmo"]
+script = ExtResource("11_kteli")
+metadata/_custom_type_script = "uid://cq6rn24jqrj1l"
+
+[sub_resource type="Resource" id="Resource_67ixi"]
+script = ExtResource("12_ncwtg")
+brains = Array[ExtResource("9_h52et")]([SubResource("Resource_62oe0"), SubResource("Resource_x2hmo")])
+metadata/_custom_type_script = "uid://boqox7i13fuhd"
+
+[sub_resource type="Resource" id="Resource_p8hb5"]
+script = ExtResource("13_8hael")
+play_card_brain = SubResource("Resource_67ixi")
+metadata/_custom_type_script = "uid://dvf2hykscm20g"
 
 [sub_resource type="Resource" id="Resource_kjq1s"]
 script = ExtResource("6_gjvsf")
 name = "Debug"
-brain = SubResource("Resource_tnxy5")
+brain = SubResource("Resource_p8hb5")
 deck = ExtResource("6_p8hb5")
 blackboard = ExtResource("2_kjq1s")
 metadata/_custom_type_script = "uid://b0gx18dmx3sv3"

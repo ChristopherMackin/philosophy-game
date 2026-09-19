@@ -5,13 +5,10 @@ class_name PlayerBrain
 signal on_selection_requested(request : SelectionRequest)
 signal on_selection_made(response : SelectionResponse)
 
-func select(request : SelectionRequest) -> SelectionResponse:
-	active_request = request
-	
+func select(request : SelectionRequest) -> SelectionResponse:	
 	on_selection_requested.emit(request)
 	var response = await on_selection_made
 	
-	active_request = null
 	return response
 
 func make_selection(response: SelectionResponse) -> bool:

@@ -33,7 +33,6 @@ func _ready():
 func query_event():
 	var query : Dictionary
 	query[Flag.name(Flag.CONCEPT)] = Const.Concept.ON_SCENE_ENTER
-	query.merge(GlobalBlackboard.blackboard.get_query())
 	query.merge(blackboard.get_query())
 	
 	var event = event_factory.get_event(query)
@@ -50,8 +49,7 @@ func set_room_state():
 	if !scene_animator: return
 	
 	var query: Dictionary
-	query = GlobalBlackboard.blackboard.get_query()
-	query.merge(blackboard.get_query())
+	blackboard.get_query()
 	
 	for state in ordered_room_states:
 		if state.rule.check(query):

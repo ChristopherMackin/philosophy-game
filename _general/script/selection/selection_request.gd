@@ -1,6 +1,5 @@
-extends Object
-
 class_name SelectionRequest
+extends Object
 
 var options: Array
 var action: Const.SelectionAction
@@ -8,6 +7,7 @@ var type: Const.SelectionType
 var visible_to_player: bool
 var amount: int
 var min_amount: int
+var caller
 
 var is_card_play_request:
 	get():

@@ -8,7 +8,6 @@ func skip(task: Task, manager : EventManager):
 
 func invoke(task : Task, manager : EventManager):
 	var query: Dictionary
-	query.merge(GlobalBlackboard.blackboard.get_query())
 	query.merge(manager.blackboard.get_query())
 	
 	var rule = task.get_input("rule")

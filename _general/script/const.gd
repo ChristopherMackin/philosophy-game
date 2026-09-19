@@ -27,13 +27,15 @@ enum Player {
 enum SelectionAction {
 	VIEW,
 	SELECT,
-	PLAY
+	PLAY,
+	OTHER
 }
 
 enum SelectionType {
 	TOKEN,
 	CARD,
-	SUIT
+	SUIT,
+	OTHER
 }
 
 enum Direction {

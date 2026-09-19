@@ -175,7 +175,7 @@ func take_turn() -> SelectionResponse:
 	return response
 
 func select(request : SelectionRequest) -> SelectionResponse:
-	return await _brain.select(request)
+	return await _brain.request_selection(request)
 
 func hold_card(card : Card):
 	if held_card.size > 0:
