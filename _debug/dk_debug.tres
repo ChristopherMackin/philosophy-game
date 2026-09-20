@@ -5,14 +5,6 @@
 [ext_resource type="Script" uid="uid://dlqqr4qxqi2ht" path="res://system/script/deck/infinite_deck.gd" id="2_fnvbb"]
 [ext_resource type="Resource" uid="uid://baetekhn1h76x" path="res://system/card/_shape/c_shape_1_energy.tres" id="2_l4xqa"]
 [ext_resource type="Resource" uid="uid://fbhmjchu7do4" path="res://system/card/faith/ct_faith_4_energy_placeholder.tres" id="4_l4xqa"]
-[ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="5_acoon"]
-[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="6_i3i10"]
-[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://system/script/card/card_array_filter/card_array_filter.gd" id="7_wpc7i"]
-[ext_resource type="Script" uid="uid://bw3sfhshf5fwh" path="res://system/script/card/card_action/card_collection_container/caller_collection_container.gd" id="8_gdt8k"]
-[ext_resource type="Script" uid="uid://cli7rttnpf5db" path="res://system/script/card/card_action/add_card_status_effect_to_card_collection_card_action.gd" id="9_m6sjj"]
-[ext_resource type="Script" uid="uid://dyif3nbemyr0d" path="res://system/script/card/card_status_effect/cost_card_status_effect/set_cost_card_status_effect.gd" id="10_tjvy6"]
-[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="11_2am2g"]
-[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="12_i3i10"]
 
 [sub_resource type="Resource" id="Resource_nrtfc"]
 resource_name = "2 Energize"
@@ -32,37 +24,7 @@ script = ExtResource("1_clwjl")
 base = ExtResource("4_l4xqa")
 count = 1
 
-[sub_resource type="Resource" id="Resource_lhkuc"]
-script = ExtResource("8_gdt8k")
-metadata/_custom_type_script = "uid://bw3sfhshf5fwh"
-
-[sub_resource type="Resource" id="Resource_kteli"]
-script = ExtResource("10_tjvy6")
-amount = 1
-metadata/_custom_type_script = "uid://dyif3nbemyr0d"
-
-[sub_resource type="Resource" id="Resource_h52et"]
-script = ExtResource("9_m6sjj")
-collection_container = SubResource("Resource_lhkuc")
-status_effect = SubResource("Resource_kteli")
-metadata/_custom_type_script = "uid://cli7rttnpf5db"
-
-[sub_resource type="Resource" id="Resource_08d3l"]
-script = ExtResource("11_2am2g")
-suit = ExtResource("12_i3i10")
-title = "TEST"
-base_cost = 4
-description = "YAYAYA"
-on_turn_start_card_actions = Array[ExtResource("6_i3i10")]([SubResource("Resource_h52et")])
-metadata/_custom_type_script = "uid://dy4e7i5501yv5"
-
-[sub_resource type="Resource" id="Resource_eg0if"]
-resource_name = "1 "
-script = ExtResource("1_clwjl")
-base = SubResource("Resource_08d3l")
-count = 1
-
 [resource]
 script = ExtResource("2_fnvbb")
-composition_card_deck_config_array = Array[ExtResource("1_clwjl")]([SubResource("Resource_nrtfc"), SubResource("Resource_f18bh"), SubResource("Resource_jo7j8"), SubResource("Resource_eg0if")])
+composition_card_deck_config_array = Array[ExtResource("1_clwjl")]([SubResource("Resource_nrtfc"), SubResource("Resource_f18bh"), SubResource("Resource_jo7j8")])
 metadata/_custom_type_script = "uid://dlqqr4qxqi2ht"
