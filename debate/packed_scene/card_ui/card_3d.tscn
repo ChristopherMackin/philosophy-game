@@ -16,13 +16,5 @@ card_parent = NodePath("SubViewport")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1650235351]
 transparent_bg = true
-size = Vector2i(360, 320)
 
 [node name="CardGUI" parent="SubViewport" unique_id=370963301 instance_placeholder="res://debate/packed_scene/card_ui/ennui_cards/ennui_card_ui.tscn"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2

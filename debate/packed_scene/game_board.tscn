@@ -95,7 +95,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.05046, 0.0002599997, 0.35736)]
+"values": [Vector3(0.07, 0, 0.357)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -135,7 +135,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.16434099, 0.3023257, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.05046, 0.0002599997, 0.35736), Vector3(0.05046, 0.0002599997, 0.1874), Vector3(0.05046, 0.0002599997, 0.17388), Vector3(0.05046, 0.0002599997, 0.1874)]
+"values": [Vector3(0.07, 0, 0.357), Vector3(0.07, 0, 0.187), Vector3(0.07, 0, 0.174), Vector3(0.07, 0, 0.187)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -175,7 +175,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.005735406, 0.051036533, 0.1160885, 0.18286939),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.05046, 0.0002599997, 0.1874), Vector3(0.05046, 0.0002599997, 0.17388), Vector3(0.05046, 0.0002599997, 0.1874), Vector3(0.05046, 0.0002599997, 0.35736)]
+"values": [Vector3(0.07, 0, 0.187), Vector3(0.07, 0, 0.174), Vector3(0.07, 0, 0.187), Vector3(0.07, 0, 0.357)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -411,9 +411,9 @@ curve = SubResource("Curve_wifvs")
 seconds = 0.3999999999999988
 
 [node name="PlayerHeldCard" type="Sprite3D" parent="PlayerUi" unique_id=1705489298 node_paths=PackedStringArray("card_parent", "animation_player")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.05046, 0.0002599997, 0.35736)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.07, 0, 0.357)
 layers = 32768
-pixel_size = 0.0003
+pixel_size = 0.00022
 texture = SubResource("ViewportTexture_v6cv3")
 script = ExtResource("10_v6cv3")
 card_ui_factory_base = ExtResource("66_kq0jy")
@@ -426,16 +426,15 @@ libraries/ = SubResource("AnimationLibrary_dqw0w")
 
 [node name="SubViewport" type="SubViewport" parent="PlayerUi/PlayerHeldCard" unique_id=581011135]
 transparent_bg = true
-size = Vector2i(360, 320)
 
 [node name="HoldCardOutline" type="Sprite3D" parent="PlayerUi" unique_id=642362248]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.050502777, 0, 0.1875763)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.0705436, 0, 0.1875763)
 layers = 32768
 pixel_size = 0.00025
 texture = ExtResource("12_lgils")
 
 [node name="Label3D" type="Label3D" parent="PlayerUi/HoldCardOutline" unique_id=560519453]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.05756569, 0.009819031, 4.2920156e-10)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.045225248, 0.009819031, 4.2920156e-10)
 layers = 32768
 pixel_size = 0.0003
 outline_modulate = Color(0.3529412, 0.3529412, 0.3529412, 1)
@@ -633,7 +632,7 @@ seconds = 0.3999999999999988
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.007186869, -0.1638608)
 layers = 32768
 offset = Vector3(0, 0, 0.001)
-pixel_size = 0.000175
+pixel_size = 0.00022
 texture = ExtResource("12_lgils")
 script = ExtResource("22_38hws")
 offset = Vector3(0, 0, 0.001)

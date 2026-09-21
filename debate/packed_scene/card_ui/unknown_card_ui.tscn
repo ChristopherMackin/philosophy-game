@@ -13,7 +13,7 @@ height = 320
 noise = SubResource("FastNoiseLite_vc60s")
 seamless = true
 
-[node name="CardUi" type="Control" unique_id=147735438 node_paths=PackedStringArray("card_bg", "title", "artwork", "shadow", "description", "cost", "icon")]
+[node name="CardUi" type="Control" unique_id=147735438 node_paths=PackedStringArray("card_bg")]
 custom_minimum_size = Vector2(296, 256)
 layout_mode = 3
 anchors_preset = 0
@@ -26,12 +26,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_wllvn")
 card_bg = NodePath("Card/CardBG")
-title = NodePath("")
-artwork = NodePath("")
-shadow = NodePath("")
-description = NodePath("")
-cost = NodePath("")
-icon = NodePath("")
 metadata/focus_property = "card"
 
 [node name="Card" type="Control" parent="." unique_id=370963301]

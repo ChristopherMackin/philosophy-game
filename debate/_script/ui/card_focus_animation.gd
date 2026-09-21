@@ -21,7 +21,7 @@ func _on_focus_entered():
 	gyro = true
 	if pos_tween: pos_tween.kill()
 	pos_tween = _get_tween()
-	pos_tween.tween_property(card_base, "position", initial_position + Vector2(0, -100), tween_speed)
+	pos_tween.tween_property(card_base, "position", initial_position + Vector2(0, -150), tween_speed)
 	
 	card_base.set_z_index(1)
 

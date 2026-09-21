@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://bmo1kna3igdun"]
-
-[ext_resource type="PackedScene" uid="uid://c4op54o5l5tf" path="res://debate/packed_scene/card_ui/tokenless_card_ui.tscn" id="1_o8y7j"]
-
-[node name="CardUi" unique_id=147735438 instance=ExtResource("1_o8y7j")]
-
-[node name="Title" parent="Card/CardBG" parent_id_path=PackedInt32Array(1814425711) index="2" unique_id=496953509]
-theme_override_colors/font_color = Color(0.9647059, 0.9647059, 0.9647059, 1)
