@@ -5,7 +5,6 @@
 [ext_resource type="Resource" uid="uid://cctfndo77icgu" path="res://system/card/faith/simon/db_01/ct_faith_convert_card_to_faith.tres" id="2_w1r2r"]
 [ext_resource type="Resource" uid="uid://cf7mgpb8xe6hd" path="res://system/card/faith/simon/db_01/ct_faith_draw_energize.tres" id="3_r4pnu"]
 [ext_resource type="Resource" uid="uid://dlu4g7oqk538y" path="res://system/card/faith/simon/db_01/ct_faith_add_token_cantrips.tres" id="4_d6cuq"]
-[ext_resource type="Resource" uid="uid://dht78rb5r7ai4" path="res://system/card/faith/simon/db_01/c_faith_opp_remove_doubt_token.tres" id="4_oq62h"]
 
 [sub_resource type="Resource" id="Resource_5ngq8"]
 resource_name = "1 Sanctify"
@@ -25,13 +24,7 @@ script = ExtResource("1_0n3uh")
 base = ExtResource("4_d6cuq")
 count = 1
 
-[sub_resource type="Resource" id="Resource_yq4to"]
-resource_name = "1 Remove Temptation"
-script = ExtResource("1_0n3uh")
-base = ExtResource("4_oq62h")
-count = 1
-
 [resource]
 script = ExtResource("2_txx76")
-composition_card_deck_config_array = Array[ExtResource("1_0n3uh")]([SubResource("Resource_5ngq8"), SubResource("Resource_24t25"), SubResource("Resource_dnwpw"), SubResource("Resource_yq4to")])
+composition_card_deck_config_array = Array[ExtResource("1_0n3uh")]([SubResource("Resource_5ngq8"), SubResource("Resource_24t25"), SubResource("Resource_dnwpw")])
 metadata/_custom_type_script = "uid://dlqqr4qxqi2ht"

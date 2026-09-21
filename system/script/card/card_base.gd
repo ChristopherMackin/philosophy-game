@@ -8,7 +8,8 @@ class_name CardBase
 @export var base_cost : int
 @export_multiline var description : String
 
-@export var token_data : TokenData
+@export var token_data: TokenData
+@export var starting_token_counter: int = 0
 
 @export_group("Action & Modifier")
 @export var on_play_card_actions : Array[CardAction]

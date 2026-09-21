@@ -12,3 +12,4 @@ suit = ExtResource("4_dp02p")
 title = "Basic Doubt"
 base_cost = 2
 token_data = ExtResource("5_bm4d2")
+starting_token_counter = 1

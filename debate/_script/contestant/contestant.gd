@@ -76,8 +76,8 @@ func _init(character : Character, manager : DebateManager):
 	)
 	
 	draw_pile = _deck.create_draw_pile(manager)
-	draw_pile.on_added.add_listener(func(card: Card): await card.destroy_token())
-	draw_pile.on_removed.add_listener(func(card: Card): await card.generate_token())
+	draw_pile.on_added.add_listener(func(card: Card): await card.reset_token_counter())
+	draw_pile.on_removed.add_listener(func(card: Card): await card.reset_token_counter())
 	
 	discard_pile.on_added.add_listener(func(card: Card): card.on_discard(self, manager))
 	

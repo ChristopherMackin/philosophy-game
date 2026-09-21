@@ -1,30 +1,8 @@
 [gd_resource type="Resource" script_class="InfiniteDeck" format=3 uid="uid://byb2ixogukv6b"]
 
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://system/script/card/card_deck_config.gd" id="1_clwjl"]
-[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/ct_faith_basic.tres" id="2_bk2pq"]
 [ext_resource type="Script" uid="uid://dlqqr4qxqi2ht" path="res://system/script/deck/infinite_deck.gd" id="2_fnvbb"]
-[ext_resource type="Resource" uid="uid://baetekhn1h76x" path="res://system/card/_shape/c_shape_1_energy.tres" id="2_l4xqa"]
-[ext_resource type="Resource" uid="uid://fbhmjchu7do4" path="res://system/card/faith/ct_faith_4_energy_placeholder.tres" id="4_l4xqa"]
-
-[sub_resource type="Resource" id="Resource_nrtfc"]
-resource_name = "2 Energize"
-script = ExtResource("1_clwjl")
-base = ExtResource("2_l4xqa")
-count = 2
-
-[sub_resource type="Resource" id="Resource_f18bh"]
-resource_name = "1 Basic Faith"
-script = ExtResource("1_clwjl")
-base = ExtResource("2_bk2pq")
-count = 1
-
-[sub_resource type="Resource" id="Resource_jo7j8"]
-resource_name = "1 4 Energy Card"
-script = ExtResource("1_clwjl")
-base = ExtResource("4_l4xqa")
-count = 1
 
 [resource]
 script = ExtResource("2_fnvbb")
-composition_card_deck_config_array = Array[ExtResource("1_clwjl")]([SubResource("Resource_nrtfc"), SubResource("Resource_f18bh"), SubResource("Resource_jo7j8")])
 metadata/_custom_type_script = "uid://dlqqr4qxqi2ht"

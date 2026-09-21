@@ -82,7 +82,7 @@ func _process_suit_track_queue():
 
 func on_lines_cleared(_count : int): _update_from_suit_track_dictionary()
 
-func on_token_played(token: Token, suit: Suit, contestant : Contestant): _update_from_suit_track_dictionary()
+func on_tokens_played(_token_array: Array[Token], suit: Suit, contestant : Contestant): _update_from_suit_track_dictionary()
 
 func on_actions_invoked(card : Card, action_type: CardAction.Type, contestant : Contestant): _update_from_suit_track_dictionary()
 

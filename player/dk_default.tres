@@ -5,10 +5,6 @@
 [ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/ct_faith_basic.tres" id="3_1f56b"]
 [ext_resource type="Resource" uid="uid://hn3fmi2k8xsl" path="res://system/card/others/ct_others_basic.tres" id="4_pqf4j"]
 [ext_resource type="Resource" uid="uid://dgsd4p0ynlqhk" path="res://system/card/self/ct_self_basic.tres" id="5_wm7wi"]
-[ext_resource type="Resource" uid="uid://baetekhn1h76x" path="res://system/card/_shape/c_shape_1_energy.tres" id="6_wle2f"]
-[ext_resource type="Resource" uid="uid://d2g14stxg8s57" path="res://system/card/_shape/c_shape_discard_basic.tres" id="10_1f56b"]
-[ext_resource type="Resource" uid="uid://c614582y5sixk" path="res://system/card/_shape/c_shape_draw_suit.tres" id="11_pqf4j"]
-[ext_resource type="Resource" uid="uid://dywq0nlegdnai" path="res://system/card/_shape/c_shape_draw_2.tres" id="11_wm7wi"]
 [ext_resource type="Script" uid="uid://dhdtv0v6h0rkq" path="res://system/script/deck/deck.gd" id="11_wv4ln"]
 
 [sub_resource type="Resource" id="Resource_dcwhc"]
@@ -24,10 +20,10 @@ base = ExtResource("4_pqf4j")
 count = 2
 
 [sub_resource type="Resource" id="Resource_pqf4j"]
-resource_name = "2 Basic Self"
+resource_name = "1 Basic Self"
 script = ExtResource("1_dpatv")
 base = ExtResource("5_wm7wi")
-count = 2
+count = 1
 
 [sub_resource type="Resource" id="Resource_wm7wi"]
 resource_name = "1 Basic Doubt"
@@ -35,30 +31,6 @@ script = ExtResource("1_dpatv")
 base = ExtResource("2_dcwhc")
 count = 1
 
-[sub_resource type="Resource" id="Resource_mnhf4"]
-resource_name = "1 Energize"
-script = ExtResource("1_dpatv")
-base = ExtResource("6_wle2f")
-count = 1
-
-[sub_resource type="Resource" id="Resource_kc2qy"]
-resource_name = "1 Remediate"
-script = ExtResource("1_dpatv")
-base = ExtResource("10_1f56b")
-count = 1
-
-[sub_resource type="Resource" id="Resource_yarjj"]
-resource_name = "1 Recollect"
-script = ExtResource("1_dpatv")
-base = ExtResource("11_pqf4j")
-count = 1
-
-[sub_resource type="Resource" id="Resource_36h0w"]
-resource_name = "1 Elaition"
-script = ExtResource("1_dpatv")
-base = ExtResource("11_wm7wi")
-count = 1
-
 [resource]
 script = ExtResource("11_wv4ln")
-composition_card_deck_config_array = Array[ExtResource("1_dpatv")]([SubResource("Resource_dcwhc"), SubResource("Resource_1f56b"), SubResource("Resource_pqf4j"), SubResource("Resource_wm7wi"), SubResource("Resource_mnhf4"), SubResource("Resource_kc2qy"), SubResource("Resource_yarjj"), SubResource("Resource_36h0w")])
+composition_card_deck_config_array = Array[ExtResource("1_dpatv")]([SubResource("Resource_dcwhc"), SubResource("Resource_1f56b"), SubResource("Resource_pqf4j"), SubResource("Resource_wm7wi")])

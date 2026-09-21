@@ -18,7 +18,17 @@ var _base : CardBase
 var base : CardBase:
 	get(): return _base
 
-var _token : Token
+var token_data: TokenData:
+	get():
+		if ! _base: return null
+		return _base.token_data
+
+var base_token_counter: int = 0:
+	set(val):
+		base_token_counter = val if val > 0 else 0
+var token_counter: int:
+	get():
+		return base_token_counter
 
 var suit : Suit:
 	set(val):
@@ -33,11 +43,7 @@ var title : String:
 var description : String:
 	get: return _base.description
 var token_artwork : Texture2D:
-	get: return _token.artwork if _token else null
-var has_token_base : bool:
-	get: return _base.token_data != null
-var has_token: bool:
-	get: return _token != null
+	get: return token_data.artwork if token_data else null
 
 var _on_play_card_actions: Array[CardAction] = []
 var _on_draw_card_actions: Array[CardAction] = []
@@ -122,28 +128,11 @@ func _init(base: CardBase, manager : DebateManager):
 	
 	status_effects.array_updated.connect(func(): card_updated.emit(self))
 	
+	reset_token_counter()
+	
 	self.manager = manager
 	
 	tags = base.tags
-
-func generate_token():
-	_token = Token.new(_base.token_data) if _base.token_data else null
-
-func dupliate_token() -> Token:
-	return _token.duplicate()
-
-func pop_token() -> Token:
-	if !_token: return null
-	
-	var ret = _token
-	_token = null
-	return ret
-
-func destroy_token():
-	_token = null
-
-func replace_token(token: Token):
-	_token = token
 
 func duplicate(keep_status_effects: bool = false):
 	var card = Card.new(_base, manager)
@@ -159,10 +148,9 @@ func equals(card: Card) -> bool:
 	else:
 		return false
 	
-	if card.has_token != has_token: return false
-	
-	if card.has_token:
-		if card._token.equals(_token): return false
-	
-	return card.base == base && \
+	return card.base == _base && \
 	card.suit == suit
+
+func reset_token_counter():
+	if !_base: return
+	base_token_counter = _base.starting_token_counter

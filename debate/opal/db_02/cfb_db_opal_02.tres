@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dke2uxx0r453j" path="res://debate/_script/ui/card_ui_factory/has_cse_card_ui_factory.gd" id="1_32kqh"]
 [ext_resource type="Script" uid="uid://b8uvgvpddrpfw" path="res://debate/_script/ui/card_ui_factory/card_ui_factory_base.gd" id="1_pu5dv"]
-[ext_resource type="Script" uid="uid://d4fneioflw7dl" path="res://debate/_script/ui/card_ui_factory/card_ui_pair_factory.gd" id="1_sss4s"]
+[ext_resource type="Script" uid="uid://d4fneioflw7dl" path="res://debate/_script/ui/card_ui_factory/single_card_ui_factory.gd" id="1_sss4s"]
 [ext_resource type="Resource" uid="uid://cvf702xa275od" path="res://system/card/card_status_effect/cse_ennui.tres" id="1_umtmv"]
 [ext_resource type="Script" uid="uid://btqgs63pqh23v" path="res://debate/_script/ui/card_ui_factory/card_ui_factory.gd" id="1_v6n17"]
 [ext_resource type="Resource" uid="uid://do4ijr1aixaqw" path="res://debate/opal/db_02/bb_db_opal_02.tres" id="2_awldg"]

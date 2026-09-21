@@ -20,7 +20,7 @@ func on_turn_end(_contestant: Contestant):
 func on_card_played(_card: Card, _contestant : Contestant):
 	pass
 
-func on_token_played(_token: Token, _suit: Suit, _contestant : Contestant):
+func on_tokens_played(_token_array: Array[Token], _suit: Suit, _contestant : Contestant):
 	pass
 
 func on_lines_cleared(_count : int):

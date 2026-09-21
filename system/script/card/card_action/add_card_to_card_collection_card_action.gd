@@ -12,7 +12,6 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool
 	
 	for i in amount:
 		var card = Card.new(base, manager)
-		card.generate_token()
 		
 		collection_container.add_card_to_collection(card)
 	

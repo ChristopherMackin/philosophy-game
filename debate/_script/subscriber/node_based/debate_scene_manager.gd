@@ -21,7 +21,7 @@ func on_turn_end(contestant: Contestant): await query_event(Const.Concept.ON_TUR
 
 func on_card_played(card: Card, contestant : Contestant): await query_event(Const.Concept.ON_PLAY)
 
-func on_token_played(token: Token, suit: Suit, contestant : Contestant): await query_event(Const.Concept.ON_TOKEN_PLAYED)
+func on_tokens_played(_token_array: Array[Token], suit: Suit, contestant : Contestant): await query_event(Const.Concept.ON_TOKENS_PLAYED)
 	
 func on_card_hold_updated(card : Card, active_contestant : Contestant): await query_event(Const.Concept.ON_HOLD)
 

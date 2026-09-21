@@ -126,17 +126,14 @@ func active_player_turn():
 	
 	while active_contestant.can_play and !get_is_debate_over():
 		var response = await active_contestant.take_turn()
-		var card = response.data
+		var card: Card = response.data
 		
 		if response.what == "play":
 			active_contestant.current_energy -= card.cost
 			
-			var token = card.pop_token()
-			if token:
-				await play_token(token, card.suit, active_contestant)
-				await clear_lines()
-			
 			await play_card(card, active_contestant)
+			await play_tokens(card.token_data, card.token_counter, card.suit, active_contestant)
+			await clear_lines()
 		
 		active_contestant.phase_end()
 		
@@ -145,9 +142,15 @@ func active_player_turn():
 	await active_contestant.end_turn()
 	for sub in subscribers: await sub.on_turn_end(active_contestant)
 
-func play_token(token : Token, suit : Suit, contestant : Contestant):
-	await add_token_to_suit_track(token, suit)
-	for sub in subscribers: await sub.on_token_played(token, suit, contestant)
+func play_tokens(token_data: TokenData, token_counter: int, suit : Suit, contestant : Contestant):
+	if token_counter <= 0: return
+	var token_array: Array[Token]
+	
+	for i in token_counter:
+		token_array.append(Token.new(token_data))
+	
+	await add_tokens_to_suit_track(token_array, suit)
+	for sub in subscribers: await sub.on_tokens_played(token_array, suit, contestant)
 
 func play_card(card : Card, contestant : Contestant):
 	card_player = contestant
@@ -198,7 +201,8 @@ func remove_token_from_suit_track(token : Token):
 func get_opponent(contestant : Contestant):
 	return computer if contestant == player else player
 
-func add_token_to_suit_track(token : Token, suit : Suit):
+func add_tokens_to_suit_track(token_array : Array[Token], suit : Suit):
 	if suit_track_dictionary.has(suit.name):
-		suit_track_dictionary[suit.name].append(token)
-		token.track_suit = suit
+		for token in token_array:
+			suit_track_dictionary[suit.name].append(token)
+			token.track_suit = suit

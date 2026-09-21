@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bufq4a3okdy40" path="res://_asset/debate/_general/model/mod_energy_counter.glb" id="8_dxrs5"]
 [ext_resource type="Script" uid="uid://b1k76fw3jnei6" path="res://debate/_script/ui/rich_text_label_update_emitter.gd" id="9_kq0jy"]
 [ext_resource type="Script" uid="uid://duts3e4cshe3t" path="res://debate/_script/ui/hold_area_ui.gd" id="10_v6cv3"]
-[ext_resource type="Resource" uid="uid://v2fc6p1vb5xq" path="res://debate/opal/db_02/cfb_db_opal_02.tres" id="11_6cnp6"]
 [ext_resource type="Texture2D" uid="uid://5qh255d0ud11" path="res://_asset/debate/_general/texture/play_stack.png" id="12_lgils"]
 [ext_resource type="PackedScene" uid="uid://bmg4wkpbnpqj3" path="res://_asset/debate/_general/model/mod_hand_counter.glb" id="13_2t63j"]
 [ext_resource type="Texture2D" uid="uid://0xx8gpn3m2io" path="res://_asset/debate/_general/texture/t_computer_discard_counter_col.png" id="14_5bli3"]
@@ -270,7 +269,7 @@ fov = 25.0
 far = 100.0
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
-[sub_resource type="Environment" id="Environment_5bli3"]
+[sub_resource type="Environment" id="Environment_al2vl"]
 ambient_light_source = 2
 ambient_light_color = Color(0.94, 0.94, 0.94, 1)
 ssao_intensity = 1.32
@@ -417,7 +416,7 @@ layers = 32768
 pixel_size = 0.0003
 texture = SubResource("ViewportTexture_v6cv3")
 script = ExtResource("10_v6cv3")
-card_ui_factory_base = ExtResource("11_6cnp6")
+card_ui_factory_base = ExtResource("66_kq0jy")
 card_parent = NodePath("SubViewport")
 animation_player = NodePath("AnimationPlayer")
 manager = ExtResource("3_n76kj")
@@ -481,7 +480,7 @@ format = "%s"
 manager = ExtResource("3_n76kj")
 order = 1
 
-[node name="DiscardCounter" parent="CpiUi/CpuDiscardCounter" index="0" unique_id=1427313704]
+[node name="DiscardCounter" parent="CpiUi/CpuDiscardCounter" index="0" unique_id=1146343105]
 layers = 32768
 surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
 
@@ -510,7 +509,7 @@ format = "%s"
 manager = ExtResource("3_n76kj")
 order = 1
 
-[node name="EnergyCounter" parent="CpiUi/CpuEnergyCounter" index="0" unique_id=939435994]
+[node name="EnergyCounter" parent="CpiUi/CpuEnergyCounter" index="0" unique_id=280128300]
 layers = 32768
 surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
 
@@ -638,7 +637,7 @@ pixel_size = 0.000175
 texture = ExtResource("12_lgils")
 script = ExtResource("22_38hws")
 offset = Vector3(0, 0, 0.001)
-card_ui_factory_base = ExtResource("11_6cnp6")
+card_ui_factory_base = ExtResource("66_kq0jy")
 card_3d = ExtResource("23_6jqi1")
 manager = ExtResource("3_n76kj")
 
@@ -670,7 +669,7 @@ script = ExtResource("26_4cmop")
 suit = ExtResource("29_p8fu4")
 token_offset = Vector3(0.01577, 0, 0)
 
-[node name="TokenBox" parent="GameBoard/DoubtTrack" index="0" unique_id=1081594715]
+[node name="TokenBox" parent="GameBoard/DoubtTrack" index="0" unique_id=95920401]
 layers = 32768
 surface_material_override/0 = SubResource("StandardMaterial3D_sl1r7")
 
@@ -690,7 +689,7 @@ script = ExtResource("26_4cmop")
 suit = ExtResource("33_3wohc")
 token_offset = Vector3(0.01577, 0, 0)
 
-[node name="TokenBox" parent="GameBoard/SelfTrack" index="0" unique_id=1081594715]
+[node name="TokenBox" parent="GameBoard/SelfTrack" index="0" unique_id=95920401]
 layers = 32768
 surface_material_override/0 = SubResource("StandardMaterial3D_0c38c")
 
@@ -710,7 +709,7 @@ script = ExtResource("26_4cmop")
 suit = ExtResource("36_k481h")
 token_offset = Vector3(0.01577, 0, 0)
 
-[node name="TokenBox" parent="GameBoard/OtherTrack" index="0" unique_id=1081594715]
+[node name="TokenBox" parent="GameBoard/OtherTrack" index="0" unique_id=95920401]
 layers = 32768
 surface_material_override/0 = SubResource("StandardMaterial3D_ghiyr")
 
@@ -808,7 +807,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1155753, 0.009244392)
 top_level = true
 cull_mask = 32768
-environment = SubResource("Environment_5bli3")
+environment = SubResource("Environment_al2vl")
 current = true
 fov = 25.0
 far = 100.0
@@ -828,7 +827,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("46_6243h")
-card_ui_factory_base = ExtResource("11_6cnp6")
+card_ui_factory_base = ExtResource("66_kq0jy")
 card_spawn_location = NodePath("CardSpawnLocation")
 card_parent = NodePath("CurveContainer")
 focus_group = ExtResource("47_ecjvp")
@@ -924,7 +923,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_w7dnp")
 script = ExtResource("54_mkt58")
-card_ui_factory_base = ExtResource("11_6cnp6")
+card_ui_factory_base = ExtResource("66_kq0jy")
 card_container = NodePath("Dialogue/HFlowContainer")
 focus_group = ExtResource("55_23d7j")
 player_brain = ExtResource("48_1j6ji")

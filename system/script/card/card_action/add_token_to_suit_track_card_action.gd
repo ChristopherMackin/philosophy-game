@@ -8,9 +8,11 @@ class_name AddTokenToSuitTrackCardAction
 
 func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool:
 	suit = suit if suit else caller.suit
+	var token_array: Array[Token]
 	
 	for i in amount:
-		var token = Token.new(token_data)
-		await manager.add_token_to_suit_track(token, suit)
+		token_array.append(Token.new(token_data))
+		
+	await manager.add_tokens_to_suit_track(token_array, suit)
 	
 	return true
