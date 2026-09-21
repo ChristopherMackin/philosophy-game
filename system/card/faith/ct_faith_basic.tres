@@ -11,4 +11,6 @@ script = ExtResource("3_6iaog")
 suit = ExtResource("4_govda")
 title = "Basic Faith"
 base_cost = 2
+description = "Plays at the end of your turn"
 token_data = ExtResource("5_4kyfs")
+on_turn_end_card_actions = Array[ExtResource("2_663od")]([null])

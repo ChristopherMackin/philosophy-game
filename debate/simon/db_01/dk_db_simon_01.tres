@@ -14,7 +14,7 @@ base = ExtResource("2_w1r2r")
 count = 1
 
 [sub_resource type="Resource" id="Resource_24t25"]
-resource_name = "1 Advanced Faith"
+resource_name = "1 Prepare"
 script = ExtResource("1_0n3uh")
 base = ExtResource("3_r4pnu")
 count = 1
