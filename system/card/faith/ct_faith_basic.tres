@@ -3,20 +3,12 @@
 [ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="1_nqmmw"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_663od"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="3_6iaog"]
-[ext_resource type="Script" uid="uid://ry8dl84ft1kn" path="res://system/script/card/card_action/modify_energy_card_action.gd" id="3_663od"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="4_govda"]
 [ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="5_4kyfs"]
-
-[sub_resource type="Resource" id="Resource_dp02p"]
-script = ExtResource("3_663od")
-amount = 1
-metadata/_custom_type_script = "uid://ry8dl84ft1kn"
 
 [resource]
 script = ExtResource("3_6iaog")
 suit = ExtResource("4_govda")
 title = "Basic Faith"
 base_cost = 2
-description = "+1 Energy"
 token_data = ExtResource("5_4kyfs")
-on_play_card_actions = Array[ExtResource("2_663od")]([SubResource("Resource_dp02p")])

@@ -51,6 +51,6 @@ metadata/_custom_type_script = "uid://cm5qf41iurdc3"
 script = ExtResource("15_o8o5m")
 suit = ExtResource("16_ly8dj")
 title = "Recollect"
-base_cost = 2
+base_cost = 1
 description = "Draw a card of a specified suit"
 on_play_card_actions = Array[ExtResource("2_t6ld0")]([SubResource("Resource_lnlrq"), SubResource("Resource_t371b")])

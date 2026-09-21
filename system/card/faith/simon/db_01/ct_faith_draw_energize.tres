@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="CardBase" format=3 uid="uid://cf7mgpb8xe6hd"]
+
+[ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="1_3sijb"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_6l2uw"]
+[ext_resource type="Resource" uid="uid://baetekhn1h76x" path="res://system/card/_shape/c_shape_1_energy.tres" id="3_l5ei4"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://system/script/card/card_array_filter/card_array_filter.gd" id="4_y5wrt"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://system/script/card/card_action/card_collection_container/hand_collection_container.gd" id="5_jqhej"]
+[ext_resource type="Script" uid="uid://cirje5ssvlb5e" path="res://system/script/card/card_action/add_card_to_card_collection_card_action.gd" id="6_u61gt"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="7_jvjp8"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="8_wxxge"]
+
+[sub_resource type="Resource" id="Resource_0fph2"]
+script = ExtResource("5_jqhej")
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_duyml"]
+script = ExtResource("6_u61gt")
+collection_container = SubResource("Resource_0fph2")
+base = ExtResource("3_l5ei4")
+metadata/_custom_type_script = "uid://cirje5ssvlb5e"
+
+[resource]
+script = ExtResource("7_jvjp8")
+suit = ExtResource("8_wxxge")
+title = "Prepare"
+base_cost = 1
+description = "Draw an Energize"
+on_play_card_actions = Array[ExtResource("2_6l2uw")]([SubResource("Resource_duyml")])
+metadata/_custom_type_script = "uid://dy4e7i5501yv5"

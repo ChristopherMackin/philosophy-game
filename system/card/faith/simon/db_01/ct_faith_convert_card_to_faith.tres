@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="CardBase" format=3 uid="uid://cctfndo77icgu"]
+
+[ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="1_0fph2"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_botel"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://system/script/card/card_array_filter/card_array_filter.gd" id="3_4onre"]
+[ext_resource type="Script" uid="uid://bbr50dvcf2gmc" path="res://system/script/card/card_array_filter/suit_card_array_filter.gd" id="4_636ix"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://system/script/suit/suit.gd" id="5_7u6da"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="6_ufrm5"]
+[ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/shape.tres" id="7_eyqqw"]
+[ext_resource type="Script" uid="uid://c01wtp2lsawyc" path="res://system/script/card/card_array_filter/random_card_array_filter.gd" id="8_n0lph"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://system/script/card/card_action/card_collection_container/hand_collection_container.gd" id="9_1f1xc"]
+[ext_resource type="Script" uid="uid://c8vo05rn5al6v" path="res://system/script/card/card_action/change_card_collection_suit_card_action.gd" id="10_d64vx"]
+[ext_resource type="Resource" uid="uid://baetekhn1h76x" path="res://system/card/_shape/c_shape_1_energy.tres" id="11_46x76"]
+[ext_resource type="Script" uid="uid://cirje5ssvlb5e" path="res://system/script/card/card_action/add_card_to_card_collection_card_action.gd" id="12_nogms"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="13_lb53w"]
+
+[sub_resource type="Resource" id="Resource_qpr3i"]
+script = ExtResource("4_636ix")
+suits = Array[ExtResource("5_7u6da")]([ExtResource("6_ufrm5"), ExtResource("7_eyqqw")])
+filter_mode = 1
+metadata/_custom_type_script = "uid://bbr50dvcf2gmc"
+
+[sub_resource type="Resource" id="Resource_1f56b"]
+script = ExtResource("8_n0lph")
+amount = 1
+metadata/_custom_type_script = "uid://c01wtp2lsawyc"
+
+[sub_resource type="Resource" id="Resource_h5k8i"]
+script = ExtResource("9_1f1xc")
+which_contestant = 1
+collection_filters = Array[ExtResource("3_4onre")]([SubResource("Resource_qpr3i"), SubResource("Resource_1f56b")])
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_kfl4h"]
+script = ExtResource("10_d64vx")
+collection_container = SubResource("Resource_h5k8i")
+suit_options = Array[ExtResource("5_7u6da")]([ExtResource("6_ufrm5")])
+metadata/_custom_type_script = "uid://c8vo05rn5al6v"
+
+[sub_resource type="Resource" id="Resource_bq0gp"]
+script = ExtResource("9_1f1xc")
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_1wgf1"]
+script = ExtResource("12_nogms")
+collection_container = SubResource("Resource_bq0gp")
+base = ExtResource("11_46x76")
+metadata/_custom_type_script = "uid://cirje5ssvlb5e"
+
+[resource]
+script = ExtResource("13_lb53w")
+suit = ExtResource("6_ufrm5")
+title = "Sanctify"
+base_cost = 3
+description = "Make a random non-faith color card in your opponent's hand a faith card
+
+Add an Energize to your hand."
+on_play_card_actions = Array[ExtResource("2_botel")]([SubResource("Resource_kfl4h"), SubResource("Resource_1wgf1")])
+tags = Array[int]([4, 3])
+metadata/_custom_type_script = "uid://dy4e7i5501yv5"

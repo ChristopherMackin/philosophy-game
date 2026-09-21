@@ -2,21 +2,13 @@
 
 [ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="1_ch28h"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_elt88"]
-[ext_resource type="Script" uid="uid://ry8dl84ft1kn" path="res://system/script/card/card_action/modify_energy_card_action.gd" id="3_elt88"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="3_yqnt0"]
 [ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="4_dp02p"]
 [ext_resource type="Resource" uid="uid://dlmgmycw0djem" path="res://system/token/doubt/basic_doubt_token.tres" id="5_bm4d2"]
-
-[sub_resource type="Resource" id="Resource_nqmmw"]
-script = ExtResource("3_elt88")
-amount = 1
-metadata/_custom_type_script = "uid://ry8dl84ft1kn"
 
 [resource]
 script = ExtResource("3_yqnt0")
 suit = ExtResource("4_dp02p")
 title = "Basic Doubt"
 base_cost = 2
-description = "1+ Energy"
 token_data = ExtResource("5_bm4d2")
-on_play_card_actions = Array[ExtResource("2_elt88")]([SubResource("Resource_nqmmw")])
