@@ -68,6 +68,7 @@ var manager : DebateManager
 var tags: Array[Tag]
 
 func on_play(contestant: Contestant, manager: DebateManager):
+	await manager.play_tokens(token_data, token_counter, suit, contestant)
 	await _invoke_actions(_on_play_card_actions, CardAction.Type.ON_PLAY, contestant, manager)
 func on_draw(contestant: Contestant, manager: DebateManager):
 	await _invoke_actions(_on_draw_card_actions, CardAction.Type.ON_DRAW, contestant, manager)

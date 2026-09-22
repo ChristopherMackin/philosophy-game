@@ -23,8 +23,6 @@ var inactive_contestant : Contestant:
 		else:
 			return null
 
-var card_player : Contestant
-
 var contestants : Array[Contestant]
 
 @export var subscribers : Array = []
@@ -58,8 +56,6 @@ func clear_data():
 	
 	contestants = []
 	
-	card_player = null
-	
 	current_turn = 0
 	lines_cleared = 0
 	suit_track_dictionary = {}
@@ -78,9 +74,9 @@ func start_debate(blackboard: Blackboard, player_character : Character, computer
 		var suit_array : Array[Token] = []
 		suit_track_dictionary[suit.name] = suit_array
 	
-	play_stack.on_added.add_listener(func(card: Card): await card.on_play(card_player, self))
+	play_stack.on_added.add_listener(func(card: Card): await card.on_play(active_contestant, self))
 	play_stack.on_added.add_listener(func(card: Card): 
-		for sub in subscribers: await sub.on_card_played(card, card_player)
+		for sub in subscribers: await sub.on_card_played(card, active_contestant)
 	)
 	
 	player = Contestant.new(player_character, self)
@@ -132,7 +128,6 @@ func active_player_turn():
 			active_contestant.current_energy -= card.cost
 			
 			await play_card(card, active_contestant)
-			await play_tokens(card.token_data, card.token_counter, card.suit, active_contestant)
 			await clear_lines()
 		
 		active_contestant.phase_end()
@@ -153,7 +148,6 @@ func play_tokens(token_data: TokenData, token_counter: int, suit : Suit, contest
 	for sub in subscribers: await sub.on_tokens_played(token_array, suit, contestant)
 
 func play_card(card : Card, contestant : Contestant):
-	card_player = contestant
 	await play_stack.push_front(card)
 	
 func clear_lines():

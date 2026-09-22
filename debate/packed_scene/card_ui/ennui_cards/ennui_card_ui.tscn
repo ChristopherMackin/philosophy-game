@@ -7,40 +7,40 @@
 
 [node name="CardGUI" unique_id=370963301 instance=ExtResource("1_rjopl")]
 
-[node name="TapeCovering" type="Control" parent="Card/CardBG/TokenCounter" parent_id_path=PackedInt32Array(110281827) index="1" unique_id=1212204553]
+[node name="TapeCovering" type="Control" parent="Card" parent_id_path=PackedInt32Array(370963301) index="3" unique_id=1212204553]
 modulate = Color(1, 1, 1, 0.9411765)
 anchors_preset = 0
-offset_left = -39.0
-offset_top = -51.0
-offset_right = 1.0
-offset_bottom = -11.0
+offset_left = -1.0
+offset_top = 53.0
+offset_right = 39.0
+offset_bottom = 93.0
 
-[node name="HeaderTape01" type="TextureRect" parent="Card/CardBG/TokenCounter/TapeCovering" index="0" unique_id=611910832]
+[node name="HeaderTape01" type="TextureRect" parent="Card/TapeCovering" index="0" unique_id=611910832]
 layout_mode = 0
-offset_left = -3.0
-offset_top = -22.0
-offset_right = 115.0
-offset_bottom = 39.0
+offset_left = -2.0
+offset_top = -33.0
+offset_right = 116.0
+offset_bottom = 28.0
 rotation = 0.15937787
 scale = Vector2(1.5052052, 1.5052052)
 texture = ExtResource("2_bqb2q")
 
-[node name="HeaderTape02" type="TextureRect" parent="Card/CardBG/TokenCounter/TapeCovering" index="1" unique_id=1243796993]
+[node name="HeaderTape02" type="TextureRect" parent="Card/TapeCovering" index="1" unique_id=1243796993]
 layout_mode = 0
-offset_left = 248.99997
-offset_top = 105.00001
-offset_right = 366.99997
-offset_bottom = 166.0
+offset_left = 250.0
+offset_top = 94.0
+offset_right = 368.0
+offset_bottom = 155.0
 rotation = 3.30786
 scale = Vector2(1.5052052, 1.5052052)
 texture = ExtResource("2_bqb2q")
 
-[node name="HeaderLabel" type="Label" parent="Card/CardBG/TokenCounter/TapeCovering" index="2" unique_id=1492227756]
+[node name="HeaderLabel" type="Label" parent="Card/TapeCovering" index="2" unique_id=1492227756]
 layout_mode = 0
-offset_left = 28.321781
-offset_top = -26.000002
-offset_right = 254.32178
-offset_bottom = 89.0
+offset_left = 29.321777
+offset_top = -37.000004
+offset_right = 255.32178
+offset_bottom = 78.0
 rotation = 0.05614529
 theme_override_colors/font_color = Color(0.23, 0.23, 0.23, 0.9490196)
 theme_override_fonts/font = ExtResource("3_u4n8v")
@@ -49,22 +49,22 @@ text = "Void"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BodyTape" type="TextureRect" parent="Card/CardBG/TokenCounter/TapeCovering" index="3" unique_id=255991222]
+[node name="BodyTape" type="TextureRect" parent="Card/TapeCovering" index="3" unique_id=255991222]
 layout_mode = 0
-offset_left = -1.173173
-offset_top = 133.99998
-offset_right = 200.82683
-offset_bottom = 277.0
+offset_left = -0.17315674
+offset_top = 81.0
+offset_right = 201.82684
+offset_bottom = 224.00002
 rotation = 0.06574465
 scale = Vector2(1.3653247, 1.3653247)
 texture = ExtResource("4_l7mau")
 
-[node name="BodyLabel" type="Label" parent="Card/CardBG/TokenCounter/TapeCovering" index="4" unique_id=1758951577]
+[node name="BodyLabel" type="Label" parent="Card/TapeCovering" index="4" unique_id=1758951577]
 layout_mode = 0
-offset_left = 0.29327583
-offset_top = 225.24997
-offset_right = 226.29327
-offset_bottom = 344.25
+offset_left = 1.2932739
+offset_top = 172.25
+offset_right = 227.29327
+offset_bottom = 291.25003
 rotation = -0.20603636
 theme_override_colors/font_color = Color(0.23, 0.23, 0.23, 0.9490196)
 theme_override_constants/line_spacing = -35
