@@ -47,6 +47,19 @@ var token_artwork : Texture2D:
 	get: return token_data.artwork if token_data else null
 
 var _on_play_card_actions: Array[CardAction] = []
+
+var _on_play_and_tokens_card_actions: Array[CardAction]:
+	get():
+		var token_action = PlayTokensCardAction.new()
+		token_action.suit = suit
+		token_action.token_counter = token_counter
+		token_action.token_data = token_data
+		token_action
+		var token_action_array: Array[CardAction]
+		token_action_array.assign([token_action])
+		
+		return _on_play_card_actions + token_action_array
+
 var _on_draw_card_actions: Array[CardAction] = []
 var _on_discard_card_actions: Array[CardAction] = []
 var _on_banish_card_actions: Array[CardAction] = []
@@ -68,8 +81,7 @@ var manager : DebateManager
 var tags: Array[Tag]
 
 func on_play(contestant: Contestant, manager: DebateManager):
-	await manager.play_tokens(token_data, token_counter, suit, contestant)
-	await _invoke_actions(_on_play_card_actions, CardAction.Type.ON_PLAY, contestant, manager)
+	await _invoke_actions(_on_play_and_tokens_card_actions, CardAction.Type.ON_PLAY, contestant, manager)
 func on_draw(contestant: Contestant, manager: DebateManager):
 	await _invoke_actions(_on_draw_card_actions, CardAction.Type.ON_DRAW, contestant, manager)
 func on_discard(contestant: Contestant, manager: DebateManager):
