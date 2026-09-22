@@ -14,7 +14,9 @@ class_name CardUi
 
 var card : Card:
 	set(val):
+		Util.optional_disconnect(card, "card_updated", refresh_card)
 		card = val
+		Util.optional_connect(card, "card_updated", refresh_card, CONNECT_DEFERRED)
 		refresh_card.call_deferred()
 
 func refresh_card():
@@ -27,7 +29,11 @@ func refresh_card():
 		if title: title.text = card.title
 		if description: description.text = card.description
 		if artwork: pass
-		if token_artwork: token_artwork.texture = card.token_artwork
+		if token_artwork: 
+			token_artwork.visible = true
+			token_artwork.texture = card.token_artwork
+		else:
+			token_artwork.visible = false
 		if token_counter: token_counter.text = str(card.token_counter)
 
 func animate_hold():

@@ -1,64 +1,7 @@
 [gd_resource type="Resource" script_class="Deck" format=3 uid="uid://dt5t2i2pgnrwl"]
 
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://system/script/card/card_deck_config.gd" id="1_idpev"]
-[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/ct_faith_basic.tres" id="2_ahcc5"]
-[ext_resource type="Resource" uid="uid://hn3fmi2k8xsl" path="res://system/card/others/ct_others_basic.tres" id="3_wkgqa"]
-[ext_resource type="Resource" uid="uid://dgsd4p0ynlqhk" path="res://system/card/self/ct_self_basic.tres" id="4_2v767"]
-[ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/ct_doubt_basic.tres" id="5_fv7uw"]
-[ext_resource type="Resource" uid="uid://baetekhn1h76x" path="res://system/card/_shape/c_shape_1_energy.tres" id="6_k3f4i"]
-[ext_resource type="Resource" uid="uid://d2g14stxg8s57" path="res://system/card/_shape/c_shape_discard_basic.tres" id="7_eqetq"]
-[ext_resource type="Resource" uid="uid://c614582y5sixk" path="res://system/card/_shape/c_shape_draw_suit.tres" id="8_sqw5g"]
-[ext_resource type="Resource" uid="uid://dywq0nlegdnai" path="res://system/card/_shape/c_shape_draw_2.tres" id="9_383mb"]
 [ext_resource type="Script" uid="uid://dhdtv0v6h0rkq" path="res://system/script/deck/deck.gd" id="10_cw8qe"]
-
-[sub_resource type="Resource" id="Resource_oe158"]
-resource_name = "3 Basic Faith"
-script = ExtResource("1_idpev")
-base = ExtResource("2_ahcc5")
-count = 3
-
-[sub_resource type="Resource" id="Resource_hltrk"]
-resource_name = "2 Basic Others"
-script = ExtResource("1_idpev")
-base = ExtResource("3_wkgqa")
-count = 2
-
-[sub_resource type="Resource" id="Resource_v7724"]
-resource_name = "2 Basic Self"
-script = ExtResource("1_idpev")
-base = ExtResource("4_2v767")
-count = 2
-
-[sub_resource type="Resource" id="Resource_8yblm"]
-resource_name = "1 Basic Doubt"
-script = ExtResource("1_idpev")
-base = ExtResource("5_fv7uw")
-count = 1
-
-[sub_resource type="Resource" id="Resource_k6vfy"]
-resource_name = "1 Energize"
-script = ExtResource("1_idpev")
-base = ExtResource("6_k3f4i")
-count = 1
-
-[sub_resource type="Resource" id="Resource_wm7wi"]
-resource_name = "1 Remediate"
-script = ExtResource("1_idpev")
-base = ExtResource("7_eqetq")
-count = 1
-
-[sub_resource type="Resource" id="Resource_mnhf4"]
-resource_name = "1 Recollect"
-script = ExtResource("1_idpev")
-base = ExtResource("8_sqw5g")
-count = 1
-
-[sub_resource type="Resource" id="Resource_kc2qy"]
-resource_name = "1 Elaition"
-script = ExtResource("1_idpev")
-base = ExtResource("9_383mb")
-count = 1
 
 [resource]
 script = ExtResource("10_cw8qe")
-composition_card_deck_config_array = Array[ExtResource("1_idpev")]([SubResource("Resource_oe158"), SubResource("Resource_hltrk"), SubResource("Resource_v7724"), SubResource("Resource_8yblm"), SubResource("Resource_k6vfy"), SubResource("Resource_wm7wi"), SubResource("Resource_mnhf4"), SubResource("Resource_kc2qy")])

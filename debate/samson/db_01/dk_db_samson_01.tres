@@ -1,51 +1,8 @@
 [gd_resource type="Resource" script_class="OrderedDeck" format=3 uid="uid://cw5nebx8b23a4"]
 
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://system/script/card/card_deck_config.gd" id="1_fgdpi"]
-[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/ct_faith_basic.tres" id="2_ejk2c"]
 [ext_resource type="Script" uid="uid://qxw0hsqa58ko" path="res://system/script/deck/ordered_deck.gd" id="2_klb5u"]
-[ext_resource type="Resource" uid="uid://da4wsn5v3101f" path="res://system/card/others/ct_others_2_energy_placeholder.tres" id="3_fx4sd"]
-[ext_resource type="Resource" uid="uid://ctv182xpgi018" path="res://system/card/faith/c_faith_2_energy_placeholder.tres" id="4_fx4sd"]
-[ext_resource type="Resource" uid="uid://fbhmjchu7do4" path="res://system/card/faith/ct_faith_4_energy_placeholder.tres" id="6_fx4sd"]
-[ext_resource type="Resource" uid="uid://e1d37ph7u0ag" path="res://system/card/_shape/c_shape_hold_to_hand.tres" id="6_whw56"]
-[ext_resource type="Resource" uid="uid://bi4b6yrbrei1b" path="res://system/card/faith/ct_faith_discard_2_energy_if_doubt.tres" id="7_whw56"]
-
-[sub_resource type="Resource" id="Resource_fx4sd"]
-resource_name = "1 Basic Faith"
-script = ExtResource("1_fgdpi")
-base = ExtResource("2_ejk2c")
-count = 1
-
-[sub_resource type="Resource" id="Resource_whw56"]
-resource_name = "1 2 Energy Card"
-script = ExtResource("1_fgdpi")
-base = ExtResource("3_fx4sd")
-count = 1
-
-[sub_resource type="Resource" id="Resource_3oxmx"]
-resource_name = "1 2 Energy Tokenless"
-script = ExtResource("1_fgdpi")
-base = ExtResource("4_fx4sd")
-count = 1
-
-[sub_resource type="Resource" id="Resource_ckcwn"]
-resource_name = "1 4 Energy Card"
-script = ExtResource("1_fgdpi")
-base = ExtResource("6_fx4sd")
-count = 1
-
-[sub_resource type="Resource" id="Resource_c7o8a"]
-resource_name = "1 Reclaim"
-script = ExtResource("1_fgdpi")
-base = ExtResource("6_whw56")
-count = 1
-
-[sub_resource type="Resource" id="Resource_ab33s"]
-resource_name = "2 Cleansing Light"
-script = ExtResource("1_fgdpi")
-base = ExtResource("7_whw56")
-count = 2
 
 [resource]
 script = ExtResource("2_klb5u")
-composition_card_deck_config_array = Array[ExtResource("1_fgdpi")]([SubResource("Resource_fx4sd"), SubResource("Resource_whw56"), SubResource("Resource_3oxmx"), SubResource("Resource_ckcwn"), SubResource("Resource_c7o8a"), SubResource("Resource_ab33s")])
 metadata/_custom_type_script = "uid://qxw0hsqa58ko"

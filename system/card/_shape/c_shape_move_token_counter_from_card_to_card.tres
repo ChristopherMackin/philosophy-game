@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="CardBase" format=3 uid="uid://nhp37gbcl3m6"]
+
+[ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="1_djoxy"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_85ub6"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://system/script/card/card_array_filter/card_array_filter.gd" id="3_tben5"]
+[ext_resource type="Script" uid="uid://16samtkb1lb4" path="res://system/script/card/card_array_filter/selection_card_array_filter.gd" id="4_dcgrn"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://system/script/card/card_action/card_collection_container/hand_collection_container.gd" id="5_j2eeq"]
+[ext_resource type="Script" uid="uid://7ll5gilir7j4" path="res://system/script/card/card_action/move_token_counters_to_card_collection_card_action.gd" id="6_h0h3o"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="7_sgd20"]
+[ext_resource type="Resource" uid="uid://dxpopfdaf5ag8" path="res://system/suit/shape.tres" id="8_dtsmi"]
+
+[sub_resource type="Resource" id="Resource_bhgo0"]
+script = ExtResource("4_dcgrn")
+metadata/_custom_type_script = "uid://16samtkb1lb4"
+
+[sub_resource type="Resource" id="Resource_uh04k"]
+script = ExtResource("5_j2eeq")
+collection_filters = Array[ExtResource("3_tben5")]([SubResource("Resource_bhgo0")])
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_bu1k6"]
+script = ExtResource("4_dcgrn")
+metadata/_custom_type_script = "uid://16samtkb1lb4"
+
+[sub_resource type="Resource" id="Resource_50xr5"]
+script = ExtResource("5_j2eeq")
+collection_filters = Array[ExtResource("3_tben5")]([SubResource("Resource_bu1k6")])
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_1cbdy"]
+script = ExtResource("6_h0h3o")
+from_collection = SubResource("Resource_uh04k")
+to_collection = SubResource("Resource_50xr5")
+metadata/_custom_type_script = "uid://7ll5gilir7j4"
+
+[resource]
+script = ExtResource("7_sgd20")
+suit = ExtResource("8_dtsmi")
+title = "Reorient"
+base_cost = 2
+description = "Move all tokens from one card to another card"
+on_play_card_actions = Array[ExtResource("2_85ub6")]([SubResource("Resource_1cbdy")])
+metadata/_custom_type_script = "uid://dy4e7i5501yv5"

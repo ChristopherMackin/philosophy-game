@@ -120,13 +120,15 @@ static func auto_populate_resource_array(old_array: Array, new_array: Array, res
 	
 	return old_array
 
-static func optional_connect(node: Node, signal_name: String, callable: Callable, flags: int = 0):
-	if node.has_signal(signal_name) && !node.is_connected(signal_name, callable):
-		node.connect(signal_name, callable, flags)
+static func optional_connect(to, signal_name: String, callable: Callable, flags: int = 0):
+	if !to: return
+	if to.has_signal(signal_name) && !to.is_connected(signal_name, callable):
+		to.connect(signal_name, callable, flags)
 
-static func optional_disconnect(node: Node, signal_name: String, callable: Callable):
-	if node.has_signal(signal_name) && node.is_connected(signal_name, callable):
-		node.disconnect(signal_name, callable)
+static func optional_disconnect(from, signal_name: String, callable: Callable):
+	if !from: return
+	if from.has_signal(signal_name) && from.is_connected(signal_name, callable):
+		from.disconnect(signal_name, callable)
 
 static func get_unique_elements(arr: Array) -> Array:
 	var dict := {}

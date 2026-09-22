@@ -46,6 +46,12 @@ metadata/_custom_type_script = "uid://18i051ifv5h0"
 
 [node name="LvlDbDebugBase" unique_id=1140928789 instance=ExtResource("1_pncn6")]
 
+[node name="DebugEventManager" parent="===DEBUG========" parent_id_path=PackedInt32Array(801987926) index="0" unique_id=1676246633]
+btn_continue = Callable()
+btn_skip = Callable()
+btn_cancel = Callable()
+btn_event_factory = Callable()
+
 [node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="0" unique_id=4102704]
 blackboard = ExtResource("2_kjq1s")
 event_factory = SubResource("Resource_pncn6")
