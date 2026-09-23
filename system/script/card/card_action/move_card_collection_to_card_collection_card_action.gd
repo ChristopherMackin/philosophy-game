@@ -6,7 +6,7 @@ class_name MoveCardCollectionToCardCollectionCardAction
 @export var from_collection : CardCollectionContainer
 @export var to_collection : CardCollectionContainer
 @export_enum("Move", "Duplicate", "Trade") var mode: int = 0
-@export var keep_status_effect:= false
+@export var keep_status_effect:= true
 
 func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool:
 	match mode:

@@ -8,13 +8,8 @@
 [ext_resource type="Resource" uid="uid://hn3fmi2k8xsl" path="res://system/card/others/c_others_basic.tres" id="6_dcwhc"]
 [ext_resource type="Resource" uid="uid://nhp37gbcl3m6" path="res://system/card/_shape/c_shape_move_token_counter_from_card_to_card.tres" id="7_k6vfy"]
 [ext_resource type="Resource" uid="uid://bh655mwdmj2xn" path="res://system/card/_shape/c_shape_energy_per_counter.tres" id="8_wle2f"]
+[ext_resource type="Resource" uid="uid://ci2j8qedtvg5d" path="res://system/card/_shape/c_shape_on_discard_move_1_token.tres" id="9_dcwhc"]
 [ext_resource type="Script" uid="uid://dhdtv0v6h0rkq" path="res://system/script/deck/deck.gd" id="11_wv4ln"]
-
-[sub_resource type="Resource" id="Resource_upytx"]
-resource_name = "1 Good Will"
-script = ExtResource("1_dpatv")
-base = ExtResource("2_oe158")
-count = 1
 
 [sub_resource type="Resource" id="Resource_1f56b"]
 resource_name = "2 Basic Faith"
@@ -40,18 +35,30 @@ script = ExtResource("1_dpatv")
 base = ExtResource("6_dcwhc")
 count = 2
 
+[sub_resource type="Resource" id="Resource_upytx"]
+resource_name = "1 Good Will"
+script = ExtResource("1_dpatv")
+base = ExtResource("2_oe158")
+count = 1
+
 [sub_resource type="Resource" id="Resource_wle2f"]
-resource_name = "4 Reorient"
+resource_name = "1 Reorient"
 script = ExtResource("1_dpatv")
 base = ExtResource("7_k6vfy")
-count = 4
+count = 1
 
 [sub_resource type="Resource" id="Resource_dcwhc"]
-resource_name = "2 Reservation"
+resource_name = "1 Reservation"
 script = ExtResource("1_dpatv")
 base = ExtResource("8_wle2f")
+count = 1
+
+[sub_resource type="Resource" id="Resource_kc2qy"]
+resource_name = "2 Self Control"
+script = ExtResource("1_dpatv")
+base = ExtResource("9_dcwhc")
 count = 2
 
 [resource]
 script = ExtResource("11_wv4ln")
-composition_card_deck_config_array = Array[ExtResource("1_dpatv")]([SubResource("Resource_upytx"), SubResource("Resource_1f56b"), SubResource("Resource_pqf4j"), SubResource("Resource_wm7wi"), SubResource("Resource_mnhf4"), SubResource("Resource_wle2f"), SubResource("Resource_dcwhc")])
+composition_card_deck_config_array = Array[ExtResource("1_dpatv")]([SubResource("Resource_1f56b"), SubResource("Resource_pqf4j"), SubResource("Resource_wm7wi"), SubResource("Resource_mnhf4"), SubResource("Resource_upytx"), SubResource("Resource_wle2f"), SubResource("Resource_dcwhc"), SubResource("Resource_kc2qy")])

@@ -171,7 +171,7 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_colors/default_color = Color(0.2784314, 0.2784314, 0.2784314, 1)
 theme_override_fonts/normal_font = ExtResource("6_v7qka")
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 24
 text = "This is a test of the card text"
 
 [node name="TokenOutline" type="TextureRect" parent="Card/CardBG" unique_id=1481781141]

@@ -3,13 +3,40 @@
 [ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="1_nqmmw"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_663od"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="3_6iaog"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://system/script/card/card_array_filter/card_array_filter.gd" id="3_abfts"]
+[ext_resource type="Script" uid="uid://bwc82j6d8fvd4" path="res://system/script/card/card_array_filter/slice_card_array_filter.gd" id="4_5hyw0"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="4_govda"]
 [ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="5_4kyfs"]
+[ext_resource type="Script" uid="uid://c2f31cka87uk4" path="res://system/script/card/card_action/card_collection_container/draw_pile_collection_container.gd" id="5_hbbvh"]
+[ext_resource type="Script" uid="uid://cm5qf41iurdc3" path="res://system/script/card/card_action/move_card_collection_to_card_collection_card_action.gd" id="6_7dc8o"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://system/script/card/card_action/card_collection_container/hand_collection_container.gd" id="7_5uea8"]
+
+[sub_resource type="Resource" id="Resource_ddarm"]
+script = ExtResource("4_5hyw0")
+amount = 1
+metadata/_custom_type_script = "uid://bwc82j6d8fvd4"
+
+[sub_resource type="Resource" id="Resource_ad28f"]
+script = ExtResource("5_hbbvh")
+collection_filters = Array[ExtResource("3_abfts")]([SubResource("Resource_ddarm")])
+metadata/_custom_type_script = "uid://c2f31cka87uk4"
+
+[sub_resource type="Resource" id="Resource_5viui"]
+script = ExtResource("7_5uea8")
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_3cifl"]
+script = ExtResource("6_7dc8o")
+from_collection = SubResource("Resource_ad28f")
+to_collection = SubResource("Resource_5viui")
+metadata/_custom_type_script = "uid://cm5qf41iurdc3"
 
 [resource]
 script = ExtResource("3_6iaog")
 suit = ExtResource("4_govda")
 title = "Basic Faith"
 base_cost = 2
+description = "Draw a card"
 token_data = ExtResource("5_4kyfs")
 starting_token_counter = 1
+on_play_card_actions = Array[ExtResource("2_663od")]([SubResource("Resource_3cifl")])

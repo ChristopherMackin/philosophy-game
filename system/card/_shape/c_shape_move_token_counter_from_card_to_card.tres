@@ -84,6 +84,7 @@ script = ExtResource("7_sgd20")
 suit = ExtResource("8_dtsmi")
 title = "Reorient"
 base_cost = 1
-description = "Remove two counters from a card in your hand. Put those counters on another card and raise it's cost by 1"
+description = "Move 2 counters from a card in your hand to another card
+Recieving card +1 cost"
 on_play_card_actions = Array[ExtResource("2_85ub6")]([SubResource("Resource_vl5uf"), SubResource("Resource_h0h3o"), SubResource("Resource_e62x4")])
 metadata/_custom_type_script = "uid://dy4e7i5501yv5"
