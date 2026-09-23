@@ -6,7 +6,7 @@ class_name DrawPileCollectionContainer
 @export_enum("Beginning", "End", "Random") var insertion_point := 0
 
 var contestant: Contestant:
-	get(): return Const.GetContestant(player, manager.get_opponent(player), which_contestant)
+	get(): return Const.get_contestant(player, manager.get_opponent(player), which_contestant)
 
 func _get_unfiltered_collection() -> Array[Card]:
 	return contestant.draw_pile.get_cards()

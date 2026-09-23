@@ -9,7 +9,7 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool
 	collection_container.init(caller, player, manager)
 	var cards = await collection_container.get_collection_cards()
 	
-	var contestant := Const.GetContestant(player, manager.get_opponent(player), which_contestant)
+	var contestant := Const.get_contestant(player, manager.get_opponent(player), which_contestant)
 	
 	for card in cards:
 		await card.collection.remove(card)

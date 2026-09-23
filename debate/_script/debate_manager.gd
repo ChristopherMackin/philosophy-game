@@ -87,7 +87,7 @@ func start_debate(blackboard: Blackboard, player_character : Character, computer
 	
 	for contestant in contestants:
 		for cse: ContestantStatusEffect in contestant.character.starting_effects:
-			var recipient = Const.GetContestant(contestant, get_opponent(contestant), cse.which_contestant)
+			var recipient = Const.get_contestant(contestant, get_opponent(contestant), cse.which_contestant)
 			cse.status_effect.apply(recipient)
 	
 	for contestant in contestants:
@@ -191,6 +191,9 @@ func remove_token_from_suit_track(token : Token):
 	if index < 0: return
 	
 	suit_track_dictionary[suit_name].remove_at(index)
+
+func get_contestant(which_contestant: Const.WhichContestant):
+	return Const.get_contestant(player, computer, which_contestant)
 
 func get_opponent(contestant : Contestant):
 	return computer if contestant == player else player

@@ -16,7 +16,7 @@ enum WhichContestant {
 	OPPONENT
 }
 
-static func GetContestant(player, opponent, which_contestant) -> Contestant:
+static func get_contestant(player, opponent, which_contestant) -> Contestant:
 	return player if which_contestant == Const.WhichContestant.SELF else opponent
 
 enum Player {
@@ -74,20 +74,6 @@ enum VFX {
 }
 
 const Autocomplete = [
-	"player",
-	"computer",
-	"active_contestant",
-	"current_turn",
-	"current_round",
-	"card_history",
-	"turn_card_history",
-	"token_history",
-	"turn_token_history",
-	"action_added_cost_modifier",
-	"action_added_card_base",
-	"action_moved_cards",
-	"action_discarded_cards",
-	"action_banished_cards",
-	"action_viewed_cards",
-	"action_",
+	"HUMAN",
+	"COMPUTER"
 ]

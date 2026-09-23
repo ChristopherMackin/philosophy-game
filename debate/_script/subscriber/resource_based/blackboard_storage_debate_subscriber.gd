@@ -19,8 +19,9 @@ func on_turn_start(contestant: Contestant):
 	blackboard.add_flag(Flag.CURRENT_TURN, manager.current_turn, Blackboard.ExpirationToken.ON_DEBATE_START)
 	blackboard.add_flag(Flag.CURRENT_ROUND, manager.current_round, Blackboard.ExpirationToken.ON_DEBATE_START)
 	
-	var which_contestant = "player" if contestant == manager.player else "computer"
-	blackboard.add_flag(Flag.ACTIVE_CONTESTANT, which_contestant, Blackboard.ExpirationToken.ON_DEBATE_START)
+	var which_contestant = Const.Player.HUMAN if contestant == manager.player else Const.Player.COMPUTER
+	blackboard.add_flag(Flag.WHICH_CONTESTANT, Const.Player.values()[which_contestant], Blackboard.ExpirationToken.ON_DEBATE_START)
+	blackboard.add_flag(Flag.ACTIVE_CONTESTANT, manager.active_contestant, Blackboard.ExpirationToken.ON_TURN_START)
 	
 	blackboard.add_flag(Flag.TURN_CARD_HISTORY, [], Blackboard.ExpirationToken.ON_TURN_START)
 	blackboard.add_flag(Flag.TURN_TOKEN_HISTORY, [], Blackboard.ExpirationToken.ON_TURN_START)

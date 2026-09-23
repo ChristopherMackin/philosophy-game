@@ -17,9 +17,9 @@ var card : Card:
 		Util.optional_disconnect(card, "card_updated", refresh_card)
 		card = val
 		Util.optional_connect(card, "card_updated", refresh_card, CONNECT_DEFERRED)
-		refresh_card.call_deferred()
+		refresh_card.call_deferred(card)
 
-func refresh_card():
+func refresh_card(card: Card):
 		if !card:
 			return
 		

@@ -8,6 +8,7 @@ enum {
 	CURRENT_TURN,
 	CURRENT_ROUND,
 	ACTIVE_CONTESTANT,
+	WHICH_CONTESTANT,
 	CARD_HISTORY,
 	TURN_CARD_HISTORY,
 	TOKEN_HISTORY,
@@ -31,6 +32,12 @@ enum {
 	ACTION_ADDED_CARD_STATUS_EFFECT
 	
 }
+
+static func get_all_names() -> Array[String]:
+	var current_script: GDScript = load("res://system/script/flag.gd")
+	var constant_map: Dictionary = current_script.get_script_constant_map()
+			
+	return constant_map.keys()
 
 static func name(value: int) -> String:
 	var current_script: GDScript = load("res://system/script/flag.gd")

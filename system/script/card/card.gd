@@ -26,7 +26,7 @@ var token_data: TokenData:
 var base_token_counter: int = 0:
 	set(val):
 		base_token_counter = val if val > 0 else 0
-		card_updated.emit()
+		card_updated.emit(self)
 var token_counter: int:
 	get():
 		return base_token_counter

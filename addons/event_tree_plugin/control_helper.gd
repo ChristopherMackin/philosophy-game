@@ -59,6 +59,8 @@ static func create_expression_editor(value_changed_callback: Callable = func(thi
 		if property_control.get_word_at_pos(property_control.get_caret_draw_pos()) != "":
 			for option in Const.Autocomplete:
 				property_control.add_code_completion_option(CodeEdit.KIND_VARIABLE, option, option)
+			for option in Flag.get_all_names():
+				property_control.add_code_completion_option(CodeEdit.KIND_VARIABLE, option, option)
 		
 		property_control.update_code_completion_options(true)
 	
