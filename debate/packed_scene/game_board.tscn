@@ -67,7 +67,7 @@
 [ext_resource type="Script" uid="uid://bcmq2op4vw7ja" path="res://_debug/computer_played_cards.gd" id="65_dxrs5"]
 [ext_resource type="Resource" uid="uid://blh1qdw7pholg" path="res://debate/_general/cfb_general.tres" id="66_kq0jy"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_kq0jy"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_dxrs5"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Curve" id="Curve_wifvs"]
@@ -75,7 +75,7 @@ _limits = [0.0, 1.8, 0.0, 1.0]
 _data = [Vector2(0, 1.8), 0.0, 0.0, 0, 0, Vector2(0.5503876, 1.8), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6cnp6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_kq0jy"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cxqdo"]
@@ -210,7 +210,7 @@ _data = {
 &"card_exit": SubResource("Animation_ntdmx")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lgils"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6cnp6"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8igq"]
@@ -218,7 +218,7 @@ albedo_texture = ExtResource("14_5bli3")
 ao_enabled = true
 ao_texture = ExtResource("15_jua52")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2t63j"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lgils"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jelp"]
@@ -226,7 +226,7 @@ albedo_texture = ExtResource("16_o4b7f")
 ao_enabled = true
 ao_texture = ExtResource("17_0n8fp")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5bli3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2t63j"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gtye4"]
@@ -270,7 +270,7 @@ fov = 25.0
 far = 100.0
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
-[sub_resource type="Environment" id="Environment_dxrs5"]
+[sub_resource type="Environment" id="Environment_5bli3"]
 ambient_light_source = 2
 ambient_light_color = Color(0.94, 0.94, 0.94, 1)
 ssao_intensity = 1.32
@@ -328,7 +328,7 @@ order = 1
 
 [node name="MiniCounterUi" parent="PlayerUi/PlayerDrawPileCounter" unique_id=1817069595 instance=ExtResource("4_cev6s")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_kq0jy")
+texture = SubResource("ViewportTexture_dxrs5")
 
 [node name="Label" parent="PlayerUi/PlayerDrawPileCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1817069595, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -353,7 +353,7 @@ order = 1
 
 [node name="MiniCounterUi" parent="PlayerUi/PlayerDiscardCounter" unique_id=1891820841 instance=ExtResource("4_cev6s")]
 transform = Transform3D(0.27140555, 0, 0, 0, -1.1863514e-08, 0.27140555, 0, -0.27140555, -1.1863514e-08, 0.012857959, 0.0143528795, 0.015563682)
-texture = SubResource("ViewportTexture_6cnp6")
+texture = SubResource("ViewportTexture_kq0jy")
 
 [node name="Label" parent="PlayerUi/PlayerDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(1891820841, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -457,7 +457,7 @@ order = 1
 
 [node name="MiniCounterUi" parent="CpiUi/CpuHandCounter" unique_id=203899939 instance=ExtResource("4_cev6s")]
 transform = Transform3D(0.26024163, -0.009793821, -0.076415636, 0.076465435, -1.1382936e-08, 0.26041123, -0.009397088, -0.27122876, 0.0027592867, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_lgils")
+texture = SubResource("ViewportTexture_6cnp6")
 
 [node name="Label" parent="CpiUi/CpuHandCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(203899939, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -486,7 +486,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
 
 [node name="MiniCounterUi" parent="CpiUi/CpuDiscardCounter" unique_id=680078832 instance=ExtResource("4_cev6s")]
 transform = Transform3D(0.2708025, 0.006386812, -0.016917214, 0.016962603, -0.0017474849, 0.27086934, 0.0062652696, -0.27132475, -0.002142772, -0.011028126, 0.015155774, 0.0153282415)
-texture = SubResource("ViewportTexture_2t63j")
+texture = SubResource("ViewportTexture_lgils")
 
 [node name="Label" parent="CpiUi/CpuDiscardCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(680078832, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -515,7 +515,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
 
 [node name="MiniCounterUi" parent="CpiUi/CpuEnergyCounter" unique_id=822662507 instance=ExtResource("4_cev6s")]
 transform = Transform3D(0.26872277, 0.03799277, 0.0023667924, -0.00091665983, -0.010411309, 0.27120426, 0.038055386, -0.26853144, -0.010180076, -0.011028126, 0.015155774, 0.015328243)
-texture = SubResource("ViewportTexture_5bli3")
+texture = SubResource("ViewportTexture_2t63j")
 
 [node name="Label" parent="CpiUi/CpuEnergyCounter/MiniCounterUi/SubViewport/Border/Fill" parent_id_path=PackedInt32Array(822662507, 612248546) index="0" unique_id=245654660]
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -807,7 +807,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1155753, 0.009244392)
 top_level = true
 cull_mask = 32768
-environment = SubResource("Environment_dxrs5")
+environment = SubResource("Environment_5bli3")
 current = true
 fov = 25.0
 far = 100.0
@@ -952,11 +952,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -464.0
-offset_top = -289.0
+offset_top = -266.0
 offset_right = 464.0
-offset_bottom = 243.0
+offset_bottom = 266.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_vertical = 4
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
