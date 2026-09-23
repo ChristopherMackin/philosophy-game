@@ -22,6 +22,7 @@ script = ExtResource("6_gjvsf")
 name = "Joy"
 brain = ExtResource("5_vl5uf")
 deck = ExtResource("6_67ixi")
+energy_level = 20
 blackboard = ExtResource("4_ew0wg")
 
 [sub_resource type="Resource" id="Resource_67ixi"]

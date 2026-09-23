@@ -13,7 +13,7 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool
 	for i in amount:
 		var card = Card.new(base, manager)
 		
-		collection_container.add_card_to_collection(card)
+		await collection_container.add_card_to_collection(card)
 	
 	manager.blackboard.add_flag(Flag.ACTION_ADDED_CARD_BASE, base, Blackboard.ExpirationToken.ON_ACTION_END)
 	

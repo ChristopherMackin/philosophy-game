@@ -14,8 +14,8 @@ func _get_unfiltered_collection() -> Array[Card]:
 func add_card_to_collection(card: Card):	
 	match  insertion_point:
 		0:
-			contestant.draw_pile.push_front(card)
+			await contestant.draw_pile.push_front(card)
 		1:
-			contestant.draw_pile.push_back(card)
+			await contestant.draw_pile.push_back(card)
 		2:
-			contestant.draw_pile.insert_random(card)
+			await contestant.draw_pile.insert_random(card)

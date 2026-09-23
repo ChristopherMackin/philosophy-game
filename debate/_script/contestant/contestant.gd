@@ -79,7 +79,7 @@ func _init(character : Character, manager : DebateManager):
 	draw_pile.on_added.add_listener(func(card: Card): await card.reset_token_counter())
 	draw_pile.on_removed.add_listener(func(card: Card): await card.reset_token_counter())
 	
-	discard_pile.on_added.add_listener(func(card: Card): card.on_discard(self, manager))
+	discard_pile.on_added.add_listener(func(card: Card): await card.on_discard(self, manager))
 	
 	held_card.on_added.add_listener(func(card: Card): await card.on_hold_start(self, manager))
 	held_card.on_removed.add_listener(func(card: Card): await card.on_hold_end(self, manager))

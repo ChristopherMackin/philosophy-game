@@ -13,4 +13,4 @@ func _get_unfiltered_collection() -> Array[Card]:
 		return []
 
 func add_card_to_collection(card: Card):
-	contestant.hold_card(card)
+	await contestant.hold_card(card)

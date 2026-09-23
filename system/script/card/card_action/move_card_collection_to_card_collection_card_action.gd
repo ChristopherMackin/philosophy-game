@@ -23,7 +23,7 @@ func _move(caller: Card, player: Contestant, manager: DebateManager) -> bool:
 	var from_collection_cards = await from_collection.get_collection_cards()
 	
 	for card in from_collection_cards:
-		to_collection.add_card_to_collection(card)
+		await to_collection.add_card_to_collection(card)
 	
 	manager.blackboard.add_flag(Flag.ACTION_MOVED_CARDS_FROM, from_collection_cards, Blackboard.ExpirationToken.ON_ACTION_END)
 	manager.blackboard.add_flag(Flag.ACTION_MOVED_CARDS_TO, to_collection, Blackboard.ExpirationToken.ON_ACTION_END)
