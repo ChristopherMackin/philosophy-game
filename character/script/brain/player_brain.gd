@@ -15,6 +15,6 @@ func make_selection(response: SelectionResponse) -> bool:
 	var valid = check_validity(active_request, response)
 	
 	if valid:
-		on_selection_made.emit(response)
+		on_selection_made.emit.call_deferred(response)
 	
 	return valid

@@ -5,7 +5,8 @@ class_name BlackboardCollectionContainer
 @export var key : String = "action_cards"
 
 func _get_unfiltered_collection() -> Array[Card]:
-	var array = manager.blackboard.get_value(key)
+	var array: Array[Card] 
+	array.assign(manager.blackboard.get_value(key))
 	return array
 
 func add_card_to_collection(card: Card):
@@ -15,4 +16,4 @@ func add_card_to_collection(card: Card):
 		array.append(card)
 		manager.blackboard.add(key, array, expiration)
 	else:
-		manager.blackboard.add(key, [card])
+		manager.blackboard.add(key, [card], Blackboard.ExpirationToken.ON_ACTION_END)

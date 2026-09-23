@@ -5,6 +5,7 @@ class_name SelectionCardArrayFilter
 @export var visible_to_player := true
 @export var amount := 1
 @export var min_amount := 1
+@export var save_selection: String = ""
 
 func filter(card_array: Array[Card], caller: Card, contestant: Contestant, manager: DebateManager) -> Array[Card]:
 	if card_array.size() <= 0: return card_array
@@ -27,5 +28,8 @@ func filter(card_array: Array[Card], caller: Card, contestant: Contestant, manag
 		cards.assign(response.data)
 	elif response.data is Card:
 		cards.append(response.data)
+	
+	if save_selection:
+		manager.blackboard.add(save_selection, cards, Blackboard.ExpirationToken.ON_ACTION_END)
 	
 	return cards

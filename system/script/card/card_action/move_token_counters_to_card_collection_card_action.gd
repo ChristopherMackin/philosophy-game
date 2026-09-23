@@ -14,8 +14,6 @@ func invoke(caller : Card, player : Contestant, manager : DebateManager) -> bool
 	to_collection.init(caller, player, manager)
 	
 	var from_cards := await from_collection.get_collection_cards()
-	#TODO: Fix racing condition and remove timer await
-	await GlobalTimer.wait_for_seconds(.01)
 	var to_cards := await to_collection.get_collection_cards()
 	
 	if from_cards.size() <= 0 || to_cards.size() <=0: return true
@@ -37,10 +35,14 @@ func _first(from_cards: Array[Card], to_cards: Array[Card]):
 	else:
 		var i := 0
 		for card in from_cards:
-			to_card.base_token_counter += card.base_token_counter
-			card.base_token_counter = 0
-			i += 1
-			if i >= amount: return
+			var btc = card.base_token_counter
+			if btc < amount - i:
+				to_card.base_token_counter += btc
+				card.base_token_counter = 0
+				i += btc
+			else:
+				to_card.base_token_counter += amount - i
+				card.base_token_counter -= amount - i
 
 func _even(from_cards: Array[Card], to_cards: Array[Card]):
 	var token_counters = _pop_token_counters_from_card_collection(from_cards)

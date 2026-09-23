@@ -26,6 +26,8 @@ func _ready():
 
 func _clear_card_container():
 	for child in card_container.get_children():
+		#This stops calculations for set up focus groups from being wrong
+		child.reparent(get_tree().root)
 		child.queue_free()
 	
 	cards_ui.clear()

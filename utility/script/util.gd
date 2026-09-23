@@ -135,3 +135,7 @@ static func get_unique_elements(arr: Array) -> Array:
 	for item in arr:
 		dict[item] = true # Keys automatically overwrite duplicates
 	return dict.keys()
+
+static func qfree(node: Node):
+	node.reparent(null)
+	node.queue_free()
