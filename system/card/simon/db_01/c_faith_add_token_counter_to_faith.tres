@@ -3,9 +3,42 @@
 [ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="1_pvgs2"]
 [ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_m4o1h"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="3_s0ook"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://system/script/card/card_array_filter/card_array_filter.gd" id="3_teqqc"]
+[ext_resource type="Script" uid="uid://bbr50dvcf2gmc" path="res://system/script/card/card_array_filter/suit_card_array_filter.gd" id="4_acnke"]
 [ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="4_m4o1h"]
+[ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="5_s0ook"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://system/script/suit/suit.gd" id="5_tvw2i"]
+[ext_resource type="Script" uid="uid://c01wtp2lsawyc" path="res://system/script/card/card_array_filter/random_card_array_filter.gd" id="7_kwmj6"]
+[ext_resource type="Script" uid="uid://dmftp8oq5b1hk" path="res://system/script/card/card_action/card_collection_container/hand_collection_container.gd" id="8_kdvyj"]
+[ext_resource type="Script" uid="uid://dwiobe634l8x7" path="res://system/script/card/card_action/modify_card_collection_token_counter_card_actionp.gd" id="9_0afl7"]
+
+[sub_resource type="Resource" id="Resource_4jipy"]
+script = ExtResource("4_acnke")
+suits = Array[ExtResource("5_tvw2i")]([ExtResource("4_m4o1h")])
+metadata/_custom_type_script = "uid://bbr50dvcf2gmc"
+
+[sub_resource type="Resource" id="Resource_sydrn"]
+script = ExtResource("7_kwmj6")
+amount = 1
+metadata/_custom_type_script = "uid://c01wtp2lsawyc"
+
+[sub_resource type="Resource" id="Resource_x8iq3"]
+script = ExtResource("8_kdvyj")
+which_contestant = 1
+collection_filters = Array[ExtResource("3_teqqc")]([SubResource("Resource_4jipy"), SubResource("Resource_sydrn")])
+metadata/_custom_type_script = "uid://dmftp8oq5b1hk"
+
+[sub_resource type="Resource" id="Resource_pk0t8"]
+script = ExtResource("9_0afl7")
+collection = SubResource("Resource_x8iq3")
+metadata/_custom_type_script = "uid://dwiobe634l8x7"
 
 [resource]
 script = ExtResource("3_s0ook")
 suit = ExtResource("4_m4o1h")
+title = "Bolster"
+base_cost = 3
+description = "Add a token counter to a random faith card"
+token_data = ExtResource("5_s0ook")
+on_play_card_actions = Array[ExtResource("2_m4o1h")]([SubResource("Resource_pk0t8")])
 metadata/_custom_type_script = "uid://dy4e7i5501yv5"

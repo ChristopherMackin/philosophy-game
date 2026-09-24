@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://el0q8stiob7d" path="res://_asset/debate/icon.svg" id="4_v7qka"]
 [ext_resource type="Texture2D" uid="uid://c00yhthrr78gr" path="res://_asset/debate/_general/texture/card/card_body.png" id="5_pwlx3"]
 [ext_resource type="FontFile" uid="uid://dm7kd3g4er8v2" path="res://_asset/_general/font/FriendlySans-Regular.ttf" id="6_v7qka"]
+[ext_resource type="Texture2D" uid="uid://xg46i60cricl" path="res://_asset/debate/_general/texture/card/card_cost_outline.png" id="7_y8e6d"]
 [ext_resource type="Script" uid="uid://b1k76fw3jnei6" path="res://debate/_script/ui/rich_text_label_update_emitter.gd" id="8_v7qka"]
 [ext_resource type="Script" uid="uid://cw4ryesf5bd2b" path="res://_general/script/ui/scale_control.gd" id="9_kbxx3"]
 [ext_resource type="Texture2D" uid="uid://cixi8kuq13b1c" path="res://_asset/debate/_general/texture/card/token_outline.png" id="9_pwlx3"]
@@ -50,7 +51,7 @@ artwork = NodePath("Card/ArtworkMask/Artwork")
 token_artwork = NodePath("Card/CardBG/TokenOutline/TokenArtwork")
 token_counter = NodePath("Card/CardBG/TokenOutline/TokenCounter/TokenCounterText")
 description = NodePath("Card/CardBG/Body/MarginContainer/BodyText")
-cost = NodePath("Card/CardBG/Cost/CostText")
+cost = NodePath("Card/CardBG/CostOutline/Cost/CostText")
 icon = NodePath("Card/CardBG/Icon")
 metadata/focus_property = "card"
 
@@ -124,25 +125,39 @@ scroll_active = false
 
 [node name="Icon" type="TextureRect" parent="Card/CardBG" unique_id=1523427477]
 layout_mode = 0
-offset_left = 207.0
-offset_top = 51.0
-offset_right = 239.0
-offset_bottom = 83.0
+offset_left = 204.0
+offset_top = 22.0
+offset_right = 236.0
+offset_bottom = 54.0
 texture = ExtResource("3_lt8qs")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Cost" type="TextureRect" parent="Card/CardBG" unique_id=1098989309]
+[node name="CostOutline" type="TextureRect" parent="Card/CardBG" unique_id=879092843]
 layout_mode = 0
-offset_left = 189.0
-offset_top = 4.0
-offset_right = 239.0
-offset_bottom = 54.0
+offset_left = 155.0
+offset_top = 59.0
+offset_right = 242.0
+offset_bottom = 121.0
+texture = ExtResource("7_y8e6d")
+
+[node name="Cost" type="TextureRect" parent="Card/CardBG/CostOutline" unique_id=1098989309]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -25.0
+offset_right = 37.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("4_j3fay")
-expand_mode = 1
 stretch_mode = 5
 
-[node name="CostText" type="RichTextLabel" parent="Card/CardBG/Cost" unique_id=1068704501]
+[node name="CostText" type="RichTextLabel" parent="Card/CardBG/CostOutline/Cost" unique_id=1068704501]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -154,13 +169,13 @@ theme_override_colors/default_color = Color(0.9647059, 0.9647059, 0.9647059, 1)
 theme_override_colors/font_outline_color = Color(0.2784314, 0.2784314, 0.2784314, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/normal_font = ExtResource("6_v7qka")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 30
 text = "99"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("8_v7qka")
 
-[node name="ScaleControl" type="Node" parent="Card/CardBG/Cost/CostText" unique_id=1946478376 node_paths=PackedStringArray("target")]
+[node name="ScaleControl" type="Node" parent="Card/CardBG/CostOutline/Cost/CostText" unique_id=1946478376 node_paths=PackedStringArray("target")]
 script = ExtResource("9_kbxx3")
 target = NodePath("..")
 curve = SubResource("Curve_y8e6d")
@@ -262,7 +277,7 @@ shake_intensity = 19.99999999999994
 shake_count = 15
 
 [connection signal="card_ui_updated" from="." to="Card/CardFocusAnimation" method="shake"]
-[connection signal="on_label_updated" from="Card/CardBG/Cost/CostText" to="Card/CardBG/Cost/CostText/ScaleControl" method="animate_scale" unbinds=1]
+[connection signal="on_label_updated" from="Card/CardBG/CostOutline/Cost/CostText" to="Card/CardBG/CostOutline/Cost/CostText/ScaleControl" method="animate_scale" unbinds=1]
 [connection signal="on_label_updated" from="Card/CardBG/TokenOutline/TokenCounter/TokenCounterText" to="Card/CardBG/TokenOutline/TokenCounter/TokenCounterText/ScaleControl" method="animate_scale" unbinds=1]
 [connection signal="on_focus_entered" from="Card/FocusGroupSignalNode" to="Card/CardFocusAnimation" method="_on_focus_entered"]
 [connection signal="on_focus_exited" from="Card/FocusGroupSignalNode" to="Card/CardFocusAnimation" method="_on_focus_exited"]
