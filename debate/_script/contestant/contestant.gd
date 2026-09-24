@@ -93,7 +93,7 @@ func ready_up():
 
 func _draw_card():
 	var card = draw_pile.get_card_at_index(0)
-	await hand.push_back(card)
+	if card: await hand.push_back(card)
 
 func draw_specified_card(card : Card) -> bool:
 	if hand.size >= hand_limit || draw_pile.size <= 0: return false
@@ -141,7 +141,8 @@ func end_turn():
 		if status_effect.turn_lifetime <= 0:
 			status_effect.remove(self)
 	
-	await draw_full_hand()
+	if manager.debate_settings.draw_mode == 0: _draw_card()
+	else: await draw_full_hand()
 	
 	if current_energy < energy_level || !manager.debate_settings.retain_excess_energy:
 		current_energy = energy_level

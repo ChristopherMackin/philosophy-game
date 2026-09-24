@@ -18,6 +18,10 @@ signal on_value_changed
 	set(val):
 		retain_excess_energy = val
 		on_value_changed.emit()
+@export_enum("Single", "Hand Size") var draw_mode: int = 1:
+	set(val):
+		draw_mode = val
+		on_value_changed.emit()
 
 @export_group("Board Settings")
 @export var suits : Array[Suit]:

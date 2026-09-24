@@ -1,8 +1,16 @@
-[gd_resource type="Resource" script_class="InfiniteDeck" format=3 uid="uid://byb2ixogukv6b"]
+[gd_resource type="Resource" script_class="OrderedDeck" format=3 uid="uid://byb2ixogukv6b"]
 
 [ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://system/script/card/card_deck_config.gd" id="1_clwjl"]
-[ext_resource type="Script" uid="uid://dlqqr4qxqi2ht" path="res://system/script/deck/infinite_deck.gd" id="2_fnvbb"]
+[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/c_faith_basic.tres" id="2_bk2pq"]
+[ext_resource type="Script" uid="uid://qxw0hsqa58ko" path="res://system/script/deck/ordered_deck.gd" id="3_fnvbb"]
+
+[sub_resource type="Resource" id="Resource_l4xqa"]
+resource_name = "2 Basic Faith"
+script = ExtResource("1_clwjl")
+base = ExtResource("2_bk2pq")
+count = 2
 
 [resource]
-script = ExtResource("2_fnvbb")
+script = ExtResource("3_fnvbb")
+composition_card_deck_config_array = Array[ExtResource("1_clwjl")]([SubResource("Resource_l4xqa")])
 metadata/_custom_type_script = "uid://dlqqr4qxqi2ht"
