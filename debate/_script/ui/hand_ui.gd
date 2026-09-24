@@ -112,7 +112,7 @@ func _add_card(card : Card):
 	
 	await GlobalTimer.wait_for_seconds(.175)
 
-func _remove_card(card : Card):	
+func _remove_card(card : Card):
 	var matching = cards_ui.filter(func (card_ui): return card == card_ui.card)
 	var card_ui = matching[0] if not matching.is_empty() else null
 	var card_index = cards_ui.find(card_ui)
@@ -136,6 +136,9 @@ func _remove_card(card : Card):
 func _update_card(card):
 	var matching = cards_ui.filter(func (card_ui): return card == card_ui.card)
 	var old_card = matching[0] if not matching.is_empty() else null
+	
+	if old_card.card.equals(card): return
+	
 	var card_index = cards_ui.find(old_card)
 	
 	var card_ui_packed_scene = card_ui_factory_base.get_card_ui(card)

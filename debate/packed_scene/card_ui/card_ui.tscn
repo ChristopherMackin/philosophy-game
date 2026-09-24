@@ -8,11 +8,23 @@
 [ext_resource type="Texture2D" uid="uid://el0q8stiob7d" path="res://_asset/debate/icon.svg" id="4_v7qka"]
 [ext_resource type="Texture2D" uid="uid://c00yhthrr78gr" path="res://_asset/debate/_general/texture/card/card_body.png" id="5_pwlx3"]
 [ext_resource type="FontFile" uid="uid://dm7kd3g4er8v2" path="res://_asset/_general/font/FriendlySans-Regular.ttf" id="6_v7qka"]
+[ext_resource type="Script" uid="uid://b1k76fw3jnei6" path="res://debate/_script/ui/rich_text_label_update_emitter.gd" id="8_v7qka"]
+[ext_resource type="Script" uid="uid://cw4ryesf5bd2b" path="res://_general/script/ui/scale_control.gd" id="9_kbxx3"]
 [ext_resource type="Texture2D" uid="uid://cixi8kuq13b1c" path="res://_asset/debate/_general/texture/card/token_outline.png" id="9_pwlx3"]
 [ext_resource type="Texture2D" uid="uid://derifyd6jpph2" path="res://_asset/debate/_general/texture/token/t_faith_token_col.png" id="11_pex2d"]
 [ext_resource type="Texture2D" uid="uid://cfrvuogoaw2cu" path="res://_asset/debate/_general/texture/card/token_counter.png" id="11_v7qka"]
 [ext_resource type="Script" uid="uid://dc8gq2l3o144t" path="res://system/script/focus_group/focus_group_signal_node.gd" id="13_v7m6f"]
 [ext_resource type="Script" uid="uid://cumbxctg3u56" path="res://debate/_script/ui/card_focus_animation.gd" id="14_vo8an"]
+
+[sub_resource type="Curve" id="Curve_y8e6d"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.52597404, 2), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_kbxx3"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.52597404, 2), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="CardUi" type="Control" unique_id=147735438 node_paths=PackedStringArray("card_bg", "title", "artwork", "token_artwork", "token_counter", "description", "cost", "icon")]
 custom_minimum_size = Vector2(250, 350)
@@ -137,6 +149,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/default_color = Color(0.9647059, 0.9647059, 0.9647059, 1)
 theme_override_colors/font_outline_color = Color(0.2784314, 0.2784314, 0.2784314, 1)
 theme_override_constants/outline_size = 10
@@ -145,6 +158,14 @@ theme_override_font_sizes/normal_font_size = 20
 text = "99"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("8_v7qka")
+
+[node name="ScaleControl" type="Node" parent="Card/CardBG/Cost/CostText" unique_id=1946478376 node_paths=PackedStringArray("target")]
+script = ExtResource("9_kbxx3")
+target = NodePath("..")
+curve = SubResource("Curve_y8e6d")
+seconds = 0.4999999999999985
+metadata/_custom_type_script = "uid://cw4ryesf5bd2b"
 
 [node name="Body" type="TextureRect" parent="Card/CardBG" unique_id=2005606159]
 layout_mode = 1
@@ -213,6 +234,7 @@ offset_top = 0.027999878
 offset_bottom = -0.026000977
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/default_color = Color(0.9647059, 0.9647059, 0.9647059, 1)
 theme_override_colors/font_outline_color = Color(0.2784314, 0.2784314, 0.2784314, 1)
 theme_override_constants/outline_size = 10
@@ -221,6 +243,14 @@ theme_override_font_sizes/normal_font_size = 30
 text = "99"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("8_v7qka")
+
+[node name="ScaleControl" type="Node" parent="Card/CardBG/TokenOutline/TokenCounter/TokenCounterText" unique_id=870223787 node_paths=PackedStringArray("target")]
+script = ExtResource("9_kbxx3")
+target = NodePath("..")
+curve = SubResource("Curve_kbxx3")
+seconds = 0.4999999999999985
+metadata/_custom_type_script = "uid://cw4ryesf5bd2b"
 
 [node name="FocusGroupSignalNode" type="Node" parent="Card" unique_id=2089907977]
 script = ExtResource("13_v7m6f")
@@ -228,6 +258,11 @@ script = ExtResource("13_v7m6f")
 [node name="CardFocusAnimation" type="Node" parent="Card" unique_id=494077476 node_paths=PackedStringArray("card_base")]
 script = ExtResource("14_vo8an")
 card_base = NodePath("..")
+shake_intensity = 19.99999999999994
+shake_count = 15
 
+[connection signal="card_ui_updated" from="." to="Card/CardFocusAnimation" method="shake"]
+[connection signal="on_label_updated" from="Card/CardBG/Cost/CostText" to="Card/CardBG/Cost/CostText/ScaleControl" method="animate_scale" unbinds=1]
+[connection signal="on_label_updated" from="Card/CardBG/TokenOutline/TokenCounter/TokenCounterText" to="Card/CardBG/TokenOutline/TokenCounter/TokenCounterText/ScaleControl" method="animate_scale" unbinds=1]
 [connection signal="on_focus_entered" from="Card/FocusGroupSignalNode" to="Card/CardFocusAnimation" method="_on_focus_entered"]
 [connection signal="on_focus_exited" from="Card/FocusGroupSignalNode" to="Card/CardFocusAnimation" method="_on_focus_exited"]
