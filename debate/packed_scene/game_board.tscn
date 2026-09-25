@@ -269,7 +269,7 @@ fov = 25.0
 far = 100.0
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
-[sub_resource type="Environment" id="Environment_5bli3"]
+[sub_resource type="Environment" id="Environment_al2vl"]
 ambient_light_source = 2
 ambient_light_color = Color(0.94, 0.94, 0.94, 1)
 ssao_intensity = 1.32
@@ -810,7 +810,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1155753, 0.009244392)
 top_level = true
 cull_mask = 32768
-environment = SubResource("Environment_5bli3")
+environment = SubResource("Environment_al2vl")
 current = true
 fov = 25.0
 far = 100.0

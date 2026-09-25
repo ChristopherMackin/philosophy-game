@@ -55,7 +55,7 @@ func update_hand(hand : CardCollection):
 	
 	var remove_funcs : Array[Callable] = []
 	for card in removed_cards:
-		remove_funcs.append(func() :await _remove_card(card))
+		remove_funcs.append(func() : await _remove_card(card))
 	
 	var update_funcs : Array[Callable] = []
 	for card in remaining_cards:
@@ -109,23 +109,33 @@ func _add_card(card : Card):
 	
 	await GlobalTimer.wait_for_seconds(.175)
 
-func _remove_card(card : Card):
+func _pop_card(card : Card) -> CardUi:
 	var matching = cards_ui.filter(func (card_ui): return card == card_ui.card)
-	var card_ui = matching[0] if not matching.is_empty() else null
-	var card_index = cards_ui.find(card_ui)
 	
-	if card_index <0:
-		return
+	if matching.is_empty(): return null
+	
+	var card_ui: CardUi = matching[0] 
+	var card_index = cards_ui.find(card_ui)
 	
 	var new_focus = null
 	if cards_ui[card_index].focus_previous: new_focus = get_node_or_null(cards_ui[card_index].focus_previous)
 	elif cards_ui[card_index].focus_next: new_focus = get_node_or_null(cards_ui[card_index].focus_next)
 	focus_group.focus(new_focus) 
 	
-	cards_ui[card_index].queue_free()
+	card_ui.reparent(self)
 	cards_ui.remove_at(card_index)
 	
 	set_up_focus_connections.call_deferred()
+	
+	return card_ui
+
+func _remove_card(card: Card):
+	var card_ui = await _pop_card(card)
+	
+	if !card_ui: return
+	
+	card_ui.animate_remove()
+	card_ui.queue_free()
 
 func _update_card(card: Card):
 	var matching = cards_ui.filter(func (card_ui): return card == card_ui.card)
@@ -160,8 +170,13 @@ func on_card_drawn(card : Card, contestant: Contestant):
 		_add_card(card)
 	
 func on_card_hold_updated(card : Card, contestant : Contestant):
-	if contestant == manager.player:
-		_remove_card(card)
+	if contestant != manager.player: return
+	var card_ui = _pop_card(card)
+	
+	if !card_ui: return
+	
+	await card_ui.animate_hold()
+	card_ui.queue_free()
 
 func on_actions_invoked(card : Card, action_type: CardAction.Type, contestant : Contestant):
 	if contestant != manager.player: return
@@ -169,7 +184,15 @@ func on_actions_invoked(card : Card, action_type: CardAction.Type, contestant : 
 
 func on_card_played(card: Card, contestant : Contestant):
 	if contestant != manager.player: return
-	_remove_card(card)
+	var card_ui = _pop_card(card)
+	
+	if !card_ui: return
+	
+	(func(): 
+		await card_ui.animate_play()
+		card_ui.queue_free()
+	).call()
+
 
 func on_debate_start():
 	update_hand(manager.player.hand)

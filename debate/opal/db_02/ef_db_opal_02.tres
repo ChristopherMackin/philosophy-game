@@ -13,15 +13,15 @@
 [ext_resource type="Script" uid="uid://c44gav4s6as63" path="res://system/script/event_factory/rule_bucket_event_factory.gd" id="13_07uhb"]
 [ext_resource type="Resource" uid="uid://sa1c76vhskne" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_02.tres" id="13_x3isd"]
 
-[sub_resource type="Resource" id="Resource_wifvs"]
-resource_name = "RU: ON_DEBATE_START"
-script = ExtResource("3_i0cw1")
-concept = 8
-metadata/_custom_type_script = "uid://fnphjbccs4gy"
+[sub_resource type="Resource" id="Resource_d1ad8"]
+resource_name = "RU: CurrentRoundRule"
+script = ExtResource("6_i0cw1")
+current_round = 1
+metadata/_custom_type_script = "uid://tkld5vp51fi1"
 
-[sub_resource type="Resource" id="Resource_vpghu"]
+[sub_resource type="Resource" id="Resource_ocrdf"]
 script = ExtResource("6_5syok")
-rule = SubResource("Resource_wifvs")
+rule = SubResource("Resource_d1ad8")
 event = ExtResource("2_x3isd")
 metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
 
@@ -69,10 +69,10 @@ metadata/_custom_type_script = "uid://csehxotj4ndvf"
 [sub_resource type="Resource" id="Resource_eqrqm"]
 script = ExtResource("13_07uhb")
 rule = SubResource("Resource_ek5gu")
-buckets = Array[ExtResource("1_65fn2")]([SubResource("Resource_5awii"), SubResource("Resource_piywt")])
+buckets = Array[ExtResource("1_65fn2")]([SubResource("Resource_ocrdf"), SubResource("Resource_5awii"), SubResource("Resource_piywt")])
 metadata/_custom_type_script = "uid://c44gav4s6as63"
 
 [resource]
 script = ExtResource("2_65fn2")
-buckets = Array[ExtResource("1_65fn2")]([SubResource("Resource_vpghu"), SubResource("Resource_eqrqm")])
+buckets = Array[ExtResource("1_65fn2")]([SubResource("Resource_eqrqm")])
 metadata/_custom_type_script = "uid://bkpc76nqmkxc2"

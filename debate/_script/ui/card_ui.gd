@@ -3,6 +3,7 @@ extends Control
 
 class_name CardUi
 
+@export_group("Dependencies")
 @export var card_bg : Node
 @export var title : Node
 @export var artwork: Node
@@ -11,6 +12,7 @@ class_name CardUi
 @export var description : Node
 @export var cost : RichTextLableUpdateEmitter
 @export var icon : Node
+@export var card_animations: CardUiAnimation
 
 var packed_scene_name: String
 
@@ -32,6 +34,7 @@ func update_card(card: Card):
 	if !dirty: return
 	dirty = false
 	set_card_data(card)
+	animate_updated()
 	card_ui_updated.emit()
 
 func set_card_data(card: Card):
@@ -51,8 +54,14 @@ func set_card_data(card: Card):
 			token_artwork.visible = false
 		if token_counter: token_counter.update_label(str(card.token_counter))
 
+func animate_updated():
+	await card_animations.on_card_updated()
+
 func animate_hold():
-	queue_free()
+	await card_animations.on_card_held()
 
 func animate_play():
-	queue_free()
+	await card_animations.on_card_played()
+
+func animate_remove():
+	await card_animations.on_card_removed()
