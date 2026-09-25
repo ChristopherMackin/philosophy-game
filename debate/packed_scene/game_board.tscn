@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bufq4a3okdy40" path="res://_asset/debate/_general/model/mod_energy_counter.glb" id="8_dxrs5"]
 [ext_resource type="Script" uid="uid://b1k76fw3jnei6" path="res://debate/_script/ui/rich_text_label_update_emitter.gd" id="9_kq0jy"]
 [ext_resource type="Script" uid="uid://duts3e4cshe3t" path="res://debate/_script/ui/hold_area_ui.gd" id="10_v6cv3"]
-[ext_resource type="Resource" uid="uid://bf22tpyd755jn" path="res://_asset/debate/_general/cuf_general.tres" id="11_al2vl"]
+[ext_resource type="Resource" uid="uid://bf22tpyd755jn" path="res://debate/_general/cuf_general.tres" id="11_al2vl"]
 [ext_resource type="Texture2D" uid="uid://5qh255d0ud11" path="res://_asset/debate/_general/texture/play_stack.png" id="12_lgils"]
 [ext_resource type="PackedScene" uid="uid://bmg4wkpbnpqj3" path="res://_asset/debate/_general/model/mod_hand_counter.glb" id="13_2t63j"]
 [ext_resource type="Texture2D" uid="uid://0xx8gpn3m2io" path="res://_asset/debate/_general/texture/t_computer_discard_counter_col.png" id="14_5bli3"]
