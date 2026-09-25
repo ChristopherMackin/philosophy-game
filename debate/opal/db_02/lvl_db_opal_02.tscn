@@ -53,17 +53,20 @@
 [ext_resource type="Texture2D" uid="uid://cp4wiih01ktxp" path="res://_asset/_general/texture/t_spiked_bubble_02.png" id="100_0ndkd"]
 [ext_resource type="Texture2D" uid="uid://ketnefqmtrie" path="res://_asset/_general/texture/t_spiked_bubble_03.png" id="101_5q7bm"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_8ur0d"]
+viewport_path = NodePath("SubViewport")
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_p12bn"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ocrdf"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_d1ad8"]
 viewport_path = NodePath("PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1kwum"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_d1ad8"]
 viewport_path = NodePath("PlayerUi/PlayerHeldCard/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1kwum"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_14ksg"]
 viewport_path = NodePath("SubViewport")
@@ -72,15 +75,12 @@ viewport_path = NodePath("SubViewport")
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_yha5w"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_dghl5"]
 viewport_path = NodePath("GameBoardState/TurnCounter/CounterUi/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_72b1j"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_dghl5"]
 viewport_path = NodePath("GameBoardState/LineClearCounter/CounterUi/SubViewport")
 
-[sub_resource type="Environment" id="Environment_3rex8"]
+[sub_resource type="Environment" id="Environment_72b1j"]
 ambient_light_source = 2
 ambient_light_color = Color(0.94, 0.94, 0.94, 1)
 ssao_intensity = 1.32
@@ -970,7 +970,7 @@ _data = {
 dof_blur_far_enabled = true
 dof_blur_far_distance = 5.0
 
-[sub_resource type="Environment" id="Environment_8ur0d"]
+[sub_resource type="Environment" id="Environment_sna7n"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -1033,7 +1033,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_dqw0w")
 nodes/Animation/position = Vector2(50, 320)
 node_connections = [&"output", 0, &"talk_override", &"talk_override", 0, &"blink_override", &"talk_override", 1, &"talk", &"blink_override", 0, &"Animation", &"blink_override", 1, &"blink"]
 
-[sub_resource type="Environment" id="Environment_p12bn"]
+[sub_resource type="Environment" id="Environment_xmtap"]
 background_mode = 2
 ambient_light_source = 2
 ambient_light_color = Color(0.78039217, 0.67058825, 0.80784315, 1)
@@ -1141,38 +1141,37 @@ metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
 [node name="===GAMEPLAY========" parent="." unique_id=552190790 instance=ExtResource("30_1kwum")]
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter" parent_id_path=PackedInt32Array(552190790, 1292719538) index="1" unique_id=1817069595]
-texture = SubResource("ViewportTexture_p12bn")
+texture = SubResource("ViewportTexture_8ur0d")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" parent_id_path=PackedInt32Array(552190790, 1140548364) index="1" unique_id=1891820841]
-texture = SubResource("ViewportTexture_ocrdf")
+texture = SubResource("ViewportTexture_p12bn")
 
 [node name="CounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter" parent_id_path=PackedInt32Array(552190790, 1840847040) index="1" unique_id=89424]
-texture = SubResource("ViewportTexture_d1ad8")
+texture = SubResource("ViewportTexture_ocrdf")
 
 [node name="PlayerHeldCard" parent="===GAMEPLAY========/PlayerUi" parent_id_path=PackedInt32Array(552190790, 1421476521) index="3" unique_id=1705489298]
-texture = SubResource("ViewportTexture_1kwum")
+texture = SubResource("ViewportTexture_d1ad8")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" parent_id_path=PackedInt32Array(552190790, 1763425977) index="1" unique_id=203899939]
-texture = SubResource("ViewportTexture_14ksg")
+texture = SubResource("ViewportTexture_1kwum")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" parent_id_path=PackedInt32Array(552190790, 1658857809) index="1" unique_id=680078832]
-texture = SubResource("ViewportTexture_kxl61")
+texture = SubResource("ViewportTexture_14ksg")
 
 [node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" parent_id_path=PackedInt32Array(552190790, 333569903) index="1" unique_id=822662507]
-texture = SubResource("ViewportTexture_yha5w")
+texture = SubResource("ViewportTexture_kxl61")
 
 [node name="CounterUi" parent="===GAMEPLAY========/GameBoardState/TurnCounter" parent_id_path=PackedInt32Array(552190790, 1123270235) index="1" unique_id=1361296080]
-texture = SubResource("ViewportTexture_dghl5")
+texture = SubResource("ViewportTexture_yha5w")
 
 [node name="CounterUi" parent="===GAMEPLAY========/GameBoardState/LineClearCounter" parent_id_path=PackedInt32Array(552190790, 1786900677) index="2" unique_id=135036996]
-texture = SubResource("ViewportTexture_72b1j")
-
-[node name="PlayStack" parent="===GAMEPLAY========/GameBoardState" parent_id_path=PackedInt32Array(552190790, 285730652) index="3" unique_id=682476098]
-offset = Vector2(0, 0)
-offset = Vector2(0, 0)
+texture = SubResource("ViewportTexture_dghl5")
 
 [node name="GameplayCamera" parent="===GAMEPLAY========/===UI========/GameplayContainer/SubViewport" parent_id_path=PackedInt32Array(552190790, 1331556263) index="0" unique_id=1341371874]
-environment = SubResource("Environment_3rex8")
+environment = SubResource("Environment_72b1j")
+
+[node name="Hand" parent="===GAMEPLAY========/===UI========" parent_id_path=PackedInt32Array(552190790, 515077001) index="1" unique_id=174672881 node_paths=PackedStringArray("input_manager")]
+input_manager = NodePath("../../../===MANAGER========/InputManager")
 
 [node name="===CAMERA========" type="Node3D" parent="." unique_id=1860563192]
 
@@ -1805,7 +1804,7 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="SceneCamera" type="Camera3D" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerA/SubViewport" unique_id=1039536451]
-transform = Transform3D(0.40592754, 0.001511691, 0.9139041, -0.0035386235, 0.99999386, -8.234713e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
+transform = Transform3D(0.40592754, 0.0015116911, 0.9139041, -0.0035386235, 0.99999386, -8.2347244e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
 top_level = true
 cull_mask = 1
 attributes = SubResource("CameraAttributesPractical_gaafv")
@@ -1833,10 +1832,10 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="SceneCamera" type="Camera3D" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerB/SubViewport" unique_id=1232389164]
-transform = Transform3D(0.40592754, 0.0015116909, 0.9139041, -0.0035386235, 0.99999386, -8.234701e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
+transform = Transform3D(0.40592754, 0.001511691, 0.9139041, -0.0035386235, 0.99999386, -8.234713e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
 top_level = true
 cull_mask = 4
-environment = SubResource("Environment_8ur0d")
+environment = SubResource("Environment_sna7n")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -2265,7 +2264,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.0559022e-10, 0.64363885, 4.029694)
 top_level = true
 cull_mask = 4
-environment = SubResource("Environment_p12bn")
+environment = SubResource("Environment_xmtap")
 attributes = SubResource("CameraAttributesPractical_gaafv")
 current = true
 fov = 40.0
@@ -2415,10 +2414,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.49017483
-offset_top = 0.77358687
-offset_right = 219.50977
-offset_bottom = 130.77359
+offset_left = 1.0559497
+offset_top = 0.618219
+offset_right = 221.0559
+offset_bottom = 130.61823
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2470,10 +2469,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.15731686
-offset_top = 1.492922
-offset_right = 219.84268
-offset_bottom = 131.49301
+offset_left = -1.1663754
+offset_top = -0.64536667
+offset_right = 218.83362
+offset_bottom = 129.35472
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2525,10 +2524,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 0.93807137
-offset_top = -0.56577003
-offset_right = 220.93813
-offset_bottom = 129.43423
+offset_left = 0.8631862
+offset_top = 0.43741724
+offset_right = 220.86325
+offset_bottom = 130.43742
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2580,10 +2579,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.7062104
-offset_top = 1.2874465
-offset_right = 538.13153
-offset_bottom = 339.9877
+offset_left = 1.207382
+offset_top = 2.3461847
+offset_right = 540.04517
+offset_bottom = 341.04645
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1

@@ -73,6 +73,8 @@ suit_selector_focus_group = ExtResource("27_yps1x")
 play_area_selector = NodePath("../../===GAMEPLAY========/===UI========/PlayAreaSelectorGUI")
 card_selector = NodePath("../../===GAMEPLAY========/===UI========/CardSelector")
 suit_selector = NodePath("../../===GAMEPLAY========/===UI========/SuitSelector")
+manager = ExtResource("8_6nbcx")
+order = 1
 metadata/_custom_type_script = "uid://syaosi1lkwul"
 
 [node name="SfxManager" type="Node" parent="===MANAGER========" unique_id=1162564134]

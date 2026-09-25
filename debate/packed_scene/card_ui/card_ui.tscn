@@ -27,6 +27,11 @@ _limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.52597404, 2), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="Curve" id="Curve_2s6u3"]
+_limits = [0.0, 1.5, 0.0, 1.0]
+_data = [Vector2(0, 1.5), 0.0, 0.0, 0, 0, Vector2(0.5391566, 1.5), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="CardUi" type="Control" unique_id=147735438 node_paths=PackedStringArray("card_bg", "title", "artwork", "token_artwork", "token_counter", "description", "cost", "icon")]
 custom_minimum_size = Vector2(250, 350)
 layout_mode = 3
@@ -276,7 +281,14 @@ card_base = NodePath("..")
 shake_intensity = 19.99999999999994
 shake_count = 15
 
-[connection signal="card_ui_updated" from="." to="Card/CardFocusAnimation" method="shake"]
+[node name="ScaleControl" type="Node" parent="Card" unique_id=201299439 node_paths=PackedStringArray("target")]
+script = ExtResource("9_kbxx3")
+target = NodePath("..")
+curve = SubResource("Curve_2s6u3")
+seconds = 0.8
+metadata/_custom_type_script = "uid://cw4ryesf5bd2b"
+
+[connection signal="card_ui_updated" from="." to="Card/ScaleControl" method="animate_scale"]
 [connection signal="on_label_updated" from="Card/CardBG/CostOutline/Cost/CostText" to="Card/CardBG/CostOutline/Cost/CostText/ScaleControl" method="animate_scale" unbinds=1]
 [connection signal="on_label_updated" from="Card/CardBG/TokenOutline/TokenCounter/TokenCounterText" to="Card/CardBG/TokenOutline/TokenCounter/TokenCounterText/ScaleControl" method="animate_scale" unbinds=1]
 [connection signal="on_focus_entered" from="Card/FocusGroupSignalNode" to="Card/CardFocusAnimation" method="_on_focus_entered"]

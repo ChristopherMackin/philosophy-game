@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CardUiFactory" format=3 uid="uid://blh1qdw7pholg"]
+
+[ext_resource type="Script" uid="uid://btqgs63pqh23v" path="res://debate/_script/ui/card_ui_factory/card_ui_packed_scene_factory.gd" id="1_mg26x"]
+[ext_resource type="Resource" uid="uid://cvf702xa275od" path="res://system/card/card_status_effect/cse_ennui.tres" id="2_pewj0"]
+[ext_resource type="PackedScene" uid="uid://xyt4gxt1st16" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_card_ui.tscn" id="3_lxo51"]
+[ext_resource type="Script" uid="uid://d4fneioflw7dl" path="res://debate/_script/ui/card_ui_factory/single_card_ui_packed_scene_factory.gd" id="4_wro0k"]
+[ext_resource type="Script" uid="uid://dke2uxx0r453j" path="res://debate/_script/ui/card_ui_factory/has_cse_card_ui_packed_scene_factory.gd" id="5_t0iao"]
+[ext_resource type="Script" uid="uid://3ajnh5fdykvx" path="res://debate/_script/ui/card_ui_factory/bucket_card_ui_packed_scene_factory.gd" id="6_g3a3l"]
+[ext_resource type="PackedScene" uid="uid://7f3cslp40a4q" path="res://debate/packed_scene/card_ui/card_ui.tscn" id="7_yntgt"]
+[ext_resource type="Script" uid="uid://b8uvgvpddrpfw" path="res://debate/_script/ui/card_ui_factory/card_ui_factory.gd" id="8_bdk6c"]
+
+[sub_resource type="Resource" id="Resource_37wl0"]
+script = ExtResource("4_wro0k")
+card_ui = ExtResource("3_lxo51")
+metadata/_custom_type_script = "uid://d4fneioflw7dl"
+
+[sub_resource type="Resource" id="Resource_8xcp7"]
+script = ExtResource("5_t0iao")
+card_status_effect = ExtResource("2_pewj0")
+card_ui_packed_scene_factory = SubResource("Resource_37wl0")
+metadata/_custom_type_script = "uid://dke2uxx0r453j"
+
+[sub_resource type="Resource" id="Resource_tnxy5"]
+script = ExtResource("6_g3a3l")
+buckets = Array[ExtResource("1_mg26x")]([SubResource("Resource_8xcp7")])
+metadata/_custom_type_script = "uid://3ajnh5fdykvx"
+
+[resource]
+script = ExtResource("8_bdk6c")
+card_ui_packed_scene_factory = SubResource("Resource_tnxy5")
+default_scene = ExtResource("7_yntgt")
+metadata/_custom_type_script = "uid://b8uvgvpddrpfw"

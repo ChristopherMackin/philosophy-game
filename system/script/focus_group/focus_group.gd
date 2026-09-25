@@ -25,15 +25,12 @@ func select_group():
 
 func deselect_group():
 	is_active_group = false
+	on_group_deselected.emit()
 	
 	if ! focused_node: return
-	
-	var signal_node = get_focus_group_signal_node(focused_node)
-	
+	var signal_node = get_focus_group_signal_node(focused_node)	
 	if !signal_node: return
-	
 	signal_node.on_focus_exited.emit()
-	on_group_deselected.emit()
 
 var focused_node : Control
 

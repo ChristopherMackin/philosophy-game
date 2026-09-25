@@ -1,4 +1,4 @@
-extends Node
+extends NodeBasedDebateSubscriber
 
 class_name SelectionManager
 
@@ -25,6 +25,7 @@ var focused_node : Control:
 	get: return active_focus_group.focused_node if active_focus_group && active_focus_group.focused_node else null
 
 func _ready():
+	super._ready()
 	player_brain.on_selection_requested.connect(on_selection_requested)
 	input_handler.on_handle_input.connect(_handle_input)
 	input_handler.on_handler_selected.connect(_on_handler_selected)
@@ -85,3 +86,6 @@ func set_focus_group(focus_group : FocusGroup):
 	active_focus_group = focus_group
 	
 	if active_focus_group: active_focus_group.select_group()
+
+func on_turn_end(_contestant: Contestant):
+	set_focus_group(null)

@@ -12,8 +12,6 @@ class_name HandUi
 @export_group("Selection")
 @export var focus_group: FocusGroup
 @export var player_brain: PlayerBrain
-@export var input_manager: InputManager
-@export var input_handler: InputHandler
 @export var selectable_color: Color = Color.WHITE
 @export var not_selectable_color: Color = Color.DARK_GRAY
 
