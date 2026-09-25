@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardUiFactoryBase" format=3 uid="uid://v2fc6p1vb5xq"]
 
-[ext_resource type="Script" uid="uid://b8uvgvpddrpfw" path="res://debate/_script/ui/card_ui_factory/card_ui_factory_base.gd" id="1_pu5dv"]
+[ext_resource type="Script" uid="uid://b8uvgvpddrpfw" path="res://debate/_script/ui/card_ui_factory/card_ui_factory.gd" id="1_pu5dv"]
 [ext_resource type="PackedScene" uid="uid://7f3cslp40a4q" path="res://debate/packed_scene/card_ui/card_ui.tscn" id="2_payeq"]
 
 [resource]

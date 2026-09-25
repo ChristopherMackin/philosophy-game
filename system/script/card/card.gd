@@ -155,15 +155,22 @@ func duplicate(keep_status_effects: bool = false):
 			effect.duplicate().apply(card)
 	return card
 
-func equals(card: Card) -> bool:
+func has_same_status_effects(card: Card) -> bool:
 	if card.status_effects.size() == status_effects.size():
 		for i in status_effects.size():
 			if card.status_effects.values[i] != status_effects.values[i]: return false
-	else:
-		return false
+	else: return false
 	
-	return card.base == _base && \
-	card.suit == suit
+	return true
+
+func equals(card: Card) -> bool:
+	if card.token_counter != token_counter: return false
+	if card.cost != cost: return false
+	if !has_same_status_effects(card): return false
+	if card.base != base: return false
+	if card.suit != suit: return false
+	
+	return true
 
 func reset_token_counter():
 	if !_base: return

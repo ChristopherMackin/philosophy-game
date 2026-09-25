@@ -12,21 +12,29 @@ class_name CardUi
 @export var cost : RichTextLableUpdateEmitter
 @export var icon : Node
 
+var packed_scene_name: String
+
+var dirty = false
+
+func _on_card_updated(card: Card):
+	dirty = true
+
 signal card_ui_updated
 
 var card : Card:
 	set(val):
-		Util.optional_disconnect(card, "card_updated", refresh_card)
-		Util.optional_disconnect(card, "card_updated", _emit_card_ui_updated)
+		Util.optional_disconnect(card, "card_updated", _on_card_updated)
 		card = val
-		Util.optional_connect(card, "card_updated", refresh_card, CONNECT_DEFERRED)
-		Util.optional_connect(card, "card_updated", _emit_card_ui_updated, CONNECT_DEFERRED)
-		refresh_card.call_deferred(card)
+		Util.optional_connect(card, "card_updated", _on_card_updated, CONNECT_DEFERRED)
+		set_card_data(card)
 
-func _emit_card_ui_updated(card: Card):
+func update_card(card: Card):
+	if !dirty: return
+	dirty = false
+	set_card_data(card)
 	card_ui_updated.emit()
 
-func refresh_card(card: Card):
+func set_card_data(card: Card):
 		if !card:
 			return
 		

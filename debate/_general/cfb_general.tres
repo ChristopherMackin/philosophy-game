@@ -1,25 +1,9 @@
-[gd_resource type="Resource" script_class="CardUiFactoryBase" format=3 uid="uid://blh1qdw7pholg"]
+[gd_resource type="Resource" script_class="CardUiFactory" format=3 uid="uid://blh1qdw7pholg"]
 
-[ext_resource type="PackedScene" uid="uid://xyt4gxt1st16" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_card_ui.tscn" id="2_lx4x1"]
-[ext_resource type="Script" uid="uid://d4fneioflw7dl" path="res://debate/_script/ui/card_ui_factory/single_card_ui_factory.gd" id="4_ikaig"]
-[ext_resource type="Resource" uid="uid://cvf702xa275od" path="res://system/card/card_status_effect/cse_ennui.tres" id="8_ysei3"]
-[ext_resource type="Script" uid="uid://dke2uxx0r453j" path="res://debate/_script/ui/card_ui_factory/has_cse_card_ui_factory.gd" id="14_7wv1c"]
+[ext_resource type="Script" uid="uid://b8uvgvpddrpfw" path="res://debate/_script/ui/card_ui_factory/card_ui_factory.gd" id="2_osu71"]
 [ext_resource type="PackedScene" uid="uid://7f3cslp40a4q" path="res://debate/packed_scene/card_ui/card_ui.tscn" id="16_tr2xg"]
-[ext_resource type="Script" uid="uid://b8uvgvpddrpfw" path="res://debate/_script/ui/card_ui_factory/card_ui_factory_base.gd" id="18_8jdak"]
-
-[sub_resource type="Resource" id="Resource_xr4wk"]
-script = ExtResource("4_ikaig")
-card_ui = ExtResource("2_lx4x1")
-metadata/_custom_type_script = "uid://d4fneioflw7dl"
-
-[sub_resource type="Resource" id="Resource_sss4s"]
-script = ExtResource("14_7wv1c")
-card_status_effect = ExtResource("8_ysei3")
-card_ui_factory = SubResource("Resource_xr4wk")
-metadata/_custom_type_script = "uid://dke2uxx0r453j"
 
 [resource]
-script = ExtResource("18_8jdak")
-card_ui_factory = SubResource("Resource_sss4s")
-default_card = ExtResource("16_tr2xg")
+script = ExtResource("2_osu71")
+default_scene = ExtResource("16_tr2xg")
 metadata/_custom_type_script = "uid://b8uvgvpddrpfw"

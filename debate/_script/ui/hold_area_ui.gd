@@ -2,7 +2,7 @@ extends NodeBasedDebateSubscriber
 
 class_name HoldAreaUi
 
-@export var card_ui_factory_base: CardUiFactoryBase
+@export var card_ui_factory: CardUiFactory
 @export var card_parent: Node
 @export var animation_player: AnimationPlayer
 
@@ -25,9 +25,7 @@ func remove_card():
 	held_card = null
 
 func add_card(card):
-	var card_ui_packed_scene = card_ui_factory_base.get_card_ui(card)
-	
-	var card_ui : CardUi = card_ui_packed_scene.instantiate() as CardUi
+	var card_ui : CardUi = card_ui_factory.get_card_ui(card)
 	card_parent.add_child(card_ui)
 	
 	card_ui.card = card

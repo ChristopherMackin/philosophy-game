@@ -3,7 +3,7 @@ extends Control
 class_name CardSelector
 
 @export_group("Card Ui")
-@export var card_ui_factory_base: CardUiFactoryBase
+@export var card_ui_factory: CardUiFactory
 
 @export_group("Layout")
 @export var card_container : Container
@@ -33,10 +33,8 @@ func _clear_card_container():
 	cards_ui.clear()
 	selection_array.clear()
 
-func _add_card(card : Card):	
-	var card_ui_packed_scene = card_ui_factory_base.get_card_ui(card)
-	
-	var card_ui : CardUi = card_ui_packed_scene.instantiate() as CardUi
+func _add_card(card : Card):
+	var card_ui : CardUi = card_ui_factory.get_card_ui(card)
 	card_ui.card = card
 	
 	card_container.add_child(card_ui)

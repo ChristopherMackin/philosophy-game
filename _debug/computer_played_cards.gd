@@ -1,19 +1,29 @@
 extends NodeBasedDebateSubscriber
 
 @export_category("Dependencies")
-@export var card_ui_factory: CardUiFactoryBase
+@export var card_ui_factory: CardUiFactory
 @export var card_parent: Control
 
 @export_category("Settings")
-@export var seconds_wait_time: float = 1
+@export var seconds_before_start: float = .5
+@export var seconds_between_cards: float = .2
+@export var seconds_before_close: float = 2
 
-func on_card_played(card: Card, contestant : Contestant):
+func on_turn_end(contestant : Contestant):
 	if contestant == manager.player: return
+	self.visible = true
 	
-	var card_ui: CardUi = card_ui_factory.get_card_ui(card).instantiate()
-	card_ui.card = card
-	card_parent.add_child(card_ui)
-	await GlobalTimer.wait_for_seconds(seconds_wait_time)
+	await GlobalTimer.wait_for_seconds(seconds_before_start)
 	
-	card_ui.queue_free()
-	await GlobalTimer.wait_for_seconds(.2)
+	for card in manager.blackboard.get_flag_value(Flag.TURN_CARD_HISTORY):
+		var card_ui: CardUi = card_ui_factory.get_card_ui(card)
+		card_ui.card = card
+		card_parent.add_child(card_ui)
+		await GlobalTimer.wait_for_seconds(seconds_between_cards)
+	
+	await GlobalTimer.wait_for_seconds(seconds_before_close)
+	
+	for child in card_parent.get_children():
+		child.queue_free()
+	
+	self.visible = false

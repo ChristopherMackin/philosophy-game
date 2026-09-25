@@ -36,23 +36,22 @@ func get_token_tracks() -> Array[TokenTrack3d]:
 	return result
 
 func _update_token_tracks(suit_track_dictionary: Dictionary):
-	var current_dictionary = suit_track_dictionary.duplicate(true)
-	var repeat = true
-	
-	if current_dictionary.keys() == previous_dictionary.keys():
-		for key in current_dictionary:
-			if Util.array_difference(previous_dictionary[key], current_dictionary[key]).size() > 0 || Util.array_difference(current_dictionary[key], previous_dictionary[key]).size() > 0:
-				repeat = false
-				break
-	else: repeat = false
-	
-	if repeat: return
-	
-	previous_dictionary = current_dictionary
-	_update_queue.push(current_dictionary)
-	if !is_running:
-		_process_suit_track_queue()
-	
+		var current_dictionary = suit_track_dictionary.duplicate(true)
+		var repeat = true
+		
+		if current_dictionary.keys() == previous_dictionary.keys():
+			for key in current_dictionary:
+				if Util.array_difference(previous_dictionary[key], current_dictionary[key]).size() > 0 || Util.array_difference(current_dictionary[key], previous_dictionary[key]).size() > 0:
+					repeat = false
+					break
+		else: repeat = false
+		
+		if repeat: return
+		
+		previous_dictionary = current_dictionary
+		_update_queue.push(current_dictionary)
+		if !is_running:
+			_process_suit_track_queue()
 
 func _process_suit_track_queue():
 	is_running = true
@@ -80,10 +79,20 @@ func _process_suit_track_queue():
 	
 	is_running = false
 
-func on_lines_cleared(_count : int): _update_from_suit_track_dictionary()
+func on_lines_cleared(_count : int): 
+	if manager.active_contestant != manager.player: return
+	_update_from_suit_track_dictionary()
 
-func on_tokens_played(_token_array: Array[Token], suit: Suit, contestant : Contestant): _update_from_suit_track_dictionary()
+func on_tokens_played(_token_array: Array[Token], suit: Suit, contestant : Contestant): 
+	if contestant != manager.player: return
+	_update_from_suit_track_dictionary()
 
-func on_actions_invoked(card : Card, action_type: CardAction.Type, contestant : Contestant): _update_from_suit_track_dictionary()
+func on_actions_invoked(card : Card, action_type: CardAction.Type, contestant : Contestant): 
+	if contestant != manager.player: return
+	_update_from_suit_track_dictionary()
+
+func on_turn_end(contestant: Contestant):
+	if contestant != manager.computer: return
+	_update_from_suit_track_dictionary()
 
 func _update_from_suit_track_dictionary(): _update_token_tracks(manager.suit_track_dictionary)

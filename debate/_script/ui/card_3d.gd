@@ -5,8 +5,7 @@ class_name Card3d
 @export var card_parent: Node
 @export var animation_player: AnimationPlayer
 
-func init(card: Card, card_ui_packed_scene: PackedScene):	
-	var card_ui : CardUi = card_ui_packed_scene.instantiate() as CardUi
+func init(card: Card, card_ui: CardUi):
 	card_parent.add_child(card_ui)
 	
 	card_ui.card = card

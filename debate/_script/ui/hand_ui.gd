@@ -3,7 +3,7 @@ extends NodeBasedDebateSubscriber
 class_name HandUi
 
 @export_group("Card Ui")
-@export var card_ui_factory_base: CardUiFactoryBase
+@export var card_ui_factory: CardUiFactory
 
 @export_group("Card Placement")
 @export var card_spawn_location : Control
@@ -59,7 +59,11 @@ func update_hand(hand : CardCollection):
 	for card in removed_cards:
 		remove_funcs.append(func() :await _remove_card(card))
 	
-	await Util.await_all(remove_funcs)
+	var update_funcs : Array[Callable] = []
+	for card in remaining_cards:
+		update_funcs.append(func(): await _update_card(card))
+	
+	await Util.await_all(remove_funcs + update_funcs)
 	
 	sort_hand(hand)
 	
@@ -97,18 +101,13 @@ func sort_hand(hand : CardCollection):
 
 
 func _add_card(card : Card):
-	var card_ui_packed_scene = card_ui_factory_base.get_card_ui(card)
-	
-	var card_ui : CardUi = card_ui_packed_scene.instantiate() as CardUi
+	var card_ui : CardUi = card_ui_factory.get_card_ui(card)
 	card_ui.card = card
 	
 	card_parent.add_child(card_ui)
 	if card_spawn_location: card_ui.global_position = card_spawn_location.global_position
 	
 	cards_ui.append(card_ui)
-	
-	if !card.card_updated.is_connected(_update_card):
-		card.card_updated.connect(_update_card)
 	
 	await GlobalTimer.wait_for_seconds(.175)
 
@@ -128,34 +127,33 @@ func _remove_card(card : Card):
 	cards_ui[card_index].queue_free()
 	cards_ui.remove_at(card_index)
 	
-	if card.card_updated.is_connected(_update_card):
-		card.card_updated.disconnect(_update_card)
-		
 	set_up_focus_connections.call_deferred()
 
-func _update_card(card):
+func _update_card(card: Card):
 	var matching = cards_ui.filter(func (card_ui): return card == card_ui.card)
-	var old_card = matching[0] if not matching.is_empty() else null
+	var old_card_ui: CardUi = matching[0] if not matching.is_empty() else null
 	
-	if old_card.card.equals(card): return
+	if !old_card_ui.dirty: return
 	
-	var card_index = cards_ui.find(old_card)
+	old_card_ui.update_card(card)
 	
-	var card_ui_packed_scene = card_ui_factory_base.get_card_ui(card)
+	var card_ui = card_ui_factory.get_card_ui(card, old_card_ui)
+	if card_ui == old_card_ui: return
 	
-	var card_ui = card_ui_packed_scene.instantiate() as CardUi
 	card_ui.card = card
 	card_parent.add_child(card_ui)
+	
+	var card_index = cards_ui.find(old_card_ui)
 	card_parent.move_child(card_ui, card_index)
-	card_ui.position = old_card.position
-	card_ui.rotation = old_card.rotation
+	card_ui.position = old_card_ui.position
+	card_ui.rotation = old_card_ui.rotation
 		
 	cards_ui[card_index] = card_ui
 	
-	if focus_group.focused_node == old_card:
+	if focus_group.focused_node == old_card_ui:
 		focus_group.focus(card_ui)
 	
-	old_card.queue_free()
+	old_card_ui.queue_free()
 	
 	set_up_focus_connections.call_deferred()
 
@@ -167,17 +165,19 @@ func on_card_hold_updated(card : Card, contestant : Contestant):
 	if contestant == manager.player:
 		_remove_card(card)
 
-func on_actions_invoked(card : Card, action_type: CardAction.Type, _contestant : Contestant):
+func on_actions_invoked(card : Card, action_type: CardAction.Type, contestant : Contestant):
+	if contestant != manager.player: return
 	update_hand(manager.player.hand)
 
 func on_card_played(card: Card, contestant : Contestant):
-	if contestant == manager.player:
-		_remove_card(card)
+	if contestant != manager.player: return
+	_remove_card(card)
 
 func on_debate_start():
 	update_hand(manager.player.hand)
 
 func on_turn_start(contestant: Contestant):
+	if contestant != manager.player: return
 	update_hand(manager.player.hand)
 
 func on_turn_end(contestant: Contestant):

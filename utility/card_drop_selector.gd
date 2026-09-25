@@ -3,11 +3,7 @@ extends Control
 class_name CardDropSelector
 
 @export_group("Packed Scene")
-@export var default_card_ui_packed_scene: PackedScene
-@export var default_tokenless_card_ui_packed_scene: PackedScene
-
-@export var card_ui_suit_packed_scenes : Array[SuitPackedScene]
-@export var tokenless_card_ui_suit_packed_scenes : Array[SuitPackedScene]
+@export var card_ui_factory: CardUiFactory
 
 @export_group("Selection")
 @export var card_amount: int = 3
@@ -29,9 +25,7 @@ func _ready():
 		var card_slot : Control = Control.new()
 		card_slot.custom_minimum_size = card_slot_size
 		
-		var card_ui_packed_scene = get_card_ui_packed_scene(card)
-		
-		var card_ui : CardUi = card_ui_packed_scene.instantiate() as CardUi
+		var card_ui : CardUi = card_ui_factory.get_card_ui(card)
 		card_ui.card = card
 		
 		card_slot.add_child(card_ui)	
@@ -66,21 +60,3 @@ func on_select(data, what, type):
 	if data == null: return
 	deck.add_to_deck(data)
 	SceneManager.replace_scene_async("aaron_db01_debate")
-
-func get_card_ui_packed_scene(card: Card) -> PackedScene:
-	var card_ui_packed_scene
-	
-	if card.has_token_base:
-		var index = card_ui_suit_packed_scenes.map(func(x): return x.suit).find(card.suit)
-		if index < 0:
-			card_ui_packed_scene = default_card_ui_packed_scene
-		else:
-			card_ui_packed_scene = card_ui_suit_packed_scenes[index].packed_scene
-	else:
-		var index = tokenless_card_ui_suit_packed_scenes.map(func(x): return x.suit).find(card.suit)
-		if index < 0:
-			card_ui_packed_scene = default_tokenless_card_ui_packed_scene
-		else:
-			card_ui_packed_scene = tokenless_card_ui_suit_packed_scenes[index].packed_scene
-	
-	return card_ui_packed_scene

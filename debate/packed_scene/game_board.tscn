@@ -313,6 +313,19 @@ suit = ExtResource("36_k481h")
 packed_scene = ExtResource("56_v6cv3")
 metadata/_custom_type_script = "uid://ct7j27rex1yjk"
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vrlf"]
+bg_color = Color(1, 1, 1, 0.39607844)
+border_width_left = 100
+border_width_top = 100
+border_width_right = 100
+border_width_bottom = 100
+border_color = Color(1, 1, 1, 0)
+border_blend = true
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+
 [node name="===GAMEPLAY========" type="Node3D" unique_id=552190790]
 
 [node name="PlayerUi" type="Node3D" parent="." unique_id=1421476521]
@@ -417,7 +430,7 @@ layers = 32768
 pixel_size = 0.00022
 texture = SubResource("ViewportTexture_v6cv3")
 script = ExtResource("10_v6cv3")
-card_ui_factory_base = ExtResource("66_kq0jy")
+card_ui_factory = ExtResource("66_kq0jy")
 card_parent = NodePath("SubViewport")
 animation_player = NodePath("AnimationPlayer")
 manager = ExtResource("3_n76kj")
@@ -480,7 +493,7 @@ format = "%s"
 manager = ExtResource("3_n76kj")
 order = 1
 
-[node name="DiscardCounter" parent="CpiUi/CpuDiscardCounter" index="0" unique_id=1886817378]
+[node name="DiscardCounter" parent="CpiUi/CpuDiscardCounter" index="0" unique_id=1146343105]
 layers = 32768
 surface_material_override/0 = SubResource("StandardMaterial3D_w8igq")
 
@@ -509,7 +522,7 @@ format = "%s"
 manager = ExtResource("3_n76kj")
 order = 1
 
-[node name="EnergyCounter" parent="CpiUi/CpuEnergyCounter" index="0" unique_id=874123081]
+[node name="EnergyCounter" parent="CpiUi/CpuEnergyCounter" index="0" unique_id=280128300]
 layers = 32768
 surface_material_override/0 = SubResource("StandardMaterial3D_1jelp")
 
@@ -637,15 +650,17 @@ pixel_size = 0.00022
 texture = ExtResource("12_lgils")
 script = ExtResource("22_38hws")
 offset = Vector3(0, 0, 0.001)
-card_ui_factory_base = ExtResource("66_kq0jy")
+card_ui_factory = ExtResource("66_kq0jy")
 card_3d = ExtResource("23_6jqi1")
 manager = ExtResource("3_n76kj")
+order = 998
 
 [node name="GameBoard" type="Node3D" parent="." unique_id=2038819063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.021030277, 0.0037941113)
 script = ExtResource("24_xnjqg")
 seconds_placement_delay = 0.24999999999999925
 manager = ExtResource("3_n76kj")
+order = 3
 
 [node name="FaithTrack" parent="GameBoard" unique_id=168836037 instance=ExtResource("25_tnfaj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01, 0.03, -0.092)
@@ -669,7 +684,7 @@ script = ExtResource("26_4cmop")
 suit = ExtResource("29_p8fu4")
 token_offset = Vector3(0.01577, 0, 0)
 
-[node name="TokenBox" parent="GameBoard/DoubtTrack" index="0" unique_id=1006818920]
+[node name="TokenBox" parent="GameBoard/DoubtTrack" index="0" unique_id=95920401]
 layers = 32768
 surface_material_override/0 = SubResource("StandardMaterial3D_sl1r7")
 
@@ -689,7 +704,7 @@ script = ExtResource("26_4cmop")
 suit = ExtResource("33_3wohc")
 token_offset = Vector3(0.01577, 0, 0)
 
-[node name="TokenBox" parent="GameBoard/SelfTrack" index="0" unique_id=1006818920]
+[node name="TokenBox" parent="GameBoard/SelfTrack" index="0" unique_id=95920401]
 layers = 32768
 surface_material_override/0 = SubResource("StandardMaterial3D_0c38c")
 
@@ -709,7 +724,7 @@ script = ExtResource("26_4cmop")
 suit = ExtResource("36_k481h")
 token_offset = Vector3(0.01577, 0, 0)
 
-[node name="TokenBox" parent="GameBoard/OtherTrack" index="0" unique_id=1006818920]
+[node name="TokenBox" parent="GameBoard/OtherTrack" index="0" unique_id=95920401]
 layers = 32768
 surface_material_override/0 = SubResource("StandardMaterial3D_ghiyr")
 
@@ -827,7 +842,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("46_6243h")
-card_ui_factory_base = ExtResource("66_kq0jy")
+card_ui_factory = ExtResource("66_kq0jy")
 card_spawn_location = NodePath("CardSpawnLocation")
 card_parent = NodePath("CurveContainer")
 focus_group = ExtResource("47_ecjvp")
@@ -835,7 +850,7 @@ player_brain = ExtResource("48_1j6ji")
 input_handler = ExtResource("49_chlw2")
 not_selectable_color = Color(0.48178923, 0.48178953, 0.48178947, 1)
 manager = ExtResource("3_n76kj")
-order = 2
+order = 4
 
 [node name="CurveContainer" type="Container" parent="===UI========/Hand" unique_id=469476189]
 layout_mode = 1
@@ -923,7 +938,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_w7dnp")
 script = ExtResource("54_mkt58")
-card_ui_factory_base = ExtResource("66_kq0jy")
+card_ui_factory = ExtResource("66_kq0jy")
 card_container = NodePath("Dialogue/HFlowContainer")
 focus_group = ExtResource("55_23d7j")
 player_brain = ExtResource("48_1j6ji")
@@ -997,20 +1012,41 @@ focus_group = ExtResource("59_23jd8")
 player_brain = ExtResource("48_1j6ji")
 metadata/_custom_type_script = "uid://deyblpqc0v651"
 
-[node name="ComputerPlayedCards" type="Control" parent="===UI========" unique_id=286980968 node_paths=PackedStringArray("card_parent")]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+[node name="ComputerPlayedCards" type="PanelContainer" parent="===UI========" unique_id=1828422374 node_paths=PackedStringArray("card_parent")]
+visible = false
+propagate_maximum_size = false
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 290.0
+offset_top = -80.0
+offset_right = -290.0
+offset_bottom = 550.0
 grow_horizontal = 2
-grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0)
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8vrlf")
 script = ExtResource("65_dxrs5")
 card_ui_factory = ExtResource("66_kq0jy")
-card_parent = NodePath(".")
-seconds_wait_time = 2.999999999672311
+card_parent = NodePath("MarginContainer/HFlowContainer")
 manager = ExtResource("3_n76kj")
+order = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="===UI========/ComputerPlayedCards" unique_id=1168597062]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="HFlowContainer" type="HFlowContainer" parent="===UI========/ComputerPlayedCards/MarginContainer" unique_id=2141116883]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = -60
+alignment = 1
+last_wrap_alignment = 2
 
 [node name="===AUDIO========" type="Node3D" parent="." unique_id=1061778094]
 

@@ -80,6 +80,40 @@ metadata/_custom_type_script = "uid://b0gx18dmx3sv3"
 script = ExtResource("3_kjq1s")
 metadata/_custom_type_script = "uid://18i051ifv5h0"
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_h52et"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lhkuc"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kteli"]
+viewport_path = NodePath("PlayerUi/PlayerEnergyCounter/CounterUi/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ncwtg"]
+viewport_path = NodePath("PlayerUi/PlayerHeldCard/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8hael"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_62oe0"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nndjf"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xi2oi"]
+viewport_path = NodePath("GameBoardState/TurnCounter/CounterUi/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ar6ad"]
+viewport_path = NodePath("GameBoardState/LineClearCounter/CounterUi/SubViewport")
+
+[sub_resource type="Environment" id="Environment_u50mt"]
+ambient_light_source = 2
+ambient_light_color = Color(0.94, 0.94, 0.94, 1)
+ssao_intensity = 1.32
+ssao_power = 3.446096
+ssao_sharpness = 0.5
+
 [node name="LvlDbDebugBase" unique_id=1140928789 instance=ExtResource("1_pncn6")]
 
 [node name="DebugEventManager" parent="===DEBUG========" parent_id_path=PackedInt32Array(801987926) index="0" unique_id=1676246633]
@@ -100,3 +134,48 @@ computer = SubResource("Resource_kjq1s")
 [node name="EventQueryManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="2" unique_id=1646962725]
 event_factory = SubResource("Resource_vl5uf")
 blackboard = ExtResource("2_kjq1s")
+
+[node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter" parent_id_path=PackedInt32Array(552190790, 1292719538) index="1" unique_id=1817069595]
+texture = SubResource("ViewportTexture_h52et")
+
+[node name="MiniCounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter" parent_id_path=PackedInt32Array(552190790, 1140548364) index="1" unique_id=1891820841]
+texture = SubResource("ViewportTexture_lhkuc")
+
+[node name="CounterUi" parent="===GAMEPLAY========/PlayerUi/PlayerEnergyCounter" parent_id_path=PackedInt32Array(552190790, 1840847040) index="1" unique_id=89424]
+texture = SubResource("ViewportTexture_kteli")
+
+[node name="PlayerHeldCard" parent="===GAMEPLAY========/PlayerUi" parent_id_path=PackedInt32Array(552190790, 1421476521) index="3" unique_id=1705489298]
+texture = SubResource("ViewportTexture_ncwtg")
+
+[node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuHandCounter" parent_id_path=PackedInt32Array(552190790, 1763425977) index="1" unique_id=203899939]
+texture = SubResource("ViewportTexture_8hael")
+
+[node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuDiscardCounter" parent_id_path=PackedInt32Array(552190790, 1658857809) index="1" unique_id=680078832]
+texture = SubResource("ViewportTexture_62oe0")
+
+[node name="MiniCounterUi" parent="===GAMEPLAY========/CpiUi/CpuEnergyCounter" parent_id_path=PackedInt32Array(552190790, 333569903) index="1" unique_id=822662507]
+texture = SubResource("ViewportTexture_nndjf")
+
+[node name="CounterUi" parent="===GAMEPLAY========/GameBoardState/TurnCounter" parent_id_path=PackedInt32Array(552190790, 1123270235) index="1" unique_id=1361296080]
+texture = SubResource("ViewportTexture_xi2oi")
+
+[node name="CounterUi" parent="===GAMEPLAY========/GameBoardState/LineClearCounter" parent_id_path=PackedInt32Array(552190790, 1786900677) index="2" unique_id=135036996]
+texture = SubResource("ViewportTexture_ar6ad")
+
+[node name="GameplayCamera" parent="===GAMEPLAY========/===UI========/GameplayContainer/SubViewport" parent_id_path=PackedInt32Array(552190790, 1331556263) index="0" unique_id=1341371874]
+environment = SubResource("Environment_u50mt")
+
+[node name="Hand" parent="===GAMEPLAY========/===UI========" parent_id_path=PackedInt32Array(552190790, 515077001) index="1" unique_id=174672881 node_paths=PackedStringArray("input_manager")]
+input_manager = NodePath("../../../===MANAGER========/InputManager")
+
+[editable path="===GAMEPLAY========"]
+[editable path="===GAMEPLAY========/PlayerUi/PlayerDrawPileCounter/MiniCounterUi"]
+[editable path="===GAMEPLAY========/PlayerUi/PlayerDiscardCounter/MiniCounterUi"]
+[editable path="===GAMEPLAY========/CpiUi/CpuHandCounter/MiniCounterUi"]
+[editable path="===GAMEPLAY========/CpiUi/CpuDiscardCounter"]
+[editable path="===GAMEPLAY========/CpiUi/CpuDiscardCounter/MiniCounterUi"]
+[editable path="===GAMEPLAY========/CpiUi/CpuEnergyCounter"]
+[editable path="===GAMEPLAY========/CpiUi/CpuEnergyCounter/MiniCounterUi"]
+[editable path="===GAMEPLAY========/GameBoard/DoubtTrack"]
+[editable path="===GAMEPLAY========/GameBoard/SelfTrack"]
+[editable path="===GAMEPLAY========/GameBoard/OtherTrack"]
