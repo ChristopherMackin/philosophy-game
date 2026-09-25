@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="CardBase" format=3 uid="uid://xfrhkh5r1jcb"]
+
+[ext_resource type="Script" uid="uid://jx5fv4u6pn86" path="res://system/script/card/card_status_effect/card_status_effect.gd" id="1_kqfra"]
+[ext_resource type="Script" uid="uid://bwnu3pajmp157" path="res://system/script/card/card_action/card_action.gd" id="2_4bcgi"]
+[ext_resource type="Resource" uid="uid://db58qj03gumn7" path="res://system/card/faith/c_faith_basic.tres" id="3_us81y"]
+[ext_resource type="Script" uid="uid://dkdm41jv3q6k5" path="res://system/script/card/card_array_filter/card_array_filter.gd" id="4_vl4di"]
+[ext_resource type="Script" uid="uid://c2f31cka87uk4" path="res://system/script/card/card_action/card_collection_container/draw_pile_collection_container.gd" id="5_kr5jo"]
+[ext_resource type="Script" uid="uid://cirje5ssvlb5e" path="res://system/script/card/card_action/add_card_to_card_collection_card_action.gd" id="6_8i88g"]
+[ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="7_dynl5"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="8_ora6g"]
+[ext_resource type="Resource" uid="uid://5qo42q7t1wgt" path="res://system/token/faith/basic_faith_token.tres" id="9_x32mx"]
+
+[sub_resource type="Resource" id="Resource_6kjib"]
+script = ExtResource("5_kr5jo")
+which_contestant = 1
+insertion_point = 2
+metadata/_custom_type_script = "uid://c2f31cka87uk4"
+
+[sub_resource type="Resource" id="Resource_p7l72"]
+script = ExtResource("6_8i88g")
+collection_container = SubResource("Resource_6kjib")
+base = ExtResource("3_us81y")
+amount = 2
+metadata/_custom_type_script = "uid://cirje5ssvlb5e"
+
+[resource]
+script = ExtResource("7_dynl5")
+suit = ExtResource("8_ora6g")
+title = "Evangelize"
+base_cost = 5
+description = "Add a two Basic Faith cards to your opponent's draw pile"
+token_data = ExtResource("9_x32mx")
+on_play_card_actions = Array[ExtResource("2_4bcgi")]([SubResource("Resource_p7l72")])
+metadata/_custom_type_script = "uid://dy4e7i5501yv5"

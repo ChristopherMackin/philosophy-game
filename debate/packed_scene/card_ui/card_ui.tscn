@@ -141,9 +141,9 @@ stretch_mode = 4
 
 [node name="CostOutline" type="TextureRect" parent="Card/CardBG" unique_id=879092843]
 layout_mode = 0
-offset_left = 155.0
+offset_left = 10.0
 offset_top = 59.0
-offset_right = 242.0
+offset_right = 97.0
 offset_bottom = 121.0
 texture = ExtResource("7_y8e6d")
 
@@ -218,9 +218,9 @@ text = "This is a test of the card text"
 
 [node name="TokenOutline" type="TextureRect" parent="Card/CardBG" unique_id=1481781141]
 layout_mode = 0
-offset_left = 10.0
+offset_left = 149.0
 offset_top = 60.0
-offset_right = 101.0
+offset_right = 240.0
 offset_bottom = 122.0
 texture = ExtResource("9_pwlx3")
 

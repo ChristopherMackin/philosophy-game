@@ -21,6 +21,7 @@ func on_turn_end(contestant : Contestant):
 	
 	var cards: Array[Card]
 	cards.assign(manager.blackboard.get_flag_value(Flag.TURN_CARD_HISTORY))
+	cards.reverse()
 	
 	var tween
 	
