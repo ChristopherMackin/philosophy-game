@@ -1738,7 +1738,7 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="SceneCamera" type="Camera3D" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerA/SubViewport" unique_id=1039536451]
-transform = Transform3D(0.40592754, 0.001511691, 0.9139041, -0.0035386235, 0.99999386, -8.234713e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
+transform = Transform3D(0.40592754, 0.0015116909, 0.9139041, -0.0035386235, 0.99999386, -8.234701e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
 top_level = true
 cull_mask = 1
 attributes = SubResource("CameraAttributesPractical_gaafv")
@@ -1766,7 +1766,7 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="SceneCamera" type="Camera3D" parent="===CUTSCENE========/CutsceneCanvas/SceneContainerB/SubViewport" unique_id=1232389164]
-transform = Transform3D(0.40592754, 0.0015116909, 0.9139041, -0.0035386235, 0.99999386, -8.234701e-05, -0.9138987, -0.003200535, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
+transform = Transform3D(0.40592754, 0.0015116908, 0.9139041, -0.0035386235, 0.99999386, -8.2346894e-05, -0.9138987, -0.0032005352, 0.40593025, 1.1794775, 0.31653523, 0.48320687)
 top_level = true
 cull_mask = 4
 environment = SubResource("Environment_8ur0d")
@@ -2348,10 +2348,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 0.11666269
-offset_top = 0.81544125
-offset_right = 220.11661
-offset_bottom = 130.81544
+offset_left = -0.23040426
+offset_top = -0.2863206
+offset_right = 219.76953
+offset_bottom = 129.71368
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2403,10 +2403,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.25407606
-offset_top = 0.748872
-offset_right = 219.74593
-offset_bottom = 130.74896
+offset_left = 1.4079576
+offset_top = 1.1054473
+offset_right = 221.40796
+offset_bottom = 131.10555
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2458,10 +2458,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.6078723
-offset_top = 0.14717315
-offset_right = 219.39218
-offset_bottom = 130.14717
+offset_left = 0.43739265
+offset_top = 1.1262398
+offset_right = 220.43745
+offset_bottom = 131.12624
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2513,10 +2513,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.9957633
-offset_top = 2.2882164
-offset_right = 536.842
-offset_bottom = 340.98846
+offset_left = 1.3491328
+offset_top = 1.5394107
+offset_right = 540.1869
+offset_bottom = 340.23965
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1
