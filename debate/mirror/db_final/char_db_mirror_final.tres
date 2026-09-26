@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://2ael6rheb64d"]
+
+[ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="1_5fgxy"]
+[ext_resource type="Resource" uid="uid://b6myavlla2nio" path="res://character/mirror/bb_mirror.tres" id="1_nfy78"]
+[ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="2_nfy78"]
+
+[resource]
+script = ExtResource("1_5fgxy")
+name = "Joy"
+blackboard = ExtResource("1_nfy78")

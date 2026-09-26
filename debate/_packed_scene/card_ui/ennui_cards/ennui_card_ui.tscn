@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://xyt4gxt1st16"]
+
+[ext_resource type="PackedScene" uid="uid://7f3cslp40a4q" path="res://debate/_packed_scene/card_ui/card_ui.tscn" id="1_rjopl"]
+[ext_resource type="Texture2D" uid="uid://bfpxej2kvhobt" path="res://_asset/debate/_general/texture/card/t_masking_tape_title.png" id="2_bqb2q"]
+[ext_resource type="FontFile" uid="uid://bhrgkhn1hsnfo" path="res://_asset/_general/font/PermanentMarker.ttf" id="3_u4n8v"]
+[ext_resource type="Texture2D" uid="uid://dvuw4px2q6ili" path="res://_asset/debate/_general/texture/card/t_masking_tape_body.png" id="4_l7mau"]
+
+[node name="CardGUI" unique_id=370963301 instance=ExtResource("1_rjopl")]
+
+[node name="TapeCovering" type="Control" parent="Card" parent_id_path=PackedInt32Array(370963301) index="3" unique_id=1212204553]
+modulate = Color(1, 1, 1, 0.9411765)
+anchors_preset = 0
+offset_left = -1.0
+offset_top = 53.0
+offset_right = 39.0
+offset_bottom = 93.0
+
+[node name="HeaderTape01" type="TextureRect" parent="Card/TapeCovering" index="0" unique_id=611910832]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -33.0
+offset_right = 116.0
+offset_bottom = 28.0
+rotation = 0.15937787
+scale = Vector2(1.5052052, 1.5052052)
+texture = ExtResource("2_bqb2q")
+
+[node name="HeaderTape02" type="TextureRect" parent="Card/TapeCovering" index="1" unique_id=1243796993]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 94.0
+offset_right = 368.0
+offset_bottom = 155.0
+rotation = 3.30786
+scale = Vector2(1.5052052, 1.5052052)
+texture = ExtResource("2_bqb2q")
+
+[node name="HeaderLabel" type="Label" parent="Card/TapeCovering" index="2" unique_id=1492227756]
+layout_mode = 0
+offset_left = 29.321777
+offset_top = -37.000004
+offset_right = 255.32178
+offset_bottom = 78.0
+rotation = 0.05614529
+theme_override_colors/font_color = Color(0.23, 0.23, 0.23, 0.9490196)
+theme_override_fonts/font = ExtResource("3_u4n8v")
+theme_override_font_sizes/font_size = 62
+text = "Void"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BodyTape" type="TextureRect" parent="Card/TapeCovering" index="3" unique_id=255991222]
+layout_mode = 0
+offset_left = -0.17315674
+offset_top = 81.0
+offset_right = 201.82684
+offset_bottom = 224.00002
+rotation = 0.06574465
+scale = Vector2(1.3653247, 1.3653247)
+texture = ExtResource("4_l7mau")
+
+[node name="BodyLabel" type="Label" parent="Card/TapeCovering" index="4" unique_id=1758951577]
+layout_mode = 0
+offset_left = 1.2932739
+offset_top = 172.25
+offset_right = 227.29327
+offset_bottom = 291.25003
+rotation = -0.20603636
+theme_override_colors/font_color = Color(0.23, 0.23, 0.23, 0.9490196)
+theme_override_constants/line_spacing = -35
+theme_override_fonts/font = ExtResource("3_u4n8v")
+theme_override_font_sizes/font_size = 40
+text = "Does
+Nothing"
+horizontal_alignment = 1

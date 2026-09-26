@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cm6i1mx7hc5go"]
+
+[ext_resource type="Texture2D" uid="uid://8m5h442qngjv" path="res://_asset/debate/_general/texture/suit/t_others_icon.png" id="1_41xp2"]
+[ext_resource type="PackedScene" uid="uid://cfr37mhe3tadq" path="res://debate/_packed_scene/suit_banner_gui/banner.tscn" id="1_deate"]
+[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="2_74xxh"]
+
+[node name="Banner" unique_id=260254109 instance=ExtResource("1_deate")]
+color = Color(0.5294118, 0.8352941, 0.972549, 1)
+suit = ExtResource("2_74xxh")
+
+[node name="Icon" parent="." index="0" unique_id=1112037039]
+texture = ExtResource("1_41xp2")

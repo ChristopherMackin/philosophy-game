@@ -25,7 +25,7 @@
 [ext_resource type="Resource" uid="uid://bo5lyi4q2kuag" path="res://system/focus_group/card_selector_focus_group.tres" id="26_sliii"]
 [ext_resource type="Resource" uid="uid://8fi1d2l5sq45" path="res://system/focus_group/suit_focus_group.tres" id="27_8vdcn"]
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="28_p6hge"]
-[ext_resource type="PackedScene" uid="uid://p4631cdfk80n" path="res://debate/packed_scene/game_board.tscn" id="30_1kwum"]
+[ext_resource type="PackedScene" uid="uid://p4631cdfk80n" path="res://debate/_packed_scene/game_board.tscn" id="30_1kwum"]
 [ext_resource type="FontFile" uid="uid://dm7kd3g4er8v2" path="res://_asset/_general/font/FriendlySans-Regular.ttf" id="32_mjg3m"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="67_ihr3v"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="68_224fs"]
@@ -2348,10 +2348,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.3548259
-offset_top = -1.0539349
-offset_right = 219.64511
-offset_bottom = 128.94606
+offset_left = -1.2468423
+offset_top = -0.7506582
+offset_right = 218.7531
+offset_bottom = 129.24934
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2403,10 +2403,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 0.8923037
-offset_top = -0.6640237
-offset_right = 220.8923
-offset_bottom = 129.33607
+offset_left = -1.2984443
+offset_top = -0.6480093
+offset_right = 218.70155
+offset_bottom = 129.35208
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2458,10 +2458,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 0.75659275
-offset_top = 1.3689038
-offset_right = 220.75665
-offset_bottom = 131.3689
+offset_left = 0.008002374
+offset_top = 1.1249182
+offset_right = 220.00806
+offset_bottom = 131.12492
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2513,10 +2513,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.2392048
-offset_top = -1.1498816
-offset_right = 537.5986
-offset_bottom = 337.55038
+offset_left = -0.50431716
+offset_top = -0.15870693
+offset_right = 538.33344
+offset_bottom = 338.54153
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="InfiniteDeck" format=3 uid="uid://cvmm5suqs8xun"]
+
+[ext_resource type="Script" uid="uid://bcrhpdjlreow5" path="res://system/script/card/card_deck_config.gd" id="1_2v1yg"]
+[ext_resource type="Script" uid="uid://dlqqr4qxqi2ht" path="res://system/script/deck/infinite_deck.gd" id="2_gk1r3"]
+
+[resource]
+script = ExtResource("2_gk1r3")

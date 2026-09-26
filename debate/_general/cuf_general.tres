@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://btqgs63pqh23v" path="res://debate/_script/ui/card_ui_factory/card_ui_packed_scene_factory.gd" id="1_pvd7y"]
 [ext_resource type="Resource" uid="uid://cvf702xa275od" path="res://system/card/card_status_effect/cse_ennui.tres" id="2_8r40s"]
-[ext_resource type="PackedScene" uid="uid://xyt4gxt1st16" path="res://debate/packed_scene/card_ui/ennui_cards/ennui_card_ui.tscn" id="3_pun5i"]
+[ext_resource type="PackedScene" uid="uid://xyt4gxt1st16" path="res://debate/_packed_scene/card_ui/ennui_cards/ennui_card_ui.tscn" id="3_pun5i"]
 [ext_resource type="Script" uid="uid://d4fneioflw7dl" path="res://debate/_script/ui/card_ui_factory/single_card_ui_packed_scene_factory.gd" id="4_fouwn"]
 [ext_resource type="Script" uid="uid://dke2uxx0r453j" path="res://debate/_script/ui/card_ui_factory/has_cse_card_ui_packed_scene_factory.gd" id="5_xsdac"]
 [ext_resource type="Script" uid="uid://3ajnh5fdykvx" path="res://debate/_script/ui/card_ui_factory/bucket_card_ui_packed_scene_factory.gd" id="6_vxijh"]
-[ext_resource type="PackedScene" uid="uid://7f3cslp40a4q" path="res://debate/packed_scene/card_ui/card_ui.tscn" id="7_grrmn"]
+[ext_resource type="PackedScene" uid="uid://7f3cslp40a4q" path="res://debate/_packed_scene/card_ui/card_ui.tscn" id="7_grrmn"]
 [ext_resource type="Script" uid="uid://b8uvgvpddrpfw" path="res://debate/_script/ui/card_ui_factory/card_ui_factory.gd" id="8_gsmyj"]
 
 [sub_resource type="Resource" id="Resource_sinnq"]

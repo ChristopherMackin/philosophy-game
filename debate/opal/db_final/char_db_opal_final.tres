@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://bfweahialfyh"]
+
+[ext_resource type="Resource" uid="uid://801jacpgcn81" path="res://character/opal/bb_opal.tres" id="1_1idnx"]
+[ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="1_d1ma8"]
+[ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="2_1idnx"]
+
+[resource]
+script = ExtResource("1_d1ma8")
+name = "Opal"
+blackboard = ExtResource("1_1idnx")

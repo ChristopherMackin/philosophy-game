@@ -16,7 +16,7 @@
 [ext_resource type="Resource" uid="uid://vxjneadxt621" path="res://system/focus_group/hand_focus_group.tres" id="24_4vmb6"]
 [ext_resource type="Resource" uid="uid://gxn0k63lex4l" path="res://system/focus_group/play_area_focus_group.tres" id="25_hlh46"]
 [ext_resource type="Resource" uid="uid://bo5lyi4q2kuag" path="res://system/focus_group/card_selector_focus_group.tres" id="26_3crq0"]
-[ext_resource type="PackedScene" uid="uid://p4631cdfk80n" path="res://debate/packed_scene/game_board.tscn" id="27_ckstq"]
+[ext_resource type="PackedScene" uid="uid://p4631cdfk80n" path="res://debate/_packed_scene/game_board.tscn" id="27_ckstq"]
 [ext_resource type="Resource" uid="uid://8fi1d2l5sq45" path="res://system/focus_group/suit_focus_group.tres" id="27_yps1x"]
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="28_xksov"]
 [ext_resource type="Script" uid="uid://cvn62i76f5di" path="res://_debug/text_based_event_subscriber.gd" id="29_prsbd"]

@@ -5,21 +5,25 @@ extends EditorScript
 func _run() -> void:
 	print("--- Starting Resource & Scene Generation ---")
 	
-	var character_name:= "Heather"
-	var debate_string:= "01"
+	var character_name:= "Simon"
+	var debate_string:= "final"
 	
 	const DEBATE_SETTINGS = preload("uid://b51gfuqtvp857")
 	
-	var output_dir:= "res://debate/heather/db_01/"
+	var output_dir:= "res://debate/%s/db_%s/" % [character_name.to_lower(), debate_string]
 	
 	var suffix = "_db_%s_%s" % [character_name.to_lower(), debate_string]
 	var base_scene_path: String = "res://_debug/lvl_db_debug_base.tscn"
 	
-	var bb_func: Callable = func(resource): pass
-	var char_func: Callable = func(resource): pass
-	var dk_func: Callable = func(resource): pass
-	var ds_func: Callable = func(resource): resource = DEBATE_SETTINGS.duplicate(true)
-	var ef_func: Callable = func(resource): pass
+	var bb_func: Callable = func(resource): return resource
+	var char_func: Callable = func(resource): 
+		resource.name = character_name
+		return resource
+	var dk_func: Callable = func(resource): return resource
+	var ds_func: Callable = func(resource): 
+		resource = DEBATE_SETTINGS.duplicate(true)
+		return resource
+	var ef_func: Callable = func(resource): return resource
 	
 	var rtc: Dictionary = {
 		"bb": {"resource_type": Blackboard, "initialize_function": bb_func},\
@@ -42,7 +46,7 @@ func _run() -> void:
 	
 	for key in rtc:
 		var resource = rtc[key]["resource_type"].new()
-		rtc[key]["initialize_function"].call(resource)
+		resource = rtc[key]["initialize_function"].call(resource)
 		var scene_path: String = output_dir + key + suffix + ".tres"
 		var save_err: Error = ResourceSaver.save(resource, scene_path)
 		if save_err == OK:

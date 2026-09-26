@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://bwoigxalp7hj3"]
+
+[ext_resource type="Script" uid="uid://db6exlegr7inp" path="res://_debug/script/debug_event_manager.gd" id="1_1mw0m"]
+[ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://system/script/scene_management/scene_load_manager.gd" id="2_a2w8i"]
+[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="3_qb3fa"]
+[ext_resource type="Script" uid="uid://dkdsd0gpfl4lq" path="res://debate/_script/subscriber/node_based/debate_initiator_debate_subscriber.gd" id="4_cccyl"]
+[ext_resource type="Resource" uid="uid://bxdnjlvt3iyth" path="res://system/debate_manager.tres" id="5_xffyd"]
+[ext_resource type="Resource" uid="uid://b51gfuqtvp857" path="res://system/debate_settings.tres" id="6_kx716"]
+[ext_resource type="Resource" uid="uid://byrpux6co0rrw" path="res://player/char_player.tres" id="7_7fd0i"]
+[ext_resource type="Script" uid="uid://dhulr5f133qcw" path="res://debate/_script/subscriber/node_based/debate_scene_manager.gd" id="8_rqeqq"]
+[ext_resource type="Script" uid="uid://bojj5s0o4f2s3" path="res://system/script/input/world_input_manager.gd" id="9_e7jer"]
+[ext_resource type="Resource" uid="uid://coqtgijiyc02d" path="res://system/input/ih_selection_manager.tres" id="10_3xbtk"]
+[ext_resource type="Script" uid="uid://syaosi1lkwul" path="res://debate/_script/ui/selection_manager.gd" id="11_mfj56"]
+[ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/br_player.tres" id="12_1web8"]
+[ext_resource type="Resource" uid="uid://vxjneadxt621" path="res://system/focus_group/hand_focus_group.tres" id="13_ravfw"]
+[ext_resource type="Resource" uid="uid://gxn0k63lex4l" path="res://system/focus_group/play_area_focus_group.tres" id="14_o8d02"]
+[ext_resource type="Resource" uid="uid://bo5lyi4q2kuag" path="res://system/focus_group/card_selector_focus_group.tres" id="15_jq7o2"]
+[ext_resource type="Resource" uid="uid://8fi1d2l5sq45" path="res://system/focus_group/suit_focus_group.tres" id="16_dowbd"]
+[ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="17_g13rp"]
+[ext_resource type="PackedScene" uid="uid://p4631cdfk80n" path="res://debate/_packed_scene/game_board.tscn" id="18_duqx5"]
+[ext_resource type="Script" uid="uid://cvn62i76f5di" path="res://_debug/text_based_event_subscriber.gd" id="19_bjrs8"]
+[ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="20_yblid"]
+
+[sub_resource type="Theme" id="Theme_efa3k"]
+MarginContainer/constants/margin_bottom = 40
+MarginContainer/constants/margin_left = 40
+MarginContainer/constants/margin_right = 40
+MarginContainer/constants/margin_top = 40
+
+[node name="LvlDbDebugBase" type="Node3D" unique_id=1140928789]
+
+[node name="===DEBUG========" type="Node3D" parent="." unique_id=801987926]
+
+[node name="DebugEventManager" type="Node" parent="===DEBUG========" unique_id=1676246633 node_paths=PackedStringArray("event_subscriber")]
+script = ExtResource("1_1mw0m")
+btn_continue = Callable()
+btn_skip = Callable()
+btn_cancel = Callable()
+btn_event_factory = Callable()
+event_subscriber = NodePath("../../===UI========/TextBasedEventSubscriber")
+
+[node name="===MANAGER========" type="Node3D" parent="." unique_id=1441557243]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="SceneLoadManager" type="Node" parent="===MANAGER========" unique_id=4102704]
+script = ExtResource("2_a2w8i")
+event_manager = ExtResource("3_qb3fa")
+
+[node name="DebateInitiator" type="Node" parent="===MANAGER========" unique_id=267756503]
+script = ExtResource("4_cccyl")
+manager = ExtResource("5_xffyd")
+debate_settings = ExtResource("6_kx716")
+player = ExtResource("7_7fd0i")
+
+[node name="EventQueryManager" type="Node" parent="===MANAGER========" unique_id=1646962725]
+script = ExtResource("8_rqeqq")
+event_manager = ExtResource("3_qb3fa")
+manager = ExtResource("5_xffyd")
+metadata/_custom_type_script = "uid://dhulr5f133qcw"
+
+[node name="InputManager" type="Node" parent="===MANAGER========" unique_id=233808309]
+script = ExtResource("9_e7jer")
+active_handler = ExtResource("10_3xbtk")
+
+[node name="SelectionManager" type="Node" parent="===MANAGER========" unique_id=1647373781 node_paths=PackedStringArray("play_area_selector", "card_selector", "suit_selector")]
+script = ExtResource("11_mfj56")
+input_handler = ExtResource("10_3xbtk")
+player_brain = ExtResource("12_1web8")
+hand_ui_focus_group = ExtResource("13_ravfw")
+play_area_selector_focus_group = ExtResource("14_o8d02")
+card_selector_focus_group = ExtResource("15_jq7o2")
+suit_selector_focus_group = ExtResource("16_dowbd")
+play_area_selector = NodePath("../../===GAMEPLAY========/===UI========/PlayAreaSelectorGUI")
+card_selector = NodePath("../../===GAMEPLAY========/===UI========/CardSelector")
+suit_selector = NodePath("../../===GAMEPLAY========/===UI========/SuitSelector")
+manager = ExtResource("5_xffyd")
+order = 1
+metadata/_custom_type_script = "uid://syaosi1lkwul"
+
+[node name="SfxManager" type="Node" parent="===MANAGER========" unique_id=1162564134]
+
+[node name="SaveManager" type="Node" parent="===MANAGER========" unique_id=982282546]
+script = ExtResource("17_g13rp")
+metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
+
+[node name="===GAMEPLAY========" parent="." unique_id=552190790 instance=ExtResource("18_duqx5")]
+
+[node name="===AUDIO========" type="Node3D" parent="." unique_id=1313241417]
+
+[node name="===UI========" type="CanvasLayer" parent="." unique_id=701129504]
+
+[node name="TextBasedEventSubscriber" type="Panel" parent="===UI========" unique_id=1549059667 node_paths=PackedStringArray("label", "input_manager")]
+anchors_preset = -1
+anchor_left = 0.41700003
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.6400757
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_efa3k")
+script = ExtResource("19_bjrs8")
+label = NodePath("MarginContainer/RichTextLabel")
+input_manager = NodePath("../../===MANAGER========/InputManager")
+dialogue_input_handler = ExtResource("20_yblid")
+manager = ExtResource("3_qb3fa")
+
+[node name="MarginContainer" type="MarginContainer" parent="===UI========/TextBasedEventSubscriber" unique_id=543175371]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -265.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="===UI========/TextBasedEventSubscriber/MarginContainer" unique_id=1948492874]
+layout_mode = 2
+bbcode_enabled = true
+scroll_following = true
+scroll_following_visible_characters = true
+
+[connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateInitiator" method="start_debate"]

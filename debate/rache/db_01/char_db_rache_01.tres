@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://pmi5s1a5ofn3"]
+
+[ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="1_abahj"]
+[ext_resource type="Resource" uid="uid://tnjyujxokwia" path="res://character/rache/bb_rache.tres" id="1_s5jgr"]
+[ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="2_s5jgr"]
+
+[resource]
+script = ExtResource("1_abahj")
+name = "Rache"
+blackboard = ExtResource("1_s5jgr")

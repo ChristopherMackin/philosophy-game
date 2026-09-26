@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="DebateSettings" format=3 uid="uid://c6ciutk88si4k"]
+
+[ext_resource type="Script" uid="uid://dyxs1xiriknno" path="res://debate/_script/game_end_condition/game_end_condition.gd" id="1_mfmd1"]
+[ext_resource type="Script" uid="uid://bla5l1dnib1db" path="res://debate/_script/game_end_condition/suit_track_filled_end_condition.gd" id="2_wll3s"]
+[ext_resource type="Script" uid="uid://dyvi3tsnsuye5" path="res://debate/_script/game_end_condition/empty_hand_end_condition.gd" id="3_pwv8p"]
+[ext_resource type="Script" uid="uid://bsgp8gq0j6wbn" path="res://debate/_script/debate_settings.gd" id="4_8xrcb"]
+[ext_resource type="Script" uid="uid://u3tnteqv7n2" path="res://system/script/suit/suit.gd" id="5_dytog"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="6_21elp"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="7_a1n2g"]
+[ext_resource type="Resource" uid="uid://ey71xth0gysd" path="res://system/suit/self.tres" id="8_xycj2"]
+[ext_resource type="Resource" uid="uid://bqcg2g04h2bqp" path="res://system/suit/others.tres" id="9_vp2j1"]
+
+[sub_resource type="Resource" id="Resource_el72l"]
+script = ExtResource("2_wll3s")
+metadata/_custom_type_script = "uid://bla5l1dnib1db"
+
+[sub_resource type="Resource" id="Resource_sqlrb"]
+script = ExtResource("3_pwv8p")
+metadata/_custom_type_script = "uid://dyvi3tsnsuye5"
+
+[resource]
+script = ExtResource("4_8xrcb")
+starting_player = 1
+retain_excess_energy = false
+draw_mode = 0
+suits = Array[ExtResource("5_dytog")]([ExtResource("6_21elp"), ExtResource("7_a1n2g"), ExtResource("8_xycj2"), ExtResource("9_vp2j1")])
+slots = 10
+line_clear_direction = 1
+game_end_conditions = Array[ExtResource("1_mfmd1")]([SubResource("Resource_el72l"), SubResource("Resource_sqlrb")])

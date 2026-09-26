@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://peso3u0h1nis"]
+
+[ext_resource type="PackedScene" uid="uid://cfr37mhe3tadq" path="res://debate/_packed_scene/suit_banner_gui/banner.tscn" id="1_h1ia7"]
+[ext_resource type="Texture2D" uid="uid://ds44wsjmd8hyj" path="res://_asset/debate/_general/texture/suit/t_faith_icon.png" id="1_m33ff"]
+[ext_resource type="Resource" uid="uid://d2pl5fnaluyfr" path="res://system/suit/faith.tres" id="2_v2vwh"]
+
+[node name="Banner" unique_id=260254109 instance=ExtResource("1_h1ia7")]
+color = Color(0.99607843, 0.69411767, 0.26666668, 1)
+suit = ExtResource("2_v2vwh")
+
+[node name="Icon" parent="." index="0" unique_id=1112037039]
+texture = ExtResource("1_m33ff")

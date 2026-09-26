@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cq7x7og3kbocm"]
+
+[ext_resource type="Texture2D" uid="uid://c3y4fyen3ymom" path="res://_asset/debate/_general/texture/suit/t_doubt_icon.png" id="1_sou4q"]
+[ext_resource type="PackedScene" uid="uid://cfr37mhe3tadq" path="res://debate/_packed_scene/suit_banner_gui/banner.tscn" id="1_v4imh"]
+[ext_resource type="Resource" uid="uid://6kra0yi48vyn" path="res://system/suit/doubt.tres" id="2_4rlg4"]
+
+[node name="Banner" unique_id=260254109 instance=ExtResource("1_v4imh")]
+color = Color(1, 0.4, 0.3882353, 1)
+suit = ExtResource("2_4rlg4")
+
+[node name="Icon" parent="." index="0" unique_id=1112037039]
+texture = ExtResource("1_sou4q")
