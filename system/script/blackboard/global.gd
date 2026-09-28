@@ -6,11 +6,14 @@ var actors: Array[Actor]:
 		if Engine.is_editor_hint(): _refresh_actor_list()
 		return actors
 
-
 func wait_for_seconds(seconds : float):
 	await get_tree().create_timer(seconds).timeout
 
+func _enter_tree() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 func _ready():
+	get_tree().set_auto_accept_quit(false)
 	_refresh_actor_list()
 	Util.optional_connect(SceneManager, "on_scene_unloaded", _refresh_actor_list)
 	Util.optional_connect(SceneManager, "on_scene_loaded", _refresh_actor_list)

@@ -6,6 +6,7 @@ class_name SaveSceneManager
 @export var save_on_project_stop := false
 
 func _enter_tree():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	load_data()
 
 func load_data():
@@ -23,10 +24,8 @@ func save_data():
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		if save_on_project_stop:
-			print("SAVING DATA")
 			save_data()
 		
+		await Global.wait_for_seconds(.5)
+		
 		get_tree().quit()
-
-func _ready() -> void:
-	get_tree().set_auto_accept_quit(false)
