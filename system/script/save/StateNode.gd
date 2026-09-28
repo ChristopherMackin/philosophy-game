@@ -1,27 +1,16 @@
 class_name StateNode
 extends Node
 
-@export var root: Node
+@export var node_list: Array[Node]
 @export var properties: Array[String] = []
-@export var recursive:= false
-
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-			save_state()
 
 func save_state():
-	_save_node_in_global_blackboard(root)
-	
-	if recursive:
-		for child in Util.get_all_children(root):
-			_save_node_in_global_blackboard(child)
+	for node in node_list:
+		_save_node_in_global_blackboard(node)
 
 func load_state():
-	_load_node_from_global_blackboard(root)
-	
-	if recursive:
-		for child in Util.get_all_children(root):
-			_load_node_from_global_blackboard(child)
+	for node in node_list:
+		_load_node_from_global_blackboard(node)
 
 func _save_node_in_global_blackboard(node: Node):
 	var dictionary = {}

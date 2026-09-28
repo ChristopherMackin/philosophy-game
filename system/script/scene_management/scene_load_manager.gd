@@ -2,6 +2,7 @@ extends Node
 
 class_name SceneLoadManager
 
+signal on_scene_enter
 signal on_scene_load
 
 @export_group("Dependencies")
@@ -14,6 +15,7 @@ signal on_scene_load
 @export var scene_loader_factory: SceneLoaderFactory
 
 func _ready():
+	(func(): on_scene_enter.emit()).call_deferred()
 	if Engine.is_editor_hint(): return;
 	
 	var scene_loader: SceneLoader 
