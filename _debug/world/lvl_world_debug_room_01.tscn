@@ -772,7 +772,9 @@ interaction_area = NodePath("JoyActor/InteractionArea")
 character_animator = NodePath("JoyActor/CharacterAnimationTree")
 move_speed = 1.4999999999999956
 
-[node name="JoyActor" parent="===ACTOR========/CBJoy" index="1" unique_id=2066360241 node_paths=PackedStringArray("character_animation_tree") instance=ExtResource("3_gaht2")]
+[node name="StateNode" type="Node" parent="===ACTOR========/CBJoy" index="1" unique_id=617921224]
+
+[node name="JoyActor" parent="===ACTOR========/CBJoy" index="2" unique_id=2066360241 node_paths=PackedStringArray("character_animation_tree") instance=ExtResource("3_gaht2")]
 character_animation_tree = NodePath("CharacterAnimationTree")
 
 [node name="CharacterAnimationTree" type="AnimationTree" parent="===ACTOR========/CBJoy/JoyActor" index="7" unique_id=1510977696]
