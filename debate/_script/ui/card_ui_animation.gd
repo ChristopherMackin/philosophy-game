@@ -78,7 +78,7 @@ func on_card_played():
 	
 	await tween.finished
 	
-	await GlobalTimer.wait_for_seconds(play_pause_length)
+	await Global.wait_for_seconds(play_pause_length)
 	
 	tween = _get_tween()
 	tween.tween_property(card_base, "modulate", Color(.7,.7,.7,0), fade_tween_speed)

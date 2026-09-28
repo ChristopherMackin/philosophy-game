@@ -32,7 +32,7 @@ enum {
 	ACTION_ADDED_CARD_STATUS_EFFECT,
 	
 	#System Flags
-	ACTOR_STATE,
+	COLLISION_STATE,
 	
 }
 

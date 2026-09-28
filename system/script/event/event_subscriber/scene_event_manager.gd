@@ -100,7 +100,7 @@ func display_dialogue(dp: DialoguePayload):
 	var continue_trigger: Callable
 	
 	if await_event && dp.await_input: continue_trigger = func(): await continue_dialogue
-	else: continue_trigger = func(): await GlobalTimer.wait_for_seconds(dp.close_timer)
+	else: continue_trigger = func(): await Global.wait_for_seconds(dp.close_timer)
 	
 	await Util.await_any([
 		continue_trigger,

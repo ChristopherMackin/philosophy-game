@@ -3,11 +3,10 @@ extends Node
 class_name SaveSceneManager
 
 @export var save_data_list : Array[SaveData]
+@export var save_on_project_stop := false
 
 func _enter_tree():
 	load_data()
-	if !SceneManager.is_connected("on_scene_unloaded", save_data):
-		SceneManager.on_scene_unloaded.connect(save_data, CONNECT_ONE_SHOT)
 
 func load_data():
 	for data : SaveData in save_data_list:
@@ -16,8 +15,18 @@ func load_data():
 				data.load_data()
 			SaveDataGlobalList.loaded_data.append(data.resource)
 
-
 func save_data():
 	for data : SaveData in save_data_list:
 		if data.should_save_data:
 			data.save_data()
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		if save_on_project_stop:
+			print("SAVING DATA")
+			save_data()
+		
+		get_tree().quit()
+
+func _ready() -> void:
+	get_tree().set_auto_accept_quit(false)

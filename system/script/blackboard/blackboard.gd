@@ -62,8 +62,8 @@ func expire(expiration_token : Blackboard.ExpirationToken):
 func get_query():
 	var query: Dictionary
 	
-	if GlobalBlackboard.blackboard && self != GlobalBlackboard.blackboard:
-		query.merge(GlobalBlackboard.blackboard.get_query())
+	if Global.blackboard && self != Global.blackboard:
+		query.merge(Global.blackboard.get_query())
 	
 	for entry in _entries:
 		query[entry.key] = entry.value

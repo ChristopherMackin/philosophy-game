@@ -80,7 +80,7 @@ func display_dialogue(dp: DialoguePayload):
 	var continue_trigger: Callable
 	
 	if await_event && dp.await_input: continue_trigger = func(): await continue_dialogue
-	else: continue_trigger = func(): await GlobalTimer.wait_for_seconds(dp.close_timer)
+	else: continue_trigger = func(): await Global.wait_for_seconds(dp.close_timer)
 	
 	await Util.await_any([
 		continue_trigger,
@@ -111,7 +111,7 @@ func start_timer(seconds: float):
 		ActionLogActionType.ActionType.TIMER
 	)
 	
-	await GlobalTimer.wait_for_seconds(seconds)
+	await Global.wait_for_seconds(seconds)
 
 func _append_action_event(text: String, type: ActionLogActionType.ActionType):
 	event_actions.append(ActionLogActionType.new(

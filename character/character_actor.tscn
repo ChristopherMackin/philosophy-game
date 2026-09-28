@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ncpnghqpw8tc"]
 
-[ext_resource type="Script" uid="uid://bowloeu5gqc4j" path="res://system/script/event/character_actor.gd" id="1_lrl4d"]
+[ext_resource type="Script" uid="uid://bowloeu5gqc4j" path="res://system/script/actor/character_actor.gd" id="1_lrl4d"]
 [ext_resource type="Script" uid="uid://br5kxd06vsn3n" path="res://utility/script/set_layer_mask.gd" id="2_v5ghv"]
 [ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://character/script/facial_animator.gd" id="3_mv020"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="7_5d15r"]

@@ -21,5 +21,8 @@ func get_actors() -> Array[Actor]:
 	
 	return _current_actors
 
-func save_state():
+func save_actors_state():
+	Global.blackboard.add()
+
+func get_actors_state():
 	pass

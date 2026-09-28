@@ -2,7 +2,5 @@ class_name ResumeSceneLoader
 extends SceneLoader
 
 func set_scene_state(slm: SceneLoadManager):
-	var actors: Array[Actor]
-
-	
+	Global.load_collision_state.call_deferred()
 	

@@ -42,7 +42,7 @@
 [ext_resource type="Script" uid="uid://dpuvbnec3snd8" path="res://_general/packed_scene/cinematic_dialogue.gd" id="89_vuleb"]
 [ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://_asset/cutscene/name_background.png" id="90_3vyq3"]
 [ext_resource type="PackedScene" uid="uid://b6up1alpc3bbp" path="res://debate/opal/db_02/env_db_opal_02.tscn" id="91_xotbv"]
-[ext_resource type="Script" uid="uid://dam0gyj0sl08f" path="res://system/script/event/actor.gd" id="92_u60kj"]
+[ext_resource type="Script" uid="uid://dam0gyj0sl08f" path="res://system/script/actor/actor.gd" id="92_u60kj"]
 [ext_resource type="Script" uid="uid://4lmkf6b3mly" path="res://system/script/animation/character_tree_animation_handler.gd" id="93_yyajg"]
 [ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/script/character_animation_tree.gd" id="94_pxh5u"]
 [ext_resource type="Texture2D" uid="uid://bd4dc4voljyql" path="res://_asset/debate/opal/db_opal_02/graphic/t_db_opal_02_p1_opal_dialogue.PNG" id="95_dpv84"]
@@ -2103,49 +2103,46 @@ dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/VoiceO
 dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/JoyDialogueP1")
 
 [node name="Joy_Base_Body" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="0" unique_id=267586307]
-layers = 524291
+layers = 3
 
 [node name="Joy_Base_Face" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="1" unique_id=517453162]
-layers = 524291
+layers = 3
 
 [node name="Joy_Base_Mouth" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="2" unique_id=1378670721]
-layers = 524291
+layers = 3
 
 [node name="Joy_Base_Pupils" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="3" unique_id=2038468354]
-layers = 524291
+layers = 3
 
 [node name="Joy_Base_Skull" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="4" unique_id=282972724]
-layers = 524291
+layers = 3
 
 [node name="Joy_Base_Sockets" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="5" unique_id=461313027]
-layers = 524291
+layers = 3
 
 [node name="Joy_Hair_04a" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="6" unique_id=1439567277]
-layers = 524291
+layers = 3
 
 [node name="Joy_Outfit_05_Hat" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="7" unique_id=542023719]
-layers = 524291
+layers = 3
 
 [node name="Joy_Outfit_05_NameTag" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="8" unique_id=1434279918]
-layers = 524291
+layers = 3
 
 [node name="Joy_Outfit_05_Shirt" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="9" unique_id=69534027]
-layers = 524291
+layers = 3
 
 [node name="Joy_Outfit_05_Shoes" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="10" unique_id=1312543841]
-layers = 524291
+layers = 3
 
 [node name="Joy_Outfit_05_Shorts" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="11" unique_id=74431937]
-layers = 524291
+layers = 3
 
 [node name="Joy_Outfit_05_Socks" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="12" unique_id=1826489471]
-layers = 524291
-
-[node name="DialogueCamera" parent="===ACTOR========/JoyActor" index="4" unique_id=1887443005]
-priority = 1
+layers = 3
 
 [node name="LayerMask" parent="===ACTOR========/JoyActor" index="6" unique_id=1716574017]
-layers = 524291
+layers = 3
 
 [node name="AnimationHandler" type="Node" parent="===ACTOR========/JoyActor" unique_id=1747396921 node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("93_yyajg")
@@ -2273,6 +2270,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="JoyDialogueP1" parent="===UI========/DialogueBubbles/P1" unique_id=363922120 instance=ExtResource("88_vdw3e")]
+visible = false
 layout_mode = 1
 offset_left = 1000.0
 offset_top = 469.0
@@ -2362,10 +2360,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 1.2516098
-offset_top = -0.5178493
-offset_right = 221.25156
-offset_bottom = 129.48215
+offset_left = 0.6651332
+offset_top = -0.36733058
+offset_right = 220.66507
+offset_bottom = 129.63268
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2417,10 +2415,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = 0.3009567
-offset_top = 0.48814
-offset_right = 220.30095
-offset_bottom = 130.48824
+offset_left = 1.0155176
+offset_top = -0.10169497
+offset_right = 221.01552
+offset_bottom = 129.89839
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2470,11 +2468,12 @@ shake_fade = 0.0
 metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
+visible = false
 layout_mode = 0
-offset_left = 1.1209891
-offset_top = 1.4319725
-offset_right = 221.12105
-offset_bottom = 131.43198
+offset_left = -0.19770792
+offset_top = -0.15118498
+offset_right = 219.80235
+offset_bottom = 129.84882
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2526,10 +2525,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.269721
-offset_top = 2.8464918
-offset_right = 537.56805
-offset_bottom = 341.54675
+offset_left = -1.1600426
+offset_top = 0.8181706
+offset_right = 537.67773
+offset_bottom = 339.51843
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1

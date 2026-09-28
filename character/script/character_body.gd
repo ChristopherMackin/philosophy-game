@@ -12,7 +12,6 @@ class_name CharacterBody
 @export_group("Movement")
 @export var move_speed := 8.0
 @export var acceleration := 20.0
-@export var rotation_speed := 12.0
 
 var last_movement_direction:= Vector3.BACK
 
@@ -64,10 +63,6 @@ func handle_movement(delta, input):
 		direction.y = 0
 		
 		var target_direction = direction
-		
-		if direction.length() < 0.2:
-			lerp(velocity, direction, delta * rotation_speed)
-			target_direction = target_direction.normalized()
 		
 		velocity = velocity.move_toward(target_direction * move_speed, acceleration * delta)
 	
