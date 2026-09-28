@@ -9,7 +9,7 @@ static func get_state(node: Node3D) -> Node3dState:
 	var state = Node3dState.new()
 	
 	state.node_path = node.get_path()
-	state.global_position = node.position
+	state.global_position = node.global_position
 	state.global_rotation = node.global_rotation
 	return state
 

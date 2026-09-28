@@ -54,6 +54,18 @@ static func get_all_children(node) -> Array:
 	
 	return nodes
 
+static func find_children_by_meta(parent_node: Node, meta_key: String) -> Array[Node]:
+	var matching_nodes: Array[Node] = []
+	
+	var all_descendants = parent_node.find_children("*", "", true, false)
+	
+	for child in all_descendants:
+		if child.has_meta(meta_key):
+			matching_nodes.append(child)
+			
+	return matching_nodes
+
+
 static func array_difference(arr1, arr2) -> Array:
 	var only_in_arr1 = []
 	for v in arr1:

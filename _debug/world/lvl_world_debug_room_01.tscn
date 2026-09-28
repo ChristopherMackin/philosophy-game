@@ -804,7 +804,7 @@ shape = SubResource("BoxShape3D_lrl4d")
 [node name="SimonActor" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="1" unique_id=292508824 instance=ExtResource("15_m3w2c")]
 transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, -2.287981, 1.3595895e-16, -1.8981557)
 
-[node name="AnimationPlayer" parent="===ACTOR========/SimonActor/SimonSkin" parent_id_path=PackedInt32Array(292508824, 439230908) index="1" unique_id=1255832826]
+[node name="AnimationPlayer" parent="===ACTOR========/SimonActor/SimonSkin" parent_id_path=PackedInt32Array(292508824, 439230908) index="1" unique_id=375826197]
 libraries/ = SubResource("AnimationLibrary_q3tq5")
 
 [node name="PortraitCamera" parent="===UI========/SpeechBubble/Portrait/SubViewport" parent_id_path=PackedInt32Array(264276467) index="0" unique_id=1879654437]
