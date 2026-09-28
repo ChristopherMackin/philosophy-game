@@ -49,7 +49,7 @@ animation = &"walk"
 
 [resource]
 resource_local_to_scene = true
-graph_offset = Vector2(-626.396, -182.127)
+graph_offset = Vector2(-372.54947, -60.013885)
 nodes/output/position = Vector2(310, 160)
 nodes/action/node = SubResource("AnimationNodeAnimation_7qfv6")
 nodes/action/position = Vector2(-600, -130)

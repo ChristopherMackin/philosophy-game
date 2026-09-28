@@ -43,5 +43,5 @@ visible_characters = 4
 visible_characters_behavior = 1
 script = ExtResource("4_dvn0n")
 characters_per_second = 20
-normalized_dialogue_position = 1
+normalized_dialogue_position = 1.0
 metadata/_custom_type_script = "uid://vyqjymdwc8ae"

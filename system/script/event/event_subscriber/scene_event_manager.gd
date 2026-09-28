@@ -3,8 +3,6 @@ extends EventSubscriber
 
 class_name SceneEventManager
 
-@export var debate_manager: DebateManager
-
 @export var scene_animator_handler: AnimationHandler
 var actors: Array[Actor]
 

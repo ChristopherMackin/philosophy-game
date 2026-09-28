@@ -8,6 +8,7 @@
 [ext_resource type="Animation" uid="uid://dgq065bi8he28" path="res://character/joy/animation/anim_joy_blink.res" id="6_08ssm"]
 [ext_resource type="Animation" uid="uid://co14k1uqc4ui2" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_p1_idle_01.res" id="7_08ssm"]
 [ext_resource type="Animation" uid="uid://dm72blnj48nkj" path="res://character/joy/animation/anim_joy_talk.res" id="7_fejen"]
+[ext_resource type="Animation" uid="uid://da6p57j6xiqe1" path="res://character/joy/animation/anim_joy_walk.res" id="8_tyv4g"]
 [ext_resource type="Animation" uid="uid://bxmq145o1mf35" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_p2_idle_01.res" id="9_k5ugw"]
 [ext_resource type="Animation" uid="uid://drayr0x2drjhh" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_p3_idle_01.res" id="10_tyv4g"]
 [ext_resource type="Animation" uid="uid://cqif18vkugw0q" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_p4_idle_01.res" id="11_jhrmp"]
@@ -15,11 +16,15 @@
 [ext_resource type="Animation" uid="uid://d226s8u5orb43" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_t2.res" id="13_xtqkc"]
 [ext_resource type="Animation" uid="uid://db6yopnxtlraj" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_t3.res" id="14_eqm0y"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_4plkl"]
+radius = 0.2
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yj5q6"]
 _data = {
 &"RESET": ExtResource("5_f5idp"),
 &"blink": ExtResource("6_08ssm"),
-&"talk": ExtResource("7_fejen")
+&"talk": ExtResource("7_fejen"),
+&"walk": ExtResource("8_tyv4g")
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eslb0"]
@@ -33,14 +38,18 @@ _data = {
 &"anim_joy_db_opal_02_t3": ExtResource("14_eqm0y")
 }
 
-[node name="JoyActor" unique_id=2066360241 node_paths=PackedStringArray("_layer_mask") instance=ExtResource("1_humdt")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_tyv4g"]
+size = Vector3(2, 3, 1.75)
+
+[node name="JoyActor" unique_id=2066360241 node_paths=PackedStringArray("_layer_mask", "_look_at_modifier") instance=ExtResource("1_humdt")]
 _layer_mask = NodePath("LayerMask")
+_look_at_modifier = NodePath("Skeleton/root/Skeleton3D/LookAtModifier3D")
 actor_name = "joy"
 display_name = "Joy"
 
 [node name="Skeleton" parent="." index="0" unique_id=1298630328 instance=ExtResource("2_w153v")]
 
-[node name="Skeleton3D" parent="Skeleton/root" parent_id_path=PackedInt32Array(1298630328, 1006879066) index="0" unique_id=1569458232]
+[node name="Skeleton3D" parent="Skeleton/root" parent_id_path=PackedInt32Array(1298630328, 1608320947) index="0" unique_id=1149319305]
 bones/1/position = Vector3(-6.204708e-09, 0.74698913, 0.035486706)
 bones/1/rotation = Quaternion(-0.014819603, -3.5441028e-06, 4.9936858e-08, 0.9998902)
 bones/2/position = Vector3(-1.6397709e-07, 0.2441591, -0.023716198)
@@ -251,11 +260,37 @@ bones/71/rotation = Quaternion(-4.8676796e-08, -1.1924875e-08, -6.8448004e-15, 1
 bones/72/position = Vector3(0.13033777, 9.217066e-11, 2.8082336e-08)
 bones/72/rotation = Quaternion(-3.0858896e-08, -7.54979e-08, 2.329782e-15, 1)
 
-[node name="JoyOutfit05a" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="0" unique_id=19173196 node_paths=PackedStringArray("target") instance=ExtResource("3_16udo")]
+[node name="LookAtModifier3D" type="LookAtModifier3D" parent="Skeleton/root/Skeleton3D" index="0" unique_id=1854343774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559022e-10, -3.0559022e-10, -3.0559022e-10)
+bone_name = "head.x"
+bone = 4
+duration = 0.3
+use_angle_limitation = true
+symmetry_limitation = true
+primary_limit_angle = 1.91986
+primary_damp_threshold = 1.0
+secondary_limit_angle = 1.0472
+secondary_damp_threshold = 1.0
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Skeleton/root/Skeleton3D" index="1" unique_id=2081685280]
+transform = Transform3D(1, -9.515447e-16, 4.264615e-14, 2.8002147e-15, 0.99905884, -0.04337004, -4.2564744e-14, 0.043370068, 0.9990588, -2.7977586e-14, 1.3171011, 0.04480924)
+bone_name = "head.x"
+bone_idx = 4
+
+[node name="Area3D" type="Area3D" parent="Skeleton/root/Skeleton3D/BoneAttachment3D" index="0" unique_id=1658382804]
+collision_layer = 32768
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton/root/Skeleton3D/BoneAttachment3D/Area3D" index="0" unique_id=1643918567]
+transform = Transform3D(1, 0, -3.3881318e-21, 2.1175824e-22, 1.0000002, 3.7252903e-09, 0, 0, 1.0000002, -7.375097e-15, 0.13551593, 0.17596069)
+shape = SubResource("SphereShape3D_4plkl")
+
+[node name="JoyOutfit05a" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="0" unique_id=19173196 node_paths=PackedStringArray("target", "modifiers") instance=ExtResource("3_16udo")]
 script = ExtResource("4_f5idp")
 target = NodePath("../../Skeleton/root/Skeleton3D")
+modifiers = [NodePath("../../Skeleton/root/Skeleton3D/LookAtModifier3D")]
 
-[node name="Skeleton3D" parent="Outfit/JoyOutfit05a/root" parent_id_path=PackedInt32Array(19173196, 1600017606) index="0" unique_id=724015997]
+[node name="Skeleton3D" parent="Outfit/JoyOutfit05a/root" parent_id_path=PackedInt32Array(19173196, 1404249919) index="0" unique_id=1175915308]
 bones/1/position = Vector3(-6.2047083e-09, 0.74698913, 0.035486706)
 bones/1/rotation = Quaternion(-0.014819603, -3.5441028e-06, 4.9936848e-08, 0.9998902)
 bones/2/position = Vector3(-1.6397708e-07, 0.2441591, -0.0237162)
@@ -466,11 +501,11 @@ bones/71/rotation = Quaternion(-4.8676796e-08, -1.1924875e-08, -6.8448004e-15, 1
 bones/72/position = Vector3(0.832857, 2.5755637, 0.023947142)
 bones/72/rotation = Quaternion(-7.9535695e-08, -8.742278e-08, -1.2080115e-15, 1)
 
-[node name="Joy_Base_Face" parent="Outfit/JoyOutfit05a/root/Skeleton3D" index="1" unique_id=2063680796]
+[node name="Joy_Base_Face" parent="Outfit/JoyOutfit05a/root/Skeleton3D" index="1" unique_id=171779869]
 sorting_offset = 0.5
 instance_shader_parameters/uv_offset = Vector2(0, 0)
 
-[node name="Joy_Base_Mouth" parent="Outfit/JoyOutfit05a/root/Skeleton3D" index="2" unique_id=416483565]
+[node name="Joy_Base_Mouth" parent="Outfit/JoyOutfit05a/root/Skeleton3D" index="2" unique_id=302325352]
 sorting_offset = 1.0
 instance_shader_parameters/uv_offset = Vector3(0, 0, 0)
 
@@ -485,7 +520,13 @@ libraries/ = SubResource("AnimationLibrary_yj5q6")
 libraries/db_opal_02 = SubResource("AnimationLibrary_eslb0")
 
 [node name="DialogueCamera" parent="." index="4" unique_id=1887443005]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 1.5407988, 1.16291)
+transform = Transform3D(0.8785317, 0, -0.47768405, 0, 1, 0, 0.47768405, 0, 0.8785317, -0.7875859, 1.561227, 1.6526108)
+
+[node name="PersonalBubble" parent="." index="5" unique_id=2003500690 node_paths=PackedStringArray("exceptions")]
+exceptions = [NodePath("../Skeleton/root/Skeleton3D/BoneAttachment3D/Area3D")]
+
+[node name="CollisionShape3D" parent="PersonalBubble" index="0" unique_id=364469082]
+shape = SubResource("BoxShape3D_tyv4g")
 
 [connection signal="pose_updated" from="Skeleton/root/Skeleton3D" to="FacialAnimator" method="pose_updated"]
 

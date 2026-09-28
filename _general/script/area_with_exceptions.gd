@@ -32,21 +32,17 @@ func _on_area_shape_exited(area_rid, area, area_shape_index, local_shape_index):
 	if _check_for_exceptions(area): return
 	area_shape_exited_without_exception.emit(area_rid, area, area_shape_index, local_shape_index)
 
-
 func _on_body_entered(body):
 	if _check_for_exceptions(body): return
 	body_entered_without_exception.emit(body)
-
 
 func _on_body_exited(body):
 	if _check_for_exceptions(body): return
 	body_exited_without_exception.emit(body)
 
-
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if _check_for_exceptions(body): return
 	body_shape_entered_without_exception.emit(body_rid, body, body_shape_index, local_shape_index)
-
 
 func _on_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
 	if _check_for_exceptions(body): return

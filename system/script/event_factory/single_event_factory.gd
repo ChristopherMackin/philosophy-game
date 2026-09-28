@@ -6,4 +6,4 @@ class_name SingleEventFactory
 @export var event: Event
 
 func get_event(_query: Dictionary) -> Event:
-	return event
+	return event if !_query.has(event.resource_path.get_file()) else null

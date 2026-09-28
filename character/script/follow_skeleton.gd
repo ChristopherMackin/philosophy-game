@@ -32,6 +32,21 @@ var skeleton: Skeleton3D:
 		
 		_pose_updated()
 
+@export var modifiers: Array[SkeletonModifier3D]:
+	set(val):
+		var added = Util.array_difference(val, modifiers)
+		var removed = Util.array_difference(modifiers, val)
+		
+		for modifier: SkeletonModifier3D in added:
+			Util.optional_connect(modifier, "modification_processed", _pose_updated)
+		
+		for modifier: SkeletonModifier3D in removed:
+			Util.optional_disconnect(modifier, "modification_processed", _pose_updated)
+		
+		modifiers = val
+		
+		_pose_updated()
+
 func _pose_updated():
 	if !skeleton || !target: return
 	

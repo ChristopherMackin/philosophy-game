@@ -39,7 +39,7 @@ func _update_layers_recursive(node: Node):
 		node.layers = layers
 
 func set_layer(layer: int, value: bool):
-	var flag = 1 << layer
+	var flag = 1 << (layer - 1)
 	
 	if value:
 		layers |= flag
