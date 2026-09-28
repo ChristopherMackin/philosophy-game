@@ -32,37 +32,43 @@ func cancel_current_event():
 func start_event(event : Event, blackboard: Blackboard):
 	if !event: return
 	
-	if event.await_queue:
-		await queue_empty
-	if event.can_interupt:
-		await cancel_current_event()
-	elif current_task:
-		event_queue.push(Tuple.new(event, blackboard))
-		return
+	var callable: Callable = func():
+		if event.await_queue:
+			await queue_empty
+		if event.can_interupt:
+			await cancel_current_event()
+		elif current_task:
+			event_queue.push(Tuple.new(event, blackboard))
+			return
+		
+		current_event = event
+		current_task = event.start_task
+		
+		await _start_event(current_event)
+		
+		while current_task:
+			var index
+			if current_event.skip: index = await current_task.skip(blackboard, self)
+			else: index = await current_task.invoke(blackboard, self)
+			if !current_event: return
+			current_task = current_event.get_task(index)
+		
+		var expire = current_event.get_expiration_token()
+		if expire != null:
+			blackboard.add(current_event.resource_path.get_file(), true, expire)
+		
+		await _end_event(current_event)
+		
+		if event_queue.size() > 0:
+			var tuple: Tuple = event_queue.pop()
+			start_event(tuple.val1, tuple.val2)
+		else:
+			queue_empty.emit()
 	
-	current_event = event
-	current_task = event.start_task
-	
-	await _start_event(current_event)
-	
-	while current_task:
-		var index
-		if current_event.skip: index = await current_task.skip(blackboard, self)
-		else: index = await current_task.invoke(blackboard, self)
-		if !current_event: return
-		current_task = current_event.get_task(index)
-	
-	var expire = current_event.get_expiration_token()
-	if expire != null:
-		blackboard.add(current_event.resource_path.get_file(), true, expire)
-	
-	await _end_event(current_event)
-	
-	if event_queue.size() > 0:
-		var tuple: Tuple = event_queue.pop()
-		start_event(tuple.val1, tuple.val2)
+	if event.await_event:
+		await callable.call()
 	else:
-		queue_empty.emit()
+		return
 
 func _start_event(event: Event):
 	for sub : EventSubscriber in subscribers: await sub._start_event(event)

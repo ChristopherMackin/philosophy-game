@@ -1,8 +1,6 @@
 extends Area3D
 
-@export var scene_name: String
-@export var transition: PackedScene
-@export var spawn_index: int = 0
+
 
 func _ready():
 	body_entered.connect(transition_scene)

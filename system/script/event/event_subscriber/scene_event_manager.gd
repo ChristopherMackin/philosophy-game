@@ -21,11 +21,7 @@ func _ready():
 	_dialogue_setup()
 
 func _dialogue_setup():
-	actors.assign(get_tree().root.find_children("*", "Actor", true, false))
-	
-	for actor in actors:
-		if actors.filter(func(x): return actor.actor_name == x.actor_name).size() > 1:
-			push_error("ERROR: Two actors share a name -> \n Node: %s \n Actor Name: %s" % [actor.name, actor.actor_name])
+	actors = SceneActors.get_actors()
 	
 	if default_dialogue_area:
 		default_dialogue_area.visible = false

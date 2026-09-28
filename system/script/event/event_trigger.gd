@@ -15,7 +15,4 @@ func query_event():
 	
 	if !event: return
 	
-	if event.await_event:
-		await event_manager.start_event(event, blackboard)
-	else:
-		event_manager.start_event(event, blackboard)
+	await event_manager.start_event(event, blackboard)

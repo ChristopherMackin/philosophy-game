@@ -1,33 +1,31 @@
-@tool
 extends Node
 
 class_name SceneLoadManager
 
 signal on_scene_load
-signal _event_finished
 
 @export_group("Dependencies")
 @export var event_manager: EventManager
 @export var blackboard: Blackboard
 @export var event_factory: EventFactory
+@export var scene_animator: AnimationPlayer
 
 @export_group("Room State")
-@export var scene_animator: AnimationPlayer
-@export var ordered_room_states: Array[StringRule]:
-	set(val):
-		ordered_room_states = Util.auto_populate_resource_array(ordered_room_states, val, StringRule)
+@export var scene_loader_factory: SceneLoaderFactory
 
 func _ready():
 	if Engine.is_editor_hint(): return;
 	
-	set_room_state()
-	set_player_spawn()
+	var scene_loader: SceneLoader 
 	
-	if event_factory:
-		query_event.call_deferred()
-		await _event_finished
+	if scene_loader_factory:
+		scene_loader = scene_loader_factory.get_scene_loader(blackboard.get_query())
 	
-	on_scene_load.emit()
+	if scene_loader: scene_loader.set_scene_state(self)
+	
+	await query_event
+	
+	(func(): on_scene_load.emit()).call_deferred()
 	queue_free()
 
 func query_event():
@@ -37,24 +35,6 @@ func query_event():
 	
 	var event = event_factory.get_event(query)
 	
-	if event:
-		if event.await_event:
-			await event_manager.start_event(event, blackboard)
-		else:
-			event_manager.start_event(event, blackboard)
+	if !event: return
 	
-	_event_finished.emit.call_deferred()
-
-func set_room_state():
-	if !scene_animator: return
-	
-	var query: Dictionary
-	blackboard.get_query()
-	
-	for state in ordered_room_states:
-		if state.rule.check(query):
-			scene_animator.play(state.string)
-			break
-
-func set_player_spawn():
-	pass
+	await event_manager.start_event(event, blackboard)

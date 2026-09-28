@@ -9,9 +9,8 @@
 [ext_resource type="Resource" uid="uid://4avsth0e8b0u" path="res://system/input/ih_player_movement.tres" id="5_ot6eh"]
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="5_t3rax"]
 [ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="6_ilpj6"]
+[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://system/script/scene_management/scene_change_manager.gd" id="9_f2xca"]
 [ext_resource type="PackedScene" uid="uid://bgxyjg7p6d1iu" path="res://_general/packed_scene/simple_dynamic_speech_bubble.tscn" id="14_c3aa4"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_ot6eh"]
 
 [node name="WorldLevel" type="Node3D" unique_id=1505589296]
 
@@ -30,9 +29,10 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="===MANAGER========" type="Node3D" parent="." unique_id=1947846897]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="SceneLoadManager" type="Node" parent="===MANAGER========" unique_id=991142355]
+[node name="SceneLoadManager" type="Node" parent="===MANAGER========" unique_id=991142355 node_paths=PackedStringArray("scene_animator")]
 script = ExtResource("2_be1jf")
 event_manager = ExtResource("4_f2xca")
+scene_animator = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationPlayer")
 
 [node name="InputManager" type="Node" parent="===MANAGER========" unique_id=535647948]
 script = ExtResource("2_8d011")
@@ -41,7 +41,7 @@ active_handler = ExtResource("5_ot6eh")
 [node name="SceneEventManager" type="Node" parent="===MANAGER========" unique_id=333180430 node_paths=PackedStringArray("scene_animator_handler", "default_dialogue_area", "input_manager")]
 script = ExtResource("2_t3rax")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
-default_dialogue_area = NodePath("")
+default_dialogue_area = NodePath("../../===UI========/SpeechBubble")
 input_manager = NodePath("../InputManager")
 dialogue_input_handler = ExtResource("6_ilpj6")
 manager = ExtResource("4_f2xca")
@@ -49,6 +49,10 @@ manager = ExtResource("4_f2xca")
 [node name="SaveManager" type="Node" parent="===MANAGER========" unique_id=1041070775]
 script = ExtResource("1_xgvwx")
 metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
+
+[node name="SceneChangeManager" type="Node" parent="===MANAGER========" unique_id=1540382630]
+script = ExtResource("9_f2xca")
+metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
 
 [node name="===EVENT========" type="Node3D" parent="." unique_id=1880115747]
 
@@ -89,6 +93,7 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 [node name="===UI========" type="CanvasLayer" parent="." unique_id=1608434002]
 
 [node name="SpeechBubble" parent="===UI========" unique_id=1196501776 instance=ExtResource("14_c3aa4")]
+visible = false
 offset_left = -337.0
 offset_top = 185.0
 offset_right = -337.0
@@ -138,7 +143,7 @@ metadata/_edit_use_anchors_ = true
 [node name="SubViewport" type="SubViewport" parent="===UI========/SpeechBubble/Portrait" unique_id=264276467]
 transparent_bg = true
 handle_input_locally = false
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="PortraitCamera" type="Camera3D" parent="===UI========/SpeechBubble/Portrait/SubViewport" unique_id=1879654437]
 physics_interpolation_mode = 1
@@ -155,46 +160,5 @@ auto_translate_mode = 2
 script = ExtResource("1_qlsal")
 host_layers = 524288
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
-
-[node name="===STORYBOARD========" type="CanvasLayer" parent="." unique_id=385093715]
-layer = 0
-
-[node name="CameraView" type="SubViewportContainer" parent="===STORYBOARD========" unique_id=1911720927]
-offset_right = 1920.0
-offset_bottom = 1080.0
-
-[node name="SubViewport" type="SubViewport" parent="===STORYBOARD========/CameraView" unique_id=1694588487]
-handle_input_locally = false
-size = Vector2i(1920, 1080)
-render_target_update_mode = 4
-
-[node name="Camera3D" type="Camera3D" parent="===STORYBOARD========/CameraView/SubViewport" unique_id=1978109648]
-transform = Transform3D(-3.93109e-08, 0.437273, -0.899329, 1.91138e-08, 0.899329, 0.437273, 1, 3.48787e-16, -4.37114e-08, 4.01364, 0.77378, 0.163754)
-top_level = true
-fov = 45.0
-far = 100.0
-
-[node name="PhantomCameraHost" type="Node" parent="===STORYBOARD========/CameraView/SubViewport/Camera3D" unique_id=135036696]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("1_qlsal")
-metadata/_custom_type_script = "uid://bd046eokvcnu2"
-
-[node name="ColorRect" type="ColorRect" parent="===STORYBOARD========" unique_id=476318644]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0.2)
-
-[node name="Image" type="TextureRect" parent="===STORYBOARD========" unique_id=322472180]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("ImageTexture_ot6eh")
 
 [editable path="===UI========/SpeechBubble"]

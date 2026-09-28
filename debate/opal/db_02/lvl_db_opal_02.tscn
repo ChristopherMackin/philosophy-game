@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://7s886es87io8"]
 
 [ext_resource type="Script" uid="uid://db6exlegr7inp" path="res://_debug/script/debug_event_manager.gd" id="1_yqurc"]
-[ext_resource type="Resource" uid="uid://cmim4022rkeoq" path="res://debate/opal/db_02/event/ev_db_opal_02_t1.tres" id="2_8ur0d"]
+[ext_resource type="Resource" uid="uid://chqe2n2s0ukox" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_01.tres" id="2_8ur0d"]
 [ext_resource type="Resource" uid="uid://tlcoyw2fklgw" path="res://debate/opal/db_02/ef_db_opal_02.tres" id="3_afl77"]
 [ext_resource type="Script" uid="uid://dy4e7i5501yv5" path="res://system/script/card/card_base.gd" id="4_8ur0d"]
 [ext_resource type="Resource" uid="uid://dywkncxr0n466" path="res://system/card/doubt/c_doubt_basic.tres" id="5_x4q7t"]
@@ -1075,7 +1075,6 @@ metadata/_custom_type_script = "uid://dhulr5f133qcw"
 
 [node name="SceneEventManager" type="Node" parent="===MANAGER========" unique_id=1999759174 node_paths=PackedStringArray("scene_animator_handler", "input_manager")]
 script = ExtResource("18_f1hsa")
-debate_manager = ExtResource("8_lkhof")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
 input_manager = NodePath("../InputManager")
 dialogue_input_handler = ExtResource("19_6xexp")
@@ -1675,44 +1674,58 @@ bones/68/rotation = Quaternion(2.2217312e-08, -0.016535219, -2.9899923e-08, 0.99
 bones/68/scale = Vector3(0.99999994, 0.99999994, 1)
 bones/72/position = Vector3(0.7547881, -0.15068698, 1.2839159e-07)
 
-[node name="Joy_Base_Body" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="0" unique_id=267586307]
+[node name="BoneAttachment3D" parent="===CUTSCENE========/JoyCinematicActor/Skeleton/root/Skeleton3D" index="1" unique_id=2081685280]
+transform = Transform3D(0.9676348, 0.23595694, -0.089479744, -0.19300215, 0.92041194, 0.33998716, 0.16258055, -0.3117137, 0.9361632, -6.985199e-10, 1.3171012, 0.044809133)
+
+[node name="Skeleton3D" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root" parent_id_path=PackedInt32Array(2066360241, 19173196, 456097456) index="0" unique_id=922357986]
+bones/4/position = Vector3(-6.9849027e-10, 0.08635628, -1.1920929e-07)
+bones/4/rotation = Quaternion(-0.3204587, -0.08111641, -0.09799276, 0.93868196)
+bones/4/scale = Vector3(0.9999997, 0.99999976, 0.99999994)
+bones/5/position = Vector3(0.05446756, 0.099462986, 0.16571546)
+bones/5/rotation = Quaternion(-4.4703484e-08, 0, 0, 1)
+bones/5/scale = Vector3(1.0000001, 1, 1.0000001)
+bones/6/position = Vector3(-0.054467484, 0.09946287, 0.16571546)
+bones/6/rotation = Quaternion(-4.4703484e-08, 0, 0, 1)
+bones/6/scale = Vector3(1.0000001, 1, 1.0000001)
+
+[node name="Joy_Base_Body" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="0" unique_id=267586307]
 layers = 7
 
-[node name="Joy_Base_Face" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="1" unique_id=517453162]
+[node name="Joy_Base_Face" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="1" unique_id=517453162]
 layers = 7
 instance_shader_parameters/uv_offset = Vector2(0.5, 0)
 
-[node name="Joy_Base_Mouth" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="2" unique_id=1378670721]
+[node name="Joy_Base_Mouth" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="2" unique_id=1378670721]
 layers = 7
 
-[node name="Joy_Base_Pupils" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="3" unique_id=2038468354]
+[node name="Joy_Base_Pupils" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="3" unique_id=2038468354]
 layers = 7
 
-[node name="Joy_Base_Skull" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="4" unique_id=282972724]
+[node name="Joy_Base_Skull" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="4" unique_id=282972724]
 layers = 7
 
-[node name="Joy_Base_Sockets" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="5" unique_id=461313027]
+[node name="Joy_Base_Sockets" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="5" unique_id=461313027]
 layers = 7
 
-[node name="Joy_Hair_04a" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="6" unique_id=1439567277]
+[node name="Joy_Hair_04a" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="6" unique_id=1439567277]
 layers = 7
 
-[node name="Joy_Outfit_05_Hat" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="7" unique_id=542023719]
+[node name="Joy_Outfit_05_Hat" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="7" unique_id=542023719]
 layers = 7
 
-[node name="Joy_Outfit_05_NameTag" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="8" unique_id=1434279918]
+[node name="Joy_Outfit_05_NameTag" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="8" unique_id=1434279918]
 layers = 7
 
-[node name="Joy_Outfit_05_Shirt" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="9" unique_id=69534027]
+[node name="Joy_Outfit_05_Shirt" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="9" unique_id=69534027]
 layers = 7
 
-[node name="Joy_Outfit_05_Shoes" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="10" unique_id=1312543841]
+[node name="Joy_Outfit_05_Shoes" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="10" unique_id=1312543841]
 layers = 7
 
-[node name="Joy_Outfit_05_Shorts" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="11" unique_id=74431937]
+[node name="Joy_Outfit_05_Shorts" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="11" unique_id=74431937]
 layers = 7
 
-[node name="Joy_Outfit_05_Socks" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(2066360241, 19173196, 922357986) index="12" unique_id=1826489471]
+[node name="Joy_Outfit_05_Socks" parent="===CUTSCENE========/JoyCinematicActor/Outfit/JoyOutfit05a/root/Skeleton3D" index="12" unique_id=1826489471]
 layers = 7
 
 [node name="AnimationPlayer" parent="===CUTSCENE========/JoyCinematicActor" index="3" unique_id=99323753]
@@ -2090,46 +2103,49 @@ dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/VoiceO
 dialogue_area_override = NodePath("../../===UI========/DialogueBubbles/P1/JoyDialogueP1")
 
 [node name="Joy_Base_Body" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="0" unique_id=267586307]
-layers = 3
+layers = 524291
 
 [node name="Joy_Base_Face" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="1" unique_id=517453162]
-layers = 3
+layers = 524291
 
 [node name="Joy_Base_Mouth" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="2" unique_id=1378670721]
-layers = 3
+layers = 524291
 
 [node name="Joy_Base_Pupils" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="3" unique_id=2038468354]
-layers = 3
+layers = 524291
 
 [node name="Joy_Base_Skull" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="4" unique_id=282972724]
-layers = 3
+layers = 524291
 
 [node name="Joy_Base_Sockets" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="5" unique_id=461313027]
-layers = 3
+layers = 524291
 
 [node name="Joy_Hair_04a" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="6" unique_id=1439567277]
-layers = 3
+layers = 524291
 
 [node name="Joy_Outfit_05_Hat" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="7" unique_id=542023719]
-layers = 3
+layers = 524291
 
 [node name="Joy_Outfit_05_NameTag" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="8" unique_id=1434279918]
-layers = 3
+layers = 524291
 
 [node name="Joy_Outfit_05_Shirt" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="9" unique_id=69534027]
-layers = 3
+layers = 524291
 
 [node name="Joy_Outfit_05_Shoes" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="10" unique_id=1312543841]
-layers = 3
+layers = 524291
 
 [node name="Joy_Outfit_05_Shorts" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="11" unique_id=74431937]
-layers = 3
+layers = 524291
 
 [node name="Joy_Outfit_05_Socks" parent="===ACTOR========/JoyActor/Outfit/JoyOutfit05a/root/Skeleton3D" parent_id_path=PackedInt32Array(117127004, 19173196, 922357986) index="12" unique_id=1826489471]
-layers = 3
+layers = 524291
+
+[node name="DialogueCamera" parent="===ACTOR========/JoyActor" index="4" unique_id=1887443005]
+priority = 1
 
 [node name="LayerMask" parent="===ACTOR========/JoyActor" index="6" unique_id=1716574017]
-layers = 3
+layers = 524291
 
 [node name="AnimationHandler" type="Node" parent="===ACTOR========/JoyActor" unique_id=1747396921 node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("93_yyajg")
@@ -2257,7 +2273,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="JoyDialogueP1" parent="===UI========/DialogueBubbles/P1" unique_id=363922120 instance=ExtResource("88_vdw3e")]
-visible = false
 layout_mode = 1
 offset_left = 1000.0
 offset_top = 469.0
@@ -2298,8 +2313,7 @@ offset_left = -131.0
 offset_top = -70.0
 offset_right = 129.0
 offset_bottom = 70.0
-text = "[shake rate=20
-.0 level=10 connected=1]Is anyone there?[/shake]"
+text = "..."
 
 [node name="OpalDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1" unique_id=39134231 node_paths=PackedStringArray("scrolling_text")]
 visible = false
@@ -2325,7 +2339,7 @@ theme_override_colors/default_color = Color(0.3647059, 0.3647059, 0.3647059, 1)
 theme_override_fonts/normal_font = ExtResource("32_mjg3m")
 theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
-text = "..."
+text = "Are you okay?"
 horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters_behavior = 1
@@ -2348,10 +2362,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice01DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice01Shake" unique_id=2007479244 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.2468423
-offset_top = -0.7506582
-offset_right = 218.7531
-offset_bottom = 129.24934
+offset_left = 1.2516098
+offset_top = -0.5178493
+offset_right = 221.25156
+offset_bottom = 129.48215
 rotation = 0.08124671
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2378,7 +2392,7 @@ theme_override_fonts/normal_font = ExtResource("32_mjg3m")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "[shake rate=20
-.0 level=15 connected=1]Just a little[/shake]"
+.0 level=10 connected=1]You're empty without them[/shake]"
 scroll_active = false
 scroll_following_visible_characters = true
 horizontal_alignment = 1
@@ -2403,10 +2417,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="Voice02DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice02Shake" unique_id=486510446 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -1.2984443
-offset_top = -0.6480093
-offset_right = 218.70155
-offset_bottom = 129.35208
+offset_left = 0.3009567
+offset_top = 0.48814
+offset_right = 220.30095
+offset_bottom = 130.48824
 rotation = -0.20190376
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2433,7 +2447,7 @@ theme_override_fonts/normal_font = ExtResource("32_mjg3m")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "[shake rate=20
-.0 level=15 connected=1]Just a little[/shake]"
+.0 level=10 connected=1]They were right about you[/shake]"
 scroll_active = false
 scroll_following_visible_characters = true
 horizontal_alignment = 1
@@ -2456,12 +2470,11 @@ shake_fade = 0.0
 metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 
 [node name="Voice03DialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/Voice03Shake" unique_id=1060121887 node_paths=PackedStringArray("scrolling_text")]
-visible = false
 layout_mode = 0
-offset_left = 0.008002374
-offset_top = 1.1249182
-offset_right = 220.00806
-offset_bottom = 131.12492
+offset_left = 1.1209891
+offset_top = 1.4319725
+offset_right = 221.12105
+offset_bottom = 131.43198
 rotation = -0.034057483
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
@@ -2488,7 +2501,7 @@ theme_override_fonts/normal_font = ExtResource("32_mjg3m")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "[shake rate=20
-.0 level=15 connected=1]Just a little[/shake]"
+.0 level=10 connected=1]You can’t make it on your own[/shake]"
 scroll_active = false
 scroll_following_visible_characters = true
 horizontal_alignment = 1
@@ -2513,10 +2526,10 @@ metadata/_custom_type_script = "uid://ccmy7q4sd7qkx"
 [node name="VoiceOminousDialogueP1" type="TextureRect" parent="===UI========/DialogueBubbles/P1/VoiceOminousShake" unique_id=1843501467 node_paths=PackedStringArray("scrolling_text")]
 visible = false
 layout_mode = 0
-offset_left = -0.50431716
-offset_top = -0.15870693
-offset_right = 538.33344
-offset_bottom = 338.54153
+offset_left = -1.269721
+offset_top = 2.8464918
+offset_right = 537.56805
+offset_bottom = 341.54675
 pivot_offset = Vector2(110, 65)
 texture = SubResource("AnimatedTexture_4plkl")
 expand_mode = 1

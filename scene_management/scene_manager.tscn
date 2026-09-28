@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bm86i7ogvoc1e"]
+[gd_scene format=3 uid="uid://bm86i7ogvoc1e"]
 
 [ext_resource type="Script" uid="uid://cmlirixgjhbvo" path="res://system/script/scene_management/scene_manager.gd" id="1_cdsrf"]
 
-[node name="SceneManager" type="Node"]
+[node name="SceneManager" type="Node" unique_id=1630296158]
 script = ExtResource("1_cdsrf")
-_scene_list = Array[String](["res://cutscene/cut_prelude.tscn", "res://world/01_hospital/waiting_room/lvl_hospital_waiting_room.tscn", "res://debate/tutorial/lvl_db_tutorial.tscn"])
+_scene_list = Array[String](["res://cutscene/cut_prelude.tscn", "res://_debug/world/lvl_world_debug_room_01.tscn", "res://_debug/world/lvl_world_debug_room_02.tscn"])

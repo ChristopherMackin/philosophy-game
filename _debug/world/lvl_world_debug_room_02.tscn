@@ -1,33 +1,33 @@
-[gd_scene format=3 uid="uid://t5krt2ursbl4"]
+[gd_scene format=3 uid="uid://c5li30lllbf6q"]
 
-[ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_xbffc"]
-[ext_resource type="PackedScene" uid="uid://4fyxges65twa" path="res://character/character_body_3d.tscn" id="2_2s85e"]
-[ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="2_gaht2"]
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_v0542"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_cgveo"]
-[ext_resource type="PackedScene" uid="uid://dnalajbqwpcg2" path="res://character/joy/act_joy.tscn" id="3_gaht2"]
-[ext_resource type="Script" uid="uid://dd6d8mjib2ks" path="res://system/script/event/interactable.gd" id="5_7cpg8"]
-[ext_resource type="AnimationNodeBlendTree" uid="uid://bhn3rrw3pkprn" path="res://debate/_general/animation/simple_character_animation_tree.tres" id="5_mueag"]
-[ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/script/character_animation_tree.gd" id="6_damvg"]
-[ext_resource type="Script" uid="uid://dbvysemw11ei8" path="res://system/script/event_factory/single_event_factory.gd" id="6_esgrh"]
-[ext_resource type="Resource" uid="uid://delwvju7876r4" path="res://_debug/ev_debug.tres" id="6_m3w2c"]
-[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="7_m3w2c"]
-[ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="8_nxm4p"]
-[ext_resource type="Script" uid="uid://btmrfolkq1aj5" path="res://character/script/interaction_area.gd" id="9_cgveo"]
-[ext_resource type="PackedScene" uid="uid://crjk3jxv3f3il" path="res://character/simon/act_simon.tscn" id="15_m3w2c"]
-[ext_resource type="Animation" uid="uid://dxqckym8ojekg" path="res://character/simon/animation/accuse.res" id="16_v8yfn"]
-[ext_resource type="Animation" uid="uid://ba4ww4txu7pbw" path="res://character/simon/animation/blink.res" id="17_514c5"]
-[ext_resource type="Animation" uid="uid://01wd3jss8itq" path="res://character/simon/animation/debate_simon_intro.res" id="18_tkwcs"]
-[ext_resource type="Animation" uid="uid://bhvm1qc04ilee" path="res://character/simon/animation/praise.res" id="19_yqcsr"]
-[ext_resource type="Animation" uid="uid://b8gfenh0v54bm" path="res://character/simon/animation/recollect.res" id="20_c15ic"]
-[ext_resource type="Animation" uid="uid://u2e3govw73cd" path="res://character/simon/animation/talk.res" id="21_uj08s"]
+[ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_xyj1l"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_2gt56"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_xwpwa"]
+[ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="4_7omaf"]
+[ext_resource type="Script" uid="uid://dd6d8mjib2ks" path="res://system/script/event/interactable.gd" id="5_fqgjv"]
+[ext_resource type="Resource" uid="uid://delwvju7876r4" path="res://_debug/ev_debug.tres" id="6_k4mcj"]
+[ext_resource type="Script" uid="uid://dbvysemw11ei8" path="res://system/script/event_factory/single_event_factory.gd" id="7_dip4l"]
+[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="8_kke1r"]
+[ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="9_snr0q"]
+[ext_resource type="PackedScene" uid="uid://4fyxges65twa" path="res://character/character_body_3d.tscn" id="10_7ragd"]
+[ext_resource type="PackedScene" uid="uid://dnalajbqwpcg2" path="res://character/joy/act_joy.tscn" id="11_lu5yt"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://bhn3rrw3pkprn" path="res://debate/_general/animation/simple_character_animation_tree.tres" id="12_6h0p2"]
+[ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/script/character_animation_tree.gd" id="13_uttgm"]
+[ext_resource type="Script" uid="uid://btmrfolkq1aj5" path="res://character/script/interaction_area.gd" id="14_g2yup"]
+[ext_resource type="PackedScene" uid="uid://crjk3jxv3f3il" path="res://character/simon/act_simon.tscn" id="15_4npdf"]
+[ext_resource type="Animation" uid="uid://dxqckym8ojekg" path="res://character/simon/animation/accuse.res" id="16_8pmcp"]
+[ext_resource type="Animation" uid="uid://ba4ww4txu7pbw" path="res://character/simon/animation/blink.res" id="17_1ueg0"]
+[ext_resource type="Animation" uid="uid://01wd3jss8itq" path="res://character/simon/animation/debate_simon_intro.res" id="18_1bgu0"]
+[ext_resource type="Animation" uid="uid://bhvm1qc04ilee" path="res://character/simon/animation/praise.res" id="19_50w3a"]
+[ext_resource type="Animation" uid="uid://b8gfenh0v54bm" path="res://character/simon/animation/recollect.res" id="20_ar6x2"]
+[ext_resource type="Animation" uid="uid://u2e3govw73cd" path="res://character/simon/animation/talk.res" id="21_4o7lq"]
 
 [sub_resource type="Resource" id="Resource_taene"]
-script = ExtResource("3_cgveo")
+script = ExtResource("3_xwpwa")
 
 [sub_resource type="Resource" id="Resource_y75lu"]
-script = ExtResource("6_esgrh")
-event = ExtResource("6_m3w2c")
+script = ExtResource("7_dip4l")
+event = ExtResource("6_k4mcj")
 metadata/_custom_type_script = "uid://dbvysemw11ei8"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_efa3k"]
@@ -694,26 +694,26 @@ tracks/92/interp = 1
 tracks/92/loop_wrap = true
 tracks/92/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xcv6m"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v8yfn"]
 resource_local_to_scene = true
 _data = {
 &"RESET": SubResource("Animation_066da"),
-&"accuse": ExtResource("16_v8yfn"),
-&"blink": ExtResource("17_514c5"),
-&"db01_intro": ExtResource("18_tkwcs"),
-&"praise": ExtResource("19_yqcsr"),
-&"recollect": ExtResource("20_c15ic"),
-&"talk": ExtResource("21_uj08s")
+&"accuse": ExtResource("16_8pmcp"),
+&"blink": ExtResource("17_1ueg0"),
+&"db01_intro": ExtResource("18_1bgu0"),
+&"praise": ExtResource("19_50w3a"),
+&"recollect": ExtResource("20_ar6x2"),
+&"talk": ExtResource("21_4o7lq")
 }
 
-[node name="WorldLevel" unique_id=1505589296 instance=ExtResource("1_xbffc")]
+[node name="WorldLevel" unique_id=1505589296 instance=ExtResource("1_xyj1l")]
 
 [node name="MainCamera" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="0" unique_id=1922745435]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3837476, 2.0237055)
 
 [node name="PhantomCamera3D" type="Node3D" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="1" unique_id=967303614]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3837476, 2.0237055)
-script = ExtResource("2_v0542")
+script = ExtResource("2_2gt56")
 tween_resource = SubResource("Resource_taene")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
@@ -721,17 +721,17 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 default_dialogue_area = NodePath("../../===UI========/SpeechBubble")
 
 [node name="WorldEnvironment" parent="===WORLD========" parent_id_path=PackedInt32Array(1848467908) index="0" unique_id=1940585086]
-environment = ExtResource("2_gaht2")
+environment = ExtResource("4_7omaf")
 
 [node name="Area3D" type="Area3D" parent="===ENVIRONMENT========" parent_id_path=PackedInt32Array(1859559116) index="1" unique_id=1084666415]
 transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 49152
 collision_mask = 0
 monitoring = false
-script = ExtResource("5_7cpg8")
+script = ExtResource("5_fqgjv")
 event_factory = SubResource("Resource_y75lu")
-event_manager = ExtResource("7_m3w2c")
-blackboard = ExtResource("8_nxm4p")
+event_manager = ExtResource("8_kke1r")
+blackboard = ExtResource("9_snr0q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="===ENVIRONMENT========/Area3D" index="0" unique_id=822431871]
 transform = Transform3D(1, 3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 3.48787e-16, 3.48787e-16, -3.48787e-16, 1, -2.0807275e-12, 0.50138694, -2.1429782)
@@ -745,19 +745,19 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="===ENVIRONMENT========/Collision" parent_id_path=PackedInt32Array(1817161414) index="0" unique_id=1861396383]
 shape = SubResource("WorldBoundaryShape3D_4plkl")
 
-[node name="CBJoy" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="0" unique_id=1395873028 node_paths=PackedStringArray("camera", "character_actor", "interaction_area", "character_animator") instance=ExtResource("2_2s85e")]
+[node name="CBJoy" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="0" unique_id=1395873028 node_paths=PackedStringArray("camera", "character_actor", "interaction_area", "character_animator") instance=ExtResource("10_7ragd")]
 camera = NodePath("../../===CAMERA========/MainCamera")
 character_actor = NodePath("JoyActor")
 interaction_area = NodePath("JoyActor/InteractionArea")
 character_animator = NodePath("JoyActor/CharacterAnimationTree")
 move_speed = 1.4999999999999956
 
-[node name="JoyActor" parent="===ACTOR========/CBJoy" index="1" unique_id=2066360241 node_paths=PackedStringArray("character_animation_tree") instance=ExtResource("3_gaht2")]
+[node name="JoyActor" parent="===ACTOR========/CBJoy" index="1" unique_id=2066360241 node_paths=PackedStringArray("character_animation_tree") instance=ExtResource("11_lu5yt")]
 character_animation_tree = NodePath("CharacterAnimationTree")
 
 [node name="CharacterAnimationTree" type="AnimationTree" parent="===ACTOR========/CBJoy/JoyActor" index="7" unique_id=1510977696]
 root_node = NodePath("../Skeleton")
-tree_root = ExtResource("5_mueag")
+tree_root = ExtResource("12_6h0p2")
 anim_player = NodePath("../AnimationPlayer")
 parameters/talk_override/active = false
 parameters/talk_override/internal_active = false
@@ -766,7 +766,7 @@ parameters/blink_override/active = false
 parameters/blink_override/internal_active = false
 parameters/blink_override/request = 0
 parameters/walking/blend_amount = 0.0
-script = ExtResource("6_damvg")
+script = ExtResource("13_uttgm")
 metadata/_custom_type_script = "uid://2kn4432bu4u8"
 
 [node name="InteractionArea" type="Area3D" parent="===ACTOR========/CBJoy/JoyActor" index="8" unique_id=181883179]
@@ -774,18 +774,18 @@ transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 
 collision_layer = 0
 collision_mask = 16384
 monitorable = false
-script = ExtResource("9_cgveo")
+script = ExtResource("14_g2yup")
 metadata/_custom_type_script = "uid://btmrfolkq1aj5"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="===ACTOR========/CBJoy/JoyActor/InteractionArea" index="0" unique_id=1782300623]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.625)
 shape = SubResource("BoxShape3D_lrl4d")
 
-[node name="SimonActor" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="1" unique_id=292508824 instance=ExtResource("15_m3w2c")]
+[node name="SimonActor" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="1" unique_id=292508824 instance=ExtResource("15_4npdf")]
 transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, -2.287981, 1.3595895e-16, -1.8981557)
 
-[node name="AnimationPlayer" parent="===ACTOR========/SimonActor/SimonSkin" parent_id_path=PackedInt32Array(292508824, 439230908) index="1" unique_id=375826197]
-libraries/ = SubResource("AnimationLibrary_xcv6m")
+[node name="AnimationPlayer" parent="===ACTOR========/SimonActor/SimonSkin" parent_id_path=PackedInt32Array(292508824, 439230908) index="1" unique_id=1255832826]
+libraries/ = SubResource("AnimationLibrary_v8yfn")
 
 [node name="SpeechBubble" parent="===UI========" parent_id_path=PackedInt32Array(1608434002) index="0" unique_id=1196501776]
 visible = false
@@ -794,6 +794,8 @@ visible = false
 render_target_update_mode = 0
 
 [node name="PortraitCamera" parent="===UI========/SpeechBubble/Portrait/SubViewport" index="0" unique_id=1879654437]
+physics_interpolation_mode = 0
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -2.2757726, 1.29199, -0.7352457)
 fov = 40.0
 
 [node name="===STORYBOARD========" parent="." index="10" unique_id=385093715]

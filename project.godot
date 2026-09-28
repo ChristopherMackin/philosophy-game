@@ -31,6 +31,7 @@ SceneManager="*res://scene_management/scene_manager.tscn"
 GlobalBlackboard="*res://system/blackboard/global_blackboard.tscn"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 SaveDataGlobalList="*res://system/script/save/save_data_global_list.gd"
+SceneActors="*uid://ceeoiy5n7tk05"
 
 [debug]
 
