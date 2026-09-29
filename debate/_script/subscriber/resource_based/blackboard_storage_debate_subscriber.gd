@@ -25,7 +25,7 @@ func on_turn_start(contestant: Contestant):
 	
 	blackboard.add_flag(Flag.TURN_CARD_HISTORY, [], Blackboard.ExpirationToken.ON_TURN_START)
 	blackboard.add_flag(Flag.TURN_TOKEN_HISTORY, [], Blackboard.ExpirationToken.ON_TURN_START)
-	blackboard.add_flag(Flag.CARDS_PLAYED_THIS_TURN, 0, Blackboard.ExpirationToken.ON_TURN_START)
+	blackboard.add_flag(Flag.NUM_CARDS_PLAYED_THIS_TURN, 0, Blackboard.ExpirationToken.ON_TURN_START)
 	blackboard.add_flag(Flag.TOKENS_PLAYED_THIS_TURN, 0, Blackboard.ExpirationToken.ON_TURN_START)
 
 func on_turn_end(_contestant: Contestant):
@@ -40,11 +40,12 @@ func on_card_played(card: Card, _contestant : Contestant):
 	blackboard.add_flag(Flag.CARD_HISTORY, history, Blackboard.ExpirationToken.ON_DEBATE_START)
 	
 	#Update Turn Card History
+	if !blackboard.has_flag(Flag.TURN_CARD_HISTORY): blackboard.add_flag(Flag.TURN_CARD_HISTORY, [], Blackboard.ExpirationToken.ON_DEBATE_START)
 	var turn_history = blackboard.get_flag_value(Flag.TURN_CARD_HISTORY)
 	turn_history.push_front(card)
 	blackboard.add_flag(Flag.TURN_CARD_HISTORY, turn_history, Blackboard.ExpirationToken.ON_TURN_START)
 	
-	blackboard.add_flag(Flag.CARDS_PLAYED_THIS_TURN, turn_history.size(), Blackboard.ExpirationToken.ON_TURN_START)
+	blackboard.add_flag(Flag.NUM_CARDS_PLAYED_THIS_TURN, turn_history.size(), Blackboard.ExpirationToken.ON_TURN_START)
 	
 	#Update Current Suit
 	blackboard.add_flag(Flag.CURRENT_SUIT, card.suit, Blackboard.ExpirationToken.ON_DEBATE_START)

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_xbffc"]
 [ext_resource type="PackedScene" uid="uid://4fyxges65twa" path="res://character/character_body_3d.tscn" id="2_2s85e"]
+[ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="2_gaht2"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_v0542"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_cgveo"]
 [ext_resource type="PackedScene" uid="uid://dnalajbqwpcg2" path="res://character/joy/act_joy.tscn" id="3_gaht2"]
@@ -39,8 +40,9 @@ scene_loader = SubResource("Resource_ij15x")
 
 [sub_resource type="Resource" id="Resource_ywuwv"]
 script = ExtResource("12_16goe")
-scene_name = "lvl_world_debug_room_02"
+scene_name = "lvl_world_debug_room_01"
 transition = ExtResource("13_hld67")
+spawn_index = 1
 metadata/_custom_type_script = "uid://c12mfuwapm0ko"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8vrlf"]
@@ -88,18 +90,6 @@ _data = {
 &"RESET": SubResource("Animation_f11mw"),
 &"scene_state_01": SubResource("Animation_q3tq5")
 }
-
-[sub_resource type="Environment" id="Environment_uwtsd"]
-background_mode = 1
-background_color = Color(0.247059, 0.156863, 0.113725, 1)
-ambient_light_source = 2
-ambient_light_color = Color(0.964706, 0.964706, 0.964706, 1)
-ssao_enabled = true
-ssao_radius = 1.25
-ssao_intensity = 1.85
-ssao_power = 2.46229
-ssao_sharpness = 1.0
-ssil_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_4plkl"]
 
@@ -784,30 +774,27 @@ script = ExtResource("2_v0542")
 tween_resource = SubResource("Resource_taene")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355 node_paths=PackedStringArray("character_controller")]
+[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355 node_paths=PackedStringArray("room_state_nodes")]
 blackboard = ExtResource("8_nxm4p")
-character_controller = []
+room_state_nodes = [NodePath("../../===ACTOR========/CBJoy/StateNode")]
 rule_scene_loaders = Array[ExtResource("5_5d67s")]([SubResource("Resource_m111g")])
 
-[node name="Spawn01" type="Marker3D" parent="===SCENE_CHANGE========/SpawnLocations" parent_id_path=PackedInt32Array(369867195) index="0" unique_id=1639601570]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6642656, 0, -2.020876)
-
-[node name="ToLvlWorldDebugRoom01" type="Area3D" parent="===SCENE_CHANGE========/SceneChangeNodes" parent_id_path=PackedInt32Array(1210513985) index="0" unique_id=1077341022]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.871069, 0, -1.9624915)
+[node name="Area3D" type="Area3D" parent="===SCENE_CHANGE========/SceneChangeNodes" parent_id_path=PackedInt32Array(1210513985) index="0" unique_id=1077341022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.578679)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("7_m111g")
 scene_change_data = SubResource("Resource_ywuwv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldDebugRoom01" index="0" unique_id=125957780]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="===SCENE_CHANGE========/SceneChangeNodes/Area3D" index="0" unique_id=125957780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_8vrlf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldDebugRoom01" index="1" unique_id=1669387686]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="===SCENE_CHANGE========/SceneChangeNodes/Area3D" index="1" unique_id=1669387686]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("BoxMesh_1vivr")
 
-[node name="ConditionalNode" type="Node" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldDebugRoom01" index="2" unique_id=1096148848 node_paths=PackedStringArray("root")]
+[node name="ConditionalNode" type="Node" parent="===SCENE_CHANGE========/SceneChangeNodes/Area3D" index="2" unique_id=1096148848 node_paths=PackedStringArray("root")]
 script = ExtResource("7_5d67s")
 root = NodePath("..")
 rule = SubResource("Resource_0f4jg")
@@ -816,13 +803,12 @@ rule = SubResource("Resource_0f4jg")
 libraries/ = SubResource("AnimationLibrary_5d67s")
 
 [node name="WorldEnvironment" parent="===WORLD========" parent_id_path=PackedInt32Array(1848467908) index="0" unique_id=1940585086]
-environment = SubResource("Environment_uwtsd")
+environment = ExtResource("2_gaht2")
 
 [node name="WorldFloor" type="CollisionShape3D" parent="===ENVIRONMENT========/Collision" parent_id_path=PackedInt32Array(1817161414) index="0" unique_id=1861396383]
 shape = SubResource("WorldBoundaryShape3D_4plkl")
 
 [node name="CBJoy" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="0" unique_id=1395873028 node_paths=PackedStringArray("camera", "character_actor", "interaction_area", "character_animator") instance=ExtResource("2_2s85e")]
-transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 6.975757e-16, -6.975757e-16, -2)
 collision_layer = 3
 camera = NodePath("../../===CAMERA========/MainCamera")
 character_actor = NodePath("JoyActor")

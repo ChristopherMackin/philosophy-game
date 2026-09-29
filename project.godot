@@ -29,7 +29,6 @@ buses/default_bus_layout="res://audio/default_bus_layout.tres"
 SceneManager="*res://scene_management/scene_manager.tscn"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 SaveDataGlobalList="*res://system/script/save/save_data_global_list.gd"
-SceneActors="*uid://ceeoiy5n7tk05"
 Global="*uid://c1g2ds752pr5"
 
 [debug]

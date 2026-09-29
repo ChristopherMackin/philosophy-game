@@ -25,10 +25,10 @@ func get_task(index : int):
 	else:
 		return null
 
-func get_expiration_token():
+func get_expiration_flags():
 	match frequency:
 		Frequency.ONCE:
-			return Blackboard.ExpirationToken.NEVER
+			return 0
 		Frequency.ONCE_PER_SCENE:
 			return Blackboard.ExpirationToken.ON_DEBATE_START
 	

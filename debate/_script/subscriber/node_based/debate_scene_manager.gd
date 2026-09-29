@@ -2,6 +2,8 @@ extends NodeBasedDebateSubscriber
 
 class_name EventQueryDebateSubscriber
 
+signal on_debate_end
+
 @export var event_factory: EventFactory:
 	get:
 		if !event_factory:
@@ -34,6 +36,7 @@ func on_card_drawn(card : Card, contestant: Contestant): await query_event(Const
 func on_debate_finished():
 	print("Debate Finished")
 	await query_event(Const.Concept.ON_DEBATE_END)
+	on_debate_end.emit()
 
 func query_event(concept : Const.Concept):
 	var query : Dictionary

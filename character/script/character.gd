@@ -17,9 +17,9 @@ class_name Character
 @export_group("Event Settings")
 @export var blackboard: Blackboard
 
-func remember(key : String, value, expiration_token : Blackboard.ExpirationToken = Blackboard.ExpirationToken.NEVER):
+func remember(key : String, value, expiration_flags : int = 0):
 	var char_key = "%s_%s" % [name.to_snake_case(), key]
-	blackboard.add(char_key, value, expiration_token)
+	blackboard.add(char_key, value, expiration_flags)
 
 func can_recall(key : String):
 	var char_key = "%s_%s" % [name.to_snake_case(), key]
@@ -29,8 +29,8 @@ func recall(key : String):
 	var char_key = "%s_%s" % [name.to_snake_case(), key]
 	return blackboard.get_value(char_key)
 
-func remember_flag(flag : int, value, expiration_token : Blackboard.ExpirationToken = Blackboard.ExpirationToken.NEVER):
-	remember(Flag.name(flag), value, expiration_token)
+func remember_flag(flag : int, value, expiration_flags : int = 0):
+	remember(Flag.name(flag), value, expiration_flags)
 
 func can_recall_flag(flag : int):
 	can_recall(Flag.name(flag))

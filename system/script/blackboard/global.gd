@@ -12,6 +12,12 @@ var actors: Array[Actor]:
 		if Engine.is_editor_hint(): _refresh_actor_list()
 		return actors
 
+var state_nodes: Array[StateNode]:
+	get():
+		var state_nodes: Array[StateNode]
+		state_nodes.assign(get_tree().root.find_children("*", "StateNode", true, false))
+		return state_nodes
+
 func create_timer(seconds : float):
 	await get_tree().create_timer(seconds).timeout
 

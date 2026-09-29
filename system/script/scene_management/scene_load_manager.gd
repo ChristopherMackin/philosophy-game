@@ -11,7 +11,9 @@ signal on_scene_load
 @export var blackboard: Blackboard
 @export var event_factory: EventFactory
 @export var scene_animator: AnimationPlayer
-@export var room_state_nodes: Array[StateNode]
+@export var character_controller: CharacterBody3D
+@export var scene_state_nodes: Array[StateNode]
+@export var spawn_locations: Array[Node3D]
 
 @export_group("Room State")
 @export var rule_scene_loaders: Array[RuleSceneLoader]:

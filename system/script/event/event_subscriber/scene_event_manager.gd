@@ -21,7 +21,7 @@ func _ready():
 	_dialogue_setup()
 
 func _dialogue_setup():
-	actors = SceneActors.get_actors()
+	actors = Global.actors
 	
 	if default_dialogue_area:
 		default_dialogue_area.visible = false

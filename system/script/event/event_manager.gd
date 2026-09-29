@@ -53,7 +53,7 @@ func start_event(event : Event, blackboard: Blackboard):
 			if !current_event: return
 			current_task = current_event.get_task(index)
 		
-		var expire = current_event.get_expiration_token()
+		var expire = current_event.get_expiration_flags()
 		if expire != null:
 			blackboard.add(current_event.resource_path.get_file(), true, expire)
 		

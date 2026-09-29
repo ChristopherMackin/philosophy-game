@@ -4,14 +4,14 @@ extends Resource
 class_name Blackboard
 
 enum ExpirationToken {
-	NEVER,
-	ON_GAME_RESET,
-	ON_DEBATE_START,
-	ON_TURN_END,
-	ON_TURN_START,
-	ON_ACTION_END,
-	ON_SCENE_ENTER,
-	ON_SCENE_EXIT,
+	ON_GAME_RESET = 1 << 0,
+	ON_DEBATE_START = 1 << 1,
+	ON_TURN_END = 1 << 2,
+	ON_TURN_START = 1 << 3,
+	ON_ACTION_END = 1 << 4,
+	ON_SCENE_ENTER = 1 << 5,
+	ON_SCENE_EXIT = 1 << 6,
+	ON_VALUE_ACCESSED = 1 << 7,
 }
 
 @export var _entries : Array[BlackboardEntry]:
@@ -23,14 +23,20 @@ func has(key: String):
 
 func get_value(key: String):
 	var index = find_key_index(key)
-	return _entries[index].value if index != -1 else null
+	if index <= -1: return null
+	
+	var value = _entries[index].value
+	if _entries[index].expiration_flags & ExpirationToken.ON_VALUE_ACCESSED:
+		_entries.remove_at(index)
+	
+	return value
 
-func get_expiration_token(key: String) -> ExpirationToken:
+func get_expiration_flags(key: String) -> int:
 	var index = find_key_index(key)
 	@warning_ignore("incompatible_ternary")
-	return _entries[index].expiration_token if index != -1 else null
+	return _entries[index].expiration_flags if index != -1 else null
 
-func add(key: String, value, expiration_token : Blackboard.ExpirationToken = Blackboard.ExpirationToken.NEVER):
+func add(key: String, value, expiration_flags: int = 0):
 	if !Flag.has_value(key):
 		push_warning("% is not part of the flags enumeration and is liable to get lost.")
 	
@@ -41,13 +47,13 @@ func add(key: String, value, expiration_token : Blackboard.ExpirationToken = Bla
 	
 	if index != -1:
 		_entries[index].value = value
-		_entries[index].expiration_token = expiration_token
+		_entries[index].expiration_flags = expiration_flags
 	
 	else:
 		var entry = BlackboardEntry.new()
 		entry.key = key
 		entry.value = value
-		entry.expiration_token = expiration_token
+		entry.expiration_flags = expiration_flags
 		_entries.append(entry)
 
 func erase(key: String):
@@ -57,7 +63,7 @@ func erase(key: String):
 	_entries.remove_at(index)
 
 func expire(expiration_token : Blackboard.ExpirationToken):
-	_entries = _entries.filter(func(x: BlackboardEntry): return x.expiration_token != expiration_token)
+	_entries = _entries.filter(func(x: BlackboardEntry): return !x.expiration_flags & expiration_token)
 
 func get_query():
 	var query: Dictionary
@@ -79,11 +85,11 @@ func has_flag(flag: int):
 func get_flag_value(flag: int):
 	return get_value(Flag.name(flag))
 
-func get_flag_expiration_token(flag: int) -> ExpirationToken:
-	return get_expiration_token(Flag.name(flag))
+func get_flag_expiration_flags(flag: int) -> int:
+	return get_expiration_flags(Flag.name(flag))
 
-func add_flag(flag: int, value, expiration_token : Blackboard.ExpirationToken = Blackboard.ExpirationToken.NEVER):
-	add(Flag.name(flag), value, expiration_token)
+func add_flag(flag: int, value, expiration_flags: int = 0):
+	add(Flag.name(flag), value, expiration_flags)
 
 func erase_flag(flag: int):
 	erase(Flag.name(flag))

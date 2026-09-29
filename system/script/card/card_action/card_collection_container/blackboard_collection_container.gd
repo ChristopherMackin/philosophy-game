@@ -12,7 +12,7 @@ func _get_unfiltered_collection() -> Array[Card]:
 func add_card_to_collection(card: Card):
 	if manager.blackboard.has(key):
 		var array = manager.blackboard.get_value(key)
-		var expiration = manager.blackboard.get_expiration_token(key)
+		var expiration = manager.blackboard.get_expiration_flags(key)
 		array.append(card)
 		manager.blackboard.add(key, array, expiration)
 	else:

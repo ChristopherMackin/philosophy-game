@@ -83,6 +83,10 @@ metadata/_custom_type_script = "uid://syaosi1lkwul"
 script = ExtResource("28_xksov")
 metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
 
+[node name="===SCENE_CHANGE========" type="Node3D" parent="." unique_id=523131842]
+
+[node name="SceneChangeNodes" type="Node3D" parent="===SCENE_CHANGE========" unique_id=307202293]
+
 [node name="===GAMEPLAY========" parent="." unique_id=552190790 instance=ExtResource("27_ckstq")]
 
 [node name="===AUDIO========" type="Node3D" parent="." unique_id=1313241417]
