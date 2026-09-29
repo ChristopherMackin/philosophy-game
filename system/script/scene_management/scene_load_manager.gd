@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 class_name SceneLoadManager
@@ -13,17 +14,18 @@ signal on_scene_load
 @export var room_state_nodes: Array[StateNode]
 
 @export_group("Room State")
-@export var scene_loader_factory: SceneLoaderFactory
+@export var rule_scene_loaders: Array[RuleSceneLoader]:
+	set(val):
+		rule_scene_loaders = Util.auto_populate_resource_array(rule_scene_loaders, val, RuleSceneLoader)
 
 func _scene_added():
-	print("ADDED")
 	(func(): on_scene_enter.emit()).call_deferred()
 	if Engine.is_editor_hint(): return;
 	
 	var scene_loader: SceneLoader 
 	
-	if scene_loader_factory:
-		scene_loader = scene_loader_factory.get_scene_loader(blackboard.get_query())
+	for rsl in rule_scene_loaders:
+		if !rsl.rule || rsl.rule.check(Global.blackboard.get_query()): scene_loader = rsl.scene_loader
 	
 	if scene_loader: scene_loader.set_scene_state(self)
 	

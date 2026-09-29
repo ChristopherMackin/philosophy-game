@@ -6,19 +6,17 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_v0542"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_cgveo"]
 [ext_resource type="PackedScene" uid="uid://dnalajbqwpcg2" path="res://character/joy/act_joy.tscn" id="3_gaht2"]
-[ext_resource type="Script" uid="uid://b5po407txa222" path="res://system/script/scene_management/scene_loader/scene_loader_factory/scene_loader_factory.gd" id="5_5d67s"]
-[ext_resource type="Script" uid="uid://c5elbjqhjh60f" path="res://system/script/scene_management/scene_loader/resume_scene_loader.gd" id="5_f11mw"]
-[ext_resource type="Script" uid="uid://68fhgg8jg6mj" path="res://system/script/scene_management/scene_loader/scene_loader_factory/single_scene_loader_factory.gd" id="5_giyvg"]
+[ext_resource type="Script" uid="uid://b5po407txa222" path="res://system/script/scene_management/scene_loader/rule_scene_loader.gd" id="5_5d67s"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://bhn3rrw3pkprn" path="res://debate/_general/animation/simple_character_animation_tree.tres" id="5_mueag"]
 [ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/script/character_animation_tree.gd" id="6_damvg"]
-[ext_resource type="Script" uid="uid://cgsr0p1sth0wy" path="res://system/script/rule/expression_rule.gd" id="6_m111g"]
-[ext_resource type="Script" uid="uid://n7x317o04d1d" path="res://system/script/scene_management/scene_loader/scene_loader_factory/rule_scene_loader_factory.gd" id="6_ywuwv"]
-[ext_resource type="Script" uid="uid://cw0mgs8rtc0g8" path="res://system/script/scene_management/scene_loader/scene_loader_factory/bucket_scene_loader_factory.gd" id="7_0f4jg"]
-[ext_resource type="Script" uid="uid://bos07o5vwd6ow" path="res://system/script/scene_management/scene_loader/animation_scene_loader.gd" id="7_4refu"]
+[ext_resource type="Script" uid="uid://i1rx170t4865" path="res://_debug/world/conditional_node.gd" id="7_5d67s"]
+[ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://system/script/scene_management/scene_change_trigger.gd" id="7_m111g"]
+[ext_resource type="Script" uid="uid://c5elbjqhjh60f" path="res://system/script/scene_management/scene_loader/resume_scene_loader.gd" id="7_uwtsd"]
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="8_nxm4p"]
+[ext_resource type="Script" uid="uid://cgsr0p1sth0wy" path="res://system/script/rule/expression_rule.gd" id="8_ywuwv"]
 [ext_resource type="Script" uid="uid://btmrfolkq1aj5" path="res://character/script/interaction_area.gd" id="9_cgveo"]
-[ext_resource type="Script" uid="uid://bguufro8u8mgp" path="res://system/script/save/StateNode.gd" id="9_q3tq5"]
-[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://system/script/scene_management/scene_change_data.gd" id="12_16goe"]
+[ext_resource type="Script" uid="uid://bguufro8u8mgp" path="res://system/script/save/state_node.gd" id="9_q3tq5"]
+[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://system/script/scene_management/scene_change/scene_change_data.gd" id="12_16goe"]
 [ext_resource type="PackedScene" uid="uid://deqrvxx6rp2vl" path="res://scene_management/screen_transition/screen_wipe.tscn" id="13_hld67"]
 [ext_resource type="PackedScene" uid="uid://crjk3jxv3f3il" path="res://character/simon/act_simon.tscn" id="15_m3w2c"]
 [ext_resource type="Animation" uid="uid://dxqckym8ojekg" path="res://character/simon/animation/accuse.res" id="16_v8yfn"]
@@ -31,47 +29,31 @@
 [sub_resource type="Resource" id="Resource_taene"]
 script = ExtResource("3_cgveo")
 
-[sub_resource type="Resource" id="Resource_m111g"]
-resource_name = "RU: Exp: false"
-script = ExtResource("6_m111g")
-expression = "false"
-metadata/_custom_type_script = "uid://cgsr0p1sth0wy"
-
-[sub_resource type="Resource" id="Resource_4refu"]
-script = ExtResource("7_4refu")
-state_animation_name = "scene_state_01"
-metadata/_custom_type_script = "uid://bos07o5vwd6ow"
-
-[sub_resource type="Resource" id="Resource_ywuwv"]
-script = ExtResource("6_ywuwv")
-rule = SubResource("Resource_m111g")
-scene_loader = SubResource("Resource_4refu")
-metadata/_custom_type_script = "uid://n7x317o04d1d"
-
-[sub_resource type="Resource" id="Resource_uwtsd"]
-script = ExtResource("5_f11mw")
+[sub_resource type="Resource" id="Resource_ij15x"]
+script = ExtResource("7_uwtsd")
 metadata/_custom_type_script = "uid://c5elbjqhjh60f"
 
-[sub_resource type="Resource" id="Resource_0f4jg"]
-script = ExtResource("5_giyvg")
-scene_loader = SubResource("Resource_uwtsd")
-metadata/_custom_type_script = "uid://68fhgg8jg6mj"
+[sub_resource type="Resource" id="Resource_m111g"]
+resource_name = "Reenter"
+script = ExtResource("5_5d67s")
+scene_loader = SubResource("Resource_ij15x")
 
-[sub_resource type="Resource" id="Resource_5d67s"]
-script = ExtResource("7_0f4jg")
-buckets = Array[ExtResource("5_5d67s")]([SubResource("Resource_ywuwv"), SubResource("Resource_0f4jg")])
-metadata/_custom_type_script = "uid://cw0mgs8rtc0g8"
-
-[sub_resource type="Resource" id="Resource_20uup"]
-script = ExtResource("7_0f4jg")
-buckets = Array[ExtResource("5_5d67s")]([SubResource("Resource_5d67s")])
-metadata/_custom_type_script = "uid://cw0mgs8rtc0g8"
-
-[sub_resource type="Resource" id="Resource_16goe"]
+[sub_resource type="Resource" id="Resource_ywuwv"]
 script = ExtResource("12_16goe")
 scene_name = "lvl_world_debug_room_01"
 transition = ExtResource("13_hld67")
+spawn_index = 1
 metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8vrlf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1vivr"]
+
+[sub_resource type="Resource" id="Resource_0f4jg"]
+resource_name = "RU: Exp: true"
+script = ExtResource("8_ywuwv")
+expression = "true"
+metadata/_custom_type_script = "uid://cgsr0p1sth0wy"
 
 [sub_resource type="Animation" id="Animation_f11mw"]
 length = 0.001
@@ -769,7 +751,7 @@ tracks/92/interp = 1
 tracks/92/loop_wrap = true
 tracks/92/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_m111g"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ywuwv"]
 resource_local_to_scene = true
 _data = {
 &"RESET": SubResource("Animation_066da"),
@@ -795,15 +777,27 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355 node_paths=PackedStringArray("room_state_nodes")]
 blackboard = ExtResource("8_nxm4p")
 room_state_nodes = [NodePath("../../===ACTOR========/CBJoy/StateNode")]
-scene_loader_factory = SubResource("Resource_20uup")
+rule_scene_loaders = Array[ExtResource("5_5d67s")]([SubResource("Resource_m111g")])
 
-[node name="SceneChangeManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="4" unique_id=1540382630]
-scene_change_data = SubResource("Resource_16goe")
+[node name="Area3D" type="Area3D" parent="===SCENE_CHANGE========/SceneChangeNodes" parent_id_path=PackedInt32Array(1210513985) index="0" unique_id=1077341022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.578679)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("7_m111g")
+scene_change_data = SubResource("Resource_ywuwv")
 
-[node name="Timer" type="Timer" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="5" unique_id=461182610]
-wait_time = 2.0
-one_shot = true
-autostart = true
+[node name="CollisionShape3D" type="CollisionShape3D" parent="===SCENE_CHANGE========/SceneChangeNodes/Area3D" index="0" unique_id=125957780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_8vrlf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="===SCENE_CHANGE========/SceneChangeNodes/Area3D" index="1" unique_id=1669387686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_1vivr")
+
+[node name="ConditionalNode" type="Node" parent="===SCENE_CHANGE========/SceneChangeNodes/Area3D" index="2" unique_id=1096148848 node_paths=PackedStringArray("root")]
+script = ExtResource("7_5d67s")
+root = NodePath("..")
+rule = SubResource("Resource_0f4jg")
 
 [node name="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator" parent_id_path=PackedInt32Array(484654225) index="1" unique_id=743721924]
 libraries/ = SubResource("AnimationLibrary_5d67s")
@@ -815,6 +809,7 @@ environment = ExtResource("2_gaht2")
 shape = SubResource("WorldBoundaryShape3D_4plkl")
 
 [node name="CBJoy" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="0" unique_id=1395873028 node_paths=PackedStringArray("camera", "character_actor", "interaction_area", "character_animator") instance=ExtResource("2_2s85e")]
+collision_layer = 3
 camera = NodePath("../../===CAMERA========/MainCamera")
 character_actor = NodePath("JoyActor")
 interaction_area = NodePath("JoyActor/InteractionArea")
@@ -859,7 +854,7 @@ properties = Array[String](["position", "rotation", "scale"])
 transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, -2.287981, 1.3595895e-16, -1.8981557)
 
 [node name="AnimationPlayer" parent="===ACTOR========/SimonActor/SimonSkin" parent_id_path=PackedInt32Array(292508824, 439230908) index="1" unique_id=1255832826]
-libraries/ = SubResource("AnimationLibrary_m111g")
+libraries/ = SubResource("AnimationLibrary_ywuwv")
 
 [node name="PortraitCamera" parent="===UI========/SpeechBubble/Portrait/SubViewport" parent_id_path=PackedInt32Array(264276467) index="0" unique_id=1879654437]
 physics_interpolation_mode = 0

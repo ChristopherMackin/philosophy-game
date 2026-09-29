@@ -9,7 +9,6 @@
 [ext_resource type="Resource" uid="uid://4avsth0e8b0u" path="res://system/input/ih_player_movement.tres" id="5_ot6eh"]
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="5_t3rax"]
 [ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="6_ilpj6"]
-[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://system/script/scene_management/scene_change_manager.gd" id="9_f2xca"]
 [ext_resource type="PackedScene" uid="uid://bgxyjg7p6d1iu" path="res://_general/packed_scene/simple_dynamic_speech_bubble.tscn" id="14_c3aa4"]
 
 [node name="WorldLevel" type="Node3D" unique_id=1505589296]
@@ -50,15 +49,13 @@ input_manager = NodePath("../InputManager")
 dialogue_input_handler = ExtResource("6_ilpj6")
 manager = ExtResource("4_f2xca")
 
-[node name="SceneChangeManager" type="Node" parent="===MANAGER========" unique_id=1540382630]
-script = ExtResource("9_f2xca")
-metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
+[node name="===SCENE_CHANGE========" type="Node3D" parent="." unique_id=288681498]
+
+[node name="SpawnLocations" type="Node3D" parent="===SCENE_CHANGE========" unique_id=369867195]
+
+[node name="SceneChangeNodes" type="Node3D" parent="===SCENE_CHANGE========" unique_id=1210513985]
 
 [node name="===EVENT========" type="Node3D" parent="." unique_id=1880115747]
-
-[node name="===GAMEPLAY========" type="Node3D" parent="." unique_id=288681498]
-
-[node name="SpawnLocations" type="Node3D" parent="===GAMEPLAY========" unique_id=369867195]
 
 [node name="===CUTSCENE========" type="Node3D" parent="." unique_id=448226210]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
