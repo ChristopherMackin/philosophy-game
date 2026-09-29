@@ -1,28 +1,22 @@
 extends Node
 
 @export var blackboard : Blackboard
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		await Global.create_timer(.01)
+		get_tree().quit()
+
 var actors: Array[Actor]:
 	get():
 		if Engine.is_editor_hint(): _refresh_actor_list()
 		return actors
 
-var active_save_managers: Array[SaveSceneManager]
-
-func add_to_loading_list(manager: SaveSceneManager):
-	active_save_managers.append(manager)
-	get_tree().paused = true
-
-func remove_from_loading_list(manager: SaveSceneManager):
-	var index = active_save_managers.find(manager)
-	
-	if index <= -1: return
-	
-	active_save_managers.remove_at(index)
-	
-	if active_save_managers.size() <= 0: get_tree().paused = false
-
-func wait_for_seconds(seconds : float):
+func create_timer(seconds : float):
 	await get_tree().create_timer(seconds).timeout
+
+func process_frame():
+	await get_tree().process_frame
 
 func _enter_tree() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

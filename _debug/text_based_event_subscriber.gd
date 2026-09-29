@@ -27,7 +27,7 @@ signal skip
 var event_actions: Array[ActionLogActionType]
 var current_title: String
 
-func _ready():
+func _scene_added():
 	label.text = ""
 	dialogue_input_handler.on_handle_input.connect(_handle_input)
 
@@ -80,7 +80,7 @@ func display_dialogue(dp: DialoguePayload):
 	var continue_trigger: Callable
 	
 	if await_event && dp.await_input: continue_trigger = func(): await continue_dialogue
-	else: continue_trigger = func(): await Global.wait_for_seconds(dp.close_timer)
+	else: continue_trigger = func(): await Global.create_timer(dp.close_timer)
 	
 	await Util.await_any([
 		continue_trigger,
@@ -111,7 +111,7 @@ func start_timer(seconds: float):
 		ActionLogActionType.ActionType.TIMER
 	)
 	
-	await Global.wait_for_seconds(seconds)
+	await Global.create_timer(seconds)
 
 func _append_action_event(text: String, type: ActionLogActionType.ActionType):
 	event_actions.append(ActionLogActionType.new(

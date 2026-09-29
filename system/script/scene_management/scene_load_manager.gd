@@ -10,11 +10,13 @@ signal on_scene_load
 @export var blackboard: Blackboard
 @export var event_factory: EventFactory
 @export var scene_animator: AnimationPlayer
+@export var room_state_nodes: Array[StateNode]
 
 @export_group("Room State")
 @export var scene_loader_factory: SceneLoaderFactory
 
-func _ready():
+func _scene_added():
+	print("ADDED")
 	(func(): on_scene_enter.emit()).call_deferred()
 	if Engine.is_editor_hint(): return;
 	

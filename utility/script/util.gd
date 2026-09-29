@@ -151,3 +151,14 @@ static func get_unique_elements(arr: Array) -> Array:
 static func qfree(node: Node):
 	node.reparent(null)
 	node.queue_free()
+
+static func await_predicate(predicate: Callable):
+	var timeout = 2000
+	
+	if Global.get_tree().paused == true:
+		await Global.create_timer(0)
+	
+	while predicate.call() != true:
+		await Global.process_frame()
+		timeout -= 1
+		if timeout <= 0: return

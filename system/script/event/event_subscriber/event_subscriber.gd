@@ -42,7 +42,7 @@ signal _on_timer_canceled
 
 func start_timer(seconds: float):
 	await Util.await_any([
-		func(): await Global.wait_for_seconds(seconds),
+		func(): await Global.create_timer(seconds),
 		func(): await _on_timer_canceled
 	])
 

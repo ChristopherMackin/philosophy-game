@@ -29,6 +29,10 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="===MANAGER========" type="Node3D" parent="." unique_id=1947846897]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
+[node name="SaveManager" type="Node" parent="===MANAGER========" unique_id=1041070775]
+script = ExtResource("1_xgvwx")
+metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
+
 [node name="SceneLoadManager" type="Node" parent="===MANAGER========" unique_id=991142355 node_paths=PackedStringArray("scene_animator")]
 script = ExtResource("2_be1jf")
 event_manager = ExtResource("4_f2xca")
@@ -45,10 +49,6 @@ default_dialogue_area = NodePath("../../===UI========/SpeechBubble")
 input_manager = NodePath("../InputManager")
 dialogue_input_handler = ExtResource("6_ilpj6")
 manager = ExtResource("4_f2xca")
-
-[node name="SaveManager" type="Node" parent="===MANAGER========" unique_id=1041070775]
-script = ExtResource("1_xgvwx")
-metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
 
 [node name="SceneChangeManager" type="Node" parent="===MANAGER========" unique_id=1540382630]
 script = ExtResource("9_f2xca")

@@ -4,6 +4,10 @@ extends Node
 @export var node_list: Array[Node]
 @export var properties: Array[String] = []
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		save_state()
+
 func save_state():
 	for node in node_list:
 		_save_node_in_global_blackboard(node)
@@ -20,8 +24,6 @@ func _save_node_in_global_blackboard(node: Node):
 			dictionary[property] = node.get(property)
 	
 	Global.blackboard.add(node.get_path(), dictionary)
-	
-	print("Saved %s in global blackboard" % node.get_path())
 
 func _load_node_from_global_blackboard(node: Node):
 	if !Global.blackboard.has(node.get_path()): return
@@ -31,5 +33,3 @@ func _load_node_from_global_blackboard(node: Node):
 	for key in dictionary:
 		if key in node:
 			node.set(key, dictionary[key])
-	
-	print("Loaded %s from global blackboard" % node.get_path())

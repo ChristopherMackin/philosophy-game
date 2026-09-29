@@ -9,8 +9,11 @@ var canvas: CanvasLayer
 @export_global_file("*.tscn") var _scene_list: Array[String]
 var scene_list: Array[String]:
 	get: return _scene_list
-	
-func _ready():
+
+func _enter_tree() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
+func _ready() -> void:
 	var node = get_tree().current_scene
 	var scene_index = _scene_list.find_custom(func(x): return Util.get_file_name(x) == node.name)
 	loaded_scenes[scene_index] = [node]
@@ -25,6 +28,18 @@ func _ready():
 		node.reparent.call_deferred(canvas)
 	else:
 		node.reparent.call_deferred(self)
+	
+	await Util.await_predicate(func(): 
+		var parent = node.get_parent()
+		return parent == self or parent == canvas
+	)
+	
+	var added_nodes: Array[Node]
+	added_nodes.assign(Util.get_all_children(node) + [node])
+	added_nodes = added_nodes.filter(func(node: Node): return node.has_method("_scene_added"))
+	for n in added_nodes:
+		n._scene_added()
+
 
 func replace_scene_async(scene_name: String, transition: PackedScene = null) -> bool:
 	var scene_index = _scene_list.find_custom(func(x): return Util.get_file_name(x) == scene_name)
@@ -88,6 +103,17 @@ func instantiate_scene_by_index(scene_index: int):
 		canvas.add_child(instance)
 	else:
 		add_child(instance)
+	
+	await Util.await_predicate(func(): 
+		var parent = instance.get_parent()
+		return parent == self or parent == canvas
+	)
+	
+	var added_nodes: Array[Node]
+	added_nodes.assign(Util.get_all_children(instance) + [instance])
+	added_nodes = added_nodes.filter(func(node: Node): return node.has_method("_scene_added"))
+	for n in added_nodes:
+		n._scene_added()
 	
 	if !loaded_scenes.has(scene_index): loaded_scenes[scene_index] = []
 	loaded_scenes[scene_index].append(instance)

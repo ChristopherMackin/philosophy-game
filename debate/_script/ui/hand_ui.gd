@@ -107,7 +107,7 @@ func _add_card(card : Card):
 	
 	cards_ui.append(card_ui)
 	
-	await Global.wait_for_seconds(.175)
+	await Global.create_timer(.175)
 
 func _pop_card(card : Card) -> CardUi:
 	var matching = cards_ui.filter(func (card_ui): return card == card_ui.card)

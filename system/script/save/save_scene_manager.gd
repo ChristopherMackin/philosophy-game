@@ -7,16 +7,16 @@ class_name SaveSceneManager
 
 func _enter_tree():
 	process_mode = Node.PROCESS_MODE_ALWAYS
+
+func _ready():
 	load_data()
 
 func load_data():
-	Global.add_to_loading_list(self)
 	for data : SaveData in save_data_list:
 		if !SaveDataGlobalList.loaded_data.has(data.resource):
 			if data.should_load_data:
 				data.load_data()
 			SaveDataGlobalList.loaded_data.append(data.resource)
-	Global.remove_from_loading_list(self)
 
 func save_data():
 	for data : SaveData in save_data_list:
@@ -27,7 +27,3 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		if save_on_project_stop:
 			save_data()
-		
-		await Global.wait_for_seconds(.5)
-		
-		get_tree().quit()

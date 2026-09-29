@@ -17,7 +17,7 @@ func on_turn_end(contestant : Contestant):
 	if contestant == manager.player: return
 	self.visible = true
 	
-	await Global.wait_for_seconds(seconds_before_start)
+	await Global.create_timer(seconds_before_start)
 	
 	var cards: Array[Card]
 	cards.assign(manager.blackboard.get_flag_value(Flag.TURN_CARD_HISTORY))
@@ -39,7 +39,7 @@ func on_turn_end(contestant : Contestant):
 		var tuple = Tuple.new(slot, card_ui)
 		cards_slots.append(tuple)
 		
-		await Global.wait_for_seconds(.01)
+		await Global.create_timer(.01)
 		
 		tween = create_tween()
 		tween.set_ease(Tween.EASE_OUT)
@@ -52,7 +52,7 @@ func on_turn_end(contestant : Contestant):
 		await tween.finished
 		tween.kill()
 	
-	await Global.wait_for_seconds(seconds_before_close)
+	await Global.create_timer(seconds_before_close)
 	
 	for child in card_parent.get_children():
 		child.queue_free()

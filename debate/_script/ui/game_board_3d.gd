@@ -65,11 +65,11 @@ func _process_suit_track_queue():
 				callables.append(func():
 					var track = _token_tracks[index]
 					if track.remove_tokens(x[suit]):
-						await Global.wait_for_seconds(seconds_placement_delay)
+						await Global.create_timer(seconds_placement_delay)
 					if track.add_tokens(x[suit]):
-						await Global.wait_for_seconds(seconds_placement_delay)
+						await Global.create_timer(seconds_placement_delay)
 					if track.move_tokens(x[suit]):
-						await Global.wait_for_seconds(seconds_placement_delay)
+						await Global.create_timer(seconds_placement_delay)
 
 				)
 		

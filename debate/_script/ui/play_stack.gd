@@ -26,6 +26,6 @@ func on_turn_end(contestant: Contestant):
 	var callable = func():
 		for card in manager.blackboard.get_flag_value(Flag.TURN_CARD_HISTORY):
 			_add_card_to_play_stack(card)
-			await Global.wait_for_seconds(seconds_between_play)
+			await Global.create_timer(seconds_between_play)
 	
 	callable.call()
