@@ -33,6 +33,9 @@ enum {
 	
 	#System Flags
 	
+	#Outfit Flags
+	JOY_OUTFIT,
+	OPAL_OUTFIT,
 	
 }
 

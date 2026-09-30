@@ -3,5 +3,18 @@
 [ext_resource type="Script" uid="uid://c1eaebx4srk2s" path="res://system/script/blackboard/blackboard.gd" id="1_bw6ub"]
 [ext_resource type="Script" uid="uid://cxodlpgrmgtv7" path="res://system/script/blackboard/blackboard_entry.gd" id="1_q82c0"]
 
+[sub_resource type="Resource" id="Resource_6143p"]
+resource_name = "JOY_OUTFIT"
+script = ExtResource("1_q82c0")
+key = "JOY_OUTFIT"
+value = 1
+
+[sub_resource type="Resource" id="Resource_q82c0"]
+resource_name = "OPAL_OUTFIT"
+script = ExtResource("1_q82c0")
+key = "OPAL_OUTFIT"
+value = 1
+
 [resource]
 script = ExtResource("1_bw6ub")
+_entries = Array[ExtResource("1_q82c0")]([SubResource("Resource_6143p"), SubResource("Resource_q82c0")])
