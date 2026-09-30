@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bpxkmt2cdyvqw"]
+
+[ext_resource type="PackedScene" uid="uid://4fyxges65twa" path="res://character/character_body_3d.tscn" id="1_k3sew"]
+[ext_resource type="PackedScene" uid="uid://dnalajbqwpcg2" path="res://character/joy/act_joy.tscn" id="2_dhf01"]
+[ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/script/character_animation_tree.gd" id="3_eklor"]
+[ext_resource type="Script" uid="uid://btmrfolkq1aj5" path="res://character/script/interaction_area.gd" id="4_0rkyc"]
+[ext_resource type="Script" uid="uid://bguufro8u8mgp" path="res://system/script/save/state_node.gd" id="5_2tihb"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_20uup"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g2w6u"]
+animation = &"blink"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ntdmx"]
+filter_enabled = true
+filters = ["root/Skeleton3D:eye_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ghiyr"]
+animation = &"talk"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_3m87t"]
+filter_enabled = true
+filters = ["root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0cirr"]
+resource_local_to_scene = true
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ij15x"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_e8g7w"]
+resource_local_to_scene = true
+graph_offset = Vector2(-95.644844, -2.5126946)
+nodes/output/position = Vector2(910, 480)
+nodes/talk/node = SubResource("AnimationNodeAnimation_ghiyr")
+nodes/talk/position = Vector2(400, 770)
+nodes/talk_override/node = SubResource("AnimationNodeOneShot_3m87t")
+nodes/talk_override/position = Vector2(665.1798, 663.2404)
+nodes/blink_override/node = SubResource("AnimationNodeOneShot_ntdmx")
+nodes/blink_override/position = Vector2(480, 410)
+nodes/blink/node = SubResource("AnimationNodeAnimation_g2w6u")
+nodes/blink/position = Vector2(230, 610)
+nodes/walk/node = SubResource("AnimationNodeAnimation_0cirr")
+nodes/walk/position = Vector2(0, 280)
+nodes/walking/node = SubResource("AnimationNodeBlend2_ij15x")
+nodes/walking/position = Vector2(290, 120)
+nodes/animation/node = SubResource("AnimationNodeAnimation_20uup")
+nodes/animation/position = Vector2(40, 60)
+node_connections = [&"output", 0, &"talk_override", &"talk_override", 0, &"blink_override", &"talk_override", 1, &"talk", &"blink_override", 0, &"walking", &"blink_override", 1, &"blink", &"walking", 0, &"animation", &"walking", 1, &"walk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nd3xp"]
+size = Vector3(2, 3, 1.75)
+
+[node name="CBJoy" unique_id=948335993 node_paths=PackedStringArray("character_actor", "interaction_area", "character_animator") instance=ExtResource("1_k3sew")]
+collision_layer = 3
+character_actor = NodePath("JoyActor")
+interaction_area = NodePath("JoyActor/InteractionArea")
+character_animator = NodePath("JoyActor/CharacterAnimationTree")
+
+[node name="JoyActor" parent="." index="1" unique_id=2066360241 node_paths=PackedStringArray("character_animation_tree") instance=ExtResource("2_dhf01")]
+character_animation_tree = NodePath("CharacterAnimationTree")
+
+[node name="CharacterAnimationTree" type="AnimationTree" parent="JoyActor" index="7" unique_id=1926218777]
+root_node = NodePath("../Skeleton")
+tree_root = SubResource("AnimationNodeBlendTree_e8g7w")
+anim_player = NodePath("../AnimationPlayer")
+parameters/talk_override/active = false
+parameters/talk_override/internal_active = false
+parameters/talk_override/request = 0
+parameters/blink_override/active = false
+parameters/blink_override/internal_active = false
+parameters/blink_override/request = 0
+parameters/walking/blend_amount = 0.0
+script = ExtResource("3_eklor")
+metadata/_custom_type_script = "uid://2kn4432bu4u8"
+
+[node name="InteractionArea" type="Area3D" parent="JoyActor" index="8" unique_id=520608089]
+transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 0
+collision_mask = 16384
+monitorable = false
+script = ExtResource("4_0rkyc")
+metadata/_custom_type_script = "uid://btmrfolkq1aj5"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="JoyActor/InteractionArea" index="0" unique_id=1236569757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.625)
+shape = SubResource("BoxShape3D_nd3xp")
+
+[node name="StateNode" type="Node" parent="." index="2" unique_id=1855506803 node_paths=PackedStringArray("node_list")]
+script = ExtResource("5_2tihb")
+node_list = [null, null]
+properties = Array[String](["position", "rotation", "scale"])
+expiration_flags = 129
+
+[editable path="JoyActor"]
+[editable path="JoyActor/Skeleton"]
+[editable path="JoyActor/Outfit/JoyOutfit05a"]

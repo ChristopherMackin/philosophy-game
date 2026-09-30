@@ -9,6 +9,7 @@ script = ExtResource("3_q6b07")
 
 [sub_resource type="Resource" id="Resource_q6b07"]
 script = ExtResource("2_q6b07")
+outputs = Array[int]([1])
 inputs = Dictionary[String, Variant]({
 "actor": "joy",
 "await_close": true,
@@ -19,10 +20,22 @@ inputs = Dictionary[String, Variant]({
 })
 action = SubResource("Resource_x7ur8")
 
+[sub_resource type="Resource" id="Resource_ecubv"]
+script = ExtResource("2_q6b07")
+inputs = Dictionary[String, Variant]({
+"actor": "opal",
+"await_close": true,
+"await_input": true,
+"close_timer": 0.0,
+"talk": true,
+"text": "Don't say piss, it's a bad word"
+})
+action = SubResource("Resource_x7ur8")
+
 [resource]
 script = ExtResource("1_hppdf")
 await_event = true
 frequency = 2
 start_task = SubResource("Resource_q6b07")
-tasks = Array[ExtResource("2_q6b07")]([SubResource("Resource_q6b07")])
+tasks = Array[ExtResource("2_q6b07")]([SubResource("Resource_q6b07"), SubResource("Resource_ecubv")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

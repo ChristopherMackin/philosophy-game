@@ -1,3 +1,4 @@
+@tool
 extends CollisionObject3D
 
 class_name Interactable
@@ -5,6 +6,10 @@ class_name Interactable
 @export var event_factory: EventFactory
 @export var event_manager: EventManager
 @export var blackboard: Blackboard
+
+func _ready():
+	collision_layer = 1 << 14
+	collision_mask = 0
 
 func invoke():
 	var query : Dictionary

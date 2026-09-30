@@ -25,7 +25,6 @@ animation = &"walk"
 
 [resource]
 resource_local_to_scene = true
-graph_offset = Vector2(-95.644844, -2.5126946)
 nodes/output/position = Vector2(910, 480)
 nodes/talk/node = SubResource("AnimationNodeAnimation_ghiyr")
 nodes/talk/position = Vector2(400, 770)

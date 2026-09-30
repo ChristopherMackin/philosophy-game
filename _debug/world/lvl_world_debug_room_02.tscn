@@ -4,35 +4,29 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_fqgjv"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_k4mcj"]
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="4_dip4l"]
-[ext_resource type="Script" uid="uid://b5po407txa222" path="res://system/script/scene_management/scene_loader/rule_scene_loader.gd" id="5_kke1r"]
-[ext_resource type="Script" uid="uid://c5elbjqhjh60f" path="res://system/script/scene_management/scene_loader/resume_scene_loader.gd" id="6_snr0q"]
-[ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://system/script/scene_management/scene_change_trigger.gd" id="7_7ragd"]
-[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://system/script/scene_management/scene_change/scene_change_data.gd" id="8_lu5yt"]
-[ext_resource type="PackedScene" uid="uid://deqrvxx6rp2vl" path="res://scene_management/screen_transition/screen_wipe.tscn" id="9_6h0p2"]
-[ext_resource type="PackedScene" uid="uid://4fyxges65twa" path="res://character/character_body_3d.tscn" id="12_4npdf"]
-[ext_resource type="PackedScene" uid="uid://dnalajbqwpcg2" path="res://character/joy/act_joy.tscn" id="13_8pmcp"]
-[ext_resource type="AnimationNodeBlendTree" uid="uid://bhn3rrw3pkprn" path="res://debate/_general/animation/simple_character_animation_tree.tres" id="14_1ueg0"]
-[ext_resource type="Script" uid="uid://2kn4432bu4u8" path="res://character/script/character_animation_tree.gd" id="15_1bgu0"]
-[ext_resource type="Script" uid="uid://btmrfolkq1aj5" path="res://character/script/interaction_area.gd" id="16_50w3a"]
-[ext_resource type="Script" uid="uid://bguufro8u8mgp" path="res://system/script/save/state_node.gd" id="17_ar6x2"]
+[ext_resource type="Script" uid="uid://b5po407txa222" path="res://scene_management/_script/scene_loader/rule_scene_loader.gd" id="5_kke1r"]
+[ext_resource type="Script" uid="uid://bos07o5vwd6ow" path="res://scene_management/_script/scene_loader/animation_scene_loader.gd" id="6_j46gt"]
+[ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change_trigger.gd" id="7_7ragd"]
+[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="8_lu5yt"]
+[ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="9_j46gt"]
+[ext_resource type="PackedScene" uid="uid://bpxkmt2cdyvqw" path="res://player/cb_joy.tscn" id="10_xopwv"]
 
 [sub_resource type="Resource" id="Resource_taene"]
 script = ExtResource("3_k4mcj")
 
-[sub_resource type="Resource" id="Resource_ij15x"]
-script = ExtResource("6_snr0q")
-metadata/_custom_type_script = "uid://c5elbjqhjh60f"
+[sub_resource type="Resource" id="Resource_j46gt"]
+script = ExtResource("6_j46gt")
+metadata/_custom_type_script = "uid://bos07o5vwd6ow"
 
-[sub_resource type="Resource" id="Resource_m111g"]
-resource_name = "Reenter"
+[sub_resource type="Resource" id="Resource_50xxi"]
+resource_name = "New Resource"
 script = ExtResource("5_kke1r")
-scene_loader = SubResource("Resource_ij15x")
+scene_loader = SubResource("Resource_j46gt")
 
 [sub_resource type="Resource" id="Resource_ywuwv"]
 script = ExtResource("8_lu5yt")
-scene_name = "lvl_db_debug"
-transition = ExtResource("9_6h0p2")
-metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+scene_name = "lvl_world_debug_room_01"
+transition = ExtResource("9_j46gt")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8vrlf"]
 
@@ -64,9 +58,6 @@ ssil_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_4plkl"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lrl4d"]
-size = Vector3(2, 3, 1.75)
-
 [node name="WorldLevel" unique_id=1505589296 instance=ExtResource("1_7omaf")]
 
 [node name="MainCamera" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="0" unique_id=1922745435]
@@ -78,22 +69,27 @@ script = ExtResource("2_fqgjv")
 tween_resource = SubResource("Resource_taene")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355]
+[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355 node_paths=PackedStringArray("character_controller", "spawn_locations")]
 blackboard = ExtResource("4_dip4l")
-rule_scene_loaders = Array[ExtResource("5_kke1r")]([SubResource("Resource_m111g")])
+character_controller = NodePath("../../===ACTOR========/CBJoy")
+spawn_locations = [NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn01")]
+rule_scene_loaders = Array[ExtResource("5_kke1r")]([SubResource("Resource_50xxi")])
 
-[node name="ToLvlWorldDebugRoom02" type="Area3D" parent="===SCENE_CHANGE========/SceneChangeNodes" parent_id_path=PackedInt32Array(1210513985) index="0" unique_id=1077341022]
+[node name="Spawn01" type="Marker3D" parent="===SCENE_CHANGE========/SpawnLocations" parent_id_path=PackedInt32Array(369867195) index="0" unique_id=1742080452]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.615519, 4.7683716e-07, -2.0373435)
+
+[node name="ToLvlWorldDebugRoom01" type="Area3D" parent="===SCENE_CHANGE========/SceneChangeNodes" parent_id_path=PackedInt32Array(1210513985) index="0" unique_id=1077341022]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.659233, 0, -1.9624915)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("7_7ragd")
 scene_change_data = SubResource("Resource_ywuwv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldDebugRoom02" index="0" unique_id=125957780]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldDebugRoom01" index="0" unique_id=125957780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_8vrlf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldDebugRoom02" index="1" unique_id=1669387686]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldDebugRoom01" index="1" unique_id=1669387686]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("BoxMesh_1vivr")
 
@@ -106,55 +102,11 @@ environment = SubResource("Environment_uwtsd")
 [node name="WorldFloor" type="CollisionShape3D" parent="===ENVIRONMENT========/Collision" parent_id_path=PackedInt32Array(1817161414) index="0" unique_id=1861396383]
 shape = SubResource("WorldBoundaryShape3D_4plkl")
 
-[node name="CBJoy" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="0" unique_id=1395873028 node_paths=PackedStringArray("camera", "character_actor", "interaction_area", "character_animator") instance=ExtResource("12_4npdf")]
-transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 6.975757e-16, -6.975757e-16, -2)
-collision_layer = 3
+[node name="CBJoy" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="0" unique_id=948335993 node_paths=PackedStringArray("camera") instance=ExtResource("10_xopwv")]
 camera = NodePath("../../===CAMERA========/MainCamera")
-character_actor = NodePath("JoyActor")
-interaction_area = NodePath("JoyActor/InteractionArea")
-character_animator = NodePath("JoyActor/CharacterAnimationTree")
-move_speed = 1.4999999999999956
-
-[node name="JoyActor" parent="===ACTOR========/CBJoy" index="1" unique_id=2066360241 node_paths=PackedStringArray("character_animation_tree") instance=ExtResource("13_8pmcp")]
-character_animation_tree = NodePath("CharacterAnimationTree")
-
-[node name="CharacterAnimationTree" type="AnimationTree" parent="===ACTOR========/CBJoy/JoyActor" index="7" unique_id=1510977696]
-root_node = NodePath("../Skeleton")
-tree_root = ExtResource("14_1ueg0")
-anim_player = NodePath("../AnimationPlayer")
-parameters/talk_override/active = false
-parameters/talk_override/internal_active = false
-parameters/talk_override/request = 0
-parameters/blink_override/active = false
-parameters/blink_override/internal_active = false
-parameters/blink_override/request = 0
-parameters/walking/blend_amount = 0.0
-script = ExtResource("15_1bgu0")
-metadata/_custom_type_script = "uid://2kn4432bu4u8"
-
-[node name="InteractionArea" type="Area3D" parent="===ACTOR========/CBJoy/JoyActor" index="8" unique_id=181883179]
-transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 0, 0)
-collision_layer = 0
-collision_mask = 16384
-monitorable = false
-script = ExtResource("16_50w3a")
-metadata/_custom_type_script = "uid://btmrfolkq1aj5"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="===ACTOR========/CBJoy/JoyActor/InteractionArea" index="0" unique_id=1782300623]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.625)
-shape = SubResource("BoxShape3D_lrl4d")
-
-[node name="StateNode" type="Node" parent="===ACTOR========/CBJoy" index="2" unique_id=617921224 node_paths=PackedStringArray("node_list")]
-script = ExtResource("17_ar6x2")
-node_list = [NodePath(".."), NodePath("../JoyActor")]
-properties = Array[String](["position", "rotation", "scale"])
-expiration_flags = 129
 
 [node name="PortraitCamera" parent="===UI========/SpeechBubble/Portrait/SubViewport" parent_id_path=PackedInt32Array(264276467) index="0" unique_id=1879654437]
-transform = Transform3D(0.8785317, -3.48787e-16, -0.47768405, 1.3981044e-16, 1, -4.730304e-16, 0.47768405, 3.48787e-16, 0.8785317, -0.7875859, 1.561227, -0.34738922)
+transform = Transform3D(0.8785317, -3.48787e-16, -0.47768405, 1.3981044e-16, 1, -4.730304e-16, 0.47768405, 3.48787e-16, 0.8785317, -0.7875859, 1.561227, 1.6526108)
 fov = 40.0
 
-[editable path="===ACTOR========/CBJoy/JoyActor"]
-[editable path="===ACTOR========/CBJoy/JoyActor/Skeleton"]
-[editable path="===ACTOR========/CBJoy/JoyActor/Outfit/JoyOutfit05a"]
 [editable path="===UI========/SpeechBubble"]

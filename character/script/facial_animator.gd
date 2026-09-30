@@ -16,7 +16,11 @@ class_name FacialAnimator
 @export var mouth_selector_bone_name: String = "mouth_selector"
 
 @export_group("Skeleton")
-@export var skeleton : Skeleton3D
+@export var skeleton : Skeleton3D:
+	set(val):
+		Util.optional_disconnect(skeleton, "pose_updated", pose_updated)
+		skeleton = val
+		Util.optional_connect(skeleton, "pose_updated", pose_updated)
 
 func pose_updated():
 	update_eyes()

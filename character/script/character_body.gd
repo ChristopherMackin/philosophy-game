@@ -22,7 +22,7 @@ func _ready():
 
 func _process(delta):
 	if velocity.length() > 0.2:
-		character_actor.global_rotation.y = Vector3.BACK.signed_angle_to(velocity, Vector3.UP)
+		global_rotation.y = Vector3.BACK.signed_angle_to(velocity, Vector3.UP)
 	
 	for col_idx in get_slide_collision_count():
 		var col := get_slide_collision(col_idx)

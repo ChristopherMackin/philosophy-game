@@ -49,7 +49,7 @@ display_name = "Joy"
 
 [node name="Skeleton" parent="." index="0" unique_id=1298630328 instance=ExtResource("2_w153v")]
 
-[node name="Skeleton3D" parent="Skeleton/root" parent_id_path=PackedInt32Array(1298630328, 1608320947) index="0" unique_id=1149319305]
+[node name="Skeleton3D" parent="Skeleton/root" parent_id_path=PackedInt32Array(1298630328, 1085297764) index="0" unique_id=330718569]
 bones/1/position = Vector3(-6.204708e-09, 0.74698913, 0.035486706)
 bones/1/rotation = Quaternion(-0.014819603, -3.5441028e-06, 4.9936858e-08, 0.9998902)
 bones/2/position = Vector3(-1.6397709e-07, 0.2441591, -0.023716198)
@@ -278,6 +278,7 @@ bone_name = "head.x"
 bone_idx = 4
 
 [node name="Area3D" type="Area3D" parent="Skeleton/root/Skeleton3D/BoneAttachment3D" index="0" unique_id=1658382804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14109097, 4.656613e-10)
 collision_layer = 32768
 collision_mask = 0
 
@@ -290,7 +291,7 @@ script = ExtResource("4_f5idp")
 target = NodePath("../../Skeleton/root/Skeleton3D")
 modifiers = [NodePath("../../Skeleton/root/Skeleton3D/LookAtModifier3D")]
 
-[node name="Skeleton3D" parent="Outfit/JoyOutfit05a/root" parent_id_path=PackedInt32Array(19173196, 1404249919) index="0" unique_id=1175915308]
+[node name="Skeleton3D" parent="Outfit/JoyOutfit05a/root" parent_id_path=PackedInt32Array(19173196, 456097456) index="0" unique_id=922357986]
 bones/1/position = Vector3(-6.2047083e-09, 0.74698913, 0.035486706)
 bones/1/rotation = Quaternion(-0.014819603, -3.5441028e-06, 4.9936848e-08, 0.9998902)
 bones/2/position = Vector3(-1.6397708e-07, 0.2441591, -0.0237162)
@@ -501,11 +502,11 @@ bones/71/rotation = Quaternion(-4.8676796e-08, -1.1924875e-08, -6.8448004e-15, 1
 bones/72/position = Vector3(0.832857, 2.5755637, 0.023947142)
 bones/72/rotation = Quaternion(-7.9535695e-08, -8.742278e-08, -1.2080115e-15, 1)
 
-[node name="Joy_Base_Face" parent="Outfit/JoyOutfit05a/root/Skeleton3D" index="1" unique_id=171779869]
+[node name="Joy_Base_Face" parent="Outfit/JoyOutfit05a/root/Skeleton3D" index="1" unique_id=517453162]
 sorting_offset = 0.5
 instance_shader_parameters/uv_offset = Vector2(0, 0)
 
-[node name="Joy_Base_Mouth" parent="Outfit/JoyOutfit05a/root/Skeleton3D" index="2" unique_id=302325352]
+[node name="Joy_Base_Mouth" parent="Outfit/JoyOutfit05a/root/Skeleton3D" index="2" unique_id=1378670721]
 sorting_offset = 1.0
 instance_shader_parameters/uv_offset = Vector3(0, 0, 0)
 
@@ -527,8 +528,6 @@ exceptions = [NodePath("../Skeleton/root/Skeleton3D/BoneAttachment3D/Area3D")]
 
 [node name="CollisionShape3D" parent="PersonalBubble" index="0" unique_id=364469082]
 shape = SubResource("BoxShape3D_tyv4g")
-
-[connection signal="pose_updated" from="Skeleton/root/Skeleton3D" to="FacialAnimator" method="pose_updated"]
 
 [editable path="Skeleton"]
 [editable path="Outfit/JoyOutfit05a"]

@@ -679,14 +679,15 @@ _data = {
 &"talk": ExtResource("8_3rjep")
 }
 
-[node name="SimonActor" unique_id=292508824 node_paths=PackedStringArray("_look_at_modifier") instance=ExtResource("1_o0nhl")]
+[node name="SimonActor" unique_id=292508824 node_paths=PackedStringArray("_layer_mask", "_look_at_modifier") instance=ExtResource("1_o0nhl")]
+_layer_mask = NodePath("LayerMask")
 _look_at_modifier = NodePath("SimonSkin/root/Skeleton3D/LookAtModifier3D")
 actor_name = "simon"
 display_name = "Simon"
 
 [node name="SimonSkin" parent="." index="0" unique_id=439230908 instance=ExtResource("2_rvxgb")]
 
-[node name="Skeleton3D" parent="SimonSkin/root" parent_id_path=PackedInt32Array(439230908, 1335175329) index="0" unique_id=1854321962]
+[node name="Skeleton3D" parent="SimonSkin/root" parent_id_path=PackedInt32Array(439230908, 660206216) index="0" unique_id=8881382]
 bones/0/rotation = Quaternion(4.86768e-08, 8.74228e-08, 3.30012e-15, 1)
 bones/1/position = Vector3(1.93526e-10, 0.783266, -0.0011068298)
 bones/1/rotation = Quaternion(-4.86768e-08, -3.6637e-06, 1.9482801e-13, 1)
@@ -810,7 +811,7 @@ collision_mask = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54545e-05, 0.0239789, 0.227136)
 shape = SubResource("SphereShape3D_rvxgb")
 
-[node name="AnimationPlayer" parent="SimonSkin" index="1" unique_id=375826197]
+[node name="AnimationPlayer" parent="SimonSkin" index="1" unique_id=1255832826]
 libraries/ = SubResource("AnimationLibrary_uchn5")
 
 [node name="FacialAnimator" parent="." index="2" unique_id=2118967770 node_paths=PackedStringArray("skeleton")]
