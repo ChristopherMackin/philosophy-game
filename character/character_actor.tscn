@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://br5kxd06vsn3n" path="res://utility/script/set_layer_mask.gd" id="2_v5ghv"]
 [ext_resource type="Script" uid="uid://bj0ldo17kyup3" path="res://character/script/facial_animator.gd" id="3_mv020"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="7_5d15r"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_ayaed"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_m4kvb"]
 [ext_resource type="Resource" uid="uid://v2wiqt0q1qwn" path="res://character/portrait_camera_resource.tres" id="9_t8a6v"]
 [ext_resource type="Script" uid="uid://c8jtfyfmyewm1" path="res://_general/script/area_with_exceptions.gd" id="10_v5ghv"]
@@ -19,7 +20,6 @@ size = Vector3(2, 3, 1.75)
 [node name="AnimatedActor" type="Node3D" unique_id=1017530611 node_paths=PackedStringArray("_dialgoue_camera")]
 script = ExtResource("1_lrl4d")
 _dialgoue_camera = NodePath("DialogueCamera")
-is_blinking = false
 
 [node name="Outfit" type="Node3D" parent="." unique_id=216209769]
 
@@ -55,6 +55,19 @@ shape = SubResource("BoxShape3D_lrl4d")
 script = ExtResource("2_v5ghv")
 layers = 1
 metadata/_custom_type_script = "uid://br5kxd06vsn3n"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=654277568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 1.29199, 1.16291)
+top_level = true
+cull_mask = 524288
+fov = 40.0
+far = 10.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1530594877]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("8_ayaed")
+host_layers = 524288
 
 [connection signal="area_entered" from="PersonalBubble" to="PersonalBubble" method="_on_area_entered"]
 [connection signal="area_exited" from="PersonalBubble" to="PersonalBubble" method="_on_area_exited"]

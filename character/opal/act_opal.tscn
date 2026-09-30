@@ -14,7 +14,6 @@
 [ext_resource type="Animation" uid="uid://1okrfu2805mf" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_t1.res" id="10_t7n0b"]
 [ext_resource type="Animation" uid="uid://ccttc3yhafsjm" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_t2.res" id="11_fwl6l"]
 [ext_resource type="Animation" uid="uid://3aurwemgqadm" path="res://character/opal/animation/db_opal_02/anim_opal_db_opal_02_t3.res" id="12_b2adw"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="15_t7n0b"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oqe67"]
 radius = 0.2
@@ -774,23 +773,13 @@ libraries/ = SubResource("AnimationLibrary_5ewib")
 libraries/db_opal_02 = SubResource("AnimationLibrary_os5fy")
 
 [node name="DialogueCamera" parent="." index="4" unique_id=1887443005]
-transform = Transform3D(0.995206, 0, -0.09780103, 0, 1, 0, 0.09780103, 0, 0.995206, -0.09001381, 1.5808115, 1.8048546)
+transform = Transform3D(0.995206, 0, -0.09780103, 0, 1, 0, 0.09780103, 0, 0.995206, -0.15139088, 1.5614753, 1.7303497)
 
 [node name="PersonalBubble" parent="." index="5" unique_id=2003500690 node_paths=PackedStringArray("exceptions")]
 exceptions = [NodePath("../Skeleton/root/Skeleton3D/BoneAttachment3D/Area3D")]
 
-[node name="Camera3D" type="Camera3D" parent="." index="7" unique_id=697841360]
-transform = Transform3D(0.995206, 0, -0.09780103, 0, 1, 0, 0.09780103, 0, 0.995206, -0.09001381, 1.5808115, 1.8048546)
-top_level = true
-cull_mask = 524288
-fov = 40.0
-far = 10.0
-
-[node name="PhantomCameraHost" type="Node" parent="Camera3D" index="0" unique_id=1726200462]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("15_t7n0b")
-host_layers = 524288
+[node name="Camera3D" parent="." index="7" unique_id=654277568]
+transform = Transform3D(0.995206, 0, -0.09780103, 0, 1, 0, 0.09780103, 0, 0.995206, -0.15139088, 1.5614753, 1.7303497)
 
 [editable path="Skeleton"]
 [editable path="Outfit/OpalUnknown"]

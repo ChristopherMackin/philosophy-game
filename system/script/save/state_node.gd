@@ -12,10 +12,6 @@ func _validate_property(property: Dictionary) -> void:
 		property.hint = PROPERTY_HINT_FLAGS
 		property.hint_string = ",".join(Blackboard.ExpirationToken.keys()) # Automatically maps keys to checkboxes
 
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		save_state()
-
 func save_state():
 	for node in node_list:
 		_save_node_in_global_blackboard(node)

@@ -91,13 +91,13 @@ animation = &"talk"
 filter_enabled = true
 filters = ["root/Skeleton3D:mouth_selector"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0f4jg"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f11mw"]
 resource_local_to_scene = true
 animation = &"walk"
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ij15x"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uwtsd"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_q3tq5"]
 resource_local_to_scene = true
 graph_offset = Vector2(-95.644844, -2.5126946)
 nodes/output/position = Vector2(910, 480)
@@ -109,7 +109,7 @@ nodes/blink_override/node = SubResource("AnimationNodeOneShot_ntdmx")
 nodes/blink_override/position = Vector2(480, 410)
 nodes/blink/node = SubResource("AnimationNodeAnimation_g2w6u")
 nodes/blink/position = Vector2(230, 610)
-nodes/walk/node = SubResource("AnimationNodeAnimation_0f4jg")
+nodes/walk/node = SubResource("AnimationNodeAnimation_f11mw")
 nodes/walk/position = Vector2(0, 280)
 nodes/walking/node = SubResource("AnimationNodeBlend2_ij15x")
 nodes/walking/position = Vector2(290, 120)
@@ -181,10 +181,13 @@ camera = NodePath("../../===CAMERA========/MainCamera")
 blink_override = true
 
 [node name="CharacterAnimationTree" parent="===ACTOR========/CBJoy/JoyActor" index="7" unique_id=1926218777]
-tree_root = SubResource("AnimationNodeBlendTree_uwtsd")
+tree_root = SubResource("AnimationNodeBlendTree_q3tq5")
 parameters/blink_override/active = true
 parameters/blink_override/internal_active = true
 blink_override = true
+
+[node name="Camera3D" parent="===ACTOR========/CBJoy/JoyActor" index="9" unique_id=654277568]
+transform = Transform3D(0.5673399, -3.48787e-16, 0.8234837, 4.8510117e-16, 1, 8.933966e-17, -0.8234837, 3.48787e-16, 0.5673399, -2.3835483, 1.5614753, -0.801492)
 
 [node name="OpalActor" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="1" unique_id=1017530611 node_paths=PackedStringArray("character_animation_tree") instance=ExtResource("13_hp600")]
 transform = Transform3D(0.4840825, 0, 0.87502235, 0, 1, 0, -0.87502235, 0, 0.4840825, -3.824357, -3.308722e-24, -1.7715944)
@@ -829,6 +832,8 @@ blink_override = true
 metadata/_custom_type_script = "uid://2kn4432bu4u8"
 
 [node name="Area3D" type="Area3D" parent="===ACTOR========/OpalActor" index="8" unique_id=1581262701]
+collision_layer = 16384
+collision_mask = 0
 script = ExtResource("16_f11mw")
 event_factory = SubResource("Resource_1vivr")
 event_manager = ExtResource("19_ywuwv")
@@ -838,9 +843,12 @@ blackboard = ExtResource("8_nxm4p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_1vivr")
 
+[node name="Camera3D" parent="===ACTOR========/OpalActor" index="9" unique_id=654277568]
+transform = Transform3D(0.5673399, -3.48787e-16, 0.8234837, 4.8510117e-16, 1, 8.933966e-17, -0.8234837, 3.48787e-16, 0.5673399, -2.3835483, 1.5614753, -0.801492)
+
 [node name="PortraitCamera" parent="===UI========/SpeechBubble/Portrait/SubViewport" parent_id_path=PackedInt32Array(264276467) index="0" unique_id=1879654437]
 physics_interpolation_mode = 0
-transform = Transform3D(0.4840825, -3.48787e-16, 0.87502235, 4.7403807e-16, 1, 1.3635476e-16, -0.87502235, 3.48787e-16, 0.4840825, -2.8008747, 1.29199, -1.2193327)
+transform = Transform3D(0.5673399, -3.48787e-16, 0.8234837, 4.8510117e-16, 1, 8.933966e-17, -0.8234837, 3.48787e-16, 0.5673399, -2.3835483, 1.5614753, -0.801492)
 fov = 40.0
 
 [editable path="===ACTOR========/CBJoy"]

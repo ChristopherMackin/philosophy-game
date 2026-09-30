@@ -521,13 +521,16 @@ libraries/ = SubResource("AnimationLibrary_yj5q6")
 libraries/db_opal_02 = SubResource("AnimationLibrary_eslb0")
 
 [node name="DialogueCamera" parent="." index="4" unique_id=1887443005]
-transform = Transform3D(0.8785317, 0, -0.47768405, 0, 1, 0, 0.47768405, 0, 0.8785317, -0.7875859, 1.561227, 1.6526108)
+transform = Transform3D(0.994835, 0, -0.1015054, 0, 1, 0, 0.1015054, 0, 0.994835, -0.14638028, 1.5731384, 1.7510105)
 
 [node name="PersonalBubble" parent="." index="5" unique_id=2003500690 node_paths=PackedStringArray("exceptions")]
 exceptions = [NodePath("../Skeleton/root/Skeleton3D/BoneAttachment3D/Area3D")]
 
 [node name="CollisionShape3D" parent="PersonalBubble" index="0" unique_id=364469082]
 shape = SubResource("BoxShape3D_tyv4g")
+
+[node name="Camera3D" parent="." index="7" unique_id=654277568]
+transform = Transform3D(0.994835, 0, -0.1015054, 0, 1, 0, 0.1015054, 0, 0.994835, -0.14638028, 1.5731384, 1.7510105)
 
 [editable path="Skeleton"]
 [editable path="Outfit/JoyOutfit05a"]
