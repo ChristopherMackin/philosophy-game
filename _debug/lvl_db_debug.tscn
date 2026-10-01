@@ -84,8 +84,8 @@ btn_cancel = Callable()
 btn_event_factory = Callable()
 
 [node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="0" unique_id=4102704]
-blackboard = ExtResource("2_kjq1s")
 event_factory = SubResource("Resource_pncn6")
+blackboard = ExtResource("2_kjq1s")
 
 [node name="DebateInitiator" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="1" unique_id=267756503]
 blackboard = ExtResource("2_kjq1s")

@@ -176,6 +176,7 @@ shape = SubResource("WorldBoundaryShape3D_4plkl")
 [node name="CBJoy" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="0" unique_id=948335993 node_paths=PackedStringArray("camera") instance=ExtResource("12_f11mw")]
 transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, -0.39436162, 1.3595895e-16, -1.8981557)
 camera = NodePath("../../===CAMERA========/MainCamera")
+move_speed = 1.399999999999996
 
 [node name="JoyActor" parent="===ACTOR========/CBJoy" index="1" unique_id=2066360241]
 blink_override = true
@@ -194,7 +195,7 @@ transform = Transform3D(0.4840825, 0, 0.87502235, 0, 1, 0, -0.87502235, 0, 0.484
 character_animation_tree = NodePath("CharacterAnimationTree")
 blink_override = true
 
-[node name="Skeleton3D" parent="===ACTOR========/OpalActor/Skeleton/root" parent_id_path=PackedInt32Array(1017530611, 1276102160, 596109324) index="0" unique_id=674613312]
+[node name="Skeleton3D" parent="===ACTOR========/OpalActor/Skeleton/root" parent_id_path=PackedInt32Array(1017530611, 1276102160, 474036786) index="0" unique_id=13337235]
 bones/1/position = Vector3(0.036409702, 0.7437476, -0.0063761766)
 bones/1/rotation = Quaternion(0.032190412, 0.0047824592, 0.055966433, 0.99790215)
 bones/1/scale = Vector3(1, 0.99999994, 1)
@@ -402,7 +403,7 @@ bones/70/rotation = Quaternion(0, -7.54979e-08, -7.027804e-26, 1)
 [node name="BoneAttachment3D" parent="===ACTOR========/OpalActor/Skeleton/root/Skeleton3D" index="1" unique_id=1399141652]
 transform = Transform3D(0.9929452, -0.11854759, 0.0026071388, 0.118325315, 0.98917425, -0.086793214, 0.007710211, 0.086489365, 0.9962226, 0.023415241, 1.3734039, 0.00049683923)
 
-[node name="Skeleton3D" parent="===ACTOR========/OpalActor/Outfit/OpalUnknown/root" parent_id_path=PackedInt32Array(1017530611, 1527281418, 864844388) index="0" unique_id=526336037]
+[node name="Skeleton3D" parent="===ACTOR========/OpalActor/Outfit/OpalUnknown/root" parent_id_path=PackedInt32Array(1017530611, 1527281418, 1546218348) index="0" unique_id=1361117265]
 bones/1/position = Vector3(0.036409702, 0.7437476, -0.0063761766)
 bones/1/rotation = Quaternion(0.032190412, 0.0047824592, 0.055966433, 0.99790215)
 bones/1/scale = Vector3(1, 0.99999994, 1)
@@ -609,7 +610,7 @@ bones/70/position = Vector3(0.108688354, 0, 1.641149e-08)
 bones/70/rotation = Quaternion(-5.3058446e-33, -7.54979e-08, -4.00581e-40, 1)
 bones/70/scale = Vector3(1, 1, 1)
 
-[node name="Skeleton3D" parent="===ACTOR========/OpalActor/Outfit/OpalOutfit01/root" parent_id_path=PackedInt32Array(1017530611, 1166874626, 864844388) index="0" unique_id=526336037]
+[node name="Skeleton3D" parent="===ACTOR========/OpalActor/Outfit/OpalOutfit01/root" parent_id_path=PackedInt32Array(1017530611, 1166874626, 1546218348) index="0" unique_id=1361117265]
 bones/1/position = Vector3(0.036409702, 0.7437476, -0.0063761766)
 bones/1/rotation = Quaternion(0.032190412, 0.0047824592, 0.055966433, 0.99790215)
 bones/1/scale = Vector3(1, 0.99999994, 1)
