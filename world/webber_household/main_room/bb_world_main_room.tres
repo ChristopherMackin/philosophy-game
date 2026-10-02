@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Blackboard" format=3 uid="uid://bqt4iy0uptjvr"]
+
+[ext_resource type="Script" uid="uid://cxodlpgrmgtv7" path="res://system/script/blackboard/blackboard_entry.gd" id="1_7ull5"]
+[ext_resource type="Script" uid="uid://c1eaebx4srk2s" path="res://system/script/blackboard/blackboard.gd" id="2_54g5b"]
+
+[resource]
+script = ExtResource("2_54g5b")

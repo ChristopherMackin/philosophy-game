@@ -5,11 +5,11 @@ extends EditorScript
 func _run() -> void:
 	print("--- Starting Resource & Scene Generation ---")
 	
-	var world_name:= "apartment_complex/hallway"
+	var world_name:= "webber_household/samsons_room"
 	var split_name:= world_name.split("/", false)
 	var lvl_name := split_name[split_name.size() - 1]
 	
-	var output_dir:= "res://world/%s" % [world_name]
+	var output_dir:= "res://world/%s/" % [world_name]
 	var suffix:= "_world_%s" % [lvl_name]
 	
 	var base_scene_path: String = "res://world/base/lvl_world_base.tscn"
@@ -21,6 +21,8 @@ func _run() -> void:
 		"bb": {"resource_type": Blackboard, "initialize_function": bb_func},\
 		"ef": {"resource_type": BucketEventFactory, "initialize_function": ef_func}
 	}
+	
+	create_text_file("%srm%s.txt" % [output_dir, suffix])
 
 	if not ResourceLoader.exists(base_scene_path):
 		print("ERROR: Base scene not found at ", base_scene_path)
@@ -64,3 +66,14 @@ func _run() -> void:
 	print("--- Generation Complete! ---")
 	
 	EditorInterface.get_resource_filesystem().scan()
+
+func create_text_file(path: String, content: String = ""):
+	# Open the file in WRITE mode (creates the file if it doesn't exist)
+	var file = FileAccess.open(path, FileAccess.WRITE)
+	
+	if file:
+		file.store_string(content)
+		file.close() # Always close the file to save changes
+		print("File created successfully at: ", path)
+	else:
+		print("Failed to create file. Error code: ", FileAccess.get_open_error())
