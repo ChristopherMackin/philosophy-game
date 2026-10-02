@@ -35,6 +35,7 @@ enum {
 	
 	#Outfit Flags
 	JOY_OUTFIT,
+	JOY_OUTFIT_VARIANT,
 	OPAL_OUTFIT,
 	
 }

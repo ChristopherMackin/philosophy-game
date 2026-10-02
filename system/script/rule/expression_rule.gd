@@ -15,7 +15,14 @@ func check(query : Dictionary) -> bool:
 	
 	var _query_and_variables = variables.duplicate()
 	_query_and_variables.merge(query)
-	return evaluate(expression, _query_and_variables.keys(), _query_and_variables.values())
+	_query_and_variables.sort()
+	
+	var keys = _query_and_variables.keys()
+	var values = _query_and_variables.values()
+	keys.reverse()
+	values.reverse()
+	
+	return evaluate(expression, keys, values)
 
 func evaluate(command, variable_names = [], variable_values = []) -> bool:
 	var expression := Expression.new()
