@@ -52,7 +52,7 @@ func _update_modifiers():
 	modifiers = modifier_children
 
 func _pose_updated():
-	if !skeleton || !target: return
+	if !skeleton || !target || !visible: return
 	
 	for i in skeleton.get_bone_count():
 		

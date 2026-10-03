@@ -4,11 +4,16 @@ extends Node
 
 @export var rule: Rule
 @export_enum("Destroy", "Hide", "SetVisible") var mode: int
+@export var change_on_blackboard_update: bool = true
 
 func _ready() -> void:
-	Util.optional_connect(Global, "blackboard_updated", _set_state)
+	Util.optional_connect(Global, "blackboard_updated", _on_blackboard_updated)
 
 func _scene_added():
+	_set_state()
+
+func _on_blackboard_updated():
+	if !change_on_blackboard_update: return
 	_set_state()
 
 func _set_state():

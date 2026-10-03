@@ -7,7 +7,7 @@
 resource_name = "JOY_OUTFIT"
 script = ExtResource("1_q82c0")
 key = "JOY_OUTFIT"
-value = 2
+value = 1
 
 [sub_resource type="Resource" id="Resource_6143p"]
 resource_name = "JOY_OUTFIT_VARIANT"
@@ -21,6 +21,12 @@ script = ExtResource("1_q82c0")
 key = "JOY_IS_WORKING"
 value = false
 
+[sub_resource type="Resource" id="Resource_taooh"]
+resource_name = "OPAL_OUTFIT"
+script = ExtResource("1_q82c0")
+key = "OPAL_OUTFIT"
+value = 0
+
 [resource]
 script = ExtResource("1_bw6ub")
-_entries = Array[ExtResource("1_q82c0")]([SubResource("Resource_q82c0"), SubResource("Resource_6143p"), SubResource("Resource_fbd2e")])
+_entries = Array[ExtResource("1_q82c0")]([SubResource("Resource_q82c0"), SubResource("Resource_6143p"), SubResource("Resource_fbd2e"), SubResource("Resource_taooh")])
