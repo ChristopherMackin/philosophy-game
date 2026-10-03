@@ -16,11 +16,63 @@ inputs = Dictionary[String, Variant]({
 "await_input": true,
 "close_timer": 2.0,
 "talk": true,
-"text": "Piss sandwich"
+"text": "Why are you here?"
 })
 action = SubResource("Resource_x7ur8")
 
 [sub_resource type="Resource" id="Resource_ecubv"]
+script = ExtResource("2_q6b07")
+outputs = Array[int]([2])
+inputs = Dictionary[String, Variant]({
+"actor": "opal",
+"await_close": true,
+"await_input": false,
+"close_timer": 0.4,
+"talk": true,
+"text": "To test the ga"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_2wfp7"]
+script = ExtResource("2_q6b07")
+outputs = Array[int]([3])
+inputs = Dictionary[String, Variant]({
+"actor": "opal",
+"await_close": true,
+"await_input": true,
+"close_timer": 0.0,
+"talk": true,
+"text": "I mean... because I work here!"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_0h8xn"]
+script = ExtResource("2_q6b07")
+outputs = Array[int]([4])
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": true,
+"await_input": true,
+"close_timer": 0.0,
+"talk": true,
+"text": "In the void?.."
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_javyq"]
+script = ExtResource("2_q6b07")
+outputs = Array[int]([5])
+inputs = Dictionary[String, Variant]({
+"actor": "opal",
+"await_close": true,
+"await_input": true,
+"close_timer": 2.0,
+"talk": true,
+"text": "..."
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_x1sra"]
 script = ExtResource("2_q6b07")
 inputs = Dictionary[String, Variant]({
 "actor": "opal",
@@ -28,7 +80,7 @@ inputs = Dictionary[String, Variant]({
 "await_input": true,
 "close_timer": 0.0,
 "talk": true,
-"text": "Don't say piss, it's a bad word"
+"text": "Yes."
 })
 action = SubResource("Resource_x7ur8")
 
@@ -37,5 +89,5 @@ script = ExtResource("1_hppdf")
 await_event = true
 frequency = 2
 start_task = SubResource("Resource_q6b07")
-tasks = Array[ExtResource("2_q6b07")]([SubResource("Resource_q6b07"), SubResource("Resource_ecubv")])
+tasks = Array[ExtResource("2_q6b07")]([SubResource("Resource_q6b07"), SubResource("Resource_ecubv"), SubResource("Resource_2wfp7"), SubResource("Resource_0h8xn"), SubResource("Resource_javyq"), SubResource("Resource_x1sra")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

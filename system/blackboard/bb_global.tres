@@ -7,7 +7,7 @@
 resource_name = "JOY_OUTFIT"
 script = ExtResource("1_q82c0")
 key = "JOY_OUTFIT"
-value = 1
+value = 3
 
 [sub_resource type="Resource" id="Resource_6143p"]
 resource_name = "JOY_OUTFIT_VARIANT"

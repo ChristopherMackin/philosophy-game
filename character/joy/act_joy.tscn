@@ -465,6 +465,7 @@ transform = Transform3D(1, 0, -3.3881318e-21, 2.1175824e-22, 1.0000002, 3.725290
 shape = SubResource("SphereShape3D_4plkl")
 
 [node name="JoyOutfit01" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="0" unique_id=1351855814 node_paths=PackedStringArray("target") instance=ExtResource("3_jhrmp")]
+visible = false
 script = ExtResource("4_f5idp")
 target = NodePath("../../Skeleton/root/Skeleton3D")
 
@@ -935,7 +936,6 @@ mode = 2
 metadata/_custom_type_script = "uid://i1rx170t4865"
 
 [node name="JoyOutfit03" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="2" unique_id=1352365965 node_paths=PackedStringArray("target") instance=ExtResource("10_wp3m7")]
-visible = false
 script = ExtResource("4_f5idp")
 target = NodePath("../../Skeleton/root/Skeleton3D")
 
@@ -946,7 +946,7 @@ bones/2/position = Vector3(0.13033777, 0, 2.9802322e-08)
 bones/2/rotation = Quaternion(-3.0858896e-08, -7.54979e-08, 2.329782e-15, 1)
 bones/3/position = Vector3(0.70251924, 1.3903611, 0.023947198)
 bones/3/rotation = Quaternion(2.6519547e-07, -1.1924875e-08, 4.3892624e-14, 1)
-bones/4/position = Vector3(0.5122754, -0.31946826, 6.519258e-08)
+bones/4/position = Vector3(0.24701029, -0.05750513, 3.7252903e-08)
 bones/4/rotation = Quaternion(0.7071069, -5.3385072e-08, 5.3385072e-08, 0.70710665)
 bones/4/scale = Vector3(1, 0.99999994, 0.99999994)
 bones/5/position = Vector3(-6.2047083e-09, 0.74698913, 0.035486706)

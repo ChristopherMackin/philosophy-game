@@ -9,8 +9,8 @@ func _ready():
 		if not skeletons.is_empty():
 			skeleton = skeletons[0]
 	
-	_update_modifiers()
-	_pose_updated()
+	_update_modifiers.call_deferred()
+	_pose_updated.call_deferred()
 
 var skeleton: Skeleton3D:
 	get:
@@ -38,7 +38,7 @@ var modifiers: Array[SkeletonModifier3D]
 
 func _update_modifiers():
 	var modifier_children: Array[SkeletonModifier3D] 
-	modifier_children.assign(find_children("*", "SkeletonModifier3D", true, false))
+	modifier_children.assign(target.find_children("*", "SkeletonModifier3D", true, false))
 	
 	var added = Util.array_difference(modifier_children, modifiers)
 	var removed = Util.array_difference(modifiers, modifier_children)
