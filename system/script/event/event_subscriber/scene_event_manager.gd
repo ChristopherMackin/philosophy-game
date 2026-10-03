@@ -18,6 +18,7 @@ signal continue_dialogue
 signal skip
 
 func _ready():
+	if Engine.is_editor_hint(): return
 	_dialogue_setup()
 
 func _dialogue_setup():

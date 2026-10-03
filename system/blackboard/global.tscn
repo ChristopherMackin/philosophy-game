@@ -14,6 +14,7 @@ resource = ExtResource("2_d6xf5")
 metadata/_custom_type_script = "uid://dcyrmp3ja8f55"
 
 [node name="Global" type="Node" unique_id=881052229]
+process_mode = 3
 script = ExtResource("1_gve53")
 blackboard = ExtResource("2_d6xf5")
 

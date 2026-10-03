@@ -1,8 +1,20 @@
+@tool
 extends Node
 
-@export var blackboard : Blackboard
+@export var blackboard : Blackboard:
+	set(val):
+		Util.optional_disconnect(blackboard, "blackboard_updated", _on_blackboard_updated)
+		blackboard = val
+		Util.optional_connect(blackboard, "blackboard_updated", _on_blackboard_updated)
+
+
+signal blackboard_updated
+
+func _on_blackboard_updated():
+	blackboard_updated.emit()
 
 func _notification(what: int) -> void:
+	if Engine.is_editor_hint(): return
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		await Global.create_timer(.01)
 		get_tree().quit()
@@ -28,12 +40,16 @@ func _enter_tree() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _ready():
+	if Engine.is_editor_hint(): return
+	
 	get_tree().set_auto_accept_quit(false)
 	_refresh_actor_list()
 	Util.optional_connect(SceneManager, "on_scene_unloaded", _refresh_actor_list)
 	Util.optional_connect(SceneManager, "on_scene_loaded", _refresh_actor_list)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if Engine.is_editor_hint(): return
+	
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 

@@ -3,6 +3,8 @@ extends Resource
 
 class_name Blackboard
 
+signal blackboard_updated
+
 enum ExpirationToken {
 	ON_GAME_RESET = 1 << 0,
 	ON_DEBATE_START = 1 << 1,
@@ -17,6 +19,12 @@ enum ExpirationToken {
 @export var _entries : Array[BlackboardEntry]:
 	set(val):
 		_entries = Util.auto_populate_resource_array(_entries, val, BlackboardEntry, "New Entry")
+		for entry in _entries:
+			Util.optional_connect(entry, "entry_updated", _on_entry_updated)
+		blackboard_updated.emit()
+
+func _on_entry_updated():
+	blackboard_updated.emit()
 
 func has(key: String):
 	return _entries.map(func(x: BlackboardEntry): return x.key).has(key)
@@ -54,6 +62,7 @@ func add(key: String, value, expiration_flags: int = 0):
 		entry.key = key
 		entry.value = value
 		entry.expiration_flags = expiration_flags
+		entry.entry_updated.connect(_on_entry_updated)
 		_entries.append(entry)
 
 func erase(key: String):

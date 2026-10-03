@@ -9,11 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://b7kuqwvxyvnwq" path="res://_asset/character/joy/outfit/mod_joy_outfit_02.glb" id="5_rvu23"]
 [ext_resource type="Animation" uid="uid://dgq065bi8he28" path="res://character/joy/animation/anim_joy_blink.res" id="6_08ssm"]
 [ext_resource type="Script" uid="uid://i1rx170t4865" path="res://_debug/world/conditional_node.gd" id="6_eqm0y"]
+[ext_resource type="Script" uid="uid://76yu5gwmebt5" path="res://system/script/rule/flag_value_rule.gd" id="6_um5n6"]
 [ext_resource type="Animation" uid="uid://co14k1uqc4ui2" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_p1_idle_01.res" id="7_08ssm"]
 [ext_resource type="Animation" uid="uid://dm72blnj48nkj" path="res://character/joy/animation/anim_joy_talk.res" id="7_fejen"]
-[ext_resource type="Script" uid="uid://cgsr0p1sth0wy" path="res://system/script/rule/expression_rule.gd" id="7_um5n6"]
 [ext_resource type="Animation" uid="uid://da6p57j6xiqe1" path="res://character/joy/animation/anim_joy_walk.res" id="8_tyv4g"]
 [ext_resource type="Animation" uid="uid://bxmq145o1mf35" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_p2_idle_01.res" id="9_k5ugw"]
+[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/rule/rule.gd" id="9_qnx0m"]
+[ext_resource type="Script" uid="uid://csehxotj4ndvf" path="res://system/script/rule/multi_rule.gd" id="10_gg0c3"]
 [ext_resource type="Animation" uid="uid://drayr0x2drjhh" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_p3_idle_01.res" id="10_tyv4g"]
 [ext_resource type="Animation" uid="uid://cqif18vkugw0q" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_p4_idle_01.res" id="11_jhrmp"]
 [ext_resource type="Animation" uid="uid://by17b1gaiho5j" path="res://character/joy/animation/db_opal_02/anim_joy_db_opal_02_t1.res" id="12_rvu23"]
@@ -23,35 +25,83 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_4plkl"]
 radius = 0.2
 
-[sub_resource type="Resource" id="Resource_v5gy4"]
-resource_name = "RU: Exp: JOY_O"
-script = ExtResource("7_um5n6")
-expression = "JOY_OUTFIT == 1"
-metadata/_custom_type_script = "uid://cgsr0p1sth0wy"
+[sub_resource type="Resource" id="Resource_qnx0m"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("6_um5n6")
+flag = 26
+value = 1
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
 
-[sub_resource type="Resource" id="Resource_8vrlf"]
-resource_name = "RU: Exp: JOY_O"
-script = ExtResource("7_um5n6")
-expression = "JOY_OUTFIT_VARIANT == 1"
-metadata/_custom_type_script = "uid://cgsr0p1sth0wy"
+[sub_resource type="Resource" id="Resource_4u7sf"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("6_um5n6")
+flag = 28
+comparitor = 1
+value = true
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
 
-[sub_resource type="Resource" id="Resource_eqm0y"]
-resource_name = "RU: Exp: JOY_O"
-script = ExtResource("7_um5n6")
-expression = "JOY_OUTFIT_VARIANT == 0"
-metadata/_custom_type_script = "uid://cgsr0p1sth0wy"
+[sub_resource type="Resource" id="Resource_ep1ch"]
+resource_name = "RU: MultiRule"
+script = ExtResource("10_gg0c3")
+rules = Array[ExtResource("9_qnx0m")]([SubResource("Resource_qnx0m"), SubResource("Resource_4u7sf")])
+metadata/_custom_type_script = "uid://csehxotj4ndvf"
 
-[sub_resource type="Resource" id="Resource_1vivr"]
-resource_name = "RU: Exp: JOY_O"
-script = ExtResource("7_um5n6")
-expression = "JOY_OUTFIT == 2"
-metadata/_custom_type_script = "uid://cgsr0p1sth0wy"
+[sub_resource type="Resource" id="Resource_um5n6"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("6_um5n6")
+flag = 27
+value = 1
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
 
-[sub_resource type="Resource" id="Resource_qbdty"]
-resource_name = "RU: Exp: JOY_O"
-script = ExtResource("7_um5n6")
-expression = "JOY_OUTFIT == 5"
-metadata/_custom_type_script = "uid://cgsr0p1sth0wy"
+[sub_resource type="Resource" id="Resource_q82c0"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("6_um5n6")
+flag = 27
+comparitor = 1
+value = 1
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
+
+[sub_resource type="Resource" id="Resource_wp3m7"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("6_um5n6")
+flag = 26
+value = 2
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
+
+[sub_resource type="Resource" id="Resource_skuby"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("6_um5n6")
+flag = 28
+comparitor = 1
+value = true
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
+
+[sub_resource type="Resource" id="Resource_vrujp"]
+resource_name = "RU: MultiRule"
+script = ExtResource("10_gg0c3")
+rules = Array[ExtResource("9_qnx0m")]([SubResource("Resource_wp3m7"), SubResource("Resource_skuby")])
+metadata/_custom_type_script = "uid://csehxotj4ndvf"
+
+[sub_resource type="Resource" id="Resource_y5w20"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("6_um5n6")
+flag = 28
+value = true
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
+
+[sub_resource type="Resource" id="Resource_gg0c3"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("6_um5n6")
+flag = 26
+value = 5
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
+
+[sub_resource type="Resource" id="Resource_6143p"]
+resource_name = "RU: MultiRule"
+script = ExtResource("10_gg0c3")
+operation = 1
+rules = Array[ExtResource("9_qnx0m")]([SubResource("Resource_y5w20"), SubResource("Resource_gg0c3")])
+metadata/_custom_type_script = "uid://csehxotj4ndvf"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yj5q6"]
 _data = {
@@ -140,6 +190,7 @@ transform = Transform3D(1, 0, -3.3881318e-21, 2.1175824e-22, 1.0000002, 3.725290
 shape = SubResource("SphereShape3D_4plkl")
 
 [node name="JoyOutfit01" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="0" unique_id=1351855814 node_paths=PackedStringArray("target") instance=ExtResource("3_jhrmp")]
+visible = false
 script = ExtResource("4_f5idp")
 target = NodePath("../../Skeleton/root/Skeleton3D")
 
@@ -361,7 +412,7 @@ instance_shader_parameters/uv_offset = Vector3(0, 0, 0)
 
 [node name="ConditionalNode" type="Node" parent="Outfit/JoyOutfit01" index="1" unique_id=107531409]
 script = ExtResource("6_eqm0y")
-rule = SubResource("Resource_v5gy4")
+rule = SubResource("Resource_ep1ch")
 mode = 2
 metadata/_custom_type_script = "uid://i1rx170t4865"
 
@@ -585,25 +636,29 @@ instance_shader_parameters/uv_offset = Vector2(0, 0)
 [node name="Joy_Base_Mouth" parent="Outfit/JoyOutfit02/root/Skeleton3D" index="2" unique_id=1672372667]
 instance_shader_parameters/uv_offset = Vector3(0, 0, 0)
 
-[node name="ConditionalNode" type="Node" parent="Outfit/JoyOutfit02/root/Skeleton3D/Joy_Outfit_02_CollaredShirt" parent_id_path=PackedInt32Array(1427265525, 317540053) index="0" unique_id=386367307]
+[node name="Joy_Outfit_02_CollaredShirt" parent="Outfit/JoyOutfit02/root/Skeleton3D" index="8" unique_id=317540053]
+visible = false
+
+[node name="ConditionalNode" type="Node" parent="Outfit/JoyOutfit02/root/Skeleton3D/Joy_Outfit_02_CollaredShirt" index="0" unique_id=386367307]
 script = ExtResource("6_eqm0y")
-rule = SubResource("Resource_8vrlf")
+rule = SubResource("Resource_um5n6")
 mode = 2
 metadata/_custom_type_script = "uid://i1rx170t4865"
 
 [node name="ConditionalNode" type="Node" parent="Outfit/JoyOutfit02/root/Skeleton3D/Joy_Outfit_02_Waist" parent_id_path=PackedInt32Array(1427265525, 1366739218) index="0" unique_id=1535368639]
 script = ExtResource("6_eqm0y")
-rule = SubResource("Resource_eqm0y")
+rule = SubResource("Resource_q82c0")
 mode = 2
 metadata/_custom_type_script = "uid://i1rx170t4865"
 
 [node name="ConditionalNode" type="Node" parent="Outfit/JoyOutfit02" index="1" unique_id=2112238528]
 script = ExtResource("6_eqm0y")
-rule = SubResource("Resource_1vivr")
+rule = SubResource("Resource_vrujp")
 mode = 2
 metadata/_custom_type_script = "uid://i1rx170t4865"
 
 [node name="JoyOutfit05" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="2" unique_id=19173196 node_paths=PackedStringArray("target") instance=ExtResource("3_16udo")]
+visible = false
 script = ExtResource("4_f5idp")
 target = NodePath("../../Skeleton/root/Skeleton3D")
 
@@ -827,7 +882,7 @@ instance_shader_parameters/uv_offset = Vector3(0, 0, 0)
 
 [node name="ConditionalNode" type="Node" parent="Outfit/JoyOutfit05" index="1" unique_id=397238652]
 script = ExtResource("6_eqm0y")
-rule = SubResource("Resource_qbdty")
+rule = SubResource("Resource_6143p")
 mode = 2
 metadata/_custom_type_script = "uid://i1rx170t4865"
 

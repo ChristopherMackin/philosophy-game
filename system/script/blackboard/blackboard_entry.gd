@@ -1,13 +1,20 @@
 @tool
+class_name BlackboardEntry
 extends Resource
 
-class_name BlackboardEntry
+signal entry_updated
 
 @export var key: String:
 	set(val):
 		key = val
 		resource_name = key
-@export var value: Variant
+		entry_updated.emit()
+
+@export var value: Variant:
+	set(val):
+		value = val
+		entry_updated.emit()
+
 @export var expiration_flags: int = 0
 
 # This function builds the inspector interface dynamically
