@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bsyjcbotujpiy"]
+
+[ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_x8xql"]
+
+[node name="WorldLevel" instance=ExtResource("1_x8xql")]

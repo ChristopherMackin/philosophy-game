@@ -54,7 +54,7 @@ func _run() -> void:
 		else:
 			print("Failed to save %s resource" % key)
 	
-	var inherited_scene: PackedScene = create_inherited_scene(base_scene, ("lvl%" % suffix).to_pascal_case())
+	var inherited_scene: PackedScene = create_inherited_scene(base_scene, "LvlDbDebugBase")
 	
 	var scene_path: String = output_dir + "lvl" + suffix + ".tscn"
 	var save_err: Error = ResourceSaver.save(inherited_scene, scene_path)

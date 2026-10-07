@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="BucketEventFactory" format=3 uid="uid://c8c5rb6hhhxjm"]
-
-[ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="1_6gw4b"]
-[ext_resource type="Script" uid="uid://bkpc76nqmkxc2" path="res://system/script/event_factory/bucket_event_factory.gd" id="2_ii3kv"]
-
-[resource]
-script = ExtResource("2_ii3kv")
