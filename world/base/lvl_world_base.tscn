@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://4avsth0e8b0u" path="res://system/input/ih_player_movement.tres" id="5_ot6eh"]
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="5_t3rax"]
 [ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="6_ilpj6"]
+[ext_resource type="PackedScene" uid="uid://bpxkmt2cdyvqw" path="res://player/cb_joy.tscn" id="10_ilpj6"]
 [ext_resource type="Texture2D" uid="uid://td6xb5xantxy" path="res://_asset/_general/texture/dialogue_background.png" id="11_f2xca"]
 [ext_resource type="PackedScene" uid="uid://bgxyjg7p6d1iu" path="res://_general/packed_scene/simple_dynamic_speech_bubble.tscn" id="14_c3aa4"]
 
@@ -35,10 +36,11 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 script = ExtResource("1_xgvwx")
 metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
 
-[node name="SceneLoadManager" type="Node" parent="===MANAGER========" unique_id=991142355 node_paths=PackedStringArray("scene_animator")]
+[node name="SceneLoadManager" type="Node" parent="===MANAGER========" unique_id=991142355 node_paths=PackedStringArray("scene_animator", "character_controller")]
 script = ExtResource("2_be1jf")
 event_manager = ExtResource("4_f2xca")
 scene_animator = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationPlayer")
+character_controller = NodePath("../../===ACTOR========/CBJoy")
 
 [node name="InputManager" type="Node" parent="===MANAGER========" unique_id=535647948]
 script = ExtResource("2_8d011")
@@ -93,6 +95,9 @@ shape = SubResource("WorldBoundaryShape3D_1vivr")
 
 [node name="===ACTOR========" type="Node3D" parent="." unique_id=1646683861]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="CBJoy" parent="===ACTOR========" unique_id=948335993 node_paths=PackedStringArray("camera") instance=ExtResource("10_ilpj6")]
+camera = NodePath("../../===CAMERA========/MainCamera")
 
 [node name="===UI========" type="CanvasLayer" parent="." unique_id=1608434002]
 
@@ -165,10 +170,10 @@ render_target_update_mode = 4
 
 [node name="PortraitCamera" type="Camera3D" parent="===UI========/DialogueArea/Portrait/SubViewport" unique_id=1879654437]
 physics_interpolation_mode = 1
-transform = Transform3D(0.8785317, -3.48787e-16, -0.47768405, 1.3981044e-16, 1, -4.730304e-16, 0.47768405, 3.48787e-16, 0.8785317, -0.6272589, 1.5407988, 1.3577456)
+transform = Transform3D(0.994835, -3.48787e-16, -0.1015054, 3.1158176e-16, 1, -3.8238927e-16, 0.1015054, 3.48787e-16, 0.994835, -0.14638028, 1.5731384, 1.7510105)
 top_level = true
 cull_mask = 524288
-fov = 45.0
+fov = 40.0
 far = 10.0
 
 [node name="PortraitCamera" type="Node" parent="===UI========/DialogueArea/Portrait/SubViewport/PortraitCamera" unique_id=649575745]

@@ -27,12 +27,12 @@ func _scene_added():
 	(func(): on_scene_enter.emit()).call_deferred()
 	if Engine.is_editor_hint(): return;
 	
-	var scene_loader: SceneLoader 
+	var scene_loader: SceneLoader = DefaultSceneLoader.new()
 	
 	for rsl in rule_scene_loaders:
 		if !rsl.rule || rsl.rule.check(Global.blackboard.get_query()): scene_loader = rsl.scene_loader
 	
-	if scene_loader: scene_loader.set_scene_state(self)
+	scene_loader.set_scene_state(self)
 	
 	await query_event
 	

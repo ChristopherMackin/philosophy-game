@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change_trigger.gd" id="7_7ragd"]
 [ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="8_lu5yt"]
 [ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="9_j46gt"]
-[ext_resource type="PackedScene" uid="uid://bpxkmt2cdyvqw" path="res://player/cb_joy.tscn" id="10_xopwv"]
 
 [sub_resource type="Resource" id="Resource_taene"]
 script = ExtResource("3_k4mcj")
@@ -56,8 +55,6 @@ ssao_power = 2.46229
 ssao_sharpness = 1.0
 ssil_enabled = true
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_4plkl"]
-
 [node name="WorldLevel" unique_id=1505589296 instance=ExtResource("1_7omaf")]
 
 [node name="MainCamera" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="0" unique_id=1922745435]
@@ -69,9 +66,8 @@ script = ExtResource("2_fqgjv")
 tween_resource = SubResource("Resource_taene")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355 node_paths=PackedStringArray("character_controller", "spawn_locations")]
+[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355 node_paths=PackedStringArray("spawn_locations")]
 blackboard = ExtResource("4_dip4l")
-character_controller = NodePath("../../===ACTOR========/CBJoy")
 spawn_locations = [NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn01")]
 rule_scene_loaders = Array[ExtResource("5_kke1r")]([SubResource("Resource_50xxi")])
 
@@ -99,14 +95,4 @@ libraries/ = SubResource("AnimationLibrary_5d67s")
 [node name="WorldEnvironment" parent="===WORLD========" parent_id_path=PackedInt32Array(1848467908) index="0" unique_id=1940585086]
 environment = SubResource("Environment_uwtsd")
 
-[node name="WorldFloor" type="CollisionShape3D" parent="===ENVIRONMENT========/Collision" parent_id_path=PackedInt32Array(1817161414) index="0" unique_id=1861396383]
-shape = SubResource("WorldBoundaryShape3D_4plkl")
-
-[node name="CBJoy" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="0" unique_id=948335993 node_paths=PackedStringArray("camera") instance=ExtResource("10_xopwv")]
-camera = NodePath("../../===CAMERA========/MainCamera")
-
-[node name="PortraitCamera" parent="===UI========/SpeechBubble/Portrait/SubViewport" parent_id_path=PackedInt32Array(264276467) index="0" unique_id=1879654437]
-transform = Transform3D(0.8785317, -3.48787e-16, -0.47768405, 1.3981044e-16, 1, -4.730304e-16, 0.47768405, 3.48787e-16, 0.8785317, -0.7875859, 1.561227, 1.6526108)
-fov = 40.0
-
-[editable path="===UI========/SpeechBubble"]
+[editable path="===UI========/DialogueArea"]
