@@ -8,7 +8,7 @@ class_name Interactable
 @export var blackboard: Blackboard
 
 func _ready():
-	collision_layer = 1 << 14
+	collision_layer |= 1 << 14
 	collision_mask = 0
 
 func invoke():

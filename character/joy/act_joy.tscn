@@ -1640,7 +1640,7 @@ visible = false
 script = ExtResource("4_f5idp")
 target = NodePath("../../Skeleton/root/Skeleton3D")
 
-[node name="Skeleton3D" parent="Outfit/JoyOutfit06/root" parent_id_path=PackedInt32Array(582217168, 970420107) index="0" unique_id=1584054584]
+[node name="Skeleton3D" parent="Outfit/JoyOutfit06/root" parent_id_path=PackedInt32Array(582217168, 367060926) index="0" unique_id=1618236650]
 bones/1/position = Vector3(0.70251924, 2.5755637, 0.023947109)
 bones/1/rotation = Quaternion(-4.8676796e-08, -1.1924875e-08, -6.8448004e-15, 1)
 bones/2/position = Vector3(0.13033777, 0, 2.9802322e-08)
@@ -1851,10 +1851,10 @@ bones/72/position = Vector3(0, 5.9604645e-08, 0)
 bones/72/rotation = Quaternion(-1.1059431e-08, 0.00091999676, 1.0174643e-11, 0.9999996)
 bones/72/scale = Vector3(1, 1.0000002, 1)
 
-[node name="Joy_Base_Face" parent="Outfit/JoyOutfit06/root/Skeleton3D" index="1" unique_id=1254579107]
+[node name="Joy_Base_Face" parent="Outfit/JoyOutfit06/root/Skeleton3D" index="1" unique_id=1655872662]
 instance_shader_parameters/uv_offset = Vector2(0, 0)
 
-[node name="Joy_Base_Mouth" parent="Outfit/JoyOutfit06/root/Skeleton3D" index="2" unique_id=483557952]
+[node name="Joy_Base_Mouth" parent="Outfit/JoyOutfit06/root/Skeleton3D" index="2" unique_id=970689426]
 instance_shader_parameters/uv_offset = Vector3(0, 0, 0)
 
 [node name="ConditionalNode" type="Node" parent="Outfit/JoyOutfit06" index="1" unique_id=1672388614]
