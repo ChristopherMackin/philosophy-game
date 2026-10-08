@@ -1,5 +1,109 @@
 [gd_scene format=3 uid="uid://c8hyexi4t2cdh"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_e3djq"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_julmj"]
+[ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="2_kqxlv"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_e4xpx"]
+[ext_resource type="PackedScene" uid="uid://be76871vkp6ce" path="res://_asset/world/webber_household/joys_room/mod_env_world_joys_room.glb" id="3_rspw4"]
+[ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_lumdv"]
+[ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change_trigger.gd" id="5_bx7er"]
+[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="6_tpkmb"]
+[ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="7_6jg01"]
+[ext_resource type="Material" uid="uid://d2ecuh58bhjv3" path="res://_asset/_general/material/m_debug_transparent.tres" id="7_lumdv"]
+[ext_resource type="Material" uid="uid://dvgcswmnervl5" path="res://_asset/_general/material/m_stucco.tres" id="8_3o2n4"]
 
-[node name="WorldLevel" instance=ExtResource("1_e3djq")]
+[sub_resource type="Resource" id="Resource_3o2n4"]
+script = ExtResource("3_e4xpx")
+
+[sub_resource type="Resource" id="Resource_5lljs"]
+script = ExtResource("6_tpkmb")
+scene_name = "lvl_world_main_room"
+transition = ExtResource("7_6jg01")
+next_scene_spawn_index = 2
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vwf2h"]
+size = Vector3(1.955, 4, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lumdv"]
+size = Vector3(1, 4, 5.669)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3o2n4"]
+size = Vector3(1, 4, 5.669)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5yg7"]
+size = Vector3(5.412, 4, 1.107)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bx7er"]
+size = Vector3(3.616, 4, 1.107)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tpkmb"]
+size = Vector3(2.5146484, 0.46765137, 1.3881836)
+
+[node name="WorldLevel" unique_id=911094251 instance=ExtResource("1_e3djq")]
+
+[node name="MainCamera" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="0" unique_id=1922745435]
+transform = Transform3D(1, 0, 0, 0, 0.9427252, 0.3335704, 0, -0.3335704, 0.9427252, 2.5025125, 3.2252398, 9.141815)
+fov = 40.0
+far = 100.0
+
+[node name="PhantomCamera3D" type="Node3D" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="1" unique_id=786256083]
+transform = Transform3D(1, 0, 0, 0, 0.9427252, 0.3335704, 0, -0.3335704, 0.9427252, 2.5025125, 3.2252398, 9.141815)
+script = ExtResource("2_julmj")
+tween_resource = SubResource("Resource_3o2n4")
+tween_on_load = false
+camera_3d_resource = ExtResource("4_lumdv")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355 node_paths=PackedStringArray("spawn_locations")]
+spawn_locations = [NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn01")]
+
+[node name="Spawn01" type="Marker3D" parent="===SCENE_CHANGE========/SpawnLocations" parent_id_path=PackedInt32Array(369867195) index="0" unique_id=1192065279]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.9791778, 0, 3.7355137)
+
+[node name="ToLvlWorldMainRoom" type="Area3D" parent="===SCENE_CHANGE========/SceneChangeNodes" parent_id_path=PackedInt32Array(1210513985) index="0" unique_id=410182013]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_bx7er")
+scene_change_data = SubResource("Resource_5lljs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldMainRoom" index="0" unique_id=1641651681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90386724, 2, 5.206088)
+shape = SubResource("BoxShape3D_vwf2h")
+
+[node name="WorldEnvironment" parent="===WORLD========" parent_id_path=PackedInt32Array(1848467908) index="0" unique_id=1940585086]
+environment = ExtResource("2_kqxlv")
+
+[node name="mod_env_world_joys_room" parent="===ENVIRONMENT========/Model" parent_id_path=PackedInt32Array(1153107026) index="0" unique_id=520474782 instance=ExtResource("3_rspw4")]
+
+[node name="Door" parent="===ENVIRONMENT========/Model/mod_env_world_joys_room" index="1" unique_id=463425554]
+surface_material_override/0 = ExtResource("7_lumdv")
+
+[node name="DoorFrame" parent="===ENVIRONMENT========/Model/mod_env_world_joys_room" index="2" unique_id=643768603]
+surface_material_override/0 = ExtResource("7_lumdv")
+
+[node name="Floor" parent="===ENVIRONMENT========/Model/mod_env_world_joys_room" index="3" unique_id=1132841115]
+surface_material_override/0 = ExtResource("8_3o2n4")
+
+[node name="LeftWall" type="CollisionShape3D" parent="===ENVIRONMENT========/Collision" parent_id_path=PackedInt32Array(1817161414) index="0" unique_id=532824652]
+transform = Transform3D(1, 1.2165237e-31, 0, 1.2165237e-31, 1, 0, 0, 0, 1, -0.52, 2, 1.794)
+shape = SubResource("BoxShape3D_lumdv")
+
+[node name="RightWall" type="CollisionShape3D" parent="===ENVIRONMENT========/Collision" parent_id_path=PackedInt32Array(1817161414) index="1" unique_id=1764136013]
+transform = Transform3D(1, 1.2165237e-31, 0, 1.2165237e-31, 1, 0, 0, 0, 1, 5.579, 2, 1.794)
+shape = SubResource("BoxShape3D_3o2n4")
+
+[node name="BackWall" type="CollisionShape3D" parent="===ENVIRONMENT========/Collision" parent_id_path=PackedInt32Array(1817161414) index="2" unique_id=1578872655]
+transform = Transform3D(1, 1.2165237e-31, 0, 1.2165237e-31, 1, 0, 0, 0, 1, 2.493, 2, -0.487)
+shape = SubResource("BoxShape3D_r5yg7")
+
+[node name="ClosetWall" type="CollisionShape3D" parent="===ENVIRONMENT========/Collision" parent_id_path=PackedInt32Array(1817161414) index="3" unique_id=1589741814]
+transform = Transform3D(1, 1.2165237e-31, 0, 1.2165237e-31, 1, 0, 0, 0, 1, 3.6683757, 2, 4.9861927)
+shape = SubResource("BoxShape3D_bx7er")
+
+[node name="BedCollision" type="CollisionShape3D" parent="===ENVIRONMENT========/Collision" parent_id_path=PackedInt32Array(1817161414) index="4" unique_id=1752254083]
+transform = Transform3D(1, 1.2165237e-31, 0, 1.2165237e-31, 1, 0, 0, 0, 1, 3.7229376, 0.23382568, 0.721)
+shape = SubResource("BoxShape3D_tpkmb")
+
+[editable path="===ENVIRONMENT========/Model/mod_env_world_joys_room"]
+[editable path="===UI========/DialogueArea"]

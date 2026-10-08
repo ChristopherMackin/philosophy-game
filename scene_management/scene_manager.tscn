@@ -4,4 +4,4 @@
 
 [node name="SceneManager" type="Node" unique_id=1630296158]
 script = ExtResource("1_cdsrf")
-_scene_list = Array[String](["res://cutscene/cut_prelude.tscn", "res://_debug/world/lvl_world_debug_room_01.tscn", "res://_debug/world/lvl_world_debug_room_02.tscn", "res://debate/opal/db_02/lvl_db_opal_02.tscn", "res://_debug/lvl_db_debug.tscn", "res://world/webber_household/main_room/lvl_world_main_room.tscn"])
+_scene_list = Array[String](["res://cutscene/cut_prelude.tscn", "res://_debug/world/lvl_world_debug_room_01.tscn", "res://_debug/world/lvl_world_debug_room_02.tscn", "res://debate/opal/db_02/lvl_db_opal_02.tscn", "res://_debug/lvl_db_debug.tscn", "res://world/webber_household/main_room/lvl_world_main_room.tscn", "res://world/webber_household/joys_room/lvl_world_joys_room.tscn", "res://world/webber_household/samsons_room/lvl_world_samsons_room.tscn"])

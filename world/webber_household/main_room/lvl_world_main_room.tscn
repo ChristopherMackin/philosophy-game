@@ -1,11 +1,93 @@
 [gd_scene format=3 uid="uid://c8cjcrdcgcc7r"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_ccsgu"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_2b3v3"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_keswu"]
+[ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_keswu"]
+[ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change_trigger.gd" id="5_jbm42"]
+[ext_resource type="PackedScene" uid="uid://diji74lby6hok" path="res://_asset/world/webber_household/main_room/mod_env_world_main_room.glb" id="5_t4ukt"]
+[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="6_oehnn"]
+[ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="7_qegdh"]
+[ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="10_eiiqb"]
+
+[sub_resource type="Resource" id="Resource_7uyt4"]
+script = ExtResource("3_keswu")
+
+[sub_resource type="Resource" id="Resource_1vivr"]
+script = ExtResource("6_oehnn")
+scene_name = "lvl_world_samsons_room"
+transition = ExtResource("7_qegdh")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1vivr"]
+size = Vector3(1.4279785, 4, 1)
+
+[sub_resource type="Resource" id="Resource_jbm42"]
+script = ExtResource("6_oehnn")
+scene_name = "lvl_world_joys_room"
+transition = ExtResource("7_qegdh")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
 
 [node name="WorldLevel" unique_id=328679493 instance=ExtResource("1_ccsgu")]
 
-[node name="PortraitCamera" parent="===UI========/DialogueArea/Portrait/SubViewport" parent_id_path=PackedInt32Array(264276467) index="0" unique_id=1879654437]
-transform = Transform3D(0.994835, -3.48787e-16, -0.1015054, 3.1158176e-16, 1, -3.8238927e-16, 0.1015054, 3.48787e-16, 0.994835, -0.14638028, 1.5731384, 1.7510105)
+[node name="MainCamera" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="0" unique_id=1922745435]
+physics_interpolation_mode = 1
+transform = Transform3D(1, -1.8284002e-17, 4.977943e-17, 0, 0.9386839, 0.34477893, -5.3031092e-17, -0.34477893, 0.9386839, 2.0819986e-12, 3.23, 6.575)
 fov = 40.0
+far = 100.0
+
+[node name="PhantomCamera3D" type="Node3D" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="1" unique_id=430881177 node_paths=PackedStringArray("follow_target", "look_at_target")]
+transform = Transform3D(1, -1.8284002e-17, 4.977943e-17, 0, 0.9386839, 0.34477893, -5.3031092e-17, -0.34477893, 0.9386839, 2.0819986e-12, 3.23, 6.575)
+script = ExtResource("2_2b3v3")
+follow_mode = 6
+follow_target = NodePath("../../===ACTOR========/CBJoy")
+look_at_mode = 2
+look_at_target = NodePath("../../===ACTOR========/CBJoy")
+tween_resource = SubResource("Resource_7uyt4")
+tween_on_load = false
+camera_3d_resource = ExtResource("4_keswu")
+follow_offset = Vector3(0, 3.23, 5.575)
+look_at_offset = Vector3(0, 0.815, 0)
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355 node_paths=PackedStringArray("spawn_locations")]
+spawn_locations = [NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn01"), NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn02"), NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn03")]
+
+[node name="Spawn01" type="Marker3D" parent="===SCENE_CHANGE========/SpawnLocations" parent_id_path=PackedInt32Array(369867195) index="0" unique_id=1039219586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.481799, 0, 0.9659857)
+
+[node name="Spawn02" type="Marker3D" parent="===SCENE_CHANGE========/SpawnLocations" parent_id_path=PackedInt32Array(369867195) index="1" unique_id=500134743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.865705, 0, 3.9479408)
+
+[node name="Spawn03" type="Marker3D" parent="===SCENE_CHANGE========/SpawnLocations" parent_id_path=PackedInt32Array(369867195) index="2" unique_id=320609373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.865705, 0, 3.9479408)
+
+[node name="ToLvlWorldSamsonsRoom" type="Area3D" parent="===SCENE_CHANGE========/SceneChangeNodes" parent_id_path=PackedInt32Array(1210513985) index="0" unique_id=1675811197]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_jbm42")
+scene_change_data = SubResource("Resource_1vivr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldSamsonsRoom" index="0" unique_id=570225402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.773664, 0, 2.5730312)
+shape = SubResource("BoxShape3D_1vivr")
+
+[node name="ToLvlWorldJoysRoom" type="Area3D" parent="===SCENE_CHANGE========/SceneChangeNodes" parent_id_path=PackedInt32Array(1210513985) index="1" unique_id=1634008972]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_jbm42")
+scene_change_data = SubResource("Resource_jbm42")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldJoysRoom" index="0" unique_id=934564192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.75118, 0, 2.5730312)
+shape = SubResource("BoxShape3D_1vivr")
+
+[node name="WorldEnvironment" parent="===WORLD========" parent_id_path=PackedInt32Array(1848467908) index="0" unique_id=1940585086]
+environment = ExtResource("10_eiiqb")
+
+[node name="mod_env_world_main_room" parent="===ENVIRONMENT========/Model" parent_id_path=PackedInt32Array(1153107026) index="0" unique_id=1146796348 instance=ExtResource("5_t4ukt")]
 
 [editable path="===UI========/DialogueArea"]

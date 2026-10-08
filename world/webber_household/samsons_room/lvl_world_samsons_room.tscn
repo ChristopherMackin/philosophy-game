@@ -5,7 +5,9 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_nacv3"]
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_vbgxv"]
 [ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="10_gj0p4"]
+[ext_resource type="Material" uid="uid://dvgcswmnervl5" path="res://_asset/_general/material/m_stucco.tres" id="11_833kt"]
 [ext_resource type="PackedScene" uid="uid://db0xxjhf61623" path="res://_asset/world/webber_household/samsons_room/mod_env_world_samsons_room.glb" id="11_d2psw"]
+[ext_resource type="Material" uid="uid://denlclmvv4lmo" path="res://_asset/_general/material/m_cardboard.tres" id="12_gj0p4"]
 [ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change_trigger.gd" id="12_hl6u8"]
 [ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="13_msuer"]
 [ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="14_belr8"]
@@ -16,8 +18,9 @@ script = ExtResource("3_nacv3")
 
 [sub_resource type="Resource" id="Resource_1vivr"]
 script = ExtResource("13_msuer")
-scene_name = "lvl_world_debug_room_01"
+scene_name = "lvl_world_main_room"
 transition = ExtResource("14_belr8")
+next_scene_spawn_index = 1
 metadata/_custom_type_script = "uid://c12mfuwapm0ko"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v5gy4"]
@@ -54,7 +57,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 spawn_locations = [NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn01")]
 
 [node name="Spawn01" type="Marker3D" parent="===SCENE_CHANGE========/SpawnLocations" parent_id_path=PackedInt32Array(369867195) index="0" unique_id=949596269]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.1639905, 0, 3.8495731)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.1639905, 0, 3.814662)
 
 [node name="ToLvlWorldMainRoom" type="Area3D" parent="===SCENE_CHANGE========/SceneChangeNodes" parent_id_path=PackedInt32Array(1210513985) index="0" unique_id=1501008280]
 collision_layer = 0
@@ -63,7 +66,7 @@ script = ExtResource("12_hl6u8")
 scene_change_data = SubResource("Resource_1vivr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldMainRoom" index="0" unique_id=1171636324]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.135, 2, 4.497)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.135, 2, 5.2928634)
 shape = SubResource("BoxShape3D_v5gy4")
 
 [node name="WorldEnvironment" parent="===WORLD========" parent_id_path=PackedInt32Array(1848467908) index="0" unique_id=1940585086]
@@ -77,6 +80,14 @@ surface_material_override/0 = ExtResource("15_nacv3")
 
 [node name="DoorFrame" parent="===ENVIRONMENT========/Model/mod_env_world_samsons_room" index="2" unique_id=1962507180]
 surface_material_override/0 = ExtResource("15_nacv3")
+
+[node name="Floor" parent="===ENVIRONMENT========/Model/mod_env_world_samsons_room" index="3" unique_id=85027210]
+instance_shader_parameters/ColorParameter = Color(0.24350333, 0.23620662, 0.20472786, 1)
+surface_material_override/0 = ExtResource("11_833kt")
+
+[node name="Wall" parent="===ENVIRONMENT========/Model/mod_env_world_samsons_room" index="5" unique_id=1321617700]
+instance_shader_parameters/ColorParameter = Color(0.61964005, 0.42615664, 0.108416684, 1)
+surface_material_override/0 = ExtResource("12_gj0p4")
 
 [node name="LeftWall" type="CollisionShape3D" parent="===ENVIRONMENT========/Collision" parent_id_path=PackedInt32Array(1817161414) index="0" unique_id=680086237]
 transform = Transform3D(1, 1.2165237e-31, 0, 1.2165237e-31, 1, 0, 0, 0, 1, -0.52, 2, 1.794)

@@ -101,7 +101,6 @@ constant = Quaternion(0.5, 0.5, 0.5, 1)
 
 [resource]
 modes/depth_draw = 1
-modes/cull = 2
 flags/alpha_to_coverage = true
 nodes/fragment/0/position = Vector2(2110, 3250)
 nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_kdkbh")
