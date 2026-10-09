@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://cq52a8sicnr4y"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_4bvcc"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_32gc0"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="3_32gc0"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("3_32gc0")
+
+[sub_resource type="Resource" id="Resource_32gc0"]
+script = ExtResource("2_32gc0")
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": true,
+"await_input": true,
+"close_timer": 2.0,
+"talk": true,
+"text": "Wow... it's an oven..."
+})
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_4bvcc")
+frequency = 2
+start_task = SubResource("Resource_32gc0")
+tasks = Array[ExtResource("2_32gc0")]([SubResource("Resource_32gc0")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

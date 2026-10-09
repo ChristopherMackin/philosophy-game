@@ -30,7 +30,9 @@ func cancel_current_event():
 	current_event = null
 
 func start_event(event : Event, blackboard: Blackboard):
-	if !event: return
+	if !event ||\
+	current_event == event ||\
+	event_queue.array.find_custom(func(x): x.val1 = event) != -1: return
 	
 	var callable: Callable = func():
 		if event.await_queue:
@@ -68,7 +70,7 @@ func start_event(event : Event, blackboard: Blackboard):
 	if event.await_event:
 		await callable.call()
 	else:
-		return
+		callable.call()
 
 func _start_event(event: Event):
 	for sub : EventSubscriber in subscribers: await sub._start_event(event)
