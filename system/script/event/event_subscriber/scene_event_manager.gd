@@ -4,7 +4,8 @@ extends EventSubscriber
 class_name SceneEventManager
 
 @export var scene_animator_handler: AnimationHandler
-var actors: Array[Actor]
+var actors: Array[Actor]:
+	get(): return actors.filter(func(x): return x)
 
 @export var default_dialogue_area: DialogueArea
 

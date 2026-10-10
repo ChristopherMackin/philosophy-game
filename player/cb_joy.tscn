@@ -52,7 +52,7 @@ node_connections = [&"output", 0, &"talk_override", &"talk_override", 0, &"blink
 [sub_resource type="BoxShape3D" id="BoxShape3D_nd3xp"]
 size = Vector3(2, 3, 1.75)
 
-[node name="CBJoy" unique_id=948335993 node_paths=PackedStringArray("character_actor", "interaction_area", "character_animator") instance=ExtResource("1_k3sew")]
+[node name="CbJoy" unique_id=948335993 node_paths=PackedStringArray("character_actor", "interaction_area", "character_animator") instance=ExtResource("1_k3sew")]
 collision_layer = 3
 character_actor = NodePath("JoyActor")
 interaction_area = NodePath("JoyActor/InteractionArea")
@@ -60,6 +60,41 @@ character_animator = NodePath("JoyActor/CharacterAnimationTree")
 
 [node name="JoyActor" parent="." index="1" unique_id=2066360241 node_paths=PackedStringArray("character_animation_tree") instance=ExtResource("2_dhf01")]
 character_animation_tree = NodePath("CharacterAnimationTree")
+
+[node name="Skeleton3D" parent="JoyActor/Skeleton/root" parent_id_path=PackedInt32Array(2066360241, 1298630328, 989563722) index="0" unique_id=1740231935]
+bones/4/position = Vector3(0.13033777, 3.1382633e-08, 1.9676946e-08)
+bones/4/rotation = Quaternion(7.2326923e-34, -7.54979e-08, 3.4278365e-21, 1)
+bones/7/rotation = Quaternion(0.1331312, -1.6940657e-21, -3.2835577e-21, 0.9910984)
+bones/29/rotation = Quaternion(-0.012557805, -0.0009200043, 0.07306968, 0.99724734)
+bones/30/rotation = Quaternion(-0.07225581, 0.0019594084, -0.0054421425, 0.99736935)
+bones/31/rotation = Quaternion(-0.22415462, 0.018251449, -0.026424216, 0.9740243)
+bones/40/rotation = Quaternion(-6.456143e-08, -0.05908831, -6.978218e-08, 0.99825275)
+bones/53/rotation = Quaternion(-0.27426317, -0.008139465, 0.00507895, 0.96160686)
+bones/64/rotation = Quaternion(-1.1467175e-07, 0.9882835, 0.15262946, 1.0306827e-06)
+
+[node name="BoneAttachment3D" parent="JoyActor/Skeleton/root/Skeleton3D" index="1" unique_id=2081685280]
+transform = Transform3D(1, -9.515447e-16, 4.264615e-14, 2.8002147e-15, 0.99905884, -0.04337004, -4.2564744e-14, 0.043370068, 0.9990588, -2.7977586e-14, 1.3171011, 0.04480924)
+
+[node name="Skeleton3D" parent="JoyActor/Outfit/JoyOutfit03/root" parent_id_path=PackedInt32Array(2066360241, 1352365965, 1862548456) index="0" unique_id=1146261593]
+bones/4/position = Vector3(0.13033777, 0, 2.0489097e-08)
+bones/4/rotation = Quaternion(2.5579684e-28, -7.54979e-08, 3.3881318e-21, 1)
+bones/4/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(0.13313124, -4.4947162e-13, 7.051613e-14, 0.9910984)
+bones/8/position = Vector3(1.6792515e-15, 0.08635616, 0)
+bones/8/rotation = Quaternion(-0.13805869, 2.118468e-14, -2.4726234e-15, 0.99042404)
+bones/9/rotation = Quaternion(1.4901161e-08, 1.4199498e-29, -1.0587912e-21, 1)
+bones/10/rotation = Quaternion(1.4901161e-08, 1.4199498e-29, -1.0587912e-21, 1)
+bones/29/rotation = Quaternion(-0.012557803, -0.0009199929, 0.07306968, 0.99724734)
+bones/29/scale = Vector3(0.9999998, 1.0000002, 1.0000001)
+bones/30/position = Vector3(1.4901161e-08, 0.083144546, -8.940697e-08)
+bones/30/rotation = Quaternion(-0.072255805, 0.001959457, -0.0054421537, 0.99736935)
+bones/30/scale = Vector3(1.0000001, 0.9999997, 0.99999976)
+bones/31/position = Vector3(7.450581e-09, 0.036394536, -2.9802322e-08)
+bones/31/rotation = Quaternion(-0.22415465, 0.018251449, -0.026424222, 0.9740243)
+bones/31/scale = Vector3(1.0000002, 0.9999998, 0.9999999)
+bones/32/position = Vector3(1.4901161e-08, 0.033680856, 5.2154064e-08)
+bones/32/rotation = Quaternion(-0.15083477, 0.006077802, 0.0030278212, 0.98853564)
+bones/32/scale = Vector3(0.99999994, 0.99999994, 1.0000001)
 
 [node name="CharacterAnimationTree" type="AnimationTree" parent="JoyActor" index="7" unique_id=1926218777]
 root_node = NodePath("../Skeleton")
@@ -87,6 +122,9 @@ metadata/_custom_type_script = "uid://btmrfolkq1aj5"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.625)
 shape = SubResource("BoxShape3D_nd3xp")
 
+[node name="Camera3D" parent="JoyActor" index="9" unique_id=654277568]
+physics_interpolation_mode = 1
+
 [node name="StateNode" type="Node" parent="." index="2" unique_id=1855506803 node_paths=PackedStringArray("node_list")]
 script = ExtResource("5_2tihb")
 node_list = [null, null]
@@ -95,4 +133,9 @@ expiration_flags = 129
 
 [editable path="JoyActor"]
 [editable path="JoyActor/Skeleton"]
-[editable path="JoyActor/Outfit/JoyOutfit05a"]
+[editable path="JoyActor/Outfit/JoyOutfit01"]
+[editable path="JoyActor/Outfit/JoyOutfit02"]
+[editable path="JoyActor/Outfit/JoyOutfit03"]
+[editable path="JoyActor/Outfit/JoyOutfit04"]
+[editable path="JoyActor/Outfit/JoyOutfit05"]
+[editable path="JoyActor/Outfit/JoyOutfit06"]

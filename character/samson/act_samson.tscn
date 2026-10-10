@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bw7ddkhtncrrr"]
+
+[ext_resource type="PackedScene" uid="uid://ncpnghqpw8tc" path="res://character/character_actor.tscn" id="1_pwg8x"]
+[ext_resource type="Texture2D" uid="uid://gph2bdx07vrf" path="res://_asset/character/samson/t_samson_concept.jpg" id="2_0vbsp"]
+
+[node name="SamsonActor" unique_id=1017530611 node_paths=PackedStringArray("_layer_mask") instance=ExtResource("1_pwg8x")]
+_layer_mask = NodePath("LayerMask")
+actor_name = "samson"
+display_name = "Samson"
+
+[node name="Concept" type="Sprite3D" parent="." index="0" unique_id=1283385051]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97165537, 0)
+pixel_size = 0.00085
+billboard = 2
+texture = ExtResource("2_0vbsp")
+
+[node name="DialogueCamera" parent="." index="4" unique_id=1887443005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 1.6233592, 2.2362573)
+
+[node name="Camera3D" parent="." index="7" unique_id=654277568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122085, 1.6233592, 2.2362573)

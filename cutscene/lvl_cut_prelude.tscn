@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://dp5ktcf5rd31l"]
 
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://scene_management/_script/scene_change/scene_change_node.gd" id="1_vumy4"]
+[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="2_013v0"]
 [ext_resource type="AudioStream" uid="uid://brspvy678a3sh" path="res://_asset/sfx/static.mp3" id="2_g4mq0"]
 [ext_resource type="Shader" uid="uid://capxcs54yhxwx" path="res://_general/style/tv_static.gdshader" id="2_vpb4t"]
 [ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://_general/style/default_theme.tres" id="3_s4d3p"]
 [ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://_asset/cutscene/name_background.png" id="6_013v0"]
 [ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://_general/script/ui/scrolling-text.gd" id="7_m0ppm"]
+
+[sub_resource type="Resource" id="Resource_oo0mk"]
+script = ExtResource("2_013v0")
+scene_name = "lvl_world_samsons_room"
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
 
 [sub_resource type="Animation" id="Animation_x84ys"]
 length = 0.001
@@ -127,7 +133,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("===MANAGER========/ToLvlDebug")
+tracks/5/path = NodePath("===MANAGER========/ToLvlSamsonsBedroom")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -135,7 +141,7 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"progress"
+"method": &"transition_scene"
 }]
 }
 
@@ -154,8 +160,9 @@ script = ExtResource("1_vumy4")
 
 [node name="===MANAGER========" type="Node3D" parent="." unique_id=82324019]
 
-[node name="ToLvlDebug" type="Node" parent="===MANAGER========" unique_id=25660253]
+[node name="ToLvlSamsonsBedroom" type="Node" parent="===MANAGER========" unique_id=25660253]
 script = ExtResource("1_vumy4")
+scene_change_data = SubResource("Resource_oo0mk")
 metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
 
 [node name="===CUTSCENE========" type="Node3D" parent="." unique_id=1293818364]

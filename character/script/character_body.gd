@@ -31,7 +31,7 @@ func _process(delta):
 			col.get_collider().apply_impulse(-col.get_normal() * 0.01, col.get_position())
 	
 	var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)
-	character_animator.set("parameters/walking/blend_amount", clamp(horizontal_velocity.length(), 0, 1))
+	if character_animator: character_animator.set("parameters/walking/blend_amount", clamp(horizontal_velocity.length(), 0, 1))
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -49,6 +49,8 @@ func handle_input(delta, input):
 	handle_interaction(delta, input)
 
 func handle_movement(delta, input):
+	if process_mode == Node.PROCESS_MODE_DISABLED: return
+	
 	var direction: Vector3
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

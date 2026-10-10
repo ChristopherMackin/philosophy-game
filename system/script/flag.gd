@@ -31,14 +31,14 @@ enum {
 	ACTION_BANISHED_CARDS,
 	ACTION_ADDED_CARD_STATUS_EFFECT,
 	
-	#System Flags
-	
 	#Outfit Flags
 	JOY_OUTFIT,
 	JOY_OUTFIT_VARIANT,
 	JOY_IS_WORKING,
 	OPAL_OUTFIT,
 	
+	#System Flags
+	STORY_PROGRESS,
 }
 
 enum Flag{
@@ -71,14 +71,15 @@ enum Flag{
 	ACTION_BANISHED_CARDS,
 	ACTION_ADDED_CARD_STATUS_EFFECT,
 	
-	#System Flags
-	
 	#Outfit Flags
 	JOY_OUTFIT,
 	JOY_OUTFIT_VARIANT,
 	JOY_IS_WORKING,
 	OPAL_OUTFIT,
 	
+	#System Flags
+	STORY_PROGRESS,
+
 }
 
 static func get_all_names() -> Array[String]:

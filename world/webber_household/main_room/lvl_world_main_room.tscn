@@ -16,9 +16,32 @@
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="11_8k61f"]
 [ext_resource type="Material" uid="uid://dvgcswmnervl5" path="res://_asset/_general/material/m_stucco.tres" id="11_eiiqb"]
 [ext_resource type="Resource" uid="uid://cq52a8sicnr4y" path="res://world/webber_household/main_room/event/ev_lvl_world_main_room_inspect_oven_01.tres" id="12_65tbs"]
+[ext_resource type="PackedScene" uid="uid://clwowgg135cqd" path="res://player/cb_samson.tscn" id="17_8k61f"]
+[ext_resource type="Script" uid="uid://i1rx170t4865" path="res://_debug/world/conditional_node.gd" id="18_qr2va"]
+[ext_resource type="Script" uid="uid://76yu5gwmebt5" path="res://system/script/rule/flag_value_rule.gd" id="19_bnm5v"]
 
 [sub_resource type="Resource" id="Resource_7uyt4"]
 script = ExtResource("3_keswu")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_qr2va"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("19_bnm5v")
+flag = 30
+comparitor = 1
+value = 0
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
+
+[sub_resource type="Resource" id="Resource_8k61f"]
+script = ExtResource("3_keswu")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_u87o0"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("19_bnm5v")
+flag = 30
+value = 0
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
 
 [sub_resource type="Resource" id="Resource_1vivr"]
 script = ExtResource("6_oehnn")
@@ -34,13 +57,6 @@ script = ExtResource("6_oehnn")
 scene_name = "lvl_world_joys_room"
 transition = ExtResource("7_qegdh")
 metadata/_custom_type_script = "uid://c12mfuwapm0ko"
-
-[sub_resource type="Resource" id="Resource_temt8"]
-script = ExtResource("10_isc0q")
-event = ExtResource("12_65tbs")
-metadata/_custom_type_script = "uid://dbvysemw11ei8"
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_auskg"]
 
 [sub_resource type="Resource" id="Resource_th5gm"]
 script = ExtResource("10_isc0q")
@@ -58,6 +74,21 @@ size = Vector3(26.813599, 4, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_v5gy4"]
 size = Vector3(1.5039063, 4, 1)
 
+[sub_resource type="Resource" id="Resource_nnye5"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("19_bnm5v")
+flag = 30
+comparitor = 1
+value = 0
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
+
+[sub_resource type="Resource" id="Resource_bnm5v"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("19_bnm5v")
+flag = 30
+value = 0
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
+
 [node name="WorldLevel" unique_id=328679493 instance=ExtResource("1_ccsgu")]
 
 [node name="MainCamera" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="0" unique_id=1922745435]
@@ -66,7 +97,8 @@ transform = Transform3D(1, -1.8284002e-17, 4.977943e-17, 0, 0.9386839, 0.3447789
 fov = 40.0
 far = 100.0
 
-[node name="PhantomCamera3D" type="Node3D" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="1" unique_id=430881177 node_paths=PackedStringArray("follow_target", "look_at_target")]
+[node name="JoyThirdPerson" type="Node3D" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="1" unique_id=430881177 node_paths=PackedStringArray("follow_target", "look_at_target")]
+process_mode = 4
 transform = Transform3D(1, -1.8284002e-17, 4.977943e-17, 0, 0.9386839, 0.34477893, -5.3031092e-17, -0.34477893, 0.9386839, 2.0819986e-12, 3.23, 6.575)
 script = ExtResource("2_2b3v3")
 follow_mode = 6
@@ -83,7 +115,37 @@ align_position_with_view = Callable()
 align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355 node_paths=PackedStringArray("spawn_locations")]
+[node name="ConditionalNode" type="Node" parent="===CAMERA========/JoyThirdPerson" index="0" unique_id=984597605]
+script = ExtResource("18_qr2va")
+rule = SubResource("Resource_qr2va")
+change_on_blackboard_update = false
+metadata/_custom_type_script = "uid://i1rx170t4865"
+
+[node name="SamsonThirdPerson" type="Node3D" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="2" unique_id=35852048 node_paths=PackedStringArray("follow_target", "look_at_target")]
+process_mode = 4
+transform = Transform3D(1, -1.8284002e-17, 4.977943e-17, 0, 0.9386839, 0.34477893, -5.3031092e-17, -0.34477893, 0.9386839, 2.0819986e-12, 3.23, 6.575)
+script = ExtResource("2_2b3v3")
+follow_mode = 6
+follow_target = NodePath("../../===ACTOR========/CbSamson")
+look_at_mode = 2
+look_at_target = NodePath("../../===ACTOR========/CbSamson")
+tween_resource = SubResource("Resource_8k61f")
+tween_on_load = false
+follow_offset = Vector3(0, 3.23, 5.575)
+look_at_offset = Vector3(0, 0.815, 0)
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="ConditionalNode" type="Node" parent="===CAMERA========/SamsonThirdPerson" index="0" unique_id=907673431]
+script = ExtResource("18_qr2va")
+rule = SubResource("Resource_u87o0")
+change_on_blackboard_update = false
+metadata/_custom_type_script = "uid://i1rx170t4865"
+
+[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355 node_paths=PackedStringArray("character_controllers", "spawn_locations")]
+character_controllers = [NodePath("../../===ACTOR========/CBJoy"), NodePath("../../===ACTOR========/CbSamson")]
 spawn_locations = [NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn01"), NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn02"), NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn03")]
 
 [node name="Spawn01" type="Marker3D" parent="===SCENE_CHANGE========/SpawnLocations" parent_id_path=PackedInt32Array(369867195) index="0" unique_id=1039219586]
@@ -115,20 +177,7 @@ scene_change_data = SubResource("Resource_jbm42")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.187, 2, 2.573)
 shape = SubResource("BoxShape3D_1vivr")
 
-[node name="InspectFrontDoor" type="Area3D" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="0" unique_id=353873434]
-collision_layer = 49152
-collision_mask = 0
-monitoring = false
-script = ExtResource("8_plbqc")
-event_factory = SubResource("Resource_temt8")
-event_manager = ExtResource("11_8k61f")
-metadata/_custom_type_script = "uid://dd6d8mjib2ks"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="===EVENT========/InspectFrontDoor" index="0" unique_id=1014316232]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.473558, 0.28064394, 0)
-shape = SubResource("BoxShape3D_auskg")
-
-[node name="InspectOven" type="Area3D" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="1" unique_id=2042746242]
+[node name="InspectOven" type="Area3D" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="0" unique_id=2042746242]
 collision_layer = 49152
 collision_mask = 0
 script = ExtResource("8_plbqc")
@@ -180,5 +229,33 @@ shape = SubResource("BoxShape3D_8vrlf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.511, 2, -0.5055462)
 shape = SubResource("BoxShape3D_v5gy4")
 
+[node name="CBJoy" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="0" unique_id=948335993]
+process_mode = 4
+
+[node name="ConditionalNode" type="Node" parent="===ACTOR========/CBJoy" index="3" unique_id=599261567]
+script = ExtResource("18_qr2va")
+rule = SubResource("Resource_nnye5")
+change_on_blackboard_update = false
+metadata/_custom_type_script = "uid://i1rx170t4865"
+
+[node name="CbSamson" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="1" unique_id=1496267453 node_paths=PackedStringArray("camera") instance=ExtResource("17_8k61f")]
+process_mode = 4
+collision_layer = 3
+camera = NodePath("../../===CAMERA========/MainCamera")
+
+[node name="Camera3D" parent="===ACTOR========/CbSamson/SamsonActor" parent_id_path=PackedInt32Array(1496267453, 1017530611) index="7" unique_id=654277568]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0.0122085, 1.29199, 1.16291)
+
+[node name="ConditionalNode" type="Node" parent="===ACTOR========/CbSamson" index="2" unique_id=1563582091]
+script = ExtResource("18_qr2va")
+rule = SubResource("Resource_bnm5v")
+change_on_blackboard_update = false
+metadata/_custom_type_script = "uid://i1rx170t4865"
+
+[node name="PortraitCamera" parent="===UI========/DialogueArea/Portrait/SubViewport" parent_id_path=PackedInt32Array(264276467) index="0" unique_id=1879654437]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0.0122085, 1.6233592, 2.2362573)
+
 [editable path="===ENVIRONMENT========/Model/ModEnvWorldMainRoom"]
+[editable path="===ACTOR========/CbSamson"]
+[editable path="===ACTOR========/CbSamson/SamsonActor"]
 [editable path="===UI========/DialogueArea"]

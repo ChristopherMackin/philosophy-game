@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://clwowgg135cqd"]
+
+[ext_resource type="PackedScene" uid="uid://4fyxges65twa" path="res://character/character_body_3d.tscn" id="1_8xmmp"]
+[ext_resource type="PackedScene" uid="uid://bw7ddkhtncrrr" path="res://character/samson/act_samson.tscn" id="2_k7tnd"]
+[ext_resource type="Script" uid="uid://btmrfolkq1aj5" path="res://character/script/interaction_area.gd" id="3_k7tnd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lrl4d"]
+size = Vector3(2, 3, 1.75)
+
+[node name="CbSamson" unique_id=1496267453 node_paths=PackedStringArray("character_actor", "interaction_area") instance=ExtResource("1_8xmmp")]
+character_actor = NodePath("SamsonActor")
+interaction_area = NodePath("SamsonActor/InteractionArea")
+
+[node name="SamsonActor" parent="." index="1" unique_id=1017530611 instance=ExtResource("2_k7tnd")]
+
+[node name="Camera3D" parent="SamsonActor" index="7" unique_id=654277568]
+physics_interpolation_mode = 1
+
+[node name="InteractionArea" type="Area3D" parent="SamsonActor" index="8" unique_id=83681279]
+collision_layer = 0
+collision_mask = 16384
+monitorable = false
+script = ExtResource("3_k7tnd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SamsonActor/InteractionArea" index="0" unique_id=854566192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.625)
+shape = SubResource("BoxShape3D_lrl4d")
+
+[connection signal="area_entered" from="SamsonActor/InteractionArea" to="SamsonActor/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="SamsonActor/InteractionArea" to="SamsonActor/InteractionArea" method="_on_area_exited"]
+[connection signal="area_shape_entered" from="SamsonActor/InteractionArea" to="SamsonActor/InteractionArea" method="_on_area_shape_entered"]
+[connection signal="area_shape_exited" from="SamsonActor/InteractionArea" to="SamsonActor/InteractionArea" method="_on_area_shape_exited"]
+[connection signal="body_entered" from="SamsonActor/InteractionArea" to="SamsonActor/InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="SamsonActor/InteractionArea" to="SamsonActor/InteractionArea" method="_on_body_exited"]
+[connection signal="body_shape_entered" from="SamsonActor/InteractionArea" to="SamsonActor/InteractionArea" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="SamsonActor/InteractionArea" to="SamsonActor/InteractionArea" method="_on_body_shape_exited"]
+
+[editable path="SamsonActor"]

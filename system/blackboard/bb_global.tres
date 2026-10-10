@@ -27,6 +27,12 @@ script = ExtResource("1_q82c0")
 key = "OPAL_OUTFIT"
 value = 0
 
+[sub_resource type="Resource" id="Resource_6gorm"]
+resource_name = "STORY_PROGRESS"
+script = ExtResource("1_q82c0")
+key = "STORY_PROGRESS"
+value = 0
+
 [resource]
 script = ExtResource("1_bw6ub")
-_entries = Array[ExtResource("1_q82c0")]([SubResource("Resource_q82c0"), SubResource("Resource_6143p"), SubResource("Resource_fbd2e"), SubResource("Resource_taooh")])
+_entries = Array[ExtResource("1_q82c0")]([SubResource("Resource_q82c0"), SubResource("Resource_6143p"), SubResource("Resource_fbd2e"), SubResource("Resource_taooh"), SubResource("Resource_6gorm")])
